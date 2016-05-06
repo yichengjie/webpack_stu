@@ -1,6 +1,6 @@
 var webpack = require('webpack') ;
 module.exports = {
-    entry: "./src/edit/main.js",
+    entry: "./src/edit/entry.js",
     output: {
         path: __dirname+"/build",
         filename: "bundle.js"
@@ -12,13 +12,13 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.BannerPlugin('This file is created by yicj, email : 626659321@qq.com'),
+        new webpack.BannerPlugin('This file is created by yicj, email : 626659321@qq.com')
         //压缩打包的文件
-        new webpack.optimize.UglifyJsPlugin({
+        /*,new webpack.optimize.UglifyJsPlugin({
             compress: {
                 //supresses warnings, usually from module minification
                 warnings: false
             }
-        })
+        })*/
     ]
 };

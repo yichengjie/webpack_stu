@@ -1,11 +1,12659 @@
 /*! This file is created by yicj, email : 626659321@qq.com */
-!function(e){function t(a){if(i[a])return i[a].exports;var n=i[a]={exports:{},id:a,loaded:!1};return e[a].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var i={};return t.m=e,t.c=i,t.p="",t(0)}([function(e,t,i){var a;a=function(e,t,a){function n(){$("body").addClass("helper_background_color1"),$("#loading").addClass("hidden"),$("#EditMainBoxDiv").removeClass("hidden"),$("#myheader").removeClass("hidden")}i(1),i(7),i(10),i(48),a.exports={init:function(){angular.element(document).ready(function(){angular.bootstrap(document,["app"]),n()})}}}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){i(2),i(4);var a=i(6);e.exports=a},function(e,t,i){var a=i(3);e.exports=a},function(e,t){!function(e,t){function i(t,i){var n=t.nodeName.toLowerCase();if("area"===n){var s,r=t.parentNode,o=r.name;return t.href&&o&&"map"===r.nodeName.toLowerCase()?(s=e("img[usemap=#"+o+"]")[0],!!s&&a(s)):!1}return(/input|select|textarea|button|object/.test(n)?!t.disabled:"a"==n?t.href||i:i)&&a(t)}function a(t){return!e(t).parents().andSelf().filter(function(){return"hidden"===e.curCSS(this,"visibility")||e.expr.filters.hidden(this)}).length}return e.tui=e.tui||{},e.tui.version?"1.5.0":(window.console||(window.console={log:function(e){},warn:function(e){}}),e.extend(e.tui,{version:"1.5.0",keyCode:{ALT:18,BACKSPACE:8,CAPS_LOCK:20,COMMA:188,COMMAND:91,COMMAND_LEFT:91,COMMAND_RIGHT:93,CONTROL:17,DELETE:46,DOWN:40,END:35,ENTER:13,ESCAPE:27,HOME:36,INSERT:45,LEFT:37,MENU:93,NUMPAD_ADD:107,NUMPAD_DECIMAL:110,NUMPAD_DIVIDE:111,NUMPAD_ENTER:108,NUMPAD_MULTIPLY:106,NUMPAD_SUBTRACT:109,PAGE_DOWN:34,PAGE_UP:33,PERIOD:190,RIGHT:39,SHIFT:16,SPACE:32,TAB:9,UP:38,WINDOWS:91}}),e.fn.extend({_focus:e.fn.focus,tuiFocus:function(t,i){return"number"==typeof t?this.each(function(){var a=this;setTimeout(function(){e(a).focus(),i&&i.call(a)},t)}):this._focus.apply(this,arguments)},tuiScrollParent:function(){var t;return t=e.browser.msie&&/(static|relative)/.test(this.css("position"))||/absolute/.test(this.css("position"))?this.parents().filter(function(){return/(relative|absolute|fixed)/.test(e.curCSS(this,"position",1))&&/(auto|scroll)/.test(e.curCSS(this,"overflow",1)+e.curCSS(this,"overflow-y",1)+e.curCSS(this,"overflow-x",1))}).eq(0):this.parents().filter(function(){return/(auto|scroll)/.test(e.curCSS(this,"overflow",1)+e.curCSS(this,"overflow-y",1)+e.curCSS(this,"overflow-x",1))}).eq(0),/fixed/.test(this.css("position"))||!t.length?e(document):t},tuiZIndex:function(i){if(i!==t)return this.css("zIndex",i);if(this.length)for(var a,n,s=e(this[0]);s.length&&s[0]!==document;){if(a=s.css("position"),("absolute"===a||"relative"===a||"fixed"===a)&&(n=parseInt(s.css("zIndex"),10),!isNaN(n)&&0!==n))return n;s=s.parent()}return 0},tuiDisableSelection:function(){return this.bind((e.support.selectstart?"selectstart":"mousedown")+".tui-disableSelection",function(e){e.preventDefault()})},tuiEnableSelection:function(){return this.unbind(".tui-disableSelection")}}),e.each(["Width","Height"],function(i,a){function n(t,i,a,n){return e.each(s,function(){i-=parseFloat(e.curCSS(t,"padding"+this,!0))||0,a&&(i-=parseFloat(e.curCSS(t,"border"+this+"Width",!0))||0),n&&(i-=parseFloat(e.curCSS(t,"margin"+this,!0))||0)}),i}var s="Width"===a?["Left","Right"]:["Top","Bottom"],r=a.toLowerCase(),o={innerWidth:e.fn.innerWidth,innerHeight:e.fn.innerHeight,outerWidth:e.fn.outerWidth,outerHeight:e.fn.outerHeight};e.fn["tuiInner"+a]=function(i){return i===t?o["inner"+a].call(this):this.each(function(){e(this).css(r,n(this,i)+"px")})},e.fn["tuiOuter"+a]=function(t,i){return"number"!=typeof t?o["outer"+a].call(this,t):this.each(function(){e(this).css(r,n(this,t,!0,i)+"px")})}}),e.extend(e.expr[":"],{data:function(t,i,a){return!!e.data(t,a[3])},focusable:function(t){return i(t,!isNaN(e.attr(t,"tabindex")))},tabbable:function(t){var a=e.attr(t,"tabindex"),n=isNaN(a);return(n||a>=0)&&i(t,!n)}}),e(function(){var t=document.body,i=t.appendChild(i=document.createElement("div"));i.offsetHeight,e.extend(i.style,{minHeight:"100px",height:"auto",padding:0,borderWidth:0}),e.support.minHeight=100===i.offsetHeight,e.support.selectstart="onselectstart"in i,t.removeChild(i).style.display="none"}),void e.extend(e.tui,{isIE:function(){return/MSIE (\d)\./i.test(navigator.userAgent)||/Trident/i.test(navigator.userAgent)},isIE6:function(){return/MSIE (\d)\./i.test(navigator.userAgent)&&6==parseInt(RegExp.$1)},isIE7:function(){return/MSIE (\d)\./i.test(navigator.userAgent)&&7==parseInt(RegExp.$1)},isIE8:function(){return/MSIE (\d)\./i.test(navigator.userAgent)&&8==parseInt(RegExp.$1)},isIE9:function(){return/MSIE (\d)\./i.test(navigator.userAgent)&&9==parseInt(RegExp.$1)},isIE10:function(){return/MSIE (\d*)\./i.test(navigator.userAgent)&&10==parseInt(RegExp.$1)},isIE11:function(){return/rv:(\d*)/i.test(navigator.userAgent)&&11==parseInt(RegExp.$1)},isIE678:function(){return/MSIE (\d)\./i.test(navigator.userAgent)&&parseInt(RegExp.$1)<9},isFirefox:function(){return/firefox\/([\d.]+)/i.test(navigator.userAgent)},isChrome:function(){return/chrome\/([\d.]+)/i.test(navigator.userAgent)},isSafari:function(){return/safari\/([\d.]+)/i.test(navigator.userAgent)},isMobile:function(){return!!/ipad|ipod|itouch|iphone/i.test(navigator.userAgent.toLowerCase())},showMask:function(t,i,a,n,s,r,o,l){var c,u=e(document);if(e("#"+t).length<1){var d='<div id="'+t+'"style="position:absolute;z-index:'+i+";top:"+a+"px;left:"+n+'px;"></div>';c=e(d).appendTo(s),l&&c.addClass(l)}else c=e("#"+t);return c.css({width:u.width()+"px",height:u.height()+"px"}),c.show(),e("#"+t).off(r).on(r,o),c}}))}(jQuery)},function(e,t,i){var a=i(5);e.exports=a},function(e,t){!function(){$.fn.tuiOffDrag=function(){var e=$(this);return e.off(".tuiDrag").css({cursor:"default"})},$.fn.tuiDrag=function(){var e={handle:null,cursor:"move",isFixed:!1,dragRange:"auto",dragableRangeX:[0,1e3],dragableRangeY:[0,1e3],onReadyDrag:null,onStartDrag:null,onDrop:null,onDraging:null,onFinshed:null,zIndex:11005,proxy:null,revert:!1,revertTime:300,disabled:!1},t=($.tui.isIE,$.tui.isIE6);if(arguments.length>=1&&"string"==typeof arguments[0]&&1==this.length&&2==arguments.length){var i=arguments[1],a=arguments[0],n=this.data("dragOption");switch(a){case"dragableRangeX":if(!n)return;var s=i[0]||0,r=i[1]||0;return r=r>=s?r:s,n.dragableRangeX=[s,r],n.dragRange="default",$(this).data("dragOption",n),this;case"dragableRangeY":if(!n)return;var o=i[0]||0,l=i[1]||0;return l=l>=o?l:o,n.dragableRangeY=[o,l],n.dragRange="default",$(this).data("dragOption",n),this;case"dragRange":if(!n)return;return"auto"==i?(n.dragRange="auto",$(this).data("dragOption",n),this):this;case"disabled":if(!n)return;var c=n.handle instanceof jQuery?n.handle:$(n.handle);return i?(c.css({cursor:"auto"}),n.disabled=!0,$(this).data("dragOption",n)):(c.css({cursor:n.cursor}),n.disabled=!1,$(this).data("dragOption",n)),this;case"revert":if(!n)return;var n=this.data("dragOption");return n.revert=i,$(this).data("dragOption",n),this}}for(var n=$.extend({},e),u=0;u<arguments.length;u++)n=$.extend(n,arguments[u]);return this.data("dragOption",n),this.each(function(){function e(e){if("function"==typeof n.onReadyDrag&&n.onReadyDrag.call(p,e),"fixed"!=p.css("position")&&"absolute"!=p.css("position")&&"relative"!=p.css("position")&&p.css({position:"absolute"}),n=p.data("dragOption"),"auto"==n.dragRange?("fixed"==p.css("position")?(c=$(window).width()-p.width()-4,u=$(window).height()-p.height()-4):n.isFixed&&t?(c=$(window).width()+$(document).scrollLeft()-p.width()-4,u=$(window).height()+$(document).scrollTop()-p.height()-4):(c=$(document).width()-p.width(),u=$(document).height()-p.height()),o=0,l=0):(o=n.dragableRangeX[0]||0,l=n.dragableRangeY[0]||0,c=n.dragableRangeX[1]||0,u=n.dragableRangeY[1]||0,c=c>=o?c:o,u=u>=l?u:l),e.preventDefault?e.preventDefault():e.returnValue=!1,h.ox=e.pageX,h.oy=e.pageY,h.dragTop=parseInt(p.position().top),h.dragLeft=parseInt(p.position().left),f=h.dragLeft,g=h.dragTop,$("#tuiDragMask").length<1){var s='<div id="tuiDragMask" style="position:absolute;z-index:'+n.zIndex+';top:0px;left:0px;"><div>';r=$(s).appendTo("body")}else r=$("#tuiDragMask");if(r.css({width:$(document).width()+"px",height:$(document).height()+"px",cursor:n.cursor}),r.show(),"function"==typeof n.proxy){if(d=n.proxy.call(p),!(d instanceof jQuery))return window.console&&console.warn("proxy is a function but not return a jquery instance"),!1;"fixed"!=d.css("position")&&"absolute"!=d.css("position")&&"relative"!=d.css("position")&&d.css({position:"absolute"});var v=p.offset().left,_=p.offset().top;d.css({left:v+"px",top:_+"px"})}else if("clone"===n.proxy)d=p.clone(),d.appendTo(p.parent());else if(n.proxy&&"object"==typeof n.proxy){var b=n.proxy.$appendTo;d=p.clone(),d.appendTo(b),d.css(n.proxy.cssText);var y=p.parent().offset(),D=b.offset().top-y.top,T=b.offset().left-y.left;h.dragTop=parseInt(p.position().top-D),h.dragLeft=parseInt(p.position().left-T),f=h.dragLeft,g=h.dragTop,d.css({left:f+"px",top:g+"px"})}else d=p;m.off("mousemove.tuiDrag").on("mousemove.tuiDrag",i),m.off("mouseup.tuiDrag").on("mouseup.tuiDrag",a)}function i(e){n=p.data("dragOption"),e.preventDefault?e.preventDefault():e.returnValue=!1,"fixed"==d.css("position")?(f=e.pageX-$(document).scrollLeft()-h.ox+h.dragLeft,g=e.pageY-$(document).scrollTop()-h.oy+h.dragTop):(f=e.pageX-h.ox+h.dragLeft,g=e.pageY-h.oy+h.dragTop),f=o>f?o:f,f=f>c?c:f,g=l>g?l:g,g=g>u?u:g,d.css({left:f+"px",top:g+"px"}),"function"==typeof n.onDraging&&n.onDraging.call(d,f,g,e)}function a(e){"function"==typeof n.onDrop&&n.onDrop.call(d,f,g),n=p.data("dragOption"),r.remove(),n.revert?d.animate({top:h.dragTop,left:h.dragLeft},n.revertTime):d.css({left:f+"px",top:g+"px"}),p==d||d.animate({left:0},0,function(){$(this).remove()}),m.off("mousemove.tuiDrag",i).off("mouseup.tuiDrag",a),"function"==typeof n.onFinshed&&n.onFinshed.call(d,f,g,e)}var s,r,o,l,c,u,d,p=$(this),h={},f=0,g=0;s=null==n.handle?p:n.handle instanceof jQuery?n.handle:$(n.handle);var m=$(document);s.off("mousedown.tuiDrag").on("mousedown.tuiDrag",function(t){t.stopPropagation(),n=p.data("dragOption");var i=n.disabled;i||(e(t),"function"==typeof n.onStartDrag&&n.onStartDrag.call(p))}),n.disabled?"":s.css({cursor:n.cursor})})}}($)},function(e,t){!function(e){e.tui=e.tui||{},e.closeTuiWindow=function(){e.tui.closeTuiWindow()},e.showTuiModalDialog=function(t,i){e.tui.tuiDialog({url:t.url||"",width:t.width||500,height:t.height||400,title:t.title||"",mode:"window",style:"window"},i)},e.showTuiDialog=function(t,i){e.tui.tuiDialog({url:t.url||"",width:t.width||500,height:t.height||400,title:t.title||"",mode:"window",style:"window",isShowMask:!1},i)},e.showTuiHTMLDialog=function(t,i,a,n,s){e.tui.tuiDialog({mode:"window",style:"text",width:i||300,height:a||200,message:t,showTitle:!0,title:n},s)},e.showTuiErrorDialog=function(t,i,a,n,s){var r={title:"错误",width:a||300,height:n||180,message:t,mode:"no_title_window",style:"error",onConfirm:i,confirmBtn:!0};r=e.extend(r,s),e.tui.tuiDialog(r)},e.showTuiWaitingDialog=function(t,i,a,n){var s,r=i||null,o=a||null,l=t;s=l||r||o?{width:r||150,height:o||56,message:t,mode:"no_title_window",style:"waiting"}:{width:i||150,height:a||80,mode:"waiting"},s=e.extend(s,n),e.tui.tuiDialog(s)},e.showTuiSmallWaitingDialog=function(t,i,a){var n={width:t||68,height:i||70,mode:"no_title_window",style:"waiting"};n=e.extend(n,a),e.tui.tuiDialog(n)},e.showTuiMessageDialog=function(t,i,a,n,s){var r={title:"信息",width:a||300,height:n||150,message:t,mode:"no_title_window",style:"info",onConfirm:i,confirmBtn:!0};r=e.extend(r,s),e.tui.tuiDialog(r)},e.showTuiConfirmDialog=function(t,i,a,n,s){var r={title:"确认",width:a||300,height:n||160,message:t,mode:"no_title_window",style:"confirm",onConfirm:i,cancelBtn:!0,confirmBtn:!0};e.extend(r,s),r=e.extend(r,s),e.tui.tuiDialog(r)},e.showTuiSuccessDialog=function(t,i,a,n,s){var r={title:"成功",width:a||300,height:n||150,message:t,mode:"no_title_window",style:"success",onConfirm:i,confirmBtn:!0};r=e.extend(r,s),e.tui.tuiDialog(r)},e.showTuiNoImgDialog=function(t,i,a,n,s){var r={title:"",width:a||300,height:n||200,message:t,mode:"no_title_window",style:"text",onConfirm:i,confirmBtn:!0};r=e.extend(r,s),e.tui.tuiDialog(r)},e.showTuiMessageAlert=function(t,i,a,n,s){var r={mode:"alert",style:"error",width:a||360,height:n||100,message:t,showTitle:!0,showDefaultBtn:!0,onConfirm:i};r=e.extend(r,s),e.tui.tuiDialog(r)},e.showTuiSmallEditWindow=function(t,i,a,n,s,r){var o={url:t,mode:"narrow_window",style:"window",width:i||200,height:a||100,showPos:"ex",top:n||0,left:s||0,isShowMask:!1,isDrag:!1};o=e.extend(o,r),e.tui.tuiDialog(o)},e.showTuiSmallEditDialog=function(t,i,a,n,s,r,o){var l={message:t,confirmBtn:!0,cancelBtn:!0,mode:"narrow_window",style:"text",width:a||200,height:n||150,showPos:"ex",top:s||0,left:r||0,isShowMask:!1,isDrag:!1,onConfirm:i};l=e.extend(l,o),e.tui.tuiDialog(l)},e.showTuiTipDialog=function(t,i,a,n,s,r){var o="c";null!=n&&null!=s&&(o="ex");var l={mode:"narrow_window",style:"text",width:i||300,height:a||100,message:t,showPos:o,top:s||0,left:n||0,showTitle:!1,showDefaultBtn:!1,confirmBtn:!1};l=e.extend(l,r),e.tui.tuiDialog(l)},e.showTuiModifyDialog=function(t,i,a,n,s,r){var o="c";null!=n&&null!=s&&(o="ex");var l={mode:"no_title_window",style:"text",width:i||300,height:a||100,message:t,showPos:o,top:s||0,left:n||0,showTitle:!1,showDefaultBtn:!1,confirmBtn:!1};l=e.extend(l,r),e.tui.tuiDialog(l)},e.isTuiWindowVisible=function(){return e.tui.isVisible()},e.tui.tuiDialogDefault={width:300,height:200,message:"",url:"",title:"tui dialog",maskAlphaColor:"#000",maskAlpha:.1,isFixed:!1,showTitle:!0,showDefaultBtn:!0,confirmBtn:!1,cancelBtn:!1,closeBtn:!1,autoClose:!0,onConfirm:null,onCancel:null,onClose:null,onTitleClose:null,isDrag:!0,isShowMask:!0,showPos:"c",top:0,left:0,btnContext:{w_confirm:"确定",w_cancel:"取消",w_close:"关闭"},mode:"window",style:"info"},e.extend(e.tui,{tuiDialog:function(){for(var t=e.extend({},e.tui.tuiDialogDefault),i=0;i<arguments.length;i++)t=e.extend(t,arguments[i]);var a=(e.tui.isIE(),"CSS1Compat"==document.compatMode,e.tui.isIE7(),e.tui.isIE8(),e.tui.isIE6()),n=function(t,i){var n,s,r=e(document),o=r.width(),l=r.height(),c='<div id="tui_dialog_mask" class="dialog_mask"></div>';e("#tui_dialog_mask").length>0?n=e("#tui_dialog_mask"):(n=e(c),e("body").append(n)),s=window.innerHeight?document.body.offsetHeight>innerHeight:document.documentElement.scrollHeight>document.documentElement.offsetHeight||document.body.scrollHeight>document.body.offsetHeight,a&&n.append('<iframe border="0" frameborder="0" style="width:100%;height:100%;filter:alpha(opacity='+100*i+');" src="about:blank"></iframe>'),n.css({width:o+"px",height:l+"px",opacity:i,background:t}).show();var u=o,d=l,p=function(t,i,a){return function(){var n=e(window),s=n.width()>i?n.width():i,r=n.height()>a?n.height():a;t.css({width:s+"px",height:r+"px"})}};e(window).bind("resize.tuiDialog",p(n,u,d))},s=function(){e("#tui_dialog_mask").html("").hide(),e(window).unbind("resize.tuiDialog")},r=function(){var t=e("#tui_dialog_window"),i=e(document),a=parseInt(t.css("left")),n=parseInt(t.css("top"));t.css({left:a+(i.scrollLeft()-window.tuiDialogForIE6ScrollX)+"px",top:n+(i.scrollTop()-window.tuiDialogForIE6ScrollY)+"px"}),window.tuiDialogForIE6ScrollX=i.scrollLeft(),window.tuiDialogForIE6ScrollY=i.scrollTop()},o=function(t){var i,n=e(window),s=e(document);if(e("#tui_dialog_window").length<1){var o='<div id="tui_dialog_window" class="dialog_panel"></div>';i=e(o),e("body").append(i)}else i=e("#tui_dialog_window");i.empty().show().css({position:t.isFixed?"fixed":"absolute"});var l,u,d=t.width,p=t.height;if(isNaN(d))if("auto"==d)l=n.width();else{var h=/^(\d{1,3})%$/,f=h.exec(d);l=f&&2==f.length?n.width()*(parseInt(f[1])||100)/100:t.width}else l=t.width;if(isNaN(p))if("auto"==p)u=n.height();else{var h=/^(\d{1,3})%$/,f=h.exec(p);u=f&&2==f.length?n.height()*(parseInt(f[1])||100)/100:t.height}else u=t.height;t.height=u;var g=0,m=0;switch(t.showPos){case"lt":break;case"lb":g=n.height()-u-2;break;case"rt":m=n.width()-l-2;break;case"rb":g=n.height()-u-2,m=n.width()-l-2;break;case"c":g=(n.height()-u)/2,m=(n.width()-l)/2;break;default:g=t.top,m=t.left}g=g>=0?g:0,a&&t.isFixed?(i.css({position:"absolute",left:s.scrollLeft()+m+"px",top:s.scrollTop()+g+"px"}),window.tuiDialogForIE6ScrollX=s.scrollLeft(),window.tuiDialogForIE6ScrollY=s.scrollTop(),n.bind("scroll.tuiDialog",r)):(t.isFixed||"ex"==t.showPos||(m+=n.scrollLeft()||0,g+=n.scrollTop()||0),i.css({left:m+"px",top:g+"px"})),i.css({width:l+"px",height:u+"px"});var v,_=t.mode,b="",y="",D='<div id="tui_dialog_close_button" class="dialog_head_close"></div>';switch(_){case"window":b='<div id="tui_dialog_title" class="dialog_head_left">										<div class="dialog_head_right">											<div class="dialog_head_content" id="tui_dialog_title_center"></div>										</div>									</div>									<div class="dialog_body_left">										<div class="dialog_body_right">											<div class="dialog_body_content" id="dialog_content"></div>										</div>									</div>',y='<div id="tui_dialog_bottom" class="dialog_foot_left">										<div class="dialog_foot_right">											<div class="dialog_foot_content"></div>										</div>									</div>';break;case"no_title_window":b='<div id="tui_dialog_title" class="dialog_head_no_title_left">										<div class="dialog_head_no_title_right">											<div class="dialog_head_no_title_content" id="tui_dialog_title_center"></div>										</div>									</div>									<div class="dialog_body_left">										<div class="dialog_body_right">											<div class="dialog_body_content" id="dialog_content"></div>										</div>									</div>',y='<div id="tui_dialog_bottom" class="dialog_foot_left">										<div class="dialog_foot_right">											<div class="dialog_foot_content"></div>										</div>									</div>';break;case"narrow_window":b='<div id="tui_dialog_title" class="dialog_head_narrow_left">										<div class="dialog_head_narrow_right">											<div class="dialog_head_narrow_content" id="tui_dialog_title_center"></div>										</div>									</div>									<div class="dialog_body_narrow_left">										<div class="dialog_body_narrow_right">											<div class="dialog_body_narrow_content" id="dialog_content"></div>										</div>									</div>									',y='<div id="tui_dialog_bottom" class="dialog_foot_narrow_left">										<div class="dialog_foot_narrow_right">											<div class="dialog_foot_narrow_content"></div>										</div>									</div>';break;default:b="",y=""}if(""!=b&&""!=y){e(b).appendTo(i);var T=e("#tui_dialog_title"),x=e("#tui_dialog_title_center");if(t.showTitle&&"window"==_){var k='<div class="dialog_head_title" id="tui_dialog_title_content">'+t.title+"</div>";e(k).appendTo(x);t.showDefaultBtn&&(v=e(D).appendTo(x))}e(y).appendTo(i)}else if("waiting"==_){var b='<div class="dialog_waiting">											<div class="dialog_waiting_msg">												<div class="icon"></div><span class="content">'+(t.message||"请稍候...")+"</span>											</div>										</div>";e(b).appendTo(i);i.css({width:150,height:72})}else if("alert"==_){var b='<div class="dialog_alert" id="dialog_alert">											<div class="dialog_alert_msg" id="dialog_content"></div>										</div>';e(b).appendTo(i);if(t.showDefaultBtn){var w='<div class="dialog_close_icon" id="tui_dialog_close_button"></div>',v=e(w);e("#dialog_alert").before(v)}}v&&v.length&&v.bind("mousedown.tuiDialog",function(e){e.stopPropagation()}).bind("click.tuiDialog",function(e){e.stopPropagation(),c(),"function"==typeof t.onTitleClose&&t.onTitleClose.call(this,e,i)}),t.isDrag?i.tuiOffDrag().tuiDrag({handle:T&&T.length?T:i,isFixed:t.isFixed,dragRange:"auto"}):i.tuiOffDrag().tuiDrag("disabled",!0)},l=function(){e("#tui_dialog_window").hide(),e(window).unbind("scroll.tuiDialog",r)},c=function(){if(l(),s(),e(document).unbind("keydown.tuiDialog"),window.tuiDialogCache.length>0){var t=window.tuiDialogCache.shift();e.tui.tuiDialog(t)}},u=function(t){var i,a,n=function(e){return e},s={info:"dialog_icon_info",success:"dialog_icon_success",error:"dialog_icon_error",confirm:"dialog_icon_confirm",waiting:"dialog_icon_waiting"},r=t.mode,o=t.style;if(1!=e("#dialog_content").length&&"waiting"!=r)return void(window.console&&window.console.warn("not found #dialog_content!"));switch(i=e("#dialog_content"),i.empty(),o){case"window":if("alert"!=r&&"waiting"!=r){var l='<iframe border="0" id="dialog_iframe" frameborder="0" class="dialog_iframe" src="'+t.url+'"></iframe>';a=e(l).appendTo(i);break}case"text":"waiting"!=r&&i.html('<div id="dialog_info_panel" style="overflow:auto;">'+n(t.message)+"</div>");break;case"info":case"success":case"error":case"confirm":case"waiting":var l='<div class="dialog_info" id="dialog_info_panel">	                        				<div id="dialog_icon"></div>	                       					<div class="dialog_info_content" id="dialog_info_content"></div>	                    				   </div>',c=(e(l).appendTo(i),e("#dialog_icon")),u=e("#dialog_info_content");c.addClass(s[o]),u.html(n(t.message)),u.off("mousedown.tuiDialog").on("mousedown.tuiDialog",function(e){e&&e.stopPropagation?e.stopPropagation():window.event.cancelBubble=!0}),"waiting"==o&&(c.parent().css({paddingLeft:56}),""==t.message&&c.parent().css({paddingTop:0}))}var d=0,a=e("#dialog_iframe"),p=e("#dialog_info_panel");(t.confirmBtn||t.cancelBtn||t.closeBtn)&&(d+=30),"window"==r?d+=43:"alert"==r?d+=20:"no_title_window"==r?d+=15:"narrow_window"==r&&(d+=13),p.length&&p.css({height:t.height-d+"px"}),a.length&&a.css({height:t.height-d+"px"})},d=function(t){var i=e("#tui_dialog_window"),a=e("#dialog_btn_panel"),n=t.mode,s=e("#dialog_content"),r="",o=t.btnContext;if(1==i.length&&1==s.length&&"waiting"!=n&&(0!=a.length&&a.empty().remove(),t.confirmBtn&&(r+='<div class="btn_page btn_save dialog_btn" id="dialog_btn_confirm">									<div class="btn_left"></div>									<div class="btn_content" id="tt">&nbsp;'+o.w_confirm+'&nbsp;</div>									<div class="btn_right"></div>								</div>'),t.cancelBtn&&(r+='<div class="btn_page btn_cancel dialog_btn" id="dialog_btn_cancel">									<div class="btn_left"></div>									<div class="btn_content">&nbsp;'+o.w_cancel+'&nbsp;</div>									<div class="btn_right"></div>								</div>'),t.closeBtn&&(r+='<div class="btn_page btn_cancel dialog_btn" id="dialog_btn_close">									<div class="btn_left"></div>									<div class="btn_content">&nbsp;'+o.w_close+'&nbsp;</div>									<div class="btn_right"></div>								</div>'),""!=r)){a=e('<div class="dialog_btn_panel" id="dialog_btn_panel"></div>').appendTo(s),a.html(r);var l=e("#dialog_btn_confirm"),u=e("#dialog_btn_cancel"),d=e("#dialog_btn_close"),p=t.autoClose;l.length&&l.bind("mousedown",function(e){e.stopPropagation()}).bind("click.tuiDialog",function(e){p?c():"","function"==typeof t.onConfirm?t.onConfirm.call(this,e,i):""}),u.length&&u.bind("mousedown",function(e){e.stopPropagation()}).bind("click.tuiDialog",function(e){p?c():"","function"==typeof t.onCancel?t.onCancel.call(this,e,i):""}),d.length&&d.bind("mousedown",function(e){e.stopPropagation()}).bind("click.tuiDialog",function(e){p?c():"","function"==typeof t.onClose?t.onClose.call(this,e,i):""}),e(document).bind("keydown.tuiDialog",function(t){var i=e("#dialog_btn_confirm"),a=e("#dialog_btn_cancel"),n=e("#tui_dialog_close_button");13==t.keyCode?i.length&&i.trigger("click"):27==t.keyCode&&(a.length?a.trigger("click"):n.length&&n.trigger("click"))})}};return window.tuiDialogCache?"":window.tuiDialogCache=new Array,e("#tui_dialog_window:visible").length>0?void window.tuiDialogCache.push(t):(o(t),u(t),d(t),void(t.isShowMask?n(t.maskAlphaColor,t.maskAlpha):""))},closeTuiWindow:function(){var t=function(){e(document).unbind("keydown.tuiDialog"),e("#tui_dialog_mask").html("").hide(),e(window).unbind("resize.tuiDialog")},i=function(){e("#tui_dialog_window").hide(),e(window).unbind("scroll.tuiDialog")},a=function(){if(i(),t(),window.tuiDialogCache&&window.tuiDialogCache.length>0){var a=window.tuiDialogCache.shift();e.tui.tuiDialog(a)}};a()},isVisible:function(){var t=e("#tui_dialog_window");return!(!t.length||!t.is(":visible"))}})}(jQuery)},function(e,t,i){i(8),i(9)},function(module,exports){/*! jQuery UI - v1.9.2 - 2012-12-13
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var main = __webpack_require__(1) ;
+	main.init() ;
+
+
+
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module) {
+		//var pathStr = require.resolve('src/main') ;
+		//console.info("path : " + pathStr) ;
+		__webpack_require__(2) ;
+		__webpack_require__(8) ;
+		__webpack_require__(11) ;
+		__webpack_require__(49) ;
+		module.exports = {
+	 		init: function(){
+				angular.element(document).ready(function() {
+				    angular.bootstrap(document, ['app']);
+					pageLoadComplete() ;
+				});
+	 		}
+	 	};
+		
+	 	function pageLoadComplete (){
+	 		$("body").addClass("helper_background_color1") ;
+			$("#loading").addClass('hidden') ;
+			$("#EditMainBoxDiv").removeClass('hidden') ;
+			$("#myheader").removeClass('hidden') ;
+	 	}
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(3);
+	__webpack_require__(5);
+	var tui_dialog = __webpack_require__(7);
+	module.exports = tui_dialog;
+
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var tui_dialog = __webpack_require__(4);
+	module.exports = tui_dialog;
+
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	/*!
+	 * tui核心基础组件
+	 * 2013-12-03 增加了isMobile方法，用于判断浏览器是否在ios的移动端
+	 * 2014-02-08 修改了win8下的IE11判断方法。
+	 */
+	;(function( $, undefined ) {
+
+	// prevent duplicate loading
+	// this is only a problem because we proxy existing functions
+	// and we don't want to double proxy them
+	$.tui = $.tui || {};
+	if ( $.tui.version ) {
+		return "1.5.0" ;
+	}
+	if(!window.console){
+		window.console={
+			log:function(e){return ;},
+			warn:function(e){return;}
+		};
+	}
+	$.extend( $.tui, {
+		version: "1.5.0",//版本控制，在前端eico上线时，发布1.0版本。每个功能修改，测试通过后，发布小数点后一位版本
+		keyCode: {
+			ALT: 18,
+			BACKSPACE: 8,
+			CAPS_LOCK: 20,
+			COMMA: 188,
+			COMMAND: 91,
+			COMMAND_LEFT: 91, // COMMAND
+			COMMAND_RIGHT: 93,
+			CONTROL: 17,
+			DELETE: 46,
+			DOWN: 40,
+			END: 35,
+			ENTER: 13,
+			ESCAPE: 27,
+			HOME: 36,
+			INSERT: 45,
+			LEFT: 37,
+			MENU: 93, // COMMAND_RIGHT
+			NUMPAD_ADD: 107,
+			NUMPAD_DECIMAL: 110,
+			NUMPAD_DIVIDE: 111,
+			NUMPAD_ENTER: 108,
+			NUMPAD_MULTIPLY: 106,
+			NUMPAD_SUBTRACT: 109,
+			PAGE_DOWN: 34,
+			PAGE_UP: 33,
+			PERIOD: 190,
+			RIGHT: 39,
+			SHIFT: 16,
+			SPACE: 32,
+			TAB: 9,
+			UP: 38,
+			WINDOWS: 91 // COMMAND
+		}
+	});
+
+	// plugins
+	$.fn.extend({
+		//propAttr: $.fn.prop || $.fn.attr,
+		_focus: $.fn.focus,//保留原来jquery的focus方法。
+		//从新改写focus方法。扩展了jquery focus的方法。传入延迟多长时间，执行函数
+		tuiFocus: function( delay, fn ) {
+			return typeof delay === "number" ?
+				this.each(function() {
+					var elem = this;
+					setTimeout(function() {
+						$( elem ).focus();
+						if ( fn ) {
+							fn.call( elem );
+						}
+					}, delay );
+				}) :
+				this._focus.apply( this, arguments );
+		},
+	 //获取设置滚动属性的 父元素
+	 //curCSS取得当前的css的值，属于jquery内部的函数，没有在api中体现 // DEPRECATED in 1.3, Use jQuery.css() instead jQuery.curCSS = jQuery.css;
+	 //// 读取样式值css: function( elem, name, extra )  jQuery.css() 
+		tuiScrollParent: function() {
+			var scrollParent;
+		if (($.browser.msie && (/(static|relative)/).test(this.css('position'))) || (/absolute/).test(this.css('position'))) {//ie同时相对定位或者绝对定位
+				scrollParent = this.parents().filter(function() {
+					return (/(relative|absolute|fixed)/).test($.curCSS(this,'position',1)) && (/(auto|scroll)/).test($.curCSS(this,'overflow',1)+$.curCSS(this,'overflow-y',1)+$.curCSS(this,'overflow-x',1));//fucntion里面的函数，当前的css是否有定位和滚动
+				}).eq(0);
+			} else {
+				scrollParent = this.parents().filter(function() {
+					return (/(auto|scroll)/).test($.curCSS(this,'overflow',1)+$.curCSS(this,'overflow-y',1)+$.curCSS(this,'overflow-x',1));
+				}).eq(0);
+			}
+			
+			return (/fixed/).test(this.css('position')) || !scrollParent.length ? $(document) : scrollParent;//如果是fixed，不找父元素，无论他有没有
+		},
+	  //设置或获取元素的垂直坐标
+		tuiZIndex: function( zIndex ) {
+			if ( zIndex !== undefined ) {
+				return this.css( "zIndex", zIndex );
+			}
+
+			if ( this.length ) {
+				var elem = $( this[ 0 ] ), position, value;
+				while ( elem.length && elem[ 0 ] !== document ) {
+					// Ignore z-index if position is set to a value where z-index is ignored by the browser
+					// This makes behavior of this function consistent across browsers
+					// WebKit always returns auto if the element is positioned
+					position = elem.css( "position" );
+					if ( position === "absolute" || position === "relative" || position === "fixed" ) {
+						// IE returns 0 when zIndex is not specified
+						// other browsers return a string
+						// we ignore the case of nested elements with an explicit value of 0
+						// <div style="z-index: -10;"><div style="z-index: 0;"></div></div>
+						value = parseInt( elem.css( "zIndex" ), 10 );
+						if ( !isNaN( value ) && value !== 0 ) {
+							return value;
+						}
+					}
+					elem = elem.parent();//不断循环找父元素，可以取得父元素的zindex
+				}
+			}
+
+			return 0;
+		},
+	 //设置元素不支持被选择
+		tuiDisableSelection: function() {
+			return this.bind( ( $.support.selectstart ? "selectstart" : "mousedown" ) +
+				".tui-disableSelection", function( event ) {
+					event.preventDefault();
+				});
+		},
+	 //设置元素支持被选择
+		tuiEnableSelection: function() {
+			return this.unbind( ".tui-disableSelection" );
+		}
+	});//$.fn.extend结束
+	//不需要调用，全局的执行从新定义了innerHeight、innerWidth、outerHeight、outerWidth的方法，可以设置上面的值
+	$.each( [ "Width", "Height" ], function( i, name ) {
+		var side = name === "Width" ? [ "Left", "Right" ] : [ "Top", "Bottom" ],
+			type = name.toLowerCase(),//设置css的名称
+			orig = {//系统原来的方法
+				innerWidth: $.fn.innerWidth,//包括补白不包括边框
+				innerHeight: $.fn.innerHeight,
+				outerWidth: $.fn.outerWidth,//补白不包括边框
+				outerHeight: $.fn.outerHeight
+			};
+	     //返回需要设置的值，是当前元素padding,border上left right top  bottom的值
+		function reduce( elem, size, border, margin ) {
+			$.each( side, function() {//side是如果宽度是left right，高度是top bottom,就是调整padding,border上left right top  bottom的值
+				size -= parseFloat( $.curCSS( elem, "padding" + this, true) ) || 0;
+				if ( border ) {
+					size -= parseFloat( $.curCSS( elem, "border" + this + "Width", true) ) || 0;
+				}
+				if ( margin ) {
+					size -= parseFloat( $.curCSS( elem, "margin" + this, true) ) || 0;
+				}
+			});
+			return size;
+		}
+	     //从新定义，允许设置值。通过更改传入元素css的"Width", "Height"的值来达到目的， 
+		$.fn[ "tuiInner" + name ] = function( size ) {
+			if ( size === undefined ) {
+				return orig[ "inner" + name ].call( this );
+			}
+	        //inner,仅仅是补白 padding的距离
+			return this.each(function() {
+				$( this ).css( type, reduce( this, size ) + "px" );
+			});
+		};
+	    //outer,是补白和边框，如果设置margin了，就加上margin的距离
+		$.fn[ "tuiOuter" + name] = function( size, margin ) {
+			if ( typeof size !== "number" ) {
+				return orig[ "outer" + name ].call( this, size );
+			}
+
+			return this.each(function() {
+				$( this).css( type, reduce( this, size, true, margin ) + "px" );
+			});
+		};
+	});//each结束
+
+	// 内部方法，下面extend会用
+	function focusable( element, isTabIndexNotNaN ) {
+		var nodeName = element.nodeName.toLowerCase();
+		if ( "area" === nodeName ) {
+			var map = element.parentNode,
+				mapName = map.name,
+				img;
+			if ( !element.href || !mapName || map.nodeName.toLowerCase() !== "map" ) {
+				return false;
+			}
+			img = $( "img[usemap=#" + mapName + "]" )[0];
+			return !!img && visible( img );
+		}
+		return ( /input|select|textarea|button|object/.test( nodeName )
+			? !element.disabled
+			: "a" == nodeName
+				? element.href || isTabIndexNotNaN
+				: isTabIndexNotNaN)
+			// the element and all of its ancestors must be visible
+			&& visible( element );
+	}
+	//内部方法
+	function visible( element ) {
+		return !$( element ).parents().andSelf().filter(function() {
+			return $.curCSS( this, "visibility" ) === "hidden" ||
+				$.expr.filters.hidden( this );
+		}).length;
+	}
+	//jQuery.expr[":"] = jQuery.expr.filters; 扩展jQuery.expr.filters 的筛选方法，在jquery-1.4.1.js中有其他方法
+	$.extend( $.expr[ ":" ], {
+		data: function( elem, i, match ) {
+			return !!$.data( elem, match[ 3 ] );
+		},
+
+		focusable: function( element ) {
+			return focusable( element, !isNaN( $.attr( element, "tabindex" ) ) );
+		},
+
+		tabbable: function( element ) {
+			var tabIndex = $.attr( element, "tabindex" ),
+				isTabIndexNaN = isNaN( tabIndex );
+			return ( isTabIndexNaN || tabIndex >= 0 ) && focusable( element, !isTabIndexNaN );
+		}
+	});
+	// 支持信息，扩展support方法
+	$(function() {
+		var body = document.body,
+			div = body.appendChild( div = document.createElement( "div" ) );
+
+		// access offsetHeight before setting the style to prevent a layout bug
+		// in IE 9 which causes the elemnt to continue to take up space even
+		// after it is removed from the DOM (#8026)
+		div.offsetHeight;
+
+		$.extend( div.style, {
+			minHeight: "100px",
+			height: "auto",
+			padding: 0,
+			borderWidth: 0
+		});
+
+		$.support.minHeight = div.offsetHeight === 100;
+		$.support.selectstart = "onselectstart" in div;
+
+		// set display to none to avoid a layout bug in IE
+		// http://dev.jquery.com/ticket/4014
+		body.removeChild( div ).style.display = "none";
+	});
+	//自己补充的方法，与原来的jquer ui没有关系。
+	// 由于win8下的IE11的userAgent字符串变了，所以isIE,isIE11这两个方法的判断依据都需要修改。
+	$.extend($.tui,{
+		isIE:function(){
+		   return /MSIE (\d)\./i.test(navigator.userAgent) || /Trident/i.test(navigator.userAgent); //IE浏览器
+			},
+		isIE6:function(){
+		   return /MSIE (\d)\./i.test(navigator.userAgent) && parseInt(RegExp.$1) == 6;
+		   },
+		isIE7:function(){
+			return /MSIE (\d)\./i.test(navigator.userAgent) && parseInt(RegExp.$1) == 7;
+		   },
+		isIE8:function(){
+			return /MSIE (\d)\./i.test(navigator.userAgent) && parseInt(RegExp.$1) == 8;
+		   },
+		isIE9:function(){
+		   return /MSIE (\d)\./i.test(navigator.userAgent) && parseInt(RegExp.$1) == 9;
+		   },
+		isIE10:function(){
+		   return /MSIE (\d*)\./i.test(navigator.userAgent) && parseInt(RegExp.$1) == 10;
+		   },
+	    isIE11:function(){
+		   return /rv:(\d*)/i.test(navigator.userAgent) && parseInt(RegExp.$1) == 11;
+		   },
+		isIE678:function(){
+		   return /MSIE (\d)\./i.test(navigator.userAgent) && parseInt(RegExp.$1) < 9;
+		   },
+		isFirefox:function(){
+		   return /firefox\/([\d.]+)/i.test(navigator.userAgent);
+		   },
+		isChrome:function(){
+		   return /chrome\/([\d.]+)/i.test(navigator.userAgent);
+		   },
+		isSafari:function(){
+		   return /safari\/([\d.]+)/i.test(navigator.userAgent);
+		   },
+		isMobile:function (){//is browser in ipad, iphone, ipod, itouch
+			return /ipad|ipod|itouch|iphone/i.test(navigator.userAgent.toLowerCase()) ? true : false;
+			},
+		showMask:function(maskId,zIndex,top,left,appendObject,eventType,eventFunction,addClass){//显示遮罩，可以给遮罩上绑定事件
+			var $doc=$(document);
+			var $mask;
+			if($('#'+maskId).length<1){//如果没有遮罩
+				var maskHTML='<div id="'+maskId+'"style="position:absolute;z-index:'+zIndex+';top:'+top+'px;left:'+left+'px;"></div>';
+				$mask= $(maskHTML).appendTo(appendObject);
+				if(addClass){
+					$mask.addClass(addClass);
+				}
+			}else {$mask=$('#'+maskId);}
+			$mask.css({width:$doc.width()+'px',height:$doc.height()+'px'});
+			$mask.show();//显示遮罩层，由于可能是已经存在并且隐藏了。
+			$('#'+maskId).off(eventType).on(eventType,eventFunction);//bind事件结束
+			return $mask;
+			}//showMask方法结束			
+		});//自己补充的方法结束
+	})( jQuery );
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var tui_drag = __webpack_require__(6);
+	module.exports = tui_drag;
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	/*
+	 * tsDrag是GUI项目中的拖拽插件，该插件基于jquery开发，在jquery原始方法中添加拖拽功能。可以通过参数进行实时修改。
+	 * 该拖拽插件支持一般的拖拽和特殊拖拽，用于各类拖拽的情况。
+	 * Copyright: Copyright (c) 2012                       
+	 * Company: 中国民航信息网络股份有限公司               
+	 * @author  马驰                  
+	 * @version 1.0                     
+	 * @see                                                
+	 *	HISTORY                                            
+	 * 2012-4-13 创建文件
+	 * 2012-4-16 版本更新，添加了proxy参数，允许设定拖动的模式，如果为clone，则拖动clone的元素，如果为function，则拖动函数返回的jquery对象
+	 * 2012-4-20 修改了程序结构，由调用者的jquery对象保存参数，并可以根据参数实时对部分属性进行修改。
+	 * 2012-5-15 版本更新，将拖拽层在初始化中设置position的操作放置在鼠标按下事件中。添加了onFinshed回调函数
+	 * 2012-6-13 版本更新，修改了定位细节和点击未拖动时坐标错误的bug
+	 * 2012-9-21 版本更新,onBeforeDrag改名为onReadyDrag,tsDragMask改为tuiDragMask
+	 * 2012-9-26 版本更新,by 党会建，针对代理proxy的方式进行修改。默认情况clone,创建在当前元素的同级下，不再是body下。
+	                     加上proxy:{$appendTo:"body",cssText:{}}//允许传如创建的对象，和代理的样式
+	 * 2012-10-30 版本更新，修正了错误的事件命名空间。修改了事件的绑定方式。
+	 * 2013-01-25 版本更新，添加了解除绑定拖拽的方法。
+	 * 2013-07-23 版本更新，修正了proxy参数中回调函数的$drag上下文
+	 * 2013-10-10 1.0，删除$.browser方法
+	 *
+	 */
+	// JavaScript Document
+	;(function(){
+		//取消绑定拖拽。
+		$.fn.tuiOffDrag=function(){
+			var $this=$(this);
+			return $this.off('.tuiDrag').css({cursor:'default'});
+		}
+		$.fn.tuiDrag=function(){
+			var _self=this;//调用者
+			var _defaults = {//默认参数
+				handle:null,//默认为null，如果为null，则代表拖动自己，如果不为空，则可以指定jQuery对象拖动
+				cursor:"move",//移动时，鼠标的指针样式
+				isFixed:false,//是否是fixed
+				dragRange:'auto',//可拖拽的范围设置，如果为auto，则说明可拖拽的区域由系统默认的全屏范围来定，如果为其他值，则由dragableRangeX和dragableRangeY来确定。使用 dragableRangeX dragableRangeY，置成空吧
+				dragableRangeX:[0,1000],//可拖拽的范围X值
+				dragableRangeY:[0,1000],//可拖拽的方位y值
+				onReadyDrag:null,//回调函数，是在开始拖拽之前的时候，执行的方法
+				onStartDrag:null,//回调函数，点击开始拖拽的时候，执行的方法
+				onDrop:null,//回调函数，当释放拖拽的时候，执行的方法，两个参数，finalX和finalY，分别为移动后的左上角坐标
+				onDraging:null,//回调函数，执行拖拽时的方法，两个参数，finalX和finalY，分别为移动后的左上角坐标
+				onFinshed:null,//回调函数，在所有拖拽事件完成后调用的方法，两个参数，finalX和finalY，分别为移动后左上角坐标
+				zIndex:11005,//要拖拽的遮罩层的z-index
+				proxy:null,//string,function类型，如果为'clone',则创建一个拖动元素的副本进行拖动，如果为function，则function必须要返回一个jquery对象来进行拖拽代理对象
+				revert:false,//是否还原，如果为true，则在鼠标松开的时候，返回之前拖动的位置
+				revertTime:300,//如果revert=true,则会出现一个过渡的移动动画
+				disabled:false//是否可以拖拽，如果为true，则不可拖拽
+			};
+			var isIE=$.tui.isIE; //IE浏览器
+			var isIE6=$.tui.isIE6;//是否是IE6
+			//判断参数类型,可以进行修改-------------------------------------------------------------
+			//在拖拽过程中进行修改使用（,,）传递
+			if(arguments.length>=1&&typeof(arguments[0])==='string'&&this.length==1){//如果该方法参数是修改，则进行修改
+				if(arguments.length==2){//修改参数
+					var value=arguments[1];//修改的值
+					var label=arguments[0];
+					var dragOption=this.data('dragOption');
+					switch(label){
+						case 'dragableRangeX':
+							if(!dragOption) return;
+							var minDragableX=value[0]||0;
+							var maxDragableX=value[1]||0;
+							maxDragableX=(maxDragableX>=minDragableX)?maxDragableX:minDragableX;
+							dragOption.dragableRangeX=[minDragableX,maxDragableX];
+							dragOption.dragRange='default';
+							$(this).data('dragOption',dragOption);
+							return this;
+						case 'dragableRangeY':
+							if(!dragOption) return;
+							var minDragableY=value[0]||0;
+							var maxDragableY=value[1]||0;
+							maxDragableY=(maxDragableY>=minDragableY)?maxDragableY:minDragableY;
+							dragOption.dragableRangeY=[minDragableY,maxDragableY];
+							dragOption.dragRange='default';
+							$(this).data('dragOption',dragOption);
+							return this;
+						case 'dragRange':
+							if(!dragOption) return;
+							if(value=='auto'){
+								dragOption.dragRange='auto';
+								$(this).data('dragOption',dragOption);
+								return this;
+							}
+							return this;
+						case 'disabled':
+							if(!dragOption) return;
+							var $handle=(dragOption.handle instanceof jQuery)?dragOption.handle:$(dragOption.handle);//如果handle不是jquery对象，则尝试创建jquery对象
+							if(value){//关闭拖拽
+								$handle.css({cursor:'auto'});
+								dragOption.disabled=true;
+								$(this).data('dragOption',dragOption);
+							}else{
+								$handle.css({cursor:dragOption.cursor});
+								dragOption.disabled=false;
+								$(this).data('dragOption',dragOption);
+							}
+							return this;
+						case 'revert':
+							if(!dragOption) return;
+							var dragOption=this.data('dragOption');
+							dragOption.revert=value;
+							$(this).data('dragOption',dragOption);
+							return this;
+					}
+				}
+			}
+			//----------------------------------------------------------
+			var dragOption = $.extend({},_defaults);
+			for(var i=0;i<arguments.length;i++){//读取多个参数
+				dragOption=$.extend(dragOption,arguments[i]);
+			}
+			this.data('dragOption',dragOption);//将配置参数放置在
+			return this.each(function(){
+				var $drag=$(this);//要拖动的对象
+				var $handle;//要拖动对象的载体
+				var source={};//用于记录在鼠标拖动之前鼠标的位置，用于在拖动过程中，得到鼠标移动的位移差，从而使窗口移动，这个方法避免了无法获得鼠标距离窗口的相对距离
+				var $dragMask;//用于拖拽的遮罩层对象
+				var minDragableX;//拖拽的边界横向最小值
+				var minDragableY;//拖拽的边界增项最小值
+				var maxDragableX;//拖拽的边界横向最大值
+				var maxDragableY;//拖拽的边界增项最大值
+				var finalX=0;//移动后的最终x坐标
+				var finalY=0;//移动后的最终y坐标
+				
+				var $proxyDrag;//要拖拽的代理拖拽容器
+				
+				if(dragOption.handle==null){//默认为本身拖拽
+					$handle=$drag;
+				}else{
+					$handle=(dragOption.handle instanceof jQuery)?dragOption.handle:$(dragOption.handle);//如果handle不是jquery对象，则尝试创建jquery对象
+				}
+				var $doc=$(document);
+					
+				$handle.off('mousedown.tuiDrag').on('mousedown.tuiDrag',function(event){
+					event.stopPropagation();
+					dragOption=$drag.data('dragOption');
+					var disabled=dragOption.disabled;
+					if(disabled){return;}//如果不能拖拽，那么直接
+					moveReady(event);//拖动的准备
+					if(typeof(dragOption.onStartDrag)==='function'){//执行回调函数
+						dragOption.onStartDrag.call($drag);
+					}
+				});
+				dragOption.disabled?'':$handle.css({cursor:dragOption.cursor});//如果可以拖拽，则修改鼠标图标
+				//准备拖动函数
+				function moveReady(event){
+					//计算拖拽范围
+					if(typeof(dragOption.onReadyDrag)==='function'){//执行回调函数
+						dragOption.onReadyDrag.call($drag,event);
+					}
+					if($drag.css('position')!='fixed'&&$drag.css('position')!='absolute'&&$drag.css('position')!='relative'){//如果这个容器不是fixed或者absolute，则需要置成absolute才能移动
+						$drag.css({position:'absolute'});
+					}
+					dragOption=$drag.data('dragOption');
+					if(dragOption.dragRange=='auto'){//如果拖拽的范围是自动的
+						if($drag.css('position')=='fixed'){//fixed的边界和absolute的边界不同,这是一般情况下的fixed
+							maxDragableX=$(window).width()-$drag.width()-4;//可拖拽的右边界,左边界为0
+							maxDragableY=$(window).height()-$drag.height()-4;//可拖拽的下边界，上边界为0
+						}else if(dragOption.isFixed&&isIE6){
+							maxDragableX=$(window).width()+$(document).scrollLeft()-$drag.width()-4;//可拖拽的右边界,算上滚动条的位置,左边界为0
+							maxDragableY=$(window).height()+$(document).scrollTop()-$drag.height()-4;//可拖拽的下边界，算上滚动条的位置，上边界为0
+						}else{
+							maxDragableX=$(document).width()-$drag.width();//可拖拽的右边界,左边界为0
+							maxDragableY=$(document).height()-$drag.height();//可拖拽的下边界，上边界为0
+						}
+						minDragableX=0;
+						minDragableY=0;
+					}else{//如果拖动的范围是指定的
+						minDragableX=dragOption.dragableRangeX[0]||0;
+						minDragableY=dragOption.dragableRangeY[0]||0;
+						maxDragableX=dragOption.dragableRangeX[1]||0;
+						maxDragableY=dragOption.dragableRangeY[1]||0;
+						maxDragableX=(maxDragableX>=minDragableX)?maxDragableX:minDragableX;
+						maxDragableY=(maxDragableY>=minDragableY)?maxDragableY:minDragableY;
+					}
+					
+					//alert(minDragableX)
+					event.preventDefault?event.preventDefault():event.returnValue=false;//防止浏览器默认行为，在IE下，为returnValue
+					//if($drag.css('position')=='fixed'){alert($(document).scrollTop())}
+					source.ox=event.pageX;
+					source.oy=event.pageY;
+					//拖动准备函数，在鼠标按下时，做拖动的准备
+					source.dragTop=parseInt($drag.position().top);//记录下需要移动的窗口的原始top
+					source.dragLeft=parseInt($drag.position().left);//记录下需要移动的窗口的原始left
+					finalX=source.dragLeft;
+					finalY=source.dragTop;
+					//首先将初始的位置设置好，避免造成在用户点击之后没有拖动就释放了。这样目标会移动到0,0位置。因此要避免这个问题
+					if($('#tuiDragMask').length<1){//如果没有遮罩层
+						var dragMaskHTML='<div id="tuiDragMask" style="position:absolute;z-index:'+dragOption.zIndex+';top:0px;left:0px;"><div>';//为防止在拖拽的时候，鼠标移动到iframe中，因此在最上层添加一层mask，用于拖拽
+						$dragMask=$(dragMaskHTML).appendTo('body');
+					}else{
+						$dragMask=$('#tuiDragMask');
+					}
+					$dragMask.css({width:$(document).width()+'px',height:$(document).height()+'px',cursor:dragOption.cursor});
+					$dragMask.show();//显示遮罩层，由于可能是已经存在并且隐藏了。
+					//$('body').append('<div style="position:absolute;width:1000px;height:500px;top:0px;left:0px;z-index:11001;border:1px solid blue;"></div>')
+					//对拖拽的代理进行设定
+					if(typeof(dragOption.proxy)==='function'){//通过自定函数创建代理拖拽容器
+						$proxyDrag=dragOption.proxy.call($drag);
+						if(!($proxyDrag instanceof jQuery)){
+							window.console&&console.warn("proxy is a function but not return a jquery instance");
+							return false;
+						}
+						if($proxyDrag.css('position')!='fixed'&&$proxyDrag.css('position')!='absolute'&&$proxyDrag.css('position')!='relative'){//如果这个容器不是fixed或者absolute，则需要置成absolute才能移动
+							$proxyDrag.css({position:'absolute'});
+						}
+						var pX=$drag.offset().left;
+						var pY=$drag.offset().top;
+						$proxyDrag.css({//将代理拖拽容器的坐标设定为当前的坐标
+							left:pX+'px',
+							top:pY+'px'
+						});
+					}else if(dragOption.proxy==='clone'){
+						$proxyDrag=$drag.clone();
+						$proxyDrag.appendTo($drag.parent());//默认创建在同级
+					}else if(dragOption.proxy&&typeof(dragOption.proxy)==='object'){
+						var $appendTo=dragOption.proxy["$appendTo"];
+						$proxyDrag=$drag.clone();
+						$proxyDrag.appendTo($appendTo);
+						$proxyDrag.css(dragOption.proxy["cssText"]);
+						//更改位置的值
+						var $dragParentOffset=$drag.parent().offset();
+						var topDiff=$appendTo.offset().top-$dragParentOffset.top;
+						var leftDiff=$appendTo.offset().left-$dragParentOffset.left;
+						source.dragTop=parseInt($drag.position().top-topDiff);//记录下需要移动的窗口的原始top
+					    source.dragLeft=parseInt($drag.position().left-leftDiff);//记录下需要移动的窗口的原始left
+						finalX=source.dragLeft;
+						finalY=source.dragTop;
+						$proxyDrag.css({//设定位置
+							left:finalX+'px',
+							top:finalY+'px'
+						});
+					}else {
+						$proxyDrag=$drag;
+					}
+					$doc.off('mousemove.tuiDrag').on('mousemove.tuiDrag',moveLayer);//鼠标移动时的事件
+					$doc.off('mouseup.tuiDrag').on('mouseup.tuiDrag',moveUp);//鼠标抬起时的事件
+				}
+				//移动函数
+				function moveLayer(event){
+					dragOption=$drag.data('dragOption');
+					event.preventDefault?event.preventDefault():event.returnValue=false;//防止浏览器默认行为，在IE下，为returnValue
+					if($proxyDrag.css('position')=='fixed'){//如果是fixed，则需要将滚动条的位置去掉
+						finalX=(event.pageX-$(document).scrollLeft()-source.ox)+source.dragLeft;
+						finalY=(event.pageY-$(document).scrollTop()-source.oy)+source.dragTop;
+					}else{//其他情况
+						finalX=(event.pageX-source.ox)+source.dragLeft;
+						finalY=(event.pageY-source.oy)+source.dragTop;
+					}
+					//判断移动是否出界了
+					finalX=(finalX<minDragableX?minDragableX:finalX);
+					finalX=(finalX>maxDragableX?maxDragableX:finalX);
+					finalY=(finalY<minDragableY?minDragableY:finalY);
+					finalY=(finalY>maxDragableY?maxDragableY:finalY);
+					$proxyDrag.css({//设定位置
+						left:finalX+'px',
+						top:finalY+'px'
+					});
+					//$('#info').html(maxDragableX)
+					if(typeof(dragOption.onDraging)==='function'){//执行回调函数
+						dragOption.onDraging.call($proxyDrag,finalX,finalY,event);
+					}
+				}
+				//移动结束
+				function moveUp(event){
+					if(typeof(dragOption.onDrop)==='function'){//执行回调函数
+						dragOption.onDrop.call($proxyDrag,finalX,finalY);
+					}
+					dragOption=$drag.data('dragOption');
+					$dragMask.remove();//清空拖拽的遮罩层
+					if(dragOption.revert){
+						$proxyDrag.animate({
+							top:source.dragTop,//记录下需要移动的窗口的原始top
+							left:source.dragLeft
+						},dragOption.revertTime);
+					}else{
+						$proxyDrag.css({
+							left:finalX+'px',
+							top:finalY+'px'
+						});
+					}
+					if($drag==$proxyDrag){}
+					else{
+						$proxyDrag.animate({left:0},0,function(){$(this).remove()});//在移动后销毁该对象
+					}
+					$doc.off('mousemove.tuiDrag',moveLayer).off('mouseup.tuiDrag',moveUp);//解除绑定
+					if(typeof(dragOption.onFinshed)==='function'){//执行拖拽结束的回调函数
+						dragOption.onFinshed.call($proxyDrag,finalX,finalY,event);
+					}
+				}
+			});
+		};
+	})($);
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	/**                                                    
+	 * tuiDialog在GUI项目中，负责弹出提示信息等功能，从大类型上划分，分为窗口和消息提示框。每个类型中分为多个小的类型，具体请见$.tui.tuiDialogDefault方法说明。
+	 * 弹出框支持position:fixed样式，但是该样式在ie6中，效果同absolute，为保证ie6下有这个效果，将在ie6下的窗口position设定为absolute，并在window上绑定了scroll事件，进行重新计算
+	 * showTuiInfoDialog方法的回调函数是第四个参数，要与其他方法区分开                       
+	 * Copyright: Copyright (c) 2012                       
+	 * Company: 中国民航信息网络股份有限公司               
+	 * @author  马驰                  
+	 * @version 0.10.18         
+	 * @see                                                
+	 *	HISTORY                                            
+	 * 2012-3-29下午04:08:08 创建文件
+	 * 2012-3-30 更新版本 添加了标题栏的显示和标题栏中关闭按钮的实现，可以通过参数控制。
+	 * 2012-3-31 对关闭方法进行了修改，在关闭窗口后，窗口中的内容全部清空，可以节省资源。
+	 *  遮罩层宽度重新进行了修改，在IE6下，将减少22px，以避免出现不必要的滚动条
+	 *  修改弹出窗口位置方法，如果弹出框的top为负值，说明弹出框上边超出屏幕范围，这是不允许的。必须保证弹出框的上边框显示出来
+	 * 2012-4-01 修改了确定等按钮出发事件的顺序，先进行关闭，再进行onConfirm等回调函数
+	 *  修改了遮罩层宽度和高度适应的bug
+	 * 2012-4-09 版本更新，添加了键盘事件，对于confirm类型的窗口，支持enter和esc键的操作，其他窗口，enter和esc都将触发点击确定按钮的事件。
+	    现在可以通过enter和esc键来对窗口进行操作了。
+	 * 2012-4-13 修改了css样式中的所有class的名称，添加了tui前缀
+	 * 2012-4-13 版本更新，将tuiDrag分离出去。现在的该页面要在引用tui_Drag.js之后引用
+	 * 2012-4-23 版本更新，修正了在IE6下多次打开窗口，遮罩层不能正确覆盖select的问题
+	 * 2012-4-26 版本更新，修正一个缺陷，对于窗口中再显示窗口的情况，如果内部窗口的回调函数将外部窗口关闭，则会出现错误。修改后，将关闭窗口的方法优先于回调函数执行，
+	    在窗口关闭完之后执行回调。此外，关闭窗口时并不真的消除窗口中的内容，以便于回调函数中读取当前窗口中的数据。
+	 * 2012-5-08 版本更新，修正了因为调整浏览器窗口大小出现遮罩层不能完全覆盖页面的bug。
+	 * ************************************************
+	 * 2012-9-14 新版本更新，更换了命名空间，更名为tui。基本放弃了对IE6的维护
+	 * 2012-9-17 修改了默认参数的mode，增加style，使显示方式和显示样式分开。详情见参数配置
+	 * 2012-9-21 版本更新，修正了新版的样式中dialog高度错误
+	 * 2012-9-24 版本更新，宽度和高度添加了百分比设置与auto设置
+	 * 2012-9-27 版本更新，支持在窗口关闭后仍然执行关闭窗口中的任何代码。注，窗口关闭实际上时隐藏窗口，因此部分定位代码将不会得到正确执行。
+	 *  程序在打开新的窗口时，才被替换成新窗口内容
+	 * 2012-10-22 版本更新，新增了小型编辑窗口的方法。
+	 * 2012-10-23 版本更新，新增了用于div的小型窗口方法。
+	 * 2012-10-30 版本更新，修正了：第一个窗口可以拖动，第二个窗口不可拖动时的仍然可以拖动的错误。修正了直接调用修改参数方法时的错误
+	 * 2013-01-10 版本更新，删除了showTuiInfoDialog方法！全部由showTuiMessageDialog代替。
+	 *  添加了新的方法：showTuiTipDialog
+	 * 2013-01-14 版本更新，修正了waiting模式下双ID的bug，同时，修改了showTuiWaitingDialog的方法，该方法现在可以在无任何参数时正常显示。
+	 *  如果存在参数，将按照参数显示另一类窗口
+	 * 2013-01-25 版本更新，修正了waiting下的宽度和高度大小错误。修正了waiting之后再弹出其他窗口时拖拽的错误。
+	 *  修正了存在滚动条时显示位置的错误。
+	 * 2013-01-31 版本更新，修正了在用户指定top和left时，增加滚动条位置的bug
+	 * 2013-02-04 版本更新，增加了$.showTuiSmallWaitingDialog方法
+	 * 2013-02-05 版本更新，增加了$.showTuiHTMLDialog方法
+	 * 2013-03-04 版本更新，修正了在弹出错误窗口时，弹出的内容过多出现滚动条后，鼠标拖动滚动条时和拖拽事件冲突而造成的无法拖动滚动条问题。
+	 * 2013-04-08 版本更新，增加了$.showTuiModifyDialog方法。在style为text时，已经将id为dialog_info_panel容器加上溢出滚动条了。
+	 * 2013-05-17 版本更新，修改了在IE浏览器中遮罩层的宽度出现的偏差
+	 * 2013-05-30 修正了showTuiSmallEditDialog的参数错误。
+	 * 2013-06-17 版本更新，修改了showMask的调用顺序，现在遮罩层将在窗口弹出之后出现。并且修正IE下出现的滚动条导致的遮罩层大小错误。
+	 **************************************************/
+	// JavaScript Document
+	;(function($){
+		$.tui=$.tui||{};//tui域名
+		//关闭窗口的外部方法，为其他程序使用
+		/*-------------------------------拓展方法，外部接口----------------------------------*/
+		$.closeTuiWindow=function(){
+			$.tui.closeTuiWindow();
+		};
+		//弹出带遮罩层的弹出框，extraOption是更多的配置，一般的配置在option中设定，其他的设置需要在extraOption中指定才能生效
+		$.showTuiModalDialog=function(option,extraOption){
+			$.tui.tuiDialog({
+				url:option.url||'',
+				width:option.width||500,
+				height:option.height||400,
+				title:option.title||'',
+				mode:'window',
+				style:'window'
+			},extraOption);
+		};
+		//弹出不带遮罩层的弹出框，extraOption是更多的配置，一般的配置在option中设定，其他的设置需要在extraOption中指定才能生效
+		$.showTuiDialog=function(option,extraOption){
+			$.tui.tuiDialog({
+				url:option.url||'',
+				width:option.width||500,
+				height:option.height||400,
+				title:option.title||'',
+				mode:'window',
+				style:'window',
+				isShowMask:false
+			},extraOption);
+		};
+		//弹出一个HTML内容的窗口，content为HTML代码
+		$.showTuiHTMLDialog=function(content,width,height,title,extraOption){
+			$.tui.tuiDialog({
+				mode:'window',
+				style:'text',
+				width:width||300,
+				height:height||200,
+				message:content,
+				showTitle:true,
+				title:title
+			},extraOption);
+		}
+		//弹出错误提示框，参数中option请见$.tui.tuiDialogDefault
+		$.showTuiErrorDialog=function(errorMsg,errorCallback,width,height,option){
+			var opt={
+				title:'错误',
+				width:width||300,
+				height:height||180,
+				message:errorMsg,
+				mode:'no_title_window',
+				style:'error',
+				onConfirm:errorCallback,
+				confirmBtn:true
+			};
+			opt=$.extend(opt,option);
+			$.tui.tuiDialog(opt);
+		};
+		//弹出信息提示框，注意！这里的callback是第四个参数！！
+		/*$.showTuiInfoDialog=function(info,width,height,sureCallback,option){
+			var opt={
+				title:'信息',
+				width:width||300,
+				height:height||150,
+				message:info,
+				mode:'no_title_window',
+				style:'info',
+				onConfirm:sureCallback,
+				confirmBtn:true
+			};
+			opt=$.extend(opt,option);
+			$.tui.tuiDialog(opt);
+		};*/
+		//弹出等候的消息框，但是消息框中的所有内容，需要info指定
+		//注：一般情况下，该方法显示一个默认的“请稍候...”字样的弹出框，不需要任何参数。
+		//   如果存在有效的info,width,height的话，将根据参数内容弹出窗口，窗口的样式和无参数时不同！
+		$.showTuiWaitingDialog=function(info,width,height,option){
+			var w=width||null,
+				h=height||null,
+				i=info,
+				opt;
+			if(i||w||h){
+				opt={
+					width:w||150,
+					height:h||56,
+					message:info,
+					mode:"no_title_window",
+					style:'waiting'
+				}
+			}else{
+				opt={
+					width:width||150,
+					height:height||80,
+					mode:'waiting'
+				};
+			}
+			opt=$.extend(opt,option);
+			$.tui.tuiDialog(opt);
+		};
+		//弹出一个等待框，该框只有一个gif图标
+		$.showTuiSmallWaitingDialog=function(width,height,option){
+			var opt={
+				width:width||68,
+				height:height||70,
+				mode:"no_title_window",
+				style:'waiting'
+			};
+			opt=$.extend(opt,option);
+			$.tui.tuiDialog(opt);
+		}
+		//弹出信息提示框，和Info相同
+		$.showTuiMessageDialog=function(info,callback,width,height,option){
+			var opt={
+				title:'信息',
+				width:width||300,
+				height:height||150,
+				message:info,
+				mode:'no_title_window',
+				style:'info',
+				onConfirm:callback,
+				confirmBtn:true
+			};
+			opt=$.extend(opt,option);
+			$.tui.tuiDialog(opt);
+		};
+		//确认框
+		$.showTuiConfirmDialog=function(message,sureCallback,width,height,option){
+			var opt={
+				title:'确认',
+				width:width||300,
+				height:height||160,
+				message:message,
+				mode:'no_title_window',
+				style:'confirm',
+				onConfirm:sureCallback,
+				cancelBtn:true,
+				confirmBtn:true
+			};
+			$.extend(opt,option);
+			opt=$.extend(opt,option);
+			$.tui.tuiDialog(opt);
+		};
+		//成功提示框
+		$.showTuiSuccessDialog=function(info,sureCallback,width,height,option){
+			var opt={
+				title:'成功',
+				width:width||300,
+				height:height||150,
+				message:info,
+				mode:'no_title_window',
+				style:'success',
+				onConfirm:sureCallback,
+				confirmBtn:true
+			};
+			opt=$.extend(opt,option);
+			$.tui.tuiDialog(opt);
+		};
+		//显示无图片的提示框，但是有确认按钮
+		$.showTuiNoImgDialog=function(message,sureCallback,width,height,option){
+			var opt={
+				title:'',
+				width:width||300,
+				height:height||200,
+				message:message,
+				mode:'no_title_window',
+				style:'text',
+				onConfirm:sureCallback,
+				confirmBtn:true
+			};
+			opt=$.extend(opt,option);
+			$.tui.tuiDialog(opt);
+		}
+		//显示黑色半透明提示框
+		$.showTuiMessageAlert=function(message,sureCallback,width,height,option){
+			var opt={
+				mode:'alert',
+				style:'error',
+				width:width||360,
+				height:height||100,
+				message:message,
+				showTitle:true,
+				showDefaultBtn:true,
+				onConfirm:sureCallback
+			};
+			opt=$.extend(opt,option);
+			$.tui.tuiDialog(opt);
+		};
+		//小型的编辑窗口，位置需要设定
+		$.showTuiSmallEditWindow=function(url,width,height,top,left,extraOption){
+			var opt={
+				url:url,
+				mode:'narrow_window',
+				style:'window',
+				width:width||200,
+				height:height||100,
+				showPos:'ex',
+				top:top||0,
+				left:left||0,
+				isShowMask:false,
+				isDrag:false
+			}
+			opt=$.extend(opt,extraOption);
+			$.tui.tuiDialog(opt);
+		}
+		//小型的编辑窗口，位置需要设定
+		$.showTuiSmallEditDialog=function(content,callback,width,height,top,left,extraOption){
+			var opt={
+				message:content,
+				confirmBtn:true,
+				cancelBtn:true,
+				mode:'narrow_window',
+				style:'text',
+				width:width||200,
+				height:height||150,
+				showPos:'ex',
+				top:top||0,
+				left:left||0,
+				isShowMask:false,
+				isDrag:false,
+				onConfirm:callback
+			};
+			opt=$.extend(opt,extraOption);
+			$.tui.tuiDialog(opt);
+		}
+		//带有蓝色上边框的弹出框，弹出框中不带有默认的按钮，因此需要在content中添加关闭的措施。left和top的位置如果为空，将按照中央进行显示
+		$.showTuiTipDialog=function(content,width,height,left,top,extraOption){
+			var showPos='c';
+			if(left!=null&&top!=null){
+				showPos='ex';
+			}
+			var opt={
+				mode:'narrow_window',
+				style:'text',
+				width:width||300,
+				height:height||100,
+				message:content,
+				showPos:showPos,
+				top:top||0,
+				left:left||0,
+				showTitle:false,
+				showDefaultBtn:false,
+				confirmBtn:false
+			}
+			opt=$.extend(opt,extraOption);
+			$.tui.tuiDialog(opt);
+		}
+		//无边框的窗口，弹出的窗口中的内容是content，不是url,无任何按钮。显示窄边窗口
+		$.showTuiModifyDialog=function(content,width,height,left,top,extraOption){
+			var showPos='c';
+			if(left!=null&&top!=null){
+				showPos='ex';
+			}
+			var opt={
+				mode:'no_title_window',
+				style:'text',
+				width:width||300,
+				height:height||100,
+				message:content,
+				showPos:showPos,
+				top:top||0,
+				left:left||0,
+				showTitle:false,
+				showDefaultBtn:false,
+				confirmBtn:false
+			}
+			opt=$.extend(opt,extraOption);
+			$.tui.tuiDialog(opt);
+		}
+		//判断弹出窗口是否存在或显示
+		$.isTuiWindowVisible=function(){
+			return $.tui.isVisible();
+		}
+		/*----------------------------外部接口结束-------------------------------*/
+		$.tui.tuiDialogDefault={//默认参数
+			width:300,//弹出框的默认宽度，单位：px，可以为'auto','50%'等
+			height:200,//弹出框的默认高度，单位:px
+			message:'',//弹出框的显示内容
+			url:'',//弹出框显示的内容链接，自动读取url中的内容。
+			title:'tui dialog',//弹出框的默认标题
+			maskAlphaColor:'#000',//遮罩透明的颜色，默认为黑色
+			maskAlpha:0.1,//遮罩的透明度
+			isFixed:false,//弹出框是否固定位置，不跟随滚动条滚动
+			showTitle:true,//是否显示标题栏，只有window类型的窗口才能显示title，注，该项为false时，showDefaultBtn参数无效
+			showDefaultBtn:true,//是否显示标题栏右侧的关闭按钮。注意该按钮不受autoClose的影响，点击后自动关闭。showTitle为false时，不显示
+			confirmBtn:false,//是否显示确定按钮
+			cancelBtn:false,//是否显示取消按钮
+			closeBtn:false,//是否显示关闭按钮
+			autoClose:true,//点击确定或取消按钮是否关闭窗口
+			onConfirm:null,//回调函数，点击确定时的function
+			onCancel:null,//回调函数，点击取消时的function
+			onClose:null,//回调函数，点击关闭是的function
+			onTitleClose:null,//标题栏中的关闭按钮的回调函数
+			isDrag:true,//是否可以拖动
+			isShowMask:true,//是否显示遮罩层
+			showPos:'c',//显示窗口的位置，可以为c,lt,lb,rt,rb,ex，分表代表的意思是居中，左上，左下，右上，右下，其他
+			top:0,//在showPos为ex时有效，窗口的top
+			left:0,//在showPos为ex时有效，窗口的left
+			btnContext:{//各个按钮的文字
+				w_confirm:'确定',
+				w_cancel:'取消',
+				w_close:'关闭'
+			},
+			mode:'window',//显示模式，分别为：window,no_title_window,narrow_window,waiting,alert，以上分别对应不同的窗口显示模式
+			style:'info'//窗口模式，可以为：window,success,info,confirm,error,waiting,text以上分别对应窗口中的显示内容，window为iframe，后者为文本类型，以icon区别。注意：mode为alert时，style不能为window，如果是window将按照text来处理。
+		};
+		/*--------------------------------extend拓展开始-------------------------------*/
+		$.extend($.tui,{
+			tuiDialog:function(){//弹出一个窗口
+				/*--------------------参数准备-------------------*/
+				var settings=$.extend({},$.tui.tuiDialogDefault);//读取默认参数参数
+				for(var i=0;i<arguments.length;i++){//读取多个参数
+					settings=$.extend(settings,arguments[i]);
+				}
+				var isIE=$.tui.isIE(),
+					isCSS1=(document.compatMode=="CSS1Compat"),
+					isIE7=$.tui.isIE7(),
+					isIE8=$.tui.isIE8(),
+					isIE6=$.tui.isIE6();
+				/*--------------------参数完毕-------------------*/
+				
+				/*--------------------内部方法-------------------*/
+				//显示遮罩层，参数为遮罩的颜色和遮罩的透明度
+				var showMask=function(mask_color,mask_alpha){
+					var $doc=$(document),
+						maskWidth=$doc.width(),//遮罩层的宽度
+						maskHeight=$doc.height(),//遮罩层的高度
+						$mask,
+						maskSrc='<div id="tui_dialog_mask" class="dialog_mask"></div>',
+						hasVerticalScroll;
+					if($('#tui_dialog_mask').length>0){//已经存在了遮罩层，则不进行新建遮罩层的操作
+						$mask=$('#tui_dialog_mask');
+					}else{//新建遮罩层
+						$mask=$(maskSrc);
+						$('body').append($mask);//将新的遮罩层放入body中。
+					}
+					//判断是否存在纵向滚动条
+					if(window.innerHeight){
+						hasVerticalScroll = document.body.offsetHeight > innerHeight;
+			        }
+			        else {
+			        	hasVerticalScroll=
+			        		(document.documentElement.scrollHeight > document.documentElement.offsetHeight ||
+			                document.body.scrollHeight > document.body.offsetHeight);
+			        }
+					if(isIE){
+						//在IE中，body的宽度不将滚动条的宽度算计去，因此，添加遮罩层之后就会让页面出现横向滚动条。
+						
+						if(hasVerticalScroll){
+							//maskWidth -= 17;
+						}
+					}
+					//说明：在IE6下，遮罩层不能使用div，必须使用iframe才能将下拉菜单等盖住
+					if(isIE6){//如果是IE6，则需要在遮罩层中添加一个iframe
+						$mask.append('<iframe border="0" frameborder="0" style="width:100%;height:100%;filter:alpha(opacity='+(100*mask_alpha)+');" src="about:blank"></iframe>');//添加iframe，用于遮盖下拉菜单等
+					}
+					$mask.css({width:maskWidth+'px',height:maskHeight+'px',opacity:mask_alpha,background:mask_color}).show();//设置样式，并且尝试显示
+					//如果浏览器窗口大小改变，遮罩层应该也改变，因此绑定事件，当修改窗口大小时，遮罩层也改变
+					var oWidth=maskWidth,//记录初始时文档结构的大小，如果窗口拉大则增大，但是窗口缩小时必须判断是不是小于初始化时的文档窗口大小了
+						oHeight=maskHeight;
+					var onResize=function($mask,oWidth,oHeight){//用于绑定窗口事件，当window发生变化，则将遮罩层根据窗口变化。对于小于初始化大小的窗口变化，将不作变化
+						return function(){
+							var $window=$(window),
+							//大小规则：如果浏览器窗口大于文档大小了，遮罩层要跟着窗口增大，如果浏览器窗口小于文档窗口了，则不能跟着减小，因为这会露出部分文档内容
+								maskWidth=$window.width()>oWidth?$window.width():oWidth,
+								maskHeight=$window.height()>oHeight?$window.height():oHeight;//遮罩层的高度
+							$mask.css({width:maskWidth+'px',height:maskHeight+'px'});
+						}
+					}
+					$(window).bind('resize.tuiDialog',onResize($mask,oWidth,oHeight));//绑定方法，在窗口变化时，改变遮罩层的大小
+				};
+				//关闭遮罩层
+				var closeMask=function(){
+					$('#tui_dialog_mask').html('').hide();
+					$(window).unbind('resize.tuiDialog');//解除绑定遮罩层监听事件
+				};
+				//针对IE6的方法，由于IE6不支持position:fixed,所以需要通过absolute来模仿，该方法就是滚动条的事件函数
+				var tuiDialogScroll=function(){
+					var $tui_dialog_window=$('#tui_dialog_window'),
+						$document=$(document),
+						left=parseInt($tui_dialog_window.css('left')),
+						top=parseInt($tui_dialog_window.css('top'));
+					$tui_dialog_window.css({
+						left:left+($document.scrollLeft()-window.tuiDialogForIE6ScrollX)+'px',
+						top:top+($document.scrollTop()-window.tuiDialogForIE6ScrollY)+'px'
+					});
+					//alert(left+($(document).scrollLeft()-window.tuiDialogForIE6ScrollX)+'px');
+					window.tuiDialogForIE6ScrollX=$document.scrollLeft();//
+					window.tuiDialogForIE6ScrollY=$document.scrollTop();
+				};
+				//用于显示dialog窗口，通常是显示一个微型的弹出框,传入参数对象，见默认参数格式
+				//无论是什么样的窗口类型，窗口的结构分为四部分，分别为：上边框，中间的内容，下侧按钮和下边框，这四个部分分别由三个方法负责实现，此方法为上边框和下边框的生成
+				var showBasicWindow=function(para){
+					var $window,//窗口对象
+						$win=$(window),
+						$document=$(document);
+					/*--窗口的显示处理--*/
+					//获得弹出窗口
+					if($('#tui_dialog_window').length<1){//如果没有找到已经存在的弹出框，则新建一个
+						var dialogHtml='<div id="tui_dialog_window" class="dialog_panel"></div>';//弹出框
+						$window=$(dialogHtml);
+						$('body').append($window);//将新的窗口放入body中。
+					}else{
+						$window=$('#tui_dialog_window');
+					}
+					$window.empty().show().css({position:para.isFixed?'fixed':'absolute'});//清楚掉内部的内容，如果该窗口已经存在，内部的内容必须清掉，便于建立新的内容，如果已经存在弹出窗口，很有可能弹出窗口已经隐藏了，因此，需要显示
+					//功能增强，如果width或者height参数为'auto'，或'50%';则需要计算高度
+					var paraWidth=para.width,
+						paraHeight=para.height,
+						dialogWidth,
+						dialogHeight;
+					//处理宽度
+					if(!isNaN(paraWidth)){//如果宽度是不可以计算的
+						dialogWidth=para.width;
+					}else if(paraWidth=="auto"){
+						dialogWidth=$win.width();
+					}else{
+						var reg=/^(\d{1,3})%$/;
+						var regRes=reg.exec(paraWidth);
+						if(regRes&&regRes.length==2){//计算比例，如果比例有问题，则按照100%计算
+							dialogWidth=$win.width()*(parseInt(regRes[1])||100)/100;
+						}else{
+							dialogWidth=para.width;
+						}
+					}
+					//处理高度
+					if(!isNaN(paraHeight)){
+						dialogHeight=para.height;
+					}else if(paraHeight=="auto"){
+						dialogHeight=$win.height();
+					}else{
+						var reg=/^(\d{1,3})%$/;
+						var regRes=reg.exec(paraHeight);
+						if(regRes&&regRes.length==2){
+							dialogHeight=$win.height()*(parseInt(regRes[1])||100)/100;
+						}else{
+							dialogHeight=para.height;
+						}
+					}
+					//将计算好的值传回para中，因为在shouBtnPart中，还需要根据宽高计算文本部分的高度
+					para.height=dialogHeight;
+					//如果参数中是固定位置显示，则按照fixed显示，否则，按照absoluate显示
+					var top=0,
+						left=0;
+					//根据参数固定显示的位置
+					switch(para.showPos){
+						case 'lt'://左上显示
+							break;
+						case 'lb'://左下显示
+							top=$win.height()-dialogHeight-2;
+							break;
+						case 'rt'://右上显示
+							left=$win.width()-dialogWidth-2;
+							break;
+						case 'rb'://右下显示
+							top=$win.height()-dialogHeight-2;
+							left=$win.width()-dialogWidth-2;
+							break;
+						case 'c'://居中
+							top=($win.height()-dialogHeight)/2;//窗口距离上端的距离
+							left=($win.width()-dialogWidth)/2;//窗口距离左端的距离
+							break;
+						default://其他，根据参数决定
+							top=para.top;
+							left=para.left;
+					}
+					//上边框必须显示出来，即：显示的时候，上边框不能超出屏幕范围
+					top=top>=0?top:0;
+					if(isIE6&&para.isFixed){//在IE6的情况下，position:fixed不支持，因此需要单独处理，坑爹的IE6! :(
+						/*
+						处理思路：在IE6下，要想实现position:fixed，除了使用css的expression之外，就是通过absolute模仿fixed，这样做的好处在于，直接通过css属性进行复制就可以了。
+						给window绑定scroll事件，当滚动条滚动时，重新处理top和left。这里使用差值处理，即，记录初始滚轴位置，每当滚轴变化时，将当前的窗口移动滚轴变化量，而不是重新计算top和left，这样做的原因是，窗口可能经过拖动，而拖动后的left和top在该域内不可见。
+						*/
+						$window.css({position:'absolute',left:$document.scrollLeft()+left+'px',top:$document.scrollTop()+top+'px'});//重新制定位置
+						window.tuiDialogForIE6ScrollX=$document.scrollLeft();//记录初始的滚动条位置
+						window.tuiDialogForIE6ScrollY=$document.scrollTop();
+						$win.bind('scroll.tuiDialog',tuiDialogScroll)//绑定滚动条事件
+					}else{
+						//如果页面较长，出现了水平和垂直滚动条，则在absolute的定位中需要加上滚动条的移动位置。
+						if(!para.isFixed&&para.showPos!='ex'){
+							left+=($win.scrollLeft()||0);
+							top+=($win.scrollTop()||0);
+						}
+						$window.css({left:left+'px',top:top+'px'});//窗口的位置
+					}
+					
+					$window.css({width:dialogWidth+'px',height:dialogHeight+'px'});//设定宽高
+					/*--窗口显示处理完毕--*/
+					/*--窗口内容--*/
+					//弹出框的上边栏
+					//mode:显示模式，分别为：window,no_title_window,narrow_window,waiting,alert，以上分别对应不同的窗口显示模式
+					var mode=para.mode,
+						tempT='',
+						tempF='',
+						defaultBtnHTML='<div id="tui_dialog_close_button" class="dialog_head_close"></div>',
+						$defaultBtn;
+					switch(mode){
+						case "window":
+							tempT='<div id="tui_dialog_title" class="dialog_head_left">\
+										<div class="dialog_head_right">\
+											<div class="dialog_head_content" id="tui_dialog_title_center"></div>\
+										</div>\
+									</div>\
+									<div class="dialog_body_left">\
+										<div class="dialog_body_right">\
+											<div class="dialog_body_content" id="dialog_content"></div>\
+										</div>\
+									</div>';
+							//弹出框的下边栏
+							tempF='<div id="tui_dialog_bottom" class="dialog_foot_left">\
+										<div class="dialog_foot_right">\
+											<div class="dialog_foot_content"></div>\
+										</div>\
+									</div>';
+							break;
+						case "no_title_window":
+							tempT='<div id="tui_dialog_title" class="dialog_head_no_title_left">\
+										<div class="dialog_head_no_title_right">\
+											<div class="dialog_head_no_title_content" id="tui_dialog_title_center"></div>\
+										</div>\
+									</div>\
+									<div class="dialog_body_left">\
+										<div class="dialog_body_right">\
+											<div class="dialog_body_content" id="dialog_content"></div>\
+										</div>\
+									</div>';
+							//弹出框的下边栏
+							tempF='<div id="tui_dialog_bottom" class="dialog_foot_left">\
+										<div class="dialog_foot_right">\
+											<div class="dialog_foot_content"></div>\
+										</div>\
+									</div>';
+							break;
+						case "narrow_window":
+							tempT='<div id="tui_dialog_title" class="dialog_head_narrow_left">\
+										<div class="dialog_head_narrow_right">\
+											<div class="dialog_head_narrow_content" id="tui_dialog_title_center"></div>\
+										</div>\
+									</div>\
+									<div class="dialog_body_narrow_left">\
+										<div class="dialog_body_narrow_right">\
+											<div class="dialog_body_narrow_content" id="dialog_content"></div>\
+										</div>\
+									</div>\
+									';
+							//弹出框的下边栏
+							tempF='<div id="tui_dialog_bottom" class="dialog_foot_narrow_left">\
+										<div class="dialog_foot_narrow_right">\
+											<div class="dialog_foot_narrow_content"></div>\
+										</div>\
+									</div>';
+							break;
+						default://针对alert和waiting，需要单独做其他操作
+							tempT='';
+							tempF='';
+					}
+					if(tempT!=''&&tempF!=''){//如果是窗口型的样式
+						$(tempT).appendTo($window);
+						var $windowTitle=$('#tui_dialog_title'),
+							$titleCenter=$('#tui_dialog_title_center');//获得标题栏中间部分
+						if(para.showTitle&&mode=="window"){//如果需要显示标题
+							var titleHTML='<div class="dialog_head_title" id="tui_dialog_title_content">'+para.title+'</div>',
+								$titleContext=$(titleHTML).appendTo($titleCenter);//将标题内容放到标题栏中间容器中
+							if(para.showDefaultBtn){//如果显示标题栏的关闭按钮
+								$defaultBtn=$(defaultBtnHTML).appendTo($titleCenter);//将关闭按钮放入标题中间容器中
+								//绑定事件
+							}
+						}
+						var $windowBottom=$(tempF).appendTo($window);//添加下边栏
+					}else{//其他的样式
+						if(mode=="waiting"){
+							var tempT='<div class="dialog_waiting">\
+											<div class="dialog_waiting_msg">\
+												<div class="icon"></div><span class="content">'+(para.message||'请稍候...')+'</span>\
+											</div>\
+										</div>',
+								$waiting=$(tempT).appendTo($window);
+								$window.css({width:150,height:72});//针对waiting类型的，则显示一个固定的一个宽高。
+						}else if(mode=='alert'){
+							var tempT='<div class="dialog_alert" id="dialog_alert">\
+											<div class="dialog_alert_msg" id="dialog_content"></div>\
+										</div>',
+								$alert=$(tempT).appendTo($window);
+							if(para.showDefaultBtn){
+								var closeBtn='<div class="dialog_close_icon" id="tui_dialog_close_button"></div>',
+									$defaultBtn=$(closeBtn);
+								$('#dialog_alert').before($defaultBtn);
+							}
+						}
+					}
+					$defaultBtn&&$defaultBtn.length&&$defaultBtn.bind('mousedown.tuiDialog',function(e){
+						//此事件的目的是因为拖拽绑定的是mousedown,因此必须要绑定mousedown事件实现防止冒泡，使得click事件顺利出发
+						e.stopPropagation();
+					}).bind('click.tuiDialog',function(e){
+						e.stopPropagation();//防止冒泡
+						closeTuiDialog();
+						if(typeof(para.onTitleClose)==="function"){
+							para.onTitleClose.call(this,e,$window);
+						}
+					});
+					
+					/*--窗口内容完毕--*/
+					//给窗口上部添加拖动
+					if(para.isDrag){
+						$window.tuiOffDrag().tuiDrag({handle:($windowTitle&&$windowTitle.length)?$windowTitle:$window,isFixed:para.isFixed,dragRange:'auto'});
+					}else{
+						$window.tuiOffDrag().tuiDrag('disabled',true);
+					}
+				};
+				//用于关闭窗口
+				var closeWindow=function(){
+					$('#tui_dialog_window').hide();
+					//取消因为IE6而兼容的position:fixed
+					$(window).unbind('scroll.tuiDialog',tuiDialogScroll);
+				};
+				//关闭窗口的统一方法,除了处理关闭窗口，还要负责将缓存中等待显示的信息取出（如果存在）,并进行显示
+				var closeTuiDialog=function(){
+					closeWindow();//关闭窗口
+					closeMask();//关闭遮罩层
+					//删除键盘enter和esc事件
+					$(document).unbind('keydown.tuiDialog');
+					if(window.tuiDialogCache.length>0){//说明缓存中还有要显示的信息
+						var tempCfg=window.tuiDialogCache.shift();//取出队列中的配置参数
+						$.tui.tuiDialog(tempCfg);//调用第二次
+					}
+				};
+				//无论是什么样的窗口类型，窗口的结构分为四部分，分别为：上边框，中间的内容，下侧按钮和下边框，这四个部分分别由三个方法负责实现，此方法为中间内容的生成
+				var showContentPart=function(para){
+					//用于过滤和处理一些特殊字符
+					var messageFilter=function(str){
+						return str;
+					}
+					var styleList={//各个窗口类型所对应的样式class名称
+						'info':'dialog_icon_info',
+						'success':'dialog_icon_success',
+						'error':'dialog_icon_error',
+						'confirm':'dialog_icon_confirm',
+						'waiting':'dialog_icon_waiting'
+						},
+						$dialog_content,
+						mode=para.mode,
+						style=para.style,
+						$iframe;
+					if($('#dialog_content').length!=1&&mode!="waiting"){//中间内容不存在的情况下，需要新建一个新的容器
+						window.console&&window.console.warn('not found #dialog_content!');
+						return;
+					}
+					$dialog_content=$('#dialog_content');
+					$dialog_content.empty();//如果已经存在了内部信息，为防止错误，将内部的信息清空
+					switch(style){
+						case "window"://内容为一个iframe新页面
+							if((mode!='alert')&&(mode!='waiting')){
+								var innerHtml='<iframe border="0" id="dialog_iframe" frameborder="0" class="dialog_iframe" src="'+para.url+'"></iframe>';
+								$iframe=$(innerHtml).appendTo($dialog_content);
+								
+								break;
+							}
+						case "text":
+							if(mode!='waiting'){
+								$dialog_content.html('<div id="dialog_info_panel" style="overflow:auto;">'+messageFilter(para.message)+'</div>');
+							}
+							break;
+						case "info":
+						case "success":
+						case "error":
+						case "confirm":
+						case "waiting":
+							var innerHtml='<div class="dialog_info" id="dialog_info_panel">\
+	                        				<div id="dialog_icon"></div>\
+	                       					<div class="dialog_info_content" id="dialog_info_content"></div>\
+	                    				   </div>';
+							var $dialog_info=$(innerHtml).appendTo($dialog_content);
+							var $dialog_icon=$('#dialog_icon'),
+								$dialog_info_content=$('#dialog_info_content');
+							$dialog_icon.addClass(styleList[style]);
+							$dialog_info_content.html(messageFilter(para.message));
+							//去掉dialog_info_content冒泡的事件，因为在一些情况下，滚动条的事件会在拖拽的事件下无法正常使用
+							$dialog_info_content.off('mousedown.tuiDialog').on('mousedown.tuiDialog',function(e){
+								(e&&e.stopPropagation)?e.stopPropagation():window.event.cancelBubble=true;
+							});
+							//添加waiting的图标选项之后，在waiting下，由于gif图标与其他图标的大小不同，因此需要重新计算文字的padding
+							if(style=="waiting"){
+								$dialog_icon.parent().css({paddingLeft:56});
+								if(para.message==""){
+									$dialog_icon.parent().css({paddingTop:0});//如果没有message，则需要将top的位置去掉，用在只显示gif图标时使用
+								}
+							}
+							break;
+					}
+					//计算实际的高度
+					var sub=0,//此变量为需要减去的高度，因为窗口的高度需要内容框的高度来撑起来。
+						$iframe=$('#dialog_iframe'),
+						$dialog_info_panel=$('#dialog_info_panel');
+					if(para.confirmBtn||para.cancelBtn||para.closeBtn){//如果有按钮，则少30px
+						sub+=30;
+					}
+					if(mode=='window'){//如果是window型的，少43px
+						sub+=43;
+					}else if(mode=='alert'){//alert少20px
+						sub+=20;
+					}else if(mode=='no_title_window'){
+						sub+=15;
+					}else if(mode=='narrow_window'){
+						sub+=13;
+					}
+					$dialog_info_panel.length&&$dialog_info_panel.css({height:(para.height-sub)+'px'});
+					$iframe.length&&$iframe.css({height:(para.height-sub)+'px'});
+				};
+				//显示按钮部分的内容，注意：改方法必须要在内容部分存在时才能调用
+				var showButtonPart=function(para){
+					var $window=$('#tui_dialog_window'),
+						$btn_panel=$('#dialog_btn_panel'),
+						mode=para.mode,
+						$content=$('#dialog_content'),
+						btnHtml='',
+						btnContext=para.btnContext;
+					if($window.length!=1||$content.length!=1){//必须存在弹出窗口
+						return;
+					}
+					if(mode=="waiting"){//如果是请稍后的弹出框，则不支持按钮
+						return;
+					}
+					if($btn_panel.length!=0){//已经存在btn容器了
+						$btn_panel.empty().remove();//清楚因存在的按钮
+					}
+					if(para.confirmBtn){
+						btnHtml+='<div class="btn_page btn_save dialog_btn" id="dialog_btn_confirm">\
+									<div class="btn_left"></div>\
+									<div class="btn_content" id="tt">&nbsp;'+btnContext.w_confirm+'&nbsp;</div>\
+									<div class="btn_right"></div>\
+								</div>';
+					}
+					if(para.cancelBtn){
+						btnHtml+='<div class="btn_page btn_cancel dialog_btn" id="dialog_btn_cancel">\
+									<div class="btn_left"></div>\
+									<div class="btn_content">&nbsp;'+btnContext.w_cancel+'&nbsp;</div>\
+									<div class="btn_right"></div>\
+								</div>';
+					}
+					if(para.closeBtn){
+						btnHtml+='<div class="btn_page btn_cancel dialog_btn" id="dialog_btn_close">\
+									<div class="btn_left"></div>\
+									<div class="btn_content">&nbsp;'+btnContext.w_close+'&nbsp;</div>\
+									<div class="btn_right"></div>\
+								</div>';
+					}
+					if(btnHtml!=''){
+						$btn_panel=$('<div class="dialog_btn_panel" id="dialog_btn_panel"></div>').appendTo($content);
+						$btn_panel.html(btnHtml);
+					}else{//如果不存在任何按钮，则不作任何操作
+						return;
+					}
+					var $confirm=$('#dialog_btn_confirm'),
+						$cancel=$('#dialog_btn_cancel'),
+						$close=$('#dialog_btn_close'),
+						isAutoClose=para.autoClose;
+					//绑定确认
+					$confirm.length&&$confirm.bind('mousedown',function(e){e.stopPropagation();}).bind('click.tuiDialog',function(e){
+						isAutoClose?closeTuiDialog():'';
+						typeof(para.onConfirm)=="function"?para.onConfirm.call(this,e,$window):'';
+					});
+					//绑定取消
+					$cancel.length&&$cancel.bind('mousedown',function(e){e.stopPropagation();}).bind('click.tuiDialog',function(e){
+						isAutoClose?closeTuiDialog():'';
+						typeof(para.onCancel)=="function"?para.onCancel.call(this,e,$window):'';
+					});
+					//绑定关闭
+					$close.length&&$close.bind('mousedown',function(e){e.stopPropagation();}).bind('click.tuiDialog',function(e){
+						isAutoClose?closeTuiDialog():'';
+						typeof(para.onClose)=="function"?para.onClose.call(this,e,$window):'';
+					});
+					//绑定一个键盘事件，用于键盘的事件
+					$(document).bind('keydown.tuiDialog',function(e){
+						var $confirm=$('#dialog_btn_confirm');
+						var $cancel=$('#dialog_btn_cancel');
+						var $autoCancel=$('#tui_dialog_close_button');
+						if(e.keyCode==13){
+							$confirm.length&&$confirm.trigger('click');
+						}else if(e.keyCode==27){
+							$cancel.length?$cancel.trigger('click'):$autoCancel.length&&$autoCancel.trigger('click');
+						}
+					});
+				};
+				/*--------------------方法结束-------------------*/
+				/*-------------------主方法开始-------------------*/
+				/**/
+				window.tuiDialogCache?'':window.tuiDialogCache=new Array();//创建一个用于记录弹出框信息的缓存，为了实现需要弹出多个弹出框的时候，按次序弹出的功能
+				if($('#tui_dialog_window:visible').length>0){//说明，调用主方法时，弹出框已经弹出，正在显示别的信息，因此，将该方法放入缓存中，等之前的弹出框关闭了在显示当前弹出框
+					window.tuiDialogCache.push(settings);//放入缓存
+					return;//所有方法结束，后面的显示过程都不做
+				}
+				
+				showBasicWindow(settings);//显示基本窗口
+				showContentPart(settings);//显示窗口中的内容
+				showButtonPart(settings);//显示窗口的按钮
+				settings.isShowMask?showMask(settings.maskAlphaColor,settings.maskAlpha):'';//显示遮罩层
+			},
+			closeTuiWindow:function(){//关闭窗口的总方法，用于封装时调用
+				//关闭遮罩层
+				var closeMask=function(){
+					//删除键盘enter和esc事件
+					$(document).unbind('keydown.tuiDialog');
+					$('#tui_dialog_mask').html('').hide();
+					$(window).unbind('resize.tuiDialog');
+				};
+				//用于关闭弹出窗口
+				var closeWindow=function(){
+					$('#tui_dialog_window').hide();
+					//取消因为IE6而兼容的position:fixed
+					$(window).unbind('scroll.tuiDialog');
+				};
+				//关闭窗口的统一方法,除了处理关闭窗口，还要负责将缓存中等待显示的信息取出（如果存在）,并进行显示
+				var closeTuiDialog=function(){
+					closeWindow();//关闭窗口
+					closeMask();//关闭遮罩层
+					if(window.tuiDialogCache&&window.tuiDialogCache.length>0){//说明缓存中还有要显示的信息
+						var tempCfg=window.tuiDialogCache.shift();//取出队列中的配置参数
+						$.tui.tuiDialog(tempCfg);//调用第二次
+					}
+				};
+				closeTuiDialog();
+			},
+			isVisible:function(){//判断是否有窗口显示
+				var $win=$('#tui_dialog_window');
+				if($win.length&&$win.is(':visible')){
+					return true;
+				}else{
+					return false;
+				}
+			}
+		});
+		/*----------------------------------extend拓展结束---------------------------------*/
+	})(jQuery);
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(9);
+	__webpack_require__(10);
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	/*! jQuery UI - v1.9.2 - 2012-12-13
 	* http://jqueryui.com
 	* Includes: jquery.ui.core.js, jquery.ui.datepicker.js
 	* Copyright (c) 2012 jQuery Foundation and other contributors Licensed MIT */
-!function(e,t){function i(t,i){var n,s,r,o=t.nodeName.toLowerCase();return"area"===o?(n=t.parentNode,s=n.name,t.href&&s&&"map"===n.nodeName.toLowerCase()?(r=e("img[usemap=#"+s+"]")[0],!!r&&a(r)):!1):(/input|select|textarea|button|object/.test(o)?!t.disabled:"a"===o?t.href||i:i)&&a(t)}function a(t){return e.expr.filters.visible(t)&&!e(t).parents().andSelf().filter(function(){return"hidden"===e.css(this,"visibility")}).length}var n=0,s=/^ui-id-\d+$/;e.ui=e.ui||{},e.ui.version||(e.extend(e.ui,{version:"1.9.2",keyCode:{BACKSPACE:8,COMMA:188,DELETE:46,DOWN:40,END:35,ENTER:13,ESCAPE:27,HOME:36,LEFT:37,NUMPAD_ADD:107,NUMPAD_DECIMAL:110,NUMPAD_DIVIDE:111,NUMPAD_ENTER:108,NUMPAD_MULTIPLY:106,NUMPAD_SUBTRACT:109,PAGE_DOWN:34,PAGE_UP:33,PERIOD:190,RIGHT:39,SPACE:32,TAB:9,UP:38}}),e.fn.extend({_focus:e.fn.focus,focus:function(t,i){return"number"==typeof t?this.each(function(){var a=this;setTimeout(function(){e(a).focus(),i&&i.call(a)},t)}):this._focus.apply(this,arguments)},scrollParent:function(){var t;return t=e.ui.ie&&/(static|relative)/.test(this.css("position"))||/absolute/.test(this.css("position"))?this.parents().filter(function(){return/(relative|absolute|fixed)/.test(e.css(this,"position"))&&/(auto|scroll)/.test(e.css(this,"overflow")+e.css(this,"overflow-y")+e.css(this,"overflow-x"))}).eq(0):this.parents().filter(function(){return/(auto|scroll)/.test(e.css(this,"overflow")+e.css(this,"overflow-y")+e.css(this,"overflow-x"))}).eq(0),/fixed/.test(this.css("position"))||!t.length?e(document):t},zIndex:function(i){if(i!==t)return this.css("zIndex",i);if(this.length)for(var a,n,s=e(this[0]);s.length&&s[0]!==document;){if(a=s.css("position"),("absolute"===a||"relative"===a||"fixed"===a)&&(n=parseInt(s.css("zIndex"),10),!isNaN(n)&&0!==n))return n;s=s.parent()}return 0},uniqueId:function(){return this.each(function(){this.id||(this.id="ui-id-"+ ++n)})},removeUniqueId:function(){return this.each(function(){s.test(this.id)&&e(this).removeAttr("id")})}}),e.extend(e.expr[":"],{data:e.expr.createPseudo?e.expr.createPseudo(function(t){return function(i){return!!e.data(i,t)}}):function(t,i,a){return!!e.data(t,a[3])},focusable:function(t){return i(t,!isNaN(e.attr(t,"tabindex")))},tabbable:function(t){var a=e.attr(t,"tabindex"),n=isNaN(a);return(n||a>=0)&&i(t,!n)}}),e(function(){var t=document.body,i=t.appendChild(i=document.createElement("div"));i.offsetHeight,e.extend(i.style,{minHeight:"100px",height:"auto",padding:0,borderWidth:0}),e.support.minHeight=100===i.offsetHeight,e.support.selectstart="onselectstart"in i,t.removeChild(i).style.display="none"}),e("<a>").outerWidth(1).jquery||e.each(["Width","Height"],function(i,a){function n(t,i,a,n){return e.each(s,function(){i-=parseFloat(e.css(t,"padding"+this))||0,a&&(i-=parseFloat(e.css(t,"border"+this+"Width"))||0),n&&(i-=parseFloat(e.css(t,"margin"+this))||0)}),i}var s="Width"===a?["Left","Right"]:["Top","Bottom"],r=a.toLowerCase(),o={innerWidth:e.fn.innerWidth,innerHeight:e.fn.innerHeight,outerWidth:e.fn.outerWidth,outerHeight:e.fn.outerHeight};e.fn["inner"+a]=function(i){return i===t?o["inner"+a].call(this):this.each(function(){e(this).css(r,n(this,i)+"px")})},e.fn["outer"+a]=function(t,i){return"number"!=typeof t?o["outer"+a].call(this,t):this.each(function(){e(this).css(r,n(this,t,!0,i)+"px")})}}),e("<a>").data("a-b","a").removeData("a-b").data("a-b")&&(e.fn.removeData=function(t){return function(i){return arguments.length?t.call(this,e.camelCase(i)):t.call(this)}}(e.fn.removeData)),function(){var t=/msie ([\w.]+)/.exec(navigator.userAgent.toLowerCase())||[];e.ui.ie=!!t.length,e.ui.ie6=6===parseFloat(t[1],10)}(),e.fn.extend({disableSelection:function(){return this.bind((e.support.selectstart?"selectstart":"mousedown")+".ui-disableSelection",function(e){e.preventDefault()})},enableSelection:function(){return this.unbind(".ui-disableSelection")}}),e.extend(e.ui,{plugin:{add:function(t,i,a){var n,s=e.ui[t].prototype;for(n in a)s.plugins[n]=s.plugins[n]||[],s.plugins[n].push([i,a[n]])},call:function(e,t,i){var a,n=e.plugins[t];if(n&&e.element[0].parentNode&&11!==e.element[0].parentNode.nodeType)for(a=0;a<n.length;a++)e.options[n[a][0]]&&n[a][1].apply(e.element,i)}},contains:e.contains,hasScroll:function(t,i){if("hidden"===e(t).css("overflow"))return!1;var a=i&&"left"===i?"scrollLeft":"scrollTop",n=!1;return t[a]>0?!0:(t[a]=1,n=t[a]>0,t[a]=0,n)},isOverAxis:function(e,t,i){return e>t&&t+i>e},isOver:function(t,i,a,n,s,r){return e.ui.isOverAxis(t,a,s)&&e.ui.isOverAxis(i,n,r)}}))}(jQuery),function($,undefined){function LunarCalendar(e){this.dateObj=e!=undefined?e:new Date,this.SY=this.dateObj.getFullYear(),this.SM=this.dateObj.getMonth(),this.SD=this.dateObj.getDate(),this.lunarDate,this.Lunar()}function Datepicker(){this.debug=!1,this._curInst=null,this._keyEvent=!1,this._disabledInputs=[],this._datepickerShowing=!1,this._inDialog=!1,this._mainDivId="ui-datepicker-div",this._inlineClass="ui-datepicker-inline",this._appendClass="ui-datepicker-append",this._triggerClass="ui-datepicker-trigger",this._dialogClass="ui-datepicker-dialog",this._disableClass="ui-datepicker-disabled",this._unselectableClass="ui-datepicker-unselectable",this._currentClass="ui-datepicker-current-day",this._dayOverClass="ui-datepicker-days-cell-over",this.regional=[],this.regional[""]={closeText:"Done",prevText:"Prev",nextText:"Next",currentText:"Today",clearText:"Clear",monthNames:["January","February","March","April","May","June","July","August","September","October","November","December"],monthNamesShort:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],dayNames:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],dayNamesShort:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],dayNamesMin:["Su","Mo","Tu","We","Th","Fr","Sa"],weekHeader:"Wk",dateFormat:"mm/dd/yy",firstDay:0,isRTL:!1,showMonthAfterYear:!1,yearSuffix:""},this._defaults={showOn:"focus",showAnim:"fadeIn",showOptions:{},defaultDate:null,appendText:"",buttonText:"...",buttonImage:"",buttonImageOnly:!1,hideIfNoPrevNext:!1,navigationAsDateFormat:!1,gotoCurrent:!1,changeMonth:!1,changeYear:!1,yearRange:"c-10:c+10",showOtherMonths:!0,selectOtherMonths:!1,showWeek:!1,calculateWeek:this.iso8601Week,shortYearCutoff:"+10",minDate:null,maxDate:null,duration:"fast",beforeShowDay:null,beforeShow:null,onSelect:null,onChangeMonthYear:null,onClose:null,numberOfMonths:1,showCurrentAtPos:0,stepMonths:1,stepBigMonths:12,altField:"",altFormat:"",constrainInput:!0,showButtonPanel:!1,autoSize:!1,disabled:!1,isShowLunarCal:!1,isShowFestival:!1,festivalList:{},clearBtn:!1},$.extend(this._defaults,this.regional[""]),this.dpDiv=bindHover($('<div id="'+this._mainDivId+'" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>'))}function bindHover(e){var t="button, .ui-datepicker-prev, .ui-datepicker-next, .ui-datepicker-calendar td a";return e.delegate(t,"mouseout",function(){$(this).removeClass("ui-state-hover"),-1!=this.className.indexOf("ui-datepicker-prev")&&$(this).removeClass("ui-datepicker-prev-hover"),-1!=this.className.indexOf("ui-datepicker-next")&&$(this).removeClass("ui-datepicker-next-hover")}).delegate(t,"mouseover",function(){$.datepicker._isDisabledDatepicker(instActive.inline?e.parent()[0]:instActive.input[0])||($(this).parents(".ui-datepicker-calendar").find("a").removeClass("ui-state-hover"),$(this).addClass("ui-state-hover"),-1!=this.className.indexOf("ui-datepicker-prev")&&$(this).addClass("ui-datepicker-prev-hover"),-1!=this.className.indexOf("ui-datepicker-next")&&$(this).addClass("ui-datepicker-next-hover"))})}function extendRemove(e,t){$.extend(e,t);for(var i in t)null!=t[i]&&t[i]!=undefined||(e[i]=t[i]);return e}$.extend($.ui,{datepicker:{version:"1.9.2"}});var PROP_NAME="datepicker",dpuuid=(new Date).getTime(),instActive;LunarCalendar.prototype.setDate=function(e){return this.dateObj=e,this.SY=e.getFullYear(),this.SM=e.getMonth(),this.SD=e.getDate(),this.Lunar(),this},LunarCalendar.prototype.lunarInfo=[19416,19168,42352,21717,53856,55632,91476,22176,39632,21970,19168,42422,42192,53840,119381,46400,54944,44450,38320,84343,18800,42160,46261,27216,27968,109396,11104,38256,21234,18800,25958,54432,59984,28309,23248,11104,100067,37600,116951,51536,54432,120998,46416,22176,107956,9680,37584,53938,43344,46423,27808,46416,86869,19872,42416,83315,21168,43432,59728,27296,44710,43856,19296,43748,42352,21088,62051,55632,23383,22176,38608,19925,19152,42192,54484,53840,54616,46400,46752,103846,38320,18864,43380,42160,45690,27216,27968,44870,43872,38256,19189,18800,25776,29859,59984,27480,21952,43872,38613,37600,51552,55636,54432,55888,30034,22176,43959,9680,37584,51893,43344,46240,47780,44368,21977,19360,42416,86390,21168,43312,31060,27296,44368,23378,19296,42726,42208,53856,60005,54576,23200,30371,38608,19415,19152,42192,118966,53840,54560,56645,46496,22224,21938,18864,42359,42160,43600,111189,27936,44448,84835],LunarCalendar.prototype.leapMonth=function(e){return 15&this.lunarInfo[e-1900]},LunarCalendar.prototype.monthDays=function(e,t){return this.lunarInfo[e-1900]&65536>>t?30:29},LunarCalendar.prototype.leapDays=function(e){return this.leapMonth(e)?65536&this.lunarInfo[e-1900]?30:29:0},LunarCalendar.prototype.lYearDays=function(e){var t,i=348;for(t=32768;t>8;t>>=1)i+=this.lunarInfo[e-1900]&t?1:0;return i+this.leapDays(e)},LunarCalendar.prototype.Lunar=function(){var e,t=this.dateObj,i=0,a=0,n={},s=new Date(1900,0,31),r=(t-s)/864e5;for(n.dayCyl=r+40,n.monCyl=14,e=1900;2050>e&&r>0;e++)a=this.lYearDays(e),r-=a,n.monCyl+=12;for(0>r&&(r+=a,e--,n.monCyl-=12),n.year=e,n.yearCyl=e-1864,i=this.leapMonth(e),n.isLeap=!1,e=1;13>e&&r>0;e++)i>0&&e==i+1&&0==n.isLeap?(--e,n.isLeap=!0,a=this.leapDays(n.year)):a=this.monthDays(n.year,e),1==n.isLeap&&e==i+1&&(n.isLeap=!1),r-=a,0==n.isLeap&&n.monCyl++;return 0==r&&i>0&&e==i+1&&(n.isLeap?n.isLeap=!1:(n.isLeap=!0,--e,--n.monCyl)),0>r&&(r+=a,--e,--n.monCyl),n.month=e,n.day=r+1,this.lunarDate=n,n},LunarCalendar.prototype.getYearToString=function(){var e,t=["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"],i=["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"],a=this.lunarDate.year>>>0;return e=t[(a-4)%10]+i[(a-4)%12]+"年"},LunarCalendar.prototype.getMouthToString=function(){var e,t=[" ","正","二","三","四","五","六","七","八","九","十","十一","腊"],i=this.lunarDate.month>>>0;return i>12||1>i?"":e=t[i]+"月"},LunarCalendar.prototype.getDateToString=function(){var e,t,i,a=["初","十","廿","三","　"],n=["十","一","二","三","四","五","六","七","八","九"],s=this.lunarDate.day;return s>39||0>s?"":(t=s%10>>>0,i=s/10>>>0,e=10==s?"初十":a[i]+n[t])},LunarCalendar.prototype.test=function(){var e=this.getYearToString()+this.getMouthToString()+this.getDateToString();return e},$.extend(Datepicker.prototype,{markerClassName:"hasDatepicker",maxRows:4,log:function(){this.debug&&console.log.apply("",arguments)},_widgetDatepicker:function(){return this.dpDiv},setDefaults:function(e){return extendRemove(this._defaults,e||{}),this},_attachDatepicker:function(target,settings){var inlineSettings=null;for(var attrName in this._defaults){var attrValue=target.getAttribute("date:"+attrName);if(attrValue){inlineSettings=inlineSettings||{};try{inlineSettings[attrName]=eval(attrValue)}catch(err){inlineSettings[attrName]=attrValue}}}var nodeName=target.nodeName.toLowerCase(),inline="div"==nodeName||"span"==nodeName;target.id||(this.uuid+=1,target.id="dp"+this.uuid);var inst=this._newInst($(target),inline);settings&&settings.festivalList&&(settings.festivalList=$.extend({},this._defaults.festivalList,settings.festivalList)),inst.settings=$.extend({},settings||{},inlineSettings||{}),"input"==nodeName?this._connectDatepicker(target,inst):inline&&this._inlineDatepicker(target,inst)},_newInst:function(e,t){var i=e[0].id.replace(/([^A-Za-z0-9_-])/g,"\\\\$1");return{id:i,input:e,selectedDay:0,selectedMonth:0,selectedYear:0,drawMonth:0,drawYear:0,inline:t,dpDiv:t?bindHover($('<div class="'+this._inlineClass+' ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>')):this.dpDiv}},_connectDatepicker:function(e,t){var i=$(e);t.append=$([]),t.trigger=$([]),i.hasClass(this.markerClassName)||(this._attachments(i,t),i.addClass(this.markerClassName).keydown(this._doKeyDown).keypress(this._doKeyPress).keyup(this._doKeyUp).bind("setData.datepicker",function(e,i,a){t.settings[i]=a}).bind("getData.datepicker",function(e,i){return this._get(t,i)}),this._autoSize(t),$.data(e,PROP_NAME,t),t.settings.disabled&&this._disableDatepicker(e))},_attachments:function(e,t){var i=this._get(t,"appendText"),a=this._get(t,"isRTL");t.append&&t.append.remove(),i&&(t.append=$('<span class="'+this._appendClass+'">'+i+"</span>"),e[a?"before":"after"](t.append)),e.unbind("focus",this._showDatepicker),t.trigger&&t.trigger.remove();var n=this._get(t,"showOn");if("focus"!=n&&"both"!=n||e.focus(this._showDatepicker),"button"==n||"both"==n){var s=this._get(t,"buttonText"),r=this._get(t,"buttonImage");t.trigger=$(this._get(t,"buttonImageOnly")?$("<img/>").addClass(this._triggerClass).attr({src:r,alt:s,title:s}):$('<button type="button"></button>').addClass(this._triggerClass).html(""==r?s:$("<img/>").attr({src:r,alt:s,title:s}))),e[a?"before":"after"](t.trigger),t.trigger.click(function(){return $.datepicker._datepickerShowing&&$.datepicker._lastInput==e[0]?$.datepicker._hideDatepicker():$.datepicker._datepickerShowing&&$.datepicker._lastInput!=e[0]?($.datepicker._hideDatepicker(),$.datepicker._showDatepicker(e[0])):$.datepicker._showDatepicker(e[0]),!1})}},_autoSize:function(e){if(this._get(e,"autoSize")&&!e.inline){var t=new Date(2009,11,20),i=this._get(e,"dateFormat");if(i.match(/[DM]/)){var a=function(e){for(var t=0,i=0,a=0;a<e.length;a++)e[a].length>t&&(t=e[a].length,i=a);return i};t.setMonth(a(this._get(e,i.match(/MM/)?"monthNames":"monthNamesShort"))),t.setDate(a(this._get(e,i.match(/DD/)?"dayNames":"dayNamesShort"))+20-t.getDay())}e.input.attr("size",this._formatDate(e,t).length)}},_inlineDatepicker:function(e,t){var i=$(e);i.hasClass(this.markerClassName)||(i.addClass(this.markerClassName).append(t.dpDiv).bind("setData.datepicker",function(e,i,a){t.settings[i]=a}).bind("getData.datepicker",function(e,i){return this._get(t,i)}),$.data(e,PROP_NAME,t),this._setDate(t,this._getDefaultDate(t),!0),this._updateDatepicker(t),this._updateAlternate(t),t.settings.disabled&&this._disableDatepicker(e),t.dpDiv.css("display","block"))},_dialogDatepicker:function(e,t,i,a,n){var s=this._dialogInst;if(!s){this.uuid+=1;var r="dp"+this.uuid;this._dialogInput=$('<input type="text" id="'+r+'" style="position: absolute; top: -100px; width: 0px;"/>'),this._dialogInput.keydown(this._doKeyDown),$("body").append(this._dialogInput),s=this._dialogInst=this._newInst(this._dialogInput,!1),s.settings={},$.data(this._dialogInput[0],PROP_NAME,s)}if(extendRemove(s.settings,a||{}),t=t&&t.constructor==Date?this._formatDate(s,t):t,this._dialogInput.val(t),this._pos=n?n.length?n:[n.pageX,n.pageY]:null,!this._pos){var o=document.documentElement.clientWidth,l=document.documentElement.clientHeight,c=document.documentElement.scrollLeft||document.body.scrollLeft,u=document.documentElement.scrollTop||document.body.scrollTop;this._pos=[o/2-100+c,l/2-150+u]}return this._dialogInput.css("left",this._pos[0]+20+"px").css("top",this._pos[1]+"px"),s.settings.onSelect=i,this._inDialog=!0,this.dpDiv.addClass(this._dialogClass),this._showDatepicker(this._dialogInput[0]),$.blockUI&&$.blockUI(this.dpDiv),$.data(this._dialogInput[0],PROP_NAME,s),this},_destroyDatepicker:function(e){var t=$(e),i=$.data(e,PROP_NAME);if(t.hasClass(this.markerClassName)){var a=e.nodeName.toLowerCase();$.removeData(e,PROP_NAME),"input"==a?(i.append.remove(),i.trigger.remove(),t.removeClass(this.markerClassName).unbind("focus",this._showDatepicker).unbind("keydown",this._doKeyDown).unbind("keypress",this._doKeyPress).unbind("keyup",this._doKeyUp)):"div"!=a&&"span"!=a||t.removeClass(this.markerClassName).empty()}},_enableDatepicker:function(e){var t=$(e),i=$.data(e,PROP_NAME);if(t.hasClass(this.markerClassName)){var a=e.nodeName.toLowerCase();if("input"==a)e.disabled=!1,i.trigger.filter("button").each(function(){this.disabled=!1}).end().filter("img").css({opacity:"1.0",cursor:""});else if("div"==a||"span"==a){var n=t.children("."+this._inlineClass);n.children().removeClass("ui-state-disabled"),n.find("select.ui-datepicker-month, select.ui-datepicker-year").prop("disabled",!1)}this._disabledInputs=$.map(this._disabledInputs,function(t){return t==e?null:t})}},_disableDatepicker:function(e){var t=$(e),i=$.data(e,PROP_NAME);if(t.hasClass(this.markerClassName)){var a=e.nodeName.toLowerCase();if("input"==a)e.disabled=!0,i.trigger.filter("button").each(function(){this.disabled=!0}).end().filter("img").css({opacity:"0.5",cursor:"default"});else if("div"==a||"span"==a){var n=t.children("."+this._inlineClass);n.children().addClass("ui-state-disabled"),n.find("select.ui-datepicker-month, select.ui-datepicker-year").prop("disabled",!0)}this._disabledInputs=$.map(this._disabledInputs,function(t){return t==e?null:t}),this._disabledInputs[this._disabledInputs.length]=e}},_isDisabledDatepicker:function(e){if(!e)return!1;for(var t=0;t<this._disabledInputs.length;t++)if(this._disabledInputs[t]==e)return!0;return!1},_getInst:function(e){try{return $.data(e,PROP_NAME)}catch(t){throw"Missing instance data for this datepicker"}},_optionDatepicker:function(e,t,i){var a=this._getInst(e);if(2==arguments.length&&"string"==typeof t)return"defaults"==t?$.extend({},$.datepicker._defaults):a?"all"==t?$.extend({},a.settings):this._get(a,t):null;var n=t||{};if("string"==typeof t&&(n={},n[t]=i),a){this._curInst==a&&this._hideDatepicker();var s=this._getDateDatepicker(e,!0),r=this._getMinMaxDate(a,"min"),o=this._getMinMaxDate(a,"max");extendRemove(a.settings,n),null!==r&&n.dateFormat!==undefined&&n.minDate===undefined&&(a.settings.minDate=this._formatDate(a,r)),null!==o&&n.dateFormat!==undefined&&n.maxDate===undefined&&(a.settings.maxDate=this._formatDate(a,o)),this._attachments($(e),a),this._autoSize(a),this._setDate(a,s),this._updateAlternate(a),this._updateDatepicker(a)}},_changeDatepicker:function(e,t,i){this._optionDatepicker(e,t,i)},_refreshDatepicker:function(e){var t=this._getInst(e);t&&this._updateDatepicker(t)},_setDateDatepicker:function(e,t){var i=this._getInst(e);i&&(this._setDate(i,t),this._updateDatepicker(i),this._updateAlternate(i))},_getDateDatepicker:function(e,t){var i=this._getInst(e);return i&&!i.inline&&this._setDateFromField(i,t),i?this._getDate(i):null},_doKeyDown:function(e){var t=$.datepicker._getInst(e.target),i=!0,a=t.dpDiv.is(".ui-datepicker-rtl");if(t._keyEvent=!0,$.datepicker._datepickerShowing)switch(e.keyCode){case 9:$.datepicker._hideDatepicker(),i=!1;break;case 13:var n=$("td."+$.datepicker._dayOverClass+":not(."+$.datepicker._currentClass+")",t.dpDiv);n[0]&&$.datepicker._selectDay(e.target,t.selectedMonth,t.selectedYear,n[0]);var s=$.datepicker._get(t,"onSelect");if(s){var r=$.datepicker._formatDate(t);s.apply(t.input?t.input[0]:null,[r,t])}else $.datepicker._hideDatepicker();return!1;case 27:$.datepicker._hideDatepicker();break;case 33:$.datepicker._adjustDate(e.target,e.ctrlKey?-$.datepicker._get(t,"stepBigMonths"):-$.datepicker._get(t,"stepMonths"),"M");break;case 34:$.datepicker._adjustDate(e.target,e.ctrlKey?+$.datepicker._get(t,"stepBigMonths"):+$.datepicker._get(t,"stepMonths"),"M");break;case 35:(e.ctrlKey||e.metaKey)&&$.datepicker._clearDate(e.target),i=e.ctrlKey||e.metaKey;break;case 36:(e.ctrlKey||e.metaKey)&&$.datepicker._gotoToday(e.target),i=e.ctrlKey||e.metaKey;break;case 37:(e.ctrlKey||e.metaKey)&&$.datepicker._adjustDate(e.target,a?1:-1,"D"),i=e.ctrlKey||e.metaKey,e.originalEvent.altKey&&$.datepicker._adjustDate(e.target,e.ctrlKey?-$.datepicker._get(t,"stepBigMonths"):-$.datepicker._get(t,"stepMonths"),"M");break;case 38:(e.ctrlKey||e.metaKey)&&$.datepicker._adjustDate(e.target,-7,"D"),i=e.ctrlKey||e.metaKey;break;case 39:(e.ctrlKey||e.metaKey)&&$.datepicker._adjustDate(e.target,a?-1:1,"D"),i=e.ctrlKey||e.metaKey,e.originalEvent.altKey&&$.datepicker._adjustDate(e.target,e.ctrlKey?+$.datepicker._get(t,"stepBigMonths"):+$.datepicker._get(t,"stepMonths"),"M");break;case 40:(e.ctrlKey||e.metaKey)&&$.datepicker._adjustDate(e.target,7,"D"),i=e.ctrlKey||e.metaKey;break;default:i=!1}else 36==e.keyCode&&e.ctrlKey?$.datepicker._showDatepicker(this):i=!1;i&&(e.preventDefault(),e.stopPropagation())},_doKeyPress:function(e){var t=$.datepicker._getInst(e.target);if($.datepicker._get(t,"constrainInput")){var i=$.datepicker._possibleChars($.datepicker._get(t,"dateFormat")),a=String.fromCharCode(e.charCode==undefined?e.keyCode:e.charCode);return e.ctrlKey||e.metaKey||" ">a||!i||i.indexOf(a)>-1}},_doKeyUp:function(e){var t=$.datepicker._getInst(e.target);if(t.input.val()!=t.lastVal)try{var i=$.datepicker.parseDate($.datepicker._get(t,"dateFormat"),t.input?t.input.val():null,$.datepicker._getFormatConfig(t));i&&($.datepicker._setDateFromField(t),$.datepicker._updateAlternate(t),$.datepicker._updateDatepicker(t))}catch(a){$.datepicker.log(a)}return!0},_showDatepicker:function(e){if(e=e.target||e,"input"!=e.nodeName.toLowerCase()&&(e=$("input",e.parentNode)[0]),!$.datepicker._isDisabledDatepicker(e)&&$.datepicker._lastInput!=e){var t=$.datepicker._getInst(e);$.datepicker._curInst&&$.datepicker._curInst!=t&&($.datepicker._curInst.dpDiv.stop(!0,!0),t&&$.datepicker._datepickerShowing&&$.datepicker._hideDatepicker($.datepicker._curInst.input[0]));var i=$.datepicker._get(t,"beforeShow"),a=i?i.apply(e,[e,t]):{};if(a!==!1){extendRemove(t.settings,a),t.lastVal=null,$.datepicker._lastInput=e,$.datepicker._setDateFromField(t),$.datepicker._inDialog&&(e.value=""),$.datepicker._pos||($.datepicker._pos=$.datepicker._findPos(e),$.datepicker._pos[1]+=e.offsetHeight);var n=!1;$(e).parents().each(function(){return n|="fixed"==$(this).css("position"),!n});var s={left:$.datepicker._pos[0],top:$.datepicker._pos[1]};if($.datepicker._pos=null,t.dpDiv.empty(),t.dpDiv.css({position:"absolute",display:"block",top:"-1000px"}),$.datepicker._updateDatepicker(t),s=$.datepicker._checkOffset(t,s,n),t.dpDiv.css({position:$.datepicker._inDialog&&$.blockUI?"static":n?"fixed":"absolute",display:"none",left:s.left+"px",top:s.top+"px"}),!t.inline){var r=$.datepicker._get(t,"showAnim"),o=$.datepicker._get(t,"duration"),l=function(){var e=t.dpDiv.find("iframe.ui-datepicker-cover");if(e.length){var i=$.datepicker._getBorders(t.dpDiv);e.css({left:-i[0],top:-i[1],width:t.dpDiv.outerWidth(),height:t.dpDiv.outerHeight()})}};t.dpDiv.zIndex($(e).zIndex()+20),$.datepicker._datepickerShowing=!0,$.effects&&($.effects.effect[r]||$.effects[r])?t.dpDiv.show(r,$.datepicker._get(t,"showOptions"),o,l):t.dpDiv[r||"show"](r?o:null,l),r&&o||l(),t.input.is(":visible")&&!t.input.is(":disabled")&&t.input.focus(),$.datepicker._curInst=t}}}},_updateDatepicker:function(e){this.maxRows=4;var t=$.datepicker._getBorders(e.dpDiv);instActive=e,e.dpDiv.empty().append(this._generateHTML(e)),this._attachHandlers(e);var i=e.dpDiv.find("iframe.ui-datepicker-cover");i.length&&i.css({left:-t[0],top:-t[1],width:e.dpDiv.outerWidth(),height:e.dpDiv.outerHeight()}),e.dpDiv.find("."+this._dayOverClass+" a").mouseover();var a=this._getNumberOfMonths(e),n=a[1],s=20;if(e.dpDiv.removeClass("ui-datepicker-multi-2 ui-datepicker-multi-3 ui-datepicker-multi-4").width(""),n>1&&e.dpDiv.addClass("ui-datepicker-multi-"+n).css("width",s*n+"em"),e.dpDiv[(1!=a[0]||1!=a[1]?"add":"remove")+"Class"]("ui-datepicker-multi"),e.dpDiv[(this._get(e,"isRTL")?"add":"remove")+"Class"]("ui-datepicker-rtl"),e==$.datepicker._curInst&&$.datepicker._datepickerShowing&&e.input&&e.input.is(":visible")&&!e.input.is(":disabled")&&e.input[0]!=document.activeElement&&e.input.focus(),e.yearshtml){var r=e.yearshtml;setTimeout(function(){r===e.yearshtml&&e.yearshtml&&e.dpDiv.find("select.ui-datepicker-year:first").replaceWith(e.yearshtml),r=e.yearshtml=null},0)}},_getBorders:function(e){var t=function(e){return{thin:1,medium:2,thick:3}[e]||e};return[parseFloat(t(e.css("border-left-width"))),parseFloat(t(e.css("border-top-width")))]},_checkOffset:function(e,t,i){var a=e.dpDiv.outerWidth(),n=e.dpDiv.outerHeight(),s=e.input?e.input.outerWidth():0,r=e.input?e.input.outerHeight():0,o=document.documentElement.clientWidth+(i?0:$(document).scrollLeft()),l=document.documentElement.clientHeight+(i?0:$(document).scrollTop());return t.left-=this._get(e,"isRTL")?a-s:0,t.left-=i&&t.left==e.input.offset().left?$(document).scrollLeft():0,t.top-=i&&t.top==e.input.offset().top+r?$(document).scrollTop():0,t.left-=Math.min(t.left,t.left+a>o&&o>a?Math.abs(t.left+a-o):0),t.top-=Math.min(t.top,t.top+n>l&&l>n?Math.abs(n+r):0),t},_findPos:function(e){for(var t=this._getInst(e),i=this._get(t,"isRTL");e&&("hidden"==e.type||1!=e.nodeType||$.expr.filters.hidden(e));)e=e[i?"previousSibling":"nextSibling"];var a=$(e).offset();return[a.left,a.top]},_hideDatepicker:function(e){var t=this._curInst;if(t&&(!e||t==$.data(e,PROP_NAME))&&this._datepickerShowing){var i=this._get(t,"showAnim"),a=this._get(t,"duration"),n=function(){$.datepicker._tidyDialog(t)};$.effects&&($.effects.effect[i]||$.effects[i])?t.dpDiv.hide(i,$.datepicker._get(t,"showOptions"),a,n):t.dpDiv["slideDown"==i?"slideUp":"fadeIn"==i?"fadeOut":"hide"](i?a:null,n),i||n(),this._datepickerShowing=!1;var s=this._get(t,"onClose");s&&s.apply(t.input?t.input[0]:null,[t.input?t.input.val():"",t]),this._lastInput=null,this._inDialog&&(this._dialogInput.css({position:"absolute",left:"0",top:"-100px"}),$.blockUI&&($.unblockUI(),$("body").append(this.dpDiv))),this._inDialog=!1}},_tidyDialog:function(e){e.dpDiv.removeClass(this._dialogClass).unbind(".ui-datepicker-calendar")},_checkExternalClick:function(e){if($.datepicker._curInst){var t=$(e.target),i=$.datepicker._getInst(t[0]);(t[0].id==$.datepicker._mainDivId||0!=t.parents("#"+$.datepicker._mainDivId).length||t.hasClass($.datepicker.markerClassName)||t.closest("."+$.datepicker._triggerClass).length||!$.datepicker._datepickerShowing||$.datepicker._inDialog&&$.blockUI)&&(!t.hasClass($.datepicker.markerClassName)||$.datepicker._curInst==i)||$.datepicker._hideDatepicker()}},_adjustDate:function(e,t,i){var a=$(e),n=this._getInst(a[0]);this._isDisabledDatepicker(a[0])||(this._adjustInstDate(n,t+("M"==i?this._get(n,"showCurrentAtPos"):0),i),this._updateDatepicker(n))},_gotoToday:function(e){var t=$(e),i=this._getInst(t[0]);if(this._get(i,"gotoCurrent")&&i.currentDay)i.selectedDay=i.currentDay,i.drawMonth=i.selectedMonth=i.currentMonth,i.drawYear=i.selectedYear=i.currentYear;else{var a=new Date;i.selectedDay=a.getDate(),i.drawMonth=i.selectedMonth=a.getMonth(),i.drawYear=i.selectedYear=a.getFullYear()}this._notifyChange(i),this._adjustDate(t)},_selectMonthYear:function(e,t,i){var a=$(e),n=this._getInst(a[0]);n["selected"+("M"==i?"Month":"Year")]=n["draw"+("M"==i?"Month":"Year")]=parseInt(t.options[t.selectedIndex].value,10),this._notifyChange(n),this._adjustDate(a)},_selectDay:function(e,t,i,a){var n=$(e);if(!$(a).hasClass(this._unselectableClass)&&!this._isDisabledDatepicker(n[0])){var s=this._getInst(n[0]);s.selectedDay=s.currentDay=$("a",a).attr("tui_day"),s.selectedMonth=s.currentMonth=t,s.selectedYear=s.currentYear=i,this._selectDate(e,this._formatDate(s,s.currentDay,s.currentMonth,s.currentYear))}},_clearDate:function(e){var t=$(e);this._getInst(t[0]);this._selectDate(t,"")},_clearDateWithPicker:function(e){var t=$(e),i=this._getInst(t[0]);this._setDate(i)},_selectDate:function(e,t){var i=$(e),a=this._getInst(i[0]);t=null!=t?t:this._formatDate(a),a.input&&a.input.val(t),this._updateAlternate(a);var n=this._get(a,"onSelect");n?n.apply(a.input?a.input[0]:null,[t,a]):a.input&&a.input.trigger("change"),a.inline?this._updateDatepicker(a):(this._hideDatepicker(),this._lastInput=a.input[0],"object"!=typeof a.input[0]&&a.input.focus(),this._lastInput=null)},_updateAlternate:function(e){var t=this._get(e,"altField");if(t){var i=this._get(e,"altFormat")||this._get(e,"dateFormat"),a=this._getDate(e),n=this.formatDate(i,a,this._getFormatConfig(e));$(t).each(function(){$(this).val(n)})}},noWeekends:function(e){var t=e.getDay();return[t>0&&6>t,""]},iso8601Week:function(e){var t=new Date(e.getTime());t.setDate(t.getDate()+4-(t.getDay()||7));var i=t.getTime();return t.setMonth(0),t.setDate(1),Math.floor(Math.round((i-t)/864e5)/7)+1},parseDate:function(e,t,i){if(null==e||null==t)throw"Invalid arguments";if(t="object"==typeof t?t.toString():t+"",""==t)return null;var a=(i?i.shortYearCutoff:null)||this._defaults.shortYearCutoff;a="string"!=typeof a?a:(new Date).getFullYear()%100+parseInt(a,10);for(var n=(i?i.dayNamesShort:null)||this._defaults.dayNamesShort,s=(i?i.dayNames:null)||this._defaults.dayNames,r=(i?i.monthNamesShort:null)||this._defaults.monthNamesShort,o=(i?i.monthNames:null)||this._defaults.monthNames,l=-1,c=-1,u=-1,d=-1,p=!1,h=function(t){var i=_+1<e.length&&e.charAt(_+1)==t;return i&&_++,i},f=function(e){var i=h(e),a="@"==e?14:"!"==e?20:"y"==e&&i?4:"o"==e?3:2,n=new RegExp("^\\d{1,"+a+"}"),s=t.substring(v).match(n);if(!s)throw"Missing number at position "+v;return v+=s[0].length,parseInt(s[0],10)},g=function(e,i,a){var n=$.map(h(e)?a:i,function(e,t){return[[t,e]]}).sort(function(e,t){return-(e[1].length-t[1].length)}),s=-1;if($.each(n,function(e,i){var a=i[1];return t.substr(v,a.length).toLowerCase()==a.toLowerCase()?(s=i[0],v+=a.length,!1):void 0}),-1!=s)return s+1;throw"Unknown name at position "+v},m=function(){if(t.charAt(v)!=e.charAt(_))throw"Unexpected literal at position "+v;v++},v=0,_=0;_<e.length;_++)if(p)"'"!=e.charAt(_)||h("'")?m():p=!1;else switch(e.charAt(_)){case"d":u=f("d");break;case"D":g("D",n,s);break;case"o":d=f("o");break;case"m":c=f("m");break;case"M":c=g("M",r,o);break;case"y":l=f("y");break;case"@":var b=new Date(f("@"));l=b.getFullYear(),c=b.getMonth()+1,u=b.getDate();break;case"!":var b=new Date((f("!")-this._ticksTo1970)/1e4);l=b.getFullYear(),c=b.getMonth()+1,u=b.getDate();break;case"'":h("'")?m():p=!0;break;default:m()}if(v<t.length){var y=t.substr(v);if(!/^\s+/.test(y))throw"Extra/unparsed characters found in date: "+y}if(-1==l?l=(new Date).getFullYear():100>l&&(l+=(new Date).getFullYear()-(new Date).getFullYear()%100+(a>=l?0:-100)),d>-1)for(c=1,u=d;;){var D=this._getDaysInMonth(l,c-1);if(D>=u)break;c++,u-=D}var b=this._daylightSavingAdjust(new Date(l,c-1,u));if(b.getFullYear()!=l||b.getMonth()+1!=c||b.getDate()!=u)throw"Invalid date";return b},ATOM:"yy-mm-dd",COOKIE:"D, dd M yy",ISO_8601:"yy-mm-dd",RFC_822:"D, d M y",RFC_850:"DD, dd-M-y",RFC_1036:"D, d M y",RFC_1123:"D, d M yy",RFC_2822:"D, d M yy",RSS:"D, d M y",TICKS:"!",TIMESTAMP:"@",W3C:"yy-mm-dd",_ticksTo1970:24*(718685+Math.floor(492.5)-Math.floor(19.7)+Math.floor(4.925))*60*60*1e7,formatDate:function(e,t,i){if(!t)return"";var a=(i?i.dayNamesShort:null)||this._defaults.dayNamesShort,n=(i?i.dayNames:null)||this._defaults.dayNames,s=(i?i.monthNamesShort:null)||this._defaults.monthNamesShort,r=(i?i.monthNames:null)||this._defaults.monthNames,o=function(t){var i=p+1<e.length&&e.charAt(p+1)==t;return i&&p++,i},l=function(e,t,i){var a=""+t;if(o(e))for(;a.length<i;)a="0"+a;return a},c=function(e,t,i,a){return o(e)?a[t]:i[t]},u="",d=!1;if(t)for(var p=0;p<e.length;p++)if(d)"'"!=e.charAt(p)||o("'")?u+=e.charAt(p):d=!1;else switch(e.charAt(p)){case"d":u+=l("d",t.getDate(),2);break;case"D":u+=c("D",t.getDay(),a,n);break;case"o":u+=l("o",Math.round((new Date(t.getFullYear(),t.getMonth(),t.getDate()).getTime()-new Date(t.getFullYear(),0,0).getTime())/864e5),3);break;case"m":u+=l("m",t.getMonth()+1,2);break;case"M":u+=c("M",t.getMonth(),s,r);break;case"y":u+=o("y")?t.getFullYear():(t.getYear()%100<10?"0":"")+t.getYear()%100;break;case"@":u+=t.getTime();break;case"!":u+=1e4*t.getTime()+this._ticksTo1970;break;case"'":o("'")?u+="'":d=!0;break;default:u+=e.charAt(p)}return u},_possibleChars:function(e){for(var t="",i=!1,a=function(t){var i=n+1<e.length&&e.charAt(n+1)==t;return i&&n++,i},n=0;n<e.length;n++)if(i)"'"!=e.charAt(n)||a("'")?t+=e.charAt(n):i=!1;else switch(e.charAt(n)){case"d":
-case"m":case"y":case"@":t+="0123456789";break;case"D":case"M":return null;case"'":a("'")?t+="'":i=!0;break;default:t+=e.charAt(n)}return t},_get:function(e,t){return e.settings[t]!==undefined?e.settings[t]:this._defaults[t]},_setDateFromField:function(e,t){if(e.input.val()!=e.lastVal){var i,a,n=this._get(e,"dateFormat"),s=e.lastVal=e.input?e.input.val():null;i=a=this._getDefaultDate(e);var r=this._getFormatConfig(e);try{i=this.parseDate(n,s,r)||a}catch(o){this.log(o),s=t?"":s}e.selectedDay=i.getDate(),e.drawMonth=e.selectedMonth=i.getMonth(),e.drawYear=e.selectedYear=i.getFullYear(),e.currentDay=s?i.getDate():0,e.currentMonth=s?i.getMonth():0,e.currentYear=s?i.getFullYear():0,this._adjustInstDate(e)}},_getDefaultDate:function(e){return this._restrictMinMax(e,this._determineDate(e,this._get(e,"defaultDate"),new Date))},_determineDate:function(e,t,i){var a=function(e){var t=new Date;return t.setDate(t.getDate()+e),t},n=function(t){try{return $.datepicker.parseDate($.datepicker._get(e,"dateFormat"),t,$.datepicker._getFormatConfig(e))}catch(i){}for(var a=(t.toLowerCase().match(/^c/)?$.datepicker._getDate(e):null)||new Date,n=a.getFullYear(),s=a.getMonth(),r=a.getDate(),o=/([+-]?[0-9]+)\s*(d|D|w|W|m|M|y|Y)?/g,l=o.exec(t);l;){switch(l[2]||"d"){case"d":case"D":r+=parseInt(l[1],10);break;case"w":case"W":r+=7*parseInt(l[1],10);break;case"m":case"M":s+=parseInt(l[1],10),r=Math.min(r,$.datepicker._getDaysInMonth(n,s));break;case"y":case"Y":n+=parseInt(l[1],10),r=Math.min(r,$.datepicker._getDaysInMonth(n,s))}l=o.exec(t)}return new Date(n,s,r)},s=null==t||""===t?i:"string"==typeof t?n(t):"number"==typeof t?isNaN(t)?i:a(t):new Date(t.getTime());return s=s&&"Invalid Date"==s.toString()?i:s,s&&(s.setHours(0),s.setMinutes(0),s.setSeconds(0),s.setMilliseconds(0)),this._daylightSavingAdjust(s)},_daylightSavingAdjust:function(e){return e?(e.setHours(e.getHours()>12?e.getHours()+2:0),e):null},_setDate:function(e,t,i){var a=!t,n=e.selectedMonth,s=e.selectedYear,r=this._restrictMinMax(e,this._determineDate(e,t,new Date));e.selectedDay=e.currentDay=r.getDate(),e.drawMonth=e.selectedMonth=e.currentMonth=r.getMonth(),e.drawYear=e.selectedYear=e.currentYear=r.getFullYear(),n==e.selectedMonth&&s==e.selectedYear||i||this._notifyChange(e),this._adjustInstDate(e),e.input&&e.input.val(a?"":this._formatDate(e))},_getDate:function(e){var t=!e.currentYear||e.input&&""==e.input.val()?null:this._daylightSavingAdjust(new Date(e.currentYear,e.currentMonth,e.currentDay));return t},_attachHandlers:function(e){var t=this._get(e,"stepMonths"),i="#"+e.id.replace(/\\\\/g,"\\");e.dpDiv.find("[data-handler]").map(function(){var e={prev:function(){window["DP_jQuery_"+dpuuid].datepicker._adjustDate(i,-t,"M")},next:function(){window["DP_jQuery_"+dpuuid].datepicker._adjustDate(i,+t,"M")},hide:function(){window["DP_jQuery_"+dpuuid].datepicker._hideDatepicker()},today:function(){window["DP_jQuery_"+dpuuid].datepicker._gotoToday(i)},selectDay:function(){return window["DP_jQuery_"+dpuuid].datepicker._selectDay(i,+this.getAttribute("data-month"),+this.getAttribute("data-year"),this),!1},selectMonth:function(){return window["DP_jQuery_"+dpuuid].datepicker._selectMonthYear(i,this,"M"),!1},selectYear:function(){return window["DP_jQuery_"+dpuuid].datepicker._selectMonthYear(i,this,"Y"),!1},clear:function(){return window["DP_jQuery_"+dpuuid].datepicker._clearDateWithPicker(i),!1}};$(this).bind(this.getAttribute("data-event"),e[this.getAttribute("data-handler")])})},_getDateFormatString:function(e){var t=e.getFullYear(),i=e.getMonth()+1,a=e.getDate();return t+"-"+(i>9?i:"0"+i)+"-"+(a>9?a:"0"+a)},_generateHTML:function(e){var t=new Date;t=this._daylightSavingAdjust(new Date(t.getFullYear(),t.getMonth(),t.getDate()));var i=this._get(e,"isRTL"),a=this._get(e,"showButtonPanel"),n=this._get(e,"hideIfNoPrevNext"),s=this._get(e,"clearBtn"),r=this._get(e,"navigationAsDateFormat"),o=this._getNumberOfMonths(e),l=this._get(e,"showCurrentAtPos"),c=this._get(e,"stepMonths"),u=1!=o[0]||1!=o[1],d=this._daylightSavingAdjust(e.currentDay?new Date(e.currentYear,e.currentMonth,e.currentDay):new Date(9999,9,9)),p=this._getMinMaxDate(e,"min"),h=this._getMinMaxDate(e,"max"),f=e.drawMonth-l,g=e.drawYear;if(0>f&&(f+=12,g--),h){var m=this._daylightSavingAdjust(new Date(h.getFullYear(),h.getMonth()-o[0]*o[1]+1,h.getDate()));for(m=p&&p>m?p:m;this._daylightSavingAdjust(new Date(g,f,1))>m;)f--,0>f&&(f=11,g--)}e.drawMonth=f,e.drawYear=g;var v=this._get(e,"prevText");v=r?this.formatDate(v,this._daylightSavingAdjust(new Date(g,f-c,1)),this._getFormatConfig(e)):v;var _=this._canAdjustMonth(e,-1,g,f)?'<a class="ui-datepicker-prev ui-corner-all" data-handler="prev" data-event="click" title="'+v+'"><span class="ui-icon ui-icon-circle-triangle-'+(i?"e":"w")+'">'+v+"</span></a>":n?"":'<a class="ui-datepicker-prev ui-corner-all ui-state-disabled" title="'+v+'"><span class="ui-icon ui-icon-circle-triangle-'+(i?"e":"w")+'">'+v+"</span></a>",b=this._get(e,"nextText");b=r?this.formatDate(b,this._daylightSavingAdjust(new Date(g,f+c,1)),this._getFormatConfig(e)):b;var y=this._canAdjustMonth(e,1,g,f)?'<a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="'+b+'"><span class="ui-icon ui-icon-circle-triangle-'+(i?"w":"e")+'">'+b+"</span></a>":n?"":'<a class="ui-datepicker-next ui-corner-all ui-state-disabled" title="'+b+'"><span class="ui-icon ui-icon-circle-triangle-'+(i?"w":"e")+'">'+b+"</span></a>",D=this._get(e,"currentText"),T=this._get(e,"gotoCurrent")&&e.currentDay?d:t;D=r?this.formatDate(D,T,this._getFormatConfig(e)):D;var x=e.inline?"":'<button type="button" class="ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all" data-handler="hide" data-event="click">'+this._get(e,"closeText")+"</button>",k=a?'<div class="ui-datepicker-buttonpane ui-widget-content">'+(i?x:"")+(this._isInRange(e,T)?'<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all" data-event="click" data-handler="'+(s?"clear":"today")+'">'+(s?this._get(e,"clearText"):D)+"</button>":"")+(i?"":x)+"</div>":"",w=parseInt(this._get(e,"firstDay"),10);w=isNaN(w)?0:w;for(var S=this._get(e,"showWeek"),M=this._get(e,"dayNames"),L=(this._get(e,"dayNamesShort"),this._get(e,"dayNamesMin")),O=this._get(e,"monthNames"),C=this._get(e,"monthNamesShort"),F=this._get(e,"beforeShowDay"),A=this._get(e,"showOtherMonths"),N=this._get(e,"selectOtherMonths"),I=(this._get(e,"calculateWeek")||this.iso8601Week,this._getDefaultDate(e)),P="",E=this._get(e,"isShowLunarCal"),V=new LunarCalendar,R=this._get(e,"isShowFestival"),B=this._get(e,"festivalList"),z=0;z<o[0];z++){var j="";this.maxRows=4;for(var U=0;U<o[1];U++){var Y=this._daylightSavingAdjust(new Date(g,f,e.selectedDay)),q=" ui-corner-all",H="";if(u){if(H+='<div class="ui-datepicker-group',o[1]>1)switch(U){case 0:H+=" ui-datepicker-group-first",q=" ui-corner-"+(i?"right":"left");break;case o[1]-1:H+=" ui-datepicker-group-last",q=" ui-corner-"+(i?"left":"right");break;default:H+=" ui-datepicker-group-middle",q=""}H+='">'}H+='<div class="ui-datepicker-header ui-widget-header ui-helper-clearfix'+q+'">'+(/all|left/.test(q)&&0==z?i?y:_:"")+(/all|right/.test(q)&&0==z?i?_:y:"")+this._generateMonthYearHeader(e,f,g,p,h,z>0||U>0,O,C)+'</div><table class="ui-datepicker-calendar"><thead><tr>';for(var G=S?'<th class="ui-datepicker-week-col">'+this._get(e,"weekHeader")+"</th>":"",W=0;7>W;W++){var K=(W+w)%7;G+="<th"+((W+w+6)%7>=5?' class="ui-datepicker-week-end"':"")+'><span title="'+M[K]+'">'+L[K]+"</span></th>"}H+=G+"</tr></thead><tbody>";var J=this._getDaysInMonth(g,f);g==e.selectedYear&&f==e.selectedMonth&&(e.selectedDay=Math.min(e.selectedDay,J));var Z=(this._getFirstDayOfMonth(g,f)-w+7)%7,Q=Math.ceil((Z+J)/7),X=u&&this.maxRows>Q?this.maxRows:Q;this.maxRows=X;for(var ee=this._daylightSavingAdjust(new Date(g,f,1-Z)),te=0;X>te;te++){H+="<tr>";for(var ie=S?'<td class="ui-datepicker-week-col">'+this._get(e,"calculateWeek")(ee)+"</td>":"",W=0;7>W;W++){E&&V.setDate(ee);var ae=this._getDateFormatString(ee),ne=R?B[ae]:null,se=null;ne&&(se=ne.charAt(ne.length-1),"*"==se?ne=ne.slice(0,ne.length-1):se=null);var re=F?F.apply(e.input?e.input[0]:null,[ee]):[!0,""],oe=ee.getMonth()!=f,le=oe&&!N||!re[0]||p&&p>ee||h&&ee>h;ie+='<td class="'+((W+w+6)%7>=5?" ui-datepicker-week-end":"")+(oe?" ui-datepicker-other-month":"")+(ee.getTime()==Y.getTime()&&f==e.selectedMonth&&e._keyEvent||I.getTime()==ee.getTime()&&I.getTime()==Y.getTime()?" "+this._dayOverClass:"")+(le?" "+this._unselectableClass+" ui-state-disabled":"")+(oe&&!A?"":" "+re[1]+(ee.getTime()==d.getTime()?" "+this._currentClass:"")+(ee.getTime()==t.getTime()?" ui-datepicker-today":""))+'"'+(oe&&!A||!re[2]?"":' title="'+re[2]+'"')+(le?"":' data-handler="selectDay" data-event="click" data-month="'+ee.getMonth()+'" data-year="'+ee.getFullYear()+'"')+">"+(oe&&!A?"&#xa0;":le?'<span class="ui-state-default">'+ee.getDate()+(E?"<br /><span class='tui_lunar_date'>"+(1==V.lunarDate.day?V.getMouthToString():V.getDateToString())+"</span>":"")+"</span>":'<a class="ui-state-default'+(ee.getTime()==t.getTime()?" ui-state-highlight":"")+(ne?" tui_festival":"")+(ee.getTime()==d.getTime()?" ui-state-active":"")+(oe?" ui-priority-secondary":"")+'" href="#" tui_day="'+ee.getDate()+'" title= "'+(E?V.getYearToString()+V.getMouthToString():"")+(ne?" "+ne:"")+'" >'+(se?'<div class="tui_festival_mark"></div>':"")+ee.getDate()+(E?"<br /><span class='tui_lunar_date'>"+(1==V.lunarDate.day?V.getMouthToString():V.getDateToString())+"</span>":"")+"</a>")+"</td>",ee.setDate(ee.getDate()+1),ee=this._daylightSavingAdjust(ee)}H+=ie+"</tr>"}f++,f>11&&(f=0,g++),H+="</tbody></table>"+(u?"</div>"+(o[0]>0&&U==o[1]-1?'<div class="ui-datepicker-row-break"></div>':""):""),j+=H}P+=j}return P+=k+($.ui.ie6&&!e.inline?'<iframe src="javascript:false;" class="ui-datepicker-cover" frameborder="0"></iframe>':""),e._keyEvent=!1,P},_generateMonthYearHeader:function(e,t,i,a,n,s,r,o){var l=this._get(e,"changeMonth"),c=this._get(e,"changeYear"),u=this._get(e,"showMonthAfterYear"),d='<div class="ui-datepicker-title">',p="";if(s||!l)p+='<span class="ui-datepicker-month">'+r[t]+"</span>";else{var h=a&&a.getFullYear()==i,f=n&&n.getFullYear()==i;p+='<select class="ui-datepicker-month" data-handler="selectMonth" data-event="change">';for(var g=0;12>g;g++)(!h||g>=a.getMonth())&&(!f||g<=n.getMonth())&&(p+='<option value="'+g+'"'+(g==t?' selected="selected"':"")+">"+o[g]+"</option>");p+="</select>"}if(u||(d+=p+(!s&&l&&c?"":"&#xa0;")),!e.yearshtml)if(e.yearshtml="",s||!c)d+='<span class="ui-datepicker-year">'+i+"</span>";else{var m=this._get(e,"yearRange").split(":"),v=(new Date).getFullYear(),_=function(e){var t=e.match(/c[+-].*/)?i+parseInt(e.substring(1),10):e.match(/[+-].*/)?v+parseInt(e,10):parseInt(e,10);return isNaN(t)?v:t},b=_(m[0]),y=Math.max(b,_(m[1]||""));for(b=a?Math.max(b,a.getFullYear()):b,y=n?Math.min(y,n.getFullYear()):y,e.yearshtml+='<select class="ui-datepicker-year" data-handler="selectYear" data-event="change">';y>=b;b++)e.yearshtml+='<option value="'+b+'"'+(b==i?' selected="selected"':"")+">"+b+"</option>";e.yearshtml+="</select>",d+=e.yearshtml,e.yearshtml=null}return d+=this._get(e,"yearSuffix"),u&&(d+=(!s&&l&&c?"":"&#xa0;")+p),d+="</div>"},_adjustInstDate:function(e,t,i){var a=e.drawYear+("Y"==i?t:0),n=e.drawMonth+("M"==i?t:0),s=Math.min(e.selectedDay,this._getDaysInMonth(a,n))+("D"==i?t:0),r=this._restrictMinMax(e,this._daylightSavingAdjust(new Date(a,n,s)));e.selectedDay=r.getDate(),e.drawMonth=e.selectedMonth=r.getMonth(),e.drawYear=e.selectedYear=r.getFullYear(),"M"!=i&&"Y"!=i||this._notifyChange(e)},_restrictMinMax:function(e,t){var i=this._getMinMaxDate(e,"min"),a=this._getMinMaxDate(e,"max"),n=i&&i>t?i:t;return n=a&&n>a?a:n},_notifyChange:function(e){var t=this._get(e,"onChangeMonthYear");t&&t.apply(e.input?e.input[0]:null,[e.selectedYear,e.selectedMonth+1,e])},_getNumberOfMonths:function(e){var t=this._get(e,"numberOfMonths");return null==t?[1,1]:"number"==typeof t?[1,t]:t},_getMinMaxDate:function(e,t){return this._determineDate(e,this._get(e,t+"Date"),null)},_getDaysInMonth:function(e,t){return 32-this._daylightSavingAdjust(new Date(e,t,32)).getDate()},_getFirstDayOfMonth:function(e,t){return new Date(e,t,1).getDay()},_canAdjustMonth:function(e,t,i,a){var n=this._getNumberOfMonths(e),s=this._daylightSavingAdjust(new Date(i,a+(0>t?t:n[0]*n[1]),1));return 0>t&&s.setDate(this._getDaysInMonth(s.getFullYear(),s.getMonth())),this._isInRange(e,s)},_isInRange:function(e,t){var i=this._getMinMaxDate(e,"min"),a=this._getMinMaxDate(e,"max");return(!i||t.getTime()>=i.getTime())&&(!a||t.getTime()<=a.getTime())},_getFormatConfig:function(e){var t=this._get(e,"shortYearCutoff");return t="string"!=typeof t?t:(new Date).getFullYear()%100+parseInt(t,10),{shortYearCutoff:t,dayNamesShort:this._get(e,"dayNamesShort"),dayNames:this._get(e,"dayNames"),monthNamesShort:this._get(e,"monthNamesShort"),monthNames:this._get(e,"monthNames")}},_formatDate:function(e,t,i,a){t||(e.currentDay=e.selectedDay,e.currentMonth=e.selectedMonth,e.currentYear=e.selectedYear);var n=t?"object"==typeof t?t:this._daylightSavingAdjust(new Date(a,i,t)):this._daylightSavingAdjust(new Date(e.currentYear,e.currentMonth,e.currentDay));return this.formatDate(this._get(e,"dateFormat"),n,this._getFormatConfig(e))}}),$.fn.datepicker=function(e){if(!this.length)return this;$.datepicker.initialized||($(document).mousedown($.datepicker._checkExternalClick).find(document.body).append($.datepicker.dpDiv),$.datepicker.initialized=!0);var t=Array.prototype.slice.call(arguments,1);return"string"!=typeof e||"isDisabled"!=e&&"getDate"!=e&&"widget"!=e?"option"==e&&2==arguments.length&&"string"==typeof arguments[1]?$.datepicker["_"+e+"Datepicker"].apply($.datepicker,[this[0]].concat(t)):this.each(function(){"string"==typeof e?$.datepicker["_"+e+"Datepicker"].apply($.datepicker,[this].concat(t)):$.datepicker._attachDatepicker(this,e)}):$.datepicker["_"+e+"Datepicker"].apply($.datepicker,[this[0]].concat(t))},$.datepicker=new Datepicker,$.datepicker.initialized=!1,$.datepicker.uuid=(new Date).getTime(),$.datepicker.version="1.9.2",window["DP_jQuery_"+dpuuid]=$}(jQuery)},function(e,t){jQuery(function(e){e.datepicker.regional["zh-CN"]={closeText:"关闭",prevText:"&#x3c;上月",nextText:"下月&#x3e;",currentText:"当月",monthNames:["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],monthNamesShort:["一","二","三","四","五","六","七","八","九","十","十一","十二"],dayNames:["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],dayNamesShort:["周日","周一","周二","周三","周四","周五","周六"],dayNamesMin:["日","一","二","三","四","五","六"],weekHeader:"周",dateFormat:"yy-mm-dd",firstDay:0,isRTL:!1,showMonthAfterYear:!0,yearSuffix:"年",festivalList:{"2014-01-01":"元旦*","2014-01-31":"春节*","2014-02-01":"春节","2014-02-02":"春节","2014-02-03":"春节","2014-02-04":"春节","2014-02-05":"春节","2014-02-06":"春节","2014-04-05":"清明节*","2014-04-06":"清明节","2014-04-07":"清明节","2014-05-01":"劳动节*","2014-05-02":"劳动节","2014-05-03":"劳动节","2014-05-31":"端午节","2014-06-01":"端午节","2014-06-02":"端午节*","2014-09-06":"中秋节","2014-09-07":"中秋节","2014-09-08":"中秋节*","2014-10-01":"国庆节*","2014-10-02":"国庆节","2014-10-03":"国庆节","2014-10-04":"国庆节","2014-10-05":"国庆节","2014-10-06":"国庆节","2014-10-07":"国庆节","2015-01-01":"元旦*","2015-01-02":"元旦","2015-01-03":"元旦","2015-02-18":"春节","2015-02-19":"春节*","2015-02-20":"春节","2015-02-21":"春节","2015-02-22":"春节","2015-02-23":"春节","2015-02-24":"春节","2015-04-04":"清明节","2015-04-05":"清明节*","2015-04-06":"清明节","2015-05-01":"劳动节*","2015-05-02":"劳动节","2015-05-03":"劳动节","2015-06-20":"端午节*","2015-06-21":"端午节","2015-06-22":"端午节","2015-09-27":"中秋节*","2015-10-01":"国庆节*","2015-10-02":"国庆节","2015-10-03":"国庆节","2015-10-04":"国庆节","2015-10-05":"国庆节","2015-10-06":"国庆节","2015-10-07":"国庆节"},clearText:"清空"},e.datepicker.setDefaults(e.datepicker.regional["zh-CN"])})},function(e,t,i){var a;a=function(e,t,a){i(11),i(17),i(34),i(47);var n=(i(20),angular.module("app",["pasvaz.bindonce","ngMessages","app.factory","app.controllers","app.directives","app.filter"]));n.constant("DEFAULT_SERVICETYPE","F")}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,a){i(12),i(14),i(15)}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,a){var n=i(13);n.factory("FormData",["DEFAULT_SERVICETYPE",function(e){var t=$.trim($("#contextPath").val()),i=$.trim($("#carrCode").val()),a=$.trim($("#action").val());return{id:"",status:"",statusDes:"",contextPath:t,carrCode:i,serviceAndSubCode:"",serviceType:e,action:a,sel1:{showStr:"",value:""},sel2:{showStr:"",value:""},sel3:{showStr:"",value:"",textTableNo163:"",serviceGroup:"",serviceType:""},sel4:[],basicInfoVo:{id:"",subCode:"",indCxr:"",subDescription:"",ftmCode:"",carrCode:"",ftmDescription:"",serviceGroup:"",serviceGroupDescription:"",subGroup:"",subGroupDescription:"",serveceType:"",commercialName:""},firstMaintenanceDate:"",lastMaintenanceDate:"",description:"",fareBasis:"",freeBaggageAllowancePieces:"",firstExcessOccurrence:"",lastExcessOccurrence:"",freeBaggageAllowanceWeight:"",freeBaggageAllowanceUnit:"",noChargeNotAvailable:"",baggageTravelApplication:"",textTableNo196:"",list196VO:[],discountOrNot:"1",discountRuleTableNo201:"",list201VO:[],serviceFeeCurTableNo170:"",list170VO:[],mileageMinimum:"",mileageMaximum:"",specifiedServiceFeeApp:"",specServiceFeeColSub:"",specServiceFeeNetSell:"",specSevFeeAndOrIndicator:"",specifiedServiceFeeMileage:"",mileageExchangeIndicator:"0",availability:"N",sequenceNumber:"",passengerTypeCode:"",minPassengerAge:"",maxPassengerAge:"",firstPassengerOccurrence:"",lastPassengerOccurrence:"",customerIndexScoreMinimum:"",customerIndexScoreMaxmum:"",frequentFlyerStatus:"",accountCodeTableNo172:"",list172VO:[],ticketDesignatorTableNo173:"",list173TicketVO:[],tktDesignatorTableNo173:"",list173TktVO:[],tourCode:"",cabin:"",upgradeToCabin:"",rbdTableNo198:"",list198VO:[],upgradeToRbdTableNo198:"",list198UpgradeVO:[],securityTableNo183:"",list183VO:[],publicPrivateIndicator:"",carrierFlightTableNo186:"",list186VO:[],taxApplication:"Y",tariff:"",rule:"",cxrResFareTableNo171:"",list171VO:[],equipment:"",equipmentTypeTableNo165:"",list165VO:[],startTime:"",stopTime:"",timeApplication:"D",dayOfWeek:"",dayOfWeekShow:{w1:!1,w2:!1,w3:!1,w4:!1,w5:!1,w6:!1,w7:!1},advancedPurchasePeriod:"",advancedPurchaseUnit:"",advancedPurchaseTktIssue:"",indicatorReissueRefund:"",formOfRefund:"",indicatorComission:"Y",indicatorInterline:"Y",firstTravelYear:"",firstTravelMonth:"",firstTravelDay:"",lastTravelYear:"",lastTravelMonth:"",lastTravelDay:"",travelStartDate:"",travelEndDate:"",list178Loc1Id:"",list178Loc1:[],list178Loc2Id:"",list178Loc2:[],list178Loc3Id:"",list178Loc3:[],geoSpecFromToWithin:"",geoSpecSectPortJourney:"P",geoSpecLoc1Type:"",geoSpecLoc1:"",geoSpecLoc2Type:"",geoSpecLoc2:"",geoSpecLoc3Type:"",geoSpecLoc3:"",geoSpecTravelIndicator:"",geoSpecExceptionStopTime:"",geoSpecExceptionStopUnit:"",geoSpecStopConnDes:"",effectivePeriodType:"",effectivePeriodNumber:"",effectivePeriodUnit:"",reuseList172VO:"",reuseList173TicketVO:"",reuseList183VO:"",reuseList198VO:"",reuseList198UpgradeVO:"",reuseList171VO:"",reuseList173TktVO:"",reuseList186VO:"",reuseList170VO:"",reuseList196VO:"",reuseList165VO:"",reuseList201VO:"",reuseList178Loc1:"",reuseList178Loc2:"",reuseList178Loc3:"",reuseListTsk202VO:"",allowancePeopleMinimum:"",allowancePeopleMaximum:"",serviceNumberMinimum:"",serviceNumberMaximum:"",firstUseDate:"",lastUseDate:"",useDateLimitTye:"",flightPassTableTsk202:"",listTsk202VO:[],allowedService:"FLT",subTbReferenceCountMap:{list172VO:"0",list173TicketVO:"0",list183VO:"0",list198VO:"0",list198UpgradeVO:"0",list171VO:"0",list173TktVO:"0",list186VO:"0",list170VO:"0",list196VO:"0",list165VO:"0",list201VO:"0",list178Loc1:"0",list178Loc2:"0",list178Loc3:"0",listTsk202VO:"0"}}}])}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,i){var a=angular.module("app.factory",[]);return a}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,a){var n=i(13);n.factory("TbShowHideServcie",function(){return{list183VO:!1,list171VO:!1,list172VO:!1,list173TicketVO:!1,list173TktVO:!1,list165VO:!1,list186VO:!1,list196VO:!1,list198VO:!1,list198UpgradeVO:!1,list170VO:!0,list178Loc1:!1,list178Loc2:!1,list178Loc3:!1,listTsk202VO:!1}}),n.factory("CustomeEditTbStatusServcie",function(){return{list183VO:!1,list171VO:!1,list172VO:!1,list173TicketVO:!1,list173TktVO:!1,list165VO:!1,list186VO:!1,list196VO:!1,list198VO:!1,list198UpgradeVO:!1,list170VO:!1,list178Loc1:!1,list178Loc2:!1,list178Loc3:!1,listTsk202VO:!1}}),n.factory("ListVo2tbNoMap",function(){return{list183VO:"securityTableNo183",list171VO:"cxrResFareTableNo171",list172VO:"accountCodeTableNo172",list173TicketVO:"ticketDesignatorTableNo173",list173TktVO:"tktDesignatorTableNo173",list165VO:"equipmentTypeTableNo165",list186VO:"carrierFlightTableNo186",list196VO:"textTableNo196",list198VO:"rbdTableNo198",list198UpgradeVO:"upgradeToRbdTableNo198",list170VO:"serviceFeeCurTableNo170",list178Loc1:"list178Loc1Id",list178Loc2:"list178Loc2Id",list178Loc3:"list178Loc3Id",listTsk202VO:"flightPassTableTsk202"}}),n.factory("FormEditStatusServcie",function(){return{firstMaintenanceDate:!0,lastMaintenanceDate:!0,description:!0,fareBasis:!0,availability:!0,freeBaggageAllowancePieces:!0,firstExcessOccurrence:!0,lastExcessOccurrence:!0,freeBaggageAllowanceWeight:!0,freeBaggageAllowanceUnit:!0,baggageTravelApplication:!0,list196VO:!0,noChargeNotAvailable:!0,list170VO:!0,list201VO:!0,specSevFeeAndOrIndicator:!0,specifiedServiceFeeMileage:!0,specifiedServiceFeeApp:!0,specServiceFeeColSub:!0,specServiceFeeNetSell:!0,indicatorComission:!0,taxApplication:!0,sequenceNumber:!0,passengerTypeCode:!0,minPassengerAge:!0,maxPassengerAge:!0,firstPassengerOccurrence:!0,lastPassengerOccurrence:!0,frequentFlyerStatus:!0,mileageMinimum:!0,mileageMaximum:!0,customerIndexScoreMinimum:!0,customerIndexScoreMaxmum:!0,list172VO:!0,list183VO:!0,publicPrivateIndicator:!0,geoSpecFromToWithin:!0,geoSpecSectPortJourney:!0,geoSpecTravelIndicator:!0,geoSpecExceptionStopTime:!0,geoSpecExceptionStopUnit:!0,geoSpecStopConnDes:!0,geoSpecLoc1Type:!0,geoSpecLoc1:!0,list178Loc1:!0,geoSpecLoc2Type:!0,geoSpecLoc2:!0,list178Loc2:!0,geoSpecLoc3Type:!0,geoSpecLoc3:!0,list178Loc3:!0,travelStartDate:!0,travelEndDate:!0,startTime:!0,stopTime:!0,timeApplication:!0,dayOfWeek:!0,equipment:!0,list165VO:!0,list186VO:!0,cabin:!0,list198VO:!0,upgradeToCabin:!0,list198UpgradeVO:!0,advancedPurchasePeriod:!0,advancedPurchaseUnit:!0,tourCode:!0,list173TicketVO:!0,tariff:!0,rule:!0,list173TktVO:!0,list171VO:!0,advancedPurchaseTktIssue:!0,indicatorReissueRefund:!0,formOfRefund:!0,indicatorInterline:!0,allowancePeopleMinimum:!0,allowancePeopleMaximum:!0,effectivePeriodType:!0,effectivePeriodNumber:!0,effectivePeriodUnit:!0,serviceNumberMinimum:!0,serviceNumberMaximum:!0,firstUseDate:!0,lastUseDate:!0,mileageExchangeIndicator:!0,listTsk202VO:!0}}),n.factory("FormStatusService",function(){return{firstMaintenanceDate:{typeList:["F","M","R","T","A","B","C","E","P"],groupList:[],nameList:["firstMaintenanceDate"],showFlag:!0},lastMaintenanceDate:{typeList:["F","M","R","T","A","B","C","E","P"],groupList:[],nameList:["lastMaintenanceDate"],showFlag:!0},description:{typeList:["F","M","R","T","B","E"],groupList:[],nameList:["description"],showFlag:!0},fareBasis:{typeList:["F","M","R","T","A","B","C","E","P"],groupList:[],nameList:["fareBasis"],showFlag:!0},availability:{typeList:["F","M","R","T","A","B","C","E","P"],groupList:[],nameList:["availability"],showFlag:!0},freeBaggageAllowancePieces:{typeList:["A"],groupList:[],nameList:["freeBaggageAllowancePieces"],showFlag:!0},firstAndLastExcessOccurrence:{typeList:["C","P"],groupList:[],nameList:["firstExcessOccurrence","lastExcessOccurrence"],showFlag:!0},freeBaggageAllowanceWeight:{typeList:["A","C","P"],groupList:[],nameList:["freeBaggageAllowanceWeight","freeBaggageAllowanceUnit"],showFlag:!0},baggageTravelApplication:{typeList:["A","C","P"],groupList:[],nameList:["baggageTravelApplication"],showFlag:!0},list196VO:{typeList:["A","C","P"],groupList:[],nameList:["list196VO"],showFlag:!0},noChargeNotAvailable:{typeList:["F","M","R","T","A","B","C","E","P"],groupList:[],nameList:["noChargeNotAvailable"],showFlag:!0},list170VOAndlist201VO:{typeList:["F","M","R","T","C","P"],groupList:[],nameList:["list170VO","list201VO"],showFlag:!0},specSevFeeAndOrIndicator:{typeList:["F","M","R","T","C","P"],groupList:[],nameList:["specSevFeeAndOrIndicator"],showFlag:!0},specifiedServiceFeeMileage:{typeList:["F","M","R","T","C","P"],groupList:[],nameList:["specifiedServiceFeeMileage"],showFlag:!0},specifiedServiceFeeApp:{typeList:["F","M","R","T","C","P"],groupList:[],nameList:["specifiedServiceFeeApp"],showFlag:!0},specServiceFeeColSub:{typeList:["F","M","R","T","A","B","C","E","P"],groupList:[],nameList:["specServiceFeeColSub"],showFlag:!0},specServiceFeeNetSell:{typeList:["F","M","R","T","A","B","C","E","P"],groupList:[],nameList:["specServiceFeeNetSell"],showFlag:!0},indicatorComission:{typeList:["F","M","R","T","C","P"],groupList:[],nameList:["indicatorComission"],showFlag:!0},taxApplication:{typeList:["F","M","R","T","C","P"],groupList:[],nameList:["taxApplication"],showFlag:!0},sequenceNumber:{typeList:["F","M","R","T","A","B","C","E","P"],groupList:[],nameList:["sequenceNumber"],showFlag:!0},passengerTypeCode:{typeList:["F","M","R","T","A","B","C","P"],groupList:[],nameList:["passengerTypeCode"],showFlag:!0},minAndMaxPassengerAge:{typeList:["F","M","R","T","A","B","C","P"],groupList:[],nameList:["minPassengerAge","maxPassengerAge"],showFlag:!0},firstAndLastPassengerOccurrence:{typeList:["F","M","R","T"],groupList:[],nameList:["firstPassengerOccurrence","lastPassengerOccurrence"],showFlag:!0},frequentFlyerStatus:{typeList:["F","M","R","T","B","C","P"],groupList:[],nameList:["frequentFlyerStatus"],showFlag:!0},mileageMinAndMaximum:{typeList:["F","T","A","B","C","E","P"],groupList:[],nameList:["mileageMinimum","mileageMaximum"],showFlag:!0},customerIndexScoreMinAndMaximum:{typeList:["F","M","R","T","A","B","C","E","P"],groupList:[],nameList:["customerIndexScoreMinimum","customerIndexScoreMaxmum"],showFlag:!0},list172VO:{typeList:["F","M","R","T","A","B","C","P"],groupList:[],nameList:["list172VO"],showFlag:!0},list183VO:{typeList:["F","M","R","T","A","B","C","E","P"],groupList:[],nameList:["list183VO"],showFlag:!0},publicPrivateIndicator:{typeList:["F","M","R","T","A","B","C","E","P"],groupList:[],nameList:["publicPrivateIndicator"],showFlag:!0},geoSpecFromToWithin:{typeList:["F","R","T","A","B","C","E","P"],groupList:[],nameList:["geoSpecFromToWithin"],showFlag:!0},geoSpecSectPortJourney:{typeList:["F","R","A","B","C","E","P"],groupList:[],nameList:["geoSpecSectPortJourney"],showFlag:!0},geoSpecTravelIndicator:{typeList:["F","R","A","B","C","E","P"],groupList:[],nameList:["geoSpecTravelIndicator"],showFlag:!0},geoSpecExceptionStopTimeAndUnit:{typeList:["F","R","A","C","P"],groupList:[],nameList:["geoSpecExceptionStopTime","geoSpecExceptionStopUnit"],showFlag:!0},geoSpecStopConnDes:{typeList:["F","R","A","B","C","E","P"],groupList:[],nameList:["geoSpecStopConnDes"],showFlag:!0},geoSpecLoc1AndType:{typeList:["F","M","R","T","A","B","C","E","P"],groupList:[],nameList:["geoSpecLoc1Type","geoSpecLoc1"],showFlag:!0},list178Loc1:{typeList:["F","M","A","C","P","T"],groupList:[],nameList:["list178Loc1"],showFlag:!0},geoSpecLoc2AndType:{typeList:["F","R","A","B","C","E","P"],groupList:[],nameList:["geoSpecLoc2Type","geoSpecLoc2"],showFlag:!0},list178Loc2:{typeList:["F","M","A","C","P","T"],groupList:[],nameList:["list178Loc2"],showFlag:!0},geoSpecLoc3AndType:{typeList:["F","R","A","B","C","E","P"],groupList:[],nameList:["geoSpecLoc3Type","geoSpecLoc3"],showFlag:!0},list178Loc3:{typeList:["F","M","A","C","P","T"],groupList:[],nameList:["list178Loc3"],showFlag:!0},travelStartDate:{typeList:["F","M","R","T","A","B","C","E","P"],groupList:[],nameList:["travelStartDate"],showFlag:!0},travelEndDate:{typeList:["F","M","R","T","A","B","C","E","P"],groupList:[],nameList:["travelEndDate"],showFlag:!0},startTime:{typeList:["F","T","A","B","C","E","P"],groupList:[],nameList:["startTime"],showFlag:!0},stopTime:{typeList:["F","T","A","B","C","E","P"],groupList:[],nameList:["stopTime"],showFlag:!0},timeApplication:{typeList:["hidden"],groupList:[],nameList:["timeApplication"],showFlag:!0},dayOfWeek:{typeList:["F","T","A","B","C","E","P"],groupList:[],nameList:["dayOfWeek"],showFlag:!0},equipmentAndlist165:{typeList:["F","A","B","C","E","P"],groupList:[],nameList:["equipment","list165VO"],showFlag:!0},list186VO:{typeList:["F","R","T","A","B","C","E","P"],groupList:[],nameList:["list186VO"],showFlag:!0},cabin:{typeList:["F","A","B","C","P"],groupList:[],nameList:["cabin"],showFlag:!0},list198VO:{typeList:["F","A","B","C","P"],groupList:[],nameList:["list198VO"],showFlag:!0},upgradeToCabin:{typeList:["F","M"],groupList:["UP","BDUP"],nameList:["upgradeToCabin"],showFlag:!0},list198UpgradeVO:{typeList:["F","M"],groupList:["UP","BDUP","SA","BDSA"],nameList:["list198UpgradeVO"],showFlag:!0},advancedPurchasePeriodAndUnit:{typeList:["F","M","R","T","C","P"],groupList:[],nameList:["advancedPurchasePeriod","advancedPurchaseUnit"],showFlag:!0},tourCode:{typeList:["F","M","R","T","A","B","C","P"],groupList:[],nameList:["tourCode"],showFlag:!0},list173TicketVO:{typeList:["F","M","R","T","A","B","C","P"],groupList:[],nameList:["list173TicketVO"],showFlag:!0},tariff:{typeList:["F","R","A","B","C","P"],groupList:[],nameList:["tariff"],showFlag:!0},rule:{typeList:["F","R","A","B","C","P"],groupList:[],nameList:["rule"],showFlag:!0},list173TktVO:{typeList:["F","R","A","B","C","P"],groupList:[],nameList:["list173TktVO"],showFlag:!0},list171VO:{typeList:["F","R","A","B","C","P"],groupList:[],nameList:["list171VO"],showFlag:!0},advancedPurchaseTktIssue:{typeList:["F","R","T","P"],groupList:[],nameList:["advancedPurchaseTktIssue"],showFlag:!0},indicatorReissueRefund:{typeList:["F","M","A","C","P","T"],groupList:[],nameList:["indicatorReissueRefund"],showFlag:!0},formOfRefund:{typeList:["F","M","R","T","C","P"],groupList:[],nameList:["formOfRefund"],showFlag:!0},indicatorInterline:{typeList:["F","M","R","T","C","P"],groupList:[],nameList:["indicatorInterline"],showFlag:!0},allowancePeopleMinAndMaximum:{typeList:["F","R","T","A","B","C","E","P"],groupList:["FP"],nameList:["allowancePeopleMinimum","allowancePeopleMaximum"],showFlag:!0},effectivePeriodInfo:{typeList:["F","R","T","A","B","C","E","P"],groupList:["FL","FP"],nameList:["effectivePeriodType","effectivePeriodNumber","effectivePeriodUnit"],showFlag:!0},serviceNumberMinAndMaximum:{typeList:["F","R","T","A","B","C","E","P"],groupList:["FP"],nameList:["serviceNumberMinimum","serviceNumberMaximum"],showFlag:!0},firstAndLastUseDate:{typeList:["F","R","T","A","B","C","E","P"],groupList:["FP"],nameList:["firstUseDate","lastUseDate"],showFlag:!0},mileageExchangeIndicator:{typeList:["F","M","R","T"],groupList:[],nameList:["mileageExchangeIndicator"],showFlag:!0}}})}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,a){var n=i(13),s=i(16);n.factory("HttpOperService",["$http","$q",function(e,t){return{getDataByUrl:function(i){var a=t.defer();return e({method:"GET",url:i}).success(function(e,t,i,n){a.resolve(e)}).error(function(e,t,i,n){a.reject(e)}),a.promise},postDate:function(i,a,n){var r=t.defer(),o={};null!=n&&(o=n);var l=s.getCSRFInfo();return o=$.extend(o,l),e({method:"POST",url:i,data:a,params:o}).success(function(e,t,i,a){r.resolve(e)}).error(function(e,t,i,a){r.reject(e)}),r.promise}}}])}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,i){var a="YYYY-MM-DD",n="YYYY-MM-DD HH:mm",s={};s.getCSRFInfo=function(){var e=$("meta[name=_csrf]").attr("content"),t=$("meta[name=_csrf]").attr("content"),i=$("meta[name=_csrf]").attr("content"),a={_csrf:e,_csrf_header:t,_csrf_parameterName:i};return a},s.checkStatusIsDisable=function(e){var t=!1;return null!=e&&"3"==e&&(t=!0),
-t},s.getByteNumOfStr=function(e){return e=e||"",e.replace(/[^\x00-\xff]/g,"xx").length},s.getRbdTb198TmpStr=function(){return"rbd"},s.getRbdUpgradeTb198TmpStr=function(){return"rbdUpgrade"},s.getCommonImgArr=function(){var e=["0B5","0DG","0B3","0LO","0LQ","0LT","0BO"];return e},s.getAppName=function(){var e=window.location.pathname,t=e.substr(1),i=t.indexOf("/"),a=t.substr(0,i);return a},s.isNonNegativeInteger=function(e){return/^[0-9]{0,}$/.test(e)},s.isThreecode=function(e){return/^[A-Z]{3}$/i.test(e)},s.isThreecode2=function(e){return/^[A-Za-z0-9]{3}$/i.test(e)},s.isAir=function(e){return/^[a-zA-Z]{2}$|^[a-zA-Z]{1}[0-9]{1}$|^[0-9]{1}[a-zA-Z]{1}$/.test(e)},s.isInteger=function(e){return/^-?\d+$/.test(e)},s.isDateOC=function(e){return r(e,!0)},s.isBiggerDateThan=function(e,t){var i=moment(e,a),n=moment(t,a);return i>=n},s.isSmallerDateThan=function(e,t){var i=moment(e,a),n=moment(t,a);return n>=i},s.isBiggerThanCurrent=function(e){var t=moment().format(a),i=moment(t),n=moment(e,a);return n>=i},s.isBiggerDateTimeThan=function(e,t){var i=moment(e,n),a=moment(t,n);return i>=a},s.isSmallerDateTimeThan=function(e,t){var i=moment(e,n),a=moment(t,n);return a>=i},s.isBiggerDateTimeThanCurrent=function(e){var t=moment().format(n),i=moment(t),a=moment(e,n);return a>=i},s.islettersOrNumber=function(e){return/^[A-Za-z0-9]{0,}$/i.test(e)},s.isPositiveInteger=function(e){return/^[1-9]{1}[0-9]{0,}$/.test(e)},s.isLetter=function(e){return/^[a-zA-Z]+$/i.test(e)},s.isAlphanumericOrStart=function(e){return/^[A-Za-z0-9]{0,}$|^[\*]{1}$/.test(e)},s.isValidGeoLocal=function(e,t){return"A"==t?s.isAreacode(e):"C"==t?s.isCitycode(e):"N"==t?s.isCountrycode(e):"P"==t?s.isAirportcode(e):"S"==t?s.isStatecode(e):"Z"==t?s.isZonecode(e):!1},s.isAreacode=function(e){return/^[1-3]{1}$/i.test(e)},s.isCitycode=function(e){return/^[A-Z]{3}$/i.test(e)},s.isCountrycode=function(e){return/^[A-Z]{2}$/i.test(e)},s.isAirportcode=function(e){return/^[A-Z]{3}$/i.test(e)},s.isStatecode=function(e){return/^[A-Z]{2}$/i.test(e)},s.isZonecode=function(e){return/^[0-9]{3}$/i.test(e)};var r=function(e,t){var i=e;if(!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(i))return!1;var a=!0,n=(new Date).getFullYear()-0,s=i.split(/-/),r=s[0]-0,o=s[1]-0,l=s[2]-0,c=[0,31,29,31,30,31,30,31,31,30,31,30,31],u=function(){return r%400===0||r%4===0&&r%100!==0};return!t&&(n-20>r||r>n+20)&&(a=!1),(o>12||1>o)&&(a=!1),(c[o]<l||1>l||l>31)&&(a=!1),2===o&&!u()&&l>28&&(a=!1),a};i.exports=s}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,a){i(18),i(24),i(28),i(29),i(33)}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(module,exports,__webpack_require__){var __WEBPACK_AMD_DEFINE_RESULT__;__WEBPACK_AMD_DEFINE_RESULT__=function(require,exports,module){function _convertStr2Json(e){var t=e||"";t+="";var i={};try{var a=t.replace(/'/g,'"');i=JSON.parse(a)}catch(n){console.info(n)}return i}var directives=__webpack_require__(19),_=__webpack_require__(20),jsonDataHelper=__webpack_require__(21),commonUtil=__webpack_require__(22),convertFirstCharUpper=function(e){return e=e||"",e.replace(/(\w)/,function(e){return e.toUpperCase()})};directives.directive("showHideTable",["TbShowHideServcie",function(e){return{restrict:"E",replace:!0,scope:{},controller:["$scope","$element","$attrs",function(t,i,a){t.tableStatus=e}],template:function(e,t){var i=t.tname,a="tableStatus."+i,n='<a  href = "javascript:void(0)"><span ng-show="'+a+'" >收起表格</span><span ng-show="!'+a+'">填写表格</span></a>';return n},transclude:!0,link:function(e,t,i){t.bind("click",function(){var t=i.tname;e.$apply(function(){e.tableStatus[t]=!e.tableStatus[t]})})}}}]);var _fillData4AutoComplete=function(e,t,i,a,n,s,r){var o=e.data,l=i.contextPath+"/queryTableInfoByTbNO.action?tbNO="+o+"&tbname="+t,c=n.getDataByUrl(l),u=i[r],d=1*i.subTbReferenceCountMap[t],p="reuse"+convertFirstCharUpper(t);c.then(function(e){var n=jsonDataHelper.convert2TableDataList(e.list,t);1>=d&&u==o?(a[t]=!0,i[p]="",s[t]=!0):(a[t]=!1,s[t]=!0),i[t]=n},function(e){console.info("获取数据出错!"+e)})};directives.directive("ocComplete",["FormEditStatusServcie","FormData","HttpOperService","ListVo2tbNoMap","TbShowHideServcie","CustomeEditTbStatusServcie",function(e,t,i,a,n,s){return{restrict:"E",replace:!0,scope:!0,template:function(e,t){var i="",n=t.tbname,s="reuse"+convertFirstCharUpper(n),r=(a[n],"customeEditStatus."+n);return i='<span class ="marginRL15"><label class ="text-info">复用表号: </label><span style="position:relative;"><input type="text"  name="'+s+'" ng-disable ="data.statusDes==\'3\'" class="autocomplete reusetbnoinput" placeholder=""  ><i class="icon iconfont icon-sousuo searchinput gray"></i></span><span class ="text-danger pointer marginRL15" name="customeEdit" ng-show ="'+r+'">自定义表格</span></span>'},link:function(r,o,l){r.data=t;var c=l.tbname,u=a[c];r.customeEditStatus=s,o.find('span[name="customeEdit"]').bind("click",function(i){r.customeEditStatus[c]=!1;var a="reuse"+convertFirstCharUpper(c);t[a]="";var n=commonUtil.getEditFlagByStatus(t.statusDes);o.find(":input").val(""),r.$apply(function(){e[c]=n,t[c]=[]}),o.find(":input").removeAttr("placeholder"),t[u]="-1"}),o.find(".autocomplete").autocomplete({minChars:0,serviceUrl:r.data.contextPath+"/queryTableNoByTableName",onSelect:function(a){var s=t[c],l=commonUtil.getEditFlagByStatus(t.statusDes),d="reuse"+convertFirstCharUpper(c),p=t[d],h=e[c];if(s.length>0&&l&&""==p&&h)$.showTuiConfirmDialog2("确定放弃已编辑的内容？",function(){var s=a.data,o="reuse"+convertFirstCharUpper(c);t[o]=s,_fillData4AutoComplete(a,c,t,e,i,r.customeEditStatus,u),n[c]=!0},function(){t[d]="",o.find(":input").val("")});else{var f=a.data,d="reuse"+convertFirstCharUpper(c);t[d]=f,_fillData4AutoComplete(a,c,t,e,i,r.customeEditStatus,u),n[c]=!0}},paramName:"q",params:{tbname:c},transformResult:function(e){var t=JSON.parse(e),i=t.flag;return"true"==i?{suggestions:$.map(t.list,function(e){return{value:e+"",data:e}})}:{suggestions:[]}}})}}}]),directives.directive("setFocus",function(){return{restrict:"AE",replace:!0,scope:!0,link:function(e,t,i){t.trigger("click")}}}),directives.directive("geoMaxLength",function(){return{restrict:"AE",replace:!0,scope:!0,controller:["$scope","$element","$attrs",function($scope,$element,$attrs){$scope.getGeoLengthByType=function(type){type=type||"";var obj={A:"1",C:"3",N:"2",P:"3",S:"2",Z:"3"},len=eval("obj['"+type+"']")||0;return len}}],link:function(e,t,i){function a(){var a=i.geoMaxLength,n=e.$eval(a),s=e.getGeoLengthByType(n);t.attr("maxlength",s)}e.$watch(i.geoMaxLength,a)}}}),directives.directive("tuiMaxLength",function(){function e(e){e=e||"",e+="";var t=[],i="",a="";try{var n=e.indexOf("{"),s=e.indexOf("}");i=e.substr(n,s+1);var r=e.indexOf("["),o=e.indexOf("]");a=e.substring(r+1,o)}catch(l){console.info(l)}return i.length>0&&a.length>0&&(t[0]=i,t[1]=a),t}return{restrict:"AE",replace:!0,scope:!0,link:function(t,i,a){var n=a.tuiMaxLength,s=e(n),r="",o="",l={},c=!1;2==s.length&&(c=!0,r=s[0],o=s[1],l=_convertStr2Json(r)),c&&t.$watch(a.tuiMaxLength,function(){var e=t.$eval(o),a=l[e];i.attr("maxlength",a)})}}}),directives.directive("upperInput",function(){return{restrict:"A",require:"ngModel",link:function(e,t,i,a){function n(){var e=a.$viewValue||"";e=e.toUpperCase(),a.$setViewValue(e),t.val(e)}a&&(a.$render=function(){var e=a.$viewValue||"";e=e.toUpperCase(),t.val(e),a.$setViewValue(e)},t.bind("blur",function(){e.$apply(n)}))}}}),directives.directive("linkTable",["TbShowHideServcie","FormEditStatusServcie",function(e,t){return{restrict:"AE",replace:!0,scope:{list:"=",tbname:"@"},controller:["$scope",function(i){function a(){angular.forEach(i.list,function(e){e.selected=!1})}i.showStatus=e,i.editStatus=t,i.myClick=function(){var e=i.tbname;if(i.showStatus[e]=!i.showStatus[e],!i.showStatus[e]){var t=i.list.length;i.editStatus[e]&&(a(),i.list.splice(0,t))}}}],template:function(e,t){var i=t.strtip,a=t.tbname,n="showStatus."+a,s='<a href="javascript:void(0)"><span ng-show="!'+n+'">'+i+'</span><span ng-show="'+n+'">取消自定义</span></a>';return s},link:function(e,t,i){t.bind("click",function(){e.$apply(function(){e.myClick()})})}}}]),directives.directive("datepicker",function(){return{restrict:"A",scope:!0,require:"ngModel",link:function(e,t,i,a){if(a){var n=i.datepicker,s=new Date(n),r={};r.dateFormat="yy-mm-dd";var o=function(t){e.$apply(function(){a.$setViewValue(t)})};r.onSelect=function(t,i){o(t),e.select&&e.$apply(function(){e.select({date:t})})},r.minDate=s,r.showButtonPanel=!0,t.datepicker(r)}}}}),directives.directive("timepicker",function(){return{restrict:"A",scope:{},link:function(e,t,i){var a={controlType:"select",timeFormat:"HHmm",timeOnly:!0,timeOnlyTitle:"选择时间",timeText:"时间",hourText:"小时",minuteText:"分钟",currentText:"当前",closeText:"关闭"};$(t).datetimepicker(a)}}});var resetDataByFlag=function(e,t,i,a){if(!t)for(var n=0;n<e.length;n++){var s=e[n],r=a[s],o="";_.isArray(r)?o=[]:_.isObject(r)&&(o=angular.copy(r)),i[s]=o}},getFlagByServiceTypeAndServiceGroup=function(e,t,i,a){var n=_.contains(e,i);return n&&t&&t.length>0&&(n=_.contains(t,a)),n};directives.directive("force",["FormStatusService","FormData",function(e,t){return{restrict:"A",scope:{orgData:"="},link:function(i,a,n){i.$on("serviceTypeChangeNotice",function(a,n){for(var s in e){var r=e[s].typeList,o=e[s].groupList,l=t.serviceType,c=t.sel1.value,u=e[s].showFlag,d=getFlagByServiceTypeAndServiceGroup(r,o,l,c);if(u==!d){var p=e[s].nameList;resetDataByFlag(p,d,t,i.orgData),e[s].showFlag=d,n&&"true"==n&&i.$digest()}}}),i.$on("singleChangeByFlagNotice",function(a,n,s,r){var o=n,l="true"==s,c=e[o].showFlag,u=e[o].typeList,d=e[o].groupList,p=t.serviceType,h=t.sel1.value,f=getFlagByServiceTypeAndServiceGroup(u,d,p,h);if(0==f&&(l=!1),l==!c){var g=e[o].nameList;resetDataByFlag(g,l,t,i.orgData),e[o].showFlag=l,r&&"true"==r&&i.$digest()}})}}}])}.call(exports,__webpack_require__,exports,module),!(void 0!==__WEBPACK_AMD_DEFINE_RESULT__&&(module.exports=__WEBPACK_AMD_DEFINE_RESULT__))},function(e,t,i){var a;a=function(e,t,i){var a=angular.module("app.directives",[]);return a}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a,n;(function(){function i(e){function t(t,i,a,n,s,r){for(;s>=0&&r>s;s+=e){var o=n?n[s]:s;a=i(a,t[o],o,t)}return a}return function(i,a,n,s){a=x(a,s,4);var r=!O(i)&&T.keys(i),o=(r||i).length,l=e>0?0:o-1;return arguments.length<3&&(n=i[r?r[l]:l],l+=e),t(i,a,n,r,l,o)}}function s(e){return function(t,i,a){i=k(i,a);for(var n=L(t),s=e>0?0:n-1;s>=0&&n>s;s+=e)if(i(t[s],s,t))return s;return-1}}function r(e,t,i){return function(a,n,s){var r=0,o=L(a);if("number"==typeof s)e>0?r=s>=0?s:Math.max(s+o,r):o=s>=0?Math.min(s+1,o):s+o+1;else if(i&&s&&o)return s=i(a,n),a[s]===n?s:-1;if(n!==n)return s=t(f.call(a,r,o),T.isNaN),s>=0?s+r:-1;for(s=e>0?r:o-1;s>=0&&o>s;s+=e)if(a[s]===n)return s;return-1}}function o(e,t){var i=I.length,a=e.constructor,n=T.isFunction(a)&&a.prototype||d,s="constructor";for(T.has(e,s)&&!T.contains(t,s)&&t.push(s);i--;)s=I[i],s in e&&e[s]!==n[s]&&!T.contains(t,s)&&t.push(s)}var l=this,c=l._,u=Array.prototype,d=Object.prototype,p=Function.prototype,h=u.push,f=u.slice,g=d.toString,m=d.hasOwnProperty,v=Array.isArray,_=Object.keys,b=p.bind,y=Object.create,D=function(){},T=function(e){return e instanceof T?e:this instanceof T?void(this._wrapped=e):new T(e)};"undefined"!=typeof e&&e.exports&&(t=e.exports=T),t._=T,T.VERSION="1.8.3";var x=function(e,t,i){if(void 0===t)return e;switch(null==i?3:i){case 1:return function(i){return e.call(t,i)};case 2:return function(i,a){return e.call(t,i,a)};case 3:return function(i,a,n){return e.call(t,i,a,n)};case 4:return function(i,a,n,s){return e.call(t,i,a,n,s)}}return function(){return e.apply(t,arguments)}},k=function(e,t,i){return null==e?T.identity:T.isFunction(e)?x(e,t,i):T.isObject(e)?T.matcher(e):T.property(e)};T.iteratee=function(e,t){return k(e,t,1/0)};var w=function(e,t){return function(i){var a=arguments.length;if(2>a||null==i)return i;for(var n=1;a>n;n++)for(var s=arguments[n],r=e(s),o=r.length,l=0;o>l;l++){var c=r[l];t&&void 0!==i[c]||(i[c]=s[c])}return i}},S=function(e){if(!T.isObject(e))return{};if(y)return y(e);D.prototype=e;var t=new D;return D.prototype=null,t},$=function(e){return function(t){return null==t?void 0:t[e]}},M=Math.pow(2,53)-1,L=$("length"),O=function(e){var t=L(e);return"number"==typeof t&&t>=0&&M>=t};T.each=T.forEach=function(e,t,i){t=x(t,i);var a,n;if(O(e))for(a=0,n=e.length;n>a;a++)t(e[a],a,e);else{var s=T.keys(e);for(a=0,n=s.length;n>a;a++)t(e[s[a]],s[a],e)}return e},T.map=T.collect=function(e,t,i){t=k(t,i);for(var a=!O(e)&&T.keys(e),n=(a||e).length,s=Array(n),r=0;n>r;r++){var o=a?a[r]:r;s[r]=t(e[o],o,e)}return s},T.reduce=T.foldl=T.inject=i(1),T.reduceRight=T.foldr=i(-1),T.find=T.detect=function(e,t,i){var a;return a=O(e)?T.findIndex(e,t,i):T.findKey(e,t,i),void 0!==a&&-1!==a?e[a]:void 0},T.filter=T.select=function(e,t,i){var a=[];return t=k(t,i),T.each(e,function(e,i,n){t(e,i,n)&&a.push(e)}),a},T.reject=function(e,t,i){return T.filter(e,T.negate(k(t)),i)},T.every=T.all=function(e,t,i){t=k(t,i);for(var a=!O(e)&&T.keys(e),n=(a||e).length,s=0;n>s;s++){var r=a?a[s]:s;if(!t(e[r],r,e))return!1}return!0},T.some=T.any=function(e,t,i){t=k(t,i);for(var a=!O(e)&&T.keys(e),n=(a||e).length,s=0;n>s;s++){var r=a?a[s]:s;if(t(e[r],r,e))return!0}return!1},T.contains=T.includes=T.include=function(e,t,i,a){return O(e)||(e=T.values(e)),("number"!=typeof i||a)&&(i=0),T.indexOf(e,t,i)>=0},T.invoke=function(e,t){var i=f.call(arguments,2),a=T.isFunction(t);return T.map(e,function(e){var n=a?t:e[t];return null==n?n:n.apply(e,i)})},T.pluck=function(e,t){return T.map(e,T.property(t))},T.where=function(e,t){return T.filter(e,T.matcher(t))},T.findWhere=function(e,t){return T.find(e,T.matcher(t))},T.max=function(e,t,i){var a,n,s=-(1/0),r=-(1/0);if(null==t&&null!=e){e=O(e)?e:T.values(e);for(var o=0,l=e.length;l>o;o++)a=e[o],a>s&&(s=a)}else t=k(t,i),T.each(e,function(e,i,a){n=t(e,i,a),(n>r||n===-(1/0)&&s===-(1/0))&&(s=e,r=n)});return s},T.min=function(e,t,i){var a,n,s=1/0,r=1/0;if(null==t&&null!=e){e=O(e)?e:T.values(e);for(var o=0,l=e.length;l>o;o++)a=e[o],s>a&&(s=a)}else t=k(t,i),T.each(e,function(e,i,a){n=t(e,i,a),(r>n||n===1/0&&s===1/0)&&(s=e,r=n)});return s},T.shuffle=function(e){for(var t,i=O(e)?e:T.values(e),a=i.length,n=Array(a),s=0;a>s;s++)t=T.random(0,s),t!==s&&(n[s]=n[t]),n[t]=i[s];return n},T.sample=function(e,t,i){return null==t||i?(O(e)||(e=T.values(e)),e[T.random(e.length-1)]):T.shuffle(e).slice(0,Math.max(0,t))},T.sortBy=function(e,t,i){return t=k(t,i),T.pluck(T.map(e,function(e,i,a){return{value:e,index:i,criteria:t(e,i,a)}}).sort(function(e,t){var i=e.criteria,a=t.criteria;if(i!==a){if(i>a||void 0===i)return 1;if(a>i||void 0===a)return-1}return e.index-t.index}),"value")};var C=function(e){return function(t,i,a){var n={};return i=k(i,a),T.each(t,function(a,s){var r=i(a,s,t);e(n,a,r)}),n}};T.groupBy=C(function(e,t,i){T.has(e,i)?e[i].push(t):e[i]=[t]}),T.indexBy=C(function(e,t,i){e[i]=t}),T.countBy=C(function(e,t,i){T.has(e,i)?e[i]++:e[i]=1}),T.toArray=function(e){return e?T.isArray(e)?f.call(e):O(e)?T.map(e,T.identity):T.values(e):[]},T.size=function(e){return null==e?0:O(e)?e.length:T.keys(e).length},T.partition=function(e,t,i){t=k(t,i);var a=[],n=[];return T.each(e,function(e,i,s){(t(e,i,s)?a:n).push(e)}),[a,n]},T.first=T.head=T.take=function(e,t,i){return null!=e?null==t||i?e[0]:T.initial(e,e.length-t):void 0},T.initial=function(e,t,i){return f.call(e,0,Math.max(0,e.length-(null==t||i?1:t)))},T.last=function(e,t,i){return null!=e?null==t||i?e[e.length-1]:T.rest(e,Math.max(0,e.length-t)):void 0},T.rest=T.tail=T.drop=function(e,t,i){return f.call(e,null==t||i?1:t)},T.compact=function(e){return T.filter(e,T.identity)};var F=function(e,t,i,a){for(var n=[],s=0,r=a||0,o=L(e);o>r;r++){var l=e[r];if(O(l)&&(T.isArray(l)||T.isArguments(l))){t||(l=F(l,t,i));var c=0,u=l.length;for(n.length+=u;u>c;)n[s++]=l[c++]}else i||(n[s++]=l)}return n};T.flatten=function(e,t){return F(e,t,!1)},T.without=function(e){return T.difference(e,f.call(arguments,1))},T.uniq=T.unique=function(e,t,i,a){T.isBoolean(t)||(a=i,i=t,t=!1),null!=i&&(i=k(i,a));for(var n=[],s=[],r=0,o=L(e);o>r;r++){var l=e[r],c=i?i(l,r,e):l;t?(r&&s===c||n.push(l),s=c):i?T.contains(s,c)||(s.push(c),n.push(l)):T.contains(n,l)||n.push(l)}return n},T.union=function(){return T.uniq(F(arguments,!0,!0))},T.intersection=function(e){for(var t=[],i=arguments.length,a=0,n=L(e);n>a;a++){var s=e[a];if(!T.contains(t,s)){for(var r=1;i>r&&T.contains(arguments[r],s);r++);r===i&&t.push(s)}}return t},T.difference=function(e){var t=F(arguments,!0,!0,1);return T.filter(e,function(e){return!T.contains(t,e)})},T.zip=function(){return T.unzip(arguments)},T.unzip=function(e){for(var t=e&&T.max(e,L).length||0,i=Array(t),a=0;t>a;a++)i[a]=T.pluck(e,a);return i},T.object=function(e,t){for(var i={},a=0,n=L(e);n>a;a++)t?i[e[a]]=t[a]:i[e[a][0]]=e[a][1];return i},T.findIndex=s(1),T.findLastIndex=s(-1),T.sortedIndex=function(e,t,i,a){i=k(i,a,1);for(var n=i(t),s=0,r=L(e);r>s;){var o=Math.floor((s+r)/2);i(e[o])<n?s=o+1:r=o}return s},T.indexOf=r(1,T.findIndex,T.sortedIndex),T.lastIndexOf=r(-1,T.findLastIndex),T.range=function(e,t,i){null==t&&(t=e||0,e=0),i=i||1;for(var a=Math.max(Math.ceil((t-e)/i),0),n=Array(a),s=0;a>s;s++,e+=i)n[s]=e;return n};var A=function(e,t,i,a,n){if(!(a instanceof t))return e.apply(i,n);var s=S(e.prototype),r=e.apply(s,n);return T.isObject(r)?r:s};T.bind=function(e,t){if(b&&e.bind===b)return b.apply(e,f.call(arguments,1));if(!T.isFunction(e))throw new TypeError("Bind must be called on a function");var i=f.call(arguments,2),a=function(){return A(e,a,t,this,i.concat(f.call(arguments)))};return a},T.partial=function(e){var t=f.call(arguments,1),i=function(){for(var a=0,n=t.length,s=Array(n),r=0;n>r;r++)s[r]=t[r]===T?arguments[a++]:t[r];for(;a<arguments.length;)s.push(arguments[a++]);return A(e,i,this,this,s)};return i},T.bindAll=function(e){var t,i,a=arguments.length;if(1>=a)throw new Error("bindAll must be passed function names");for(t=1;a>t;t++)i=arguments[t],e[i]=T.bind(e[i],e);return e},T.memoize=function(e,t){var i=function(a){var n=i.cache,s=""+(t?t.apply(this,arguments):a);return T.has(n,s)||(n[s]=e.apply(this,arguments)),n[s]};return i.cache={},i},T.delay=function(e,t){var i=f.call(arguments,2);return setTimeout(function(){return e.apply(null,i)},t)},T.defer=T.partial(T.delay,T,1),T.throttle=function(e,t,i){var a,n,s,r=null,o=0;i||(i={});var l=function(){o=i.leading===!1?0:T.now(),r=null,s=e.apply(a,n),r||(a=n=null)};return function(){var c=T.now();o||i.leading!==!1||(o=c);var u=t-(c-o);return a=this,n=arguments,0>=u||u>t?(r&&(clearTimeout(r),r=null),o=c,s=e.apply(a,n),r||(a=n=null)):r||i.trailing===!1||(r=setTimeout(l,u)),s}},T.debounce=function(e,t,i){var a,n,s,r,o,l=function(){var c=T.now()-r;t>c&&c>=0?a=setTimeout(l,t-c):(a=null,i||(o=e.apply(s,n),a||(s=n=null)))};return function(){s=this,n=arguments,r=T.now();var c=i&&!a;return a||(a=setTimeout(l,t)),c&&(o=e.apply(s,n),s=n=null),o}},T.wrap=function(e,t){return T.partial(t,e)},T.negate=function(e){return function(){return!e.apply(this,arguments)}},T.compose=function(){var e=arguments,t=e.length-1;return function(){for(var i=t,a=e[t].apply(this,arguments);i--;)a=e[i].call(this,a);return a}},T.after=function(e,t){return function(){return--e<1?t.apply(this,arguments):void 0}},T.before=function(e,t){var i;return function(){return--e>0&&(i=t.apply(this,arguments)),1>=e&&(t=null),i}},T.once=T.partial(T.before,2);var N=!{toString:null}.propertyIsEnumerable("toString"),I=["valueOf","isPrototypeOf","toString","propertyIsEnumerable","hasOwnProperty","toLocaleString"];T.keys=function(e){if(!T.isObject(e))return[];if(_)return _(e);var t=[];for(var i in e)T.has(e,i)&&t.push(i);return N&&o(e,t),t},T.allKeys=function(e){if(!T.isObject(e))return[];var t=[];for(var i in e)t.push(i);return N&&o(e,t),t},T.values=function(e){for(var t=T.keys(e),i=t.length,a=Array(i),n=0;i>n;n++)a[n]=e[t[n]];return a},T.mapObject=function(e,t,i){t=k(t,i);for(var a,n=T.keys(e),s=n.length,r={},o=0;s>o;o++)a=n[o],r[a]=t(e[a],a,e);return r},T.pairs=function(e){for(var t=T.keys(e),i=t.length,a=Array(i),n=0;i>n;n++)a[n]=[t[n],e[t[n]]];return a},T.invert=function(e){for(var t={},i=T.keys(e),a=0,n=i.length;n>a;a++)t[e[i[a]]]=i[a];return t},T.functions=T.methods=function(e){var t=[];for(var i in e)T.isFunction(e[i])&&t.push(i);return t.sort()},T.extend=w(T.allKeys),T.extendOwn=T.assign=w(T.keys),T.findKey=function(e,t,i){t=k(t,i);for(var a,n=T.keys(e),s=0,r=n.length;r>s;s++)if(a=n[s],t(e[a],a,e))return a},T.pick=function(e,t,i){var a,n,s={},r=e;if(null==r)return s;T.isFunction(t)?(n=T.allKeys(r),a=x(t,i)):(n=F(arguments,!1,!1,1),a=function(e,t,i){return t in i},r=Object(r));for(var o=0,l=n.length;l>o;o++){var c=n[o],u=r[c];a(u,c,r)&&(s[c]=u)}return s},T.omit=function(e,t,i){if(T.isFunction(t))t=T.negate(t);else{var a=T.map(F(arguments,!1,!1,1),String);t=function(e,t){return!T.contains(a,t)}}return T.pick(e,t,i)},T.defaults=w(T.allKeys,!0),T.create=function(e,t){var i=S(e);return t&&T.extendOwn(i,t),i},T.clone=function(e){return T.isObject(e)?T.isArray(e)?e.slice():T.extend({},e):e},T.tap=function(e,t){return t(e),e},T.isMatch=function(e,t){var i=T.keys(t),a=i.length;if(null==e)return!a;for(var n=Object(e),s=0;a>s;s++){var r=i[s];if(t[r]!==n[r]||!(r in n))return!1}return!0};var P=function(e,t,i,a){if(e===t)return 0!==e||1/e===1/t;if(null==e||null==t)return e===t;e instanceof T&&(e=e._wrapped),t instanceof T&&(t=t._wrapped);var n=g.call(e);if(n!==g.call(t))return!1;switch(n){case"[object RegExp]":case"[object String]":return""+e==""+t;case"[object Number]":return+e!==+e?+t!==+t:0===+e?1/+e===1/t:+e===+t;case"[object Date]":case"[object Boolean]":return+e===+t}var s="[object Array]"===n;if(!s){if("object"!=typeof e||"object"!=typeof t)return!1;var r=e.constructor,o=t.constructor;if(r!==o&&!(T.isFunction(r)&&r instanceof r&&T.isFunction(o)&&o instanceof o)&&"constructor"in e&&"constructor"in t)return!1}i=i||[],a=a||[];for(var l=i.length;l--;)if(i[l]===e)return a[l]===t;if(i.push(e),a.push(t),s){if(l=e.length,l!==t.length)return!1;for(;l--;)if(!P(e[l],t[l],i,a))return!1}else{var c,u=T.keys(e);if(l=u.length,T.keys(t).length!==l)return!1;for(;l--;)if(c=u[l],!T.has(t,c)||!P(e[c],t[c],i,a))return!1}return i.pop(),a.pop(),!0};T.isEqual=function(e,t){return P(e,t)},T.isEmpty=function(e){return null==e?!0:O(e)&&(T.isArray(e)||T.isString(e)||T.isArguments(e))?0===e.length:0===T.keys(e).length},T.isElement=function(e){return!(!e||1!==e.nodeType)},T.isArray=v||function(e){return"[object Array]"===g.call(e)},T.isObject=function(e){var t=typeof e;return"function"===t||"object"===t&&!!e},T.each(["Arguments","Function","String","Number","Date","RegExp","Error"],function(e){T["is"+e]=function(t){return g.call(t)==="[object "+e+"]"}}),T.isArguments(arguments)||(T.isArguments=function(e){return T.has(e,"callee")}),"function"!=typeof/./&&"object"!=typeof Int8Array&&(T.isFunction=function(e){return"function"==typeof e||!1}),T.isFinite=function(e){return isFinite(e)&&!isNaN(parseFloat(e))},T.isNaN=function(e){return T.isNumber(e)&&e!==+e},T.isBoolean=function(e){return e===!0||e===!1||"[object Boolean]"===g.call(e)},T.isNull=function(e){return null===e},T.isUndefined=function(e){return void 0===e},T.has=function(e,t){return null!=e&&m.call(e,t)},T.noConflict=function(){return l._=c,this},T.identity=function(e){return e},T.constant=function(e){return function(){return e}},T.noop=function(){},T.property=$,T.propertyOf=function(e){return null==e?function(){}:function(t){return e[t]}},T.matcher=T.matches=function(e){return e=T.extendOwn({},e),function(t){return T.isMatch(t,e)}},T.times=function(e,t,i){var a=Array(Math.max(0,e));t=x(t,i,1);for(var n=0;e>n;n++)a[n]=t(n);return a},T.random=function(e,t){return null==t&&(t=e,e=0),e+Math.floor(Math.random()*(t-e+1))},T.now=Date.now||function(){return(new Date).getTime()};var E={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","`":"&#x60;"},V=T.invert(E),R=function(e){var t=function(t){return e[t]},i="(?:"+T.keys(e).join("|")+")",a=RegExp(i),n=RegExp(i,"g");return function(e){return e=null==e?"":""+e,a.test(e)?e.replace(n,t):e}};T.escape=R(E),T.unescape=R(V),T.result=function(e,t,i){var a=null==e?void 0:e[t];return void 0===a&&(a=i),T.isFunction(a)?a.call(e):a};var B=0;T.uniqueId=function(e){var t=++B+"";return e?e+t:t},T.templateSettings={evaluate:/<%([\s\S]+?)%>/g,interpolate:/<%=([\s\S]+?)%>/g,escape:/<%-([\s\S]+?)%>/g};var z=/(.)^/,j={"'":"'","\\":"\\","\r":"r","\n":"n","\u2028":"u2028","\u2029":"u2029"},U=/\\|'|\r|\n|\u2028|\u2029/g,Y=function(e){return"\\"+j[e]};T.template=function(e,t,i){!t&&i&&(t=i),t=T.defaults({},t,T.templateSettings);var a=RegExp([(t.escape||z).source,(t.interpolate||z).source,(t.evaluate||z).source].join("|")+"|$","g"),n=0,s="__p+='";e.replace(a,function(t,i,a,r,o){return s+=e.slice(n,o).replace(U,Y),n=o+t.length,i?s+="'+\n((__t=("+i+"))==null?'':_.escape(__t))+\n'":a?s+="'+\n((__t=("+a+"))==null?'':__t)+\n'":r&&(s+="';\n"+r+"\n__p+='"),t}),s+="';\n",t.variable||(s="with(obj||{}){\n"+s+"}\n"),s="var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};\n"+s+"return __p;\n";try{var r=new Function(t.variable||"obj","_",s)}catch(o){throw o.source=s,o}var l=function(e){return r.call(this,e,T)},c=t.variable||"obj";return l.source="function("+c+"){\n"+s+"}",l},T.chain=function(e){var t=T(e);return t._chain=!0,t};var q=function(e,t){return e._chain?T(t).chain():t};T.mixin=function(e){T.each(T.functions(e),function(t){var i=T[t]=e[t];T.prototype[t]=function(){var e=[this._wrapped];return h.apply(e,arguments),q(this,i.apply(T,e))}})},T.mixin(T),T.each(["pop","push","reverse","shift","sort","splice","unshift"],function(e){var t=u[e];T.prototype[e]=function(){var i=this._wrapped;return t.apply(i,arguments),"shift"!==e&&"splice"!==e||0!==i.length||delete i[0],q(this,i)}}),T.each(["concat","join","slice"],function(e){var t=u[e];T.prototype[e]=function(){return q(this,t.apply(this._wrapped,arguments))}}),T.prototype.value=function(){return this._wrapped},T.prototype.valueOf=T.prototype.toJSON=T.prototype.value,T.prototype.toString=function(){return""+this._wrapped},a=[],n=function(){return T}.apply(t,a),!(void 0!==n&&(e.exports=n))}).call(this)},function(e,t,i){var a;a=function(e,t,a){var n=i(20),s=i(22),r=i(23);a.exports={getNoChargeNotAvailableList:function(e){var t=e||"",i=[],a=[{name:"收费",value:""},{name:"不适用",value:"X"},{name:"免费，不出EMD单",value:"F"},{name:"免费，出EMD单",value:"E"},{name:"免费，不出EMD单，不要求预定",value:"G"},{name:"免费，出EMD单，不要求预定",value:"H"}];return i="A"==t?[{name:"不适用",value:"X"},{name:"免费，不出EMD单",value:"F"},{name:"免费，出EMD单",value:"E"},{name:"免费，不出EMD单，不要求预定",value:"G"},{name:"免费，出EMD单，不要求预定",value:"H"},{name:"免费，行李规则遵循市场方航空公司规则",value:"D"},{name:"免费，行李规则遵循承运方航空公司规则",value:"O"}]:"B"==t?[{name:"免费，不出EMD单",value:"F"}]:"E"==t?[{name:"不适用",value:"X"}]:a},getSpecifiedServiceFeeAppList:function(e){var t=e||"",i=[{name:"每一个票价组成部分算一次服务费用",value:"1"},{name:"每一个票价组成部分算一半的服务费用",value:"2"},{name:"每用一次服务算一次服务费用",value:"3"},{name:"匹配的部分航程算一次服务费用",value:"4"},{name:"服务收费对应每张售票",value:"5"}];switch(t){case"F":i=[{name:"每一个票价组成部分算一次服务费用",value:"1"},{name:"每一个票价组成部分算一半的服务费用",value:"2"},{name:"每用一次服务算一次服务费用",value:"3"},{name:"匹配的部分航程算一次服务费用",value:"4"},{name:"服务收费对应每张售票",value:"5"}];break;case"M":i=[{name:"每用一次服务算一次服务费用",value:"3"}];break;case"R":i=[{name:"服务收费对应每张售票",value:"5"}];break;case"T":i=[{name:"每用一次服务算一次服务费用",value:"3"},{name:"服务收费对应每张售票",value:"5"}];break;case"A":i=[];break;case"B":i=[];break;case"C":i=[{name:"按托运点收费",value:"3"},{name:"按全行程收费",value:"4"},{name:"每公斤按公布运价的0.5%收费",value:"H"},{name:"每公斤按公布运价的1%收费",value:"C"},{name:"每公斤按公布运价的1.5%收费",value:"P"},{name:"按每公斤收费",value:"K"},{name:"按每5公斤收费",value:"F"}];break;case"E":i=[];break;case"P":i=[{name:"按托运点收费",value:"3"},{name:"按全行程收费",value:"4"},{name:"每公斤按公布运价的0.5%收费",value:"H"},{name:"每公斤按公布运价的1%收费",value:"C"},{name:"每公斤按公布运价的1.5%收费",value:"P"},{name:"按每公斤收费",value:"K"},{name:"按每5公斤收费",value:"F"}];break;default:console.info("传入的serviceType有问题")}return i},getgeoSpecSectPortJourneyList:function(e){var t=e||"",i=[{name:"Sector",value:"S"},{name:"Portion",value:"P"},{name:"Journy",value:"J"}];s.checkBaggageServcie(t);return n.contains(["B","E"],t)?i=[{name:"Sector",value:"S"}]:n.contains(["A","C","P"],t)?i=[{name:"选择",value:""},{name:"Portion",value:"P"},{name:"Journy",value:"J"}]:n.contains(["M","R","T"],t)?i=[{name:"选择",value:""}]:"F"==t&&(i=[{name:"Sector",value:"S"},{name:"Portion",value:"P"},{name:"Journy",value:"J"}]),i},convert2TableDataList:function(e,t){e=e||[];var i=(e.length,[]),a=r.tableData[t].addObj||{},s=[];for(var o in a)"selected"!=o&&s.push(o);return n.each(e,function(e){var t={};n.each(s,function(i){t[i]=e[i]+""}),i.push(t)}),i},getEffectivePeriodTypeList:function(e){var t=[{name:"选择",value:""},{name:"距购买服务后",value:"A"},{name:"距服务兑换后",value:"B"},{name:"距航班起飞前",value:"D"}];return"FP"==e?t=[{name:"选择",value:""},{name:"距购买服务后",value:"A"}]:"FL"==e&&(t=[{name:"选择",value:""},{name:"距服务兑换后",value:"B"},{name:"距航班起飞前",value:"D"}]),t}}}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,a){var n=i(20);a.exports={checkCommonServcie:function(e){var t=["F","M","R","T"],i=n.contains(t,e);return i},checkBaggageServcie:function(e){var t=["A","B","C","E","P"],i=n.contains(t,e);return i},getFullDayOrMonthStr:function(e){return 10>e?"0"+e:e+""},getEditFlagByStatus:function(e){return"3"!=e}}}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,i){var a={advancedPurchasePeriodList:[{name:"分",value:"N"},{name:"小时",value:"H"},{name:"天",value:"D"},{name:"月",value:"M"}],tableData:{list170VO:{addObj:{saleGeographicPointType:"",saleGeographicPoint:"",specFeeAmount:"",specFeeCurrency:"CNY",selected:!0}},list198VO:{addObj:{mktOp:"",cxr:"",rbd1:"",rbd2:"",rbd3:"",rbd4:"",rbd5:"",selected:!0}},list198UpgradeVO:{addObj:{mktOp:"",cxr:"",rbd1:"",rbd2:"",rbd3:"",rbd4:"",rbd5:"",selected:!0}},list196VO:{addObj:{count:"",code:"",selected:!0}},list186VO:{addObj:{mktCarrier:"",optCarrier:"",fltNo1:"",fltNo2:"",selected:!0}},list183VO:{addObj:{travelAgency:"",carrierGds:"",dutyFunctionCode:"",geographicSpecificationType:"",geographicSpecification:"",codeType:"",code:"",viewBookTkt:"",selected:!0}},list165VO:{addObj:{equipmentCode:"",selected:!0}},list171VO:{addObj:{carrier:"",resFareClassCode:"",fareTypeCode:"",selected:!0}},list172VO:{addObj:{accountCode:"",selected:!0}},list173TicketVO:{addObj:{ticketDesignator:"",selected:!0}},list173TktVO:{addObj:{ticketDesignator:"",selected:!0}},list178Loc1:{addObj:{geoLocType:"",geoLocSpec:"",appl:"",selected:!0}},list178Loc2:{addObj:{geoLocType:"",geoLocSpec:"",appl:"",selected:!0}},list178Loc3:{addObj:{geoLocType:"",geoLocSpec:"",appl:"",selected:!0}},listTsk202VO:{addObj:{allowedRbd:"",originalFareOffice:"",originalFareIataNo:"",originalFareDepartmentCode:"",originalFareBasis:"",newFareBasis:"",flightSpreadFactor:"0",flightSpreadAmount:"",flightSpreadUnit:"",flightTourCodeFactor:"",flightTourCodeText:"",flightEiFactor:"",flightEiText:"",selected:!0}}},weightUnitList:[{name:"选择",value:""},{name:"千克",value:"K"},{name:"磅",value:"P"}],specServiceFeeColSubList:[{name:"包含在票价中",value:"I"},{name:"单独收费",value:""}],noChargeNotAvailableList:[{name:"收费",value:""},{name:"不适用",value:"X"},{name:"免费，不出EMD单",value:"F"},{name:"免费，出EMD单",value:"E"},{name:"免费，不出EMD单，不要求预定",value:"G"},{name:"免费，出EMD单，不要求预定",value:"H"},{name:"免费，行李规则遵循市场方航空公司规则",value:"D"},{name:"免费，行李规则遵循承运方航空公司规则",value:"O"}],specServiceFeeNetSellList:[{name:"销售价",value:""},{name:"净价",value:"N"}],baggageTravelApplicationList:[{name:"必须匹配所有的航段",value:"A"},{name:"至少匹配一个航段",value:"S"},{name:"必须匹配旅行航段中的主航段",value:"M"},{name:"必须匹配整个行程的每一段",value:"J"},{name:"不限制",value:""}],noCharge_notAvailableList:[{name:"收费",value:""},{name:"不适用",value:"X"},{name:"免费，不出EMD单",value:"F"},{name:"免费，出EMD单",value:"E"},{name:"免费，不出EMD单，不要求预定",value:"G"},{name:"免费，出EMD单，不要求预定",value:"H"},{name:"免费，行李规则遵循市场方航空公司规则",value:"D"},{name:"免费，行李规则遵循承运方航空公司规则",value:"O"}],cabinList:[{name:"选择",
-value:""},{name:"豪华头等舱",value:"R"},{name:"头等舱",value:"F"},{name:"豪华商务舱",value:"J"},{name:"商务舱",value:"C"},{name:"豪华经济舱",value:"P"},{name:"经济舱",value:"Y"}],geoLocTypeList:[{name:"选择",value:""},{name:"大区",value:"A"},{name:"城市",value:"C"},{name:"国家",value:"N"},{name:"机场",value:"P"},{name:"州",value:"S"},{name:"区域",value:"Z"}],indicatorReissueRefundList:[{name:"不可退款",value:"N"},{name:"可退款",value:"Y"},{name:"可改",value:"R"}],formOfRefundList:[{name:"选择",value:""},{name:"按原付款渠道退款",value:"1"},{name:"按电子凭证退款",value:"2"}],geoSpecExceptionStopUnitList:[{name:"选择",value:""},{name:"分",value:"N"},{name:"小时",value:"H"},{name:"天",value:"D"},{name:"周",value:"W"},{name:"月",value:"M"}],timeApplicationList:[{name:"选择",value:""},{name:"分别",value:"D"},{name:"之间",value:"R"}],effectivePeriodTypeList:[{name:"选择",value:""},{name:"距购买服务后",value:"A"},{name:"距服务兑换后",value:"B"},{name:"距航班起飞前",value:"D"}],effectivePeriodUnitList:[{name:"天",value:"D"},{name:"月",value:"M"},{name:"小时",value:"H"}]};return a}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,a){var n=i(20),s=i(19),r=i(25),o=i(26),l=i(27);s.directive("headerNav",function(){return{restrict:"E",replace:!0,scope:!0,template:function(e,t){var i=$.trim($("#action").val()),a="";a="add"==i?"新建服务费用":"更新服务费用";var s=n.template(r),o=s({headerTipStr:a});return o},link:function(e,t,i){e.backPage=function(){var e=$.trim($("#contextPath").val());window.location.href=e+"/oc/ocView"}}}}),s.directive("chooseDiv",function(){return{restrict:"AE",replace:!0,scope:!0,transclude:!0,template:o,compile:function(e,t,i){var a=t.htmlUrl,s=n.template(l),r=s({value:a}),o=e.find("div.service_list");o.append(r)}}})}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t){e.exports='<div class="header_control query_section"> <div class="helper_float_left query_section_row edit_header"> <h1 class=helper_margin_right_10px><%=headerTipStr%></h1> <span class=helper_color_blue_2>服务类型</span> <span class=helper_color_blue_2>|</span> <span class=helper_color_blue_2>费用</span> <span class=helper_color_blue_2>|</span> <span class=helper_color_blue_2>规则</span> </div> <div class="helper_float_right operation_btnlist"> <div class="helper_float_left helper_margin_0_2px margin_top_5px"> <div class="btn_page btn_cancel"> <div class=btn_left></div> <div class=btn_content id=back ng-click=backPage();>返回</div> <div class=btn_right></div> </div> </div> <div class="helper_float_left helper_margin_0_2px margin_top_5px"> <div class="btn_page btn_cancel"> <div class=btn_left></div> <div class=btn_content id=s7_save ng-click="submitForm(\'save\')">保存</div> <div class=btn_right></div> </div> </div> <div class="helper_float_left helper_margin_0_2px margin_top_5px"> <div class="btn_page btn_save"> <div class=btn_left></div> <div class=btn_content id=s7_saveAndPublish ng-click="submitForm(\'saveAndPublish\')">保存并发布</div> <div class=btn_right></div> </div> </div> <div class=clearfix></div> </div> <div class=clearfix></div> </div>'},function(e,t){e.exports='<div class=choose_box> <div class=srch_input> <div class="helper_float_left input_outer" ng-transclude=""> </div> <div class=clearfix></div> </div> <div class=service_list> </div> </div>'},function(e,t){e.exports='<ul> <%if("choose1.html"==value){%> <li bindonce ng-repeat="l in serviceGroupList | serviceGroupFilter:chooseInputData.choose1" ng-click=subGroupQuery(l.serviceGroupDescription,l.serviceGroup) bo-bind=l.serviceGroupDescription> </li> <%}else if("choose2.html"==value){%> <li bindonce ng-repeat="l in subGroupList | subGroupFilter : chooseInputData.choose2" ng-click=s5Query(l.subGroupDescription,l.subGroup) bo-bind=l.subGroupDescription> </li> <%}else if("choose3.html"==value){%> <li bindonce ng-repeat="l in lastGroupList  | lastGroupFilter : chooseInputData.choose3" ng-click=lastChooseClick(l) class=choose4li> <div class=service_name> <p class=helper_float_left bo-bind="\'[\'+l.serviceSubCode+\']\'+l.commercialName"></p> <span class="helper_float_left serviceTypeSpan" bo-bind=l.serviceType></span> <div class=clearfix></div> </div> </li> <%}else if("choose4.html"==value){%> <li bindonce ng-repeat="l in lastGroupList2" class=choose4li> <div class=service_name> <p class=helper_float_left bo-bind="\'[\'+l.subCode+\']\'+l.commercialName"></p> <span class="helper_float_left serviceTypeSpan" ng-bind=l.serviceType></span> <span bo-bind="\'x\'+l.subCodeOccurence"></span> <div class=clearfix></div> </div> </li> <%}%> </ul>'},function(e,t,i){var a;a=function(e,t,a){var n=i(19);n.directive("geoSpecInput",function(){return{restrict:"E",replace:!0,scope:!0,template:geoSpecInputHtml,transclude:!0}})}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,a){function n(e){e&&(e.cxr="",e.rbd1="",e.rbd2="",e.rbd3="",e.rbd4="",e.rbd5="")}function s(e){angular.forEach(e,function(e){e.selected=!1})}var r=i(19),o=i(30),l=i(31),c=i(32),u=i(20);r.directive("tableInfo",["FormEditStatusServcie","FormData",function(e,t){return{restrict:"AE",replace:!0,template:function(e,t){return o},scope:{tableData:"=",list:"="},controller:["$scope",function(i){function a(e){e&&(e.saleGeographicPoint="")}i.data=t,i.editStatus=e,this.tbAddLine=function(){s(i.list);var e=angular.copy(i.tableData.addObj);i.list.push(e)},this.tbDelLine=function(){var e=i.list.length;if(e>=1){var t=e-1;angular.forEach(i.list,function(e,i){e.selected&&(t=i)}),s(i.list),i.list.splice(t,1)}},i.clickTr=function(e){s(i.list),e.selected=!0},i.geoSpecTypeList=[{name:"选择",value:""},{name:"大区",value:"A"},{name:"城市",value:"C"},{name:"国家",value:"N"},{name:"机场",value:"P"},{name:"州",value:"S"},{name:"区域",value:"Z"}],i.codeTypeList=[{name:"选择",value:""},{name:"代理人office号",value:"T"},{name:"IATA号",value:"I"},{name:"Department/Identifier",value:"X"},{name:"CRS/CXR Department Code",value:"V"},{name:"ERSP No",value:"E"},{name:"LNIATA Number (CRT Address)",value:"L"},{name:"Airline specific codes",value:"A"}],i.marketingOpreratingList=[{name:"选择",value:""},{name:"市场方",value:"M"},{name:"承运方",value:"O"},{name:"市场方/承运方",value:"E"}],i.selectChange183Tb1=function(e){e.geographicSpecification=""},i.selectChange183Tb2=function(e){e.code=""},i.viewBookTktList=[{name:"选择",value:""},{name:"查看/订票/出票",value:1},{name:"仅查看",value:2}],i.selectChange198Tb=function(e){n(e)},i.selectChange198TbUpGrade=function(e){n(e)},i.selectChange170Tb=function(e){a(e)},i.selectChange178Tb=function(e){e.geoLocSpec=""},i.customeEdit202Text=function(e,t,i){$("#tbTSKCustomeEdit_type").val(t),$("#tbTSKCustomeEdit_index").val(i),$("#tbTSKCustomeEdit_value").val(e),$("#tskCustomeTipInfo").html(""),$("#tbTSK202Modal").modal("show"),$("#tbTSKCustomeEdit_value").focus(),"flightTourCodeText"==t?$("#tbTSKCustomeEdit_value").attr("maxLength",13):"flightEiText"==t&&$("#tbTSKCustomeEdit_value").attr("maxLength",80)}}],controllerAs:"ctrl",compile:function(e,t,i){var a=t.htmlUrl,n=u.template(c),s=u.template(l),r=n({value:a}),o=s({value:a}),d=angular.element(e);return d.find("thead").append(r),d.find("tbody").append(o),{post:function(e,t,i,a){var n=i.tbname;t.find("div.delete_line").bind("click",function(){e.editStatus[n]&&e.$apply(function(){a.tbDelLine()})}),t.find("div.add_line").bind("click",function(){e.editStatus[n]&&e.$apply(function(){a.tbAddLine()})})}}}}}])}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t){e.exports='<div> <table> <thead> </thead> <tbody> </tbody> </table> <div class=helper_margin_top5> <div class="btn_page btn_add_small"> <div class=btn_left></div> <div class="btn_content add_line">增加一行</div> <div class=btn_right></div> </div> <div class="btn_page btn_add_small_2"> <div class=btn_left></div> <div class="btn_content delete_line">删除一行</div> <div class=btn_right></div> </div> <div class=clearfix></div> </div> </div>'},function(e,t){e.exports="<tr ng-repeat=\"l in list\" ng-click=clickTr(l); ng-class=\"{true:'selectTd',false:''}[l.selected]\"> <%if(\"tb183.html\"==value){%> <td> <input name=\"{{'t1831'+$index}}\" ng-model=l.travelAgency style=width:90% maxlength=1 type=text ng-disabled=!editStatus.list183VO upper-input/> </td> <td> <input name=\"{{'t1832'+$index}}\" ng-model=l.carrierGds style=width:90% maxlength=3 ng-disabled=!editStatus.list183VO type=text /> </td> <td> <input name=\"{{'t1833'+$index}}\" ng-model=l.dutyFunctionCode style=width:90% maxlength=2 ng-disabled=!editStatus.list183VO type=text /> </td> <td> <select ng-model=l.geographicSpecificationType style=width:90% ng-change=selectChange183Tb1(l) ng-disabled=!editStatus.list183VO ng-options=\"c.value as c.name for c in geoSpecTypeList\"> </select> </td> <td> <input name=\"{{'t1835'+$index}}\" style=width:90% ng-model=l.geographicSpecification ng-disabled=!editStatus.list183VO upper-input=\"\" geo-max-length=l.geographicSpecificationType type=text ng-class=\"{'A':'required areacode','C':'required citycode','N':'required countrycode','P':'required airportcode','S':'required statecode','Z':'required zonecode'}[l.geographicSpecificationType]\"/> </td> <td> <select name=\"{{'t1836'+$index}}\" ng-model=l.codeType style=width:90% ng-disabled=!editStatus.list183VO ng-change=selectChange183Tb2(l) class=required> <option bindonce ng-repeat=\"t in codeTypeList\" ng-selected=\"t.value==l.codeType\" bo-value=t.value bo-bind=t.name></option> </select> </td> <td> <input name=\"{{'t1837'+$index}}\" style=width:90% ng-model=l.code upper-input ng-disabled=!editStatus.list183VO type=text ng-class=\"{'T':'office required','I':'iatanum required','X':'required','V':'required','E':'required','L':'required','A':'required'}[l.codeType]\" tui-max-length=\"{'T':'6','I':'8','X':'8','V':'8','E':'8','L':'8','A':'8'}[l.codeType]\"/> </td> <td> <select ng-model=l.viewBookTkt style=width:95% ng-disabled=!editStatus.list183VO ng-options=\"d.value as d.name for d in viewBookTktList\"> </select> </td> <%}else if(\"tb171.html\"==value){%> <td> <input name=\"{{'t1711'+$index}}\" ng-model=l.carrier ng-disabled=!editStatus.list171VO upper-input=\"\" set-focus=\"\" class=\"air required\" type=text tabindex=1 maxlength=2 size=16 /> </td> <td> <input ng-model=l.resFareClassCode ng-disabled=!editStatus.list171VO type=text tabindex=1 maxlength=16 size=16 /> </td> <td> <input ng-model=l.fareTypeCode ng-disabled=!editStatus.list171VO type=text tabindex=1 maxlength=3 size=16 /> </td> <%}else if (\"tb172.html\"==value){%> <td> <input ng-model=l.accountCode ng-disabled=!editStatus.list172VO type=text tabindex=1 maxlength=20 size=16 /> </td> <%}else if (\"tb173Ticket.html\"==value){%> <td> <input ng-model=l.ticketDesignator ng-disabled=!editStatus.list173TicketVO type=text tabindex=1 maxlength=10 size=16 /> </td> <%}else if (\"tb173Tkt.html\"==value){%> <td> <input ng-model=l.ticketDesignator ng-disabled=!editStatus.list173TktVO type=text tabindex=1 maxlength=10 size=16 /> </td> <%}else if (\"tb165.html\"==value){%> <td> <input name=\"{{'t1651'+$index}}\" ng-model=l.equipmentCode ng-disabled=!editStatus.list165VO upper-input=\"\" class=lettersOrNumber maxlength=3 type=text size=16 /> </td> <%}else if(\"tb186.html\"==value){%> <td> <input name=\"{{'t1861'+$index}}\" ng-model=l.mktCarrier ng-disabled=!editStatus.list186VO set-focus type=text maxlength=3 tabindex=3 size=5 class=required /> </td> <td> <input ng-model=l.optCarrier maxlength=3 ng-disabled=!editStatus.list186VO type=text tabindex=3 size=5 /> </td> <td> <input name=\"{{'t1863'+$index}}\" ng-model=l.fltNo1 maxlength=4 ng-disabled=!editStatus.list186VO type=text tabindex=3 size=5 class=required />- <input ng-model=l.fltNo2 maxlength=4 ng-disabled=!editStatus.list186VO type=text tabindex=3 size=5 /> </td> <%}else if (\"tb196.html\"==value){%> <td> <input name=\"{{'t1961'+$index}}\" ng-model=l.count ng-disabled=!editStatus.list196VO maxlength=2 type=text tabindex=3 size=15 class=positiveInteger /> </td> <td> <input name=\"{{'t1962'+$index}}\" ng-model=l.code upper-input set-focus maxlength=3 type=text ng-disabled=!editStatus.list196VO tabindex=3 size=15 class=lettersOrNumber /> </td> <%}else if (\"tb198.html\"==value){%> <td> <select ng-model=l.mktOp ng-disabled=!editStatus.list198VO style=width:120px ng-change=selectChange198Tb(l) ng-options=\"b.value as b.name for b in marketingOpreratingList\"> </select> </td> <td> <input name=\"{{'t1982'+$index}}\" ng-model=l.cxr upper-input ng-disabled=!editStatus.list198VO maxlength=2 typ ng-class=\"{true:'air required',false:''}[l.mktOp.length>0]\" tabindex=3 size=5 class=input_normal /> </td> <td> <input name=\"{{'t1983'+$index}}\" ng-model=l.rbd1 upper-input ng-disabled=!editStatus.list198VO maxlength=1 type=text tabindex=3 ng-class=\"{true:'seatcode required',false:''}[l.mktOp.length>0]\" size=3 /> </td> <td> <input name=\"{{'t1983'+$index}}\" ng-model=l.rbd2 upper-input ng-disabled=!editStatus.list198VO maxlength=1 tabindex=3 ng-class=\"{true:'seatcode',false:''}[l.mktOp.length>0]\" type=text size=3 /> </td> <td> <input name=\"{{'t1984'+$index}}\" ng-model=l.rbd3 upper-input ng-disabled=!editStatus.list198VO maxlength=1 tabindex=3 size=3 ng-class=\"{true:'seatcode',false:''}[l.mktOp.length>0]\" type=text /> </td> <td> <input name=\"{{'t1985'+$index}}\" ng-model=l.rbd4 upper-input ng-disabled=!editStatus.list198VO maxlength=1 tabindex=3 size=3 ng-class=\"{true:'seatcode',false:''}[l.mktOp.length>0]\" type=text /> </td> <td> <input name=\"{{'t1986'+$index}}\" ng-model=l.rbd5 upper-input ng-disabled=!editStatus.list198VO maxlength=1 tabindex=3 size=3 ng-class=\"{true:'seatcode',false:''}[l.mktOp.length>0]\" type=text /> </td> <%}else if(\"tb198UpGrade.html\"==value){%> <td ng-if=\"data.sel1.value=='UP'||data.sel1.value=='BDUP'\"> <select ng-change=selectChange198TbUpGrade(l) ng-model=l.mktOp ng-disabled=!editStatus.list198UpgradeVO style=width:120px ng-options=\"b.value as b.name for b in marketingOpreratingList\"> </select> </td> <td ng-if=\"data.sel1.value=='UP'||data.sel1.value=='BDUP'\"> <input name=\"{{'t198ug1'+$index}}\" ng-model=l.cxr upper-input ng-disabled=!editStatus.list198UpgradeVO class=air maxlength=2 type=text tabindex=3 size=5 /> </td> <td> <input name=\"{{'t198ug2'+$index}}\" ng-model=l.rbd1 upper-input set-focus ng-disabled=!editStatus.list198UpgradeVO class=\"required seatcode\" maxlength=1 type=text tabindex=3 size=7 /> </td> <td> <input name=\"{{'t198ug3'+$index}}\" ng-model=l.rbd2 upper-input ng-disabled=!editStatus.list198UpgradeVO class=seatcode maxlength=1 type=text tabindex=3 size=7 /> </td> <td> <input name=\"{{'t198ug4'+$index}}\" ng-model=l.rbd3 upper-input ng-disabled=!editStatus.list198UpgradeVO class=seatcode maxlength=1 type=text tabindex=3 size=7 /> </td> <td> <input name=\"{{'t198ug5'+$index}}\" ng-model=l.rbd4 upper-input ng-disabled=!editStatus.list198UpgradeVO class=seatcode maxlength=1 type=text tabindex=3 size=7 /> </td> <td> <input name=\"{{'t198ug6'+$index}}\" ng-model=l.rbd5 upper-input ng-disabled=!editStatus.list198UpgradeVO class=seatcode maxlength=1 type=text tabindex=3 size=7 /> </td> <%}else if (\"tb170.html\"==value){%> <td> <select ng-model=l.saleGeographicPointType ng-disabled=!editStatus.list170VO style=width:60px ng-options=\"o.value as o.name for o in geoSpecTypeList\" ng-change=selectChange170Tb(l)> </select> </td> <td> <input name=\"{{'t1701'+$index}}\" ng-model=l.saleGeographicPoint ng-disabled=!editStatus.list170VO upper-input geo-max-length=l.saleGeographicPointType ng-class=\"{'A':'required areacode','C':'required citycode','N':'required countrycode','P':'required airportcode','S':'required statecode','Z':'required zonecode'}[l.saleGeographicPointType]\" type=text size=16 /> </td> <td> <input name=\"{{'t1702'+$index}}\" ng-model=l.specFeeAmount class=\"required nonNegativeInteger\" set-focus=\"\" type=text ng-disabled=!editStatus.list170VO tabindex=1 maxlength=7 size=16 /> </td> <td> <input name=\"{{'t1703'+$index}}\" ng-model=l.specFeeCurrency upper-input type=text size=16 maxlength=3 ng-disabled=!editStatus.list170VO class=letter ng-class=\"{true:'required',false:''}[l.saleGeographicPointType.length>0]\"/> </td> <%}else if(\"tb178geo1.html\"==value){%> <td> <select ng-model=l.geoLocType ng-disabled=!editStatus.list178Loc1 class=select_width style=width:100px ng-options=\"b.value as b.name for b in geoSpecTypeList\" ng-change=selectChange178Tb(l)> </select> </td> <td> <input name=\"{{'t17812'+$index}}\" ng-model=l.geoLocSpec geo-max-length=l.geoLocType upper-input ng-disabled=!editStatus.list178Loc1 type=text tabindex=3 size=5 class=input_normal ng-class=\"{'A':'required areacode','C':'required citycode','N':'required countrycode','P':'required airportcode','S':'required statecode','Z':'required zonecode'}[l.geoLocType]\"/> </td> <td> <input ng-model=l.appl ng-disabled=!editStatus.list178Loc1 type=radio tabindex=3 size=5 value=\"\"/>适用 <input ng-model=l.appl ng-disabled=!editStatus.list178Loc1 type=radio tabindex=3 size=5 value=N />不适用 </td> <%}else if(\"tb178geo2.html\"==value){%> <td> <select ng-model=l.geoLocType ng-disabled=!editStatus.list178Loc2 class=select_width style=width:100px ng-options=\"b.value as b.name for b in geoSpecTypeList\" ng-change=selectChange178Tb(l)> </select> </td> <td> <input name=\"{{'t17822'+$index}}\" ng-model=l.geoLocSpec geo-max-length=l.geoLocType upper-input ng-disabled=!editStatus.list178Loc2 type=text tabindex=3 size=5 class=input_normal ng-class=\"{'A':'required areacode','C':'required citycode','N':'required countrycode','P':'required airportcode','S':'required statecode','Z':'required zonecode'}[l.geoLocType]\"/> </td> <td> <input ng-model=l.appl ng-disabled=!editStatus.list178Loc2 type=radio tabindex=3 size=5 value=\"\"/>适用 <input ng-model=l.appl ng-disabled=!editStatus.list178Loc2 type=radio tabindex=3 size=5 value=N />不适用 </td> <%}else if(\"tb178geo3.html\"==value){%> <td> <select ng-model=l.geoLocType ng-disabled=!editStatus.list178Loc3 class=select_width style=width:100px ng-options=\"b.value as b.name for b in geoSpecTypeList\" ng-change=selectChange178Tb(l)> </select> </td> <td> <input name=\"{{'t17832'+$index}}\" ng-model=l.geoLocSpec geo-max-length=l.geoLocType upper-input ng-disabled=!editStatus.list178Loc3 type=text tabindex=3 size=5 class=input_normal ng-class=\"{'A':'required areacode','C':'required citycode','N':'required countrycode','P':'required airportcode','S':'required statecode','Z':'required zonecode'}[l.geoLocType]\"/> </td> <td> <input ng-model=l.appl ng-disabled=!editStatus.list178Loc3 type=radio tabindex=3 size=5 value=\"\"/>适用 <input ng-model=l.appl ng-disabled=!editStatus.list178Loc3 type=radio tabindex=3 size=5 value=N />不适用 </td> <%}else if(\"tbTSK202.html\"==value){%> <td><input name=tsk20201{{$index}} ng-model=l.allowedRbd class=\"required allowedRbd\" type=text style=width:125px placeholder=A/B/C/D maxlength=19 upper-input=\"\" ng-disabled=!editStatus.listTsk202VO /></td> <td><input name=tsk20202{{$index}} ng-model=l.originalFareOffice type=text style=width:50px maxlength=8 ng-disabled=!editStatus.listTsk202VO /></td> <td><input name=tsk20203{{$index}} ng-model=l.originalFareIataNo type=text style=width:50px maxlength=8 ng-disabled=!editStatus.listTsk202VO /></td> <td><input name=tsk20204{{$index}} ng-model=l.originalFareDepartmentCode type=text style=width:80px maxlength=8 ng-disabled=!editStatus.listTsk202VO /></td> <td style=width:150px> <span>原始运价&nbsp;</span><input name=tsk20205{{$index}} ng-model=l.originalFareBasis type=text style=width:60px maxlength=10 class=lettersOrNumber ng-disabled=!editStatus.listTsk202VO /><br/> 新票面&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name=tsk20206{{$index}} ng-model=l.newFareBasis type=text style=width:60px maxlength=10 class=lettersOrNumber ng-disabled=!editStatus.listTsk202VO /> </td> <td> <select name=tsk20207{{$index}} ng-model=l.flightSpreadFactor class=required style=width:130px ng-disabled=!editStatus.listTsk202VO> <option value=0>免差价</option> <option value=1>收差价,ET计算差额</option> <option value=2>收差价,自定义差额</option> </select><br/> <span ng-show=\"l.flightSpreadFactor=='2'\"> <input name=tsk20208{{$index}} ng-class=\"{true:'required',false:''}[l.flightSpreadFactor=='2']\" ng-model=l.flightSpreadAmount type=text style=width:59px ng-disabled=!editStatus.listTsk202VO maxlength=7 class=positiveInteger ng-class=\"{true:'required',false:''}[l.flightSpreadFactor=='2']\"/> <select name=tsk20209{{$index}} ng-model=l.flightSpreadUnit style=width:60px ng-class=\"{true:'required',false:''}[l.flightSpreadAmount!='']\" ng-disabled=!editStatus.listTsk202VO> <option value=\"\">选择</option> <option value=CNY>CNY</option> </select> </span> </td> <td> <a href=javascript:void(0) ng-click=\"customeEdit202Text(l.flightTourCodeText,'flightTourCodeText',$index)\">编辑TourCode文本</a><br> 附加规则&nbsp;<input name=tsk20210{{$index}} ng-model=l.flightTourCodeFactor class=\"required zeorOrOtherNum\" type=text style=width:38px maxlength=5 class=nonNegativeInteger /> </td> <td> <a href=javascript:void(0) ng-click=\"customeEdit202Text(l.flightEiText,'flightEiText',$index)\">编辑备注文本</a><br> 附加规则&nbsp;<input name=tsk20211{{$index}} ng-model=l.flightEiFactor class=\"required zeorOrOtherNum\" type=text style=width:38px maxlength=5 class=nonNegativeInteger /> </td> <%}else{%> <td colspan={{column}}> <h3>你传入的html模板不存在，请检查</h3> </td> <%}%> </tr>"},function(e,t){e.exports='<%if("tb183.html"==value){%> <tr> <th width=62px>旅行社</th> <th width=100px>航空公司/分销商</th> <th width=76px>职责/功能码</th> <th width=80px>区域类型</th> <th width=65px>区域代码</th> <th width=150px>发布对象类型</th> <th width=87px>发布对象代码</th> <th width=110px>权限</th> </tr> <%}else if("tb171.html"==value){%> <tr> <th>航空公司</th> <th>票价类别</th> <th>运价类型</th> </tr> <%}else if ("tb172.html"==value){%> <tr> <th>大客户编码</th> </tr> <%}else if ("tb173Ticket.html"==value){%> <tr> <th>指定客票</th> </tr> <%}else if ("tb173Tkt.html"==value){%> <tr> <th>指定客票</th> </tr> <%}else if ("tb165.html"==value){%> <tr> <th>机型代码</th> </tr> <%}else if("tb186.html"==value){%> <tr> <th>市场方</th> <th>承运方</th> <th>航班号</th> </tr> <%}else if ("tb196.html"==value){%> <tr> <th>行李件数</th> <th>行李子代码</th> </tr> <%}else if ("tb198.html"==value){%> <tr> <th>市场方/承运方</th> <th>航空公司</th> <th>订座舱位1</th> <th>订座舱位2</th> <th>订座舱位3</th> <th>订座舱位4</th> <th>订座舱位5</th> </tr> <%}else if("tb198UpGrade.html"==value){%> <tr> <th ng-if="data.sel1.value==\'UP\'||data.sel1.value==\'BDUP\'">市场方/承运方</th> <th ng-if="data.sel1.value==\'UP\'||data.sel1.value==\'BDUP\'">航空公司</th> <th>订座舱位1</th> <th>订座舱位2</th> <th>订座舱位3</th> <th>订座舱位4</th> <th>订座舱位5</th> </tr> <%}else if ("tb170.html"==value){%> <tr> <th>销售地类型</th> <th>销售地代码</th> <th>金额</th> <th>货币类型</th> </tr> <%}else if("tb178geo1.html"==value){%> <tr> <th>类型</th> <th>代码</th> <th>是否适用</th> </tr> <%}else if("tb178geo2.html"==value){%> <tr> <th>类型</th> <th>代码</th> <th>是否适用</th> </tr> <%}else if("tb178geo3.html"==value){%> <tr> <th>类型</th> <th>代码</th> <th>是否适用</th> </tr> <%}else if("tbTSK202.html"==value){%> <tr> <th>&nbsp;</th> <th colspan=3>原始运价</th> <th>&nbsp;</th> <th colspan=3>新票填开</th> </tr> <tr> <th width=127>兑换舱位</th> <th width=58>office</th> <th width=58>IATA_NO</th> <th width=103>DepartmentCode</th> <th width=162>farebasis</th> <th width=130>差价</th> <th width=143>TourCode</th> <th width=138>签注</th> </tr> <%}%> '},function(e,t,i){var a;a=function(e,t,a){var n=i(16),s=i(19),r=i(20);s.directive("geo",function(){function e(e){r.each(i,function(t){e.$setValidity(t,!0)})}var t={A:"areacode",C:"citycode",N:"countrycode",P:"airportcode",S:"statecode",Z:"zonecode"},i=r.values(t);return{restrict:"A",scope:!0,require:"ngModel",link:function(i,a,s,r){r.$parsers.push(function(a){var o=!0,l="";if(""!=a){var c=s.geo,u=i.data[c];l=t[u],o=n.isValidGeoLocal(a,u)}return e(r),null!=l&&l.length>0&&r.$setValidity(l,o),a})}}}),s.directive("letter",function(){return{restrict:"A",scope:!0,require:"ngModel",link:function(e,t,i,a){a.$validators.letter=function(e,t){return""!=t?n.isLetter(t):!0}}}}),s.directive("lorn",function(){return{restrict:"A",scope:!0,require:"?ngModel",link:function(e,t,i,a){a&&(a.$validators.lorn=function(e,t){return""!=t?n.islettersOrNumber(t):!0})}}}),s.directive("pint",function(){return{restrict:"A",scope:!0,require:"?ngModel",link:function(e,t,i,a){a&&(a.$validators.pint=function(e,t){return""!=t?n.isPositiveInteger(t):!0})}}}),s.directive("nnint",function(){return{restrict:"A",scope:!0,require:"?ngModel",link:function(e,t,i,a){a&&(a.$validators.nnint=function(e,t){return""!=t?n.isNonNegativeInteger(t):!0})}}}),s.directive("smaller",function(){return{restrict:"A",scope:!0,require:"ngModel",link:function(e,t,i,a){a.$validators.smaller=function(e,t){var a=!0,n=i.smaller;if(""!=t&&""!=n&&!isNaN(t)&&!isNaN(n)){var s=parseFloat(t),r=parseFloat(n);s>r&&(a=!1)}return a},i.$observe("smaller",function(){a.$validate()})}}}),s.directive("bigger",function(){return{restrict:"A",scope:!0,require:"ngModel",link:function(e,t,i,a){a.$validators.bigger=function(e,t){var a=!0,n=i.bigger;if(""!=t&&""!=n&&!isNaN(t)&&!isNaN(n)){var s=parseFloat(t),r=parseFloat(n);r>s&&(a=!1)}return a},i.$observe("bigger",function(){a.$validate()})}}}),s.directive("bd",function(){return{restrict:"A",scope:!0,require:"ngModel",link:function(e,t,i,a){a&&(a.$validators.bd=function(e,t){var a=i.bd;return""!=t&&""!=a?n.isBiggerDateThan(t,a):!0},i.$observe("bd",function(){a.$validate()}))}}}),s.directive("sd",function(){return{restrict:"A",scope:!0,require:"ngModel",link:function(e,t,i,a){a&&(a.$validators.sd=function(e,t){var a=i.sd;return""!=t&&""!=a?n.isSmallerDateThan(t,a):!0},i.$observe("sd",function(){a.$validate()}))}}}),s.directive("btc",function(){return{restrict:"A",scope:!0,require:"ngModel",link:function(e,t,i,a){a&&(a.$validators.btc=function(t,i){var a=e.data.statusDes;return""==i||n.checkStatusIsDisable(a)?!0:n.isBiggerThanCurrent(i)})}}}),s.directive("dateoc",function(){return{restrict:"A",scope:!0,require:"ngModel",link:function(e,t,i,a){a&&(a.$validators.dateoc=function(e,t){return""!=t?n.isDateOC(t):!0})}}}),s.directive("threecode",function(){return{restrict:"A",scope:!0,require:"ngModel",link:function(e,t,i,a){a&&(a.$validators.threecode=function(e,t){return""!=t?n.isThreecode(t):!0})}}}),s.directive("air",function(){return{restrict:"A",scope:!0,require:"ngModel",link:function(e,t,i,a){a&&(a.$validators.threecode=function(e,t){return""!=t?n.isAir(t):!0})}}}),s.directive("publicobj",function(){return{restrict:"A",scope:!0,require:"ngModel",link:function(e,t,i,a){a.$parsers.push(function(e){var t=i.publicobj,n=e.length;return"T"==t?(n>6?a.$setValidity("length6",!1):a.$setValidity("length6",!0),a.$setValidity("length8",!0)):(n>8?a.$setValidity("length8",!1):a.$setValidity("length8",!0),a.$setValidity("length6",!0)),e})}}})}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,a){i(35),i(37),i(43),i(44),i(45),i(46)}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){i(36)},function(module,exports){!function($){if($.ui.timepicker=$.ui.timepicker||{},!$.ui.timepicker.version){$.extend($.ui,{timepicker:{version:"1.3"}});var Timepicker=function(){this.regional=[],this.regional[""]={currentText:"Now",closeText:"Done",amNames:["AM","A"],pmNames:["PM","P"],timeFormat:"HH:mm",timeSuffix:"",timeOnlyTitle:"Choose Time",timeText:"Time",hourText:"Hour",minuteText:"Minute",secondText:"Second",millisecText:"Millisecond",microsecText:"Microsecond",timezoneText:"Time Zone",isRTL:!1},this._defaults={showButtonPanel:!0,timeOnly:!1,showHour:null,showMinute:null,showSecond:null,showMillisec:null,showMicrosec:null,showTimezone:null,showTime:!0,stepHour:1,stepMinute:1,stepSecond:1,stepMillisec:1,stepMicrosec:1,hour:0,minute:0,second:0,millisec:0,microsec:0,timezone:null,hourMin:0,minuteMin:0,secondMin:0,millisecMin:0,microsecMin:0,hourMax:23,minuteMax:59,secondMax:59,millisecMax:999,microsecMax:999,minDateTime:null,maxDateTime:null,onSelect:null,hourGrid:0,minuteGrid:0,secondGrid:0,millisecGrid:0,microsecGrid:0,alwaysSetTime:!0,separator:" ",altFieldTimeOnly:!0,altTimeFormat:null,altSeparator:null,altTimeSuffix:null,pickerTimeFormat:null,pickerTimeSuffix:null,showTimepicker:!0,timezoneList:null,addSliderAccess:!1,sliderAccessArgs:null,controlType:"slider",defaultValue:null,parse:"strict"},$.extend(this._defaults,this.regional[""])};$.extend(Timepicker.prototype,{$input:null,$altInput:null,$timeObj:null,inst:null,hour_slider:null,minute_slider:null,second_slider:null,millisec_slider:null,microsec_slider:null,timezone_select:null,hour:0,minute:0,second:0,millisec:0,microsec:0,timezone:null,hourMinOriginal:null,minuteMinOriginal:null,secondMinOriginal:null,millisecMinOriginal:null,microsecMinOriginal:null,hourMaxOriginal:null,minuteMaxOriginal:null,secondMaxOriginal:null,millisecMaxOriginal:null,microsecMaxOriginal:null,ampm:"",formattedDate:"",formattedTime:"",formattedDateTime:"",timezoneList:null,units:["hour","minute","second","millisec","microsec"],support:{},control:null,setDefaults:function(e){return extendRemove(this._defaults,e||{}),this},_newInst:function($input,o){var tp_inst=new Timepicker,inlineSettings={},fns={},overrides,i;for(var attrName in this._defaults)if(this._defaults.hasOwnProperty(attrName)){var attrValue=$input.attr("time:"+attrName);if(attrValue)try{inlineSettings[attrName]=eval(attrValue)}catch(err){inlineSettings[attrName]=attrValue}}overrides={beforeShow:function(e,t){return $.isFunction(tp_inst._defaults.evnts.beforeShow)?tp_inst._defaults.evnts.beforeShow.call($input[0],e,t,tp_inst):void 0},onChangeMonthYear:function(e,t,i){tp_inst._updateDateTime(i),$.isFunction(tp_inst._defaults.evnts.onChangeMonthYear)&&tp_inst._defaults.evnts.onChangeMonthYear.call($input[0],e,t,i,tp_inst)},onClose:function(e,t){tp_inst.timeDefined===!0&&""!==$input.val()&&tp_inst._updateDateTime(t),$.isFunction(tp_inst._defaults.evnts.onClose)&&tp_inst._defaults.evnts.onClose.call($input[0],e,t,tp_inst)}};for(i in overrides)overrides.hasOwnProperty(i)&&(fns[i]=o[i]||null);tp_inst._defaults=$.extend({},this._defaults,inlineSettings,o,overrides,{evnts:fns,timepicker:tp_inst}),tp_inst.amNames=$.map(tp_inst._defaults.amNames,function(e){return e.toUpperCase()}),tp_inst.pmNames=$.map(tp_inst._defaults.pmNames,function(e){return e.toUpperCase()}),tp_inst.support=detectSupport(tp_inst._defaults.timeFormat+(tp_inst._defaults.pickerTimeFormat?tp_inst._defaults.pickerTimeFormat:"")+(tp_inst._defaults.altTimeFormat?tp_inst._defaults.altTimeFormat:"")),"string"==typeof tp_inst._defaults.controlType?("slider"==tp_inst._defaults.controlType&&"undefined"==typeof jQuery.ui.slider&&(tp_inst._defaults.controlType="select"),tp_inst.control=tp_inst._controls[tp_inst._defaults.controlType]):tp_inst.control=tp_inst._defaults.controlType;var timezoneList=[-720,-660,-600,-570,-540,-480,-420,-360,-300,-270,-240,-210,-180,-120,-60,0,60,120,180,210,240,270,300,330,345,360,390,420,480,525,540,570,600,630,660,690,720,765,780,840];null!==tp_inst._defaults.timezoneList&&(timezoneList=tp_inst._defaults.timezoneList);var tzl=timezoneList.length,tzi=0,tzv=null;if(tzl>0&&"object"!=typeof timezoneList[0])for(;tzl>tzi;tzi++)tzv=timezoneList[tzi],timezoneList[tzi]={value:tzv,label:$.timepicker.timezoneOffsetString(tzv,tp_inst.support.iso8601)};return tp_inst._defaults.timezoneList=timezoneList,tp_inst.timezone=null!==tp_inst._defaults.timezone?$.timepicker.timezoneOffsetNumber(tp_inst._defaults.timezone):-1*(new Date).getTimezoneOffset(),tp_inst.hour=tp_inst._defaults.hour<tp_inst._defaults.hourMin?tp_inst._defaults.hourMin:tp_inst._defaults.hour>tp_inst._defaults.hourMax?tp_inst._defaults.hourMax:tp_inst._defaults.hour,tp_inst.minute=tp_inst._defaults.minute<tp_inst._defaults.minuteMin?tp_inst._defaults.minuteMin:tp_inst._defaults.minute>tp_inst._defaults.minuteMax?tp_inst._defaults.minuteMax:tp_inst._defaults.minute,tp_inst.second=tp_inst._defaults.second<tp_inst._defaults.secondMin?tp_inst._defaults.secondMin:tp_inst._defaults.second>tp_inst._defaults.secondMax?tp_inst._defaults.secondMax:tp_inst._defaults.second,tp_inst.millisec=tp_inst._defaults.millisec<tp_inst._defaults.millisecMin?tp_inst._defaults.millisecMin:tp_inst._defaults.millisec>tp_inst._defaults.millisecMax?tp_inst._defaults.millisecMax:tp_inst._defaults.millisec,
-tp_inst.microsec=tp_inst._defaults.microsec<tp_inst._defaults.microsecMin?tp_inst._defaults.microsecMin:tp_inst._defaults.microsec>tp_inst._defaults.microsecMax?tp_inst._defaults.microsecMax:tp_inst._defaults.microsec,tp_inst.ampm="",tp_inst.$input=$input,o.altField&&(tp_inst.$altInput=$(o.altField).css({cursor:"pointer"}).focus(function(){$input.trigger("focus")})),0!==tp_inst._defaults.minDate&&0!==tp_inst._defaults.minDateTime||(tp_inst._defaults.minDate=new Date),0!==tp_inst._defaults.maxDate&&0!==tp_inst._defaults.maxDateTime||(tp_inst._defaults.maxDate=new Date),void 0!==tp_inst._defaults.minDate&&tp_inst._defaults.minDate instanceof Date&&(tp_inst._defaults.minDateTime=new Date(tp_inst._defaults.minDate.getTime())),void 0!==tp_inst._defaults.minDateTime&&tp_inst._defaults.minDateTime instanceof Date&&(tp_inst._defaults.minDate=new Date(tp_inst._defaults.minDateTime.getTime())),void 0!==tp_inst._defaults.maxDate&&tp_inst._defaults.maxDate instanceof Date&&(tp_inst._defaults.maxDateTime=new Date(tp_inst._defaults.maxDate.getTime())),void 0!==tp_inst._defaults.maxDateTime&&tp_inst._defaults.maxDateTime instanceof Date&&(tp_inst._defaults.maxDate=new Date(tp_inst._defaults.maxDateTime.getTime())),tp_inst.$input.bind("focus",function(){tp_inst._onFocus()}),tp_inst},_addTimePicker:function(e){var t=this.$altInput&&this._defaults.altFieldTimeOnly?this.$input.val()+" "+this.$altInput.val():this.$input.val();this.timeDefined=this._parseTime(t),this._limitMinMaxDateTime(e,!1),this._injectTimePicker()},_parseTime:function(e,t){if(this.inst||(this.inst=$.datepicker._getInst(this.$input[0])),t||!this._defaults.timeOnly){var i=$.datepicker._get(this.inst,"dateFormat");try{var a=parseDateTimeInternal(i,this._defaults.timeFormat,e,$.datepicker._getFormatConfig(this.inst),this._defaults);if(!a.timeObj)return!1;$.extend(this,a.timeObj)}catch(n){return $.timepicker.log("Error parsing the date/time string: "+n+"\ndate/time string = "+e+"\ntimeFormat = "+this._defaults.timeFormat+"\ndateFormat = "+i),!1}return!0}var s=$.datepicker.parseTime(this._defaults.timeFormat,e,this._defaults);return s?($.extend(this,s),!0):!1},_injectTimePicker:function(){var e=this.inst.dpDiv,t=this.inst.settings,i=this,a="",n="",s=null,r={},o={},l=null,c=0,u=0;if(0===e.find("div.ui-timepicker-div").length&&t.showTimepicker){var d=' style="display:none;"',p='<div class="ui-timepicker-div'+(t.isRTL?" ui-timepicker-rtl":"")+'"><dl><dt class="ui_tpicker_time_label"'+(t.showTime?"":d)+">"+t.timeText+'</dt><dd class="ui_tpicker_time"'+(t.showTime?"":d)+"></dd>";for(c=0,u=this.units.length;u>c;c++){if(a=this.units[c],n=a.substr(0,1).toUpperCase()+a.substr(1),s=null!==t["show"+n]?t["show"+n]:this.support[a],r[a]=parseInt(t[a+"Max"]-(t[a+"Max"]-t[a+"Min"])%t["step"+n],10),o[a]=0,p+='<dt class="ui_tpicker_'+a+'_label"'+(s?"":d)+">"+t[a+"Text"]+'</dt><dd class="ui_tpicker_'+a+'"><div class="ui_tpicker_'+a+'_slider"'+(s?"":d)+"></div>",s&&t[a+"Grid"]>0){if(p+='<div style="padding-left: 1px"><table class="ui-tpicker-grid-label"><tr>',"hour"==a)for(var h=t[a+"Min"];h<=r[a];h+=parseInt(t[a+"Grid"],10)){o[a]++;var f=$.datepicker.formatTime(this.support.ampm?"hht":"HH",{hour:h},t);p+='<td data-for="'+a+'">'+f+"</td>"}else for(var g=t[a+"Min"];g<=r[a];g+=parseInt(t[a+"Grid"],10))o[a]++,p+='<td data-for="'+a+'">'+(10>g?"0":"")+g+"</td>";p+="</tr></table></div>"}p+="</dd>"}var m=null!==t.showTimezone?t.showTimezone:this.support.timezone;p+='<dt class="ui_tpicker_timezone_label"'+(m?"":d)+">"+t.timezoneText+"</dt>",p+='<dd class="ui_tpicker_timezone" '+(m?"":d)+"></dd>",p+="</dl></div>";var v=$(p);for(t.timeOnly===!0&&(v.prepend('<div class="ui-widget-header ui-helper-clearfix ui-corner-all"><div class="ui-datepicker-title">'+t.timeOnlyTitle+"</div></div>"),e.find(".ui-datepicker-header, .ui-datepicker-calendar").hide()),c=0,u=i.units.length;u>c;c++)a=i.units[c],n=a.substr(0,1).toUpperCase()+a.substr(1),s=null!==t["show"+n]?t["show"+n]:this.support[a],i[a+"_slider"]=i.control.create(i,v.find(".ui_tpicker_"+a+"_slider"),a,i[a],t[a+"Min"],r[a],t["step"+n]),s&&t[a+"Grid"]>0&&(l=100*o[a]*t[a+"Grid"]/(r[a]-t[a+"Min"]),v.find(".ui_tpicker_"+a+" table").css({width:l+"%",marginLeft:t.isRTL?"0":l/(-2*o[a])+"%",marginRight:t.isRTL?l/(-2*o[a])+"%":"0",borderCollapse:"collapse"}).find("td").click(function(e){var t=$(this),n=t.html(),s=parseInt(n.replace(/[^0-9]/g),10),r=n.replace(/[^apm]/gi),o=t.data("for");"hour"==o&&(-1!==r.indexOf("p")&&12>s?s+=12:-1!==r.indexOf("a")&&12===s&&(s=0)),i.control.value(i,i[o+"_slider"],a,s),i._onTimeChange(),i._onSelectHandler()}).css({cursor:"pointer",width:100/o[a]+"%",textAlign:"center",overflow:"hidden"}));if(this.timezone_select=v.find(".ui_tpicker_timezone").append("<select></select>").find("select"),$.fn.append.apply(this.timezone_select,$.map(t.timezoneList,function(e,t){return $("<option />").val("object"==typeof e?e.value:e).text("object"==typeof e?e.label:e)})),"undefined"!=typeof this.timezone&&null!==this.timezone&&""!==this.timezone){var _=-1*new Date(this.inst.selectedYear,this.inst.selectedMonth,this.inst.selectedDay,12).getTimezoneOffset();_==this.timezone?selectLocalTimezone(i):this.timezone_select.val(this.timezone)}else"undefined"!=typeof this.hour&&null!==this.hour&&""!==this.hour?this.timezone_select.val(t.timezone):selectLocalTimezone(i);this.timezone_select.change(function(){i._onTimeChange(),i._onSelectHandler()});var b=e.find(".ui-datepicker-buttonpane");if(b.length?b.before(v):e.append(v),this.$timeObj=v.find(".ui_tpicker_time"),null!==this.inst){var y=this.timeDefined;this._onTimeChange(),this.timeDefined=y}if(this._defaults.addSliderAccess){var D=this._defaults.sliderAccessArgs,T=this._defaults.isRTL;D.isRTL=T,setTimeout(function(){if(0===v.find(".ui-slider-access").length){v.find(".ui-slider:visible").sliderAccess(D);var e=v.find(".ui-slider-access:eq(0)").outerWidth(!0);e&&v.find("table:visible").each(function(){var t=$(this),i=t.outerWidth(),a=t.css(T?"marginRight":"marginLeft").toString().replace("%",""),n=i-e,s=a*n/i+"%",r={width:n,marginRight:0,marginLeft:0};r[T?"marginRight":"marginLeft"]=s,t.css(r)})}},10)}}},_limitMinMaxDateTime:function(e,t){var i=this._defaults,a=new Date(e.selectedYear,e.selectedMonth,e.selectedDay);if(this._defaults.showTimepicker){if(null!==$.datepicker._get(e,"minDateTime")&&void 0!==$.datepicker._get(e,"minDateTime")&&a){var n=$.datepicker._get(e,"minDateTime"),s=new Date(n.getFullYear(),n.getMonth(),n.getDate(),0,0,0,0);null!==this.hourMinOriginal&&null!==this.minuteMinOriginal&&null!==this.secondMinOriginal&&null!==this.millisecMinOriginal&&null!==this.microsecMinOriginal||(this.hourMinOriginal=i.hourMin,this.minuteMinOriginal=i.minuteMin,this.secondMinOriginal=i.secondMin,this.millisecMinOriginal=i.millisecMin,this.microsecMinOriginal=i.microsecMin),e.settings.timeOnly||s.getTime()==a.getTime()?(this._defaults.hourMin=n.getHours(),this.hour<=this._defaults.hourMin?(this.hour=this._defaults.hourMin,this._defaults.minuteMin=n.getMinutes(),this.minute<=this._defaults.minuteMin?(this.minute=this._defaults.minuteMin,this._defaults.secondMin=n.getSeconds(),this.second<=this._defaults.secondMin?(this.second=this._defaults.secondMin,this._defaults.millisecMin=n.getMilliseconds(),this.millisec<=this._defaults.millisecMin?(this.millisec=this._defaults.millisecMin,this._defaults.microsecMin=n.getMicroseconds()):(this.microsec<this._defaults.microsecMin&&(this.microsec=this._defaults.microsecMin),this._defaults.microsecMin=this.microsecMinOriginal)):(this._defaults.millisecMin=this.millisecMinOriginal,this._defaults.microsecMin=this.microsecMinOriginal)):(this._defaults.secondMin=this.secondMinOriginal,this._defaults.millisecMin=this.millisecMinOriginal,this._defaults.microsecMin=this.microsecMinOriginal)):(this._defaults.minuteMin=this.minuteMinOriginal,this._defaults.secondMin=this.secondMinOriginal,this._defaults.millisecMin=this.millisecMinOriginal,this._defaults.microsecMin=this.microsecMinOriginal)):(this._defaults.hourMin=this.hourMinOriginal,this._defaults.minuteMin=this.minuteMinOriginal,this._defaults.secondMin=this.secondMinOriginal,this._defaults.millisecMin=this.millisecMinOriginal,this._defaults.microsecMin=this.microsecMinOriginal)}if(null!==$.datepicker._get(e,"maxDateTime")&&void 0!==$.datepicker._get(e,"maxDateTime")&&a){var r=$.datepicker._get(e,"maxDateTime"),o=new Date(r.getFullYear(),r.getMonth(),r.getDate(),0,0,0,0);null!==this.hourMaxOriginal&&null!==this.minuteMaxOriginal&&null!==this.secondMaxOriginal&&null!==this.millisecMaxOriginal||(this.hourMaxOriginal=i.hourMax,this.minuteMaxOriginal=i.minuteMax,this.secondMaxOriginal=i.secondMax,this.millisecMaxOriginal=i.millisecMax,this.microsecMaxOriginal=i.microsecMax),e.settings.timeOnly||o.getTime()==a.getTime()?(this._defaults.hourMax=r.getHours(),this.hour>=this._defaults.hourMax?(this.hour=this._defaults.hourMax,this._defaults.minuteMax=r.getMinutes(),this.minute>=this._defaults.minuteMax?(this.minute=this._defaults.minuteMax,this._defaults.secondMax=r.getSeconds(),this.second>=this._defaults.secondMax?(this.second=this._defaults.secondMax,this._defaults.millisecMax=r.getMilliseconds(),this.millisec>=this._defaults.millisecMax?(this.millisec=this._defaults.millisecMax,this._defaults.microsecMax=r.getMicroseconds()):(this.microsec>this._defaults.microsecMax&&(this.microsec=this._defaults.microsecMax),this._defaults.microsecMax=this.microsecMaxOriginal)):(this._defaults.millisecMax=this.millisecMaxOriginal,this._defaults.microsecMax=this.microsecMaxOriginal)):(this._defaults.secondMax=this.secondMaxOriginal,this._defaults.millisecMax=this.millisecMaxOriginal,this._defaults.microsecMax=this.microsecMaxOriginal)):(this._defaults.minuteMax=this.minuteMaxOriginal,this._defaults.secondMax=this.secondMaxOriginal,this._defaults.millisecMax=this.millisecMaxOriginal,this._defaults.microsecMax=this.microsecMaxOriginal)):(this._defaults.hourMax=this.hourMaxOriginal,this._defaults.minuteMax=this.minuteMaxOriginal,this._defaults.secondMax=this.secondMaxOriginal,this._defaults.millisecMax=this.millisecMaxOriginal,this._defaults.microsecMax=this.microsecMaxOriginal)}if(void 0!==t&&t===!0){var l=parseInt(this._defaults.hourMax-(this._defaults.hourMax-this._defaults.hourMin)%this._defaults.stepHour,10),c=parseInt(this._defaults.minuteMax-(this._defaults.minuteMax-this._defaults.minuteMin)%this._defaults.stepMinute,10),u=parseInt(this._defaults.secondMax-(this._defaults.secondMax-this._defaults.secondMin)%this._defaults.stepSecond,10),d=parseInt(this._defaults.millisecMax-(this._defaults.millisecMax-this._defaults.millisecMin)%this._defaults.stepMillisec,10);microsecMax=parseInt(this._defaults.microsecMax-(this._defaults.microsecMax-this._defaults.microsecMin)%this._defaults.stepMicrosec,10),this.hour_slider&&(this.control.options(this,this.hour_slider,"hour",{min:this._defaults.hourMin,max:l}),this.control.value(this,this.hour_slider,"hour",this.hour-this.hour%this._defaults.stepHour)),this.minute_slider&&(this.control.options(this,this.minute_slider,"minute",{min:this._defaults.minuteMin,max:c}),this.control.value(this,this.minute_slider,"minute",this.minute-this.minute%this._defaults.stepMinute)),this.second_slider&&(this.control.options(this,this.second_slider,"second",{min:this._defaults.secondMin,max:u}),this.control.value(this,this.second_slider,"second",this.second-this.second%this._defaults.stepSecond)),this.millisec_slider&&(this.control.options(this,this.millisec_slider,"millisec",{min:this._defaults.millisecMin,max:d}),this.control.value(this,this.millisec_slider,"millisec",this.millisec-this.millisec%this._defaults.stepMillisec)),this.microsec_slider&&(this.control.options(this,this.microsec_slider,"microsec",{min:this._defaults.microsecMin,max:microsecMax}),this.control.value(this,this.microsec_slider,"microsec",this.microsec-this.microsec%this._defaults.stepMicrosec))}}},_onTimeChange:function(){var e=this.hour_slider?this.control.value(this,this.hour_slider,"hour"):!1,t=this.minute_slider?this.control.value(this,this.minute_slider,"minute"):!1,i=this.second_slider?this.control.value(this,this.second_slider,"second"):!1,a=this.millisec_slider?this.control.value(this,this.millisec_slider,"millisec"):!1,n=this.microsec_slider?this.control.value(this,this.microsec_slider,"microsec"):!1,s=this.timezone_select?this.timezone_select.val():!1,r=this._defaults,o=r.pickerTimeFormat||r.timeFormat,l=r.pickerTimeSuffix||r.timeSuffix;"object"==typeof e&&(e=!1),"object"==typeof t&&(t=!1),"object"==typeof i&&(i=!1),"object"==typeof a&&(a=!1),"object"==typeof n&&(n=!1),"object"==typeof s&&(s=!1),e!==!1&&(e=parseInt(e,10)),t!==!1&&(t=parseInt(t,10)),i!==!1&&(i=parseInt(i,10)),a!==!1&&(a=parseInt(a,10)),n!==!1&&(n=parseInt(n,10));var c=r[12>e?"amNames":"pmNames"][0],u=e!=this.hour||t!=this.minute||i!=this.second||a!=this.millisec||n!=this.microsec||this.ampm.length>0&&12>e!=(-1!==$.inArray(this.ampm.toUpperCase(),this.amNames))||null!==this.timezone&&s!=this.timezone;u&&(e!==!1&&(this.hour=e),t!==!1&&(this.minute=t),i!==!1&&(this.second=i),a!==!1&&(this.millisec=a),n!==!1&&(this.microsec=n),s!==!1&&(this.timezone=s),this.inst||(this.inst=$.datepicker._getInst(this.$input[0])),this._limitMinMaxDateTime(this.inst,!0)),this.support.ampm&&(this.ampm=c),this.formattedTime=$.datepicker.formatTime(r.timeFormat,this,r),this.$timeObj&&(o===r.timeFormat?this.$timeObj.text(this.formattedTime+l):this.$timeObj.text($.datepicker.formatTime(o,this,r)+l)),this.timeDefined=!0,u&&this._updateDateTime()},_onSelectHandler:function(){var e=this._defaults.onSelect||this.inst.settings.onSelect,t=this.$input?this.$input[0]:null;e&&t&&e.apply(t,[this.formattedDateTime,this])},_updateDateTime:function(e){e=this.inst||e;var t=$.datepicker._daylightSavingAdjust(new Date(e.selectedYear,e.selectedMonth,e.selectedDay)),i=$.datepicker._get(e,"dateFormat"),a=$.datepicker._getFormatConfig(e),n=null!==t&&this.timeDefined;this.formattedDate=$.datepicker.formatDate(i,null===t?new Date:t,a);var s=this.formattedDate;if(""===e.lastVal&&(e.currentYear=e.selectedYear,e.currentMonth=e.selectedMonth,e.currentDay=e.selectedDay),this._defaults.timeOnly===!0?s=this.formattedTime:this._defaults.timeOnly!==!0&&(this._defaults.alwaysSetTime||n)&&(s+=this._defaults.separator+this.formattedTime+this._defaults.timeSuffix),this.formattedDateTime=s,this._defaults.showTimepicker)if(this.$altInput&&this._defaults.timeOnly===!1&&this._defaults.altFieldTimeOnly===!0)this.$altInput.val(this.formattedTime),this.$input.val(this.formattedDate);else if(this.$altInput){this.$input.val(s);var r="",o=this._defaults.altSeparator?this._defaults.altSeparator:this._defaults.separator,l=this._defaults.altTimeSuffix?this._defaults.altTimeSuffix:this._defaults.timeSuffix;this._defaults.timeOnly||(r=this._defaults.altFormat?$.datepicker.formatDate(this._defaults.altFormat,null===t?new Date:t,a):this.formattedDate,r&&(r+=o)),r+=this._defaults.altTimeFormat?$.datepicker.formatTime(this._defaults.altTimeFormat,this,this._defaults)+l:this.formattedTime+l,this.$altInput.val(r)}else this.$input.val(s);else this.$input.val(this.formattedDate);this.$input.trigger("change")},_onFocus:function(){if(!this.$input.val()&&this._defaults.defaultValue){this.$input.val(this._defaults.defaultValue);var e=$.datepicker._getInst(this.$input.get(0)),t=$.datepicker._get(e,"timepicker");if(t&&t._defaults.timeOnly&&e.input.val()!=e.lastVal)try{$.datepicker._updateDatepicker(e)}catch(i){$.timepicker.log(i)}}},_controls:{slider:{create:function(e,t,i,a,n,s,r){var o=e._defaults.isRTL;return t.prop("slide",null).slider({orientation:"horizontal",value:o?-1*a:a,min:o?-1*s:n,max:o?-1*n:s,step:r,slide:function(t,a){e.control.value(e,$(this),i,o?-1*a.value:a.value),e._onTimeChange()},stop:function(t,i){e._onSelectHandler()}})},options:function(e,t,i,a,n){if(e._defaults.isRTL){if("string"==typeof a)return"min"==a||"max"==a?void 0!==n?t.slider(a,-1*n):Math.abs(t.slider(a)):t.slider(a);var s=a.min,r=a.max;return a.min=a.max=null,void 0!==s&&(a.max=-1*s),void 0!==r&&(a.min=-1*r),t.slider(a)}return"string"==typeof a&&void 0!==n?t.slider(a,n):t.slider(a)},value:function(e,t,i,a){return e._defaults.isRTL?void 0!==a?t.slider("value",-1*a):Math.abs(t.slider("value")):void 0!==a?t.slider("value",a):t.slider("value")}},select:{create:function(e,t,i,a,n,s,r){for(var o='<select class="ui-timepicker-select" data-unit="'+i+'" data-min="'+n+'" data-max="'+s+'" data-step="'+r+'">',l=e._defaults.pickerTimeFormat||e._defaults.timeFormat,c=n;s>=c;c+=r)o+='<option value="'+c+'"'+(c==a?" selected":"")+">",o+="hour"==i?$.datepicker.formatTime($.trim(l.replace(/[^ht ]/gi,"")),{hour:c},e._defaults):"millisec"==i||"microsec"==i||c>=10?c:"0"+c.toString(),o+="</option>";return o+="</select>",t.children("select").remove(),$(o).appendTo(t).change(function(t){e._onTimeChange(),e._onSelectHandler()}),t},options:function(e,t,i,a,n){var s={},r=t.children("select");if("string"==typeof a){if(void 0===n)return r.data(a);s[a]=n}else s=a;return e.control.create(e,t,r.data("unit"),r.val(),s.min||r.data("min"),s.max||r.data("max"),s.step||r.data("step"))},value:function(e,t,i,a){var n=t.children("select");return void 0!==a?n.val(a):n.val()}}}}),$.fn.extend({timepicker:function(e){e=e||{};var t=Array.prototype.slice.call(arguments);return"object"==typeof e&&(t[0]=$.extend(e,{timeOnly:!0})),$(this).each(function(){$.fn.datetimepicker.apply($(this),t)})},datetimepicker:function(e){e=e||{};var t=arguments;return"string"==typeof e?"getDate"==e?$.fn.datepicker.apply($(this[0]),t):this.each(function(){var e=$(this);e.datepicker.apply(e,t)}):this.each(function(){var t=$(this);t.datepicker($.timepicker._newInst(t,e)._defaults)})}}),$.datepicker.parseDateTime=function(e,t,i,a,n){var s=parseDateTimeInternal(e,t,i,a,n);if(s.timeObj){var r=s.timeObj;s.date.setHours(r.hour,r.minute,r.second,r.millisec),parseRex.date.setMicroseconds(r.microsec)}return s.date},$.datepicker.parseTime=function(e,t,i){var a=extendRemove(extendRemove({},$.timepicker._defaults),i||{}),n=(-1!==e.replace(/\'.*?\'/g,"").indexOf("Z"),function(e,t,i){var a,n=function(e,t){var i=[];return e&&$.merge(i,e),t&&$.merge(i,t),i=$.map(i,function(e){return e.replace(/[.*+?|()\[\]{}\\]/g,"\\$&")}),"("+i.join("|")+")?"},s=function(e){var t=e.toLowerCase().match(/(h{1,2}|m{1,2}|s{1,2}|l{1}|c{1}|t{1,2}|z|'.*?')/g),i={h:-1,m:-1,s:-1,l:-1,c:-1,t:-1,z:-1};if(t)for(var a=0;a<t.length;a++)-1==i[t[a].toString().charAt(0)]&&(i[t[a].toString().charAt(0)]=a+1);return i},r="^"+e.toString().replace(/([hH]{1,2}|mm?|ss?|[tT]{1,2}|[zZ]|[lc]|'.*?')/g,function(e){var t=e.length;switch(e.charAt(0).toLowerCase()){case"h":return 1===t?"(\\d?\\d)":"(\\d{"+t+"})";case"m":return 1===t?"(\\d?\\d)":"(\\d{"+t+"})";case"s":return 1===t?"(\\d?\\d)":"(\\d{"+t+"})";case"l":return"(\\d?\\d?\\d)";case"c":return"(\\d?\\d?\\d)";case"z":return"(z|[-+]\\d\\d:?\\d\\d|\\S+)?";case"t":return n(i.amNames,i.pmNames);default:return"("+e.replace(/\'/g,"").replace(/(\.|\$|\^|\\|\/|\(|\)|\[|\]|\?|\+|\*)/g,function(e){return"\\"+e})+")?"}}).replace(/\s/g,"\\s?")+i.timeSuffix+"$",o=s(e),l="";a=t.match(new RegExp(r,"i"));var c={hour:0,minute:0,second:0,millisec:0,microsec:0};return a?(-1!==o.t&&(void 0===a[o.t]||0===a[o.t].length?(l="",c.ampm=""):(l=-1!==$.inArray(a[o.t].toUpperCase(),i.amNames)?"AM":"PM",c.ampm=i["AM"==l?"amNames":"pmNames"][0])),-1!==o.h&&("AM"==l&&"12"==a[o.h]?c.hour=0:"PM"==l&&"12"!=a[o.h]?c.hour=parseInt(a[o.h],10)+12:c.hour=Number(a[o.h])),-1!==o.m&&(c.minute=Number(a[o.m])),-1!==o.s&&(c.second=Number(a[o.s])),-1!==o.l&&(c.millisec=Number(a[o.l])),-1!==o.c&&(c.microsec=Number(a[o.c])),-1!==o.z&&void 0!==a[o.z]&&(c.timezone=$.timepicker.timezoneOffsetNumber(a[o.z])),c):!1}),s=function(e,t,i){try{var a=new Date("2012-01-01 "+t);if(isNaN(a.getTime())&&(a=new Date("2012-01-01T"+t),isNaN(a.getTime())&&(a=new Date("01/01/2012 "+t),isNaN(a.getTime()))))throw"Unable to parse time with native Date: "+t;return{hour:a.getHours(),minute:a.getMinutes(),second:a.getSeconds(),millisec:a.getMilliseconds(),microsec:a.getMicroseconds(),timezone:-1*a.getTimezoneOffset()}}catch(s){try{return n(e,t,i)}catch(r){$.timepicker.log("Unable to parse \ntimeString: "+t+"\ntimeFormat: "+e)}}return!1};return"function"==typeof a.parse?a.parse(e,t,a):"loose"===a.parse?s(e,t,a):n(e,t,a)},$.datepicker.formatTime=function(e,t,i){i=i||{},i=$.extend({},$.timepicker._defaults,i),t=$.extend({hour:0,minute:0,second:0,millisec:0,timezone:0},t);var a=e,n=i.amNames[0],s=parseInt(t.hour,10);return s>11&&(n=i.pmNames[0]),a=a.replace(/(?:HH?|hh?|mm?|ss?|[tT]{1,2}|[zZ]|[lc]|('.*?'|".*?"))/g,function(e){switch(e){case"HH":return("0"+s).slice(-2);case"H":return s;case"hh":return("0"+convert24to12(s)).slice(-2);case"h":return convert24to12(s);case"mm":return("0"+t.minute).slice(-2);case"m":return t.minute;case"ss":return("0"+t.second).slice(-2);case"s":return t.second;case"l":return("00"+t.millisec).slice(-3);case"c":return("00"+t.microsec).slice(-3);case"z":return $.timepicker.timezoneOffsetString(null===t.timezone?i.timezone:t.timezone,!1);case"Z":return $.timepicker.timezoneOffsetString(null===t.timezone?i.timezone:t.timezone,!0);case"T":return n.charAt(0).toUpperCase();case"TT":return n.toUpperCase();case"t":return n.charAt(0).toLowerCase();case"tt":return n.toLowerCase();default:return e.replace(/\'/g,"")||"'"}}),a=$.trim(a)},$.datepicker._base_selectDate=$.datepicker._selectDate,$.datepicker._selectDate=function(e,t){var i=this._getInst($(e)[0]),a=this._get(i,"timepicker");a?(a._limitMinMaxDateTime(i,!0),i.inline=i.stay_open=!0,this._base_selectDate(e,t),i.inline=i.stay_open=!1,this._notifyChange(i),this._updateDatepicker(i)):this._base_selectDate(e,t)},$.datepicker._base_updateDatepicker=$.datepicker._updateDatepicker,$.datepicker._updateDatepicker=function(e){var t=e.input[0];if(!($.datepicker._curInst&&$.datepicker._curInst!=e&&$.datepicker._datepickerShowing&&$.datepicker._lastInput!=t||"boolean"==typeof e.stay_open&&e.stay_open!==!1)){this._base_updateDatepicker(e);var i=this._get(e,"timepicker");i&&i._addTimePicker(e)}},$.datepicker._base_doKeyPress=$.datepicker._doKeyPress,$.datepicker._doKeyPress=function(e){var t=$.datepicker._getInst(e.target),i=$.datepicker._get(t,"timepicker");if(i&&$.datepicker._get(t,"constrainInput")){var a=i.support.ampm,n=null!==i._defaults.showTimezone?i._defaults.showTimezone:i.support.timezone,s=$.datepicker._possibleChars($.datepicker._get(t,"dateFormat")),r=i._defaults.timeFormat.toString().replace(/[hms]/g,"").replace(/TT/g,a?"APM":"").replace(/Tt/g,a?"AaPpMm":"").replace(/tT/g,a?"AaPpMm":"").replace(/T/g,a?"AP":"").replace(/tt/g,a?"apm":"").replace(/t/g,a?"ap":"")+" "+i._defaults.separator+i._defaults.timeSuffix+(n?i._defaults.timezoneList.join(""):"")+i._defaults.amNames.join("")+i._defaults.pmNames.join("")+s,o=String.fromCharCode(void 0===e.charCode?e.keyCode:e.charCode);return e.ctrlKey||" ">o||!s||r.indexOf(o)>-1}return $.datepicker._base_doKeyPress(e)},$.datepicker._base_updateAlternate=$.datepicker._updateAlternate,$.datepicker._updateAlternate=function(e){var t=this._get(e,"timepicker");if(t){var i=t._defaults.altField;if(i){var a=(t._defaults.altFormat||t._defaults.dateFormat,this._getDate(e)),n=$.datepicker._getFormatConfig(e),s="",r=t._defaults.altSeparator?t._defaults.altSeparator:t._defaults.separator,o=t._defaults.altTimeSuffix?t._defaults.altTimeSuffix:t._defaults.timeSuffix,l=null!==t._defaults.altTimeFormat?t._defaults.altTimeFormat:t._defaults.timeFormat;s+=$.datepicker.formatTime(l,t,t._defaults)+o,t._defaults.timeOnly||t._defaults.altFieldTimeOnly||null===a||(s=t._defaults.altFormat?$.datepicker.formatDate(t._defaults.altFormat,a,n)+r+s:t.formattedDate+r+s),$(i).val(s)}}else $.datepicker._base_updateAlternate(e)},$.datepicker._base_doKeyUp=$.datepicker._doKeyUp,$.datepicker._doKeyUp=function(e){var t=$.datepicker._getInst(e.target),i=$.datepicker._get(t,"timepicker");if(i&&i._defaults.timeOnly&&t.input.val()!=t.lastVal)try{$.datepicker._updateDatepicker(t)}catch(a){$.timepicker.log(a)}return $.datepicker._base_doKeyUp(e)},$.datepicker._base_gotoToday=$.datepicker._gotoToday,$.datepicker._gotoToday=function(e){var t=this._getInst($(e)[0]),i=t.dpDiv;this._base_gotoToday(e);var a=this._get(t,"timepicker");selectLocalTimezone(a);var n=new Date;this._setTime(t,n),$(".ui-datepicker-today",i).click()},$.datepicker._disableTimepickerDatepicker=function(e){var t=this._getInst(e);if(t){var i=this._get(t,"timepicker");$(e).datepicker("getDate"),i&&(i._defaults.showTimepicker=!1,i._updateDateTime(t))}},$.datepicker._enableTimepickerDatepicker=function(e){var t=this._getInst(e);if(t){var i=this._get(t,"timepicker");$(e).datepicker("getDate"),i&&(i._defaults.showTimepicker=!0,i._addTimePicker(t),i._updateDateTime(t))}},$.datepicker._setTime=function(e,t){var i=this._get(e,"timepicker");if(i){var a=i._defaults;i.hour=t?t.getHours():a.hour,i.minute=t?t.getMinutes():a.minute,i.second=t?t.getSeconds():a.second,i.millisec=t?t.getMilliseconds():a.millisec,i.microsec=t?t.getMicroseconds():a.microsec,i._limitMinMaxDateTime(e,!0),i._onTimeChange(),i._updateDateTime(e)}},$.datepicker._setTimeDatepicker=function(e,t,i){var a=this._getInst(e);if(a){var n=this._get(a,"timepicker");if(n){this._setDateFromField(a);var s;t&&("string"==typeof t?(n._parseTime(t,i),s=new Date,s.setHours(n.hour,n.minute,n.second,n.millisec),s.setMicroseconds(n.microsec)):s=new Date(t.getTime()),"Invalid Date"==s.toString()&&(s=void 0),this._setTime(a,s))}}},$.datepicker._base_setDateDatepicker=$.datepicker._setDateDatepicker,$.datepicker._setDateDatepicker=function(e,t){var i=this._getInst(e);if(i){var a=this._get(i,"timepicker"),n=t instanceof Date?new Date(t.getTime()):t;a&&null!=a.timezone&&(t=$.timepicker.timezoneAdjust(t,a.timezone),n=$.timepicker.timezoneAdjust(n,a.timezone)),this._updateDatepicker(i),this._base_setDateDatepicker.apply(this,arguments),this._setTimeDatepicker(e,n,!0)}},$.datepicker._base_getDateDatepicker=$.datepicker._getDateDatepicker,$.datepicker._getDateDatepicker=function(e,t){var i=this._getInst(e);if(i){var a=this._get(i,"timepicker");if(a){void 0===i.lastVal&&this._setDateFromField(i,t);var n=this._getDate(i);return n&&a._parseTime($(e).val(),a.timeOnly)&&(n.setHours(a.hour,a.minute,a.second,a.millisec),n.setMicroseconds(a.microsec),null!=a.timezone&&(n=$.timepicker.timezoneAdjust(n,a.timezone))),n}return this._base_getDateDatepicker(e,t)}},$.datepicker._base_parseDate=$.datepicker.parseDate,$.datepicker.parseDate=function(e,t,i){var a;try{a=this._base_parseDate(e,t,i)}catch(n){if(!(n.indexOf(":")>=0))throw n;a=this._base_parseDate(e,t.substring(0,t.length-(n.length-n.indexOf(":")-2)),i),$.timepicker.log("Error parsing the date string: "+n+"\ndate string = "+t+"\ndate format = "+e)}return a},$.datepicker._base_formatDate=$.datepicker._formatDate,$.datepicker._formatDate=function(e,t,i,a){var n=this._get(e,"timepicker");return n?(n._updateDateTime(e),n.$input.val()):this._base_formatDate(e)},$.datepicker._base_optionDatepicker=$.datepicker._optionDatepicker,$.datepicker._optionDatepicker=function(e,t,i){var a,n=this._getInst(e);if(!n)return null;var s=this._get(n,"timepicker");if(s){var r,o=null,l=null,c=null,u=s._defaults.evnts,d={};if("string"==typeof t){if("minDate"===t||"minDateTime"===t)o=i;else if("maxDate"===t||"maxDateTime"===t)l=i;else if("onSelect"===t)c=i;else if(u.hasOwnProperty(t)){if("undefined"==typeof i)return u[t];d[t]=i,a={}}}else if("object"==typeof t){t.minDate?o=t.minDate:t.minDateTime?o=t.minDateTime:t.maxDate?l=t.maxDate:t.maxDateTime&&(l=t.maxDateTime);for(r in u)u.hasOwnProperty(r)&&t[r]&&(d[r]=t[r])}for(r in d)d.hasOwnProperty(r)&&(u[r]=d[r],a||(a=$.extend({},t)),delete a[r]);if(a&&isEmptyObject(a))return;o?(o=0===o?new Date:new Date(o),s._defaults.minDate=o,s._defaults.minDateTime=o):l?(l=0===l?new Date:new Date(l),s._defaults.maxDate=l,s._defaults.maxDateTime=l):c&&(s._defaults.onSelect=c)}return void 0===i?this._base_optionDatepicker.call($.datepicker,e,t):this._base_optionDatepicker.call($.datepicker,e,a||t,i)};var isEmptyObject=function(e){var t;for(t in e)if(e.hasOwnProperty(e))return!1;return!0},extendRemove=function(e,t){$.extend(e,t);for(var i in t)null!==t[i]&&void 0!==t[i]||(e[i]=t[i]);return e},detectSupport=function(e){var t=e.replace(/\'.*?\'/g,"").toLowerCase(),i=function(e,t){return-1!==e.indexOf(t)};return{hour:i(t,"h"),minute:i(t,"m"),second:i(t,"s"),millisec:i(t,"l"),microsec:i(t,"c"),timezone:i(t,"z"),ampm:i("t")&&i(e,"h"),iso8601:i(e,"Z")}},convert24to12=function(e){return e>12&&(e-=12),0===e&&(e=12),String(e)},splitDateTime=function(e,t,i,a){try{var n=a&&a.separator?a.separator:$.timepicker._defaults.separator,s=a&&a.timeFormat?a.timeFormat:$.timepicker._defaults.timeFormat,r=s.split(n),o=r.length,l=t.split(n),c=l.length;if(c>1)return[l.splice(0,c-o).join(n),l.splice(0,o).join(n)]}catch(u){if($.timepicker.log("Could not split the date from the time. Please check the following datetimepicker options\nthrown error: "+u+"\ndateTimeString"+t+"\ndateFormat = "+e+"\nseparator = "+a.separator+"\ntimeFormat = "+a.timeFormat),u.indexOf(":")>=0){var d=t.length-(u.length-u.indexOf(":")-2);t.substring(d);return[$.trim(t.substring(0,d)),$.trim(t.substring(d))]}throw u}return[t,""]},parseDateTimeInternal=function(e,t,i,a,n){var s,r=splitDateTime(e,i,a,n);if(s=$.datepicker._base_parseDate(e,r[0],a),""!==r[1]){var o=r[1],l=$.datepicker.parseTime(t,o,n);if(null===l)throw"Wrong time format";return{date:s,timeObj:l}}return{date:s}},selectLocalTimezone=function(e,t){if(e&&e.timezone_select){var i="undefined"!=typeof t?t:new Date;e.timezone_select.val(-1*i.getTimezoneOffset())}};$.timepicker=new Timepicker,$.timepicker.timezoneOffsetString=function(e,t){if(isNaN(e)||e>840)return e;var i=e,a=i%60,n=(i-a)/60,s=t?":":"",r=(i>=0?"+":"-")+("0"+(101*n).toString()).slice(-2)+s+("0"+(101*a).toString()).slice(-2);return"+00:00"==r?"Z":r},$.timepicker.timezoneOffsetNumber=function(e){return e=e.toString().replace(":",""),"Z"===e.toUpperCase()?0:/^(\-|\+)\d{4}$/.test(e)?("-"==e.substr(0,1)?-1:1)*(60*parseInt(e.substr(1,2),10)+parseInt(e.substr(3,2),10)):e},$.timepicker.timezoneAdjust=function(e,t){var i=$.timepicker.timezoneOffsetNumber(t);if(!isNaN(i)){var a=-1*e.getTimezoneOffset(),n=a-i;e.setMinutes(e.getMinutes()+n)}return e},$.timepicker.timeRange=function(e,t,i){return $.timepicker.handleRange("timepicker",e,t,i)},$.timepicker.datetimeRange=function(e,t,i){$.timepicker.handleRange("datetimepicker",e,t,i)},$.timepicker.dateRange=function(e,t,i){$.timepicker.handleRange("datepicker",e,t,i)},$.timepicker.handleRange=function(e,t,i,a){function n(n,s){var r=t[e]("getDate"),o=i[e]("getDate"),l=n[e]("getDate");if(null!==r){var c=new Date(r.getTime()),u=new Date(r.getTime());c.setMilliseconds(c.getMilliseconds()+a.minInterval),u.setMilliseconds(u.getMilliseconds()+a.maxInterval),a.minInterval>0&&c>o?i[e]("setDate",c):a.maxInterval>0&&o>u?i[e]("setDate",u):r>o&&s[e]("setDate",l)}}function s(t,i,n){if(t.val()){var s=t[e].call(t,"getDate");null!==s&&a.minInterval>0&&("minDate"==n&&s.setMilliseconds(s.getMilliseconds()+a.minInterval),"maxDate"==n&&s.setMilliseconds(s.getMilliseconds()-a.minInterval)),s.getTime&&i[e].call(i,"option",n,s)}}return a=$.extend({},{minInterval:0,maxInterval:0,start:{},end:{}},a),$.fn[e].call(t,$.extend({onClose:function(e,t){n($(this),i)},onSelect:function(e){s($(this),i,"minDate")}},a,a.start)),$.fn[e].call(i,$.extend({onClose:function(e,i){n($(this),t)},onSelect:function(e){s($(this),t,"maxDate")}},a,a.end)),n(t,i),s(t,i,"minDate"),s(i,t,"maxDate"),$([t.get(0),i.get(0)])},$.timepicker.log=function(e){window.console&&console.log(e)},Date.prototype.getMicroseconds||(Date.microseconds=0,Date.prototype.getMicroseconds=function(){return this.microseconds},Date.prototype.setMicroseconds=function(e){return this.microseconds=e,this}),$.timepicker.version="1.3"}}(jQuery)},function(e,t,i){var a;a=function(e,t,a){var n=i(38),s=i(23),r=i(39),o=i(22),l=i(16),c=i(42);n.controller("EditController",["$scope","FormData","HttpOperService","TbShowHideServcie","FormEditStatusServcie","FormStatusService","CustomeEditTbStatusServcie","$timeout",function(e,t,i,a,n,u,d,p){
-e.contextPath=t.contextPath,e.orgData=angular.copy(t),e.data=t,e.tableStatus=a,e.customeEditTbStatus=d;var h=$("#s7_form").validate({meta:""});window.validator=h,e.editStatus=n,e.showStatus=u;var f=$("#s7Id").val();e.data.id=f;var g=new Date,m=o.getFullDayOrMonthStr(g.getMonth()+1),v=o.getFullDayOrMonthStr(g.getDate()),_=o.getFullDayOrMonthStr(g.getDate()+1);e.currentDateStr=g.getFullYear()+"-"+m+"-"+v,e.nextDateStr=g.getFullYear()+"-"+m+"-"+_,e.tableData=s.tableData;var b="",y=null;"add"==t.action?(b=e.contextPath+"/initPage4Add",y=i.getDataByUrl(b),r.initData.dealResultData4Add(y,e)):"update"==t.action?(b=e.contextPath+"/initPage4Upate?s7Id="+e.data.id,y=i.getDataByUrl(b),r.initData.dealResult4Update(y,e)):"copy"==t.action&&(b=e.contextPath+"/initPage4Copy?s7Id="+e.data.id,y=i.getDataByUrl(b),r.initData.dealResult4Copy(y,e)),e.submitTbTSKCustomeEdit=function(){var t="tskCustomeTipInfo",i=new c(t),a=$("#tbTSKCustomeEdit_type").val(),n=$("#tbTSKCustomeEdit_index").val(),s=$("#tbTSKCustomeEdit_value").val(),r=$("#tbTSKCustomeEdit_value").attr("maxlength"),o=l.getByteNumOfStr(s);return i.cleanTipInfo(),o>r?void i.addErrorTip("最多输入"+r+"个字节!"):(e.data.listTsk202VO[1*n][a]=s,void $("#tbTSK202Modal").modal("hide"))}}])}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,i){var a=angular.module("app.controllers",[]);return a}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,a){var n=i(40),s=i(41),r=i(23),o=i(21),l=i(20),c=function(e){""!=e.firstTravelYear&&""!=e.firstTravelMonth&&""!=e.firstTravelDay&&(e.travelStartDate=e.firstTravelYear+"-"+e.firstTravelMonth+"-"+e.firstTravelDay),""!=e.lastTravelYear&&""!=e.lastTravelMonth&&""!=e.lastTravelDay&&(e.travelEndDate=e.lastTravelYear+"-"+e.lastTravelMonth+"-"+e.lastTravelDay);for(var t=e.dayOfWeek,i=t.length,a=0;i>a;a++){var n=t.charAt(a),s="w"+n;e.dayOfWeekShow[s]=!0}$(":input[name=reuseList172VO]").attr("placeholder",e.accountCodeTableNo172),$(":input[name=reuseList173TicketVO]").attr("placeholder",e.ticketDesignatorTableNo173),$(":input[name=reuseList183VO]").attr("placeholder",e.securityTableNo183),$(":input[name=reuseList198VO]").attr("placeholder",e.rbdTableNo198),$(":input[name=reuseList198UpgradeVO]").attr("placeholder",e.upgradeToRbdTableNo198),$(":input[name=reuseList171VO]").attr("placeholder",e.cxrResFareTableNo171),$(":input[name=reuseList173TktVO]").attr("placeholder",e.tktDesignatorTableNo173),$(":input[name=reuseList186VO]").attr("placeholder",e.carrierFlightTableNo186),$(":input[name=reuseList170VO]").attr("placeholder",e.serviceFeeCurTableNo170),$(":input[name=reuseList196VO]").attr("placeholder",e.textTableNo196),$(":input[name=reuseList165VO]").attr("placeholder",e.equipmentTypeTableNo165),$(":input[name=reuseList178Loc1]").attr("placeholder",e.list178Loc1Id),$(":input[name=reuseList178Loc2]").attr("placeholder",e.list178Loc2Id),$(":input[name=reuseList178Loc3]").attr("placeholder",e.list178Loc3Id),$(":input[name=reuseListTsk202VO]").attr("placeholder",e.flightPassTableTsk202)},u=function(e,t,i){var a=i.subTbReferenceCountMap,n=l.keys(a);l.each(n,function(i){var n=a[i]||"0",s=1*n;s>1&&(e[i]=!1,t[i]=!0)})},d=function(e,t,i){e.length>0?t[i]=!0:t[i]=!1},p=function(e,t){e.list170VO.length>0&&d(e.list170VO,t,"list170VO"),e.list201VO.length>0&&d(e.list201VO,t,"list170VO"),d(e.list198VO,t,"list198VO"),d(e.list198UpgradeVO,t,"list198UpgradeVO"),d(e.list183VO,t,"list183VO"),d(e.list186VO,t,"list186VO"),d(e.list178Loc1,t,"list178Loc1"),d(e.list178Loc2,t,"list178Loc2"),d(e.list178Loc3,t,"list178Loc3"),d(e.list196VO,t,"list196VO"),d(e.list165VO,t,"list165VO"),d(e.list171VO,t,"list171VO"),d(e.list172VO,t,"list172VO"),d(e.list173TicketVO,t,"list173TicketVO"),d(e.list173TktVO,t,"list173TktVO"),d(e.listTsk202VO,t,"listTsk202VO")},h=function(e,t,i){var a=t.statusDes;if("3"==a)for(var s in i)i[s]=!1;n.changeServiceType(e,t,i),n.changeNoChargeNotAvailable(e,t,i),n.changeSpecifiedServiceFeeApp(e,t,i),n.changeGeoSpecSectPortJourney(e,t,i),n.changeDiscount(e.$parent,t,i)},f=function(e,t){e.serviceGroupList=t.serviceGroupList,e.passengerTypeCodeList=t.passengerList,e.frequentFlyerStatusList=t.ffpList;var i=t.equipmentList;i.splice(0,0,{description:"选择",code:""}),e.equipmentList=i,e.advancedPurchasePeriodList=r.advancedPurchasePeriodList,e.effectivePeriodTypeList={list:o.getEffectivePeriodTypeList(e.data.basicInfoVo.subGroup)},e.effectivePeriodUnitList=r.effectivePeriodUnitList,e.noChargeNotAvailableList={list:o.getNoChargeNotAvailableList(e.data.serviceType)},e.specifiedServiceFeeAppList={list:o.getSpecifiedServiceFeeAppList(e.data.serviceType)},e.geoSpecSectPortJourneyList={list:o.getgeoSpecSectPortJourneyList(e.data.serviceType)}},g=function(e,t){e.then(function(e){p(t.data,t.tableStatus),f(t,e)},function(e){console.error("初始化页面数据出错!"+e)})},m=function(e,t){e.then(function(e){s.convertS7ToFormData(e.s7VO,t.data),p(e.s7VO,t.tableStatus),c(t.data),t.data.sel4=e.list163,f(t,e),h(t,t.data,t.editStatus),u(t.editStatus,t.customeEditTbStatus,t.data)},function(e){console.error("初始化页面数据出错!"+e)})},v=function(e,t){e.then(function(e){s.convertS7ToFormData(e.s7VO,t.data),p(e.s7VO,t.tableStatus),c(t.data),t.data.sel4=e.list163,f(t,e),h(t,t.data,t.editStatus),t.data.id=""},function(e){console.error("初始化页面数据出错!"+e)})},_={initData:{dealResultData4Add:g,dealResult4Update:m,dealResult4Copy:v}};return _}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,a){var n=i(22),s=i(20),r=i(21),o={};o.checkIsPageClickFlag=function(e){var t=!0,i=e+"";return"false"==i&&(t=!1),t};var l=function(e,t,i){var a=n.getEditFlagByStatus(i);e[t]=a},c="singleChangeByFlagNotice",u="serviceTypeChangeNotice",d=function(e,t){e.$broadcast(u,t+"")},p=function(e,t,i,a){e.$broadcast(c,i,a+"",t+"")},h=function(e,t,i){for(var a=i.length,n=0;a>n;n++){var s=i[n],r=s.name,o=s.flag;e.$broadcast(c,r,o+"",t+"")}},f=function(e,t,i){var a=t.statusDes,n=t.serviceType,r=t.noChargeNotAvailable,o=t.discountOrNot,c=t.specifiedServiceFeeApp;s.contains(["H","C","P"],c)&&(t.specSevFeeAndOrIndicator=""),s.contains(["A","B","E"],n)||""!=r||"0"==o||s.contains(["H","C","P"],c)?i.specSevFeeAndOrIndicator=!1:l(i,"specSevFeeAndOrIndicator",a)},g=function(e,t,i){var a=t.statusDes,n=t.serviceType;"C"==n||"P"==n?i.noChargeNotAvailable=!1:l(i,"noChargeNotAvailable",a),e.noChargeNotAvailableList.list=r.getNoChargeNotAvailableList(n)},m=function(e,t,i){var a=t.statusDes,n=t.serviceType;s.contains(["A","B","E"],n)?i.availability=!1:l(i,"availability",a)},v=function(e,t,i){var a=t.serviceType;e.specifiedServiceFeeAppList.list=r.getSpecifiedServiceFeeAppList(a)},_=function(e,t,i){var a=t.noChargeNotAvailable,n=t.statusDes;"D"==a?i.baggageTravelApplication=!1:l(i,"baggageTravelApplication",n)},b=function(e,t,i){var a=t.noChargeNotAvailable,n=t.statusDes;s.contains(["X","F","E"],a)?i.indicatorReissueRefund=!1:l(i,"indicatorReissueRefund",n)},y=function(e,t,i){var a=t.serviceType,n=t.statusDes;s.contains(["B","E"],a)?i.geoSpecSectPortJourney=!1:l(i,"geoSpecSectPortJourney",n),e.geoSpecSectPortJourneyList.list=r.getgeoSpecSectPortJourneyList(a)},D=function(e,t,i){var a=t.statusDes,n=t.discountOrNot,r=t.mileageExchangeIndicator,o=t.specifiedServiceFeeApp;s.contains(["H","C","P"],o)&&(t.specifiedServiceFeeMileage=""),"0"==n||"1"==r||"2"==r||s.contains(["H","C","P"],o)?i.specifiedServiceFeeMileage=!1:l(i,"specifiedServiceFeeMileage",a)},T=function(e,t,i){var a=t.statusDes,n=t.noChargeNotAvailable,r=t.discountOrNot,o=t.specSevFeeAndOrIndicator,c=t.specifiedServiceFeeApp;""!=n||"0"==r||"A"==o||s.contains(["H","C","P"],c)?i.mileageExchangeIndicator=!1:l(i,"mileageExchangeIndicator",a)},x=function(e,t,i){var a=t.basicInfoVo.subGroup;e.effectivePeriodTypeList.list=r.getEffectivePeriodTypeList(a)};a.exports={changeServiceType:function(e,t,i){t.statusDes,t.serviceType||"";g(e,t,i),f(e,t,i),m(e,t,i),v(e,t,i),y(e,t,i),x(e,t,i),d(e,"false")},changeNoChargeNotAvailable:function(e,t,i){var a=t.serviceType||"",n=t.noChargeNotAvailable||"",s=!0;s=""==n,_(e,t,i),f(e,t,i),b(e,t,i);var r=!1;"A"==a&&(r="D"!=n&&"O"!=n);var o=[{name:"freeBaggageAllowancePieces",flag:r},{name:"list170VOAndlist201VO",flag:s},{name:"specifiedServiceFeeMileage",flag:s},{name:"specifiedServiceFeeApp",flag:s}];h(e,"false",o),T(e,t,i)},changeSpecifiedServiceFeeApp:function(e,t,i){var a=(t.serviceType||"",t.noChargeNotAvailable||""),n=t.specifiedServiceFeeApp||"",s=!0;s="H"==n||"C"==n||"P"==n?!1:""==a,p(e,"false","list170VOAndlist201VO",s),T(e,t,i),f(e,t,i),D(e,t,i)},changeGeoSpecSectPortJourney:function(e,t,i){},changeDiscount:function(e,t,i){f(e,t,i),D(e,t,i),T(e,t,i)},changeSpecSevFeeAndOrIndicator:function(e,t,i){T(e,t,i)},changeMileageExchangeIndicator:function(e,t,i){D(e,t,i)}}}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,i){var a={};a.convertS7ToFormData=function(e,t){for(var i in t){var a=e.hasOwnProperty(i);if(a){var n=e[i];t[i]=n}}t.sel1.showStr=e.basicInfoVo.serviceGroupDescription,t.sel2.showStr=e.basicInfoVo.subGroupDescription,t.sel3.showStr=e.basicInfoVo.commercialName,t.sel1.value=e.basicInfoVo.serviceGroup,t.sel2.value=e.basicInfoVo.subGroup,t.sel3.value=e.basicInfoVo.subCode},a.convertFormDataToS7=function(e){var t={};return angular.extend(t,e),a.initTravelDate(t),a.initDayOfWeek(t),delete t.sel1,delete t.sel2,delete t.sel3,delete t.travelStartDate,delete t.travelEndDate,delete t.dayOfWeekShow,t},a.initTravelDate=function(e){var t=a.getDateArr(e.travelStartDate),i=a.getDateArr(e.travelEndDate);e.firstTravelYear=t[0],e.firstTravelMonth=t[1],e.firstTravelDay=t[2],e.lastTravelYear=i[0],e.lastTravelMonth=i[1],e.lastTravelDay=i[2]},a.initDayOfWeek=function(e){var t=e.dayOfWeekShow,i="",a=1;for(var n in t){var s=t[n];s&&(i+=a),a++}e.dayOfWeek=i};var n=function(e){var t=e.list170VO,i=e.list201VO;return!(t.length>0||i.length>0)},s=function(e){var t=e.geoSpecLoc1Type||"",i=e.geoSpecLoc1,a=e.list178Loc1;return(""==t||""==i)&&0==a.length},r=function(e){var t=e.geoSpecLoc2Type||"",i=e.geoSpecLoc2,a=e.list178Loc2;return(""==t||""==i)&&0==a.length},o=function(e){var t=e.geoSpecLoc3Type||"",i=e.geoSpecLoc3,a=e.list178Loc3;return(""==t||""==i)&&0==a.length};a.validFormData=function(e,t){e.serviceType;a.delInValidList(e),a.dealOtherData(e);var i=_.contains(["H","C","P"],e.specifiedServiceFeeApp);if(""==e.noChargeNotAvailable&&!i){var l=n(e);if("A"==e.specSevFeeAndOrIndicator){if(l)return $.showTuiErrorDialog("您选择的支付方式为金额和里程，请填写金额!"),!1}else if(0==e.specifiedServiceFeeMileage.length&&l)return $.showTuiErrorDialog("请填写金额或里程费!"),!1}var c=s(e),u=r(e),d=o(e);if(""!=e.geoSpecFromToWithin&&c)return $.showTuiErrorDialog("【区域限制】选择的不是“不限区域”，【区域1】必填！"),!1;if(!("W"!=e.geoSpecFromToWithin||u&&d))return $.showTuiErrorDialog("【区域限制】选择了“区域1内部”，【区域2】和【经过区域】不能有值！"),!1;var p=e.geoSpecSectPortJourney||"",h=e.geoSpecFromToWithin||"",f=e.geoSpecStopConnDes||"";if(""==p){if(!c)return $.showTuiErrorDialog("【Sector/Portion/Journey】为空，【区域1】必须为空!"),!1}else if("P"==p){var g="",m=u&&"W"!=h&&"T"!=f;if(c&&m)return g="【sector/portion/journey】选择了portion，【区域1】必填，且：【区域2】有值，或者【区域限制】选择“区域1内部”，或者【经停类型】字段填“T”!",$.showTuiErrorDialog(g),!1;if(c)return g="【Sector/Portion/Journey】选择了Portion，【区域1】必填!",$.showTuiErrorDialog(g),!1;if(m)return g="【Sector/Portion/Journey】选择了Portion，【区域2】必填，或者【区域限制】选择“区域1内部”，或者【经停类型】字段填“T”!",$.showTuiErrorDialog(g),!1}else if("J"==p&&(c||u))return $.showTuiErrorDialog("【Sector/Portion/Journey】选择了Journey，【区域1】和【区域2】必填!"),!1;return""==e.mileageMaximum&&(e.mileageMaximum="99999"),!0},a.dealOtherData=function(e){var t=e.serviceType;"A"==t&&(e.firstExcessOccurrence="",e.lastExcessOccurrence=""),"C"!=t&&"P"!=t||e.firstExcessOccurrence.length>0&&""==e.lastExcessOccurrence&&(e.lastExcessOccurrence=e.firstExcessOccurrence)},a.strNotNull=function(e){var t=e||"";t=$.trim(t+"");var i=!1;return t.length>0&&(i=!0),i},a.delInValidList=function(e){var t=[];angular.forEach(e.list170VO,function(e){a.strNotNull(e.specFeeAmount)&&t.push(e)});var i=[];angular.forEach(e.list198VO,function(e){a.strNotNull(e.mktOp)&&i.push(e)}),e.list198VO=i;var n=[];angular.forEach(e.list198UpgradeVO,function(e){a.strNotNull(e.rbd1)&&n.push(e)}),e.list198UpgradeVO=n;var s=[];angular.forEach(e.list183VO,function(e){var t=!1;for(var i in e){var n=e[i];if(a.strNotNull(n)){t=!0;break}}t&&s.push(e)}),e.list183VO=s;var r=[];angular.forEach(e.list186VO,function(e){a.strNotNull(e.fltNo1)&&r.push(e)}),e.list186VO=r;var o=[];angular.forEach(e.list178Loc1,function(e){a.strNotNull(e.geoLocType)&&o.push(e)}),e.list178Loc1=o;var l=[];angular.forEach(e.list178Loc2,function(e){a.strNotNull(e.geoLocType)&&l.push(e)}),e.list178Loc2=l;var c=[];angular.forEach(e.list178Loc3,function(e){a.strNotNull(e.geoLocType.length)&&c.push(e)}),e.list178Loc3=c;var u=[];angular.forEach(e.list196VO,function(e){a.strNotNull(e.count)&&a.strNotNull(e.code)&&u.push(e)}),e.list196VO=u;var d=[];angular.forEach(e.list171VO,function(e){a.strNotNull(e.carrier)&&d.push(e)}),e.list171VO=d;var p=[];angular.forEach(e.list172VO,function(e){a.strNotNull(e.accountCode)&&p.push(e)}),e.list172VO=p;var h=[];angular.forEach(e.list173TicketVO,function(e){a.strNotNull(e.ticketDesignator)&&h.push(e)}),e.list173TicketVO=h;var f=[];angular.forEach(e.list173TktVO,function(e){e.ticketDesignator.length>0&&f.push(e)}),e.list173TktVO=f;var g=[];angular.forEach(e.list165VO,function(e){e.equipmentCode.length>0&&g.push(e)}),e.list165VO=g},a.getDate=function(e){var t=e.split("-"),i=t[0],a=t[1],n=t[2];return new Date(i,a-1,n)},a.getDateArr=function(e){var t=[];if(e.length>0){var i=e.split("-");3==i.length&&(t.push(i[0]),t.push(i[1]),t.push(i[2]))}return t},i.exports=a}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,i){function a(e){if(this==window)throw new Error("please new an ModalHelper object to use it !");this.el=$("#"+e)}a.prototype.cleanTipInfo=function(){this.el.html("")},a.prototype.addErrorTip=function(e){this.el.append("<li><span class ='modal-errorTip'>"+e+"</span></li>")},a.prototype.addSuccessTip=function(e){this.el.append('<li><span class ="modal-successTip">'+e+"</span></li>")},i.exports=a}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,a){function n(e,t){var i=_.keys(e),a=_.keys(t);_.each(a,function(e){_.contains(i,e)&&t[e].$setDirty(!0)})}var s=i(38),r=i(41);s.controller("HeaderCtrl",["$scope","FormData","HttpOperService","$log",function(e,t,i,a){function s(e,t){var a=$("#tokenId").val(),n=!1,s=r.convertFormDataToS7(t);n=r.validFormData(s,t),n&&$.showTuiConfirmDialog("保存?",function(){var n="";"save"==e?"add"==t.action||"copy"==t.action?n=t.contextPath+"/addS7":"update"==t.action&&(n=t.contextPath+"/updateS7"):"saveAndPublish"==e&&(n=t.contextPath+"/saveAndPublishS7");var r={tokenId:a},o=i.postDate(n,s,r);o.then(function(e){"true"==e.flag?$.showTuiSuccessDialog("保存成功！",function(){$.showTuiWaitingDialog("即将返回查询界面!",200,60),window.location.href=t.contextPath+"/oc/ocView"}):$.showTuiErrorDialog("保存数据出错！")},function(e){$.showTuiErrorDialog("保存数据出错！")})})}e.contextPath=t.contextPath,e.data=t,e.submitForm=function(t){var i=e.data.action,a=e.data.sel3.showStr,r=validator.form(),o=e.myForm.$valid;"add"==i&&""==a?$.showTuiErrorDialog("请选择服务到最后一级！"):(n(e.data,e.myForm),r&&o&&s(t,e.data))}}])}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,a){var n=i(38),s=(i(21),i(22),i(20)),r=i(40),o=function(){for(var e=["reuseList172VO","reuseList173TicketVO","reuseList183VO","reuseList198VO","reuseList198UpgradeVO","reuseList171VO","reuseList173TktVO","reuseList186VO","reuseList170VO","reuseList196VO","reuseList165VO","reuseList178Loc1","reuseList178Loc2","reuseList178Loc3","reuseListTsk202VO"],t=0;t<e.length;t++)$(":input[name="+e[t]+"]").val("").attr("placeholder","")},l=function(e){var t=e.serviceType;s.contains(["A","B","E"],t)&&(e.specSevFeeAndOrIndicator=""),"A"==t?e.noChargeNotAvailable="F":"B"==t?e.noChargeNotAvailable="F":"C"==t||"P"==t?e.noChargeNotAvailable="":"E"==t&&(e.noChargeNotAvailable="X"),s.contains(["A","B","E"],t)&&(e.availability="N"),s.contains(["B","E"],t)?e.geoSpecSectPortJourney="S":"F"==t?e.geoSpecSectPortJourney="S":e.geoSpecSectPortJourney=""},c=function(e,t,i,a,n){var c=i.serviceType,u=i.carrCode,d=i.serviceSubCode,p=i.commercialName;for(var h in e)s.contains(["sel1","sel2","sel3","sel4","firstMaintenanceDate"],h)||(e[h]=angular.copy(t[h]));validator.resetForm(),e.carrCode=u,e.serviceAndSubCode=d,e.serviceType=c,e.basicInfoVo.serviceGroup=i.attributesGroup,e.basicInfoVo.subGroup=i.attributesSubgroup,e.basicInfoVo.subCode=i.serviceSubCode,o(),e.sel3.showStr="["+d+"]"+p,e.sel3.value=d,e.sel3.serviceGroup=i.attributesGroup,e.discountOrNot="1",e.list201VO=[],l(e),r.changeServiceType(n,e,a),n.myForm.$setPristine()};n.controller("BasicInfoCtrl",["$scope","HttpOperService","FormData","DEFAULT_SERVICETYPE","FormEditStatusServcie",function(e,t,i,a,n){e.chooseInputData={choose1:"",choose2:"",choose3:""},e.data=i,e.showChooseFunc=function(){var e="",t=i.sel1.showStr||"",a=i.sel2.showStr||"",n=i.sel3.showStr||"";return t.length>0&&(e=t),a.length>0&&(e+=" > "+a),n.length>0&&(e+=" > "+n),e},e.subGroupQuery=function(n,s){var r=e.contextPath;i.sel1.showStr=n,i.sel1.value=s,i.sel2.showStr="",i.sel2.value="",i.sel3.showStr="",i.sel3.value="",i.sel3.serviceGroup="",i.sel3.textTableNo163="",e.lastGroupList=[],e.lastGroupList2=[],i.serviceAndSubCode="",i.serviceType=a,i.noChargeNotAvailable="";var o=r+"/basicInfo/queryBasicInfoByGroup",l=e.data.carrCode,c={},u={carrier:l,serviceGroup:s},d=t.postDate(o,c,u);d.then(function(t){e.subGroupList=t},function(e){alert("查询出错!")}),e.data.basicInfoVo.serviceGroup="",e.data.basicInfoVo.subGroup="",e.data.basicInfoVo.subCode="",e.data.sel4=[]},e.s5Query=function(n,s){var r=e.contextPath;i.sel2.showStr=n,i.sel2.value=s,i.sel3.showStr="",i.sel3.value="",i.sel3.serviceGroup="",i.sel3.textTableNo163="",e.lastGroupList=[],i.serviceAndSubCode="",i.serviceType=a,e.lastGroupList2=[],i.noChargeNotAvailable="";var o=r+"/s5/queryS5BySubGroup",l=e.data.carrCode,c=i.sel1.value,u={},d={carrier:l,serviceGroup:c,subGroup:s},p=t.postDate(o,u,d);p.then(function(t){e.lastGroupList=t},function(e){alert("查询出错!")}),e.data.basicInfoVo.serviceGroup="",e.data.basicInfoVo.subGroup="",e.data.basicInfoVo.subCode="",e.data.sel4=[]},e.lastChooseClick=function(a){var s=(a.attributesGroup,a.serviceType,!0);s&&c(e.data,e.orgData,a,n,e.$parent);var r=a.subCodeTableNo163||"",o=i.sel3.textTableNo163||"";if(o!=r){r=1*r;var l=i.contextPath+"/s7/query4ClickService",u={subCodeTableNo163:r+"",carrCode:a.carrCode,serviceType:a.serviceType,serviceAndSubCode:a.serviceSubCode},d=t.postDate(l,u,{});d.then(function(t){e.lastGroupList2=t.tb163List,e.data.sel4=t.tb163List,e.data.sequenceNumber=1*t.maxSequenceNumber+10},function(e){alert("查询出错!")})}}}])}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,a){var n=i(38),s=i(23),r=i(22),o=(i(21),i(20)),l=i(40),c=function(e){return!!e.hasClass("error")},u=function(e){c(e)&&setTimeout(function(){validator.element(e)},100)};n.controller("ChargeConfirmCtrl",["$scope","FormData","FormEditStatusServcie",function(e,t,i){e.data=t,e.weightUnitList=s.weightUnitList,e.specServiceFeeColSubList=s.specServiceFeeColSubList,e.specServiceFeeNetSellList=s.specServiceFeeNetSellList,e.baggageTravelApplicationList=s.baggageTravelApplicationList,e.changeNoChargeNotAvailable=function(){var t=e.$parent,a=e.data,n=i,s=a.noChargeNotAvailable;a.serviceType;"D"==s&&(a.baggageTravelApplication=""),""==s?a.indicatorReissueRefund="N":o.contains(["X","F","E"],s)&&(a.indicatorReissueRefund=""),""!=s&&(a.reuseList170VO="",$(":input[name=reuseList170VO]").val("").attr("placeholder","")),""!=s&&(a.mileageExchangeIndicator="0"),l.changeNoChargeNotAvailable(t,a,n)},e.changeSpecifiedServiceFeeApp=function(){var t=i,a=e.$parent,n=e.data,s=(n.noChargeNotAvailable||"",n.specifiedServiceFeeApp||"");"H"!=s&&"C"!=s&&"P"!=s||(n.reuseList170VO="",$(":input[name=reuseList170VO]").val("").attr("placeholder",""),n.mileageExchangeIndicator="0",n.specifiedServiceFeeMileage="",n.specSevFeeAndOrIndicator=""),l.changeSpecifiedServiceFeeApp(a,n,t)},e.changeUseDateLimitTye=function(t){t=t||"";var i=e.data.statusDes,a=r.getEditFlagByStatus(i);if(a){var n=e.data.useDateLimitTye;if(n==t)return;""==t?(e.data.useDateLimitTye="",e.data.effectivePeriodType="",e.data.effectivePeriodNumber="",e.data.effectivePeriodUnit=""):"1"==t&&(e.data.useDateLimitTye="1",e.data.firstUseDate="",e.data.lastUseDate="")}},e.changeEffectivePeriodType=function(){var t=$(":input[name=effectivePeriodNumber]");""==e.data.effectivePeriodType?(e.data.effectivePeriodNumber="",e.data.effectivePeriodUnit="",u(t)):e.data.effectivePeriodUnit="D"},e.clickDiscount2=function(e){var t=e.discountType;"1"==t?e.discountNum="":e.onePriceNum=""},e.clickDiscount=function(a){var n=r.getEditFlagByStatus(t.statusDes);if(n){if(e.data.discountOrNot=a,"1"==a)e.data.list201VO=[];else{e.data.list170VO=[],e.data.reuseList170VO="",$(":input[name='reuseList170VO']").val(""),e.data.list201VO=[];var s=e.data.sel1.value;if(null!=s&&s.length>2&&0===s.indexOf("BD")){for(var o=[],c=0;c<e.data.sel4.length;c++){var u=e.data.sel4[c],d={subCode:u.subCode,commercialName:u.commercialName,discountType:"1",onePriceNum:"",discountNum:""};o.push(d)}e.data.list201VO=o}else{e.data.list201VO=[];var p=e.data.sel3.value,h=2+p.length,f=e.data.sel3.showStr,g=f.substring(h),d={subCode:p,commercialName:g,discountType:"1",onePriceNum:"",discountNum:""};e.data.list201VO=[d]}e.data.specSevFeeAndOrIndicator="",e.data.specifiedServiceFeeMileage="",e.data.mileageExchangeIndicator="0"}l.changeDiscount(e.$parent,e.data,i)}},e.clickSpecSevFeeAndOrIndicator=function(t){"A"==t&&(e.data.mileageExchangeIndicator="0"),l.changeSpecSevFeeAndOrIndicator(e.$parent,e.data,i)},e.clickMileageExchangeIndicator=function(t){(t="1")&&(e.data.specifiedServiceFeeMileage=""),l.changeMileageExchangeIndicator(e.$parent,e.data,i)}}])}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,a){var n=i(38),s=i(23),r=i(40),o=function(e){return!!e.hasClass("error")},l=function(e){o(e)&&setTimeout(function(){validator.element(e)},100)};n.controller("RuleDetailCtrl",["$scope","FormData","FormEditStatusServcie",function(e,t,i){e.data=t,e.noCharge_notAvailableList=s.noCharge_notAvailableList,e.cabinList=s.cabinList,e.geoLocTypeList=s.geoLocTypeList,e.indicatorReissueRefundList=s.indicatorReissueRefundList,e.formOfRefundList=s.formOfRefundList,e.geoSpecExceptionStopUnitList=s.geoSpecExceptionStopUnitList,e.timeApplicationList=s.timeApplicationList,e.getUpGradeTableTile=function(){var e=t.sel1.value,i="";return"SA"==e||"BDSA"==e?i="座位属性表":"UP"!=e&&"BDUP"!=e||(i="升舱属性表"),i};var a=["SA","BDSA","UP","BDUP"];e.showUpGradeTableFlag=function(){var i=!1,n=a.indexOf(t.sel1.value);return-1!=n&&(i=!0),i&&(i="M"==e.data.serviceType||"F"==e.data.serviceType),i};var n=["UP","BDUP"];e.showUpGradeServiceFlag=function(){var i=!1,a=n.indexOf(t.sel1.value);return-1!=a&&(i=!0),i&&(i="M"==e.data.serviceType||"F"==e.data.serviceType),i},e.getUpGradeInputSize=function(){var e=t.sel1.value,i=5;return"SA"==e||"BDSA"==e?i=10:"UP"!=e&&"BDUP"!=e||(i=5),i},e.selectChangeGeoSpecLoc1=function(){e.data.geoSpecLoc1="";var t=$(":input[name='geoSpecLoc1']");l(t)},e.selectChangeGeoSpecLoc2=function(){e.data.geoSpecLoc2="";var t=$(":input[name='geoSpecLoc2']");l(t)},e.selectChangeGeoSpecLoc3=function(){e.data.geoSpecLoc3="";var t=$(":input[name='geoSpecLoc3']");l(t)},e.changeGeoSpecSectPortJourney=function(){var t=e.$parent,a=e.data,n=i;r.changeGeoSpecSectPortJourney(t,a,n)}}])}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,i){var a=angular.module("app.filter",[]);a.filter("serviceGroupFilter",function(){var e=function(e,t){t=t||"";var i=[];return t.length>0?(t=t.toLowerCase(),angular.forEach(e,function(e){-1!=e.serviceGroupDescription.toLowerCase().indexOf(t)&&i.push(e)})):i=e,i};return e}),a.filter("subGroupFilter",function(){var e=function(e,t){t=t||"";var i=[];return t.length>0?(t=t.toLowerCase(),angular.forEach(e,function(e){-1!=e.subGroupDescription.toLowerCase().indexOf(t)&&i.push(e)})):i=e,i};return e}),a.filter("lastGroupFilter",function(){var e=function(e,t){t=t||"";var i=[];return t.length>0?(t=t.toLowerCase(),angular.forEach(e,function(e){var a="["+e.serviceSubCode+"]"+e.commercialName;-1!=a.toLowerCase().indexOf(t)&&i.push(e)})):i=e,i};return e})}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))},function(e,t,i){var a;a=function(e,t,i){+function(e){"use strict";function t(t,a){return this.each(function(){var n=e(this),s=n.data("bs.modal"),r=e.extend({},i.DEFAULTS,n.data(),"object"==typeof t&&t);s||n.data("bs.modal",s=new i(this,r)),"string"==typeof t?s[t](a):r.show&&s.show(a)})}var i=function(t,i){this.options=i,this.$body=e(document.body),this.$element=e(t),this.$dialog=this.$element.find(".modal-dialog"),this.$backdrop=null,this.isShown=null,this.originalBodyPad=null,this.scrollbarWidth=0,this.ignoreBackdropClick=!1,this.options.remote&&this.$element.find(".modal-content").load(this.options.remote,e.proxy(function(){this.$element.trigger("loaded.bs.modal")},this))};i.VERSION="3.3.6",i.TRANSITION_DURATION=300,i.BACKDROP_TRANSITION_DURATION=150,i.DEFAULTS={backdrop:!0,keyboard:!0,show:!0},i.prototype.toggle=function(e){return this.isShown?this.hide():this.show(e)},i.prototype.show=function(t){var a=this,n=e.Event("show.bs.modal",{relatedTarget:t});this.$element.trigger(n),this.isShown||n.isDefaultPrevented()||(this.isShown=!0,this.checkScrollbar(),this.setScrollbar(),this.$body.addClass("modal-open"),this.escape(),this.resize(),this.$element.on("click.dismiss.bs.modal",'[data-dismiss="modal"]',e.proxy(this.hide,this)),this.$dialog.on("mousedown.dismiss.bs.modal",function(){a.$element.one("mouseup.dismiss.bs.modal",function(t){e(t.target).is(a.$element)&&(a.ignoreBackdropClick=!0)})}),this.backdrop(function(){var n=e.support.transition&&a.$element.hasClass("fade");a.$element.parent().length||a.$element.appendTo(a.$body),a.$element.show().scrollTop(0),a.adjustDialog(),n&&a.$element[0].offsetWidth,a.$element.addClass("in"),a.enforceFocus();var s=e.Event("shown.bs.modal",{relatedTarget:t});n?a.$dialog.one("bsTransitionEnd",function(){a.$element.trigger("focus").trigger(s)}).emulateTransitionEnd(i.TRANSITION_DURATION):a.$element.trigger("focus").trigger(s)}))},i.prototype.hide=function(t){t&&t.preventDefault(),t=e.Event("hide.bs.modal"),this.$element.trigger(t),this.isShown&&!t.isDefaultPrevented()&&(this.isShown=!1,this.escape(),this.resize(),e(document).off("focusin.bs.modal"),this.$element.removeClass("in").off("click.dismiss.bs.modal").off("mouseup.dismiss.bs.modal"),this.$dialog.off("mousedown.dismiss.bs.modal"),e.support.transition&&this.$element.hasClass("fade")?this.$element.one("bsTransitionEnd",e.proxy(this.hideModal,this)).emulateTransitionEnd(i.TRANSITION_DURATION):this.hideModal())},i.prototype.enforceFocus=function(){e(document).off("focusin.bs.modal").on("focusin.bs.modal",e.proxy(function(e){this.$element[0]===e.target||this.$element.has(e.target).length||this.$element.trigger("focus")},this))},i.prototype.escape=function(){this.isShown&&this.options.keyboard?this.$element.on("keydown.dismiss.bs.modal",e.proxy(function(e){27==e.which&&this.hide()},this)):this.isShown||this.$element.off("keydown.dismiss.bs.modal")},i.prototype.resize=function(){this.isShown?e(window).on("resize.bs.modal",e.proxy(this.handleUpdate,this)):e(window).off("resize.bs.modal")},i.prototype.hideModal=function(){var e=this;this.$element.hide(),this.backdrop(function(){e.$body.removeClass("modal-open"),e.resetAdjustments(),e.resetScrollbar(),e.$element.trigger("hidden.bs.modal")})},i.prototype.removeBackdrop=function(){this.$backdrop&&this.$backdrop.remove(),this.$backdrop=null},i.prototype.backdrop=function(t){var a=this,n=this.$element.hasClass("fade")?"fade":"";if(this.isShown&&this.options.backdrop){var s=e.support.transition&&n;if(this.$backdrop=e(document.createElement("div")).addClass("modal-backdrop "+n).appendTo(this.$body),this.$element.on("click.dismiss.bs.modal",e.proxy(function(e){return this.ignoreBackdropClick?void(this.ignoreBackdropClick=!1):void(e.target===e.currentTarget&&("static"==this.options.backdrop?this.$element[0].focus():this.hide()))},this)),s&&this.$backdrop[0].offsetWidth,this.$backdrop.addClass("in"),!t)return;s?this.$backdrop.one("bsTransitionEnd",t).emulateTransitionEnd(i.BACKDROP_TRANSITION_DURATION):t()}else if(!this.isShown&&this.$backdrop){this.$backdrop.removeClass("in");var r=function(){a.removeBackdrop(),t&&t()};e.support.transition&&this.$element.hasClass("fade")?this.$backdrop.one("bsTransitionEnd",r).emulateTransitionEnd(i.BACKDROP_TRANSITION_DURATION):r()}else t&&t()},i.prototype.handleUpdate=function(){this.adjustDialog()},i.prototype.adjustDialog=function(){var t=this.$element[0].scrollHeight>document.documentElement.clientHeight,i=e(window).height(),a=this.$dialog.height(),n=(i-a)/2-50;this.$element.css({paddingLeft:!this.bodyIsOverflowing&&t?this.scrollbarWidth:"",paddingRight:this.bodyIsOverflowing&&!t?this.scrollbarWidth:"",top:n+"px"})},i.prototype.resetAdjustments=function(){this.$element.css({paddingLeft:"",paddingRight:"",top:""})},i.prototype.checkScrollbar=function(){var e=window.innerWidth;if(!e){var t=document.documentElement.getBoundingClientRect();e=t.right-Math.abs(t.left)}this.bodyIsOverflowing=document.body.clientWidth<e,this.scrollbarWidth=this.measureScrollbar()},i.prototype.setScrollbar=function(){var e=parseInt(this.$body.css("padding-right")||0,10);this.originalBodyPad=document.body.style.paddingRight||"",this.bodyIsOverflowing&&this.$body.css("padding-right",e+this.scrollbarWidth)},i.prototype.resetScrollbar=function(){this.$body.css("padding-right",this.originalBodyPad)},i.prototype.measureScrollbar=function(){var e=document.createElement("div");e.className="modal-scrollbar-measure",this.$body.append(e);var t=e.offsetWidth-e.clientWidth;return this.$body[0].removeChild(e),t};var a=e.fn.modal;e.fn.modal=t,e.fn.modal.Constructor=i,e.fn.modal.noConflict=function(){return e.fn.modal=a,this},e(document).on("click.bs.modal.data-api",'[data-toggle="modal"]',function(i){var a=e(this),n=a.attr("href"),s=e(a.attr("data-target")||n&&n.replace(/.*(?=#[^\s]+$)/,"")),r=s.data("bs.modal")?"toggle":e.extend({remote:!/#/.test(n)&&n},s.data(),a.data());a.is("a")&&i.preventDefault(),s.one("show.bs.modal",function(e){e.isDefaultPrevented()||s.one("hidden.bs.modal",function(){a.is(":visible")&&a.trigger("focus")})}),t.call(s,r,this)})}(jQuery)}.call(t,i,t,e),!(void 0!==a&&(e.exports=a))}]);
+
+	/*
+	 * jqueryUI文件中的datepicker在2013/02/21经过machi修改，添加了农历的显示
+	 * version: v1.0.2
+	 * author: machi
+	 * history:
+	 *  2013-04-11 版本更新，增加了新样式，修正了LunarCalendar的错误。
+	 *    支持了节日的样式显示。
+	 *  2013-04-22 修正了参数赋值错误。
+	 *  2013-04-24 修正了农历月份在非本月时的显示错误。修正了在tui2.0中的zIndex计算bug
+	 *  2013-09-10 增加了清空按钮及功能的支持，现在可以通过参数设置清空按钮。
+	 */
+
+	(function( $, undefined ) {
+
+	var uuid = 0,
+		runiqueId = /^ui-id-\d+$/;
+
+	// prevent duplicate loading
+	// this is only a problem because we proxy existing functions
+	// and we don't want to double proxy them
+	$.ui = $.ui || {};
+	if ( $.ui.version ) {
+		return;
+	}
+
+	$.extend( $.ui, {
+		version: "1.9.2",
+
+		keyCode: {
+			BACKSPACE: 8,
+			COMMA: 188,
+			DELETE: 46,
+			DOWN: 40,
+			END: 35,
+			ENTER: 13,
+			ESCAPE: 27,
+			HOME: 36,
+			LEFT: 37,
+			NUMPAD_ADD: 107,
+			NUMPAD_DECIMAL: 110,
+			NUMPAD_DIVIDE: 111,
+			NUMPAD_ENTER: 108,
+			NUMPAD_MULTIPLY: 106,
+			NUMPAD_SUBTRACT: 109,
+			PAGE_DOWN: 34,
+			PAGE_UP: 33,
+			PERIOD: 190,
+			RIGHT: 39,
+			SPACE: 32,
+			TAB: 9,
+			UP: 38
+		}
+	});
+
+	// plugins
+	$.fn.extend({
+		_focus: $.fn.focus,
+		focus: function( delay, fn ) {
+			return typeof delay === "number" ?
+				this.each(function() {
+					var elem = this;
+					setTimeout(function() {
+						$( elem ).focus();
+						if ( fn ) {
+							fn.call( elem );
+						}
+					}, delay );
+				}) :
+				this._focus.apply( this, arguments );
+		},
+
+		scrollParent: function() {
+			var scrollParent;
+			if (($.ui.ie && (/(static|relative)/).test(this.css('position'))) || (/absolute/).test(this.css('position'))) {
+				scrollParent = this.parents().filter(function() {
+					return (/(relative|absolute|fixed)/).test($.css(this,'position')) && (/(auto|scroll)/).test($.css(this,'overflow')+$.css(this,'overflow-y')+$.css(this,'overflow-x'));
+				}).eq(0);
+			} else {
+				scrollParent = this.parents().filter(function() {
+					return (/(auto|scroll)/).test($.css(this,'overflow')+$.css(this,'overflow-y')+$.css(this,'overflow-x'));
+				}).eq(0);
+			}
+
+			return (/fixed/).test(this.css('position')) || !scrollParent.length ? $(document) : scrollParent;
+		},
+
+		zIndex: function( zIndex ) {
+			if ( zIndex !== undefined ) {
+				return this.css( "zIndex", zIndex );
+			}
+			
+			if ( this.length ) {
+				var elem = $( this[ 0 ] ), position, value;
+				while ( elem.length && elem[ 0 ] !== document ) {
+					// Ignore z-index if position is set to a value where z-index is ignored by the browser
+					// This makes behavior of this function consistent across browsers
+					// WebKit always returns auto if the element is positioned
+					position = elem.css( "position" );
+					if ( position === "absolute" || position === "relative" || position === "fixed" ) {
+						// IE returns 0 when zIndex is not specified
+						// other browsers return a string
+						// we ignore the case of nested elements with an explicit value of 0
+						// <div style="z-index: -10;"><div style="z-index: 0;"></div></div>
+						value = parseInt( elem.css( "zIndex" ), 10 );
+						if ( !isNaN( value ) && value !== 0 ) {
+							return value;
+						}
+					}
+					elem = elem.parent();
+				}
+			}
+
+			return 0;
+		},
+
+		uniqueId: function() {
+			return this.each(function() {
+				if ( !this.id ) {
+					this.id = "ui-id-" + (++uuid);
+				}
+			});
+		},
+
+		removeUniqueId: function() {
+			return this.each(function() {
+				if ( runiqueId.test( this.id ) ) {
+					$( this ).removeAttr( "id" );
+				}
+			});
+		}
+	});
+
+	// selectors
+	function focusable( element, isTabIndexNotNaN ) {
+		var map, mapName, img,
+			nodeName = element.nodeName.toLowerCase();
+		if ( "area" === nodeName ) {
+			map = element.parentNode;
+			mapName = map.name;
+			if ( !element.href || !mapName || map.nodeName.toLowerCase() !== "map" ) {
+				return false;
+			}
+			img = $( "img[usemap=#" + mapName + "]" )[0];
+			return !!img && visible( img );
+		}
+		return ( /input|select|textarea|button|object/.test( nodeName ) ?
+			!element.disabled :
+			"a" === nodeName ?
+				element.href || isTabIndexNotNaN :
+				isTabIndexNotNaN) &&
+			// the element and all of its ancestors must be visible
+			visible( element );
+	}
+
+	function visible( element ) {
+		return $.expr.filters.visible( element ) &&
+			!$( element ).parents().andSelf().filter(function() {
+				return $.css( this, "visibility" ) === "hidden";
+			}).length;
+	}
+
+	$.extend( $.expr[ ":" ], {
+		data: $.expr.createPseudo ?
+			$.expr.createPseudo(function( dataName ) {
+				return function( elem ) {
+					return !!$.data( elem, dataName );
+				};
+			}) :
+			// support: jQuery <1.8
+			function( elem, i, match ) {
+				return !!$.data( elem, match[ 3 ] );
+			},
+
+		focusable: function( element ) {
+			return focusable( element, !isNaN( $.attr( element, "tabindex" ) ) );
+		},
+
+		tabbable: function( element ) {
+			var tabIndex = $.attr( element, "tabindex" ),
+				isTabIndexNaN = isNaN( tabIndex );
+			return ( isTabIndexNaN || tabIndex >= 0 ) && focusable( element, !isTabIndexNaN );
+		}
+	});
+
+	// support
+	$(function() {
+		var body = document.body,
+			div = body.appendChild( div = document.createElement( "div" ) );
+
+		// access offsetHeight before setting the style to prevent a layout bug
+		// in IE 9 which causes the element to continue to take up space even
+		// after it is removed from the DOM (#8026)
+		div.offsetHeight;
+
+		$.extend( div.style, {
+			minHeight: "100px",
+			height: "auto",
+			padding: 0,
+			borderWidth: 0
+		});
+
+		$.support.minHeight = div.offsetHeight === 100;
+		$.support.selectstart = "onselectstart" in div;
+
+		// set display to none to avoid a layout bug in IE
+		// http://dev.jquery.com/ticket/4014
+		body.removeChild( div ).style.display = "none";
+	});
+
+	// support: jQuery <1.8
+	if ( !$( "<a>" ).outerWidth( 1 ).jquery ) {
+		$.each( [ "Width", "Height" ], function( i, name ) {
+			var side = name === "Width" ? [ "Left", "Right" ] : [ "Top", "Bottom" ],
+				type = name.toLowerCase(),
+				orig = {
+					innerWidth: $.fn.innerWidth,
+					innerHeight: $.fn.innerHeight,
+					outerWidth: $.fn.outerWidth,
+					outerHeight: $.fn.outerHeight
+				};
+
+			function reduce( elem, size, border, margin ) {
+				$.each( side, function() {
+					size -= parseFloat( $.css( elem, "padding" + this ) ) || 0;
+					if ( border ) {
+						size -= parseFloat( $.css( elem, "border" + this + "Width" ) ) || 0;
+					}
+					if ( margin ) {
+						size -= parseFloat( $.css( elem, "margin" + this ) ) || 0;
+					}
+				});
+				return size;
+			}
+
+			$.fn[ "inner" + name ] = function( size ) {
+				if ( size === undefined ) {
+					return orig[ "inner" + name ].call( this );
+				}
+
+				return this.each(function() {
+					$( this ).css( type, reduce( this, size ) + "px" );
+				});
+			};
+
+			$.fn[ "outer" + name] = function( size, margin ) {
+				if ( typeof size !== "number" ) {
+					return orig[ "outer" + name ].call( this, size );
+				}
+
+				return this.each(function() {
+					$( this).css( type, reduce( this, size, true, margin ) + "px" );
+				});
+			};
+		});
+	}
+
+	// support: jQuery 1.6.1, 1.6.2 (http://bugs.jquery.com/ticket/9413)
+	if ( $( "<a>" ).data( "a-b", "a" ).removeData( "a-b" ).data( "a-b" ) ) {
+		$.fn.removeData = (function( removeData ) {
+			return function( key ) {
+				if ( arguments.length ) {
+					return removeData.call( this, $.camelCase( key ) );
+				} else {
+					return removeData.call( this );
+				}
+			};
+		})( $.fn.removeData );
+	}
+
+
+
+
+
+	// deprecated
+
+	(function() {
+		var uaMatch = /msie ([\w.]+)/.exec( navigator.userAgent.toLowerCase() ) || [];
+		$.ui.ie = uaMatch.length ? true : false;
+		$.ui.ie6 = parseFloat( uaMatch[ 1 ], 10 ) === 6;
+	})();
+
+	$.fn.extend({
+		disableSelection: function() {
+			return this.bind( ( $.support.selectstart ? "selectstart" : "mousedown" ) +
+				".ui-disableSelection", function( event ) {
+					event.preventDefault();
+				});
+		},
+
+		enableSelection: function() {
+			return this.unbind( ".ui-disableSelection" );
+		}
+	});
+
+	$.extend( $.ui, {
+		// $.ui.plugin is deprecated.  Use the proxy pattern instead.
+		plugin: {
+			add: function( module, option, set ) {
+				var i,
+					proto = $.ui[ module ].prototype;
+				for ( i in set ) {
+					proto.plugins[ i ] = proto.plugins[ i ] || [];
+					proto.plugins[ i ].push( [ option, set[ i ] ] );
+				}
+			},
+			call: function( instance, name, args ) {
+				var i,
+					set = instance.plugins[ name ];
+				if ( !set || !instance.element[ 0 ].parentNode || instance.element[ 0 ].parentNode.nodeType === 11 ) {
+					return;
+				}
+
+				for ( i = 0; i < set.length; i++ ) {
+					if ( instance.options[ set[ i ][ 0 ] ] ) {
+						set[ i ][ 1 ].apply( instance.element, args );
+					}
+				}
+			}
+		},
+
+		contains: $.contains,
+
+		// only used by resizable
+		hasScroll: function( el, a ) {
+
+			//If overflow is hidden, the element might have extra content, but the user wants to hide it
+			if ( $( el ).css( "overflow" ) === "hidden") {
+				return false;
+			}
+
+			var scroll = ( a && a === "left" ) ? "scrollLeft" : "scrollTop",
+				has = false;
+
+			if ( el[ scroll ] > 0 ) {
+				return true;
+			}
+
+			// TODO: determine which cases actually cause this to happen
+			// if the element doesn't have the scroll set, see if it's possible to
+			// set the scroll
+			el[ scroll ] = 1;
+			has = ( el[ scroll ] > 0 );
+			el[ scroll ] = 0;
+			return has;
+		},
+
+		// these are odd functions, fix the API or move into individual plugins
+		isOverAxis: function( x, reference, size ) {
+			//Determines when x coordinate is over "b" element axis
+			return ( x > reference ) && ( x < ( reference + size ) );
+		},
+		isOver: function( y, x, top, left, height, width ) {
+			//Determines when x, y coordinates is over "b" element
+			return $.ui.isOverAxis( y, top, height ) && $.ui.isOverAxis( x, left, width );
+		}
+	});
+
+	})( jQuery );
+	(function( $, undefined ) {
+
+	$.extend($.ui, { datepicker: { version: "1.9.2" } });
+
+	var PROP_NAME = 'datepicker';
+	var dpuuid = new Date().getTime();
+	var instActive;
+
+	/*
+	 * LunarCalendar自建类，包括构造函数与使用方法***************************************************************
+	 *
+	 */
+	function LunarCalendar(dateObj){
+		this.dateObj = (dateObj != undefined) ? dateObj : new Date();
+	    this.SY = this.dateObj.getFullYear();//年份
+	    this.SM = this.dateObj.getMonth();//月份
+		this.SD = this.dateObj.getDate();//日期
+		this.lunarDate;
+		this.Lunar();
+	}
+	//修改日期
+	LunarCalendar.prototype.setDate = function(date){
+		this.dateObj = date;
+		this.SY = date.getFullYear();//年份
+	    this.SM = date.getMonth();//月份
+		this.SD = date.getDate();//日期
+		this.Lunar();
+		return this;
+	}
+	//1900-2050年的农历数据
+	LunarCalendar.prototype.lunarInfo = [
+		0x04bd8,0x04ae0,0x0a570,0x054d5,0x0d260,0x0d950,0x16554,0x056a0,0x09ad0,0x055d2,
+		0x04ae0,0x0a5b6,0x0a4d0,0x0d250,0x1d255,0x0b540,0x0d6a0,0x0ada2,0x095b0,0x14977,
+		0x04970,0x0a4b0,0x0b4b5,0x06a50,0x06d40,0x1ab54,0x02b60,0x09570,0x052f2,0x04970,
+		0x06566,0x0d4a0,0x0ea50,0x06e95,0x05ad0,0x02b60,0x186e3,0x092e0,0x1c8d7,0x0c950,
+		0x0d4a0,0x1d8a6,0x0b550,0x056a0,0x1a5b4,0x025d0,0x092d0,0x0d2b2,0x0a950,0x0b557,
+		0x06ca0,0x0b550,0x15355,0x04da0,0x0a5b0,0x14573,0x052b0,0x0a9a8,0x0e950,0x06aa0,
+		0x0aea6,0x0ab50,0x04b60,0x0aae4,0x0a570,0x05260,0x0f263,0x0d950,0x05b57,0x056a0,
+		0x096d0,0x04dd5,0x04ad0,0x0a4d0,0x0d4d4,0x0d250,0x0d558,0x0b540,0x0b6a0,0x195a6,
+		0x095b0,0x049b0,0x0a974,0x0a4b0,0x0b27a,0x06a50,0x06d40,0x0af46,0x0ab60,0x09570,
+		0x04af5,0x04970,0x064b0,0x074a3,0x0ea50,0x06b58,0x055c0,0x0ab60,0x096d5,0x092e0,
+		0x0c960,0x0d954,0x0d4a0,0x0da50,0x07552,0x056a0,0x0abb7,0x025d0,0x092d0,0x0cab5,
+		0x0a950,0x0b4a0,0x0baa4,0x0ad50,0x055d9,0x04ba0,0x0a5b0,0x15176,0x052b0,0x0a930,
+		0x07954,0x06aa0,0x0ad50,0x05b52,0x04b60,0x0a6e6,0x0a4e0,0x0d260,0x0ea65,0x0d530,
+		0x05aa0,0x076a3,0x096d0,0x04bd7,0x04ad0,0x0a4d0,0x1d0b6,0x0d250,0x0d520,0x0dd45,
+		0x0b5a0,0x056d0,0x055b2,0x049b0,0x0a577,0x0a4b0,0x0aa50,0x1b255,0x06d20,0x0ada0,
+		0x14b63
+	];
+	//传回农历 y年闰哪个月 1-12 , 没闰传回 0
+	LunarCalendar.prototype.leapMonth = function(y){
+		return this.lunarInfo[y - 1900] & 0xf;
+	};
+
+	//传回农历 y年m月的总天数
+	LunarCalendar.prototype.monthDays = function(y, m){
+		return (this.lunarInfo[y - 1900] & (0x10000 >> m)) ? 30 : 29;
+	};
+	//传回农历 y年闰月的天数
+	LunarCalendar.prototype.leapDays = function(y){
+
+		if (this.leapMonth(y)) {
+			return (this.lunarInfo[y - 1900] & 0x10000) ? 30 : 29;
+		}
+		else {
+			return 0;
+		}
+	};
+	//传回农历 y年的总天数
+	LunarCalendar.prototype.lYearDays = function(y){
+		var i, sum = 348;
+		for (i = 0x8000; i > 0x8; i >>= 1) {
+			sum += (this.lunarInfo[y - 1900] & i) ? 1 : 0;
+		}
+		return sum + this.leapDays(y);
+	};
+	//算出农历, 传入日期对象, 传回农历日期对象
+	//该对象属性有 .year .month .day .isLeap .yearCyl .dayCyl .monCyl
+	LunarCalendar.prototype.Lunar = function(){
+		var dateObj = this.dateObj,
+			i, leap = 0, temp = 0, lunarObj = {},
+			baseDate = new Date(1900, 0, 31),
+			offset = (dateObj - baseDate) / 86400000;
+		lunarObj.dayCyl = offset + 40;
+		lunarObj.monCyl = 14;
+		for (i = 1900; i < 2050 && offset > 0; i++) {
+			temp = this.lYearDays(i);
+			offset -= temp;
+			lunarObj.monCyl += 12;
+		}
+		if (offset < 0) {
+			offset += temp;
+			i--;
+			lunarObj.monCyl -= 12;
+		}
+		
+		lunarObj.year = i;
+		lunarObj.yearCyl = i - 1864;
+		leap = this.leapMonth(i);
+		lunarObj.isLeap = false;
+		for (i = 1; i < 13 && offset > 0; i++) {
+			if (leap > 0 && i == (leap + 1) && lunarObj.isLeap == false) {
+				--i;
+				lunarObj.isLeap = true;
+				temp = this.leapDays(lunarObj.year);
+			}
+			else {
+				temp = this.monthDays(lunarObj.year, i)
+			}
+			if (lunarObj.isLeap == true && i == (leap + 1)) {
+				lunarObj.isLeap = false;
+			}
+			offset -= temp;
+			if (lunarObj.isLeap == false) {
+				lunarObj.monCyl++;
+			}
+		}
+		
+		if (offset == 0 && leap > 0 && i == leap + 1) {
+			if (lunarObj.isLeap) {
+				lunarObj.isLeap = false;
+			}
+			else {
+				lunarObj.isLeap = true;
+				--i;
+				--lunarObj.monCyl;
+			}
+		}
+		
+		if (offset < 0) {
+			offset += temp;
+			--i;
+			--lunarObj.monCyl
+		}
+		lunarObj.month = i;
+		lunarObj.day = offset + 1;
+		this.lunarDate = lunarObj;
+		return lunarObj;
+	};
+	LunarCalendar.prototype.getYearToString = function(){
+		var str1=['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'],
+			str2=['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'],
+			y = (this.lunarDate.year)>>>0,
+			result;
+		result = str1[(y-4)%10] + str2[(y-4)%12] + "年";
+		return result;
+	}
+	//获得月份,toString
+	LunarCalendar.prototype.getMouthToString = function(){
+		var str=[' ','正','二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '腊'],
+			result,
+			m = (this.lunarDate.month)>>>0;
+		//超出或非法的月份
+		if(m>12||m<1){
+			return '';
+		}
+		result = str[m] + "月";
+		return result;
+	}
+	//获得日子，toString
+	LunarCalendar.prototype.getDateToString = function(){
+		var str1 = ['初', '十', '廿', '三', '　'],
+			str2 = ['十', '一', '二', '三', '四', '五', '六', '七', '八', '九'],
+			d = this.lunarDate.day,
+			result,
+			bits, ten;//个位，十位
+		//超出或非法的结果
+		if(d>39||d<0){
+			return '';
+		}
+		bits = (d%10)>>>0;
+		ten = (d/10)>>>0;
+		if(d == 10){
+			result = "初十";
+		}else{
+			result = str1[ten] + str2[bits];
+		}
+		return result;
+	}
+	LunarCalendar.prototype.test = function(){
+		var result =this.getYearToString() + this.getMouthToString() + this.getDateToString();
+		return result;
+	}
+	 
+	 
+
+	/* Date picker manager.
+	   Use the singleton instance of this class, $.datepicker, to interact with the date picker.
+	   Settings for (groups of) date pickers are maintained in an instance object,
+	   allowing multiple different settings on the same page. */
+
+	function Datepicker() {
+		this.debug = false; // Change this to true to start debugging
+		this._curInst = null; // The current instance in use
+		this._keyEvent = false; // If the last event was a key event
+		this._disabledInputs = []; // List of date picker inputs that have been disabled
+		this._datepickerShowing = false; // True if the popup picker is showing , false if not
+		this._inDialog = false; // True if showing within a "dialog", false if not
+		this._mainDivId = 'ui-datepicker-div'; // The ID of the main datepicker division
+		this._inlineClass = 'ui-datepicker-inline'; // The name of the inline marker class
+		this._appendClass = 'ui-datepicker-append'; // The name of the append marker class
+		this._triggerClass = 'ui-datepicker-trigger'; // The name of the trigger marker class
+		this._dialogClass = 'ui-datepicker-dialog'; // The name of the dialog marker class
+		this._disableClass = 'ui-datepicker-disabled'; // The name of the disabled covering marker class
+		this._unselectableClass = 'ui-datepicker-unselectable'; // The name of the unselectable cell marker class
+		this._currentClass = 'ui-datepicker-current-day'; // The name of the current day marker class
+		this._dayOverClass = 'ui-datepicker-days-cell-over'; // The name of the day hover marker class
+		this.regional = []; // Available regional settings, indexed by language code
+		this.regional[''] = { // Default regional settings
+			closeText: 'Done', // Display text for close link
+			prevText: 'Prev', // Display text for previous month link
+			nextText: 'Next', // Display text for next month link
+			currentText: 'Today', // Display text for current month link
+			clearText: 'Clear',//马驰添加，清空按钮
+			monthNames: ['January','February','March','April','May','June',
+				'July','August','September','October','November','December'], // Names of months for drop-down and formatting
+			monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], // For formatting
+			dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], // For formatting
+			dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], // For formatting
+			dayNamesMin: ['Su','Mo','Tu','We','Th','Fr','Sa'], // Column headings for days starting at Sunday
+			weekHeader: 'Wk', // Column header for week of the year
+			dateFormat: 'mm/dd/yy', // See format options on parseDate
+			firstDay: 0, // The first day of the week, Sun = 0, Mon = 1, ...
+			isRTL: false, // True if right-to-left language, false if left-to-right
+			showMonthAfterYear: false, // True if the year select precedes month, false for month then year
+			yearSuffix: '' // Additional text to append to the year in the month headers
+		};
+		this._defaults = { // Global defaults for all the date picker instances
+			showOn: 'focus', // 'focus' for popup on focus,
+				// 'button' for trigger button, or 'both' for either
+			showAnim: 'fadeIn', // Name of jQuery animation for popup
+			showOptions: {}, // Options for enhanced animations
+			defaultDate: null, // Used when field is blank: actual date,
+				// +/-number for offset from today, null for today
+			appendText: '', // Display text following the input box, e.g. showing the format
+			buttonText: '...', // Text for trigger button
+			buttonImage: '', // URL for trigger button image
+			buttonImageOnly: false, // True if the image appears alone, false if it appears on a button
+			hideIfNoPrevNext: false, // True to hide next/previous month links
+				// if not applicable, false to just disable them
+			navigationAsDateFormat: false, // True if date formatting applied to prev/today/next links
+			gotoCurrent: false, // True if today link goes back to current selection instead
+			changeMonth: false, // True if month can be selected directly, false if only prev/next
+			changeYear: false, // True if year can be selected directly, false if only prev/next
+			yearRange: 'c-10:c+10', // Range of years to display in drop-down,
+				// either relative to today's year (-nn:+nn), relative to currently displayed year
+				// (c-nn:c+nn), absolute (nnnn:nnnn), or a combination of the above (nnnn:-n)
+			showOtherMonths: true, // True to show dates in other months, false to leave blank
+			selectOtherMonths: false, // True to allow selection of dates in other months, false for unselectable
+			showWeek: false, // True to show week of the year, false to not show it
+			calculateWeek: this.iso8601Week, // How to calculate the week of the year,
+				// takes a Date and returns the number of the week for it
+			shortYearCutoff: '+10', // Short year values < this are in the current century,
+				// > this are in the previous century,
+				// string value starting with '+' for current year + value
+			minDate: null, // The earliest selectable date, or null for no limit
+			maxDate: null, // The latest selectable date, or null for no limit
+			duration: 'fast', // Duration of display/closure
+			beforeShowDay: null, // Function that takes a date and returns an array with
+				// [0] = true if selectable, false if not, [1] = custom CSS class name(s) or '',
+				// [2] = cell title (optional), e.g. $.datepicker.noWeekends
+			beforeShow: null, // Function that takes an input field and
+				// returns a set of custom settings for the date picker
+			onSelect: null, // Define a callback function when a date is selected
+			onChangeMonthYear: null, // Define a callback function when the month or year is changed
+			onClose: null, // Define a callback function when the datepicker is closed
+			numberOfMonths: 1, // Number of months to show at a time
+			showCurrentAtPos: 0, // The position in multipe months at which to show the current month (starting at 0)
+			stepMonths: 1, // Number of months to step back/forward
+			stepBigMonths: 12, // Number of months to step back/forward for the big links
+			altField: '', // Selector for an alternate field to store selected dates into
+			altFormat: '', // The date format to use for the alternate field
+			constrainInput: true, // The input is constrained by the current date format
+			showButtonPanel: false, // True to show button panel, false to not show it
+			autoSize: false, // True to size the input for the date format, false to leave as is
+			disabled: false, // The initial disabled state
+			//马驰添加与修改
+			isShowLunarCal: false, //是否显示农历日期
+			isShowFestival: false, //是否显示节假日列表
+			//节假日列表，注：isShowFestival必须为true时有效。
+			// 数据类型：{"2013-03-04":"清明节*","日期":"节日名称"} 列表中的节日名称若以"*"结尾的，将在日历上显示星号
+			festivalList: {},
+			clearBtn: false//马驰添加，是否显示清空按钮。注意！如果该值为true，则当月按钮的功能将会被替换。
+			
+		};
+		$.extend(this._defaults, this.regional['']);
+		this.dpDiv = bindHover($('<div id="' + this._mainDivId + '" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>'));
+	}
+
+	$.extend(Datepicker.prototype, {
+		/* Class name added to elements to indicate already configured with a date picker. */
+		markerClassName: 'hasDatepicker',
+
+		//Keep track of the maximum number of rows displayed (see #7043)
+		maxRows: 4,
+
+		/* Debug logging (if enabled). */
+		log: function () {
+			if (this.debug)
+				console.log.apply('', arguments);
+		},
+
+		// TODO rename to "widget" when switching to widget factory
+		_widgetDatepicker: function() {
+			return this.dpDiv;
+		},
+
+		/* Override the default settings for all instances of the date picker.
+		   @param  settings  object - the new settings to use as defaults (anonymous object)
+		   @return the manager object */
+		setDefaults: function(settings) {
+			extendRemove(this._defaults, settings || {});
+			return this;
+		},
+
+		/* Attach the date picker to a jQuery selection.
+		   @param  target    element - the target input field or division or span
+		   @param  settings  object - the new settings to use for this date picker instance (anonymous) */
+		_attachDatepicker: function(target, settings) {
+			// check for settings on the control itself - in namespace 'date:'
+			var inlineSettings = null;
+			for (var attrName in this._defaults) {
+				var attrValue = target.getAttribute('date:' + attrName);
+				if (attrValue) {
+					inlineSettings = inlineSettings || {};
+					try {
+						inlineSettings[attrName] = eval(attrValue);
+					} catch (err) {
+						inlineSettings[attrName] = attrValue;
+					}
+				}
+			}
+			var nodeName = target.nodeName.toLowerCase();
+			var inline = (nodeName == 'div' || nodeName == 'span');
+			if (!target.id) {
+				this.uuid += 1;
+				target.id = 'dp' + this.uuid;
+			}
+			var inst = this._newInst($(target), inline);
+			//马驰修改，如果存在节日列表，则将新的节日和defult中的节日合并
+			settings&&settings.festivalList&&(settings.festivalList=$.extend({},this._defaults.festivalList,settings.festivalList));
+			inst.settings = $.extend({}, settings || {}, inlineSettings || {});
+			if (nodeName == 'input') {
+				this._connectDatepicker(target, inst);
+			} else if (inline) {
+				this._inlineDatepicker(target, inst);
+			}
+		},
+
+		/* Create a new instance object. */
+		_newInst: function(target, inline) {
+			var id = target[0].id.replace(/([^A-Za-z0-9_-])/g, '\\\\$1'); // escape jQuery meta chars
+			return {id: id, input: target, // associated target
+				selectedDay: 0, selectedMonth: 0, selectedYear: 0, // current selection
+				drawMonth: 0, drawYear: 0, // month being drawn
+				inline: inline, // is datepicker inline or not
+				dpDiv: (!inline ? this.dpDiv : // presentation div
+				bindHover($('<div class="' + this._inlineClass + ' ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>')))};
+		},
+
+		/* Attach the date picker to an input field. */
+		_connectDatepicker: function(target, inst) {
+			var input = $(target);
+			inst.append = $([]);
+			inst.trigger = $([]);
+			if (input.hasClass(this.markerClassName))
+				return;
+			this._attachments(input, inst);
+			input.addClass(this.markerClassName).keydown(this._doKeyDown).
+				keypress(this._doKeyPress).keyup(this._doKeyUp).
+				bind("setData.datepicker", function(event, key, value) {
+					inst.settings[key] = value;
+				}).bind("getData.datepicker", function(event, key) {
+					return this._get(inst, key);
+				});
+			this._autoSize(inst);
+			$.data(target, PROP_NAME, inst);
+			//If disabled option is true, disable the datepicker once it has been attached to the input (see ticket #5665)
+			if( inst.settings.disabled ) {
+				this._disableDatepicker( target );
+			}
+		},
+
+		/* Make attachments based on settings. */
+		_attachments: function(input, inst) {
+			var appendText = this._get(inst, 'appendText');
+			var isRTL = this._get(inst, 'isRTL');
+			if (inst.append)
+				inst.append.remove();
+			if (appendText) {
+				inst.append = $('<span class="' + this._appendClass + '">' + appendText + '</span>');
+				input[isRTL ? 'before' : 'after'](inst.append);
+			}
+			input.unbind('focus', this._showDatepicker);
+			if (inst.trigger)
+				inst.trigger.remove();
+			var showOn = this._get(inst, 'showOn');
+			if (showOn == 'focus' || showOn == 'both') // pop-up date picker when in the marked field
+				input.focus(this._showDatepicker);
+			if (showOn == 'button' || showOn == 'both') { // pop-up date picker when button clicked
+				var buttonText = this._get(inst, 'buttonText');
+				var buttonImage = this._get(inst, 'buttonImage');
+				inst.trigger = $(this._get(inst, 'buttonImageOnly') ?
+					$('<img/>').addClass(this._triggerClass).
+						attr({ src: buttonImage, alt: buttonText, title: buttonText }) :
+					$('<button type="button"></button>').addClass(this._triggerClass).
+						html(buttonImage == '' ? buttonText : $('<img/>').attr(
+						{ src:buttonImage, alt:buttonText, title:buttonText })));
+				input[isRTL ? 'before' : 'after'](inst.trigger);
+				inst.trigger.click(function() {
+					if ($.datepicker._datepickerShowing && $.datepicker._lastInput == input[0])
+						$.datepicker._hideDatepicker();
+					else if ($.datepicker._datepickerShowing && $.datepicker._lastInput != input[0]) {
+						$.datepicker._hideDatepicker();
+						$.datepicker._showDatepicker(input[0]);
+					} else
+						$.datepicker._showDatepicker(input[0]);
+					return false;
+				});
+			}
+		},
+
+		/* Apply the maximum length for the date format. */
+		_autoSize: function(inst) {
+			if (this._get(inst, 'autoSize') && !inst.inline) {
+				var date = new Date(2009, 12 - 1, 20); // Ensure double digits
+				var dateFormat = this._get(inst, 'dateFormat');
+				if (dateFormat.match(/[DM]/)) {
+					var findMax = function(names) {
+						var max = 0;
+						var maxI = 0;
+						for (var i = 0; i < names.length; i++) {
+							if (names[i].length > max) {
+								max = names[i].length;
+								maxI = i;
+							}
+						}
+						return maxI;
+					};
+					date.setMonth(findMax(this._get(inst, (dateFormat.match(/MM/) ?
+						'monthNames' : 'monthNamesShort'))));
+					date.setDate(findMax(this._get(inst, (dateFormat.match(/DD/) ?
+						'dayNames' : 'dayNamesShort'))) + 20 - date.getDay());
+				}
+				inst.input.attr('size', this._formatDate(inst, date).length);
+			}
+		},
+
+		/* Attach an inline date picker to a div. */
+		_inlineDatepicker: function(target, inst) {
+			var divSpan = $(target);
+			if (divSpan.hasClass(this.markerClassName))
+				return;
+			divSpan.addClass(this.markerClassName).append(inst.dpDiv).
+				bind("setData.datepicker", function(event, key, value){
+					inst.settings[key] = value;
+				}).bind("getData.datepicker", function(event, key){
+					return this._get(inst, key);
+				});
+			$.data(target, PROP_NAME, inst);
+			this._setDate(inst, this._getDefaultDate(inst), true);
+			this._updateDatepicker(inst);
+			this._updateAlternate(inst);
+			//If disabled option is true, disable the datepicker before showing it (see ticket #5665)
+			if( inst.settings.disabled ) {
+				this._disableDatepicker( target );
+			}
+			// Set display:block in place of inst.dpDiv.show() which won't work on disconnected elements
+			// http://bugs.jqueryui.com/ticket/7552 - A Datepicker created on a detached div has zero height
+			inst.dpDiv.css( "display", "block" );
+		},
+
+		/* Pop-up the date picker in a "dialog" box.
+		   @param  input     element - ignored
+		   @param  date      string or Date - the initial date to display
+		   @param  onSelect  function - the function to call when a date is selected
+		   @param  settings  object - update the dialog date picker instance's settings (anonymous object)
+		   @param  pos       int[2] - coordinates for the dialog's position within the screen or
+		                     event - with x/y coordinates or
+		                     leave empty for default (screen centre)
+		   @return the manager object */
+		_dialogDatepicker: function(input, date, onSelect, settings, pos) {
+			var inst = this._dialogInst; // internal instance
+			if (!inst) {
+				this.uuid += 1;
+				var id = 'dp' + this.uuid;
+				this._dialogInput = $('<input type="text" id="' + id +
+					'" style="position: absolute; top: -100px; width: 0px;"/>');
+				this._dialogInput.keydown(this._doKeyDown);
+				$('body').append(this._dialogInput);
+				inst = this._dialogInst = this._newInst(this._dialogInput, false);
+				inst.settings = {};
+				$.data(this._dialogInput[0], PROP_NAME, inst);
+			}
+			extendRemove(inst.settings, settings || {});
+			date = (date && date.constructor == Date ? this._formatDate(inst, date) : date);
+			this._dialogInput.val(date);
+
+			this._pos = (pos ? (pos.length ? pos : [pos.pageX, pos.pageY]) : null);
+			if (!this._pos) {
+				var browserWidth = document.documentElement.clientWidth;
+				var browserHeight = document.documentElement.clientHeight;
+				var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+				var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+				this._pos = // should use actual width/height below
+					[(browserWidth / 2) - 100 + scrollX, (browserHeight / 2) - 150 + scrollY];
+			}
+
+			// move input on screen for focus, but hidden behind dialog
+			this._dialogInput.css('left', (this._pos[0] + 20) + 'px').css('top', this._pos[1] + 'px');
+			inst.settings.onSelect = onSelect;
+			this._inDialog = true;
+			this.dpDiv.addClass(this._dialogClass);
+			this._showDatepicker(this._dialogInput[0]);
+			if ($.blockUI)
+				$.blockUI(this.dpDiv);
+			$.data(this._dialogInput[0], PROP_NAME, inst);
+			return this;
+		},
+
+		/* Detach a datepicker from its control.
+		   @param  target    element - the target input field or division or span */
+		_destroyDatepicker: function(target) {
+			var $target = $(target);
+			var inst = $.data(target, PROP_NAME);
+			if (!$target.hasClass(this.markerClassName)) {
+				return;
+			}
+			var nodeName = target.nodeName.toLowerCase();
+			$.removeData(target, PROP_NAME);
+			if (nodeName == 'input') {
+				inst.append.remove();
+				inst.trigger.remove();
+				$target.removeClass(this.markerClassName).
+					unbind('focus', this._showDatepicker).
+					unbind('keydown', this._doKeyDown).
+					unbind('keypress', this._doKeyPress).
+					unbind('keyup', this._doKeyUp);
+			} else if (nodeName == 'div' || nodeName == 'span')
+				$target.removeClass(this.markerClassName).empty();
+		},
+
+		/* Enable the date picker to a jQuery selection.
+		   @param  target    element - the target input field or division or span */
+		_enableDatepicker: function(target) {
+			var $target = $(target);
+			var inst = $.data(target, PROP_NAME);
+			if (!$target.hasClass(this.markerClassName)) {
+				return;
+			}
+			var nodeName = target.nodeName.toLowerCase();
+			if (nodeName == 'input') {
+				target.disabled = false;
+				inst.trigger.filter('button').
+					each(function() { this.disabled = false; }).end().
+					filter('img').css({opacity: '1.0', cursor: ''});
+			}
+			else if (nodeName == 'div' || nodeName == 'span') {
+				var inline = $target.children('.' + this._inlineClass);
+				inline.children().removeClass('ui-state-disabled');
+				inline.find("select.ui-datepicker-month, select.ui-datepicker-year").
+					prop("disabled", false);
+			}
+			this._disabledInputs = $.map(this._disabledInputs,
+				function(value) { return (value == target ? null : value); }); // delete entry
+		},
+
+		/* Disable the date picker to a jQuery selection.
+		   @param  target    element - the target input field or division or span */
+		_disableDatepicker: function(target) {
+			var $target = $(target);
+			var inst = $.data(target, PROP_NAME);
+			if (!$target.hasClass(this.markerClassName)) {
+				return;
+			}
+			var nodeName = target.nodeName.toLowerCase();
+			if (nodeName == 'input') {
+				target.disabled = true;
+				inst.trigger.filter('button').
+					each(function() { this.disabled = true; }).end().
+					filter('img').css({opacity: '0.5', cursor: 'default'});
+			}
+			else if (nodeName == 'div' || nodeName == 'span') {
+				var inline = $target.children('.' + this._inlineClass);
+				inline.children().addClass('ui-state-disabled');
+				inline.find("select.ui-datepicker-month, select.ui-datepicker-year").
+					prop("disabled", true);
+			}
+			this._disabledInputs = $.map(this._disabledInputs,
+				function(value) { return (value == target ? null : value); }); // delete entry
+			this._disabledInputs[this._disabledInputs.length] = target;
+		},
+
+		/* Is the first field in a jQuery collection disabled as a datepicker?
+		   @param  target    element - the target input field or division or span
+		   @return boolean - true if disabled, false if enabled */
+		_isDisabledDatepicker: function(target) {
+			if (!target) {
+				return false;
+			}
+			for (var i = 0; i < this._disabledInputs.length; i++) {
+				if (this._disabledInputs[i] == target)
+					return true;
+			}
+			return false;
+		},
+
+		/* Retrieve the instance data for the target control.
+		   @param  target  element - the target input field or division or span
+		   @return  object - the associated instance data
+		   @throws  error if a jQuery problem getting data */
+		_getInst: function(target) {
+			try {
+				return $.data(target, PROP_NAME);
+			}
+			catch (err) {
+				throw 'Missing instance data for this datepicker';
+			}
+		},
+
+		/* Update or retrieve the settings for a date picker attached to an input field or division.
+		   @param  target  element - the target input field or division or span
+		   @param  name    object - the new settings to update or
+		                   string - the name of the setting to change or retrieve,
+		                   when retrieving also 'all' for all instance settings or
+		                   'defaults' for all global defaults
+		   @param  value   any - the new value for the setting
+		                   (omit if above is an object or to retrieve a value) */
+		_optionDatepicker: function(target, name, value) {
+			var inst = this._getInst(target);
+			if (arguments.length == 2 && typeof name == 'string') {
+				return (name == 'defaults' ? $.extend({}, $.datepicker._defaults) :
+					(inst ? (name == 'all' ? $.extend({}, inst.settings) :
+					this._get(inst, name)) : null));
+			}
+			var settings = name || {};
+			if (typeof name == 'string') {
+				settings = {};
+				settings[name] = value;
+			}
+			if (inst) {
+				if (this._curInst == inst) {
+					this._hideDatepicker();
+				}
+				var date = this._getDateDatepicker(target, true);
+				var minDate = this._getMinMaxDate(inst, 'min');
+				var maxDate = this._getMinMaxDate(inst, 'max');
+				extendRemove(inst.settings, settings);
+				// reformat the old minDate/maxDate values if dateFormat changes and a new minDate/maxDate isn't provided
+				if (minDate !== null && settings['dateFormat'] !== undefined && settings['minDate'] === undefined)
+					inst.settings.minDate = this._formatDate(inst, minDate);
+				if (maxDate !== null && settings['dateFormat'] !== undefined && settings['maxDate'] === undefined)
+					inst.settings.maxDate = this._formatDate(inst, maxDate);
+				this._attachments($(target), inst);
+				this._autoSize(inst);
+				this._setDate(inst, date);
+				this._updateAlternate(inst);
+				this._updateDatepicker(inst);
+			}
+		},
+
+		// change method deprecated
+		_changeDatepicker: function(target, name, value) {
+			this._optionDatepicker(target, name, value);
+		},
+
+		/* Redraw the date picker attached to an input field or division.
+		   @param  target  element - the target input field or division or span */
+		_refreshDatepicker: function(target) {
+			var inst = this._getInst(target);
+			if (inst) {
+				this._updateDatepicker(inst);
+			}
+		},
+
+		/* Set the dates for a jQuery selection.
+		   @param  target   element - the target input field or division or span
+		   @param  date     Date - the new date */
+		_setDateDatepicker: function(target, date) {
+			var inst = this._getInst(target);
+			if (inst) {
+				this._setDate(inst, date);
+				this._updateDatepicker(inst);
+				this._updateAlternate(inst);
+			}
+		},
+
+		/* Get the date(s) for the first entry in a jQuery selection.
+		   @param  target     element - the target input field or division or span
+		   @param  noDefault  boolean - true if no default date is to be used
+		   @return Date - the current date */
+		_getDateDatepicker: function(target, noDefault) {
+			var inst = this._getInst(target);
+			if (inst && !inst.inline)
+				this._setDateFromField(inst, noDefault);
+			return (inst ? this._getDate(inst) : null);
+		},
+
+		/* Handle keystrokes. */
+		_doKeyDown: function(event) {
+			var inst = $.datepicker._getInst(event.target);
+			var handled = true;
+			var isRTL = inst.dpDiv.is('.ui-datepicker-rtl');
+			inst._keyEvent = true;
+			if ($.datepicker._datepickerShowing)
+				switch (event.keyCode) {
+					case 9: $.datepicker._hideDatepicker();
+							handled = false;
+							break; // hide on tab out
+					case 13: var sel = $('td.' + $.datepicker._dayOverClass + ':not(.' +
+										$.datepicker._currentClass + ')', inst.dpDiv);
+							if (sel[0])
+								$.datepicker._selectDay(event.target, inst.selectedMonth, inst.selectedYear, sel[0]);
+								var onSelect = $.datepicker._get(inst, 'onSelect');
+								if (onSelect) {
+									var dateStr = $.datepicker._formatDate(inst);
+
+									// trigger custom callback
+									onSelect.apply((inst.input ? inst.input[0] : null), [dateStr, inst]);
+								}
+							else
+								$.datepicker._hideDatepicker();
+							return false; // don't submit the form
+							break; // select the value on enter
+					case 27: $.datepicker._hideDatepicker();
+							break; // hide on escape
+					case 33: $.datepicker._adjustDate(event.target, (event.ctrlKey ?
+								-$.datepicker._get(inst, 'stepBigMonths') :
+								-$.datepicker._get(inst, 'stepMonths')), 'M');
+							break; // previous month/year on page up/+ ctrl
+					case 34: $.datepicker._adjustDate(event.target, (event.ctrlKey ?
+								+$.datepicker._get(inst, 'stepBigMonths') :
+								+$.datepicker._get(inst, 'stepMonths')), 'M');
+							break; // next month/year on page down/+ ctrl
+					case 35: if (event.ctrlKey || event.metaKey) $.datepicker._clearDate(event.target);
+							handled = event.ctrlKey || event.metaKey;
+							break; // clear on ctrl or command +end
+					case 36: if (event.ctrlKey || event.metaKey) $.datepicker._gotoToday(event.target);
+							handled = event.ctrlKey || event.metaKey;
+							break; // current on ctrl or command +home
+					case 37: if (event.ctrlKey || event.metaKey) $.datepicker._adjustDate(event.target, (isRTL ? +1 : -1), 'D');
+							handled = event.ctrlKey || event.metaKey;
+							// -1 day on ctrl or command +left
+							if (event.originalEvent.altKey) $.datepicker._adjustDate(event.target, (event.ctrlKey ?
+										-$.datepicker._get(inst, 'stepBigMonths') :
+										-$.datepicker._get(inst, 'stepMonths')), 'M');
+							// next month/year on alt +left on Mac
+							break;
+					case 38: if (event.ctrlKey || event.metaKey) $.datepicker._adjustDate(event.target, -7, 'D');
+							handled = event.ctrlKey || event.metaKey;
+							break; // -1 week on ctrl or command +up
+					case 39: if (event.ctrlKey || event.metaKey) $.datepicker._adjustDate(event.target, (isRTL ? -1 : +1), 'D');
+							handled = event.ctrlKey || event.metaKey;
+							// +1 day on ctrl or command +right
+							if (event.originalEvent.altKey) $.datepicker._adjustDate(event.target, (event.ctrlKey ?
+										+$.datepicker._get(inst, 'stepBigMonths') :
+										+$.datepicker._get(inst, 'stepMonths')), 'M');
+							// next month/year on alt +right
+							break;
+					case 40: if (event.ctrlKey || event.metaKey) $.datepicker._adjustDate(event.target, +7, 'D');
+							handled = event.ctrlKey || event.metaKey;
+							break; // +1 week on ctrl or command +down
+					default: handled = false;
+				}
+			else if (event.keyCode == 36 && event.ctrlKey) // display the date picker on ctrl+home
+				$.datepicker._showDatepicker(this);
+			else {
+				handled = false;
+			}
+			if (handled) {
+				event.preventDefault();
+				event.stopPropagation();
+			}
+		},
+
+		/* Filter entered characters - based on date format. */
+		_doKeyPress: function(event) {
+			var inst = $.datepicker._getInst(event.target);
+			if ($.datepicker._get(inst, 'constrainInput')) {
+				var chars = $.datepicker._possibleChars($.datepicker._get(inst, 'dateFormat'));
+				var chr = String.fromCharCode(event.charCode == undefined ? event.keyCode : event.charCode);
+				return event.ctrlKey || event.metaKey || (chr < ' ' || !chars || chars.indexOf(chr) > -1);
+			}
+		},
+
+		/* Synchronise manual entry and field/alternate field. */
+		_doKeyUp: function(event) {
+			var inst = $.datepicker._getInst(event.target);
+			if (inst.input.val() != inst.lastVal) {
+				try {
+					var date = $.datepicker.parseDate($.datepicker._get(inst, 'dateFormat'),
+						(inst.input ? inst.input.val() : null),
+						$.datepicker._getFormatConfig(inst));
+					if (date) { // only if valid
+						$.datepicker._setDateFromField(inst);
+						$.datepicker._updateAlternate(inst);
+						$.datepicker._updateDatepicker(inst);
+					}
+				}
+				catch (err) {
+					$.datepicker.log(err);
+				}
+			}
+			return true;
+		},
+
+		/* Pop-up the date picker for a given input field.
+		   If false returned from beforeShow event handler do not show.
+		   @param  input  element - the input field attached to the date picker or
+		                  event - if triggered by focus */
+		_showDatepicker: function(input) {
+			input = input.target || input;
+			if (input.nodeName.toLowerCase() != 'input') // find from button/image trigger
+				input = $('input', input.parentNode)[0];
+			if ($.datepicker._isDisabledDatepicker(input) || $.datepicker._lastInput == input) // already here
+				return;
+			var inst = $.datepicker._getInst(input);
+			if ($.datepicker._curInst && $.datepicker._curInst != inst) {
+				$.datepicker._curInst.dpDiv.stop(true, true);
+				if ( inst && $.datepicker._datepickerShowing ) {
+					$.datepicker._hideDatepicker( $.datepicker._curInst.input[0] );
+				}
+			}
+			var beforeShow = $.datepicker._get(inst, 'beforeShow');
+			var beforeShowSettings = beforeShow ? beforeShow.apply(input, [input, inst]) : {};
+			if(beforeShowSettings === false){
+				//false
+				return;
+			}
+			extendRemove(inst.settings, beforeShowSettings);
+			inst.lastVal = null;
+			$.datepicker._lastInput = input;
+			$.datepicker._setDateFromField(inst);
+			if ($.datepicker._inDialog) // hide cursor
+				input.value = '';
+			if (!$.datepicker._pos) { // position below input
+				$.datepicker._pos = $.datepicker._findPos(input);
+				$.datepicker._pos[1] += input.offsetHeight; // add the height
+			}
+			var isFixed = false;
+			$(input).parents().each(function() {
+				isFixed |= $(this).css('position') == 'fixed';
+				return !isFixed;
+			});
+			var offset = {left: $.datepicker._pos[0], top: $.datepicker._pos[1]};
+			$.datepicker._pos = null;
+			//to avoid flashes on Firefox
+			inst.dpDiv.empty();
+			// determine sizing offscreen
+			inst.dpDiv.css({position: 'absolute', display: 'block', top: '-1000px'});
+			$.datepicker._updateDatepicker(inst);
+			// fix width for dynamic number of date pickers
+			// and adjust position before showing
+			offset = $.datepicker._checkOffset(inst, offset, isFixed);
+			inst.dpDiv.css({position: ($.datepicker._inDialog && $.blockUI ?
+				'static' : (isFixed ? 'fixed' : 'absolute')), display: 'none',
+				left: offset.left + 'px', top: offset.top + 'px'});
+			if (!inst.inline) {
+				var showAnim = $.datepicker._get(inst, 'showAnim');
+				var duration = $.datepicker._get(inst, 'duration');
+				var postProcess = function() {
+					var cover = inst.dpDiv.find('iframe.ui-datepicker-cover'); // IE6- only
+					if( !! cover.length ){
+						var borders = $.datepicker._getBorders(inst.dpDiv);
+						cover.css({left: -borders[0], top: -borders[1],
+							width: inst.dpDiv.outerWidth(), height: inst.dpDiv.outerHeight()});
+					}
+				};
+				//该位置存在问题，根据这部分的需求，zindex必须大于2，因此，进行修改
+				//inst.dpDiv.zIndex($(input).zIndex()+1);
+				inst.dpDiv.zIndex($(input).zIndex()+20);
+				$.datepicker._datepickerShowing = true;
+
+				// DEPRECATED: after BC for 1.8.x $.effects[ showAnim ] is not needed
+				if ( $.effects && ( $.effects.effect[ showAnim ] || $.effects[ showAnim ] ) )
+					inst.dpDiv.show(showAnim, $.datepicker._get(inst, 'showOptions'), duration, postProcess);
+				else
+					inst.dpDiv[showAnim || 'show']((showAnim ? duration : null), postProcess);
+				if (!showAnim || !duration)
+					postProcess();
+				if (inst.input.is(':visible') && !inst.input.is(':disabled'))
+					inst.input.focus();
+				$.datepicker._curInst = inst;
+			}
+		},
+
+		/* Generate the date picker content. */
+		_updateDatepicker: function(inst) {
+			this.maxRows = 4; //Reset the max number of rows being displayed (see #7043)
+			var borders = $.datepicker._getBorders(inst.dpDiv);
+			instActive = inst; // for delegate hover events
+			inst.dpDiv.empty().append(this._generateHTML(inst));
+			this._attachHandlers(inst);
+			var cover = inst.dpDiv.find('iframe.ui-datepicker-cover'); // IE6- only
+			if( !!cover.length ){ //avoid call to outerXXXX() when not in IE6
+				cover.css({left: -borders[0], top: -borders[1], width: inst.dpDiv.outerWidth(), height: inst.dpDiv.outerHeight()})
+			}
+			inst.dpDiv.find('.' + this._dayOverClass + ' a').mouseover();
+			var numMonths = this._getNumberOfMonths(inst);
+			var cols = numMonths[1];
+			var width = 20;
+			inst.dpDiv.removeClass('ui-datepicker-multi-2 ui-datepicker-multi-3 ui-datepicker-multi-4').width('');
+			if (cols > 1)
+				inst.dpDiv.addClass('ui-datepicker-multi-' + cols).css('width', (width * cols) + 'em');
+			inst.dpDiv[(numMonths[0] != 1 || numMonths[1] != 1 ? 'add' : 'remove') +
+				'Class']('ui-datepicker-multi');
+			inst.dpDiv[(this._get(inst, 'isRTL') ? 'add' : 'remove') +
+				'Class']('ui-datepicker-rtl');
+			if (inst == $.datepicker._curInst && $.datepicker._datepickerShowing && inst.input &&
+					// #6694 - don't focus the input if it's already focused
+					// this breaks the change event in IE
+					inst.input.is(':visible') && !inst.input.is(':disabled') && inst.input[0] != document.activeElement)
+				inst.input.focus();
+			// deffered render of the years select (to avoid flashes on Firefox)
+			if( inst.yearshtml ){
+				var origyearshtml = inst.yearshtml;
+				setTimeout(function(){
+					//assure that inst.yearshtml didn't change.
+					if( origyearshtml === inst.yearshtml && inst.yearshtml ){
+						inst.dpDiv.find('select.ui-datepicker-year:first').replaceWith(inst.yearshtml);
+					}
+					origyearshtml = inst.yearshtml = null;
+				}, 0);
+			}
+		},
+
+		/* Retrieve the size of left and top borders for an element.
+		   @param  elem  (jQuery object) the element of interest
+		   @return  (number[2]) the left and top borders */
+		_getBorders: function(elem) {
+			var convert = function(value) {
+				return {thin: 1, medium: 2, thick: 3}[value] || value;
+			};
+			return [parseFloat(convert(elem.css('border-left-width'))),
+				parseFloat(convert(elem.css('border-top-width')))];
+		},
+
+		/* Check positioning to remain on screen. */
+		_checkOffset: function(inst, offset, isFixed) {
+			var dpWidth = inst.dpDiv.outerWidth();
+			var dpHeight = inst.dpDiv.outerHeight();
+			var inputWidth = inst.input ? inst.input.outerWidth() : 0;
+			var inputHeight = inst.input ? inst.input.outerHeight() : 0;
+			var viewWidth = document.documentElement.clientWidth + (isFixed ? 0 : $(document).scrollLeft());
+			var viewHeight = document.documentElement.clientHeight + (isFixed ? 0 : $(document).scrollTop());
+
+			offset.left -= (this._get(inst, 'isRTL') ? (dpWidth - inputWidth) : 0);
+			offset.left -= (isFixed && offset.left == inst.input.offset().left) ? $(document).scrollLeft() : 0;
+			offset.top -= (isFixed && offset.top == (inst.input.offset().top + inputHeight)) ? $(document).scrollTop() : 0;
+
+			// now check if datepicker is showing outside window viewport - move to a better place if so.
+			offset.left -= Math.min(offset.left, (offset.left + dpWidth > viewWidth && viewWidth > dpWidth) ?
+				Math.abs(offset.left + dpWidth - viewWidth) : 0);
+			offset.top -= Math.min(offset.top, (offset.top + dpHeight > viewHeight && viewHeight > dpHeight) ?
+				Math.abs(dpHeight + inputHeight) : 0);
+
+			return offset;
+		},
+
+		/* Find an object's position on the screen. */
+		_findPos: function(obj) {
+			var inst = this._getInst(obj);
+			var isRTL = this._get(inst, 'isRTL');
+			while (obj && (obj.type == 'hidden' || obj.nodeType != 1 || $.expr.filters.hidden(obj))) {
+				obj = obj[isRTL ? 'previousSibling' : 'nextSibling'];
+			}
+			var position = $(obj).offset();
+			return [position.left, position.top];
+		},
+
+		/* Hide the date picker from view.
+		   @param  input  element - the input field attached to the date picker */
+		_hideDatepicker: function(input) {
+			var inst = this._curInst;
+			if (!inst || (input && inst != $.data(input, PROP_NAME)))
+				return;
+			if (this._datepickerShowing) {
+				var showAnim = this._get(inst, 'showAnim');
+				var duration = this._get(inst, 'duration');
+				var postProcess = function() {
+					$.datepicker._tidyDialog(inst);
+				};
+
+				// DEPRECATED: after BC for 1.8.x $.effects[ showAnim ] is not needed
+				if ( $.effects && ( $.effects.effect[ showAnim ] || $.effects[ showAnim ] ) )
+					inst.dpDiv.hide(showAnim, $.datepicker._get(inst, 'showOptions'), duration, postProcess);
+				else
+					inst.dpDiv[(showAnim == 'slideDown' ? 'slideUp' :
+						(showAnim == 'fadeIn' ? 'fadeOut' : 'hide'))]((showAnim ? duration : null), postProcess);
+				if (!showAnim)
+					postProcess();
+				this._datepickerShowing = false;
+				var onClose = this._get(inst, 'onClose');
+				if (onClose)
+					onClose.apply((inst.input ? inst.input[0] : null),
+						[(inst.input ? inst.input.val() : ''), inst]);
+				this._lastInput = null;
+				if (this._inDialog) {
+					this._dialogInput.css({ position: 'absolute', left: '0', top: '-100px' });
+					if ($.blockUI) {
+						$.unblockUI();
+						$('body').append(this.dpDiv);
+					}
+				}
+				this._inDialog = false;
+			}
+		},
+
+		/* Tidy up after a dialog display. */
+		_tidyDialog: function(inst) {
+			inst.dpDiv.removeClass(this._dialogClass).unbind('.ui-datepicker-calendar');
+		},
+
+		/* Close date picker if clicked elsewhere. */
+		_checkExternalClick: function(event) {
+			if (!$.datepicker._curInst)
+				return;
+
+			var $target = $(event.target),
+				inst = $.datepicker._getInst($target[0]);
+
+			if ( ( ( $target[0].id != $.datepicker._mainDivId &&
+					$target.parents('#' + $.datepicker._mainDivId).length == 0 &&
+					!$target.hasClass($.datepicker.markerClassName) &&
+					!$target.closest("." + $.datepicker._triggerClass).length &&
+					$.datepicker._datepickerShowing && !($.datepicker._inDialog && $.blockUI) ) ) ||
+				( $target.hasClass($.datepicker.markerClassName) && $.datepicker._curInst != inst ) )
+				$.datepicker._hideDatepicker();
+		},
+
+		/* Adjust one of the date sub-fields. */
+		_adjustDate: function(id, offset, period) {
+			var target = $(id);
+			var inst = this._getInst(target[0]);
+			if (this._isDisabledDatepicker(target[0])) {
+				return;
+			}
+			this._adjustInstDate(inst, offset +
+				(period == 'M' ? this._get(inst, 'showCurrentAtPos') : 0), // undo positioning
+				period);
+			this._updateDatepicker(inst);
+		},
+
+		/* Action for current link. */
+		_gotoToday: function(id) {
+			var target = $(id);
+			var inst = this._getInst(target[0]);
+			if (this._get(inst, 'gotoCurrent') && inst.currentDay) {
+				inst.selectedDay = inst.currentDay;
+				inst.drawMonth = inst.selectedMonth = inst.currentMonth;
+				inst.drawYear = inst.selectedYear = inst.currentYear;
+			}
+			else {
+				var date = new Date();
+				inst.selectedDay = date.getDate();
+				inst.drawMonth = inst.selectedMonth = date.getMonth();
+				inst.drawYear = inst.selectedYear = date.getFullYear();
+			}
+			this._notifyChange(inst);
+			this._adjustDate(target);
+		},
+
+		/* Action for selecting a new month/year. */
+		_selectMonthYear: function(id, select, period) {
+			var target = $(id);
+			var inst = this._getInst(target[0]);
+			inst['selected' + (period == 'M' ? 'Month' : 'Year')] =
+			inst['draw' + (period == 'M' ? 'Month' : 'Year')] =
+				parseInt(select.options[select.selectedIndex].value,10);
+			this._notifyChange(inst);
+			this._adjustDate(target);
+		},
+
+		/* Action for selecting a day. */
+		_selectDay: function(id, month, year, td) {
+			var target = $(id);
+			if ($(td).hasClass(this._unselectableClass) || this._isDisabledDatepicker(target[0])) {
+				return;
+			}
+			var inst = this._getInst(target[0]);
+			//inst.selectedDay = inst.currentDay = $('a', td).html();//马驰修改，由于添加了阴历，因此日期就不能再从html中得到了
+			inst.selectedDay = inst.currentDay = $('a', td).attr('tui_day');
+			inst.selectedMonth = inst.currentMonth = month;
+			inst.selectedYear = inst.currentYear = year;
+			this._selectDate(id, this._formatDate(inst,
+				inst.currentDay, inst.currentMonth, inst.currentYear));
+		},
+
+		/* Erase the input field and hide the date picker. */
+		_clearDate: function(id) {
+			var target = $(id);
+			var inst = this._getInst(target[0]);
+			this._selectDate(target, '');
+		},
+
+		/* 马驰添加，针对clearDate方法中，除了删除输入框内的内容外，还隐藏picker，该方法不会隐藏picker*/
+		_clearDateWithPicker: function (id){
+			var target = $(id);
+			var inst = this._getInst(target[0]);
+			this._setDate(inst);
+		},
+
+		/* Update the input field with the selected date. */
+		_selectDate: function(id, dateStr) {
+			var target = $(id);
+			var inst = this._getInst(target[0]);
+			dateStr = (dateStr != null ? dateStr : this._formatDate(inst));
+			if (inst.input)
+				inst.input.val(dateStr);
+			this._updateAlternate(inst);
+			var onSelect = this._get(inst, 'onSelect');
+			if (onSelect)
+				onSelect.apply((inst.input ? inst.input[0] : null), [dateStr, inst]);  // trigger custom callback
+			else if (inst.input)
+				inst.input.trigger('change'); // fire the change event
+			if (inst.inline)
+				this._updateDatepicker(inst);
+			else {
+				this._hideDatepicker();
+				this._lastInput = inst.input[0];
+				if (typeof(inst.input[0]) != 'object')
+					inst.input.focus(); // restore focus
+				this._lastInput = null;
+			}
+		},
+
+		/* Update any alternate field to synchronise with the main field. */
+		_updateAlternate: function(inst) {
+			var altField = this._get(inst, 'altField');
+			if (altField) { // update alternate field too
+				var altFormat = this._get(inst, 'altFormat') || this._get(inst, 'dateFormat');
+				var date = this._getDate(inst);
+				var dateStr = this.formatDate(altFormat, date, this._getFormatConfig(inst));
+				$(altField).each(function() { $(this).val(dateStr); });
+			}
+		},
+
+		/* Set as beforeShowDay function to prevent selection of weekends.
+		   @param  date  Date - the date to customise
+		   @return [boolean, string] - is this date selectable?, what is its CSS class? */
+		noWeekends: function(date) {
+			var day = date.getDay();
+			return [(day > 0 && day < 6), ''];
+		},
+
+		/* Set as calculateWeek to determine the week of the year based on the ISO 8601 definition.
+		   @param  date  Date - the date to get the week for
+		   @return  number - the number of the week within the year that contains this date */
+		iso8601Week: function(date) {
+			var checkDate = new Date(date.getTime());
+			// Find Thursday of this week starting on Monday
+			checkDate.setDate(checkDate.getDate() + 4 - (checkDate.getDay() || 7));
+			var time = checkDate.getTime();
+			checkDate.setMonth(0); // Compare with Jan 1
+			checkDate.setDate(1);
+			return Math.floor(Math.round((time - checkDate) / 86400000) / 7) + 1;
+		},
+
+		/* Parse a string value into a date object.
+		   See formatDate below for the possible formats.
+
+		   @param  format    string - the expected format of the date
+		   @param  value     string - the date in the above format
+		   @param  settings  Object - attributes include:
+		                     shortYearCutoff  number - the cutoff year for determining the century (optional)
+		                     dayNamesShort    string[7] - abbreviated names of the days from Sunday (optional)
+		                     dayNames         string[7] - names of the days from Sunday (optional)
+		                     monthNamesShort  string[12] - abbreviated names of the months (optional)
+		                     monthNames       string[12] - names of the months (optional)
+		   @return  Date - the extracted date value or null if value is blank */
+		parseDate: function (format, value, settings) {
+			if (format == null || value == null)
+				throw 'Invalid arguments';
+			value = (typeof value == 'object' ? value.toString() : value + '');
+			if (value == '')
+				return null;
+			var shortYearCutoff = (settings ? settings.shortYearCutoff : null) || this._defaults.shortYearCutoff;
+			shortYearCutoff = (typeof shortYearCutoff != 'string' ? shortYearCutoff :
+					new Date().getFullYear() % 100 + parseInt(shortYearCutoff, 10));
+			var dayNamesShort = (settings ? settings.dayNamesShort : null) || this._defaults.dayNamesShort;
+			var dayNames = (settings ? settings.dayNames : null) || this._defaults.dayNames;
+			var monthNamesShort = (settings ? settings.monthNamesShort : null) || this._defaults.monthNamesShort;
+			var monthNames = (settings ? settings.monthNames : null) || this._defaults.monthNames;
+			var year = -1;
+			var month = -1;
+			var day = -1;
+			var doy = -1;
+			var literal = false;
+			// Check whether a format character is doubled
+			var lookAhead = function(match) {
+				var matches = (iFormat + 1 < format.length && format.charAt(iFormat + 1) == match);
+				if (matches)
+					iFormat++;
+				return matches;
+			};
+			// Extract a number from the string value
+			var getNumber = function(match) {
+				var isDoubled = lookAhead(match);
+				var size = (match == '@' ? 14 : (match == '!' ? 20 :
+					(match == 'y' && isDoubled ? 4 : (match == 'o' ? 3 : 2))));
+				var digits = new RegExp('^\\d{1,' + size + '}');
+				var num = value.substring(iValue).match(digits);
+				if (!num)
+					throw 'Missing number at position ' + iValue;
+				iValue += num[0].length;
+				return parseInt(num[0], 10);
+			};
+			// Extract a name from the string value and convert to an index
+			var getName = function(match, shortNames, longNames) {
+				var names = $.map(lookAhead(match) ? longNames : shortNames, function (v, k) {
+					return [ [k, v] ];
+				}).sort(function (a, b) {
+					return -(a[1].length - b[1].length);
+				});
+				var index = -1;
+				$.each(names, function (i, pair) {
+					var name = pair[1];
+					if (value.substr(iValue, name.length).toLowerCase() == name.toLowerCase()) {
+						index = pair[0];
+						iValue += name.length;
+						return false;
+					}
+				});
+				if (index != -1)
+					return index + 1;
+				else
+					throw 'Unknown name at position ' + iValue;
+			};
+			// Confirm that a literal character matches the string value
+			var checkLiteral = function() {
+				if (value.charAt(iValue) != format.charAt(iFormat))
+					throw 'Unexpected literal at position ' + iValue;
+				iValue++;
+			};
+			var iValue = 0;
+			for (var iFormat = 0; iFormat < format.length; iFormat++) {
+				if (literal)
+					if (format.charAt(iFormat) == "'" && !lookAhead("'"))
+						literal = false;
+					else
+						checkLiteral();
+				else
+					switch (format.charAt(iFormat)) {
+						case 'd':
+							day = getNumber('d');
+							break;
+						case 'D':
+							getName('D', dayNamesShort, dayNames);
+							break;
+						case 'o':
+							doy = getNumber('o');
+							break;
+						case 'm':
+							month = getNumber('m');
+							break;
+						case 'M':
+							month = getName('M', monthNamesShort, monthNames);
+							break;
+						case 'y':
+							year = getNumber('y');
+							break;
+						case '@':
+							var date = new Date(getNumber('@'));
+							year = date.getFullYear();
+							month = date.getMonth() + 1;
+							day = date.getDate();
+							break;
+						case '!':
+							var date = new Date((getNumber('!') - this._ticksTo1970) / 10000);
+							year = date.getFullYear();
+							month = date.getMonth() + 1;
+							day = date.getDate();
+							break;
+						case "'":
+							if (lookAhead("'"))
+								checkLiteral();
+							else
+								literal = true;
+							break;
+						default:
+							checkLiteral();
+					}
+			}
+			if (iValue < value.length){
+				var extra = value.substr(iValue);
+				if (!/^\s+/.test(extra)) {
+					throw "Extra/unparsed characters found in date: " + extra;
+				}
+			}
+			if (year == -1)
+				year = new Date().getFullYear();
+			else if (year < 100)
+				year += new Date().getFullYear() - new Date().getFullYear() % 100 +
+					(year <= shortYearCutoff ? 0 : -100);
+			if (doy > -1) {
+				month = 1;
+				day = doy;
+				do {
+					var dim = this._getDaysInMonth(year, month - 1);
+					if (day <= dim)
+						break;
+					month++;
+					day -= dim;
+				} while (true);
+			}
+			var date = this._daylightSavingAdjust(new Date(year, month - 1, day));
+			if (date.getFullYear() != year || date.getMonth() + 1 != month || date.getDate() != day)
+				throw 'Invalid date'; // E.g. 31/02/00
+			return date;
+		},
+
+		/* Standard date formats. */
+		ATOM: 'yy-mm-dd', // RFC 3339 (ISO 8601)
+		COOKIE: 'D, dd M yy',
+		ISO_8601: 'yy-mm-dd',
+		RFC_822: 'D, d M y',
+		RFC_850: 'DD, dd-M-y',
+		RFC_1036: 'D, d M y',
+		RFC_1123: 'D, d M yy',
+		RFC_2822: 'D, d M yy',
+		RSS: 'D, d M y', // RFC 822
+		TICKS: '!',
+		TIMESTAMP: '@',
+		W3C: 'yy-mm-dd', // ISO 8601
+
+		_ticksTo1970: (((1970 - 1) * 365 + Math.floor(1970 / 4) - Math.floor(1970 / 100) +
+			Math.floor(1970 / 400)) * 24 * 60 * 60 * 10000000),
+
+		/* Format a date object into a string value.
+		   The format can be combinations of the following:
+		   d  - day of month (no leading zero)
+		   dd - day of month (two digit)
+		   o  - day of year (no leading zeros)
+		   oo - day of year (three digit)
+		   D  - day name short
+		   DD - day name long
+		   m  - month of year (no leading zero)
+		   mm - month of year (two digit)
+		   M  - month name short
+		   MM - month name long
+		   y  - year (two digit)
+		   yy - year (four digit)
+		   @ - Unix timestamp (ms since 01/01/1970)
+		   ! - Windows ticks (100ns since 01/01/0001)
+		   '...' - literal text
+		   '' - single quote
+
+		   @param  format    string - the desired format of the date
+		   @param  date      Date - the date value to format
+		   @param  settings  Object - attributes include:
+		                     dayNamesShort    string[7] - abbreviated names of the days from Sunday (optional)
+		                     dayNames         string[7] - names of the days from Sunday (optional)
+		                     monthNamesShort  string[12] - abbreviated names of the months (optional)
+		                     monthNames       string[12] - names of the months (optional)
+		   @return  string - the date in the above format */
+		formatDate: function (format, date, settings) {
+			if (!date)
+				return '';
+			var dayNamesShort = (settings ? settings.dayNamesShort : null) || this._defaults.dayNamesShort;
+			var dayNames = (settings ? settings.dayNames : null) || this._defaults.dayNames;
+			var monthNamesShort = (settings ? settings.monthNamesShort : null) || this._defaults.monthNamesShort;
+			var monthNames = (settings ? settings.monthNames : null) || this._defaults.monthNames;
+			// Check whether a format character is doubled
+			var lookAhead = function(match) {
+				var matches = (iFormat + 1 < format.length && format.charAt(iFormat + 1) == match);
+				if (matches)
+					iFormat++;
+				return matches;
+			};
+			// Format a number, with leading zero if necessary
+			var formatNumber = function(match, value, len) {
+				var num = '' + value;
+				if (lookAhead(match))
+					while (num.length < len)
+						num = '0' + num;
+				return num;
+			};
+			// Format a name, short or long as requested
+			var formatName = function(match, value, shortNames, longNames) {
+				return (lookAhead(match) ? longNames[value] : shortNames[value]);
+			};
+			var output = '';
+			var literal = false;
+			if (date)
+				for (var iFormat = 0; iFormat < format.length; iFormat++) {
+					if (literal)
+						if (format.charAt(iFormat) == "'" && !lookAhead("'"))
+							literal = false;
+						else
+							output += format.charAt(iFormat);
+					else
+						switch (format.charAt(iFormat)) {
+							case 'd':
+								output += formatNumber('d', date.getDate(), 2);
+								break;
+							case 'D':
+								output += formatName('D', date.getDay(), dayNamesShort, dayNames);
+								break;
+							case 'o':
+								output += formatNumber('o',
+									Math.round((new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime() - new Date(date.getFullYear(), 0, 0).getTime()) / 86400000), 3);
+								break;
+							case 'm':
+								output += formatNumber('m', date.getMonth() + 1, 2);
+								break;
+							case 'M':
+								output += formatName('M', date.getMonth(), monthNamesShort, monthNames);
+								break;
+							case 'y':
+								output += (lookAhead('y') ? date.getFullYear() :
+									(date.getYear() % 100 < 10 ? '0' : '') + date.getYear() % 100);
+								break;
+							case '@':
+								output += date.getTime();
+								break;
+							case '!':
+								output += date.getTime() * 10000 + this._ticksTo1970;
+								break;
+							case "'":
+								if (lookAhead("'"))
+									output += "'";
+								else
+									literal = true;
+								break;
+							default:
+								output += format.charAt(iFormat);
+						}
+				}
+			return output;
+		},
+
+		/* Extract all possible characters from the date format. */
+		_possibleChars: function (format) {
+			var chars = '';
+			var literal = false;
+			// Check whether a format character is doubled
+			var lookAhead = function(match) {
+				var matches = (iFormat + 1 < format.length && format.charAt(iFormat + 1) == match);
+				if (matches)
+					iFormat++;
+				return matches;
+			};
+			for (var iFormat = 0; iFormat < format.length; iFormat++)
+				if (literal)
+					if (format.charAt(iFormat) == "'" && !lookAhead("'"))
+						literal = false;
+					else
+						chars += format.charAt(iFormat);
+				else
+					switch (format.charAt(iFormat)) {
+						case 'd': case 'm': case 'y': case '@':
+							chars += '0123456789';
+							break;
+						case 'D': case 'M':
+							return null; // Accept anything
+						case "'":
+							if (lookAhead("'"))
+								chars += "'";
+							else
+								literal = true;
+							break;
+						default:
+							chars += format.charAt(iFormat);
+					}
+			return chars;
+		},
+
+		/* Get a setting value, defaulting if necessary. */
+		_get: function(inst, name) {
+			return inst.settings[name] !== undefined ?
+				inst.settings[name] : this._defaults[name];
+		},
+
+		/* Parse existing date and initialise date picker. */
+		_setDateFromField: function(inst, noDefault) {
+			if (inst.input.val() == inst.lastVal) {
+				return;
+			}
+			var dateFormat = this._get(inst, 'dateFormat');
+			var dates = inst.lastVal = inst.input ? inst.input.val() : null;
+			var date, defaultDate;
+			date = defaultDate = this._getDefaultDate(inst);
+			var settings = this._getFormatConfig(inst);
+			try {
+				date = this.parseDate(dateFormat, dates, settings) || defaultDate;
+			} catch (event) {
+				this.log(event);
+				dates = (noDefault ? '' : dates);
+			}
+			inst.selectedDay = date.getDate();
+			inst.drawMonth = inst.selectedMonth = date.getMonth();
+			inst.drawYear = inst.selectedYear = date.getFullYear();
+			inst.currentDay = (dates ? date.getDate() : 0);
+			inst.currentMonth = (dates ? date.getMonth() : 0);
+			inst.currentYear = (dates ? date.getFullYear() : 0);
+			this._adjustInstDate(inst);
+		},
+
+		/* Retrieve the default date shown on opening. */
+		_getDefaultDate: function(inst) {
+			return this._restrictMinMax(inst,
+				this._determineDate(inst, this._get(inst, 'defaultDate'), new Date()));
+		},
+
+		/* A date may be specified as an exact value or a relative one. */
+		_determineDate: function(inst, date, defaultDate) {
+			var offsetNumeric = function(offset) {
+				var date = new Date();
+				date.setDate(date.getDate() + offset);
+				return date;
+			};
+			var offsetString = function(offset) {
+				try {
+					return $.datepicker.parseDate($.datepicker._get(inst, 'dateFormat'),
+						offset, $.datepicker._getFormatConfig(inst));
+				}
+				catch (e) {
+					// Ignore
+				}
+				var date = (offset.toLowerCase().match(/^c/) ?
+					$.datepicker._getDate(inst) : null) || new Date();
+				var year = date.getFullYear();
+				var month = date.getMonth();
+				var day = date.getDate();
+				var pattern = /([+-]?[0-9]+)\s*(d|D|w|W|m|M|y|Y)?/g;
+				var matches = pattern.exec(offset);
+				while (matches) {
+					switch (matches[2] || 'd') {
+						case 'd' : case 'D' :
+							day += parseInt(matches[1],10); break;
+						case 'w' : case 'W' :
+							day += parseInt(matches[1],10) * 7; break;
+						case 'm' : case 'M' :
+							month += parseInt(matches[1],10);
+							day = Math.min(day, $.datepicker._getDaysInMonth(year, month));
+							break;
+						case 'y': case 'Y' :
+							year += parseInt(matches[1],10);
+							day = Math.min(day, $.datepicker._getDaysInMonth(year, month));
+							break;
+					}
+					matches = pattern.exec(offset);
+				}
+				return new Date(year, month, day);
+			};
+			var newDate = (date == null || date === '' ? defaultDate : (typeof date == 'string' ? offsetString(date) :
+				(typeof date == 'number' ? (isNaN(date) ? defaultDate : offsetNumeric(date)) : new Date(date.getTime()))));
+			newDate = (newDate && newDate.toString() == 'Invalid Date' ? defaultDate : newDate);
+			if (newDate) {
+				newDate.setHours(0);
+				newDate.setMinutes(0);
+				newDate.setSeconds(0);
+				newDate.setMilliseconds(0);
+			}
+			return this._daylightSavingAdjust(newDate);
+		},
+
+		/* Handle switch to/from daylight saving.
+		   Hours may be non-zero on daylight saving cut-over:
+		   > 12 when midnight changeover, but then cannot generate
+		   midnight datetime, so jump to 1AM, otherwise reset.
+		   @param  date  (Date) the date to check
+		   @return  (Date) the corrected date */
+		_daylightSavingAdjust: function(date) {
+			if (!date) return null;
+			date.setHours(date.getHours() > 12 ? date.getHours() + 2 : 0);
+			return date;
+		},
+
+		/* Set the date(s) directly. */
+		_setDate: function(inst, date, noChange) {
+			var clear = !date;
+			var origMonth = inst.selectedMonth;
+			var origYear = inst.selectedYear;
+			var newDate = this._restrictMinMax(inst, this._determineDate(inst, date, new Date()));
+			inst.selectedDay = inst.currentDay = newDate.getDate();
+			inst.drawMonth = inst.selectedMonth = inst.currentMonth = newDate.getMonth();
+			inst.drawYear = inst.selectedYear = inst.currentYear = newDate.getFullYear();
+			if ((origMonth != inst.selectedMonth || origYear != inst.selectedYear) && !noChange)
+				this._notifyChange(inst);
+			this._adjustInstDate(inst);
+			if (inst.input) {
+				inst.input.val(clear ? '' : this._formatDate(inst));
+			}
+		},
+
+		/* Retrieve the date(s) directly. */
+		_getDate: function(inst) {
+			var startDate = (!inst.currentYear || (inst.input && inst.input.val() == '') ? null :
+				this._daylightSavingAdjust(new Date(
+				inst.currentYear, inst.currentMonth, inst.currentDay)));
+				return startDate;
+		},
+
+		/* Attach the onxxx handlers.  These are declared statically so
+		 * they work with static code transformers like Caja.
+		 */
+		_attachHandlers: function(inst) {
+			var stepMonths = this._get(inst, 'stepMonths');
+			var id = '#' + inst.id.replace( /\\\\/g, "\\" );
+			inst.dpDiv.find('[data-handler]').map(function () {
+				var handler = {
+					prev: function () {
+						window['DP_jQuery_' + dpuuid].datepicker._adjustDate(id, -stepMonths, 'M');
+					},
+					next: function () {
+						window['DP_jQuery_' + dpuuid].datepicker._adjustDate(id, +stepMonths, 'M');
+					},
+					hide: function () {
+						window['DP_jQuery_' + dpuuid].datepicker._hideDatepicker();
+					},
+					today: function () {
+						window['DP_jQuery_' + dpuuid].datepicker._gotoToday(id);
+					},
+					selectDay: function () {
+						window['DP_jQuery_' + dpuuid].datepicker._selectDay(id, +this.getAttribute('data-month'), +this.getAttribute('data-year'), this);
+						return false;
+					},
+					selectMonth: function () {
+						window['DP_jQuery_' + dpuuid].datepicker._selectMonthYear(id, this, 'M');
+						return false;
+					},
+					selectYear: function () {
+						window['DP_jQuery_' + dpuuid].datepicker._selectMonthYear(id, this, 'Y');
+						return false;
+					},
+					clear: function () {//马驰添加，增加了clear的功能。
+						window['DP_jQuery_' + dpuuid].datepicker._clearDateWithPicker(id);
+						return false;
+					}
+				};
+				$(this).bind(this.getAttribute('data-event'), handler[this.getAttribute('data-handler')]);
+			});
+		},
+		
+		/* add by machi; get a format string by Date in yyyy-mm-dd*/
+		_getDateFormatString: function(date){
+			var yyyy = date.getFullYear(),
+				mm = date.getMonth()+1,
+				dd = date.getDate();
+			return yyyy + "-" + (mm > 9 ? mm : "0" + mm) + "-" + (dd > 9 ? dd : "0"+dd);
+		},
+
+		/* Generate the HTML for the current state of the date picker. */
+		_generateHTML: function(inst) {
+			var today = new Date();
+			today = this._daylightSavingAdjust(
+				new Date(today.getFullYear(), today.getMonth(), today.getDate())); // clear time
+			var isRTL = this._get(inst, 'isRTL');
+			var showButtonPanel = this._get(inst, 'showButtonPanel');
+			var hideIfNoPrevNext = this._get(inst, 'hideIfNoPrevNext');
+			var clearBtn = this._get(inst, 'clearBtn');//马驰添加，是否显示清空
+			var navigationAsDateFormat = this._get(inst, 'navigationAsDateFormat');
+			var numMonths = this._getNumberOfMonths(inst);
+			var showCurrentAtPos = this._get(inst, 'showCurrentAtPos');
+			var stepMonths = this._get(inst, 'stepMonths');
+			var isMultiMonth = (numMonths[0] != 1 || numMonths[1] != 1);
+			var currentDate = this._daylightSavingAdjust((!inst.currentDay ? new Date(9999, 9, 9) :
+				new Date(inst.currentYear, inst.currentMonth, inst.currentDay)));
+			var minDate = this._getMinMaxDate(inst, 'min');
+			var maxDate = this._getMinMaxDate(inst, 'max');
+			var drawMonth = inst.drawMonth - showCurrentAtPos;
+			var drawYear = inst.drawYear;
+			if (drawMonth < 0) {
+				drawMonth += 12;
+				drawYear--;
+			}
+			if (maxDate) {
+				var maxDraw = this._daylightSavingAdjust(new Date(maxDate.getFullYear(),
+					maxDate.getMonth() - (numMonths[0] * numMonths[1]) + 1, maxDate.getDate()));
+				maxDraw = (minDate && maxDraw < minDate ? minDate : maxDraw);
+				while (this._daylightSavingAdjust(new Date(drawYear, drawMonth, 1)) > maxDraw) {
+					drawMonth--;
+					if (drawMonth < 0) {
+						drawMonth = 11;
+						drawYear--;
+					}
+				}
+			}
+			inst.drawMonth = drawMonth;
+			inst.drawYear = drawYear;
+			var prevText = this._get(inst, 'prevText');
+			prevText = (!navigationAsDateFormat ? prevText : this.formatDate(prevText,
+				this._daylightSavingAdjust(new Date(drawYear, drawMonth - stepMonths, 1)),
+				this._getFormatConfig(inst)));
+			var prev = (this._canAdjustMonth(inst, -1, drawYear, drawMonth) ?
+				'<a class="ui-datepicker-prev ui-corner-all" data-handler="prev" data-event="click"' +
+				' title="' + prevText + '"><span class="ui-icon ui-icon-circle-triangle-' + ( isRTL ? 'e' : 'w') + '">' + prevText + '</span></a>' :
+				(hideIfNoPrevNext ? '' : '<a class="ui-datepicker-prev ui-corner-all ui-state-disabled" title="'+ prevText +'"><span class="ui-icon ui-icon-circle-triangle-' + ( isRTL ? 'e' : 'w') + '">' + prevText + '</span></a>'));
+			var nextText = this._get(inst, 'nextText');
+			nextText = (!navigationAsDateFormat ? nextText : this.formatDate(nextText,
+				this._daylightSavingAdjust(new Date(drawYear, drawMonth + stepMonths, 1)),
+				this._getFormatConfig(inst)));
+			var next = (this._canAdjustMonth(inst, +1, drawYear, drawMonth) ?
+				'<a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click"' +
+				' title="' + nextText + '"><span class="ui-icon ui-icon-circle-triangle-' + ( isRTL ? 'w' : 'e') + '">' + nextText + '</span></a>' :
+				(hideIfNoPrevNext ? '' : '<a class="ui-datepicker-next ui-corner-all ui-state-disabled" title="'+ nextText + '"><span class="ui-icon ui-icon-circle-triangle-' + ( isRTL ? 'w' : 'e') + '">' + nextText + '</span></a>'));
+			var currentText = this._get(inst, 'currentText');
+			var gotoDate = (this._get(inst, 'gotoCurrent') && inst.currentDay ? currentDate : today);
+			currentText = (!navigationAsDateFormat ? currentText :
+				this.formatDate(currentText, gotoDate, this._getFormatConfig(inst)));
+			var controls = (!inst.inline ? '<button type="button" class="ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all" data-handler="hide" data-event="click">' +
+				this._get(inst, 'closeText') + '</button>' : '');
+			var buttonPanel = (showButtonPanel) ? '<div class="ui-datepicker-buttonpane ui-widget-content">' + (isRTL ? controls : '') +
+				(this._isInRange(inst, gotoDate) ? '<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all" data-event="click" data-handler="' + (clearBtn ? 'clear' : 'today') + '"' +
+				'>' + (clearBtn ? this._get(inst, 'clearText') : currentText) + '</button>' : '') + (isRTL ? '' : controls) + '</div>' : '';
+			var firstDay = parseInt(this._get(inst, 'firstDay'),10);
+			firstDay = (isNaN(firstDay) ? 0 : firstDay);
+			var showWeek = this._get(inst, 'showWeek');
+			var dayNames = this._get(inst, 'dayNames');
+			var dayNamesShort = this._get(inst, 'dayNamesShort');
+			var dayNamesMin = this._get(inst, 'dayNamesMin');
+			var monthNames = this._get(inst, 'monthNames');
+			var monthNamesShort = this._get(inst, 'monthNamesShort');
+			var beforeShowDay = this._get(inst, 'beforeShowDay');
+			var showOtherMonths = this._get(inst, 'showOtherMonths');
+			var selectOtherMonths = this._get(inst, 'selectOtherMonths');
+			var calculateWeek = this._get(inst, 'calculateWeek') || this.iso8601Week;
+			var defaultDate = this._getDefaultDate(inst);
+			var html = '';
+			var isShowLunarCal = this._get(inst, 'isShowLunarCal');//马驰添加
+			var lunarCal = new LunarCalendar();//创建阴历实例
+			var isShowFestival = this._get(inst, 'isShowFestival');//是否显示节日列表
+			var festivalList = this._get(inst, 'festivalList');//获得节日列表
+			
+			for (var row = 0; row < numMonths[0]; row++) {
+				var group = '';
+				this.maxRows = 4;
+				for (var col = 0; col < numMonths[1]; col++) {
+					var selectedDate = this._daylightSavingAdjust(new Date(drawYear, drawMonth, inst.selectedDay));
+					var cornerClass = ' ui-corner-all';
+					var calender = '';
+					if (isMultiMonth) {
+						calender += '<div class="ui-datepicker-group';
+						if (numMonths[1] > 1)
+							switch (col) {
+								case 0: calender += ' ui-datepicker-group-first';
+									cornerClass = ' ui-corner-' + (isRTL ? 'right' : 'left'); break;
+								case numMonths[1]-1: calender += ' ui-datepicker-group-last';
+									cornerClass = ' ui-corner-' + (isRTL ? 'left' : 'right'); break;
+								default: calender += ' ui-datepicker-group-middle'; cornerClass = ''; break;
+							}
+						calender += '">';
+					}
+					calender += '<div class="ui-datepicker-header ui-widget-header ui-helper-clearfix' + cornerClass + '">' +
+						(/all|left/.test(cornerClass) && row == 0 ? (isRTL ? next : prev) : '') +
+						(/all|right/.test(cornerClass) && row == 0 ? (isRTL ? prev : next) : '') +
+						this._generateMonthYearHeader(inst, drawMonth, drawYear, minDate, maxDate,
+						row > 0 || col > 0, monthNames, monthNamesShort) + // draw month headers
+						'</div><table class="ui-datepicker-calendar"><thead>' +
+						'<tr>';
+					var thead = (showWeek ? '<th class="ui-datepicker-week-col">' + this._get(inst, 'weekHeader') + '</th>' : '');
+					for (var dow = 0; dow < 7; dow++) { // days of the week
+						var day = (dow + firstDay) % 7;
+						thead += '<th' + ((dow + firstDay + 6) % 7 >= 5 ? ' class="ui-datepicker-week-end"' : '') + '>' +
+							'<span title="' + dayNames[day] + '">' + dayNamesMin[day] + '</span></th>';
+					}
+					calender += thead + '</tr></thead><tbody>';
+					var daysInMonth = this._getDaysInMonth(drawYear, drawMonth);
+					if (drawYear == inst.selectedYear && drawMonth == inst.selectedMonth)
+						inst.selectedDay = Math.min(inst.selectedDay, daysInMonth);
+					var leadDays = (this._getFirstDayOfMonth(drawYear, drawMonth) - firstDay + 7) % 7;
+					var curRows = Math.ceil((leadDays + daysInMonth) / 7); // calculate the number of rows to generate
+					var numRows = (isMultiMonth ? this.maxRows > curRows ? this.maxRows : curRows : curRows); //If multiple months, use the higher number of rows (see #7043)
+					this.maxRows = numRows;
+					var printDate = this._daylightSavingAdjust(new Date(drawYear, drawMonth, 1 - leadDays));
+					for (var dRow = 0; dRow < numRows; dRow++) { // create date picker rows
+						calender += '<tr>';
+						var tbody = (!showWeek ? '' : '<td class="ui-datepicker-week-col">' +
+							this._get(inst, 'calculateWeek')(printDate) + '</td>');
+						for (var dow = 0; dow < 7; dow++) { // create date picker days
+							if(isShowLunarCal){
+								lunarCal.setDate(printDate);
+							}
+							//machi，获得格式化的日期
+							var formatString = this._getDateFormatString(printDate);
+							//用于判断是否是节日，isShowFestival为false则也不是。
+							var festivalString = (isShowFestival? festivalList[formatString]: null);
+							var festivalMark = null;
+							//是否是标记节日
+							if(festivalString){
+								festivalMark = festivalString.charAt(festivalString.length - 1);
+								if(festivalMark ==　"*"){
+									festivalString = festivalString.slice(0,festivalString.length - 1);
+								}else{
+									festivalMark = null;
+								}
+							}
+							//----
+							var daySettings = (beforeShowDay ?
+								beforeShowDay.apply((inst.input ? inst.input[0] : null), [printDate]) : [true, '']);
+							var otherMonth = (printDate.getMonth() != drawMonth);
+							var unselectable = (otherMonth && !selectOtherMonths) || !daySettings[0] ||
+								(minDate && printDate < minDate) || (maxDate && printDate > maxDate);
+							tbody += '<td class="' +
+								((dow + firstDay + 6) % 7 >= 5 ? ' ui-datepicker-week-end' : '') + // highlight weekends
+								(otherMonth ? ' ui-datepicker-other-month' : '') + // highlight days from other months
+								((printDate.getTime() == selectedDate.getTime() && drawMonth == inst.selectedMonth && inst._keyEvent) || // user pressed key
+								(defaultDate.getTime() == printDate.getTime() && defaultDate.getTime() == selectedDate.getTime()) ?
+								// or defaultDate is current printedDate and defaultDate is selectedDate
+								' ' + this._dayOverClass : '') + // highlight selected day
+								(unselectable ? ' ' + this._unselectableClass + ' ui-state-disabled': '') +  // highlight unselectable days
+								(otherMonth && !showOtherMonths ? '' : ' ' + daySettings[1] + // highlight custom dates
+								(printDate.getTime() == currentDate.getTime() ? ' ' + this._currentClass : '') + // highlight selected day
+								(printDate.getTime() == today.getTime() ? ' ui-datepicker-today' : '')) + '"' + // highlight today (if different)
+								((!otherMonth || showOtherMonths) && daySettings[2] ? ' title="' + daySettings[2] + '"' : '') + // cell title
+								(unselectable ? '' : ' data-handler="selectDay" data-event="click" data-month="' + printDate.getMonth() + '" data-year="' + printDate.getFullYear() + '"') + '>' + // actions
+								(otherMonth && !showOtherMonths ? '&#xa0;' : // display for other months
+								//马驰修改，在其他月份日期的后面，加上了阴历的内容
+								(unselectable ? '<span class="ui-state-default">' + printDate.getDate() + (isShowLunarCal?"<br /><span class='tui_lunar_date'>" + (lunarCal.lunarDate.day==1?lunarCal.getMouthToString():lunarCal.getDateToString()) + "</span>":"") + '</span>' : '<a class="ui-state-default' +
+								(printDate.getTime() == today.getTime() ? ' ui-state-highlight' : '') +
+								//马驰修改，判断当前时间是否在节日列表中
+								(festivalString? ' tui_festival' : '')+
+								(printDate.getTime() == currentDate.getTime() ? ' ui-state-active' : '') + // highlight selected day
+								(otherMonth ? ' ui-priority-secondary' : '') + // distinguish dates from other months
+								//马驰修改，在显示日期的后面，加上了阴历的内容
+								'" href="#" tui_day="' + printDate.getDate() + '" title= "'+
+								(isShowLunarCal?(lunarCal.getYearToString() + lunarCal.getMouthToString()): '') +
+								(festivalString?' '+festivalString:"")+
+								'" >' +
+								(festivalMark?'<div class="tui_festival_mark"></div>':'')+
+								printDate.getDate() + 
+								(isShowLunarCal?"<br /><span class='tui_lunar_date'>"+(lunarCal.lunarDate.day==1?lunarCal.getMouthToString():lunarCal.getDateToString())+"</span>":"") + '</a>')) + '</td>'; // display selectable date
+								
+							printDate.setDate(printDate.getDate() + 1);
+							printDate = this._daylightSavingAdjust(printDate);
+						}
+						calender += tbody + '</tr>';
+					}
+					drawMonth++;
+					if (drawMonth > 11) {
+						drawMonth = 0;
+						drawYear++;
+					}
+					calender += '</tbody></table>' + (isMultiMonth ? '</div>' +
+								((numMonths[0] > 0 && col == numMonths[1]-1) ? '<div class="ui-datepicker-row-break"></div>' : '') : '');
+					group += calender;
+				}
+				html += group;
+			}
+			html += buttonPanel + ($.ui.ie6 && !inst.inline ?
+				'<iframe src="javascript:false;" class="ui-datepicker-cover" frameborder="0"></iframe>' : '');
+			inst._keyEvent = false;
+			return html;
+		},
+
+		/* Generate the month and year header. */
+		_generateMonthYearHeader: function(inst, drawMonth, drawYear, minDate, maxDate,
+				secondary, monthNames, monthNamesShort) {
+			var changeMonth = this._get(inst, 'changeMonth');
+			var changeYear = this._get(inst, 'changeYear');
+			var showMonthAfterYear = this._get(inst, 'showMonthAfterYear');
+			var html = '<div class="ui-datepicker-title">';
+			var monthHtml = '';
+			// month selection
+			if (secondary || !changeMonth)
+				monthHtml += '<span class="ui-datepicker-month">' + monthNames[drawMonth] + '</span>';
+			else {
+				var inMinYear = (minDate && minDate.getFullYear() == drawYear);
+				var inMaxYear = (maxDate && maxDate.getFullYear() == drawYear);
+				monthHtml += '<select class="ui-datepicker-month" data-handler="selectMonth" data-event="change">';
+				for (var month = 0; month < 12; month++) {
+					if ((!inMinYear || month >= minDate.getMonth()) &&
+							(!inMaxYear || month <= maxDate.getMonth()))
+						monthHtml += '<option value="' + month + '"' +
+							(month == drawMonth ? ' selected="selected"' : '') +
+							'>' + monthNamesShort[month] + '</option>';
+				}
+				monthHtml += '</select>';
+			}
+			if (!showMonthAfterYear)
+				html += monthHtml + (secondary || !(changeMonth && changeYear) ? '&#xa0;' : '');
+			// year selection
+			if ( !inst.yearshtml ) {
+				inst.yearshtml = '';
+				if (secondary || !changeYear)
+					html += '<span class="ui-datepicker-year">' + drawYear + '</span>';
+				else {
+					// determine range of years to display
+					var years = this._get(inst, 'yearRange').split(':');
+					var thisYear = new Date().getFullYear();
+					var determineYear = function(value) {
+						var year = (value.match(/c[+-].*/) ? drawYear + parseInt(value.substring(1), 10) :
+							(value.match(/[+-].*/) ? thisYear + parseInt(value, 10) :
+							parseInt(value, 10)));
+						return (isNaN(year) ? thisYear : year);
+					};
+					var year = determineYear(years[0]);
+					var endYear = Math.max(year, determineYear(years[1] || ''));
+					year = (minDate ? Math.max(year, minDate.getFullYear()) : year);
+					endYear = (maxDate ? Math.min(endYear, maxDate.getFullYear()) : endYear);
+					inst.yearshtml += '<select class="ui-datepicker-year" data-handler="selectYear" data-event="change">';
+					for (; year <= endYear; year++) {
+						inst.yearshtml += '<option value="' + year + '"' +
+							(year == drawYear ? ' selected="selected"' : '') +
+							'>' + year + '</option>';
+					}
+					inst.yearshtml += '</select>';
+
+					html += inst.yearshtml;
+					inst.yearshtml = null;
+				}
+			}
+			html += this._get(inst, 'yearSuffix');
+			if (showMonthAfterYear)
+				html += (secondary || !(changeMonth && changeYear) ? '&#xa0;' : '') + monthHtml;
+			html += '</div>'; // Close datepicker_header
+			return html;
+		},
+
+		/* Adjust one of the date sub-fields. */
+		_adjustInstDate: function(inst, offset, period) {
+			var year = inst.drawYear + (period == 'Y' ? offset : 0);
+			var month = inst.drawMonth + (period == 'M' ? offset : 0);
+			var day = Math.min(inst.selectedDay, this._getDaysInMonth(year, month)) +
+				(period == 'D' ? offset : 0);
+			var date = this._restrictMinMax(inst,
+				this._daylightSavingAdjust(new Date(year, month, day)));
+			inst.selectedDay = date.getDate();
+			inst.drawMonth = inst.selectedMonth = date.getMonth();
+			inst.drawYear = inst.selectedYear = date.getFullYear();
+			if (period == 'M' || period == 'Y')
+				this._notifyChange(inst);
+		},
+
+		/* Ensure a date is within any min/max bounds. */
+		_restrictMinMax: function(inst, date) {
+			var minDate = this._getMinMaxDate(inst, 'min');
+			var maxDate = this._getMinMaxDate(inst, 'max');
+			var newDate = (minDate && date < minDate ? minDate : date);
+			newDate = (maxDate && newDate > maxDate ? maxDate : newDate);
+			return newDate;
+		},
+
+		/* Notify change of month/year. */
+		_notifyChange: function(inst) {
+			var onChange = this._get(inst, 'onChangeMonthYear');
+			if (onChange)
+				onChange.apply((inst.input ? inst.input[0] : null),
+					[inst.selectedYear, inst.selectedMonth + 1, inst]);
+		},
+
+		/* Determine the number of months to show. */
+		_getNumberOfMonths: function(inst) {
+			var numMonths = this._get(inst, 'numberOfMonths');
+			return (numMonths == null ? [1, 1] : (typeof numMonths == 'number' ? [1, numMonths] : numMonths));
+		},
+
+		/* Determine the current maximum date - ensure no time components are set. */
+		_getMinMaxDate: function(inst, minMax) {
+			return this._determineDate(inst, this._get(inst, minMax + 'Date'), null);
+		},
+
+		/* Find the number of days in a given month. */
+		_getDaysInMonth: function(year, month) {
+			return 32 - this._daylightSavingAdjust(new Date(year, month, 32)).getDate();
+		},
+
+		/* Find the day of the week of the first of a month. */
+		_getFirstDayOfMonth: function(year, month) {
+			return new Date(year, month, 1).getDay();
+		},
+
+		/* Determines if we should allow a "next/prev" month display change. */
+		_canAdjustMonth: function(inst, offset, curYear, curMonth) {
+			var numMonths = this._getNumberOfMonths(inst);
+			var date = this._daylightSavingAdjust(new Date(curYear,
+				curMonth + (offset < 0 ? offset : numMonths[0] * numMonths[1]), 1));
+			if (offset < 0)
+				date.setDate(this._getDaysInMonth(date.getFullYear(), date.getMonth()));
+			return this._isInRange(inst, date);
+		},
+
+		/* Is the given date in the accepted range? */
+		_isInRange: function(inst, date) {
+			var minDate = this._getMinMaxDate(inst, 'min');
+			var maxDate = this._getMinMaxDate(inst, 'max');
+			return ((!minDate || date.getTime() >= minDate.getTime()) &&
+				(!maxDate || date.getTime() <= maxDate.getTime()));
+		},
+
+		/* Provide the configuration settings for formatting/parsing. */
+		_getFormatConfig: function(inst) {
+			var shortYearCutoff = this._get(inst, 'shortYearCutoff');
+			shortYearCutoff = (typeof shortYearCutoff != 'string' ? shortYearCutoff :
+				new Date().getFullYear() % 100 + parseInt(shortYearCutoff, 10));
+			return {shortYearCutoff: shortYearCutoff,
+				dayNamesShort: this._get(inst, 'dayNamesShort'), dayNames: this._get(inst, 'dayNames'),
+				monthNamesShort: this._get(inst, 'monthNamesShort'), monthNames: this._get(inst, 'monthNames')};
+		},
+
+		/* Format the given date for display. */
+		_formatDate: function(inst, day, month, year) {
+			if (!day) {
+				inst.currentDay = inst.selectedDay;
+				inst.currentMonth = inst.selectedMonth;
+				inst.currentYear = inst.selectedYear;
+			}
+			var date = (day ? (typeof day == 'object' ? day :
+				this._daylightSavingAdjust(new Date(year, month, day))) :
+				this._daylightSavingAdjust(new Date(inst.currentYear, inst.currentMonth, inst.currentDay)));
+			return this.formatDate(this._get(inst, 'dateFormat'), date, this._getFormatConfig(inst));
+		}
+	});
+
+	/*
+	 * Bind hover events for datepicker elements.
+	 * Done via delegate so the binding only occurs once in the lifetime of the parent div.
+	 * Global instActive, set by _updateDatepicker allows the handlers to find their way back to the active picker.
+	 */
+	function bindHover(dpDiv) {
+		var selector = 'button, .ui-datepicker-prev, .ui-datepicker-next, .ui-datepicker-calendar td a';
+		return dpDiv.delegate(selector, 'mouseout', function() {
+				$(this).removeClass('ui-state-hover');
+				if (this.className.indexOf('ui-datepicker-prev') != -1) $(this).removeClass('ui-datepicker-prev-hover');
+				if (this.className.indexOf('ui-datepicker-next') != -1) $(this).removeClass('ui-datepicker-next-hover');
+			})
+			.delegate(selector, 'mouseover', function(){
+				if (!$.datepicker._isDisabledDatepicker( instActive.inline ? dpDiv.parent()[0] : instActive.input[0])) {
+					$(this).parents('.ui-datepicker-calendar').find('a').removeClass('ui-state-hover');
+					$(this).addClass('ui-state-hover');
+					if (this.className.indexOf('ui-datepicker-prev') != -1) $(this).addClass('ui-datepicker-prev-hover');
+					if (this.className.indexOf('ui-datepicker-next') != -1) $(this).addClass('ui-datepicker-next-hover');
+				}
+			});
+	}
+
+	/* jQuery extend now ignores nulls! */
+	function extendRemove(target, props) {
+		$.extend(target, props);
+		for (var name in props)
+			if (props[name] == null || props[name] == undefined)
+				target[name] = props[name];
+		return target;
+	};
+
+	/* Invoke the datepicker functionality.
+	   @param  options  string - a command, optionally followed by additional parameters or
+		                Object - settings for attaching new datepicker functionality
+	   @return  jQuery object */
+	$.fn.datepicker = function(options){
+
+		/* Verify an empty collection wasn't passed - Fixes #6976 */
+		if ( !this.length ) {
+			return this;
+		}
+
+		/* Initialise the date picker. */
+		if (!$.datepicker.initialized) {
+			$(document).mousedown($.datepicker._checkExternalClick).
+				find(document.body).append($.datepicker.dpDiv);
+			$.datepicker.initialized = true;
+		}
+
+		var otherArgs = Array.prototype.slice.call(arguments, 1);
+		if (typeof options == 'string' && (options == 'isDisabled' || options == 'getDate' || options == 'widget'))
+			return $.datepicker['_' + options + 'Datepicker'].
+				apply($.datepicker, [this[0]].concat(otherArgs));
+		if (options == 'option' && arguments.length == 2 && typeof arguments[1] == 'string')
+			return $.datepicker['_' + options + 'Datepicker'].
+				apply($.datepicker, [this[0]].concat(otherArgs));
+		return this.each(function() {
+			typeof options == 'string' ?
+				$.datepicker['_' + options + 'Datepicker'].
+					apply($.datepicker, [this].concat(otherArgs)) :
+				$.datepicker._attachDatepicker(this, options);
+		});
+	};
+
+	$.datepicker = new Datepicker(); // singleton instance
+	$.datepicker.initialized = false;
+	$.datepicker.uuid = new Date().getTime();
+	$.datepicker.version = "1.9.2";
+
+	// Workaround for #4055
+	// Add another global to avoid noConflict issues with inline event handlers
+	window['DP_jQuery_' + dpuuid] = $;
+
+	})(jQuery);
+
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	/* Chinese initialisation for the jQuery UI date picker plugin. */
+	/* Written by Cloudream (cloudream@gmail.com). */
+	/*
+	 * datePicker的配置文件。
+	 * @author machi
+	 * modify at 2013-12-25
+	 */
+	jQuery(function($){
+		$.datepicker.regional['zh-CN'] = {
+			closeText: '关闭',
+			prevText: '&#x3c;上月',
+			nextText: '下月&#x3e;',
+			currentText: '当月',
+			monthNames: ['1月','2月','3月','4月','5月','6月',
+			'7月','8月','9月','10月','11月','12月'],
+			monthNamesShort: ['一','二','三','四','五','六',
+			'七','八','九','十','十一','十二'],
+			dayNames: ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+			dayNamesShort: ['周日','周一','周二','周三','周四','周五','周六'],
+			dayNamesMin: ['日','一','二','三','四','五','六'],
+			weekHeader: '周',
+			dateFormat: 'yy-mm-dd',
+			firstDay: 0,
+			isRTL: false,
+			showMonthAfterYear: true,
+			yearSuffix: '年',
+			festivalList: {
+				"2014-01-01":"元旦*",
+				"2014-01-31":"春节*",
+				"2014-02-01":"春节",
+				"2014-02-02":"春节",
+				"2014-02-03":"春节",
+				"2014-02-04":"春节",
+				"2014-02-05":"春节",
+				"2014-02-06":"春节",
+				"2014-04-05":"清明节*",
+				"2014-04-06":"清明节",
+				"2014-04-07":"清明节",
+				"2014-05-01":"劳动节*",
+				"2014-05-02":"劳动节",
+				"2014-05-03":"劳动节",
+				"2014-05-31":"端午节",
+				"2014-06-01":"端午节",
+				"2014-06-02":"端午节*",
+				"2014-09-06":"中秋节",
+				"2014-09-07":"中秋节",
+				"2014-09-08":"中秋节*",
+				"2014-10-01":"国庆节*",
+				"2014-10-02":"国庆节",
+				"2014-10-03":"国庆节",
+				"2014-10-04":"国庆节",
+				"2014-10-05":"国庆节",
+				"2014-10-06":"国庆节",
+				"2014-10-07":"国庆节",
+				"2015-01-01":"元旦*",
+				"2015-01-02":"元旦",
+				"2015-01-03":"元旦",
+				"2015-02-18":"春节",
+				"2015-02-19":"春节*",
+				"2015-02-20":"春节",
+				"2015-02-21":"春节",
+				"2015-02-22":"春节",
+				"2015-02-23":"春节",
+				"2015-02-24":"春节",
+				"2015-04-04":"清明节",
+				"2015-04-05":"清明节*",
+				"2015-04-06":"清明节",
+				"2015-05-01":"劳动节*",
+				"2015-05-02":"劳动节",
+				"2015-05-03":"劳动节",
+				"2015-06-20":"端午节*",
+				"2015-06-21":"端午节",
+				"2015-06-22":"端午节",
+				"2015-09-27":"中秋节*",
+				"2015-10-01":"国庆节*",
+				"2015-10-02":"国庆节",
+				"2015-10-03":"国庆节",
+				"2015-10-04":"国庆节",
+				"2015-10-05":"国庆节",
+				"2015-10-06":"国庆节",
+				"2015-10-07":"国庆节"
+			},
+			clearText: "清空"
+			
+			};
+		$.datepicker.setDefaults($.datepicker.regional['zh-CN']);
+	});
+
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module) {
+		//require("ui-router") ;
+		__webpack_require__(12) ;
+		__webpack_require__(18) ;
+		__webpack_require__(35) ;
+		__webpack_require__(48) ;
+		var _ = __webpack_require__(21) ;
+	    //var editallHtml = require("./tpls/edit.all.html") ;
+		//把需要的模块全部加载到testApp中
+		var app = angular.module('app',['pasvaz.bindonce','ngMessages','app.factory','app.controllers','app.directives','app.filter']);
+		app.constant('DEFAULT_SERVICETYPE','F') ;//默认的serviceType
+		
+		
+		
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
+		__webpack_require__(13) ;
+		__webpack_require__(15) ;
+		__webpack_require__(16) ;
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
+		var app = __webpack_require__(14) ;
+		app.factory('FormData',['DEFAULT_SERVICETYPE',function(DEFAULT_SERVICETYPE) {
+			var contextPath = $.trim($("#contextPath").val()) ;
+			var carrCode = $.trim($("#carrCode").val()) ;
+			var action = $.trim($("#action").val()) ;
+			//console.log("[contextPath : "+contextPath+"],[carrCode : "+carrCode+"],[action:"+action+"]") ;
+			return {
+			   "id":"",
+			   "status":"",
+			   "statusDes":"",
+			   "contextPath":contextPath,
+			   "carrCode":carrCode,
+			   "serviceAndSubCode":"",
+			   "serviceType":DEFAULT_SERVICETYPE,/*s7中包含信息//默认值为"F"//根据选择的s5决定是"F"/"M"*/
+			   "action":action,
+			   "sel1":{"showStr":"","value":""},
+			   "sel2":{"showStr":"","value":""},
+			   "sel3":{"showStr":"","value":"","textTableNo163":"","serviceGroup":"","serviceType":""},
+			   "sel4":[],
+			   "basicInfoVo":{
+			   		"id":"",
+					"subCode":"",
+					"indCxr":"",
+					"subDescription":"",
+					"ftmCode":"",
+					"carrCode":"",
+					"ftmDescription":"",
+					"serviceGroup":"",
+					"serviceGroupDescription":"",
+					"subGroup":"",
+					"subGroupDescription":"",
+					"serveceType":"",
+					"commercialName":""//商务名称
+			   },
+			   "firstMaintenanceDate":"",/*-----------页面第二部分开始--------------*/
+			   "lastMaintenanceDate":"",
+			   "description":"",/*描述*/
+			   "fareBasis":"",/*运价基础*/
+			   "freeBaggageAllowancePieces":"",/*免费行李件数*/
+			   "firstExcessOccurrence":"",/*收费行李件数起点*/
+			   "lastExcessOccurrence":"",/*收费行李件数结束*/
+			   "freeBaggageAllowanceWeight":"",/*免费重量*/
+			   "freeBaggageAllowanceUnit":"",/*免费单位*/
+			   "noChargeNotAvailable":"",/*"E"的时候"免费"//s7中包含信息*/
+			   "baggageTravelApplication":"",
+			   "textTableNo196":"",
+			   "list196VO":[/*备注例外行李*/],
+			   "discountOrNot":"1",/*是否打折，这个字段不会保存到数据库*/
+			   "discountRuleTableNo201":"",
+			   "list201VO":[],
+			   "serviceFeeCurTableNo170":"",
+			   "list170VO":[],
+				/*-------------页面第二部分结束---------------------------*/
+				"mileageMinimum":"",/*里程//新增字段*/
+				"mileageMaximum":"",/*里程//新增字段*/
+				"specifiedServiceFeeApp":"",/*适用于//新增字段*/
+				"specServiceFeeColSub":"",/*包含，扣除//新增字段*/
+				"specServiceFeeNetSell":"",/*净价/销售价//新增字段*/
+				"specSevFeeAndOrIndicator":"",/*或、和//新增字段*/
+				"specifiedServiceFeeMileage":"",/*里程费//新增字段*/
+				"mileageExchangeIndicator":"0",/*里程兑换标识*/
+				"availability":"N",/*必须检查可用性（查库存）*/
+			 	"sequenceNumber":"",/*优先级序号--------------------页面第三部分开始---------------------------*/
+			 	"passengerTypeCode":"",/*旅客类型*/
+			 	"minPassengerAge":"",/*最小年龄--新增字段*/
+				"maxPassengerAge":"",/*最大年龄--新增字段*/
+			 	"firstPassengerOccurrence":"",/*个数范围    第几个到第几个【数字】//新增字段*/
+			 	"lastPassengerOccurrence":"",/*个数范围    第几个到第几个【数字】//新增字段*/
+			 	"customerIndexScoreMinimum":"",/*客户积分范围【数字】//新增*/
+			 	"customerIndexScoreMaxmum":"",/*客户积分范围【数字】//新增*/
+			 	"frequentFlyerStatus":"",/*常旅客状态*/
+			 	"accountCodeTableNo172":"",/*大客户/特殊客户表（T172）--子表//新增*/
+			 	"list172VO":[],
+			 	"ticketDesignatorTableNo173":"",/*指定客票表（T173）--子表//新增*/
+			 	"list173TicketVO":[],
+				"tktDesignatorTableNo173":"",/*173*/
+				"list173TktVO":[],
+			 	"tourCode":"",/*旅行编码（关联客票）【字母或数字】--新增*/
+			 	"cabin":"",/*服务等级*/
+			 	"upgradeToCabin":"",
+			 	"rbdTableNo198":"",/*暂时没啥用,后台也不使用这个字段*/
+				"list198VO":[],/*订座属性表*/
+				"upgradeToRbdTableNo198":"",/*暂时没啥用，后台也不是该字段*/
+				"list198UpgradeVO":[],/*座位属性表，或则升舱属性表*/
+				"securityTableNo183":"",//发布安全表//暂时没啥用，后台也不是该字段*/
+				"list183VO":[],//安全发布表*/
+				"publicPrivateIndicator":"",/*公有、私有//新增字段*/
+				"carrierFlightTableNo186":"",/*航班信息表//暂时没啥用，后台也不是该字段*/
+				"list186VO":[],
+				"taxApplication":"Y",/*是否含税费,新增字段*/
+				"tariff":"",/*税费*/
+				"rule":"",/*规则*/
+				"cxrResFareTableNo171":"",/*客票舱位等级表*/
+				"list171VO":[],/*客票舱位等级表*/
+				"equipment":"",/*机型*/
+				"equipmentTypeTableNo165":"",
+				"list165VO":[] ,
+				"startTime":"",/*开始时刻*/
+				"stopTime":"",/*结束时刻*/
+				"timeApplication":"D",/*应用范围,新增字段*/
+				"dayOfWeek":"",/*星期 -- 新增字段*/
+				"dayOfWeekShow":{"w1":false,"w2":false,"w3":false,"w4":false,"w5":false,"w6":false,"w7":false},/*前台数据，后台无对应的属性*/
+				"advancedPurchasePeriod":"",/*提前购票时间--新增字段*/
+				"advancedPurchaseUnit":"",/*时间单位 -- 新增字段*/
+				"advancedPurchaseTktIssue":"",/*是否与机票同时出票 -- 新增字段*/
+				"indicatorReissueRefund":"",/*退、改 -- 新增字段*/
+				"formOfRefund":"",/*退款形式--新增字段*/
+				"indicatorComission":"Y",/*(是否有)代理费--新增字段*/
+				"indicatorInterline":"Y",/*是*/
+				"firstTravelYear":"",
+				"firstTravelMonth":"",
+				"firstTravelDay":"",
+				"lastTravelYear":"",
+				"lastTravelMonth":"",
+				"lastTravelDay":"",
+				"travelStartDate":"",/*这个是中间数据，后台不存在对应的属性*/
+				"travelEndDate":"",/*这个是中间数据，后台不存在对应的属性*/
+				"list178Loc1Id":"",/*区域1表格id*/
+				"list178Loc1":[],/*区域1对应的表格*/
+				"list178Loc2Id":"",/*区域2表格id*/
+				"list178Loc2":[],/*区域2对应的表格*/
+				"list178Loc3Id":"",/*区域3表格id*/
+				"list178Loc3":[],/*区域2对应的表格*/
+				"geoSpecFromToWithin":"",/*区域限制*/
+				"geoSpecSectPortJourney":"P",/*航段限制-目前返回的是定死的字符串‘P’*/
+				"geoSpecLoc1Type":"",/*区域1类型*/
+				"geoSpecLoc1":"",/*区域1代码*/
+				"geoSpecLoc2Type":"",/*区域2类型*/
+				"geoSpecLoc2":"",/*区域2代码*/
+				"geoSpecLoc3Type":"",/*区域3类型*/
+				"geoSpecLoc3":"",/*区域3代码 下面的都是新增 的字段*/
+				"geoSpecTravelIndicator":"",/*指定区域*/
+				"geoSpecExceptionStopTime":"",/*经停时间,新增字段*/
+				"geoSpecExceptionStopUnit":"",/*经停单位*/
+				"geoSpecStopConnDes":"",/*经停类型(限输入1位字母)*/
+				"effectivePeriodType":"",/*延长类型*/
+				"effectivePeriodNumber":"",/*延长时长*/
+				"effectivePeriodUnit":"",/*延长时间单位*/
+				"reuseList172VO":"",
+				"reuseList173TicketVO":"",
+				"reuseList183VO":"",
+				"reuseList198VO":"",
+				"reuseList198UpgradeVO":"",
+				"reuseList171VO":"",
+				"reuseList173TktVO":"",
+				"reuseList186VO":"",
+				"reuseList170VO":"",
+				"reuseList196VO":"",
+				"reuseList165VO":"",
+				"reuseList201VO":"",
+				"reuseList178Loc1":"",
+				"reuseList178Loc2":"",
+				"reuseList178Loc3":"",
+				"reuseListTsk202VO":"",
+				"allowancePeopleMinimum":"",/*服务适用范围起始*/
+				"allowancePeopleMaximum":"",/*服务适用范围截止*/
+				"serviceNumberMinimum":"",/*服务套数范围起始*/
+				"serviceNumberMaximum":"",/*服务套数终止*/
+				"firstUseDate":"",/*使用生效日期*/
+				"lastUseDate":"",/*使用截止日期*/
+				"useDateLimitTye":"",/*使用时间限制类型[时间段:‘’]或则[期限:'1']*/
+				"flightPassTableTsk202":"",
+				"listTsk202VO":[],
+				"allowedService":"FLT",/*允许兑换的服务ALL:不限，FLT:航班--默认值，SVS:服务*/
+				"subTbReferenceCountMap":{
+					"list172VO":"0",
+					"list173TicketVO":"0",
+					"list183VO":"0",
+					"list198VO":"0",
+					"list198UpgradeVO":"0",
+					"list171VO":"0",
+					"list173TktVO":"0",
+					"list186VO":"0",
+					"list170VO":"0",
+					"list196VO":"0",
+					"list165VO":"0",
+					"list201VO":"0",
+					"list178Loc1":"0",
+					"list178Loc2":"0",
+					"list178Loc3":"0",
+					"listTsk202VO":"0"
+				}
+			};
+		
+		}]);
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
+		var app = angular.module('app.factory',[]); 
+		//require('angular-resource') ;
+	 	return app ;
+	 }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
+		var services = __webpack_require__(14) ;
+		services.factory("TbShowHideServcie", function(){
+		    return {
+		        "list183VO":false,
+		        "list171VO":false,
+		        "list172VO":false,
+		        "list173TicketVO":false,
+		        "list173TktVO":false,
+		        "list165VO":false,
+		        "list186VO":false,
+		        "list196VO":false,
+		        "list198VO":false,
+		        "list198UpgradeVO":false,
+		        "list170VO":true,
+		        "list178Loc1":false,
+		        "list178Loc2":false,
+		        "list178Loc3":false,
+		        "listTsk202VO":false
+		    };
+		}) ;
+		
+		//自定义表格按钮是否显示service
+		services.factory("CustomeEditTbStatusServcie", function(){
+		    return {
+		        "list183VO":false,
+		        "list171VO":false,
+		        "list172VO":false,
+		        "list173TicketVO":false,
+		        "list173TktVO":false,
+		        "list165VO":false,
+		        "list186VO":false,
+		        "list196VO":false,
+		        "list198VO":false,
+		        "list198UpgradeVO":false,
+		        "list170VO":false,
+		        "list178Loc1":false,
+		        "list178Loc2":false,
+		        "list178Loc3":false,
+		        "listTsk202VO":false
+		    };
+		}) ;
+
+		services.factory("ListVo2tbNoMap", function(){
+		    return {
+		        "list183VO":"securityTableNo183",
+		        "list171VO":"cxrResFareTableNo171",
+		        "list172VO":"accountCodeTableNo172",
+		        "list173TicketVO":"ticketDesignatorTableNo173",
+		        "list173TktVO":"tktDesignatorTableNo173",
+		        "list165VO":"equipmentTypeTableNo165",
+		        "list186VO":"carrierFlightTableNo186",
+		        "list196VO":"textTableNo196",
+		        "list198VO":"rbdTableNo198",
+		        "list198UpgradeVO":"upgradeToRbdTableNo198",
+		        "list170VO":"serviceFeeCurTableNo170",
+		        "list178Loc1":"list178Loc1Id",
+		        "list178Loc2":"list178Loc2Id",
+		        "list178Loc3":"list178Loc3Id",
+		        "listTsk202VO":"flightPassTableTsk202"
+		    };
+		}) ;
+
+		/*控制页面上的控件是否可编辑*/
+		services.factory("FormEditStatusServcie", function(){
+		    return {
+		        "firstMaintenanceDate":true,
+		        "lastMaintenanceDate":true,
+		        "description":true,
+		        "fareBasis":true,
+		        "availability":true,
+		        "freeBaggageAllowancePieces":true,
+		        "firstExcessOccurrence":true,
+		        "lastExcessOccurrence":true,
+		        "freeBaggageAllowanceWeight":true,
+		        "freeBaggageAllowanceUnit":true,
+		        "baggageTravelApplication":true,
+		        "list196VO":true,
+		        "noChargeNotAvailable":true,
+		        "list170VO":true,
+		        "list201VO":true,
+		        "specSevFeeAndOrIndicator":true,
+		        "specifiedServiceFeeMileage":true,
+		        "specifiedServiceFeeApp":true,
+		        "specServiceFeeColSub":true,
+		        "specServiceFeeNetSell":true,
+		        "indicatorComission":true,
+		        "taxApplication":true,
+		        "sequenceNumber":true,
+		        "passengerTypeCode":true,
+		        "minPassengerAge":true,
+		        "maxPassengerAge":true,
+		        "firstPassengerOccurrence":true,
+		        "lastPassengerOccurrence":true,
+		        "frequentFlyerStatus":true,
+		        "mileageMinimum":true,
+		        "mileageMaximum":true,
+		        "customerIndexScoreMinimum":true,
+		        "customerIndexScoreMaxmum":true,
+		        "list172VO":true,
+		        "list183VO":true,
+		        "publicPrivateIndicator":true,
+		        "geoSpecFromToWithin":true,
+		        "geoSpecSectPortJourney":true,
+		        "geoSpecTravelIndicator":true,
+		        "geoSpecExceptionStopTime":true,
+		        "geoSpecExceptionStopUnit":true,
+		        "geoSpecStopConnDes":true,
+		        "geoSpecLoc1Type":true,
+		        "geoSpecLoc1":true,
+		        "list178Loc1":true,
+		        "geoSpecLoc2Type":true,
+		        "geoSpecLoc2":true,
+		        "list178Loc2":true,
+		        "geoSpecLoc3Type":true,
+		        "geoSpecLoc3":true,
+		        "list178Loc3":true,
+		        "travelStartDate":true,
+		        "travelEndDate":true,
+		        "startTime":true,
+		        "stopTime":true,
+		        "timeApplication":true,
+		        "dayOfWeek":true,
+		        "equipment":true,
+		        "list165VO":true,
+		        "list186VO":true,
+		        "cabin":true,
+		        "list198VO":true,
+		        "upgradeToCabin":true,
+		        "list198UpgradeVO":true,
+		        "advancedPurchasePeriod":true,
+		        "advancedPurchaseUnit":true,
+		        "tourCode":true,
+		        "list173TicketVO":true,
+		        "tariff":true,
+		        "rule":true,
+		        "list173TktVO":true,
+		        "list171VO":true,
+		        "advancedPurchaseTktIssue":true,
+		        "indicatorReissueRefund":true,
+		        "formOfRefund":true,
+		        "indicatorInterline":true,
+				"allowancePeopleMinimum":true,
+				"allowancePeopleMaximum":true,
+				"effectivePeriodType":true,
+				"effectivePeriodNumber":true,
+				"effectivePeriodUnit":true,
+				"serviceNumberMinimum":true,
+				"serviceNumberMaximum":true,
+				"firstUseDate":true,
+				"lastUseDate":true,
+				"mileageExchangeIndicator":true,
+				"listTsk202VO":true
+		    };
+		}) ;
+
+
+		//整个页面的组件在serviceType为xxx时应该显示到页面上(控制显隐关系)
+		services.factory("FormStatusService", function(){
+		    return {
+		        "firstMaintenanceDate":{
+		        	"typeList":["F","M","R","T","A","B","C","E","P"],
+		        	"groupList":[],
+		        	"nameList":["firstMaintenanceDate"],
+		        	"showFlag":true
+		        },
+		        "lastMaintenanceDate":{
+		        	"typeList":["F","M","R","T","A","B","C","E","P"],
+		        	"groupList":[],
+		        	"nameList":["lastMaintenanceDate"],
+		        	"showFlag":true
+		        },
+		        "description":{
+		        	"typeList":["F","M","R","T","B","E"],
+		        	"groupList":[],
+		        	"nameList":["description"],
+		        	"showFlag":true
+		        },
+		        "fareBasis":{
+		        	"typeList":["F","M","R","T","A","B","C","E","P"],
+		        	"groupList":[],
+		        	"nameList":["fareBasis"],
+		        	"showFlag":true
+		        },
+		        "availability":{
+		        	"typeList":["F","M","R","T","A","B","C","E","P"],
+		        	"groupList":[],
+		        	"nameList":["availability"],
+		        	"showFlag":true
+		        },
+		        "freeBaggageAllowancePieces":{
+		        	"typeList":["A"],
+		        	"groupList":[],
+		        	"nameList":["freeBaggageAllowancePieces"],
+		        	"showFlag":true
+		        },
+		        "firstAndLastExcessOccurrence":{
+		        	"typeList":["C","P"],
+		        	"groupList":[],
+		        	"nameList":["firstExcessOccurrence","lastExcessOccurrence"],
+		        	"showFlag":true
+		        },
+		        "freeBaggageAllowanceWeight":{
+		        	"typeList":["A","C","P"],
+		        	"groupList":[],
+		        	"nameList":["freeBaggageAllowanceWeight","freeBaggageAllowanceUnit"],
+		        	"showFlag":true
+		        },
+		        "baggageTravelApplication":{
+		        	"typeList":["A","C","P"],
+		        	"groupList":[],
+		        	"nameList":["baggageTravelApplication"],
+		        	"showFlag":true
+		        },
+				"list196VO":{
+					"typeList":["A","C","P"],
+					"groupList":[],
+					"nameList":["list196VO"],
+					"showFlag":true
+				},
+				"noChargeNotAvailable":{
+					"typeList":["F","M","R","T","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["noChargeNotAvailable"],
+					"showFlag":true
+				},
+				"list170VOAndlist201VO":{
+					"typeList":["F","M","R","T","C","P"],
+					"groupList":[],
+					"nameList":["list170VO","list201VO"],
+					"showFlag":true
+				},
+				"specSevFeeAndOrIndicator":{
+					"typeList":["F","M","R","T","C","P"],
+					"groupList":[],
+					"nameList":["specSevFeeAndOrIndicator"],
+					"showFlag":true
+				},
+				"specifiedServiceFeeMileage":{
+					"typeList":["F","M","R","T","C","P"],
+					"groupList":[],
+					"nameList":["specifiedServiceFeeMileage"],
+					"showFlag":true
+				},
+				"specifiedServiceFeeApp":{
+					"typeList":["F","M","R","T","C","P"],
+					"groupList":[],
+					"nameList":["specifiedServiceFeeApp"],
+					"showFlag":true
+				},
+				"specServiceFeeColSub":{
+					"typeList":["F","M","R","T","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["specServiceFeeColSub"],
+					"showFlag":true
+				},
+				"specServiceFeeNetSell":{
+					"typeList":["F","M","R","T","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["specServiceFeeNetSell"],
+					"showFlag":true
+				},
+				"indicatorComission":{
+					"typeList":["F","M","R","T","C","P"],
+					"groupList":[],
+					"nameList":["indicatorComission"],
+					"showFlag":true
+				},
+				"taxApplication":{
+					"typeList":["F","M","R","T","C","P"],
+					"groupList":[],
+					"nameList":["taxApplication"],
+					"showFlag":true
+				},
+				"sequenceNumber":{
+					"typeList":["F","M","R","T","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["sequenceNumber"],
+					"showFlag":true
+				},
+				"passengerTypeCode":{
+					"typeList":["F","M","R","T","A","B","C","P"],
+					"groupList":[],
+					"nameList":["passengerTypeCode"],
+					"showFlag":true
+				},
+				"minAndMaxPassengerAge":{
+					"typeList":["F","M","R","T","A","B","C","P"],
+					"groupList":[],
+					"nameList":["minPassengerAge","maxPassengerAge"],
+					"showFlag":true
+				},
+				"firstAndLastPassengerOccurrence":{
+					"typeList":["F","M","R","T"],
+					"groupList":[],
+					"nameList":["firstPassengerOccurrence","lastPassengerOccurrence"],
+					"showFlag":true
+				},
+				"frequentFlyerStatus":{
+					"typeList":["F","M","R","T","B","C","P"],
+					"groupList":[],
+					"nameList":["frequentFlyerStatus"],
+					"showFlag":true
+				},
+				"mileageMinAndMaximum":{
+					"typeList":["F","T","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["mileageMinimum","mileageMaximum"],
+					"showFlag":true
+				},
+				"customerIndexScoreMinAndMaximum":{
+					"typeList":["F","M","R","T","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["customerIndexScoreMinimum","customerIndexScoreMaxmum"],
+					"showFlag":true
+				},
+				"list172VO":{
+					"typeList":["F","M","R","T","A","B","C","P"],
+					"groupList":[],
+					"nameList":["list172VO"],
+					"showFlag":true
+				},
+				"list183VO":{
+					"typeList":["F","M","R","T","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["list183VO"],
+					"showFlag":true
+				},
+				"publicPrivateIndicator":{
+					"typeList":["F","M","R","T","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["publicPrivateIndicator"],
+					"showFlag":true
+				},
+				"geoSpecFromToWithin":{
+					"typeList":["F","R","T","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["geoSpecFromToWithin"],
+					"showFlag":true
+				},
+				"geoSpecSectPortJourney":{
+					"typeList":["F","R","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["geoSpecSectPortJourney"],
+					"showFlag":true
+				},
+				"geoSpecTravelIndicator":{
+					"typeList":["F","R","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["geoSpecTravelIndicator"],
+					"showFlag":true
+				},
+				"geoSpecExceptionStopTimeAndUnit":{
+					"typeList":["F","R","A","C","P"],
+					"groupList":[],
+					"nameList":["geoSpecExceptionStopTime","geoSpecExceptionStopUnit"],
+					"showFlag":true
+				},
+				"geoSpecStopConnDes":{
+					"typeList":["F","R","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["geoSpecStopConnDes"],
+					"showFlag":true
+				},
+				"geoSpecLoc1AndType":{
+					"typeList":["F","M","R","T","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["geoSpecLoc1Type","geoSpecLoc1"],
+					"showFlag":true
+				},
+				"list178Loc1":{
+					"typeList":["F","M","A","C","P","T"],
+					"groupList":[],
+					"nameList":["list178Loc1"],
+					"showFlag":true
+				},
+				"geoSpecLoc2AndType":{
+					"typeList":["F","R","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["geoSpecLoc2Type","geoSpecLoc2"],
+					"showFlag":true
+				},
+				"list178Loc2":{
+					"typeList":["F","M","A","C","P","T"],
+					"groupList":[],
+					"nameList":["list178Loc2"],
+					"showFlag":true
+				},
+				"geoSpecLoc3AndType":{
+					"typeList":["F","R","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["geoSpecLoc3Type","geoSpecLoc3"],
+					"showFlag":true
+				},
+				"list178Loc3":{
+					"typeList":["F","M","A","C","P","T"],
+					"groupList":[],
+					"nameList":["list178Loc3"],
+					"showFlag":true
+				},
+				"travelStartDate":{
+					"typeList":["F","M","R","T","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["travelStartDate"],
+					"showFlag":true
+				},
+				"travelEndDate":{
+					"typeList":["F","M","R","T","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["travelEndDate"],
+					"showFlag":true
+				},
+				"startTime":{
+					"typeList":["F","T","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["startTime"],
+					"showFlag":true
+				},
+				"stopTime":{
+					"typeList":["F","T","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["stopTime"],
+					"showFlag":true
+				},
+				"timeApplication":{
+					"typeList":["hidden"],
+					"groupList":[],
+					"nameList":["timeApplication"],
+					"showFlag":true
+				},
+				"dayOfWeek":{
+					"typeList":["F","T","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["dayOfWeek"],
+					"showFlag":true
+				},
+				"equipmentAndlist165":{
+					"typeList":["F","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["equipment","list165VO"],
+					"showFlag":true
+				},
+				"list186VO":{
+					"typeList":["F","R","T","A","B","C","E","P"],
+					"groupList":[],
+					"nameList":["list186VO"],
+					"showFlag":true
+				},
+				"cabin":{
+					"typeList":["F","A","B","C","P"],
+					"groupList":[],
+					"nameList":["cabin"],
+					"showFlag":true
+				},
+				"list198VO":{
+					"typeList":["F","A","B","C","P"],
+					"groupList":[],
+					"nameList":["list198VO"],
+					"showFlag":true
+				},
+				"upgradeToCabin":{
+					"typeList":["F","M"],
+					"groupList":["UP","BDUP"],
+					"nameList":["upgradeToCabin"],
+					"showFlag":true
+				},
+				"list198UpgradeVO":{
+					"typeList":["F","M"],
+					"groupList":["UP","BDUP","SA","BDSA"],
+					"nameList":["list198UpgradeVO"],
+					"showFlag":true
+				},
+				"advancedPurchasePeriodAndUnit":{
+					"typeList":["F","M","R","T","C","P"],
+					"groupList":[],
+					"nameList":["advancedPurchasePeriod","advancedPurchaseUnit"],
+					"showFlag":true
+				},
+				"tourCode":{
+					"typeList":["F","M","R","T","A","B","C","P"],
+					"groupList":[],
+					"nameList":["tourCode"],
+					"showFlag":true
+				},
+				"list173TicketVO":{
+					"typeList":["F","M","R","T","A","B","C","P"],
+					"groupList":[],
+					"nameList":["list173TicketVO"],
+					"showFlag":true
+				},
+				"tariff":{
+					"typeList":["F","R","A","B","C","P"],
+					"groupList":[],
+					"nameList":["tariff"],
+					"showFlag":true
+				},
+				"rule":{
+					"typeList":["F","R","A","B","C","P"],
+					"groupList":[],
+					"nameList":["rule"],
+					"showFlag":true
+				},
+				"list173TktVO":{
+					"typeList":["F","R","A","B","C","P"],
+					"groupList":[],
+					"nameList":["list173TktVO"],
+					"showFlag":true
+				},
+				"list171VO":{
+					"typeList":["F","R","A","B","C","P"],
+					"groupList":[],
+					"nameList":["list171VO"],
+					"showFlag":true
+				},
+				"advancedPurchaseTktIssue":{
+					"typeList":["F","R","T","P"],
+					"groupList":[],
+					"nameList":["advancedPurchaseTktIssue"],
+					"showFlag":true
+				},
+				"indicatorReissueRefund":{
+					"typeList":["F","M","A","C","P","T"],
+					"groupList":[],
+					"nameList":["indicatorReissueRefund"],
+					"showFlag":true
+				},
+				"formOfRefund":{
+					"typeList":["F","M","R","T","C","P"],
+					"groupList":[],
+					"nameList":["formOfRefund"],
+					"showFlag":true
+				},
+				"indicatorInterline":{
+					"typeList":["F","M","R","T","C","P"],
+					"groupList":[],
+					"nameList":["indicatorInterline"],
+					"showFlag":true
+				},
+				"allowancePeopleMinAndMaximum":{/*服务适用人数范围*/
+					"typeList":["F","R","T","A","B","C","E","P"],
+					"groupList":["FP"],
+					"nameList":["allowancePeopleMinimum","allowancePeopleMaximum"],
+					"showFlag":true
+				},
+				"effectivePeriodInfo":{/*延长时间*/
+					"typeList":["F","R","T","A","B","C","E","P"],
+					"groupList":["FL","FP"],
+					"nameList":["effectivePeriodType","effectivePeriodNumber","effectivePeriodUnit"],
+					"showFlag":true
+				},
+				"serviceNumberMinAndMaximum":{/*服务套数*/
+					"typeList":["F","R","T","A","B","C","E","P"],
+					"groupList":["FP"],
+					"nameList":["serviceNumberMinimum","serviceNumberMaximum"],
+					"showFlag":true
+				},
+				"firstAndLastUseDate":{/*期限开始*/
+					"typeList":["F","R","T","A","B","C","E","P"],
+					"groupList":["FP"],
+					"nameList":["firstUseDate","lastUseDate"],
+					"showFlag":true
+				},
+				"mileageExchangeIndicator":{
+					"typeList":["F","M","R","T"],
+					"groupList":[],
+					"nameList":["mileageExchangeIndicator"],
+					"showFlag":true
+				}
+		    };
+		}) ;
+
+
+		
+
+	 }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
+		var app = __webpack_require__(14) ;
+		var util = __webpack_require__(17) ;
+		// $q 是内置服务，所以可以直接使用  //HttpOperService//S7EditService
+		app.factory('HttpOperService', ['$http', '$q', function ($http, $q) {  
+		  return {  
+			    getDataByUrl : function(url) {  
+			      var deferred = $q.defer(); // 声明延后执行，表示要去监控后面的执行  
+			      $http({method: 'GET', url: url}).  
+			      success(function(data, status, headers, config) {  
+			        deferred.resolve(data);  // 声明执行成功，即http请求数据成功，可以返回数据了  
+			      }).  
+			      error(function(data, status, headers, config) {  
+			        deferred.reject(data);   // 声明执行失败，即服务器返回错误  
+			      });  
+			      return deferred.promise;   // 返回承诺，这里并不是最终数据，而是访问最终数据的API  
+			    },
+			    postDate:function(url,queryParam,config){
+			    	var deferred = $q.defer(); // 声明延后执行，表示要去监控后面的执行  
+			    	var tmpCfg = {} ;
+			    	if(config!=null){
+			    		tmpCfg = config ;
+			    	}
+			    	var csrfInfo = util.getCSRFInfo() ;
+			    	tmpCfg = $.extend(tmpCfg,csrfInfo) ;
+			        $http({method: 'POST', url: url,data:queryParam,params:tmpCfg}).  
+			        success(function(data, status, headers, config) {  
+			           deferred.resolve(data);  // 声明执行成功，即http请求数据成功，可以返回数据了  
+			        }).  
+			        error(function(data, status, headers, config) {  
+			           deferred.reject(data);   // 声明执行失败，即服务器返回错误  
+			        });  
+			      	return deferred.promise;   // 返回承诺，这里并不是最终数据，而是访问最终数据的API  
+			    }
+			};
+		}]);  
+
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module) {
+		var dataFormatStr = "YYYY-MM-DD" ;
+		var dataTimeFormatStr = "YYYY-MM-DD HH:mm" ;
+		var util = {};
+		//获取也csrf信息
+		util.getCSRFInfo = function(){
+			var _csrf = $("meta[name=_csrf]").attr('content');
+			var _csrf_header = $("meta[name=_csrf]").attr('content') ;
+			var _csrf_parameterName = $("meta[name=_csrf]").attr('content') ;
+			var info = {"_csrf":_csrf,"_csrf_header":_csrf_header,"_csrf_parameterName":_csrf_parameterName} ;
+			return info ;
+		}
+		//判断状态不可编辑，当状态为3的时候不能编辑
+		util.checkStatusIsDisable = function(status){
+			var flag = false ;
+			if(status!=null){
+				if(status == '3'){
+					flag = true;
+				}
+			}
+			return flag;
+		};
+		
+		
+		util.getByteNumOfStr = function(str){
+			str = str || "" ;
+			return str.replace(/[^\x00-\xff]/g, 'xx').length;
+		};
+		
+		
+		util.getRbdTb198TmpStr = function(){
+			return "rbd" ;//这个返回值一定要和页面上的相同，对应以前的bookSeat
+		};
+		util.getRbdUpgradeTb198TmpStr = function() {
+			return "rbdUpgrade" ;//这个返回值一定要和页面上的相同//对应以前的seatProp
+		};
+		
+		util.getCommonImgArr = function(){
+			var arr = ['0B5', '0DG', '0B3', '0LO', '0LQ', '0LT', '0BO']  ;
+			return arr ;
+		};
+		util.getAppName = function(){
+			//-/ocGui/oc/ocView
+			var pathname = window.location.pathname ;
+			var t1 = pathname.substr(1) ;
+			var index = t1.indexOf("/") ;
+			var t2 = t1.substr(0,index) ;
+			return t2 ;
+		};
+
+		util.isNonNegativeInteger =  function(value){
+			return /^[0-9]{0,}$/.test(value);
+		} ;
+
+
+		util.isThreecode = function (value) {
+			return /^[A-Z]{3}$/i.test(value) ;
+		};
+		
+		util.isThreecode2 = function (value) {
+			return /^[A-Za-z0-9]{3}$/i.test(value) ;
+		};
+		
+		//输入字符串是否为航空公司二字码
+		util.isAir = function (value) {
+			return /^[a-zA-Z]{2}$|^[a-zA-Z]{1}[0-9]{1}$|^[0-9]{1}[a-zA-Z]{1}$/.test(value);
+		};
+		
+		util.isInteger = function(value){
+			return /^-?\d+$/.test(value);
+		};
+		
+		util.isDateOC = function(datavalue){
+			return isLegalDate(datavalue,true);//可以超过20年 
+		};
+		
+	    util.isBiggerDateThan = function(val1,val2){
+	    	var date1 = moment(val1,dataFormatStr) ;
+	    	var date2 = moment(val2,dataFormatStr) ;
+	    	return date1 >= date2 ;
+	    };
+
+	    util.isSmallerDateThan = function(val1,val2){
+	    	var date1 = moment(val1,dataFormatStr) ;
+	    	var date2 = moment(val2,dataFormatStr) ;
+	    	return date1 <= date2 ;
+	    };
+
+		util.isBiggerThanCurrent =function(datevalue){
+			var curDateStr = moment().format(dataFormatStr) ;
+			var curDate = moment(curDateStr) ;
+			var valueDate = moment(datevalue,dataFormatStr) ;
+			return valueDate>=curDate;
+		};
+		
+		/**date time 相关的 start**/
+		util.isBiggerDateTimeThan = function(val1,val2){
+	    	var date1 = moment(val1,dataTimeFormatStr) ;
+	    	var date2 = moment(val2,dataTimeFormatStr) ;
+	    	return date1 >= date2 ;
+	    };
+
+	    util.isSmallerDateTimeThan = function(val1,val2){
+	    	var date1 = moment(val1,dataTimeFormatStr) ;
+	    	var date2 = moment(val2,dataTimeFormatStr) ;
+	    	return date1 <= date2 ;
+	    };
+
+		util.isBiggerDateTimeThanCurrent =function(datevalue){
+			var curDateStr = moment().format(dataTimeFormatStr) ;
+			var curDate = moment(curDateStr) ;
+			var valueDate = moment(datevalue,dataTimeFormatStr) ;
+			return valueDate>=curDate;
+		};
+		/**date time 相关的 end**/
+		
+		
+
+		util.islettersOrNumber = function(value){
+			return /^[A-Za-z0-9]{0,}$/i.test(value);
+		} ;
+
+		util.isPositiveInteger = function  (value) {
+			return /^[1-9]{1}[0-9]{0,}$/.test(value);
+		} ;
+
+		util.isLetter = function  (value) {
+			return /^[a-zA-Z]+$/i.test(value);
+		} ;
+		
+		util.isAlphanumericOrStart = function(value){
+			return /^[A-Za-z0-9]{0,}$|^[\*]{1}$/.test(value) ;
+		}
+
+		util.isValidGeoLocal = function(value,geoType){
+			//{'A':'areacode','C':'citycode','N':'countrycode','P':'airportcode','S':'statecode','Z':'zonecode'
+			if(geoType=='A'){
+				return util.isAreacode(value) ;	
+			}else if(geoType=='C'){
+				return util.isCitycode(value) ;
+			}else if(geoType=='N'){
+				return util.isCountrycode(value) ;
+			}else if(geoType=='P'){
+				return util.isAirportcode(value) ;
+			}else if(geoType=='S'){
+				return util.isStatecode(value) ;
+			}else if(geoType=='Z'){
+				return util.isZonecode(value) ;
+			}
+			return false;
+		};
+
+
+		util.isAreacode = function(value){
+			return /^[1-3]{1}$/i.test(value) ;
+		} ;
+
+		util.isCitycode = function(value){
+			return /^[A-Z]{3}$/i.test(value); 
+		} ;
+		util.isCountrycode = function(value){
+			return /^[A-Z]{2}$/i.test(value) ;
+		} ;
+		util.isAirportcode = function(value){
+			return /^[A-Z]{3}$/i.test(value) ;
+		} ;
+		util.isStatecode = function(value){
+			return /^[A-Z]{2}$/i.test(value) ;
+		} ;
+		util.isZonecode = function(value){
+			return /^[0-9]{3}$/i.test(value) ;
+		} ;
+
+		
+		//判断日期是否合法
+		var  isLegalDate=function(datavalue,noTimeLimit){
+		   var date = datavalue;
+		   if( !/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(date)){
+			  return false;
+			}
+		   var result = true;
+		   var curYear = (new Date().getFullYear() - 0);
+		   var ymd = date.split(/-/);
+		   var year = ymd[0] - 0;
+		   var month = ymd[1] - 0;
+		   var day = ymd[2] - 0;
+			/* month-day relation, January begins from index 1 */
+		   var mdr = [0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+		   var isLeapYear = function(){
+			  // 判断年份是否是闰年
+			  return (year % 400 === 0) || ((year % 4 === 0) && (year % 100 !== 0));
+			};
+		   if(!noTimeLimit&&(year < curYear - 20 || year > curYear + 20)){
+			// 年份超过前后20年，则校验失败
+			result = false;
+			}
+		   if(month > 12 || month < 1){
+			// 如果月份不合法，则校验失败
+			result = false;
+		   }
+		  if(mdr[month] < day || day < 1 || day > 31){
+			// 日期天数不合法，校验失败
+			result = false;
+		   }
+		  if(month === 2 && !isLeapYear() && day > 28){
+			// 年份不是闰年，日期天数不合法，校验失败
+			result = false;
+		   }
+		  return result;
+	   };
+
+		module.exports = util ;
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
+		__webpack_require__(19) ;//公共指令
+		__webpack_require__(25) ;//基本信息指令
+		//require("./tb198UpGradeDirective") ;//[座位属性表/升舱属性]table198指令
+		__webpack_require__(29) ;//规则明细指令
+		__webpack_require__(30) ;//规则明细指令
+		//require("./select2Directive") ;//暂时不适用这个指令
+		//加入校验指令
+		__webpack_require__(34) ;
+		
+	 }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+
+
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){
+		 var directives = __webpack_require__(20) ;
+		 var _ = __webpack_require__(21) ;
+		 var jsonDataHelper = __webpack_require__(22) ;
+		 var commonUtil = __webpack_require__(23) ;
+		 
+		 var convertFirstCharUpper = function(str){
+		 	str = str || "" ;
+		 	return str.replace(/(\w)/,function(v){return v.toUpperCase()});
+		 }
+
+		 //显示隐藏表格
+		 directives.directive('showHideTable',['TbShowHideServcie',function(TbShowHideServcie){
+		    return {
+		        restrict: 'E',
+		        replace: true,
+		        scope: {},
+		        controller:['$scope','$element','$attrs',function($scope,$element,$attrs){
+		        	$scope.tableStatus = TbShowHideServcie ;
+		        }],
+		        template:function(elem,attrs){
+		        	var tname = attrs['tname'] ;
+		        	var tmpStr = "tableStatus."+tname ;
+		        	var html = '<a  href = "javascript:void(0)"><span ng-show="'+tmpStr+'" >收起表格</span><span ng-show="!'+tmpStr+'">填写表格</span></a>' ;
+		        	return html ;
+		        }, 
+		        transclude:true,
+		        link: function(scope, element, attrs){
+		        	element.bind('click',function(){
+		        		var tname = attrs['tname'] ;
+		        		scope.$apply(function(){
+							scope.tableStatus[tname] = !scope.tableStatus[tname] ;
+		        		}) ;
+		        	}) ;
+		        }
+		    };
+		}]) ;
+
+
+		var _fillData4AutoComplete = function(suggestion,tbname ,FormData,FormEditStatusServcie,HttpOperService,customeEditStatus,tbnoName){
+			//scope.showCustomeEditFlag = true;
+	    	var tbNO = suggestion.data ;
+	    	var url = FormData.contextPath+"/queryTableInfoByTbNO.action?tbNO="+tbNO+"&tbname="+tbname ;
+	    	var promise = HttpOperService.getDataByUrl(url) ;
+	    	var oldTbNo = FormData[tbnoName] ;
+	    	var subTbReferenceCount = FormData['subTbReferenceCountMap'][tbname] *1;
+	    	var reusePropName = "reuse"+convertFirstCharUpper(tbname) ;
+	    	promise.then(function  (retData) {
+	    		var list = jsonDataHelper.convert2TableDataList(retData.list,tbname) ;
+	    		//如果当前标号与复用标号相同的话，并且是只被当前r7引用的话，说明不是复用，而是修改自己的记录
+	    		if(subTbReferenceCount<=1&&oldTbNo==tbNO){//如果和之前的标号相同，并且被r7引用条数不大于1的话,可编辑
+					//1.设置表格可编辑
+					FormEditStatusServcie[tbname] = true;
+					//2.清除复用标志
+					FormData[reusePropName] = ''; 
+					//3.隐藏自定义表格按钮
+					customeEditStatus[tbname] = true;
+	    		}else{
+	    			FormEditStatusServcie[tbname] = false;
+	    			//显示自定义表格按钮
+	    			customeEditStatus[tbname] = true;
+	    		}
+	    		FormData[tbname] = list ;
+	    	},function(error){
+	    		console.info('获取数据出错!'+error) ;
+	    	}) ;
+		} ;
+		
+
+		directives.directive('ocComplete', ['FormEditStatusServcie','FormData','HttpOperService','ListVo2tbNoMap','TbShowHideServcie','CustomeEditTbStatusServcie',function (FormEditStatusServcie,FormData,HttpOperService,ListVo2tbNoMap,TbShowHideServcie,CustomeEditTbStatusServcie) {
+		 	return {
+		 		restrict: 'E',
+		 		replace:true,
+		 		scope:true,
+		 		template:function  (elem,attrs) {
+		 			//获取当前页面控件是否是非编辑状态
+		 			var str ="" ;
+	 				var tbname = attrs['tbname'] ;
+	 				var reuseTablePropName = "reuse"+convertFirstCharUpper(tbname) ;
+		 			var tbnoName = ListVo2tbNoMap[tbname] ;
+		 			//var botext = "data."+tbnoName ;
+		 			var sotext = "customeEditStatus."+tbname;
+		 			str ='<span class ="marginRL15">' + 
+							'<label class ="text-info">复用表号: </label>' +
+							'<span style="position:relative;">'+
+								'<input type="text"  name="'+reuseTablePropName+'" ng-disable ="data.statusDes==\'3\'" class="autocomplete reusetbnoinput" placeholder=""  >'+
+								'<i class="icon iconfont icon-sousuo searchinput gray"></i>'+
+							'</span>'+
+							'<span class ="text-danger pointer marginRL15" name="customeEdit" ng-show ="'+sotext+'">自定义表格</span>'+
+						 '</span>' ;
+					return str ;
+		 		},
+		 		link: function (scope, elem, attrs) {
+		 			scope.data = FormData ;
+		 			var tbname = attrs['tbname'] ;
+		 			var tbnoName = ListVo2tbNoMap[tbname] ;
+		 			//是否显示自定义表格
+		 			scope.customeEditStatus = CustomeEditTbStatusServcie;
+		 			/*elem.find("i").bind('click',function(event){
+		 				event.stopPropagation() ;
+		 				event.preventDefault() ;
+		 				//elem.find('input').focus() ;
+		 			}) ;*/
+		 			//点击自定义表格按钮
+		 			elem.find('span[name="customeEdit"]').bind('click',function  (event) {
+		 				//scope.showCustomeEditFlag = false;
+		 				scope.customeEditStatus[tbname] = false;
+		 				//1.清除复用的表号
+		 				var reuseTablePropName = "reuse"+convertFirstCharUpper(tbname) ;
+		 				FormData[reuseTablePropName] = '' ;
+		 				//2.清除复用的list数据
+		 				//var list = FormData[tbname] ;
+		 				//获取当前页面控件是否是非编辑状态
+		 				var editFlag = commonUtil.getEditFlagByStatus(FormData.statusDes) ;
+		 				elem.find(':input').val('')
+						scope.$apply(function  () {
+		 					FormEditStatusServcie[tbname] = editFlag;
+					    	FormData[tbname] = [] ;
+						}) ;
+						//清空placeholder提示
+						elem.find(':input').removeAttr('placeholder'); 
+						//只要被点击自定义就需要把这里置为-1，表示当前是自定义字表数据
+						FormData[tbnoName] = '-1' ;
+						/*//根据本引用次数判断是否清除源字表号(1.如果被引用一次则源表号任可重复利用，2.如果被多次引用则将源标号置为空)
+						var referenceCount = FormData.subTbReferenceCountMap[tbname] ;
+						if(referenceCount>1){
+							//console.info('【'+referenceCount+'】被引用次数大于一，需要把源子表号置为空...') ;
+							FormData[tbnoName] = '' ;
+						}*/
+						
+		 			}) ;
+					elem.find(".autocomplete").autocomplete({
+						minChars:0,
+						serviceUrl: scope.data.contextPath+'/queryTableNoByTableName',
+						/*noCache:true,*/
+					    onSelect: function (suggestion) {
+					    	//判断当前是否有数据，并且当前数据是否可编辑,如果这样的话要给出提示信息
+					    	var list = FormData[tbname] ;
+					    	var editFlag = commonUtil.getEditFlagByStatus(FormData.statusDes) ;
+					    	var reuseTablePropName = "reuse"+convertFirstCharUpper(tbname) ;
+					    	var reuseTableNo = FormData[reuseTablePropName] ;
+					    	//判断当前表格是否可编辑
+					    	var tbEditAbleFlag = FormEditStatusServcie[tbname] ;
+					    	//当前表格如果可编辑那么
+					    	if(list.length>0&&editFlag&&reuseTableNo==''&&tbEditAbleFlag){
+					    		$.showTuiConfirmDialog2('确定放弃已编辑的内容？', function() {
+					    			var selectedTableNo = suggestion.data ;
+							    	var reuseTablePropName = "reuse"+convertFirstCharUpper(tbname) ;
+							    	FormData[reuseTablePropName] = selectedTableNo ;
+							    	_fillData4AutoComplete(suggestion,tbname ,FormData,FormEditStatusServcie,HttpOperService,scope.customeEditStatus,tbnoName) ;
+							    	//将表格置为显示状态
+							    	TbShowHideServcie[tbname] = true ;
+		 						},function(){
+		 							FormData[reuseTablePropName] = '' ;
+				    				elem.find(':input').val('') ;
+		 						}) ;
+					    	}else{
+						    	var selectedTableNo = suggestion.data ;
+						    	var reuseTablePropName = "reuse"+convertFirstCharUpper(tbname) ;
+						    	FormData[reuseTablePropName] = selectedTableNo ;
+						    	_fillData4AutoComplete(suggestion,tbname ,FormData,FormEditStatusServcie,HttpOperService,scope.customeEditStatus,tbnoName) ;
+						    	//将表格置为显示状态
+						    	TbShowHideServcie[tbname] = true ;
+					    	}
+					    },
+					    paramName:'q' ,
+					    params:{"tbname":tbname},
+					    transformResult: function(response) {
+					    	var jsonData = JSON.parse(response) ;
+					    	var flag = jsonData.flag ;
+					    	//console.info('flag : ' + flag) ;
+					    	if(flag=='true'){
+								return {
+						            suggestions: $.map(jsonData.list, function(dataItem) {
+						                return { value: dataItem+"", data: dataItem };
+						            })
+						        };
+					    	}else{
+					    		//console.info('获取表格出错...') ;
+					    		return {
+					    			suggestions:[]
+					    		}
+					    	}
+					    }
+					});
+		 		}
+		 	};
+		}]) ;
+
+
+		 //刚添加的一行表格td需要触发focus函数,否则如果直接点击页头部分的保存按钮将无法进行tui的require等校验//不知道为什么
+		 directives.directive('setFocus', function(){
+			  return {
+		        restrict: 'AE',
+		        replace: true,
+				scope:true,
+				link: function(scope, elem, attrs) {
+		           elem.trigger('click') ;
+		        }
+		      };
+	      });
+
+		 //区域长度限制
+		 directives.directive('geoMaxLength',function(){
+		    return {
+		        restrict: 'AE',
+		        replace: true,
+		        scope:true,
+		        controller:['$scope', '$element', '$attrs',function($scope, $element, $attrs){
+					$scope.getGeoLengthByType = function(type){
+						type = type || "" ;
+					  	var obj = {'A':'1','C':'3','N':'2','P':'3','S':'2','Z':'3'} ;
+					    var len = eval("obj['"+type+"']") || 0;
+						return len ;
+					}
+				}],
+		        link: function(scope, element, attrs){
+		            scope.$watch(attrs['geoMaxLength'], myWatchCallbackFunc);
+		            function myWatchCallbackFunc (){
+		                var geoMaxLength = attrs['geoMaxLength'] ;
+		                var value  = scope.$eval(geoMaxLength) ;
+						var len = scope.getGeoLengthByType(value) ;
+						element.attr('maxlength',len) ;//设置长度
+		            }
+		        }
+		    }
+		  }) ;
+		  
+		  function _convertStr2Json (jsonStr){
+		  	var str = jsonStr || '' ;
+		  	str += '' ;
+		  	var retJson = {} ;
+		  	try{
+		  		var retStr = str.replace(/'/g,'"') ;
+		  		retJson = JSON.parse(retStr) ;
+		  	}catch(e){
+		  		console.info(e) ;
+		  	}
+		  	return retJson ;
+		  }
+		  
+
+		 //tui长度限制属性
+		 directives.directive('tuiMaxLength',function(){
+		 	function _splitMaxLengtAttr (str){
+			  	str = str || '' ;
+			  	str += '' ;
+			  	var arr = [] ;
+			  	var str1 = "" ;
+			  	var str2 = "" ;
+			  	try{
+				  	var start1 = str.indexOf('{');
+			        var end1 = str.indexOf('}');
+			        str1 = str.substr(start1,end1+1)  ;
+			        var start2 = str.indexOf('[') ;
+			        var end2 = str.indexOf(']') ;
+			        str2 = str.substring(start2+1,end2) ;
+			  	}catch(e){
+			  		console.info(e) ;
+			  	}
+			  	if(str1.length>0&&str2.length>0){
+			  		arr[0] = str1 ;
+			  		arr[1] = str2 ;
+			  	}
+		        return arr ;
+			}
+		    return {
+		        restrict: 'AE',
+		        replace: true,
+		        scope: true,
+		        link: function(scope, element, attrs){
+		        	var attrStr = attrs['tuiMaxLength'] ;
+		            var infoArr = _splitMaxLengtAttr(attrStr) ;
+		            var str1 = "" ;
+		            var str2 = "" ;
+		            var jsonObj = {} ;
+		            //填写的字符串是否格式完好
+		            var goodStrFlag = false;
+		            if(infoArr.length==2){
+		             	goodStrFlag = true ;
+		             	str1 = infoArr[0] ;
+		             	str2 = infoArr[1] ;
+		             	jsonObj =  _convertStr2Json(str1) ; 
+		            }
+		            if(goodStrFlag){
+			            scope.$watch(attrs['tuiMaxLength'], function(){
+				        	var value2  = scope.$eval(str2) ;
+				        	var valueAtrr = jsonObj[value2] ;
+							element.attr('maxlength',valueAtrr) ;
+			            });
+		            }
+		        }
+		    }
+		  }) ;
+
+		directives.directive("upperInput",function(){
+		    return{
+		        restrict:'A',
+		        require:'ngModel',
+		        link:function(scope,element,attrs,ngModel){
+		            if (!ngModel)
+		                return; // do nothing if no ng-model
+		            // Specify how UI should be updated
+		            ngModel.$render = function() {
+		                var tmp = ngModel.$viewValue || '' ;
+		                tmp = tmp.toUpperCase() ;
+		                element.val(tmp);
+		                ngModel.$setViewValue(tmp);
+		            };
+		            // Listen for change events to enable binding
+		            element.bind('blur', function() {
+		                scope.$apply(read);
+		            });
+		            //read(); // initialize
+		            /// Write data to the model
+		            function read() {
+		                var tmp = ngModel.$viewValue || '';
+		                tmp = tmp.toUpperCase() ;
+		                ngModel.$setViewValue(tmp);
+		                element.val(tmp);
+		            }
+		        }
+		    }
+		}) ;
+		 //178表格显示隐藏的链接指令
+		 directives.directive('linkTable', ['TbShowHideServcie','FormEditStatusServcie',function(TbShowHideServcie,FormEditStatusServcie){
+	          return {
+		        restrict: 'AE',
+		        replace: true,
+				scope:{
+					list:'=',
+					tbname:'@'
+				},
+				controller:['$scope',function($scope){
+					$scope.showStatus = TbShowHideServcie;
+					$scope.editStatus = FormEditStatusServcie ;
+					//点击显示隐藏表格事件处理
+					$scope.myClick = function(){
+						var tbname = $scope.tbname;
+						$scope.showStatus[tbname] = !$scope.showStatus[tbname] ;
+						if(!$scope.showStatus[tbname]){////点击取消自定义区域
+							var len = $scope.list.length ;
+							if($scope.editStatus[tbname]){//如何表格可编辑则清空数据
+								outAllSelect() ;
+								$scope.list.splice(0,len) ;
+							}
+						}
+					}
+					function outAllSelect(){//将所有tr全部置为非选中状态
+						angular.forEach($scope.list,function(l){
+							l.selected = false ;
+						}) ;
+					}
+				}],
+		        template:function(elem,attrs){
+		        	var strtip = attrs['strtip'] ;
+		        	var tbname = attrs['tbname'] ;
+		        	var tmp = "showStatus."+ tbname;
+					var retstr = '<a href="javascript:void(0)"><span ng-show="!'+tmp+'">'+strtip+'</span><span ng-show="'+tmp+'">取消自定义</span></a>' ;
+					return retstr ;
+		        }, 
+				link: function(scope, elem, attrs) {
+		            elem.bind('click', function() {
+						scope.$apply(function(){
+							scope.myClick() ;
+						}) ;
+		            });
+		        }
+		      };
+	      }]) ;
+
+		
+			
+		  //日期插件
+		 directives.directive('datepicker',function(){
+			return{
+				restrict: 'A',
+				scope: true,
+				require:'ngModel',
+				link: function (scope,elem,attr,ctrl) {
+					if(!ctrl) return ;
+					var minDateStr = attr['datepicker'] ;
+					var minDate = new Date(minDateStr) ;
+					//配置日期控件
+			        var optionObj = {} ;
+			        optionObj.dateFormat = "yy-mm-dd" ;
+			        var updateModel = function(dateText){
+			            scope.$apply(function  () {
+			                //调用angular内部的工具更新双向绑定关系
+			                ctrl.$setViewValue(dateText) ;
+			            }) ;
+			        }
+		            optionObj.onSelect = function(dateText,picker){
+		                updateModel(dateText) ;
+		               // elem.focus() ;
+		               // validator.element(elem) ;
+		                if(scope.select){
+		                    scope.$apply(function  () {
+		                        scope.select({date:dateText}) ;
+		                    }) ;
+		                }
+		            }
+		            optionObj.minDate = minDate ;
+		            optionObj.showButtonPanel = true ;
+		            /*ctrl.$render = function(){
+		            	//console.info('这个方法好像只有在第一次加载的收执行.......') ;
+		                //下面这段步骤1和步骤2千万不能弄混了，1必须在前面
+		                //1.将后台ng-model中的数据填充到页面上
+		                 elem.datepicker('setDate',ctrl.$viewValue || '') ;//最后期发现是setDate的时候会根据最新的日期设置显示的页面上的html日期字符串
+		                //2.下面写这个的原因是如果我们的日期控件设置了最小日期的话，当我们修改数据时，
+		                //如果从数据库中读取的字段日期小于最小日期，datepicker会自动的将控件的日期设置为今天的日期,
+		                //而这时angular并不知道，所有这里手动设置为页面上的html字符串,只有第一次加载时才可能出现这个问题
+		                var viewView = ctrl.$viewValue ;
+		                var textValue = $(elem).val() ;
+		                if(viewView!=textValue){
+							ctrl.$setViewValue(textValue);
+		                }
+		            }*/
+					elem.datepicker(optionObj);
+				}
+			  };
+			}) ;
+			//时间插件
+			directives.directive('timepicker',function(){
+				return{
+					restrict: 'A',
+					scope: {},
+					link: function (scope,elem,attr) {
+						var timeVar = {
+							controlType:'select',
+							timeFormat: 'HHmm',
+							timeOnly:  true,
+							timeOnlyTitle: '选择时间',//Choose Time
+							timeText: '时间',//Time
+							hourText: '小时',//Hou
+							minuteText: '分钟',//Minute
+							currentText: '当前',//Current
+							closeText: '关闭'//Close
+						};
+						$(elem).datetimepicker(timeVar);
+					}
+				};
+			}) ;
+
+			
+			//重置数据
+			var resetDataByFlag = function(nameList,flag,data,orgData){
+			    if(!flag){//如果隐藏这需要重置数据
+			        for(var i = 0 ; i < nameList.length ;i++){
+			        	var curName = nameList[i] ;
+			        	var oldValue = orgData[curName] ;
+			        	var tmpValue = ""  ;
+			        	if(_.isArray(oldValue)){//如果是数组则
+			        		tmpValue = [] ;
+			        	}else if(_.isObject(oldValue)){
+			        		tmpValue =angular.copy(oldValue)  ;
+			        	}
+			        	data[curName] = tmpValue ;
+			        }
+			    }
+			};
+
+			var getFlagByServiceTypeAndServiceGroup = function (typeList, groupList,serviceType,serviceGroup) {
+			    var flag = _.contains(typeList,serviceType) ;
+			    if(flag&&groupList&&groupList.length>0){
+			    	flag = _.contains(groupList, serviceGroup) ;
+			    }
+			    return flag ;
+			};
+
+			directives.directive('force',['FormStatusService','FormData',function(FormStatusService,FormData){
+				return  {
+					restrict:'A',
+					scope:{orgData:'='},
+					link: function (scope,elem,attrs) {//
+						//@param : event 事件本身
+						//@param ：needDigest ： 是否需要手动进行脏数据检查
+						scope.$on('serviceTypeChangeNotice',function(event,needDigest){
+							for(var fname in FormStatusService){
+								var typeList = FormStatusService[fname]['typeList'] ;
+								var groupList = FormStatusService[fname]['groupList'] ;
+								var serviceType = FormData.serviceType;
+								var serviceGroup = FormData.sel1.value ;
+								var oldFlag = FormStatusService[fname]['showFlag'] ;
+								var flag = getFlagByServiceTypeAndServiceGroup(typeList, groupList,serviceType,serviceGroup) ;
+								/*if(fname=='mileageExchangeIndicator'){
+									console.info('oldFlag : ' + oldFlag) ;
+									console.info('serviceTypeChangeNotice --->  fname : [' + fname + ']-- flag : [' + flag + ']   , serviceType : ['+serviceType+'] , typeList ['+typeList+'] , groupList :['+groupList+']  , servcieGroup : ['+serviceGroup+'] ') ;
+								}*/
+								//console.info('serviceTypeChangeNotice --->  fname : [' + fname + ']-- flag : [' + flag + ']   , serviceType : ['+serviceType+'] , typeList ['+typeList+'] , groupList :['+groupList+']  , servcieGroup : ['+serviceGroup+'] ') ;
+								if(oldFlag==!flag){//如果不同
+									var nameList = FormStatusService[fname]['nameList'] ;
+									resetDataByFlag(nameList,flag,FormData,scope.orgData) ;
+									FormStatusService[fname]['showFlag']= flag;
+									/*if(fname=='mileageExchangeIndicator'){
+										console.info("FormStatusService[fname]['showFlag'] : " + FormStatusService[fname]['showFlag'])
+									}*/
+									if(needDigest&&needDigest=='true'){
+										scope.$digest() ;
+									}
+								}
+							}
+						}) ;
+						// @param :event :自带的事件本身
+						// @param :in_fname : 传入的forceName
+						// @param :in_flag :传入的隐藏显示的falg----第一要传递字符串
+						// @param :needDigest ：是否需要手动脏数据检查  第一要传递字符串
+						scope.$on('singleChangeByFlagNotice', function (event,in_fname,in_flag,needDigest) {
+							var fname = in_fname ;
+							var newFlag = in_flag=='true'?true:false;
+							var oldFlag = FormStatusService[fname]['showFlag'] ;
+							//console.info("singleChangeByFlagNotice -------> fname : ["+fname+"] , newFlag : ["+newFlag+"] , oldFlag : ["+oldFlag+"] ") ;
+							//****这里需要修复一个bug,typeList如果判断为显示，说明传过来的flag才真正应该为true,如果typeList判断为false那么无论外面传入的是否为true，都因该被置为false
+							var typeList = FormStatusService[fname]['typeList'] ;
+							var groupList = FormStatusService[fname]['groupList'] ;
+							var serviceType = FormData.serviceType;
+							var serviceGroup = FormData.sel1.value ;
+							var typeFlag = getFlagByServiceTypeAndServiceGroup(typeList, groupList,serviceType,serviceGroup) ;
+							//如果根据typeList判断因该隐藏，那么一定为隐藏，否则根据传入的flag做判断
+							if(typeFlag==false){
+								newFlag = false;
+							}
+							if(newFlag==!oldFlag){//当前显隐与将要的显隐相反时
+								var nameList = FormStatusService[fname]['nameList'] ;
+								resetDataByFlag(nameList,newFlag,FormData,scope.orgData) ;
+								FormStatusService[fname]['showFlag']= newFlag;
+								if(needDigest&&needDigest=='true'){
+									scope.$digest() ;
+								}
+							}else{
+								//console.info('当前显隐与将要发生的显隐相同，不需要切换') ;
+							}
+						}) ;
+					}
+				} ;
+			}]) ;
+
+	 }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
+		 var directives = angular.module('app.directives',[]); 
+		 return directives ;
+	 }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+
+
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
+	//     http://underscorejs.org
+	//     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	//     Underscore may be freely distributed under the MIT license.
+
+	(function() {
+
+	  // Baseline setup
+	  // --------------
+
+	  // Establish the root object, `window` in the browser, or `exports` on the server.
+	  var root = this;
+
+	  // Save the previous value of the `_` variable.
+	  var previousUnderscore = root._;
+
+	  // Save bytes in the minified (but not gzipped) version:
+	  var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
+
+	  // Create quick reference variables for speed access to core prototypes.
+	  var
+	    push             = ArrayProto.push,
+	    slice            = ArrayProto.slice,
+	    toString         = ObjProto.toString,
+	    hasOwnProperty   = ObjProto.hasOwnProperty;
+
+	  // All **ECMAScript 5** native function implementations that we hope to use
+	  // are declared here.
+	  var
+	    nativeIsArray      = Array.isArray,
+	    nativeKeys         = Object.keys,
+	    nativeBind         = FuncProto.bind,
+	    nativeCreate       = Object.create;
+
+	  // Naked function reference for surrogate-prototype-swapping.
+	  var Ctor = function(){};
+
+	  // Create a safe reference to the Underscore object for use below.
+	  var _ = function(obj) {
+	    if (obj instanceof _) return obj;
+	    if (!(this instanceof _)) return new _(obj);
+	    this._wrapped = obj;
+	  };
+
+	  // Export the Underscore object for **Node.js**, with
+	  // backwards-compatibility for the old `require()` API. If we're in
+	  // the browser, add `_` as a global object.
+	  if (true) {
+	    if (typeof module !== 'undefined' && module.exports) {
+	      exports = module.exports = _;
+	    }
+	    exports._ = _;
+	  } else {
+	    root._ = _;
+	  }
+
+	  // Current version.
+	  _.VERSION = '1.8.3';
+
+	  // Internal function that returns an efficient (for current engines) version
+	  // of the passed-in callback, to be repeatedly applied in other Underscore
+	  // functions.
+	  var optimizeCb = function(func, context, argCount) {
+	    if (context === void 0) return func;
+	    switch (argCount == null ? 3 : argCount) {
+	      case 1: return function(value) {
+	        return func.call(context, value);
+	      };
+	      case 2: return function(value, other) {
+	        return func.call(context, value, other);
+	      };
+	      case 3: return function(value, index, collection) {
+	        return func.call(context, value, index, collection);
+	      };
+	      case 4: return function(accumulator, value, index, collection) {
+	        return func.call(context, accumulator, value, index, collection);
+	      };
+	    }
+	    return function() {
+	      return func.apply(context, arguments);
+	    };
+	  };
+
+	  // A mostly-internal function to generate callbacks that can be applied
+	  // to each element in a collection, returning the desired result — either
+	  // identity, an arbitrary callback, a property matcher, or a property accessor.
+	  var cb = function(value, context, argCount) {
+	    if (value == null) return _.identity;
+	    if (_.isFunction(value)) return optimizeCb(value, context, argCount);
+	    if (_.isObject(value)) return _.matcher(value);
+	    return _.property(value);
+	  };
+	  _.iteratee = function(value, context) {
+	    return cb(value, context, Infinity);
+	  };
+
+	  // An internal function for creating assigner functions.
+	  var createAssigner = function(keysFunc, undefinedOnly) {
+	    return function(obj) {
+	      var length = arguments.length;
+	      if (length < 2 || obj == null) return obj;
+	      for (var index = 1; index < length; index++) {
+	        var source = arguments[index],
+	            keys = keysFunc(source),
+	            l = keys.length;
+	        for (var i = 0; i < l; i++) {
+	          var key = keys[i];
+	          if (!undefinedOnly || obj[key] === void 0) obj[key] = source[key];
+	        }
+	      }
+	      return obj;
+	    };
+	  };
+
+	  // An internal function for creating a new object that inherits from another.
+	  var baseCreate = function(prototype) {
+	    if (!_.isObject(prototype)) return {};
+	    if (nativeCreate) return nativeCreate(prototype);
+	    Ctor.prototype = prototype;
+	    var result = new Ctor;
+	    Ctor.prototype = null;
+	    return result;
+	  };
+
+	  var property = function(key) {
+	    return function(obj) {
+	      return obj == null ? void 0 : obj[key];
+	    };
+	  };
+
+	  // Helper for collection methods to determine whether a collection
+	  // should be iterated as an array or as an object
+	  // Related: http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength
+	  // Avoids a very nasty iOS 8 JIT bug on ARM-64. #2094
+	  var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
+	  var getLength = property('length');
+	  var isArrayLike = function(collection) {
+	    var length = getLength(collection);
+	    return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
+	  };
+
+	  // Collection Functions
+	  // --------------------
+
+	  // The cornerstone, an `each` implementation, aka `forEach`.
+	  // Handles raw objects in addition to array-likes. Treats all
+	  // sparse array-likes as if they were dense.
+	  _.each = _.forEach = function(obj, iteratee, context) {
+	    iteratee = optimizeCb(iteratee, context);
+	    var i, length;
+	    if (isArrayLike(obj)) {
+	      for (i = 0, length = obj.length; i < length; i++) {
+	        iteratee(obj[i], i, obj);
+	      }
+	    } else {
+	      var keys = _.keys(obj);
+	      for (i = 0, length = keys.length; i < length; i++) {
+	        iteratee(obj[keys[i]], keys[i], obj);
+	      }
+	    }
+	    return obj;
+	  };
+
+	  // Return the results of applying the iteratee to each element.
+	  _.map = _.collect = function(obj, iteratee, context) {
+	    iteratee = cb(iteratee, context);
+	    var keys = !isArrayLike(obj) && _.keys(obj),
+	        length = (keys || obj).length,
+	        results = Array(length);
+	    for (var index = 0; index < length; index++) {
+	      var currentKey = keys ? keys[index] : index;
+	      results[index] = iteratee(obj[currentKey], currentKey, obj);
+	    }
+	    return results;
+	  };
+
+	  // Create a reducing function iterating left or right.
+	  function createReduce(dir) {
+	    // Optimized iterator function as using arguments.length
+	    // in the main function will deoptimize the, see #1991.
+	    function iterator(obj, iteratee, memo, keys, index, length) {
+	      for (; index >= 0 && index < length; index += dir) {
+	        var currentKey = keys ? keys[index] : index;
+	        memo = iteratee(memo, obj[currentKey], currentKey, obj);
+	      }
+	      return memo;
+	    }
+
+	    return function(obj, iteratee, memo, context) {
+	      iteratee = optimizeCb(iteratee, context, 4);
+	      var keys = !isArrayLike(obj) && _.keys(obj),
+	          length = (keys || obj).length,
+	          index = dir > 0 ? 0 : length - 1;
+	      // Determine the initial value if none is provided.
+	      if (arguments.length < 3) {
+	        memo = obj[keys ? keys[index] : index];
+	        index += dir;
+	      }
+	      return iterator(obj, iteratee, memo, keys, index, length);
+	    };
+	  }
+
+	  // **Reduce** builds up a single result from a list of values, aka `inject`,
+	  // or `foldl`.
+	  _.reduce = _.foldl = _.inject = createReduce(1);
+
+	  // The right-associative version of reduce, also known as `foldr`.
+	  _.reduceRight = _.foldr = createReduce(-1);
+
+	  // Return the first value which passes a truth test. Aliased as `detect`.
+	  _.find = _.detect = function(obj, predicate, context) {
+	    var key;
+	    if (isArrayLike(obj)) {
+	      key = _.findIndex(obj, predicate, context);
+	    } else {
+	      key = _.findKey(obj, predicate, context);
+	    }
+	    if (key !== void 0 && key !== -1) return obj[key];
+	  };
+
+	  // Return all the elements that pass a truth test.
+	  // Aliased as `select`.
+	  _.filter = _.select = function(obj, predicate, context) {
+	    var results = [];
+	    predicate = cb(predicate, context);
+	    _.each(obj, function(value, index, list) {
+	      if (predicate(value, index, list)) results.push(value);
+	    });
+	    return results;
+	  };
+
+	  // Return all the elements for which a truth test fails.
+	  _.reject = function(obj, predicate, context) {
+	    return _.filter(obj, _.negate(cb(predicate)), context);
+	  };
+
+	  // Determine whether all of the elements match a truth test.
+	  // Aliased as `all`.
+	  _.every = _.all = function(obj, predicate, context) {
+	    predicate = cb(predicate, context);
+	    var keys = !isArrayLike(obj) && _.keys(obj),
+	        length = (keys || obj).length;
+	    for (var index = 0; index < length; index++) {
+	      var currentKey = keys ? keys[index] : index;
+	      if (!predicate(obj[currentKey], currentKey, obj)) return false;
+	    }
+	    return true;
+	  };
+
+	  // Determine if at least one element in the object matches a truth test.
+	  // Aliased as `any`.
+	  _.some = _.any = function(obj, predicate, context) {
+	    predicate = cb(predicate, context);
+	    var keys = !isArrayLike(obj) && _.keys(obj),
+	        length = (keys || obj).length;
+	    for (var index = 0; index < length; index++) {
+	      var currentKey = keys ? keys[index] : index;
+	      if (predicate(obj[currentKey], currentKey, obj)) return true;
+	    }
+	    return false;
+	  };
+
+	  // Determine if the array or object contains a given item (using `===`).
+	  // Aliased as `includes` and `include`.
+	  _.contains = _.includes = _.include = function(obj, item, fromIndex, guard) {
+	    if (!isArrayLike(obj)) obj = _.values(obj);
+	    if (typeof fromIndex != 'number' || guard) fromIndex = 0;
+	    return _.indexOf(obj, item, fromIndex) >= 0;
+	  };
+
+	  // Invoke a method (with arguments) on every item in a collection.
+	  _.invoke = function(obj, method) {
+	    var args = slice.call(arguments, 2);
+	    var isFunc = _.isFunction(method);
+	    return _.map(obj, function(value) {
+	      var func = isFunc ? method : value[method];
+	      return func == null ? func : func.apply(value, args);
+	    });
+	  };
+
+	  // Convenience version of a common use case of `map`: fetching a property.
+	  _.pluck = function(obj, key) {
+	    return _.map(obj, _.property(key));
+	  };
+
+	  // Convenience version of a common use case of `filter`: selecting only objects
+	  // containing specific `key:value` pairs.
+	  _.where = function(obj, attrs) {
+	    return _.filter(obj, _.matcher(attrs));
+	  };
+
+	  // Convenience version of a common use case of `find`: getting the first object
+	  // containing specific `key:value` pairs.
+	  _.findWhere = function(obj, attrs) {
+	    return _.find(obj, _.matcher(attrs));
+	  };
+
+	  // Return the maximum element (or element-based computation).
+	  _.max = function(obj, iteratee, context) {
+	    var result = -Infinity, lastComputed = -Infinity,
+	        value, computed;
+	    if (iteratee == null && obj != null) {
+	      obj = isArrayLike(obj) ? obj : _.values(obj);
+	      for (var i = 0, length = obj.length; i < length; i++) {
+	        value = obj[i];
+	        if (value > result) {
+	          result = value;
+	        }
+	      }
+	    } else {
+	      iteratee = cb(iteratee, context);
+	      _.each(obj, function(value, index, list) {
+	        computed = iteratee(value, index, list);
+	        if (computed > lastComputed || computed === -Infinity && result === -Infinity) {
+	          result = value;
+	          lastComputed = computed;
+	        }
+	      });
+	    }
+	    return result;
+	  };
+
+	  // Return the minimum element (or element-based computation).
+	  _.min = function(obj, iteratee, context) {
+	    var result = Infinity, lastComputed = Infinity,
+	        value, computed;
+	    if (iteratee == null && obj != null) {
+	      obj = isArrayLike(obj) ? obj : _.values(obj);
+	      for (var i = 0, length = obj.length; i < length; i++) {
+	        value = obj[i];
+	        if (value < result) {
+	          result = value;
+	        }
+	      }
+	    } else {
+	      iteratee = cb(iteratee, context);
+	      _.each(obj, function(value, index, list) {
+	        computed = iteratee(value, index, list);
+	        if (computed < lastComputed || computed === Infinity && result === Infinity) {
+	          result = value;
+	          lastComputed = computed;
+	        }
+	      });
+	    }
+	    return result;
+	  };
+
+	  // Shuffle a collection, using the modern version of the
+	  // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
+	  _.shuffle = function(obj) {
+	    var set = isArrayLike(obj) ? obj : _.values(obj);
+	    var length = set.length;
+	    var shuffled = Array(length);
+	    for (var index = 0, rand; index < length; index++) {
+	      rand = _.random(0, index);
+	      if (rand !== index) shuffled[index] = shuffled[rand];
+	      shuffled[rand] = set[index];
+	    }
+	    return shuffled;
+	  };
+
+	  // Sample **n** random values from a collection.
+	  // If **n** is not specified, returns a single random element.
+	  // The internal `guard` argument allows it to work with `map`.
+	  _.sample = function(obj, n, guard) {
+	    if (n == null || guard) {
+	      if (!isArrayLike(obj)) obj = _.values(obj);
+	      return obj[_.random(obj.length - 1)];
+	    }
+	    return _.shuffle(obj).slice(0, Math.max(0, n));
+	  };
+
+	  // Sort the object's values by a criterion produced by an iteratee.
+	  _.sortBy = function(obj, iteratee, context) {
+	    iteratee = cb(iteratee, context);
+	    return _.pluck(_.map(obj, function(value, index, list) {
+	      return {
+	        value: value,
+	        index: index,
+	        criteria: iteratee(value, index, list)
+	      };
+	    }).sort(function(left, right) {
+	      var a = left.criteria;
+	      var b = right.criteria;
+	      if (a !== b) {
+	        if (a > b || a === void 0) return 1;
+	        if (a < b || b === void 0) return -1;
+	      }
+	      return left.index - right.index;
+	    }), 'value');
+	  };
+
+	  // An internal function used for aggregate "group by" operations.
+	  var group = function(behavior) {
+	    return function(obj, iteratee, context) {
+	      var result = {};
+	      iteratee = cb(iteratee, context);
+	      _.each(obj, function(value, index) {
+	        var key = iteratee(value, index, obj);
+	        behavior(result, value, key);
+	      });
+	      return result;
+	    };
+	  };
+
+	  // Groups the object's values by a criterion. Pass either a string attribute
+	  // to group by, or a function that returns the criterion.
+	  _.groupBy = group(function(result, value, key) {
+	    if (_.has(result, key)) result[key].push(value); else result[key] = [value];
+	  });
+
+	  // Indexes the object's values by a criterion, similar to `groupBy`, but for
+	  // when you know that your index values will be unique.
+	  _.indexBy = group(function(result, value, key) {
+	    result[key] = value;
+	  });
+
+	  // Counts instances of an object that group by a certain criterion. Pass
+	  // either a string attribute to count by, or a function that returns the
+	  // criterion.
+	  _.countBy = group(function(result, value, key) {
+	    if (_.has(result, key)) result[key]++; else result[key] = 1;
+	  });
+
+	  // Safely create a real, live array from anything iterable.
+	  _.toArray = function(obj) {
+	    if (!obj) return [];
+	    if (_.isArray(obj)) return slice.call(obj);
+	    if (isArrayLike(obj)) return _.map(obj, _.identity);
+	    return _.values(obj);
+	  };
+
+	  // Return the number of elements in an object.
+	  _.size = function(obj) {
+	    if (obj == null) return 0;
+	    return isArrayLike(obj) ? obj.length : _.keys(obj).length;
+	  };
+
+	  // Split a collection into two arrays: one whose elements all satisfy the given
+	  // predicate, and one whose elements all do not satisfy the predicate.
+	  _.partition = function(obj, predicate, context) {
+	    predicate = cb(predicate, context);
+	    var pass = [], fail = [];
+	    _.each(obj, function(value, key, obj) {
+	      (predicate(value, key, obj) ? pass : fail).push(value);
+	    });
+	    return [pass, fail];
+	  };
+
+	  // Array Functions
+	  // ---------------
+
+	  // Get the first element of an array. Passing **n** will return the first N
+	  // values in the array. Aliased as `head` and `take`. The **guard** check
+	  // allows it to work with `_.map`.
+	  _.first = _.head = _.take = function(array, n, guard) {
+	    if (array == null) return void 0;
+	    if (n == null || guard) return array[0];
+	    return _.initial(array, array.length - n);
+	  };
+
+	  // Returns everything but the last entry of the array. Especially useful on
+	  // the arguments object. Passing **n** will return all the values in
+	  // the array, excluding the last N.
+	  _.initial = function(array, n, guard) {
+	    return slice.call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
+	  };
+
+	  // Get the last element of an array. Passing **n** will return the last N
+	  // values in the array.
+	  _.last = function(array, n, guard) {
+	    if (array == null) return void 0;
+	    if (n == null || guard) return array[array.length - 1];
+	    return _.rest(array, Math.max(0, array.length - n));
+	  };
+
+	  // Returns everything but the first entry of the array. Aliased as `tail` and `drop`.
+	  // Especially useful on the arguments object. Passing an **n** will return
+	  // the rest N values in the array.
+	  _.rest = _.tail = _.drop = function(array, n, guard) {
+	    return slice.call(array, n == null || guard ? 1 : n);
+	  };
+
+	  // Trim out all falsy values from an array.
+	  _.compact = function(array) {
+	    return _.filter(array, _.identity);
+	  };
+
+	  // Internal implementation of a recursive `flatten` function.
+	  var flatten = function(input, shallow, strict, startIndex) {
+	    var output = [], idx = 0;
+	    for (var i = startIndex || 0, length = getLength(input); i < length; i++) {
+	      var value = input[i];
+	      if (isArrayLike(value) && (_.isArray(value) || _.isArguments(value))) {
+	        //flatten current level of array or arguments object
+	        if (!shallow) value = flatten(value, shallow, strict);
+	        var j = 0, len = value.length;
+	        output.length += len;
+	        while (j < len) {
+	          output[idx++] = value[j++];
+	        }
+	      } else if (!strict) {
+	        output[idx++] = value;
+	      }
+	    }
+	    return output;
+	  };
+
+	  // Flatten out an array, either recursively (by default), or just one level.
+	  _.flatten = function(array, shallow) {
+	    return flatten(array, shallow, false);
+	  };
+
+	  // Return a version of the array that does not contain the specified value(s).
+	  _.without = function(array) {
+	    return _.difference(array, slice.call(arguments, 1));
+	  };
+
+	  // Produce a duplicate-free version of the array. If the array has already
+	  // been sorted, you have the option of using a faster algorithm.
+	  // Aliased as `unique`.
+	  _.uniq = _.unique = function(array, isSorted, iteratee, context) {
+	    if (!_.isBoolean(isSorted)) {
+	      context = iteratee;
+	      iteratee = isSorted;
+	      isSorted = false;
+	    }
+	    if (iteratee != null) iteratee = cb(iteratee, context);
+	    var result = [];
+	    var seen = [];
+	    for (var i = 0, length = getLength(array); i < length; i++) {
+	      var value = array[i],
+	          computed = iteratee ? iteratee(value, i, array) : value;
+	      if (isSorted) {
+	        if (!i || seen !== computed) result.push(value);
+	        seen = computed;
+	      } else if (iteratee) {
+	        if (!_.contains(seen, computed)) {
+	          seen.push(computed);
+	          result.push(value);
+	        }
+	      } else if (!_.contains(result, value)) {
+	        result.push(value);
+	      }
+	    }
+	    return result;
+	  };
+
+	  // Produce an array that contains the union: each distinct element from all of
+	  // the passed-in arrays.
+	  _.union = function() {
+	    return _.uniq(flatten(arguments, true, true));
+	  };
+
+	  // Produce an array that contains every item shared between all the
+	  // passed-in arrays.
+	  _.intersection = function(array) {
+	    var result = [];
+	    var argsLength = arguments.length;
+	    for (var i = 0, length = getLength(array); i < length; i++) {
+	      var item = array[i];
+	      if (_.contains(result, item)) continue;
+	      for (var j = 1; j < argsLength; j++) {
+	        if (!_.contains(arguments[j], item)) break;
+	      }
+	      if (j === argsLength) result.push(item);
+	    }
+	    return result;
+	  };
+
+	  // Take the difference between one array and a number of other arrays.
+	  // Only the elements present in just the first array will remain.
+	  _.difference = function(array) {
+	    var rest = flatten(arguments, true, true, 1);
+	    return _.filter(array, function(value){
+	      return !_.contains(rest, value);
+	    });
+	  };
+
+	  // Zip together multiple lists into a single array -- elements that share
+	  // an index go together.
+	  _.zip = function() {
+	    return _.unzip(arguments);
+	  };
+
+	  // Complement of _.zip. Unzip accepts an array of arrays and groups
+	  // each array's elements on shared indices
+	  _.unzip = function(array) {
+	    var length = array && _.max(array, getLength).length || 0;
+	    var result = Array(length);
+
+	    for (var index = 0; index < length; index++) {
+	      result[index] = _.pluck(array, index);
+	    }
+	    return result;
+	  };
+
+	  // Converts lists into objects. Pass either a single array of `[key, value]`
+	  // pairs, or two parallel arrays of the same length -- one of keys, and one of
+	  // the corresponding values.
+	  _.object = function(list, values) {
+	    var result = {};
+	    for (var i = 0, length = getLength(list); i < length; i++) {
+	      if (values) {
+	        result[list[i]] = values[i];
+	      } else {
+	        result[list[i][0]] = list[i][1];
+	      }
+	    }
+	    return result;
+	  };
+
+	  // Generator function to create the findIndex and findLastIndex functions
+	  function createPredicateIndexFinder(dir) {
+	    return function(array, predicate, context) {
+	      predicate = cb(predicate, context);
+	      var length = getLength(array);
+	      var index = dir > 0 ? 0 : length - 1;
+	      for (; index >= 0 && index < length; index += dir) {
+	        if (predicate(array[index], index, array)) return index;
+	      }
+	      return -1;
+	    };
+	  }
+
+	  // Returns the first index on an array-like that passes a predicate test
+	  _.findIndex = createPredicateIndexFinder(1);
+	  _.findLastIndex = createPredicateIndexFinder(-1);
+
+	  // Use a comparator function to figure out the smallest index at which
+	  // an object should be inserted so as to maintain order. Uses binary search.
+	  _.sortedIndex = function(array, obj, iteratee, context) {
+	    iteratee = cb(iteratee, context, 1);
+	    var value = iteratee(obj);
+	    var low = 0, high = getLength(array);
+	    while (low < high) {
+	      var mid = Math.floor((low + high) / 2);
+	      if (iteratee(array[mid]) < value) low = mid + 1; else high = mid;
+	    }
+	    return low;
+	  };
+
+	  // Generator function to create the indexOf and lastIndexOf functions
+	  function createIndexFinder(dir, predicateFind, sortedIndex) {
+	    return function(array, item, idx) {
+	      var i = 0, length = getLength(array);
+	      if (typeof idx == 'number') {
+	        if (dir > 0) {
+	            i = idx >= 0 ? idx : Math.max(idx + length, i);
+	        } else {
+	            length = idx >= 0 ? Math.min(idx + 1, length) : idx + length + 1;
+	        }
+	      } else if (sortedIndex && idx && length) {
+	        idx = sortedIndex(array, item);
+	        return array[idx] === item ? idx : -1;
+	      }
+	      if (item !== item) {
+	        idx = predicateFind(slice.call(array, i, length), _.isNaN);
+	        return idx >= 0 ? idx + i : -1;
+	      }
+	      for (idx = dir > 0 ? i : length - 1; idx >= 0 && idx < length; idx += dir) {
+	        if (array[idx] === item) return idx;
+	      }
+	      return -1;
+	    };
+	  }
+
+	  // Return the position of the first occurrence of an item in an array,
+	  // or -1 if the item is not included in the array.
+	  // If the array is large and already in sort order, pass `true`
+	  // for **isSorted** to use binary search.
+	  _.indexOf = createIndexFinder(1, _.findIndex, _.sortedIndex);
+	  _.lastIndexOf = createIndexFinder(-1, _.findLastIndex);
+
+	  // Generate an integer Array containing an arithmetic progression. A port of
+	  // the native Python `range()` function. See
+	  // [the Python documentation](http://docs.python.org/library/functions.html#range).
+	  _.range = function(start, stop, step) {
+	    if (stop == null) {
+	      stop = start || 0;
+	      start = 0;
+	    }
+	    step = step || 1;
+
+	    var length = Math.max(Math.ceil((stop - start) / step), 0);
+	    var range = Array(length);
+
+	    for (var idx = 0; idx < length; idx++, start += step) {
+	      range[idx] = start;
+	    }
+
+	    return range;
+	  };
+
+	  // Function (ahem) Functions
+	  // ------------------
+
+	  // Determines whether to execute a function as a constructor
+	  // or a normal function with the provided arguments
+	  var executeBound = function(sourceFunc, boundFunc, context, callingContext, args) {
+	    if (!(callingContext instanceof boundFunc)) return sourceFunc.apply(context, args);
+	    var self = baseCreate(sourceFunc.prototype);
+	    var result = sourceFunc.apply(self, args);
+	    if (_.isObject(result)) return result;
+	    return self;
+	  };
+
+	  // Create a function bound to a given object (assigning `this`, and arguments,
+	  // optionally). Delegates to **ECMAScript 5**'s native `Function.bind` if
+	  // available.
+	  _.bind = function(func, context) {
+	    if (nativeBind && func.bind === nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
+	    if (!_.isFunction(func)) throw new TypeError('Bind must be called on a function');
+	    var args = slice.call(arguments, 2);
+	    var bound = function() {
+	      return executeBound(func, bound, context, this, args.concat(slice.call(arguments)));
+	    };
+	    return bound;
+	  };
+
+	  // Partially apply a function by creating a version that has had some of its
+	  // arguments pre-filled, without changing its dynamic `this` context. _ acts
+	  // as a placeholder, allowing any combination of arguments to be pre-filled.
+	  _.partial = function(func) {
+	    var boundArgs = slice.call(arguments, 1);
+	    var bound = function() {
+	      var position = 0, length = boundArgs.length;
+	      var args = Array(length);
+	      for (var i = 0; i < length; i++) {
+	        args[i] = boundArgs[i] === _ ? arguments[position++] : boundArgs[i];
+	      }
+	      while (position < arguments.length) args.push(arguments[position++]);
+	      return executeBound(func, bound, this, this, args);
+	    };
+	    return bound;
+	  };
+
+	  // Bind a number of an object's methods to that object. Remaining arguments
+	  // are the method names to be bound. Useful for ensuring that all callbacks
+	  // defined on an object belong to it.
+	  _.bindAll = function(obj) {
+	    var i, length = arguments.length, key;
+	    if (length <= 1) throw new Error('bindAll must be passed function names');
+	    for (i = 1; i < length; i++) {
+	      key = arguments[i];
+	      obj[key] = _.bind(obj[key], obj);
+	    }
+	    return obj;
+	  };
+
+	  // Memoize an expensive function by storing its results.
+	  _.memoize = function(func, hasher) {
+	    var memoize = function(key) {
+	      var cache = memoize.cache;
+	      var address = '' + (hasher ? hasher.apply(this, arguments) : key);
+	      if (!_.has(cache, address)) cache[address] = func.apply(this, arguments);
+	      return cache[address];
+	    };
+	    memoize.cache = {};
+	    return memoize;
+	  };
+
+	  // Delays a function for the given number of milliseconds, and then calls
+	  // it with the arguments supplied.
+	  _.delay = function(func, wait) {
+	    var args = slice.call(arguments, 2);
+	    return setTimeout(function(){
+	      return func.apply(null, args);
+	    }, wait);
+	  };
+
+	  // Defers a function, scheduling it to run after the current call stack has
+	  // cleared.
+	  _.defer = _.partial(_.delay, _, 1);
+
+	  // Returns a function, that, when invoked, will only be triggered at most once
+	  // during a given window of time. Normally, the throttled function will run
+	  // as much as it can, without ever going more than once per `wait` duration;
+	  // but if you'd like to disable the execution on the leading edge, pass
+	  // `{leading: false}`. To disable execution on the trailing edge, ditto.
+	  _.throttle = function(func, wait, options) {
+	    var context, args, result;
+	    var timeout = null;
+	    var previous = 0;
+	    if (!options) options = {};
+	    var later = function() {
+	      previous = options.leading === false ? 0 : _.now();
+	      timeout = null;
+	      result = func.apply(context, args);
+	      if (!timeout) context = args = null;
+	    };
+	    return function() {
+	      var now = _.now();
+	      if (!previous && options.leading === false) previous = now;
+	      var remaining = wait - (now - previous);
+	      context = this;
+	      args = arguments;
+	      if (remaining <= 0 || remaining > wait) {
+	        if (timeout) {
+	          clearTimeout(timeout);
+	          timeout = null;
+	        }
+	        previous = now;
+	        result = func.apply(context, args);
+	        if (!timeout) context = args = null;
+	      } else if (!timeout && options.trailing !== false) {
+	        timeout = setTimeout(later, remaining);
+	      }
+	      return result;
+	    };
+	  };
+
+	  // Returns a function, that, as long as it continues to be invoked, will not
+	  // be triggered. The function will be called after it stops being called for
+	  // N milliseconds. If `immediate` is passed, trigger the function on the
+	  // leading edge, instead of the trailing.
+	  _.debounce = function(func, wait, immediate) {
+	    var timeout, args, context, timestamp, result;
+
+	    var later = function() {
+	      var last = _.now() - timestamp;
+
+	      if (last < wait && last >= 0) {
+	        timeout = setTimeout(later, wait - last);
+	      } else {
+	        timeout = null;
+	        if (!immediate) {
+	          result = func.apply(context, args);
+	          if (!timeout) context = args = null;
+	        }
+	      }
+	    };
+
+	    return function() {
+	      context = this;
+	      args = arguments;
+	      timestamp = _.now();
+	      var callNow = immediate && !timeout;
+	      if (!timeout) timeout = setTimeout(later, wait);
+	      if (callNow) {
+	        result = func.apply(context, args);
+	        context = args = null;
+	      }
+
+	      return result;
+	    };
+	  };
+
+	  // Returns the first function passed as an argument to the second,
+	  // allowing you to adjust arguments, run code before and after, and
+	  // conditionally execute the original function.
+	  _.wrap = function(func, wrapper) {
+	    return _.partial(wrapper, func);
+	  };
+
+	  // Returns a negated version of the passed-in predicate.
+	  _.negate = function(predicate) {
+	    return function() {
+	      return !predicate.apply(this, arguments);
+	    };
+	  };
+
+	  // Returns a function that is the composition of a list of functions, each
+	  // consuming the return value of the function that follows.
+	  _.compose = function() {
+	    var args = arguments;
+	    var start = args.length - 1;
+	    return function() {
+	      var i = start;
+	      var result = args[start].apply(this, arguments);
+	      while (i--) result = args[i].call(this, result);
+	      return result;
+	    };
+	  };
+
+	  // Returns a function that will only be executed on and after the Nth call.
+	  _.after = function(times, func) {
+	    return function() {
+	      if (--times < 1) {
+	        return func.apply(this, arguments);
+	      }
+	    };
+	  };
+
+	  // Returns a function that will only be executed up to (but not including) the Nth call.
+	  _.before = function(times, func) {
+	    var memo;
+	    return function() {
+	      if (--times > 0) {
+	        memo = func.apply(this, arguments);
+	      }
+	      if (times <= 1) func = null;
+	      return memo;
+	    };
+	  };
+
+	  // Returns a function that will be executed at most one time, no matter how
+	  // often you call it. Useful for lazy initialization.
+	  _.once = _.partial(_.before, 2);
+
+	  // Object Functions
+	  // ----------------
+
+	  // Keys in IE < 9 that won't be iterated by `for key in ...` and thus missed.
+	  var hasEnumBug = !{toString: null}.propertyIsEnumerable('toString');
+	  var nonEnumerableProps = ['valueOf', 'isPrototypeOf', 'toString',
+	                      'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
+
+	  function collectNonEnumProps(obj, keys) {
+	    var nonEnumIdx = nonEnumerableProps.length;
+	    var constructor = obj.constructor;
+	    var proto = (_.isFunction(constructor) && constructor.prototype) || ObjProto;
+
+	    // Constructor is a special case.
+	    var prop = 'constructor';
+	    if (_.has(obj, prop) && !_.contains(keys, prop)) keys.push(prop);
+
+	    while (nonEnumIdx--) {
+	      prop = nonEnumerableProps[nonEnumIdx];
+	      if (prop in obj && obj[prop] !== proto[prop] && !_.contains(keys, prop)) {
+	        keys.push(prop);
+	      }
+	    }
+	  }
+
+	  // Retrieve the names of an object's own properties.
+	  // Delegates to **ECMAScript 5**'s native `Object.keys`
+	  _.keys = function(obj) {
+	    if (!_.isObject(obj)) return [];
+	    if (nativeKeys) return nativeKeys(obj);
+	    var keys = [];
+	    for (var key in obj) if (_.has(obj, key)) keys.push(key);
+	    // Ahem, IE < 9.
+	    if (hasEnumBug) collectNonEnumProps(obj, keys);
+	    return keys;
+	  };
+
+	  // Retrieve all the property names of an object.
+	  _.allKeys = function(obj) {
+	    if (!_.isObject(obj)) return [];
+	    var keys = [];
+	    for (var key in obj) keys.push(key);
+	    // Ahem, IE < 9.
+	    if (hasEnumBug) collectNonEnumProps(obj, keys);
+	    return keys;
+	  };
+
+	  // Retrieve the values of an object's properties.
+	  _.values = function(obj) {
+	    var keys = _.keys(obj);
+	    var length = keys.length;
+	    var values = Array(length);
+	    for (var i = 0; i < length; i++) {
+	      values[i] = obj[keys[i]];
+	    }
+	    return values;
+	  };
+
+	  // Returns the results of applying the iteratee to each element of the object
+	  // In contrast to _.map it returns an object
+	  _.mapObject = function(obj, iteratee, context) {
+	    iteratee = cb(iteratee, context);
+	    var keys =  _.keys(obj),
+	          length = keys.length,
+	          results = {},
+	          currentKey;
+	      for (var index = 0; index < length; index++) {
+	        currentKey = keys[index];
+	        results[currentKey] = iteratee(obj[currentKey], currentKey, obj);
+	      }
+	      return results;
+	  };
+
+	  // Convert an object into a list of `[key, value]` pairs.
+	  _.pairs = function(obj) {
+	    var keys = _.keys(obj);
+	    var length = keys.length;
+	    var pairs = Array(length);
+	    for (var i = 0; i < length; i++) {
+	      pairs[i] = [keys[i], obj[keys[i]]];
+	    }
+	    return pairs;
+	  };
+
+	  // Invert the keys and values of an object. The values must be serializable.
+	  _.invert = function(obj) {
+	    var result = {};
+	    var keys = _.keys(obj);
+	    for (var i = 0, length = keys.length; i < length; i++) {
+	      result[obj[keys[i]]] = keys[i];
+	    }
+	    return result;
+	  };
+
+	  // Return a sorted list of the function names available on the object.
+	  // Aliased as `methods`
+	  _.functions = _.methods = function(obj) {
+	    var names = [];
+	    for (var key in obj) {
+	      if (_.isFunction(obj[key])) names.push(key);
+	    }
+	    return names.sort();
+	  };
+
+	  // Extend a given object with all the properties in passed-in object(s).
+	  _.extend = createAssigner(_.allKeys);
+
+	  // Assigns a given object with all the own properties in the passed-in object(s)
+	  // (https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+	  _.extendOwn = _.assign = createAssigner(_.keys);
+
+	  // Returns the first key on an object that passes a predicate test
+	  _.findKey = function(obj, predicate, context) {
+	    predicate = cb(predicate, context);
+	    var keys = _.keys(obj), key;
+	    for (var i = 0, length = keys.length; i < length; i++) {
+	      key = keys[i];
+	      if (predicate(obj[key], key, obj)) return key;
+	    }
+	  };
+
+	  // Return a copy of the object only containing the whitelisted properties.
+	  _.pick = function(object, oiteratee, context) {
+	    var result = {}, obj = object, iteratee, keys;
+	    if (obj == null) return result;
+	    if (_.isFunction(oiteratee)) {
+	      keys = _.allKeys(obj);
+	      iteratee = optimizeCb(oiteratee, context);
+	    } else {
+	      keys = flatten(arguments, false, false, 1);
+	      iteratee = function(value, key, obj) { return key in obj; };
+	      obj = Object(obj);
+	    }
+	    for (var i = 0, length = keys.length; i < length; i++) {
+	      var key = keys[i];
+	      var value = obj[key];
+	      if (iteratee(value, key, obj)) result[key] = value;
+	    }
+	    return result;
+	  };
+
+	   // Return a copy of the object without the blacklisted properties.
+	  _.omit = function(obj, iteratee, context) {
+	    if (_.isFunction(iteratee)) {
+	      iteratee = _.negate(iteratee);
+	    } else {
+	      var keys = _.map(flatten(arguments, false, false, 1), String);
+	      iteratee = function(value, key) {
+	        return !_.contains(keys, key);
+	      };
+	    }
+	    return _.pick(obj, iteratee, context);
+	  };
+
+	  // Fill in a given object with default properties.
+	  _.defaults = createAssigner(_.allKeys, true);
+
+	  // Creates an object that inherits from the given prototype object.
+	  // If additional properties are provided then they will be added to the
+	  // created object.
+	  _.create = function(prototype, props) {
+	    var result = baseCreate(prototype);
+	    if (props) _.extendOwn(result, props);
+	    return result;
+	  };
+
+	  // Create a (shallow-cloned) duplicate of an object.
+	  _.clone = function(obj) {
+	    if (!_.isObject(obj)) return obj;
+	    return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
+	  };
+
+	  // Invokes interceptor with the obj, and then returns obj.
+	  // The primary purpose of this method is to "tap into" a method chain, in
+	  // order to perform operations on intermediate results within the chain.
+	  _.tap = function(obj, interceptor) {
+	    interceptor(obj);
+	    return obj;
+	  };
+
+	  // Returns whether an object has a given set of `key:value` pairs.
+	  _.isMatch = function(object, attrs) {
+	    var keys = _.keys(attrs), length = keys.length;
+	    if (object == null) return !length;
+	    var obj = Object(object);
+	    for (var i = 0; i < length; i++) {
+	      var key = keys[i];
+	      if (attrs[key] !== obj[key] || !(key in obj)) return false;
+	    }
+	    return true;
+	  };
+
+
+	  // Internal recursive comparison function for `isEqual`.
+	  var eq = function(a, b, aStack, bStack) {
+	    // Identical objects are equal. `0 === -0`, but they aren't identical.
+	    // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
+	    if (a === b) return a !== 0 || 1 / a === 1 / b;
+	    // A strict comparison is necessary because `null == undefined`.
+	    if (a == null || b == null) return a === b;
+	    // Unwrap any wrapped objects.
+	    if (a instanceof _) a = a._wrapped;
+	    if (b instanceof _) b = b._wrapped;
+	    // Compare `[[Class]]` names.
+	    var className = toString.call(a);
+	    if (className !== toString.call(b)) return false;
+	    switch (className) {
+	      // Strings, numbers, regular expressions, dates, and booleans are compared by value.
+	      case '[object RegExp]':
+	      // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
+	      case '[object String]':
+	        // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
+	        // equivalent to `new String("5")`.
+	        return '' + a === '' + b;
+	      case '[object Number]':
+	        // `NaN`s are equivalent, but non-reflexive.
+	        // Object(NaN) is equivalent to NaN
+	        if (+a !== +a) return +b !== +b;
+	        // An `egal` comparison is performed for other numeric values.
+	        return +a === 0 ? 1 / +a === 1 / b : +a === +b;
+	      case '[object Date]':
+	      case '[object Boolean]':
+	        // Coerce dates and booleans to numeric primitive values. Dates are compared by their
+	        // millisecond representations. Note that invalid dates with millisecond representations
+	        // of `NaN` are not equivalent.
+	        return +a === +b;
+	    }
+
+	    var areArrays = className === '[object Array]';
+	    if (!areArrays) {
+	      if (typeof a != 'object' || typeof b != 'object') return false;
+
+	      // Objects with different constructors are not equivalent, but `Object`s or `Array`s
+	      // from different frames are.
+	      var aCtor = a.constructor, bCtor = b.constructor;
+	      if (aCtor !== bCtor && !(_.isFunction(aCtor) && aCtor instanceof aCtor &&
+	                               _.isFunction(bCtor) && bCtor instanceof bCtor)
+	                          && ('constructor' in a && 'constructor' in b)) {
+	        return false;
+	      }
+	    }
+	    // Assume equality for cyclic structures. The algorithm for detecting cyclic
+	    // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
+
+	    // Initializing stack of traversed objects.
+	    // It's done here since we only need them for objects and arrays comparison.
+	    aStack = aStack || [];
+	    bStack = bStack || [];
+	    var length = aStack.length;
+	    while (length--) {
+	      // Linear search. Performance is inversely proportional to the number of
+	      // unique nested structures.
+	      if (aStack[length] === a) return bStack[length] === b;
+	    }
+
+	    // Add the first object to the stack of traversed objects.
+	    aStack.push(a);
+	    bStack.push(b);
+
+	    // Recursively compare objects and arrays.
+	    if (areArrays) {
+	      // Compare array lengths to determine if a deep comparison is necessary.
+	      length = a.length;
+	      if (length !== b.length) return false;
+	      // Deep compare the contents, ignoring non-numeric properties.
+	      while (length--) {
+	        if (!eq(a[length], b[length], aStack, bStack)) return false;
+	      }
+	    } else {
+	      // Deep compare objects.
+	      var keys = _.keys(a), key;
+	      length = keys.length;
+	      // Ensure that both objects contain the same number of properties before comparing deep equality.
+	      if (_.keys(b).length !== length) return false;
+	      while (length--) {
+	        // Deep compare each member
+	        key = keys[length];
+	        if (!(_.has(b, key) && eq(a[key], b[key], aStack, bStack))) return false;
+	      }
+	    }
+	    // Remove the first object from the stack of traversed objects.
+	    aStack.pop();
+	    bStack.pop();
+	    return true;
+	  };
+
+	  // Perform a deep comparison to check if two objects are equal.
+	  _.isEqual = function(a, b) {
+	    return eq(a, b);
+	  };
+
+	  // Is a given array, string, or object empty?
+	  // An "empty" object has no enumerable own-properties.
+	  _.isEmpty = function(obj) {
+	    if (obj == null) return true;
+	    if (isArrayLike(obj) && (_.isArray(obj) || _.isString(obj) || _.isArguments(obj))) return obj.length === 0;
+	    return _.keys(obj).length === 0;
+	  };
+
+	  // Is a given value a DOM element?
+	  _.isElement = function(obj) {
+	    return !!(obj && obj.nodeType === 1);
+	  };
+
+	  // Is a given value an array?
+	  // Delegates to ECMA5's native Array.isArray
+	  _.isArray = nativeIsArray || function(obj) {
+	    return toString.call(obj) === '[object Array]';
+	  };
+
+	  // Is a given variable an object?
+	  _.isObject = function(obj) {
+	    var type = typeof obj;
+	    return type === 'function' || type === 'object' && !!obj;
+	  };
+
+	  // Add some isType methods: isArguments, isFunction, isString, isNumber, isDate, isRegExp, isError.
+	  _.each(['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp', 'Error'], function(name) {
+	    _['is' + name] = function(obj) {
+	      return toString.call(obj) === '[object ' + name + ']';
+	    };
+	  });
+
+	  // Define a fallback version of the method in browsers (ahem, IE < 9), where
+	  // there isn't any inspectable "Arguments" type.
+	  if (!_.isArguments(arguments)) {
+	    _.isArguments = function(obj) {
+	      return _.has(obj, 'callee');
+	    };
+	  }
+
+	  // Optimize `isFunction` if appropriate. Work around some typeof bugs in old v8,
+	  // IE 11 (#1621), and in Safari 8 (#1929).
+	  if (typeof /./ != 'function' && typeof Int8Array != 'object') {
+	    _.isFunction = function(obj) {
+	      return typeof obj == 'function' || false;
+	    };
+	  }
+
+	  // Is a given object a finite number?
+	  _.isFinite = function(obj) {
+	    return isFinite(obj) && !isNaN(parseFloat(obj));
+	  };
+
+	  // Is the given value `NaN`? (NaN is the only number which does not equal itself).
+	  _.isNaN = function(obj) {
+	    return _.isNumber(obj) && obj !== +obj;
+	  };
+
+	  // Is a given value a boolean?
+	  _.isBoolean = function(obj) {
+	    return obj === true || obj === false || toString.call(obj) === '[object Boolean]';
+	  };
+
+	  // Is a given value equal to null?
+	  _.isNull = function(obj) {
+	    return obj === null;
+	  };
+
+	  // Is a given variable undefined?
+	  _.isUndefined = function(obj) {
+	    return obj === void 0;
+	  };
+
+	  // Shortcut function for checking if an object has a given property directly
+	  // on itself (in other words, not on a prototype).
+	  _.has = function(obj, key) {
+	    return obj != null && hasOwnProperty.call(obj, key);
+	  };
+
+	  // Utility Functions
+	  // -----------------
+
+	  // Run Underscore.js in *noConflict* mode, returning the `_` variable to its
+	  // previous owner. Returns a reference to the Underscore object.
+	  _.noConflict = function() {
+	    root._ = previousUnderscore;
+	    return this;
+	  };
+
+	  // Keep the identity function around for default iteratees.
+	  _.identity = function(value) {
+	    return value;
+	  };
+
+	  // Predicate-generating functions. Often useful outside of Underscore.
+	  _.constant = function(value) {
+	    return function() {
+	      return value;
+	    };
+	  };
+
+	  _.noop = function(){};
+
+	  _.property = property;
+
+	  // Generates a function for a given object that returns a given property.
+	  _.propertyOf = function(obj) {
+	    return obj == null ? function(){} : function(key) {
+	      return obj[key];
+	    };
+	  };
+
+	  // Returns a predicate for checking whether an object has a given set of
+	  // `key:value` pairs.
+	  _.matcher = _.matches = function(attrs) {
+	    attrs = _.extendOwn({}, attrs);
+	    return function(obj) {
+	      return _.isMatch(obj, attrs);
+	    };
+	  };
+
+	  // Run a function **n** times.
+	  _.times = function(n, iteratee, context) {
+	    var accum = Array(Math.max(0, n));
+	    iteratee = optimizeCb(iteratee, context, 1);
+	    for (var i = 0; i < n; i++) accum[i] = iteratee(i);
+	    return accum;
+	  };
+
+	  // Return a random integer between min and max (inclusive).
+	  _.random = function(min, max) {
+	    if (max == null) {
+	      max = min;
+	      min = 0;
+	    }
+	    return min + Math.floor(Math.random() * (max - min + 1));
+	  };
+
+	  // A (possibly faster) way to get the current timestamp as an integer.
+	  _.now = Date.now || function() {
+	    return new Date().getTime();
+	  };
+
+	   // List of HTML entities for escaping.
+	  var escapeMap = {
+	    '&': '&amp;',
+	    '<': '&lt;',
+	    '>': '&gt;',
+	    '"': '&quot;',
+	    "'": '&#x27;',
+	    '`': '&#x60;'
+	  };
+	  var unescapeMap = _.invert(escapeMap);
+
+	  // Functions for escaping and unescaping strings to/from HTML interpolation.
+	  var createEscaper = function(map) {
+	    var escaper = function(match) {
+	      return map[match];
+	    };
+	    // Regexes for identifying a key that needs to be escaped
+	    var source = '(?:' + _.keys(map).join('|') + ')';
+	    var testRegexp = RegExp(source);
+	    var replaceRegexp = RegExp(source, 'g');
+	    return function(string) {
+	      string = string == null ? '' : '' + string;
+	      return testRegexp.test(string) ? string.replace(replaceRegexp, escaper) : string;
+	    };
+	  };
+	  _.escape = createEscaper(escapeMap);
+	  _.unescape = createEscaper(unescapeMap);
+
+	  // If the value of the named `property` is a function then invoke it with the
+	  // `object` as context; otherwise, return it.
+	  _.result = function(object, property, fallback) {
+	    var value = object == null ? void 0 : object[property];
+	    if (value === void 0) {
+	      value = fallback;
+	    }
+	    return _.isFunction(value) ? value.call(object) : value;
+	  };
+
+	  // Generate a unique integer id (unique within the entire client session).
+	  // Useful for temporary DOM ids.
+	  var idCounter = 0;
+	  _.uniqueId = function(prefix) {
+	    var id = ++idCounter + '';
+	    return prefix ? prefix + id : id;
+	  };
+
+	  // By default, Underscore uses ERB-style template delimiters, change the
+	  // following template settings to use alternative delimiters.
+	  _.templateSettings = {
+	    evaluate    : /<%([\s\S]+?)%>/g,
+	    interpolate : /<%=([\s\S]+?)%>/g,
+	    escape      : /<%-([\s\S]+?)%>/g
+	  };
+
+	  // When customizing `templateSettings`, if you don't want to define an
+	  // interpolation, evaluation or escaping regex, we need one that is
+	  // guaranteed not to match.
+	  var noMatch = /(.)^/;
+
+	  // Certain characters need to be escaped so that they can be put into a
+	  // string literal.
+	  var escapes = {
+	    "'":      "'",
+	    '\\':     '\\',
+	    '\r':     'r',
+	    '\n':     'n',
+	    '\u2028': 'u2028',
+	    '\u2029': 'u2029'
+	  };
+
+	  var escaper = /\\|'|\r|\n|\u2028|\u2029/g;
+
+	  var escapeChar = function(match) {
+	    return '\\' + escapes[match];
+	  };
+
+	  // JavaScript micro-templating, similar to John Resig's implementation.
+	  // Underscore templating handles arbitrary delimiters, preserves whitespace,
+	  // and correctly escapes quotes within interpolated code.
+	  // NB: `oldSettings` only exists for backwards compatibility.
+	  _.template = function(text, settings, oldSettings) {
+	    if (!settings && oldSettings) settings = oldSettings;
+	    settings = _.defaults({}, settings, _.templateSettings);
+
+	    // Combine delimiters into one regular expression via alternation.
+	    var matcher = RegExp([
+	      (settings.escape || noMatch).source,
+	      (settings.interpolate || noMatch).source,
+	      (settings.evaluate || noMatch).source
+	    ].join('|') + '|$', 'g');
+
+	    // Compile the template source, escaping string literals appropriately.
+	    var index = 0;
+	    var source = "__p+='";
+	    text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
+	      source += text.slice(index, offset).replace(escaper, escapeChar);
+	      index = offset + match.length;
+
+	      if (escape) {
+	        source += "'+\n((__t=(" + escape + "))==null?'':_.escape(__t))+\n'";
+	      } else if (interpolate) {
+	        source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
+	      } else if (evaluate) {
+	        source += "';\n" + evaluate + "\n__p+='";
+	      }
+
+	      // Adobe VMs need the match returned to produce the correct offest.
+	      return match;
+	    });
+	    source += "';\n";
+
+	    // If a variable is not specified, place data values in local scope.
+	    if (!settings.variable) source = 'with(obj||{}){\n' + source + '}\n';
+
+	    source = "var __t,__p='',__j=Array.prototype.join," +
+	      "print=function(){__p+=__j.call(arguments,'');};\n" +
+	      source + 'return __p;\n';
+
+	    try {
+	      var render = new Function(settings.variable || 'obj', '_', source);
+	    } catch (e) {
+	      e.source = source;
+	      throw e;
+	    }
+
+	    var template = function(data) {
+	      return render.call(this, data, _);
+	    };
+
+	    // Provide the compiled source as a convenience for precompilation.
+	    var argument = settings.variable || 'obj';
+	    template.source = 'function(' + argument + '){\n' + source + '}';
+
+	    return template;
+	  };
+
+	  // Add a "chain" function. Start chaining a wrapped Underscore object.
+	  _.chain = function(obj) {
+	    var instance = _(obj);
+	    instance._chain = true;
+	    return instance;
+	  };
+
+	  // OOP
+	  // ---------------
+	  // If Underscore is called as a function, it returns a wrapped object that
+	  // can be used OO-style. This wrapper holds altered versions of all the
+	  // underscore functions. Wrapped objects may be chained.
+
+	  // Helper function to continue chaining intermediate results.
+	  var result = function(instance, obj) {
+	    return instance._chain ? _(obj).chain() : obj;
+	  };
+
+	  // Add your own custom functions to the Underscore object.
+	  _.mixin = function(obj) {
+	    _.each(_.functions(obj), function(name) {
+	      var func = _[name] = obj[name];
+	      _.prototype[name] = function() {
+	        var args = [this._wrapped];
+	        push.apply(args, arguments);
+	        return result(this, func.apply(_, args));
+	      };
+	    });
+	  };
+
+	  // Add all of the Underscore functions to the wrapper object.
+	  _.mixin(_);
+
+	  // Add all mutator Array functions to the wrapper.
+	  _.each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
+	    var method = ArrayProto[name];
+	    _.prototype[name] = function() {
+	      var obj = this._wrapped;
+	      method.apply(obj, arguments);
+	      if ((name === 'shift' || name === 'splice') && obj.length === 0) delete obj[0];
+	      return result(this, obj);
+	    };
+	  });
+
+	  // Add all accessor Array functions to the wrapper.
+	  _.each(['concat', 'join', 'slice'], function(name) {
+	    var method = ArrayProto[name];
+	    _.prototype[name] = function() {
+	      return result(this, method.apply(this._wrapped, arguments));
+	    };
+	  });
+
+	  // Extracts the result from a wrapped and chained object.
+	  _.prototype.value = function() {
+	    return this._wrapped;
+	  };
+
+	  // Provide unwrapping proxy for some methods used in engine operations
+	  // such as arithmetic and JSON stringification.
+	  _.prototype.valueOf = _.prototype.toJSON = _.prototype.value;
+
+	  _.prototype.toString = function() {
+	    return '' + this._wrapped;
+	  };
+
+	  // AMD registration happens at the end for compatibility with AMD loaders
+	  // that may not enforce next-turn semantics on modules. Even though general
+	  // practice for AMD registration is to be anonymous, underscore registers
+	  // as a named module because, like jQuery, it is a base library that is
+	  // popular enough to be bundled in a third party lib, but not be part of
+	  // an AMD load request. Those cases could generate an error when an
+	  // anonymous define() is called outside of a loader request.
+	  if (true) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
+	      return _;
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  }
+	}.call(this));
+
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
+		var _ = __webpack_require__(21) ;
+		var util = __webpack_require__(23) ;
+		var editJsonData = __webpack_require__(24) ;
+
+		module.exports = {
+			getNoChargeNotAvailableList:function(serviceType){
+				var tmp = serviceType || '' ;
+				var retArr = [] ;//{"name":"免费，行李规则遵循市场方航空公司规则","value":"D"},{"name":"免费，行李规则遵循承运方航空公司规则","value":"O"}
+				var defaultArr = [{"name":"收费","value":""},{"name":"不适用","value":"X"},
+			        {"name":"免费，不出EMD单","value":"F"},{"name":"免费，出EMD单","value":"E"},
+			        {"name":"免费，不出EMD单，不要求预定","value":"G"},{"name":"免费，出EMD单，不要求预定","value":"H"}] ;
+				if(tmp=='A'){
+					retArr = [{"name":"不适用","value":"X"},{"name":"免费，不出EMD单","value":"F"},{"name":"免费，出EMD单","value":"E"},
+			        {"name":"免费，不出EMD单，不要求预定","value":"G"},{"name":"免费，出EMD单，不要求预定","value":"H"},
+			        {"name":"免费，行李规则遵循市场方航空公司规则","value":"D"},{"name":"免费，行李规则遵循承运方航空公司规则","value":"O"}] ;
+				} else if (tmp=='B'){
+					retArr = [{"name":"免费，不出EMD单","value":"F"}] ;
+				}else if (tmp=='E'){
+					retArr = [{"name":"不适用","value":"X"}] ;
+				}else{
+					retArr = defaultArr ;
+				}
+				return retArr ;
+			},
+			getSpecifiedServiceFeeAppList:function(serviceType){/**适用于**/
+				var tmp = serviceType || '' ;
+				var arr = [{"name":"每一个票价组成部分算一次服务费用","value":"1"},
+	  				{"name":"每一个票价组成部分算一半的服务费用","value":"2"},{"name":"每用一次服务算一次服务费用","value":"3"},
+	  				{"name":"匹配的部分航程算一次服务费用","value":"4"},{"name":"服务收费对应每张售票","value":"5"}] ;
+				switch(tmp){
+				case 'F':
+				  arr = [{"name":"每一个票价组成部分算一次服务费用","value":"1"},
+	  				{"name":"每一个票价组成部分算一半的服务费用","value":"2"},{"name":"每用一次服务算一次服务费用","value":"3"},
+	  				{"name":"匹配的部分航程算一次服务费用","value":"4"},{"name":"服务收费对应每张售票","value":"5"}] ;
+				  break;
+				case 'M':
+				  arr = [{"name":"每用一次服务算一次服务费用","value":"3"}] ;
+				  break;
+			    case 'R':
+				   arr = [{"name":"服务收费对应每张售票","value":"5"}] ;
+				  break;
+				case 'T':
+				   arr = [{"name":"每用一次服务算一次服务费用","value":"3"},{"name":"服务收费对应每张售票","value":"5"}] ;
+				  break;
+				case 'A':
+				  arr=[] ;
+				  break;
+				case 'B':
+				  arr=[] ;
+				  break;
+				case 'C':
+				  arr=[
+				  {"name":"按托运点收费","value":"3"},{"name":"按全行程收费","value":"4"},
+	  				{"name":"每公斤按公布运价的0.5%收费","value":"H"},{"name":"每公斤按公布运价的1%收费","value":"C"},
+	  				{"name":"每公斤按公布运价的1.5%收费","value":"P"},{"name":"按每公斤收费","value":"K"},
+	  				{"name":"按每5公斤收费","value":"F"}] ;
+				  break;
+				case 'E':
+				  arr=[] ;
+				  break;
+				case 'P':
+				  arr=[
+				  {"name":"按托运点收费","value":"3"},{"name":"按全行程收费","value":"4"},
+	  				{"name":"每公斤按公布运价的0.5%收费","value":"H"},{"name":"每公斤按公布运价的1%收费","value":"C"},
+	  				{"name":"每公斤按公布运价的1.5%收费","value":"P"},{"name":"按每公斤收费","value":"K"},
+	  				{"name":"按每5公斤收费","value":"F"}] ;
+				  break;
+				default:
+				  console.info('传入的serviceType有问题') ;
+				}	
+				return arr ;
+			},
+			getgeoSpecSectPortJourneyList:function  (serviceType) {
+				var tmp = serviceType || '' ;//geoSpecSectPortJourneyList
+				var arr = [{"name":"Sector","value":"S"},
+					{"name":"Portion","value":"P"},{"name":"Journy","value":"J"}] ;
+				var isBaggageFlag = util.checkBaggageServcie(tmp) ;
+				if(_.contains(['B','E'], tmp)){
+					arr = [{"name":"Sector","value":"S"}] ;
+				}else if(_.contains(['A','C','P'], tmp)){
+					arr = [{"name":"选择","value":""},{"name":"Portion","value":"P"},{"name":"Journy","value":"J"}] ;
+				}else if(_.contains(['M','R','T'], tmp)){
+					arr = [{"name":"选择","value":""}] ;
+				}else if(tmp=='F'){
+					arr = [{"name":"Sector","value":"S"},{"name":"Portion","value":"P"},{"name":"Journy","value":"J"}] ;
+				}
+				return arr ;
+			},
+			convert2TableDataList:function  (list,tbname) {
+				list = list || [] ;
+				var len = list.length ;
+				var retList = [] ;
+				var tmpObj = editJsonData['tableData'][tbname]['addObj'] ||{};
+				var propArr = [] ;
+				for (var prop in tmpObj) {
+					if(prop!='selected'){
+						propArr.push(prop) ;
+					}
+				}
+				_.each(list,function (item) {
+					var obj = {} ;
+					_.each(propArr,function(prop){
+						obj[prop] = item[prop] +'' ;
+					}) ;
+					retList.push(obj) ;
+				}) ;
+				return retList ;
+			},
+			getEffectivePeriodTypeList:function(subGroup){
+				var arr = [{"name":"选择","value":""},{"name":"距购买服务后","value":"A"},
+				           {"name":"距服务兑换后","value":"B"},{"name":"距航班起飞前","value":"D"}] ;
+				if(subGroup=='FP'){
+					arr = [{"name":"选择","value":""},{"name":"距购买服务后","value":"A"}] ;
+				}else if(subGroup=='FL'){
+					arr = [{"name":"选择","value":""},{"name":"距服务兑换后","value":"B"},{"name":"距航班起飞前","value":"D"}] ;
+				}
+				return arr ;
+			}
+		} ;
+
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
+		var _ = __webpack_require__(21) ;
+		module.exports = {
+			checkCommonServcie:function(serviceType){//判断服务类型是不是一般附加服务
+				var arr = ['F','M','R','T'] ;	
+				var flag = _.contains(arr, serviceType) ;
+				return flag ;
+			},
+			checkBaggageServcie:function(serviceType){//判断服务类型是不是行李附加服务
+				var arr = ['A','B','C','E','P'] ;
+				var flag = _.contains(arr, serviceType) ;
+				return flag ;
+			},
+			getFullDayOrMonthStr:function(dateOrMonthNum){//获得日或月的字符串
+				if(dateOrMonthNum<10){
+					return "0"+dateOrMonthNum ;
+				}
+				return dateOrMonthNum+"";
+			},
+			getEditFlagByStatus:function(statusDes){//通过status获取是否可编辑的flag
+				if(statusDes=='3'){
+					return false;
+				}else{
+					return true ;
+				}
+			}
+		} ;
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
+	    var jsonDate = {
+	      advancedPurchasePeriodList:[//提前购票时间单位
+	        {"name":"分","value":"N"}, {"name":"小时","value":"H"},
+	        {"name":"天","value":"D"}, {"name":"月","value":"M"}
+	      ],//advancedPurchasePeriodList end
+	      tableData:{
+	        "list170VO":{
+	  			"addObj":{"saleGeographicPointType":"","saleGeographicPoint":"","specFeeAmount":"","specFeeCurrency":"CNY","selected":true}
+	  		  },
+	        "list198VO":{
+	            "addObj":{"mktOp":"","cxr":"","rbd1":"","rbd2":"","rbd3":"","rbd4":"","rbd5":"","selected":true}
+	        },
+	        "list198UpgradeVO":{
+	          "addObj":{"mktOp":"","cxr":"","rbd1":"","rbd2":"","rbd3":"","rbd4":"","rbd5":"","selected":true} 
+	        },
+	        "list196VO":{
+	            "addObj":{"count":"","code":"","selected":true}
+	        },
+	        "list186VO":{
+	            "addObj":{"mktCarrier":"","optCarrier":"","fltNo1":"","fltNo2":"","selected":true}
+	        },
+	        "list183VO":{
+	            "addObj":{"travelAgency":"","carrierGds":"","dutyFunctionCode":"","geographicSpecificationType":"","geographicSpecification":"","codeType":"","code":"","viewBookTkt":"","selected":true}
+	        },
+	        "list165VO":{
+	            "addObj":{"equipmentCode":"","selected":true}
+	        },
+	        "list171VO":{
+	            "addObj":{"carrier":"","resFareClassCode":"","fareTypeCode":"","selected":true}
+	        },
+	        "list172VO":{
+	            "addObj":{"accountCode":"","selected":true}
+	        },
+	        "list173TicketVO":{
+	            "addObj":{"ticketDesignator":"","selected":true}
+	        },
+	        "list173TktVO":{
+	            "addObj":{"ticketDesignator":"","selected":true}
+	        },
+	        "list178Loc1":{
+	            "addObj":{"geoLocType":"","geoLocSpec":"","appl":"","selected":true}
+	        },
+	        "list178Loc2":{
+	            "addObj":{"geoLocType":"","geoLocSpec":"","appl":"","selected":true}
+	        },
+	        "list178Loc3":{
+	            "addObj":{"geoLocType":"","geoLocSpec":"","appl":"","selected":true}
+	        },
+	        "listTsk202VO":{
+	        	"addObj":{"allowedRbd":"","originalFareOffice":"","originalFareIataNo":"","originalFareDepartmentCode":"",
+	        	"originalFareBasis":"","newFareBasis":"","flightSpreadFactor":"0","flightSpreadAmount":"","flightSpreadUnit":"",
+	        	"flightTourCodeFactor":"","flightTourCodeText":"","flightEiFactor":"","flightEiText":"","selected":true}
+	        }
+	      },//table end
+	      weightUnitList:[//行李重量单位集合
+	        {"name":"选择","value":""},{"name":"千克","value":"K"},{"name":"磅","value":"P"}
+	      ],
+	      specServiceFeeColSubList:[	//SPEC_SERVICE_FEE_COL_SUB//包含/扣除
+		       {"name":"包含在票价中","value":"I"},{"name":"单独收费","value":""}
+	      ],
+	      noChargeNotAvailableList:[//免费/收费
+	        {"name":"收费","value":""},{"name":"不适用","value":"X"},
+	        {"name":"免费，不出EMD单","value":"F"},{"name":"免费，出EMD单","value":"E"},
+	        {"name":"免费，不出EMD单，不要求预定","value":"G"},{"name":"免费，出EMD单，不要求预定","value":"H"},
+	        {"name":"免费，行李规则遵循市场方航空公司规则","value":"D"},{"name":"免费，行李规则遵循承运方航空公司规则","value":"O"}
+	      ],
+	      specServiceFeeNetSellList:[//净价/销售价
+	        {"name":"销售价","value":""},{"name":"净价","value":"N"}
+	      ],
+	      baggageTravelApplicationList:[
+	        {"name":"必须匹配所有的航段","value":"A"},{"name":"至少匹配一个航段","value":"S"},
+	        {"name":"必须匹配旅行航段中的主航段","value":"M"},{"name":"必须匹配整个行程的每一段","value":"J"},
+	        {"name":"不限制","value":""}
+	      ],
+	      noCharge_notAvailableList:[
+	        {"name":"收费","value":""},{"name":"不适用","value":"X"},
+	        {"name":"免费，不出EMD单","value":"F"},{"name":"免费，出EMD单","value":"E"},
+	        {"name":"免费，不出EMD单，不要求预定","value":"G"},{"name":"免费，出EMD单，不要求预定","value":"H"},
+	        {"name":"免费，行李规则遵循市场方航空公司规则","value":"D"},{"name":"免费，行李规则遵循承运方航空公司规则","value":"O"}
+	      ],
+	      cabinList:[//舱位list集合
+	      	{"name":"选择","value":""},
+	        {"name":"豪华头等舱","value":"R"},{"name":"头等舱","value":"F"},
+	        {"name":"豪华商务舱","value":"J"},{"name":"商务舱","value":"C"},
+	        {"name":"豪华经济舱","value":"P"},{"name":"经济舱","value":"Y"}
+	      ],
+	      geoLocTypeList:[//区域集合
+	        {"name":"选择","value":""},
+					{"name":"大区","value":"A"},{"name":"城市","value":"C"},
+					{"name":"国家","value":"N"},{"name":"机场","value":"P"},
+					{"name":"州","value":"S"},{"name":"区域","value":"Z"}
+	      ],
+	      indicatorReissueRefundList:[
+	         {"name":"不可退款","value":"N"},
+	         {"name":"可退款","value":"Y"}, {"name":"可改","value":"R"}
+	      ],
+	      formOfRefundList:[//退款形式
+	        {"name":"选择","value":""},{"name":"按原付款渠道退款","value":"1"},
+					{"name":"按电子凭证退款","value":"2"}
+	      ],
+	     
+	      geoSpecExceptionStopUnitList:[
+	        {"name":"选择","value":""},{"name":"分","value":"N"},
+	        {"name":"小时","value":"H"},{"name":"天","value":"D"},
+	        {"name":"周","value":"W"},{"name":"月","value":"M"}
+	      ],
+	      timeApplicationList:[
+	        {"name":"选择","value":""},{"name":"分别","value":"D"},
+					{"name":"之间","value":"R"}
+	      ],
+	      effectivePeriodTypeList:[	//effective_period_type//延长类型
+	        {"name":"选择","value":""},{"name":"距购买服务后","value":"A"},
+	        {"name":"距服务兑换后","value":"B"},{"name":"距航班起飞前","value":"D"}
+	        
+	      ],
+	      effectivePeriodUnitList:[	//effective_period_unit//延长时间单位
+	        {"name":"天","value":"D"},{"name":"月","value":"M"},
+	        {"name":"小时","value":"H"}
+	      ]
+	    } ;
+	   return jsonDate ;
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+
+/***/ },
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){
+		 var _ = __webpack_require__(21) ;
+		 var directives = __webpack_require__(20) ;
+		 var headerHtml = __webpack_require__(26) ;
+		 var chooseDivHtml = __webpack_require__(27) ;
+		 var chooseUlHtml = __webpack_require__(28) ;
+		 directives.directive('headerNav', function() {
+		    return {
+		        restrict: 'E',
+		        replace: true,
+				scope:true,
+		        template: function(elem,attrs){
+		        	var action  = $.trim($("#action").val()) ;
+		        	var headerTipStr = "" ;
+		        	 if(action=="add"){
+		    			 headerTipStr = "新建服务费用" ;
+		    		  }else{//表示为修改页面跳转过来的
+		    		  	  headerTipStr = "更新服务费用" ;
+		    		  }
+		        	 var template = _.template(headerHtml);
+		        	 var str = template({headerTipStr: headerTipStr});
+		        	return str ;
+		        },
+		        link:function(scope,elem,attrs){
+		        	scope.backPage = function (){
+		        		  var contextPath = $.trim($("#contextPath").val());
+		    			  window.location.href= contextPath+'/oc/ocView' ;
+		    		  }
+		        }
+		    };
+		 });
+
+		 directives.directive('chooseDiv', function() {
+		    return {
+		        restrict: 'AE',
+		        replace: true,
+				scope:true,
+				transclude:true,
+		        template: chooseDivHtml,
+				compile: function compile(tElement, tAttrs, transclude){
+					var urlStr = tAttrs['htmlUrl'] ;
+					var template = _.template(chooseUlHtml);
+					var htmlStr = template({value: urlStr});
+					var tmpDiv = tElement.find('div.service_list') ;
+					tmpDiv.append(htmlStr) ;
+				}
+		    };
+		 });
+
+	 }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+
+/***/ },
+/* 26 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"header_control query_section\">\r\n\t<!-- title index -->\r\n\t<div class=\"helper_float_left query_section_row edit_header\">\r\n\t\t<h1 class=\"helper_margin_right_10px\" ><%=headerTipStr%></h1>\r\n\t\t<span class=\"helper_color_blue_2 \">服务类型</span>\r\n\t\t<span class=\"helper_color_blue_2 \">|</span>\r\n\t\t<span class=\"helper_color_blue_2 \">费用</span>\r\n\t\t<span class=\"helper_color_blue_2 \">|</span>\r\n\t\t<span class=\"helper_color_blue_2 \">规则</span>\r\n\t</div>\r\n\t<!-- title index -->\r\n\t<!-- 功能按钮start -->\r\n\t<div class=\"helper_float_right operation_btnlist\">\r\n\t\t<div class=\"helper_float_left helper_margin_0_2px margin_top_5px\" >\r\n\t\t\t<div class=\"btn_page btn_cancel\">\r\n\t\t\t\t<div class=\"btn_left\"></div>\r\n\t\t\t\t<div class=\"btn_content\" id=\"back\" ng-click = \"backPage();\">返回</div>\r\n\t\t\t\t<div class=\"btn_right\"></div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"helper_float_left helper_margin_0_2px margin_top_5px\">\r\n\t\t\t<div class=\"btn_page btn_cancel\">\r\n\t\t\t\t<div class=\"btn_left\"></div>\r\n\t\t\t\t<div class=\"btn_content\" id=\"s7_save\" ng-click =\"submitForm('save')\">保存</div>\r\n\t\t\t\t<div class=\"btn_right\"></div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"helper_float_left helper_margin_0_2px margin_top_5px\">\r\n\t\t\t<div class=\"btn_page btn_save\">\r\n\t\t\t\t<div class=\"btn_left\"></div>\r\n\t\t\t\t<div class=\"btn_content\" id=\"s7_saveAndPublish\" ng-click=\"submitForm('saveAndPublish')\" >保存并发布</div>\r\n\t\t\t\t<div class=\"btn_right\"></div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"clearfix\"></div>\r\n\t</div>\r\n\t<!-- 功能按钮end -->\r\n\t<div class=\"clearfix\"></div>\r\n</div>\r\n";
+
+/***/ },
+/* 27 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"choose_box\">\r\n\t<div class=\"srch_input\">\r\n\t\t<div class=\"helper_float_left input_outer\"  ng-transclude=\"\">\r\n\t\t</div>\r\n\t\t<div class=\"clearfix\"></div>\r\n\t</div>\r\n\t<div class=\"service_list\">\r\n\t</div>\r\n</div>";
+
+/***/ },
+/* 28 */
+/***/ function(module, exports) {
+
+	module.exports = "<ul>\r\n<%if(\"choose1.html\"==value){%>\r\n\t<li bindonce ng-repeat=\"l in serviceGroupList | serviceGroupFilter:chooseInputData.choose1\"\r\n\t \tng-click=\"subGroupQuery(l.serviceGroupDescription,l.serviceGroup)\" bo-bind=\"l.serviceGroupDescription\">\r\n\t</li>\r\n<%}else if(\"choose2.html\"==value){%>\r\n\t<li bindonce ng-repeat=\"l in subGroupList | subGroupFilter : chooseInputData.choose2\"\r\n\t \tng-click=\"s5Query(l.subGroupDescription,l.subGroup)\"  bo-bind=\"l.subGroupDescription\">\r\n\t</li>\r\n<%}else if(\"choose3.html\"==value){%>\r\n\t<li bindonce ng-repeat=\"l in lastGroupList  | lastGroupFilter : chooseInputData.choose3\"\r\n\t    ng-click=\"lastChooseClick(l)\" class=\"choose4li\">\r\n\t\t<div class=\"service_name\">\r\n\t\t\t<p class=\"helper_float_left\" bo-bind=\"'['+l.serviceSubCode+']'+l.commercialName\"></p>\r\n\t\t\t<span class=\"helper_float_left serviceTypeSpan\" bo-bind = \"l.serviceType\"></span>\r\n\t\t\t<div class=\"clearfix\"></div>\r\n\t\t</div>\r\n\t</li>\r\n<%}else if(\"choose4.html\"==value){%>\r\n\t<li bindonce ng-repeat=\"l in lastGroupList2\" class=\"choose4li\">\r\n\t\t<div class=\"service_name\">\r\n\t\t\t<p class=\"helper_float_left\" bo-bind=\"'['+l.subCode+']'+l.commercialName\"></p>\r\n\t\t\t<span class = \"helper_float_left serviceTypeSpan\" ng-bind = \"l.serviceType\"></span>\r\n\t\t\t<span bo-bind=\"'x'+l.subCodeOccurence\"></span>\r\n\t\t\t<div class=\"clearfix\"></div>\r\n\t\t</div>\r\n\t</li>\r\n<%}%>\r\n</ul>\r\n";
+
+/***/ },
+/* 29 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
+		 var directives = __webpack_require__(20) ;
+		 directives.directive('geoSpecInput', function() {
+		    return {
+		        restrict: 'E',
+		        replace: true,
+				scope:true,
+		        template: geoSpecInputHtml,
+				transclude:true
+		    };
+		 });
+		 
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+/***/ },
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
+		 var directives = __webpack_require__(20) ;
+		 var tableHtml = __webpack_require__(31) ;
+		 var trHtml = __webpack_require__(32) ;
+		 var theadHtml = __webpack_require__(33) ;
+		 var _ = __webpack_require__(21) ;
+		 //重置数据
+		 function reseat198VO (l198){
+			if(l198){
+				l198.cxr = "" ;
+				l198.rbd1 = "" ;
+				l198.rbd2 = "" ;
+				l198.rbd3 = "" ;
+				l198.rbd4 = "" ;
+				l198.rbd5 = "" ;
+			}
+		 }
+		 function outAllSelect(list){//将所有tr全部置为非选中状态
+			angular.forEach(list,function(l){
+				l.selected = false ;
+			}) ;
+		 }
+
+		 directives.directive('tableInfo', ['FormEditStatusServcie','FormData',function(FormEditStatusServcie,FormData){
+			  return {
+		        restrict: 'AE',
+		        replace: true,
+				template:function(elem,atrrs){
+					//var tableWidth = atrrs['tableWidth'] ;
+					//var tableTemplate = _.template(tableHtml);
+					//var tableStr = tableTemplate({"tableWidth": tableWidth}) ;
+					//return tableStr ;
+					return tableHtml ;
+				},
+				scope:{
+					tableData:'=',
+					list:'='
+				},
+				controller:['$scope',function($scope){
+					$scope.data = FormData ;
+					$scope.editStatus = FormEditStatusServcie ;
+					//新增一行记录
+					this.tbAddLine = function(){
+						outAllSelect($scope.list) ;
+						var obj = angular.copy($scope.tableData.addObj) ;
+						$scope.list.push(obj) ;
+					}
+					//删除一行记录
+					this.tbDelLine = function (){
+						var len = $scope.list.length ;
+						if(len>=1){
+							var num = len-1 ;
+							angular.forEach($scope.list,function(l,index){
+								if(l.selected){
+									num = index ;
+								}
+							}) ;
+							outAllSelect($scope.list) ;
+							$scope.list.splice(num,1) ;
+						}
+					}
+					
+					$scope.clickTr = function(l){
+						outAllSelect($scope.list) ;
+						l.selected = true ;
+					}
+					//下面是特殊的部分，select可能会存在//如果你的表格比较特殊的话可能需要修改修改下面的部分代码
+					/**这一部分算是半工作能够部分(因为有的表格会使用这部分数据，但是有的表格不使用这部分数据)**/
+					$scope.geoSpecTypeList = [
+						{"name":"选择","value":""},
+						{"name":"大区","value":"A"},{"name":"城市","value":"C"},
+						{"name":"国家","value":"N"},{"name":"机场","value":"P"},
+						{"name":"州","value":"S"},{"name":"区域","value":"Z"}
+					] ;
+					$scope.codeTypeList = [
+						{"name":"选择","value":""},{"name":"代理人office号","value":"T"},
+						{"name":"IATA号","value":"I"},{"name":"Department/Identifier","value":"X"},
+						{"name":"CRS/CXR Department Code","value":"V"},{"name":"ERSP No","value":"E"},
+						{"name":"LNIATA Number (CRT Address)","value":"L"},{"name":"Airline specific codes","value":"A"}
+					] ;
+					//市场方/承运方
+					$scope.marketingOpreratingList = [
+						{"name":"选择","value":""},
+						{"name":"市场方","value":"M"},{"name":"承运方","value":"O"},
+						{"name":"市场方/承运方","value":"E"}
+					] ;
+					/*********183特殊部分开始*******************/
+					$scope.selectChange183Tb1 = function(l183){
+						l183.geographicSpecification = "" ;
+					}
+					$scope.selectChange183Tb2 = function(l183){
+						l183.code = "" ;
+					}
+					$scope.viewBookTktList = [// 权限list
+						{"name":"选择","value":""},{"name":"查看/订票/出票","value":1},
+						{"name":"仅查看","value":2}
+					] ;
+					/*********183特殊部分结束*******************/
+					
+					/*********198特殊部分开始*******************/
+					$scope.selectChange198Tb = function(l198){
+						reseat198VO(l198) ;
+					}
+
+					$scope.selectChange198TbUpGrade = function(l198UpGrade){
+						reseat198VO(l198UpGrade) ;
+					}
+					/*********198特殊部分结束*******************/
+					/*********170特殊部分开始*******************/
+					$scope.selectChange170Tb = function(l170){
+						reseat170VO(l170) ;
+					}
+					function reseat170VO (l170){
+						if(l170){
+							l170.saleGeographicPoint = "" ;
+						}
+					}
+				    /*********170特殊部分结束*******************/
+					//178表格的区域select框发生变化时触发的函数
+					$scope.selectChange178Tb = function(l178){
+						l178.geoLocSpec = "" ;
+					}
+					//tsk202子表的特殊处理函数
+					$scope.customeEdit202Text = function(oldValue,type,index){
+						//tbTSKCustomeEdit_type//tbTSKCustomeEdit_index//tbTSKCustomeEdit_value
+						$("#tbTSKCustomeEdit_type").val(type) ;
+						$("#tbTSKCustomeEdit_index").val(index) ;
+						$("#tbTSKCustomeEdit_value").val(oldValue) ;
+						//显示的时候清除可能存在的错误提示
+						$("#tskCustomeTipInfo").html("") ;
+						$("#tbTSK202Modal").modal("show") ;
+						$("#tbTSKCustomeEdit_value").focus() ;
+						if("flightTourCodeText"==type){//13个字
+							$("#tbTSKCustomeEdit_value").attr("maxLength",13) ;
+						}else if("flightEiText"==type){//80个字
+							$("#tbTSKCustomeEdit_value").attr("maxLength",80) ;
+						}
+					}
+					
+				}],
+				controllerAs:'ctrl',
+				compile: function (tElement, tAttrs, transclude){
+					var urlStr = tAttrs['htmlUrl'] ;
+					var headerTeplate = _.template(theadHtml) ; 
+					var bodyTemplate = _.template(trHtml);
+					var headStr = headerTeplate({value: urlStr}) ;
+					var bodyStr = bodyTemplate({value: urlStr});
+					var tableElement =  angular.element(tElement) ;
+					tableElement.find('thead').append(headStr) ;
+					tableElement.find('tbody').append(bodyStr) ;
+					return {
+						post: function(scope, element, attrs,ctrl){
+							var tbname = attrs['tbname'] ;
+							element.find("div.delete_line").bind('click',function(){
+								if (scope.editStatus[tbname]) {//当当前表格可以编辑时
+									scope.$apply(function  () {
+										ctrl.tbDelLine() ;
+									}) ;
+								}else{
+									//console.info('表格['+tbname+']当前的状态为：不可编辑') ;
+								}
+							}) ;
+							element.find("div.add_line").bind('click',function(){
+								if (scope.editStatus[tbname]) {//当当前表格可以编辑时
+									scope.$apply(function  () {
+										ctrl.tbAddLine() ;
+									}) ;
+								}else{
+									//console.info('表格['+tbname+']当前的状态为：不可编辑') ;
+								}
+							}) ;
+						}
+					};
+				}
+		      };
+	      }]);
+		  
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+/***/ },
+/* 31 */
+/***/ function(module, exports) {
+
+	module.exports = "<div>\r\n<table>\r\n<thead>\r\n</thead>\r\n<tbody>\r\n</tbody>\r\n</table>\r\n<div class=\"helper_margin_top5\">\r\n\t<div class=\"btn_page btn_add_small\">\r\n    \t<div class=\"btn_left\"></div>\r\n        <div class=\"btn_content add_line\" >增加一行</div>\r\n        <div class=\"btn_right\"></div>\r\n    </div>\r\n\t<div class=\"btn_page btn_add_small_2\">\r\n    \t<div class=\"btn_left\"></div>\r\n\t\t<div class=\"btn_content delete_line\">删除一行</div>\r\n        <div class=\"btn_right\"></div>\r\n    </div>\r\n\t<div class=\"clearfix\"></div>\r\n</div>\r\n</div>\r\n";
+
+/***/ },
+/* 32 */
+/***/ function(module, exports) {
+
+	module.exports = "<tr ng-repeat = \"l in list\"   ng-click = \"clickTr(l);\" ng-class = \"{true:'selectTd',false:''}[l.selected]\">\r\n<%if(\"tb183.html\"==value){%>\r\n\t<td>\r\n\t\t<input  name=\"{{'t1831'+$index}}\" ng-model = \"l.travelAgency\" style=\"width:90%;\"\r\n\t\t\tmaxLength = \"1\" type=\"text\" ng-disabled=\"!editStatus.list183VO\"  upper-input />\r\n\t</td>\r\n\t<td>\r\n\t\t<input name=\"{{'t1832'+$index}}\"  ng-model = \"l.carrierGds\" style=\"width:90%;\"\r\n\t\t\tmaxLength = \"3\" ng-disabled=\"!editStatus.list183VO\"  type=\"text\"  />\r\n\t</td>\r\n\t<td>\r\n\t\t<input name=\"{{'t1833'+$index}}\"  ng-model = \"l.dutyFunctionCode\"  style=\"width:90%;\"\r\n\t\t\tmaxLength = \"2\" ng-disabled=\"!editStatus.list183VO\"  type=\"text\"  />\r\n\t</td>\r\n\t<td>\r\n\t\t<select  ng-model=\"l.geographicSpecificationType\" style=\"width:90%;\"  ng-change=\"selectChange183Tb1(l)\"\r\n\t\t\tng-disabled=\"!editStatus.list183VO\" ng-options=\"c.value as c.name for c in geoSpecTypeList\" >\r\n\t\t</select>\r\n\t</td>\r\n\t<td>\r\n\t\t<input name=\"{{'t1835'+$index}}\" style=\"width:90%;\" ng-model = \"l.geographicSpecification\" ng-disabled=\"!editStatus.list183VO\"  \r\n\t\t\tupper-input=\"\" geo-max-length = \"l.geographicSpecificationType\"  type=\"text\" \r\n\t\t\tng-class = \"{'A':'required areacode','C':'required citycode','N':'required countrycode','P':'required airportcode','S':'required statecode','Z':'required zonecode'}[l.geographicSpecificationType]\" />\r\n\t</td>\r\n\t<td>\r\n\t\t<select  name =\"{{'t1836'+$index}}\" ng-model=\"l.codeType\" style=\"width:90%;\" \r\n\t\t\t\tng-disabled=\"!editStatus.list183VO\"  ng-change=\"selectChange183Tb2(l)\"  \r\n\t\t\t\tclass =\"required\" >\r\n\t\t\t\t <option bindonce  ng-repeat=\"t in codeTypeList\"  ng-selected =\"t.value==l.codeType\"   bo-value=\"t.value\" bo-bind=\"t.name\" ></option>  \r\n\t\t</select>\r\n\t</td>\r\n\t<td>\r\n\t\t<input name=\"{{'t1837'+$index}}\"  style=\"width:90%;\" ng-model = \"l.code\" upper-input  ng-disabled=\"!editStatus.list183VO\" type=\"text\" \r\n\t\t\t   ng-class = \"{'T':'office required','I':'iatanum required','X':'required','V':'required','E':'required','L':'required','A':'required'}[l.codeType]\"  \r\n\t\t\t   tui-max-length = \"{'T':'6','I':'8','X':'8','V':'8','E':'8','L':'8','A':'8'}[l.codeType]\" />\r\n\t</td>\r\n\t<td>\r\n\t\t<select ng-model=\"l.viewBookTkt\"style=\"width:95%;\"  ng-disabled=\"!editStatus.list183VO\" \r\n\t\t\t\tng-options=\"d.value as d.name for d in viewBookTktList\">\r\n\t\t</select>\r\n\t</td>\r\n<%}else if(\"tb171.html\"==value){%>\r\n\t<td>\r\n\t\t<input name=\"{{'t1711'+$index}}\" ng-model = \"l.carrier\"  ng-disabled=\"!editStatus.list171VO\"  upper-input=\"\" \r\n\t\t\tset-focus=\"\" class = \"air required\" type = \"text\" tabindex=\"1\" maxlength=\"2\"  size = \"16\" />\r\n\t</td>\r\n\t<td>\r\n\t\t<input  ng-model = \"l.resFareClassCode\"  ng-disabled=\"!editStatus.list171VO\" \r\n\t\t\ttype = \"text\" tabindex=\"1\" maxlength=\"16\"  size = \"16\" />\r\n\t</td>\r\n\t<td >\r\n\t\t<input  ng-model = \"l.fareTypeCode\"  ng-disabled=\"!editStatus.list171VO\" \r\n\t\t\t\ttype = \"text\" tabindex=\"1\" maxlength=\"3\"  size = \"16\" />\r\n\t</td>\r\n<%}else if (\"tb172.html\"==value){%>\r\n\t<td>\r\n\t\t<input  ng-model = \"l.accountCode\"  ng-disabled=\"!editStatus.list172VO\"  type = \"text\" \r\n\t\t\ttabindex=\"1\" maxlength=\"20\"  size = \"16\" />\r\n\t</td>\r\n<%}else if (\"tb173Ticket.html\"==value){%>\r\n\t<td>\r\n\t\t<input  ng-model = \"l.ticketDesignator\"  ng-disabled=\"!editStatus.list173TicketVO\"  type = \"text\" \r\n\t\t\t\ttabindex=\"1\" maxlength=\"10\"  size = \"16\" />\r\n\t</td>\r\n<%}else if (\"tb173Tkt.html\"==value){%>\r\n\t<td>\r\n\t\t<input  ng-model = \"l.ticketDesignator\"  ng-disabled=\"!editStatus.list173TktVO\" type = \"text\" tabindex=\"1\"\r\n\t\t\t maxlength=\"10\"  size = \"16\" />\r\n\t</td>\r\n<%}else if (\"tb165.html\"==value){%>\r\n\t<td>\r\n\t\t<input name=\"{{'t1651'+$index}}\" ng-model = \"l.equipmentCode\"  ng-disabled=\"!editStatus.list165VO\"  \r\n\t\t\tupper-input=\"\" class = \"lettersOrNumber\" maxLength = \"3\" type = \"text\" size = \"16\"  />\r\n\t</td>\r\n<%}else if(\"tb186.html\"==value){%>\r\n\t<td>\r\n\t\t<input name=\"{{'t1861'+$index}}\" ng-model = \"l.mktCarrier\" ng-disabled=\"!editStatus.list186VO\" set-focus  \r\n\t\t\ttype=\"text\" maxLength = \"3\" tabindex=\"3\" size=\"5\" class=\"required\" />\r\n\t</td>\r\n\t<td>\r\n\t\t<input ng-model = \"l.optCarrier\" maxLength =\"3\" ng-disabled=\"!editStatus.list186VO\"  \r\n\t\t\ttype=\"text\" tabindex=\"3\" size=\"5\" />\r\n\t</td>\r\n\t<td>\r\n\t\t<input name=\"{{'t1863'+$index}}\" ng-model = \"l.fltNo1\" maxLength = \"4\" \r\n\t\t\tng-disabled=\"!editStatus.list186VO\" type=\"text\" tabindex=\"3\" size=\"5\" class=\"required\"  />-\r\n\t\t<input ng-model = \"l.fltNo2\" maxLength =\"4\" ng-disabled=\"!editStatus.list186VO\"  type=\"text\" \r\n\t\t\ttabindex=\"3\" size=\"5\"  />\r\n</td>\r\n<%}else if (\"tb196.html\"==value){%>\r\n\t<td>\r\n\t\t<input name=\"{{'t1961'+$index}}\" ng-model = \"l.count\"  ng-disabled=\"!editStatus.list196VO\" \r\n\t\t\t   maxLength = \"2\"  type=\"text\" tabindex=\"3\" size=\"15\" class=\"positiveInteger\"/>\r\n\t</td>\r\n\t<td>\r\n\t\t<input name=\"{{'t1962'+$index}}\" ng-model = \"l.code\"  upper-input set-focus  maxLength = \"3\"  type=\"text\"\r\n\t\t\tng-disabled=\"!editStatus.list196VO\"  tabindex=\"3\" size=\"15\"  class=\"lettersOrNumber\" />\r\n\t</td>\r\n<%}else if (\"tb198.html\"==value){%>\r\n\t<td>\r\n\t\t<select ng-model=\"l.mktOp\" ng-disabled=\"!editStatus.list198VO\"  style=\"width:120px;\"\r\n\t\t\tng-change = \"selectChange198Tb(l)\" ng-options=\"b.value as b.name for b in marketingOpreratingList\" >\r\n\t\t</select>  \r\n\t</td>\r\n\t<td>\r\n\t\t<input name=\"{{'t1982'+$index}}\" ng-model = \"l.cxr\" upper-input ng-disabled=\"!editStatus.list198VO\"  maxLength = \"2\"  typ \r\n\t\t   ng-class = \"{true:'air required',false:''}[l.mktOp.length>0]\"  tabindex=\"3\" size=\"5\" class=\"input_normal\"/>\r\n\t</td>\r\n\t<td>\r\n\t\t<input name=\"{{'t1983'+$index}}\" ng-model = \"l.rbd1\" upper-input ng-disabled=\"!editStatus.list198VO\"  maxLength = \"1\" \r\n\t\t   type=\"text\" tabindex=\"3\" ng-class = \"{true:'seatcode required',false:''}[l.mktOp.length>0]\"  size=\"3\" />\r\n\t</td>\r\n\t<td>\r\n\t\t<input name=\"{{'t1983'+$index}}\" ng-model = \"l.rbd2\" upper-input ng-disabled=\"!editStatus.list198VO\"  maxLength = \"1\"  \r\n\t\t\ttabindex=\"3\" ng-class = \"{true:'seatcode',false:''}[l.mktOp.length>0]\" type=\"text\"size=\"3\" />\r\n\t</td>\r\n\t<td>\r\n\t\t<input name=\"{{'t1984'+$index}}\" ng-model = \"l.rbd3\"  upper-input ng-disabled=\"!editStatus.list198VO\" maxLength = \"1\"  \r\n\t\t\ttabindex=\"3\" size=\"3\" ng-class = \"{true:'seatcode',false:''}[l.mktOp.length>0]\" type=\"text\"  />\r\n\t</td>\r\n\t<td>\r\n\t\t<input name=\"{{'t1985'+$index}}\" ng-model = \"l.rbd4\"  upper-input ng-disabled=\"!editStatus.list198VO\" \r\n\t\t\tmaxLength = \"1\"  tabindex=\"3\" size=\"3\" ng-class = \"{true:'seatcode',false:''}[l.mktOp.length>0]\" type=\"text\"  />\r\n\t</td>\r\n\t<td>\r\n\t\t<input name=\"{{'t1986'+$index}}\" ng-model = \"l.rbd5\" upper-input  ng-disabled=\"!editStatus.list198VO\" maxLength = \"1\"  \r\n\t\t\ttabindex=\"3\" size=\"3\" ng-class = \"{true:'seatcode',false:''}[l.mktOp.length>0]\" type=\"text\"  />\r\n\t</td>\r\n<%}else if(\"tb198UpGrade.html\"==value){%>\r\n\t<td ng-if = \"data.sel1.value=='UP'||data.sel1.value=='BDUP'\">\r\n\t\t<select ng-change=\"selectChange198TbUpGrade(l)\" ng-model=\"l.mktOp\" ng-disabled=\"!editStatus.list198UpgradeVO\"  style=\"width:120px;\"\r\n\t\t\t ng-options=\"b.value as b.name for b in marketingOpreratingList\" >\r\n\t\t</select>  \r\n\t</td>\r\n\t<td ng-if = \"data.sel1.value=='UP'||data.sel1.value=='BDUP'\">\r\n\t\t<input name =\"{{'t198ug1'+$index}}\" ng-model = \"l.cxr\" upper-input ng-disabled=\"!editStatus.list198UpgradeVO\" \r\n\t\t\t   class=\"air\" maxLength=\"2\"  type=\"text\" tabindex=\"3\" size=\"5\" />\r\n\t</td>\r\n\t<td>\r\n\t\t<input name =\"{{'t198ug2'+$index}}\" ng-model = \"l.rbd1\" upper-input set-focus ng-disabled=\"!editStatus.list198UpgradeVO\" \r\n\t\t\tclass=\"required seatcode\" maxLength=\"1\"  type=\"text\" tabindex=\"3\" size=\"7\"  />\r\n\t</td>\r\n\t<td>\r\n\t\t<input name =\"{{'t198ug3'+$index}}\" ng-model = \"l.rbd2\" upper-input ng-disabled=\"!editStatus.list198UpgradeVO\"  \r\n\t\t\tclass=\"seatcode\" maxLength=\"1\" type=\"text\" tabindex=\"3\" size=\"7\" />\r\n\t</td>\r\n\t<td>\r\n\t\t<input name =\"{{'t198ug4'+$index}}\" ng-model = \"l.rbd3\" upper-input  ng-disabled=\"!editStatus.list198UpgradeVO\"  \r\n\t\t\tclass=\"seatcode\" maxLength=\"1\" type=\"text\" tabindex=\"3\" size=\"7\" />\r\n\t</td>\r\n\t<td>\r\n\t\t<input name =\"{{'t198ug5'+$index}}\" ng-model = \"l.rbd4\" upper-input ng-disabled=\"!editStatus.list198UpgradeVO\"  \r\n\t\t\tclass=\"seatcode\" maxLength=\"1\" type=\"text\" tabindex=\"3\" size=\"7\" />\r\n\t</td>\r\n\t<td>\r\n\t\t<input name =\"{{'t198ug6'+$index}}\" ng-model = \"l.rbd5\" upper-input ng-disabled=\"!editStatus.list198UpgradeVO\"  \r\n\t\t\tclass=\"seatcode\" maxLength=\"1\" type=\"text\" tabindex=\"3\" size=\"7\"  />\r\n\t</td>\r\n<%}else if (\"tb170.html\"==value){%>\r\n\t<td>\r\n\t\t<select ng-model=\"l.saleGeographicPointType\"  ng-disabled=\"!editStatus.list170VO\" style=\"width:60px;\"\r\n\t\t\t\tng-options=\"o.value as o.name for o in geoSpecTypeList\" ng-change=\"selectChange170Tb(l)\">\r\n\t\t</select>\r\n\t</td>\r\n\t<td>\r\n\t\t<input name = \"{{'t1701'+$index}}\"  ng-model = \"l.saleGeographicPoint\" ng-disabled=\"!editStatus.list170VO\" \r\n\t\t\t   upper-input geo-max-length = \"l.saleGeographicPointType\" \r\n\t\t\t   ng-class = \"{'A':'required areacode','C':'required citycode','N':'required countrycode','P':'required airportcode','S':'required statecode','Z':'required zonecode'}[l.saleGeographicPointType]\"\r\n\t\t\t   type = \"text\" size = \"16\"  />\r\n\t</td>\r\n\t<td >\r\n\t\t<input  name=\"{{'t1702'+$index}}\" ng-model = \"l.specFeeAmount\" class = \"required nonNegativeInteger\"  set-focus=\"\" type = \"text\" \r\n\t\t\tng-disabled=\"!editStatus.list170VO\" tabindex=\"1\" maxlength=\"7\"  size = \"16\" />\r\n\t</td>\r\n\t<td>\r\n\t\t<input name = \"{{'t1703'+$index}}\" ng-model = \"l.specFeeCurrency\" upper-input  type = \"text\" \r\n\t\t\tsize = \"16\" maxlength=\"3\"  ng-disabled=\"!editStatus.list170VO\" class = \"letter\" \r\n\t\t\tng-class = \"{true:'required',false:''}[l.saleGeographicPointType.length>0]\" />\r\n\t</td>\r\n<%}else if(\"tb178geo1.html\"==value){%>\r\n\t<td>\r\n\t\t<select ng-model=\"l.geoLocType\" ng-disabled=\"!editStatus.list178Loc1\"  class = \"select_width\" style=\"width:100px;\"\r\n\t\t\tng-options=\"b.value as b.name for b in geoSpecTypeList\" ng-change=\"selectChange178Tb(l)\" >\r\n\t\t</select>  \r\n\t</td>\r\n\t<td>\r\n\t\t<input name=\"{{'t17812'+$index}}\" ng-model = \"l.geoLocSpec\" geo-max-length = \"l.geoLocType\" upper-input  \r\n\t\t\tng-disabled=\"!editStatus.list178Loc1\" type=\"text\" tabindex=\"3\" size=\"5\" class=\"input_normal\"\r\n\t\t\tng-class = \"{'A':'required areacode','C':'required citycode','N':'required countrycode','P':'required airportcode','S':'required statecode','Z':'required zonecode'}[l.geoLocType]\" />\r\n\t</td>\r\n\t<td>\r\n\t\t   <input ng-model = \"l.appl\" ng-disabled=\"!editStatus.list178Loc1\"  type=\"radio\" tabindex=\"3\" size=\"5\" value=\"\" />适用\r\n\t\t   <input ng-model = \"l.appl\" ng-disabled=\"!editStatus.list178Loc1\"  type=\"radio\" tabindex=\"3\" size=\"5\" value=\"N\" />不适用\r\n\t</td>\r\n<%}else if(\"tb178geo2.html\"==value){%>\r\n\t<td>\r\n\t\t<select ng-model=\"l.geoLocType\" ng-disabled=\"!editStatus.list178Loc2\"  class = \"select_width\" style=\"width:100px;\"\r\n\t\t\tng-options=\"b.value as b.name for b in geoSpecTypeList\" ng-change=\"selectChange178Tb(l)\" >\r\n\t\t</select>  \r\n\t</td>\r\n\t<td>\r\n\t\t<input name=\"{{'t17822'+$index}}\" ng-model = \"l.geoLocSpec\" geo-max-length = \"l.geoLocType\" upper-input  \r\n\t\t\tng-disabled=\"!editStatus.list178Loc2\" type=\"text\" tabindex=\"3\" size=\"5\" class=\"input_normal\"\r\n\t\t\tng-class = \"{'A':'required areacode','C':'required citycode','N':'required countrycode','P':'required airportcode','S':'required statecode','Z':'required zonecode'}[l.geoLocType]\" />\r\n\t</td>\r\n\t<td>\r\n\t\t   <input ng-model = \"l.appl\" ng-disabled=\"!editStatus.list178Loc2\"  type=\"radio\" tabindex=\"3\" size=\"5\" value=\"\" />适用\r\n\t\t   <input ng-model = \"l.appl\" ng-disabled=\"!editStatus.list178Loc2\"  type=\"radio\" tabindex=\"3\" size=\"5\" value=\"N\" />不适用\r\n\t</td>\r\n<%}else if(\"tb178geo3.html\"==value){%>\r\n\t<td>\r\n\t\t<select ng-model=\"l.geoLocType\" ng-disabled=\"!editStatus.list178Loc3\"  class = \"select_width\" style=\"width:100px;\"\r\n\t\t\tng-options=\"b.value as b.name for b in geoSpecTypeList\" ng-change=\"selectChange178Tb(l)\" >\r\n\t\t</select>  \r\n\t</td>\r\n\t<td>\r\n\t\t<input name=\"{{'t17832'+$index}}\" ng-model = \"l.geoLocSpec\" geo-max-length = \"l.geoLocType\" upper-input  \r\n\t\t\tng-disabled=\"!editStatus.list178Loc3\" type=\"text\" tabindex=\"3\" size=\"5\" class=\"input_normal\"\r\n\t\t\tng-class = \"{'A':'required areacode','C':'required citycode','N':'required countrycode','P':'required airportcode','S':'required statecode','Z':'required zonecode'}[l.geoLocType]\" />\r\n\t</td>\r\n\t<td>\r\n\t\t   <input ng-model = \"l.appl\" ng-disabled=\"!editStatus.list178Loc3\"  type=\"radio\" tabindex=\"3\" size=\"5\" value=\"\" />适用\r\n\t\t   <input ng-model = \"l.appl\" ng-disabled=\"!editStatus.list178Loc3\"  type=\"radio\" tabindex=\"3\" size=\"5\" value=\"N\" />不适用\r\n\t</td>\r\n<%}else if(\"tbTSK202.html\"==value){%>\r\n\t<td><input name =\"tsk20201{{$index}}\" ng-model =\"l.allowedRbd\" class =\"required allowedRbd\" type =\"text\" \r\n\t\tstyle=\"width:125px\" placeholder=\"A/B/C/D\" maxLength =\"19\" upper-input=\"\" ng-disabled=\"!editStatus.listTsk202VO\" /></td>\r\n\t<td><input name =\"tsk20202{{$index}}\" ng-model =\"l.originalFareOffice\" \r\n\t\ttype =\"text\" style=\"width:50px\" maxLength =\"8\" ng-disabled=\"!editStatus.listTsk202VO\" /></td>\r\n\t<td><input name =\"tsk20203{{$index}}\" ng-model =\"l.originalFareIataNo\" \r\n\t\ttype =\"text\" style=\"width:50px\" maxLength=\"8\" ng-disabled=\"!editStatus.listTsk202VO\" /></td>\r\n\t<td><input name =\"tsk20204{{$index}}\" ng-model =\"l.originalFareDepartmentCode\" \r\n\t\ttype =\"text\" style=\"width:80px\" maxLength =\"8\" ng-disabled=\"!editStatus.listTsk202VO\" /></td>\r\n\t<td style =\"width:150px\">\r\n\t\t<span>原始运价&nbsp;</span><input name =\"tsk20205{{$index}}\" ng-model =\"l.originalFareBasis\" \r\n\t\ttype =\"text\" style=\"width:60px\" maxLength =\"10\" class =\"lettersOrNumber\" ng-disabled=\"!editStatus.listTsk202VO\" /><br/>\r\n\t\t新票面&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name =\"tsk20206{{$index}}\" ng-model =\"l.newFareBasis\" \r\n\t\t\ttype =\"text\" style=\"width:60px\" maxLength =\"10\" class =\"lettersOrNumber\" ng-disabled=\"!editStatus.listTsk202VO\" />\r\n\t</td>\r\n\t<td>\r\n\t\t<select name =\"tsk20207{{$index}}\" ng-model =\"l.flightSpreadFactor\" \r\n\t\t\tclass =\"required\" style =\"width:130px\" ng-disabled=\"!editStatus.listTsk202VO\">\r\n\t\t\t<option value=\"0\">免差价</option>\r\n\t\t\t<option value =\"1\">收差价,ET计算差额</option>\r\n\t\t\t<option value =\"2\">收差价,自定义差额</option>\r\n\t\t</select><br/>\r\n\t\t<span ng-show =\"l.flightSpreadFactor=='2'\">\r\n\t\t\t<input name =\"tsk20208{{$index}}\" ng-class =\"{true:'required',false:''}[l.flightSpreadFactor=='2']\" \r\n\t\t\t\tng-model =\"l.flightSpreadAmount\" type =\"text\" style =\"width:59px;\" ng-disabled=\"!editStatus.listTsk202VO\"\r\n\t\t\t\tmaxLength =\"7\"  class =\"positiveInteger\" ng-class =\"{true:'required',false:''}[l.flightSpreadFactor=='2']\" />\r\n\t\t\t<select name =\"tsk20209{{$index}}\" ng-model =\"l.flightSpreadUnit\" style =\"width:60px;\"\r\n\t\t\t\t ng-class =\"{true:'required',false:''}[l.flightSpreadAmount!='']\" ng-disabled=\"!editStatus.listTsk202VO\">\r\n\t\t\t\t<option value =\"\">选择</option>\r\n\t\t\t\t<option value =\"CNY\">CNY</option>\r\n\t\t\t</select>\r\n\t\t</span>\r\n\t\t\r\n\t</td>\r\n\t<td>\r\n\t\t<a href=\"javascript:void(0)\" ng-click =\"customeEdit202Text(l.flightTourCodeText,'flightTourCodeText',$index)\">编辑TourCode文本</a><br>\r\n\t\t附加规则&nbsp;<input name =\"tsk20210{{$index}}\" ng-model =\"l.flightTourCodeFactor\" class =\"required zeorOrOtherNum\" \r\n\t\ttype =\"text\" style =\"width:38px\" maxLength =\"5\" class =\"nonNegativeInteger\" />\r\n\t</td>\r\n\t<td>\r\n\t\t<a href=\"javascript:void(0)\" ng-click =\"customeEdit202Text(l.flightEiText,'flightEiText',$index)\">编辑备注文本</a><br>\r\n\t\t附加规则&nbsp;<input name =\"tsk20211{{$index}}\" ng-model =\"l.flightEiFactor\" class =\"required zeorOrOtherNum\" \r\n\t\ttype =\"text\" style=\"width:38px\" maxLength =\"5\" class =\"nonNegativeInteger\"/>\r\n\t</td>\r\n<%}else{%>\r\n\t<td colspan=\"{{column}}\">\r\n\t\t<h3>你传入的html模板不存在，请检查</h3>\r\n\t</td>\r\n<%}%>\r\n</tr>";
+
+/***/ },
+/* 33 */
+/***/ function(module, exports) {
+
+	module.exports = "<%if(\"tb183.html\"==value){%>\r\n<tr>\r\n\t<th width=\"62px\">旅行社</th>\r\n\t<th width=\"100px\">航空公司/分销商</th>\r\n\t<th width=\"76px\">职责/功能码</th>\r\n\t<th width =\"80px\">区域类型</th>\r\n\t<th width =\"65px\">区域代码</th>\r\n\t<th width =\"150px\">发布对象类型</th>\r\n\t<th width =\"87px\">发布对象代码</th>\r\n\t<th width =\"110px\">权限</th>\r\n</tr>\r\n<%}else if(\"tb171.html\"==value){%>\r\n<tr>\r\n\t<th>航空公司</th>\r\n\t<th>票价类别</th>\r\n\t<th>运价类型</th>\r\n</tr>\r\n<%}else if (\"tb172.html\"==value){%>\r\n<tr>\r\n\t<th>大客户编码</th>\r\n</tr>\r\n<%}else if (\"tb173Ticket.html\"==value){%>\r\n<tr>\r\n\t<th>指定客票</th>\r\n</tr>\r\n<%}else if (\"tb173Tkt.html\"==value){%>\r\n<tr>\r\n\t<th>指定客票</th>\r\n</tr>\r\n<%}else if (\"tb165.html\"==value){%>\r\n<tr>\r\n\t<th>机型代码</th>\r\n</tr>\r\n<%}else if(\"tb186.html\"==value){%>\r\n<tr>\r\n\t<th>市场方</th>\r\n\t<th>承运方</th>\r\n\t<th>航班号</th>\r\n</tr>\r\n<%}else if (\"tb196.html\"==value){%>\r\n<tr>\r\n\t<th>行李件数</th>\r\n\t<th>行李子代码</th>\r\n</tr>\r\n<%}else if (\"tb198.html\"==value){%>\r\n<tr>\r\n\t<th>市场方/承运方</th>\r\n\t<th>航空公司</th>\r\n\t<th>订座舱位1</th>\r\n\t<th>订座舱位2</th>\r\n\t<th>订座舱位3</th>\r\n\t<th>订座舱位4</th>\r\n\t<th>订座舱位5</th>\r\n</tr>\r\n<%}else if(\"tb198UpGrade.html\"==value){%>\r\n<tr>\r\n\t<th ng-if = \"data.sel1.value=='UP'||data.sel1.value=='BDUP'\">市场方/承运方</th>\r\n\t<th ng-if = \"data.sel1.value=='UP'||data.sel1.value=='BDUP'\">航空公司</th>\r\n\t<th>订座舱位1</th>\r\n\t<th>订座舱位2</th>\r\n\t<th>订座舱位3</th>\r\n\t<th>订座舱位4</th>\r\n\t<th>订座舱位5</th>\r\n</tr>\r\n<%}else if (\"tb170.html\"==value){%>\r\n<tr>\r\n\t<th>销售地类型</th>\r\n\t<th>销售地代码</th>\r\n\t<th>金额</th>\r\n\t<th>货币类型</th>\r\n</tr>\r\n<%}else if(\"tb178geo1.html\"==value){%>\r\n<tr>\r\n\t<th>类型</th>\r\n\t<th>代码</th>\r\n\t<th>是否适用</th>\r\n</tr>\r\n<%}else if(\"tb178geo2.html\"==value){%>\r\n<tr>\r\n\t<th>类型</th>\r\n\t<th>代码</th>\r\n\t<th>是否适用</th>\r\n</tr>\r\n<%}else if(\"tb178geo3.html\"==value){%>\r\n<tr>\r\n\t<th>类型</th>\r\n\t<th>代码</th>\r\n\t<th>是否适用</th>\r\n</tr>\r\n<%}else if(\"tbTSK202.html\"==value){%>\r\n<tr>\r\n\t<th>&nbsp;</th>\r\n\t<th colspan =\"3\">原始运价</th>\r\n\t<th>&nbsp;</th>\r\n\t<th colspan =\"3\">新票填开</th>\r\n</tr>\t\r\n<tr>\r\n\t<th width =\"127\">兑换舱位</th>\r\n\t<th width =\"58\">office</th>\r\n\t<th width =\"58\">IATA_NO</th>\r\n\t<th width =\"103\">DepartmentCode</th>\r\n\t<th width =\"162\">farebasis</th>\r\n\t<th width =\"130\">差价</th>\r\n\t<th width =\"143\">TourCode</th>\r\n\t<th width =\"138\">签注</th>\r\n</tr>\t\r\n<%}%>\r\n</tr>";
+
+/***/ },
+/* 34 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module) {
+	    var util = __webpack_require__(17) ;
+	    var app = __webpack_require__(20) ;
+	    var _ = __webpack_require__(21) ;
+	    
+
+	    //区域校验
+	    app.directive('geo',function(){
+	        var obj = {'A':'areacode','C':'citycode','N':'countrycode','P':'airportcode','S':'statecode','Z':'zonecode'} ;
+	        var values = _.values(obj); 
+	        function resetAllSuccess (ctrl){
+	            _.each(values, function(item){
+	                ctrl.$setValidity(item,true);
+	            });
+	        };
+	        return {
+	            restrict:"A",
+	            scope:true,
+	            require:"ngModel",
+	            link:function(scope,ele,attrs,ctrl){
+	                ctrl.$parsers.push(function(viewValue){
+	                    var flag = true ;
+	                    var key = "" ;
+	                    if(viewValue!=''){
+	                        var geo = attrs['geo'] ;
+	                        var geoSpecLocType = scope.data[geo] ;
+	                        key = obj[geoSpecLocType] ;
+	                        flag = util.isValidGeoLocal(viewValue,geoSpecLocType) ;
+	                    }
+	                    resetAllSuccess(ctrl) ;
+	                    if(key!=null&&key.length>0){
+	                        ctrl.$setValidity(key,flag);
+	                    }
+	                    return viewValue;
+	                });
+	            }
+	        };
+	    });
+
+
+
+	    //letter
+	     app.directive('letter',function(){
+	        return {
+	            restrict:"A",
+	            scope:true,
+	            require:"ngModel",
+	            link:function(scope,ele,attrs,ctrl){
+	                ctrl.$validators.letter = function(modelValue,viewValue){
+	                    if(viewValue!=''){
+	                        return util.isLetter(viewValue);
+	                    }
+	                    return true;
+	                };
+	            }
+	        };
+	    });
+
+	    //lettersOrNumber
+	    app.directive('lorn',function(){
+	        return {
+	            restrict:"A",
+	            scope:true,
+	            require:"?ngModel",
+	            link:function(scope,ele,attrs,ctrl){
+	                if(!ctrl) return ;
+	                ctrl.$validators.lorn = function(modelValue,viewValue){
+	                    if(viewValue!=''){
+	                        return util.islettersOrNumber(viewValue);
+	                    }
+	                    return true;
+	                };
+	            }
+	        };
+	    });
+
+	    //positiveInteger(正整数不包括'0')
+	    app.directive('pint',function(){
+	        return {
+	            restrict:"A",
+	            scope:true,
+	            require:"?ngModel",
+	            link:function(scope,ele,attrs,ctrl){
+	                if(!ctrl) return ;
+	                ctrl.$validators.pint = function(modelValue,viewValue){
+	                    if(viewValue!=''){
+	                        return util.isPositiveInteger(viewValue);
+	                    }
+	                    return true;
+	                };
+	            }
+	        };
+	    });
+
+
+	    //nonNegativeInteger(包括‘0’)
+	    app.directive('nnint',function(){
+	        return {
+	            restrict:"A",
+	            scope:true,
+	            require:"?ngModel",
+	            link:function(scope,ele,attrs,ctrl){
+	                if(!ctrl) return ;
+	                ctrl.$validators.nnint = function(modelValue,viewValue){
+	                    if(viewValue!=''){
+	                        return util.isNonNegativeInteger(viewValue);
+	                    }
+	                    return true;
+	                };
+	            }
+	        };
+	    });
+
+	    //small
+	    app.directive('smaller',function(){
+	        return {
+	            restrict:"A",
+	            scope:true,
+	            require:"ngModel",
+	            link:function(scope,ele,attrs,ctrl){
+	                ctrl.$validators.smaller = function(modelValue, viewValue) {
+	                    var flag = true ;
+	                    var compareVal = attrs['smaller'] ;
+	                    if(viewValue!=''&&compareVal!=''){
+	                        if(!isNaN(viewValue)&&!isNaN(compareVal)){//都为数值时
+	                            var curInt = parseFloat(viewValue) ;
+	                            var comInt = parseFloat(compareVal) ;
+	                            if(curInt>comInt){
+	                                flag = false;
+	                            }
+	                        }
+	                    }
+	                    return flag;
+	                };
+	                attrs.$observe('smaller', function() {
+	                    ctrl.$validate();
+	                });
+	            }
+	        };
+	    });
+
+	    //bigger
+	    app.directive('bigger',function(){
+	        return {
+	            restrict:"A",
+	            scope:true,
+	            require:"ngModel",
+	            link:function(scope,ele,attrs,ctrl){
+	                ctrl.$validators.bigger = function(modelValue, viewValue) {
+	                    var flag = true ;
+	                    var compareVal = attrs['bigger'] ;
+	                    if(viewValue!=''&&compareVal!=''){
+	                        if(!isNaN(viewValue)&&!isNaN(compareVal)){//都为数值时
+	                            var curInt = parseFloat(viewValue) ;
+	                            var comInt = parseFloat(compareVal) ;
+	                            if(curInt<comInt){
+	                                flag = false;
+	                            }
+	                        }
+	                    }
+	                    return flag;
+	                };
+	                attrs.$observe('bigger', function() {
+	                    ctrl.$validate();
+	                });
+	            }
+	        }
+	    });
+
+	    //biggerDate
+	    app.directive('bd',function(){
+	        return {
+	            restrict:"A",
+	            scope:true,
+	            require:"ngModel",
+	            link:function(scope,ele,attrs,ctrl){
+	                if (!ctrl) return;
+	                ctrl.$validators.bd = function(modelValue, viewValue) {
+	                    var compareVal = attrs['bd'] ;
+	                    if(viewValue!=''&&compareVal!=''){
+	                        return util.isBiggerDateThan(viewValue,compareVal) ;
+	                    }
+	                    return true;
+	                };
+	                attrs.$observe('bd', function() {
+	                    ctrl.$validate();
+	                });
+	            }
+	        }
+	    });
+
+	    //smallerDate
+	    app.directive('sd',function(){
+	        return {
+	            restrict:"A",
+	            scope:true,
+	            require:"ngModel",
+	            link:function(scope,ele,attrs,ctrl){
+	                if (!ctrl) return;
+	                ctrl.$validators.sd = function(modelValue, viewValue) {
+	                    var compareVal = attrs['sd'] ;
+	                    if(viewValue!=''&&compareVal!=''){
+	                        return util.isSmallerDateThan(viewValue,compareVal) ; 
+	                    }
+	                    return true;
+	                };
+	                attrs.$observe('sd', function() {
+	                    ctrl.$validate();
+	                });
+	            }
+	        }
+	    });
+	    
+	    
+	    //biggerThanCurrent
+	    app.directive('btc',function(){
+	        return {
+	            restrict:"A",
+	            scope:true,
+	            require:"ngModel",
+	            link:function(scope,ele,attrs,ctrl){
+	            	if (!ctrl) return;
+	                ctrl.$validators.btc = function(modelValue, viewValue) {
+	                     var statusDes = scope.data.statusDes ;
+		                 if(viewValue!=''&&!util.checkStatusIsDisable(statusDes)){
+		                      return util.isBiggerThanCurrent(viewValue) ;
+		                }
+		                 return true ;
+	                };
+	            }
+	        }
+	    });
+	    
+	    
+	    app.directive('dateoc',function(){
+	        return {
+	            restrict:"A",
+	            scope:true,
+	            require:"ngModel",
+	            link:function(scope,ele,attrs,ctrl){
+	                if (!ctrl) return;
+	                ctrl.$validators.dateoc = function(modelValue, viewValue) {
+			                if(viewValue!=''){
+		                        return util.isDateOC(viewValue);
+		                    }
+		                    return true ;
+	                };
+	            }
+	        }
+	    });
+	    
+	  //自定义校验(三字码)
+	    app.directive('threecode',function(){
+	        return {
+	            restrict:"A",
+	            scope:true,
+	            require:"ngModel",
+	            link:function(scope,ele,attrs,ctrl){
+	            	if (!ctrl) return;
+	                ctrl.$validators.threecode = function(modelValue, viewValue) {
+			                if(viewValue!=''){
+		                        return util.isThreecode(viewValue) ;
+		                    }
+		                    return true ;
+	                };
+	            }
+	        }
+	    });
+
+	    app.directive('air',function(){
+	        return {
+	            restrict:"A",
+	            scope:true,
+	            require:"ngModel",
+	            link:function(scope,ele,attrs,ctrl){
+	            	if (!ctrl) return;
+	                ctrl.$validators.threecode = function(modelValue, viewValue) {
+			                if(viewValue!=''){
+		                        return util.isAir(viewValue);
+		                    }
+		                    return true ;
+	                };
+	            }
+	        }
+	    });
+
+	    //发布对象校验
+	    app.directive('publicobj',function(){
+	        return {
+	            restrict:"A",
+	            scope:true,
+	            require:"ngModel",
+	            link:function(scope,ele,attrs,ctrl){
+	                ctrl.$parsers.push(function(viewValue){
+	                    var curType = attrs['publicobj'] ;
+	                    var len = viewValue.length ;
+	                    if(curType=='T'){
+	                        if(len>6){
+	                            ctrl.$setValidity('length6',false);
+	                        }else{
+	                            ctrl.$setValidity('length6',true);
+	                        }
+	                        ctrl.$setValidity('length8',true);
+	                    }else{
+	                        if(len>8){
+	                            ctrl.$setValidity('length8',false);
+	                        }else{
+	                            ctrl.$setValidity('length8',true);
+	                        }
+	                        ctrl.$setValidity('length6',true);
+	                    }
+	                    return viewValue;
+	                });
+	            }
+	        }
+	    });
+	    
+	    
+	    
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;//主要用来加载各个控制器（所有的控制器都将在这个文件中被加载）,除此之外再不用做其他，
+	//因为我们可以有很多个控制器文件，按照具体需要进行添加。
+	!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module) {
+		 //需要的插件
+		 __webpack_require__(36) ;
+		 __webpack_require__(38) ;
+		 //头部
+		 __webpack_require__(44) ;
+		 //基本信息部分
+		 __webpack_require__(45) ;
+		 //第一块信息
+		 __webpack_require__(46) ;
+		 //第二块信息
+		 __webpack_require__(47) ;
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(37);
+
+
+/***/ },
+/* 37 */
+/***/ function(module, exports) {
+
+	/*
+	 * jQuery timepicker addon
+	 * By: Trent Richardson [http://trentrichardson.com]
+	 * Version 1.3
+	 * Last Modified: 05/05/2013
+	 *
+	 * Copyright 2013 Trent Richardson
+	 * You may use this project under MIT or GPL licenses.
+	 * http://trentrichardson.com/Impromptu/GPL-LICENSE.txt
+	 * http://trentrichardson.com/Impromptu/MIT-LICENSE.txt
+	 */
+
+	/*jslint evil: true, white: false, undef: false, nomen: false */
+	(function($) {
+		/*
+		* Lets not redefine timepicker, Prevent "Uncaught RangeError: Maximum call stack size exceeded"
+		*/
+		$.ui.timepicker = $.ui.timepicker || {};
+		if ($.ui.timepicker.version) {
+			return;
+		}
+
+		/*
+		* Extend jQueryUI, get it started with our version number
+		*/
+		$.extend($.ui, {
+			timepicker: {
+				version: "1.3"
+			}
+		});
+
+		/* 
+		* Timepicker manager.
+		* Use the singleton instance of this class, $.timepicker, to interact with the time picker.
+		* Settings for (groups of) time pickers are maintained in an instance object,
+		* allowing multiple different settings on the same page.
+		*/
+		var Timepicker = function() {
+			this.regional = []; // Available regional settings, indexed by language code
+			this.regional[''] = { // Default regional settings
+				currentText: 'Now',
+				closeText: 'Done',
+				amNames: ['AM', 'A'],
+				pmNames: ['PM', 'P'],
+				timeFormat: 'HH:mm',
+				timeSuffix: '',
+				timeOnlyTitle: 'Choose Time',
+				timeText: 'Time',
+				hourText: 'Hour',
+				minuteText: 'Minute',
+				secondText: 'Second',
+				millisecText: 'Millisecond',
+				microsecText: 'Microsecond',
+				timezoneText: 'Time Zone',
+				isRTL: false
+			};
+			this._defaults = { // Global defaults for all the datetime picker instances
+				showButtonPanel: true,
+				timeOnly: false,
+				showHour: null,
+				showMinute: null,
+				showSecond: null,
+				showMillisec: null,
+				showMicrosec: null,
+				showTimezone: null,
+				showTime: true,
+				stepHour: 1,
+				stepMinute: 1,
+				stepSecond: 1,
+				stepMillisec: 1,
+				stepMicrosec: 1,
+				hour: 0,
+				minute: 0,
+				second: 0,
+				millisec: 0,
+				microsec: 0,
+				timezone: null,
+				hourMin: 0,
+				minuteMin: 0,
+				secondMin: 0,
+				millisecMin: 0,
+				microsecMin: 0,
+				hourMax: 23,
+				minuteMax: 59,
+				secondMax: 59,
+				millisecMax: 999,
+				microsecMax: 999,
+				minDateTime: null,
+				maxDateTime: null,
+				onSelect: null,
+				hourGrid: 0,
+				minuteGrid: 0,
+				secondGrid: 0,
+				millisecGrid: 0,
+				microsecGrid: 0,
+				alwaysSetTime: true,
+				separator: ' ',
+				altFieldTimeOnly: true,
+				altTimeFormat: null,
+				altSeparator: null,
+				altTimeSuffix: null,
+				pickerTimeFormat: null,
+				pickerTimeSuffix: null,
+				showTimepicker: true,
+				timezoneList: null,
+				addSliderAccess: false,
+				sliderAccessArgs: null,
+				controlType: 'slider',
+				defaultValue: null,
+				parse: 'strict'
+			};
+			$.extend(this._defaults, this.regional['']);
+		};
+
+		$.extend(Timepicker.prototype, {
+			$input: null,
+			$altInput: null,
+			$timeObj: null,
+			inst: null,
+			hour_slider: null,
+			minute_slider: null,
+			second_slider: null,
+			millisec_slider: null,
+			microsec_slider: null,
+			timezone_select: null,
+			hour: 0,
+			minute: 0,
+			second: 0,
+			millisec: 0,
+			microsec: 0,
+			timezone: null,
+			hourMinOriginal: null,
+			minuteMinOriginal: null,
+			secondMinOriginal: null,
+			millisecMinOriginal: null,
+			microsecMinOriginal: null,
+			hourMaxOriginal: null,
+			minuteMaxOriginal: null,
+			secondMaxOriginal: null,
+			millisecMaxOriginal: null,
+			microsecMaxOriginal: null,
+			ampm: '',
+			formattedDate: '',
+			formattedTime: '',
+			formattedDateTime: '',
+			timezoneList: null,
+			units: ['hour','minute','second','millisec', 'microsec'],
+			support: {},
+			control: null,
+
+			/* 
+			* Override the default settings for all instances of the time picker.
+			* @param  settings  object - the new settings to use as defaults (anonymous object)
+			* @return the manager object
+			*/
+			setDefaults: function(settings) {
+				extendRemove(this._defaults, settings || {});
+				return this;
+			},
+
+			/*
+			* Create a new Timepicker instance
+			*/
+			_newInst: function($input, o) {
+				var tp_inst = new Timepicker(),
+					inlineSettings = {},
+	            	fns = {},
+			    	overrides, i;
+
+				for (var attrName in this._defaults) {
+					if(this._defaults.hasOwnProperty(attrName)){
+						var attrValue = $input.attr('time:' + attrName);
+						if (attrValue) {
+							try {
+								inlineSettings[attrName] = eval(attrValue);
+							} catch (err) {
+								inlineSettings[attrName] = attrValue;
+							}
+						}
+					}
+				}
+
+			    overrides = {
+			        beforeShow: function (input, dp_inst) {
+			            if ($.isFunction(tp_inst._defaults.evnts.beforeShow)) {
+			                return tp_inst._defaults.evnts.beforeShow.call($input[0], input, dp_inst, tp_inst);
+			            }
+			        },
+			        onChangeMonthYear: function (year, month, dp_inst) {
+			            // Update the time as well : this prevents the time from disappearing from the $input field.
+			            tp_inst._updateDateTime(dp_inst);
+			            if ($.isFunction(tp_inst._defaults.evnts.onChangeMonthYear)) {
+			                tp_inst._defaults.evnts.onChangeMonthYear.call($input[0], year, month, dp_inst, tp_inst);
+			            }
+			        },
+			        onClose: function (dateText, dp_inst) {
+			            if (tp_inst.timeDefined === true && $input.val() !== '') {
+			                tp_inst._updateDateTime(dp_inst);
+			            }
+			            if ($.isFunction(tp_inst._defaults.evnts.onClose)) {
+			                tp_inst._defaults.evnts.onClose.call($input[0], dateText, dp_inst, tp_inst);
+			            }
+			        }
+			    };
+			    for (i in overrides) {
+			        if (overrides.hasOwnProperty(i)) {
+			            fns[i] = o[i] || null;
+			        }
+			    }
+
+			    tp_inst._defaults = $.extend({}, this._defaults, inlineSettings, o, overrides, {
+			        evnts:fns,
+			        timepicker: tp_inst // add timepicker as a property of datepicker: $.datepicker._get(dp_inst, 'timepicker');
+			    });
+				tp_inst.amNames = $.map(tp_inst._defaults.amNames, function(val) {
+					return val.toUpperCase();
+				});
+				tp_inst.pmNames = $.map(tp_inst._defaults.pmNames, function(val) {
+					return val.toUpperCase();
+				});
+
+				// detect which units are supported
+				tp_inst.support = detectSupport(
+						tp_inst._defaults.timeFormat + 
+						(tp_inst._defaults.pickerTimeFormat? tp_inst._defaults.pickerTimeFormat:'') + 
+						(tp_inst._defaults.altTimeFormat? tp_inst._defaults.altTimeFormat:''));
+
+				// controlType is string - key to our this._controls
+				if(typeof(tp_inst._defaults.controlType) === 'string'){
+					if(tp_inst._defaults.controlType == 'slider' && typeof(jQuery.ui.slider) === 'undefined'){
+						tp_inst._defaults.controlType = 'select';
+					}
+					tp_inst.control = tp_inst._controls[tp_inst._defaults.controlType];
+				}
+				// controlType is an object and must implement create, options, value methods
+				else{ 
+					tp_inst.control = tp_inst._defaults.controlType;
+				}
+
+				// prep the timezone options
+				var timezoneList = [-720,-660,-600,-570,-540,-480,-420,-360,-300,-270,-240,-210,-180,-120,-60,
+						0,60,120,180,210,240,270,300,330,345,360,390,420,480,525,540,570,600,630,660,690,720,765,780,840];
+				if (tp_inst._defaults.timezoneList !== null) {
+					timezoneList = tp_inst._defaults.timezoneList;
+				}
+				var tzl=timezoneList.length,tzi=0,tzv=null;
+				if (tzl > 0 && typeof timezoneList[0] !== 'object') {
+					for(; tzi<tzl; tzi++){
+						tzv = timezoneList[tzi];
+						timezoneList[tzi] = { value: tzv, label: $.timepicker.timezoneOffsetString(tzv, tp_inst.support.iso8601) };
+					}
+				}
+				tp_inst._defaults.timezoneList = timezoneList;
+
+				// set the default units
+				tp_inst.timezone = tp_inst._defaults.timezone !== null? $.timepicker.timezoneOffsetNumber(tp_inst._defaults.timezone) : 
+								((new Date()).getTimezoneOffset()*-1);
+				tp_inst.hour = tp_inst._defaults.hour < tp_inst._defaults.hourMin? tp_inst._defaults.hourMin : 
+								tp_inst._defaults.hour > tp_inst._defaults.hourMax? tp_inst._defaults.hourMax : tp_inst._defaults.hour;
+				tp_inst.minute = tp_inst._defaults.minute < tp_inst._defaults.minuteMin? tp_inst._defaults.minuteMin : 
+								tp_inst._defaults.minute > tp_inst._defaults.minuteMax? tp_inst._defaults.minuteMax : tp_inst._defaults.minute;
+				tp_inst.second = tp_inst._defaults.second < tp_inst._defaults.secondMin? tp_inst._defaults.secondMin : 
+								tp_inst._defaults.second > tp_inst._defaults.secondMax? tp_inst._defaults.secondMax : tp_inst._defaults.second;
+				tp_inst.millisec = tp_inst._defaults.millisec < tp_inst._defaults.millisecMin? tp_inst._defaults.millisecMin : 
+								tp_inst._defaults.millisec > tp_inst._defaults.millisecMax? tp_inst._defaults.millisecMax : tp_inst._defaults.millisec;
+				tp_inst.microsec = tp_inst._defaults.microsec < tp_inst._defaults.microsecMin? tp_inst._defaults.microsecMin : 
+								tp_inst._defaults.microsec > tp_inst._defaults.microsecMax? tp_inst._defaults.microsecMax : tp_inst._defaults.microsec;
+				tp_inst.ampm = '';
+				tp_inst.$input = $input;
+
+				if (o.altField) {
+					tp_inst.$altInput = $(o.altField).css({
+						cursor: 'pointer'
+					}).focus(function() {
+						$input.trigger("focus");
+					});
+				}
+
+				if (tp_inst._defaults.minDate === 0 || tp_inst._defaults.minDateTime === 0) {
+					tp_inst._defaults.minDate = new Date();
+				}
+				if (tp_inst._defaults.maxDate === 0 || tp_inst._defaults.maxDateTime === 0) {
+					tp_inst._defaults.maxDate = new Date();
+				}
+
+				// datepicker needs minDate/maxDate, timepicker needs minDateTime/maxDateTime..
+				if (tp_inst._defaults.minDate !== undefined && tp_inst._defaults.minDate instanceof Date) {
+					tp_inst._defaults.minDateTime = new Date(tp_inst._defaults.minDate.getTime());
+				}
+				if (tp_inst._defaults.minDateTime !== undefined && tp_inst._defaults.minDateTime instanceof Date) {
+					tp_inst._defaults.minDate = new Date(tp_inst._defaults.minDateTime.getTime());
+				}
+				if (tp_inst._defaults.maxDate !== undefined && tp_inst._defaults.maxDate instanceof Date) {
+					tp_inst._defaults.maxDateTime = new Date(tp_inst._defaults.maxDate.getTime());
+				}
+				if (tp_inst._defaults.maxDateTime !== undefined && tp_inst._defaults.maxDateTime instanceof Date) {
+					tp_inst._defaults.maxDate = new Date(tp_inst._defaults.maxDateTime.getTime());
+				}
+				tp_inst.$input.bind('focus', function() {
+					tp_inst._onFocus();
+				});
+
+				return tp_inst;
+			},
+
+			/*
+			* add our sliders to the calendar
+			*/
+			_addTimePicker: function(dp_inst) {
+				var currDT = (this.$altInput && this._defaults.altFieldTimeOnly) ? this.$input.val() + ' ' + this.$altInput.val() : this.$input.val();
+
+				this.timeDefined = this._parseTime(currDT);
+				this._limitMinMaxDateTime(dp_inst, false);
+				this._injectTimePicker();
+			},
+
+			/*
+			* parse the time string from input value or _setTime
+			*/
+			_parseTime: function(timeString, withDate) {
+				if (!this.inst) {
+					this.inst = $.datepicker._getInst(this.$input[0]);
+				}
+
+				if (withDate || !this._defaults.timeOnly) {
+					var dp_dateFormat = $.datepicker._get(this.inst, 'dateFormat');
+					try {
+						var parseRes = parseDateTimeInternal(dp_dateFormat, this._defaults.timeFormat, timeString, $.datepicker._getFormatConfig(this.inst), this._defaults);
+						if (!parseRes.timeObj) {
+							return false;
+						}
+						$.extend(this, parseRes.timeObj);
+					} catch (err) {
+						$.timepicker.log("Error parsing the date/time string: " + err +
+										"\ndate/time string = " + timeString +
+										"\ntimeFormat = " + this._defaults.timeFormat +
+										"\ndateFormat = " + dp_dateFormat);
+						return false;
+					}
+					return true;
+				} else {
+					var timeObj = $.datepicker.parseTime(this._defaults.timeFormat, timeString, this._defaults);
+					if (!timeObj) {
+						return false;
+					}
+					$.extend(this, timeObj);
+					return true;
+				}
+			},
+
+			/*
+			* generate and inject html for timepicker into ui datepicker
+			*/
+			_injectTimePicker: function() {
+				var $dp = this.inst.dpDiv,
+					o = this.inst.settings,
+					tp_inst = this,
+					litem = '',
+					uitem = '',
+					show = null,
+					max = {},
+					gridSize = {},
+					size = null,
+					i=0,
+					l=0;
+
+				// Prevent displaying twice
+				if ($dp.find("div.ui-timepicker-div").length === 0 && o.showTimepicker) {
+					var noDisplay = ' style="display:none;"',
+						html = '<div class="ui-timepicker-div'+ (o.isRTL? ' ui-timepicker-rtl' : '') +'"><dl>' + '<dt class="ui_tpicker_time_label"' + ((o.showTime) ? '' : noDisplay) + '>' + o.timeText + '</dt>' + 
+									'<dd class="ui_tpicker_time"' + ((o.showTime) ? '' : noDisplay) + '></dd>';
+
+					// Create the markup
+					for(i=0,l=this.units.length; i<l; i++){
+						litem = this.units[i];
+						uitem = litem.substr(0,1).toUpperCase() + litem.substr(1);
+						show = o['show'+uitem] !== null? o['show'+uitem] : this.support[litem];
+
+						// Added by Peter Medeiros:
+						// - Figure out what the hour/minute/second max should be based on the step values.
+						// - Example: if stepMinute is 15, then minMax is 45.
+						max[litem] = parseInt((o[litem+'Max'] - ((o[litem+'Max'] - o[litem+'Min']) % o['step'+uitem])), 10);
+						gridSize[litem] = 0;
+
+						html += '<dt class="ui_tpicker_'+ litem +'_label"' + (show ? '' : noDisplay) + '>' + o[litem +'Text'] + '</dt>' + 
+									'<dd class="ui_tpicker_'+ litem +'"><div class="ui_tpicker_'+ litem +'_slider"' + (show ? '' : noDisplay) + '></div>';
+
+						if (show && o[litem+'Grid'] > 0) {
+							html += '<div style="padding-left: 1px"><table class="ui-tpicker-grid-label"><tr>';
+
+							if(litem == 'hour'){
+								for (var h = o[litem+'Min']; h <= max[litem]; h += parseInt(o[litem+'Grid'], 10)) {
+									gridSize[litem]++;
+									var tmph = $.datepicker.formatTime(this.support.ampm? 'hht':'HH', {hour:h}, o);									
+									html += '<td data-for="'+litem+'">' + tmph + '</td>';
+								}
+							}
+							else{
+								for (var m = o[litem+'Min']; m <= max[litem]; m += parseInt(o[litem+'Grid'], 10)) {
+									gridSize[litem]++;
+									html += '<td data-for="'+litem+'">' + ((m < 10) ? '0' : '') + m + '</td>';
+								}
+							}
+
+							html += '</tr></table></div>';
+						}
+						html += '</dd>';
+					}
+					
+					// Timezone
+					var showTz = o.showTimezone !== null? o.showTimezone : this.support.timezone;
+					html += '<dt class="ui_tpicker_timezone_label"' + (showTz ? '' : noDisplay) + '>' + o.timezoneText + '</dt>';
+					html += '<dd class="ui_tpicker_timezone" ' + (showTz ? '' : noDisplay) + '></dd>';
+
+					// Create the elements from string
+					html += '</dl></div>';
+					var $tp = $(html);
+
+					// if we only want time picker...
+					if (o.timeOnly === true) {
+						$tp.prepend('<div class="ui-widget-header ui-helper-clearfix ui-corner-all">' + '<div class="ui-datepicker-title">' + o.timeOnlyTitle + '</div>' + '</div>');
+						$dp.find('.ui-datepicker-header, .ui-datepicker-calendar').hide();
+					}
+					
+					// add sliders, adjust grids, add events
+					for(i=0,l=tp_inst.units.length; i<l; i++){
+						litem = tp_inst.units[i];
+						uitem = litem.substr(0,1).toUpperCase() + litem.substr(1);
+						show = o['show'+uitem] !== null? o['show'+uitem] : this.support[litem];
+
+						// add the slider
+						tp_inst[litem+'_slider'] = tp_inst.control.create(tp_inst, $tp.find('.ui_tpicker_'+litem+'_slider'), litem, tp_inst[litem], o[litem+'Min'], max[litem], o['step'+uitem]);
+
+						// adjust the grid and add click event
+						if (show && o[litem+'Grid'] > 0) {
+							size = 100 * gridSize[litem] * o[litem+'Grid'] / (max[litem] - o[litem+'Min']);
+							$tp.find('.ui_tpicker_'+litem+' table').css({
+								width: size + "%",
+								marginLeft: o.isRTL? '0' : ((size / (-2 * gridSize[litem])) + "%"),
+								marginRight: o.isRTL? ((size / (-2 * gridSize[litem])) + "%") : '0',
+								borderCollapse: 'collapse'
+							}).find("td").click(function(e){
+									var $t = $(this),
+										h = $t.html(),
+										n = parseInt(h.replace(/[^0-9]/g),10),
+										ap = h.replace(/[^apm]/ig),
+										f = $t.data('for'); // loses scope, so we use data-for
+
+									if(f == 'hour'){
+										if(ap.indexOf('p') !== -1 && n < 12){
+											n += 12;
+										}
+										else{
+											if(ap.indexOf('a') !== -1 && n === 12){
+												n = 0;
+											}
+										}
+									}
+									
+									tp_inst.control.value(tp_inst, tp_inst[f+'_slider'], litem, n);
+
+									tp_inst._onTimeChange();
+									tp_inst._onSelectHandler();
+								}).css({
+									cursor: 'pointer',
+									width: (100 / gridSize[litem]) + '%',
+									textAlign: 'center',
+									overflow: 'hidden'
+								});
+						} // end if grid > 0
+					} // end for loop
+
+					// Add timezone options
+					this.timezone_select = $tp.find('.ui_tpicker_timezone').append('<select></select>').find("select");
+					$.fn.append.apply(this.timezone_select,
+					$.map(o.timezoneList, function(val, idx) {
+						return $("<option />").val(typeof val == "object" ? val.value : val).text(typeof val == "object" ? val.label : val);
+					}));
+					if (typeof(this.timezone) != "undefined" && this.timezone !== null && this.timezone !== "") {
+						var local_timezone = (new Date(this.inst.selectedYear, this.inst.selectedMonth, this.inst.selectedDay, 12)).getTimezoneOffset()*-1;
+						if (local_timezone == this.timezone) {
+							selectLocalTimezone(tp_inst);
+						} else {
+							this.timezone_select.val(this.timezone);
+						}
+					} else {
+						if (typeof(this.hour) != "undefined" && this.hour !== null && this.hour !== "") {
+							this.timezone_select.val(o.timezone);
+						} else {
+							selectLocalTimezone(tp_inst);
+						}
+					}
+					this.timezone_select.change(function() {
+						tp_inst._onTimeChange();
+						tp_inst._onSelectHandler();
+					});
+					// End timezone options
+					
+					// inject timepicker into datepicker
+					var $buttonPanel = $dp.find('.ui-datepicker-buttonpane');
+					if ($buttonPanel.length) {
+						$buttonPanel.before($tp);
+					} else {
+						$dp.append($tp);
+					}
+
+					this.$timeObj = $tp.find('.ui_tpicker_time');
+
+					if (this.inst !== null) {
+						var timeDefined = this.timeDefined;
+						this._onTimeChange();
+						this.timeDefined = timeDefined;
+					}
+
+					// slideAccess integration: http://trentrichardson.com/2011/11/11/jquery-ui-sliders-and-touch-accessibility/
+					if (this._defaults.addSliderAccess) {
+						var sliderAccessArgs = this._defaults.sliderAccessArgs,
+							rtl = this._defaults.isRTL;
+						sliderAccessArgs.isRTL = rtl;
+							
+						setTimeout(function() { // fix for inline mode
+							if ($tp.find('.ui-slider-access').length === 0) {
+								$tp.find('.ui-slider:visible').sliderAccess(sliderAccessArgs);
+
+								// fix any grids since sliders are shorter
+								var sliderAccessWidth = $tp.find('.ui-slider-access:eq(0)').outerWidth(true);
+								if (sliderAccessWidth) {
+									$tp.find('table:visible').each(function() {
+										var $g = $(this),
+											oldWidth = $g.outerWidth(),
+											oldMarginLeft = $g.css(rtl? 'marginRight':'marginLeft').toString().replace('%', ''),
+											newWidth = oldWidth - sliderAccessWidth,
+											newMarginLeft = ((oldMarginLeft * newWidth) / oldWidth) + '%',
+											css = { width: newWidth, marginRight: 0, marginLeft: 0 };
+										css[rtl? 'marginRight':'marginLeft'] = newMarginLeft;
+										$g.css(css);
+									});
+								}
+							}
+						}, 10);
+					}
+					// end slideAccess integration
+
+				}
+			},
+
+			/*
+			* This function tries to limit the ability to go outside the
+			* min/max date range
+			*/
+			_limitMinMaxDateTime: function(dp_inst, adjustSliders) {
+				var o = this._defaults,
+					dp_date = new Date(dp_inst.selectedYear, dp_inst.selectedMonth, dp_inst.selectedDay);
+
+				if (!this._defaults.showTimepicker) {
+					return;
+				} // No time so nothing to check here
+
+				if ($.datepicker._get(dp_inst, 'minDateTime') !== null && $.datepicker._get(dp_inst, 'minDateTime') !== undefined && dp_date) {
+					var minDateTime = $.datepicker._get(dp_inst, 'minDateTime'),
+						minDateTimeDate = new Date(minDateTime.getFullYear(), minDateTime.getMonth(), minDateTime.getDate(), 0, 0, 0, 0);
+
+					if (this.hourMinOriginal === null || this.minuteMinOriginal === null || this.secondMinOriginal === null || this.millisecMinOriginal === null || this.microsecMinOriginal === null) {
+						this.hourMinOriginal = o.hourMin;
+						this.minuteMinOriginal = o.minuteMin;
+						this.secondMinOriginal = o.secondMin;
+						this.millisecMinOriginal = o.millisecMin;
+						this.microsecMinOriginal = o.microsecMin;
+					}
+
+					if (dp_inst.settings.timeOnly || minDateTimeDate.getTime() == dp_date.getTime()) {
+						this._defaults.hourMin = minDateTime.getHours();
+						if (this.hour <= this._defaults.hourMin) {
+							this.hour = this._defaults.hourMin;
+							this._defaults.minuteMin = minDateTime.getMinutes();
+							if (this.minute <= this._defaults.minuteMin) {
+								this.minute = this._defaults.minuteMin;
+								this._defaults.secondMin = minDateTime.getSeconds();
+								if (this.second <= this._defaults.secondMin) {
+									this.second = this._defaults.secondMin;
+									this._defaults.millisecMin = minDateTime.getMilliseconds();
+									if(this.millisec <= this._defaults.millisecMin) {
+										this.millisec = this._defaults.millisecMin;
+										this._defaults.microsecMin = minDateTime.getMicroseconds();
+									} else {
+										if (this.microsec < this._defaults.microsecMin) {
+											this.microsec = this._defaults.microsecMin;
+										}
+										this._defaults.microsecMin = this.microsecMinOriginal;
+									}
+								} else {
+									this._defaults.millisecMin = this.millisecMinOriginal;
+									this._defaults.microsecMin = this.microsecMinOriginal;
+								}
+							} else {
+								this._defaults.secondMin = this.secondMinOriginal;
+								this._defaults.millisecMin = this.millisecMinOriginal;
+								this._defaults.microsecMin = this.microsecMinOriginal;
+							}
+						} else {
+							this._defaults.minuteMin = this.minuteMinOriginal;
+							this._defaults.secondMin = this.secondMinOriginal;
+							this._defaults.millisecMin = this.millisecMinOriginal;
+							this._defaults.microsecMin = this.microsecMinOriginal;
+						}
+					} else {
+						this._defaults.hourMin = this.hourMinOriginal;
+						this._defaults.minuteMin = this.minuteMinOriginal;
+						this._defaults.secondMin = this.secondMinOriginal;
+						this._defaults.millisecMin = this.millisecMinOriginal;
+						this._defaults.microsecMin = this.microsecMinOriginal;
+					}
+				}
+
+				if ($.datepicker._get(dp_inst, 'maxDateTime') !== null && $.datepicker._get(dp_inst, 'maxDateTime') !== undefined && dp_date) {
+					var maxDateTime = $.datepicker._get(dp_inst, 'maxDateTime'),
+						maxDateTimeDate = new Date(maxDateTime.getFullYear(), maxDateTime.getMonth(), maxDateTime.getDate(), 0, 0, 0, 0);
+
+					if (this.hourMaxOriginal === null || this.minuteMaxOriginal === null || this.secondMaxOriginal === null || this.millisecMaxOriginal === null) {
+						this.hourMaxOriginal = o.hourMax;
+						this.minuteMaxOriginal = o.minuteMax;
+						this.secondMaxOriginal = o.secondMax;
+						this.millisecMaxOriginal = o.millisecMax;
+						this.microsecMaxOriginal = o.microsecMax;
+					}
+
+					if (dp_inst.settings.timeOnly || maxDateTimeDate.getTime() == dp_date.getTime()) {
+						this._defaults.hourMax = maxDateTime.getHours();
+						if (this.hour >= this._defaults.hourMax) {
+							this.hour = this._defaults.hourMax;
+							this._defaults.minuteMax = maxDateTime.getMinutes();
+							if (this.minute >= this._defaults.minuteMax) {
+								this.minute = this._defaults.minuteMax;
+								this._defaults.secondMax = maxDateTime.getSeconds();
+								if (this.second >= this._defaults.secondMax) {
+									this.second = this._defaults.secondMax;
+									this._defaults.millisecMax = maxDateTime.getMilliseconds();
+									if (this.millisec >= this._defaults.millisecMax) {
+										this.millisec = this._defaults.millisecMax;
+										this._defaults.microsecMax = maxDateTime.getMicroseconds();
+									} else {
+										if (this.microsec > this._defaults.microsecMax) {
+											this.microsec = this._defaults.microsecMax;
+										}
+										this._defaults.microsecMax = this.microsecMaxOriginal;
+									}
+								} else {
+									this._defaults.millisecMax = this.millisecMaxOriginal;
+									this._defaults.microsecMax = this.microsecMaxOriginal;
+								}
+							} else {
+								this._defaults.secondMax = this.secondMaxOriginal;
+								this._defaults.millisecMax = this.millisecMaxOriginal;
+								this._defaults.microsecMax = this.microsecMaxOriginal;
+							}
+						} else {
+							this._defaults.minuteMax = this.minuteMaxOriginal;
+							this._defaults.secondMax = this.secondMaxOriginal;
+							this._defaults.millisecMax = this.millisecMaxOriginal;
+							this._defaults.microsecMax = this.microsecMaxOriginal;
+						}
+					} else {
+						this._defaults.hourMax = this.hourMaxOriginal;
+						this._defaults.minuteMax = this.minuteMaxOriginal;
+						this._defaults.secondMax = this.secondMaxOriginal;
+						this._defaults.millisecMax = this.millisecMaxOriginal;
+						this._defaults.microsecMax = this.microsecMaxOriginal;
+					}
+				}
+
+				if (adjustSliders !== undefined && adjustSliders === true) {
+					var hourMax = parseInt((this._defaults.hourMax - ((this._defaults.hourMax - this._defaults.hourMin) % this._defaults.stepHour)), 10),
+						minMax = parseInt((this._defaults.minuteMax - ((this._defaults.minuteMax - this._defaults.minuteMin) % this._defaults.stepMinute)), 10),
+						secMax = parseInt((this._defaults.secondMax - ((this._defaults.secondMax - this._defaults.secondMin) % this._defaults.stepSecond)), 10),
+						millisecMax = parseInt((this._defaults.millisecMax - ((this._defaults.millisecMax - this._defaults.millisecMin) % this._defaults.stepMillisec)), 10);
+						microsecMax = parseInt((this._defaults.microsecMax - ((this._defaults.microsecMax - this._defaults.microsecMin) % this._defaults.stepMicrosec)), 10);
+
+					if (this.hour_slider) {
+						this.control.options(this, this.hour_slider, 'hour', { min: this._defaults.hourMin, max: hourMax });
+						this.control.value(this, this.hour_slider, 'hour', this.hour - (this.hour % this._defaults.stepHour));
+					}
+					if (this.minute_slider) {
+						this.control.options(this, this.minute_slider, 'minute', { min: this._defaults.minuteMin, max: minMax });
+						this.control.value(this, this.minute_slider, 'minute', this.minute - (this.minute % this._defaults.stepMinute));
+					}
+					if (this.second_slider) {
+						this.control.options(this, this.second_slider, 'second', { min: this._defaults.secondMin, max: secMax });
+						this.control.value(this, this.second_slider, 'second', this.second - (this.second % this._defaults.stepSecond));
+					}
+					if (this.millisec_slider) {
+						this.control.options(this, this.millisec_slider, 'millisec', { min: this._defaults.millisecMin, max: millisecMax });
+						this.control.value(this, this.millisec_slider, 'millisec', this.millisec - (this.millisec % this._defaults.stepMillisec));
+					}
+					if (this.microsec_slider) {
+						this.control.options(this, this.microsec_slider, 'microsec', { min: this._defaults.microsecMin, max: microsecMax });
+						this.control.value(this, this.microsec_slider, 'microsec', this.microsec - (this.microsec % this._defaults.stepMicrosec));
+					}
+				}
+
+			},
+
+			/*
+			* when a slider moves, set the internal time...
+			* on time change is also called when the time is updated in the text field
+			*/
+			_onTimeChange: function() {
+				var hour = (this.hour_slider) ? this.control.value(this, this.hour_slider, 'hour') : false,
+					minute = (this.minute_slider) ? this.control.value(this, this.minute_slider, 'minute') : false,
+					second = (this.second_slider) ? this.control.value(this, this.second_slider, 'second') : false,
+					millisec = (this.millisec_slider) ? this.control.value(this, this.millisec_slider, 'millisec') : false,
+					microsec = (this.microsec_slider) ? this.control.value(this, this.microsec_slider, 'microsec') : false,
+					timezone = (this.timezone_select) ? this.timezone_select.val() : false,
+					o = this._defaults,
+					pickerTimeFormat = o.pickerTimeFormat || o.timeFormat,
+					pickerTimeSuffix = o.pickerTimeSuffix || o.timeSuffix;
+
+				if (typeof(hour) == 'object') {
+					hour = false;
+				}
+				if (typeof(minute) == 'object') {
+					minute = false;
+				}
+				if (typeof(second) == 'object') {
+					second = false;
+				}
+				if (typeof(millisec) == 'object') {
+					millisec = false;
+				}
+				if (typeof(microsec) == 'object') {
+					microsec = false;
+				}
+				if (typeof(timezone) == 'object') {
+					timezone = false;
+				}
+
+				if (hour !== false) {
+					hour = parseInt(hour, 10);
+				}
+				if (minute !== false) {
+					minute = parseInt(minute, 10);
+				}
+				if (second !== false) {
+					second = parseInt(second, 10);
+				}
+				if (millisec !== false) {
+					millisec = parseInt(millisec, 10);
+				}
+				if (microsec !== false) {
+					microsec = parseInt(microsec, 10);
+				}
+
+				var ampm = o[hour < 12 ? 'amNames' : 'pmNames'][0];
+
+				// If the update was done in the input field, the input field should not be updated.
+				// If the update was done using the sliders, update the input field.
+				var hasChanged = (hour != this.hour || minute != this.minute || second != this.second || millisec != this.millisec || microsec != this.microsec 
+									|| (this.ampm.length > 0 && (hour < 12) != ($.inArray(this.ampm.toUpperCase(), this.amNames) !== -1)) 
+									|| (this.timezone !== null && timezone != this.timezone));
+
+				if (hasChanged) {
+
+					if (hour !== false) {
+						this.hour = hour;
+					}
+					if (minute !== false) {
+						this.minute = minute;
+					}
+					if (second !== false) {
+						this.second = second;
+					}
+					if (millisec !== false) {
+						this.millisec = millisec;
+					}
+					if (microsec !== false) {
+						this.microsec = microsec;
+					}
+					if (timezone !== false) {
+						this.timezone = timezone;
+					}
+
+					if (!this.inst) {
+						this.inst = $.datepicker._getInst(this.$input[0]);
+					}
+
+					this._limitMinMaxDateTime(this.inst, true);
+				}
+				if (this.support.ampm) {
+					this.ampm = ampm;
+				}
+
+				// Updates the time within the timepicker
+				this.formattedTime = $.datepicker.formatTime(o.timeFormat, this, o);
+				if (this.$timeObj) {
+					if(pickerTimeFormat === o.timeFormat){
+						this.$timeObj.text(this.formattedTime + pickerTimeSuffix);
+					}
+					else{
+						this.$timeObj.text($.datepicker.formatTime(pickerTimeFormat, this, o) + pickerTimeSuffix);
+					}
+				}
+
+				this.timeDefined = true;
+				if (hasChanged) {
+					this._updateDateTime();
+				}
+			},
+
+			/*
+			* call custom onSelect.
+			* bind to sliders slidestop, and grid click.
+			*/
+			_onSelectHandler: function() {
+				var onSelect = this._defaults.onSelect || this.inst.settings.onSelect;
+				var inputEl = this.$input ? this.$input[0] : null;
+				if (onSelect && inputEl) {
+					onSelect.apply(inputEl, [this.formattedDateTime, this]);
+				}
+			},
+
+			/*
+			* update our input with the new date time..
+			*/
+			_updateDateTime: function(dp_inst) {
+				dp_inst = this.inst || dp_inst;
+				var dt = $.datepicker._daylightSavingAdjust(new Date(dp_inst.selectedYear, dp_inst.selectedMonth, dp_inst.selectedDay)),
+					dateFmt = $.datepicker._get(dp_inst, 'dateFormat'),
+					formatCfg = $.datepicker._getFormatConfig(dp_inst),
+					timeAvailable = dt !== null && this.timeDefined;
+				this.formattedDate = $.datepicker.formatDate(dateFmt, (dt === null ? new Date() : dt), formatCfg);
+				var formattedDateTime = this.formattedDate;
+				
+				// if a slider was changed but datepicker doesn't have a value yet, set it
+				if(dp_inst.lastVal===""){
+	                dp_inst.currentYear=dp_inst.selectedYear;
+	                dp_inst.currentMonth=dp_inst.selectedMonth;
+	                dp_inst.currentDay=dp_inst.selectedDay;
+	            }
+
+				/*
+				* remove following lines to force every changes in date picker to change the input value
+				* Bug descriptions: when an input field has a default value, and click on the field to pop up the date picker. 
+				* If the user manually empty the value in the input field, the date picker will never change selected value.
+				*/
+				//if (dp_inst.lastVal !== undefined && (dp_inst.lastVal.length > 0 && this.$input.val().length === 0)) {
+				//	return;
+				//}
+
+				if (this._defaults.timeOnly === true) {
+					formattedDateTime = this.formattedTime;
+				} else if (this._defaults.timeOnly !== true && (this._defaults.alwaysSetTime || timeAvailable)) {
+					formattedDateTime += this._defaults.separator + this.formattedTime + this._defaults.timeSuffix;
+				}
+
+				this.formattedDateTime = formattedDateTime;
+
+				if (!this._defaults.showTimepicker) {
+					this.$input.val(this.formattedDate);
+				} else if (this.$altInput && this._defaults.timeOnly === false && this._defaults.altFieldTimeOnly === true) {
+					this.$altInput.val(this.formattedTime);
+					this.$input.val(this.formattedDate);
+				} else if (this.$altInput) {
+					this.$input.val(formattedDateTime);
+					var altFormattedDateTime = '',
+						altSeparator = this._defaults.altSeparator ? this._defaults.altSeparator : this._defaults.separator,
+						altTimeSuffix = this._defaults.altTimeSuffix ? this._defaults.altTimeSuffix : this._defaults.timeSuffix;
+					
+					if(!this._defaults.timeOnly){
+						if (this._defaults.altFormat){
+							altFormattedDateTime = $.datepicker.formatDate(this._defaults.altFormat, (dt === null ? new Date() : dt), formatCfg);
+						}
+						else{
+							altFormattedDateTime = this.formattedDate;
+						}
+
+						if (altFormattedDateTime){
+							altFormattedDateTime += altSeparator;
+						}
+					}
+
+					if(this._defaults.altTimeFormat){
+						altFormattedDateTime += $.datepicker.formatTime(this._defaults.altTimeFormat, this, this._defaults) + altTimeSuffix;
+					}
+					else{
+						altFormattedDateTime += this.formattedTime + altTimeSuffix;
+					}
+					this.$altInput.val(altFormattedDateTime);
+				} else {
+					this.$input.val(formattedDateTime);
+				}
+
+				this.$input.trigger("change");
+			},
+
+			_onFocus: function() {
+				if (!this.$input.val() && this._defaults.defaultValue) {
+					this.$input.val(this._defaults.defaultValue);
+					var inst = $.datepicker._getInst(this.$input.get(0)),
+						tp_inst = $.datepicker._get(inst, 'timepicker');
+					if (tp_inst) {
+						if (tp_inst._defaults.timeOnly && (inst.input.val() != inst.lastVal)) {
+							try {
+								$.datepicker._updateDatepicker(inst);
+							} catch (err) {
+								$.timepicker.log(err);
+							}
+						}
+					}
+				}
+			},
+
+			/*
+			* Small abstraction to control types
+			* We can add more, just be sure to follow the pattern: create, options, value
+			*/
+			_controls: {
+				// slider methods
+				slider: {
+					create: function(tp_inst, obj, unit, val, min, max, step){
+						var rtl = tp_inst._defaults.isRTL; // if rtl go -60->0 instead of 0->60
+						return obj.prop('slide', null).slider({
+							orientation: "horizontal",
+							value: rtl? val*-1 : val,
+							min: rtl? max*-1 : min,
+							max: rtl? min*-1 : max,
+							step: step,
+							slide: function(event, ui) {
+								tp_inst.control.value(tp_inst, $(this), unit, rtl? ui.value*-1:ui.value);
+								tp_inst._onTimeChange();
+							},
+							stop: function(event, ui) {
+								tp_inst._onSelectHandler();
+							}
+						});	
+					},
+					options: function(tp_inst, obj, unit, opts, val){
+						if(tp_inst._defaults.isRTL){
+							if(typeof(opts) == 'string'){
+								if(opts == 'min' || opts == 'max'){
+									if(val !== undefined){
+										return obj.slider(opts, val*-1);
+									}
+									return Math.abs(obj.slider(opts));
+								}
+								return obj.slider(opts);
+							}
+							var min = opts.min, 
+								max = opts.max;
+							opts.min = opts.max = null;
+							if(min !== undefined){
+								opts.max = min * -1;
+							}
+							if(max !== undefined){
+								opts.min = max * -1;
+							}
+							return obj.slider(opts);
+						}
+						if(typeof(opts) == 'string' && val !== undefined){
+								return obj.slider(opts, val);
+						}
+						return obj.slider(opts);
+					},
+					value: function(tp_inst, obj, unit, val){
+						if(tp_inst._defaults.isRTL){
+							if(val !== undefined){
+								return obj.slider('value', val*-1);
+							}
+							return Math.abs(obj.slider('value'));
+						}
+						if(val !== undefined){
+							return obj.slider('value', val);
+						}
+						return obj.slider('value');
+					}
+				},
+				// select methods
+				select: {
+					create: function(tp_inst, obj, unit, val, min, max, step){
+						var sel = '<select class="ui-timepicker-select" data-unit="'+ unit +'" data-min="'+ min +'" data-max="'+ max +'" data-step="'+ step +'">',
+							format = tp_inst._defaults.pickerTimeFormat || tp_inst._defaults.timeFormat;
+
+						for(var i=min; i<=max; i+=step){						
+							sel += '<option value="'+ i +'"'+ (i==val? ' selected':'') +'>';
+							if(unit == 'hour'){
+								sel += $.datepicker.formatTime($.trim(format.replace(/[^ht ]/ig,'')), {hour:i}, tp_inst._defaults);
+							}
+							else if(unit == 'millisec' || unit == 'microsec' || i >= 10){ sel += i; }
+							else {sel += '0'+ i.toString(); }
+							sel += '</option>';
+						}
+						sel += '</select>';
+
+						obj.children('select').remove();
+
+						$(sel).appendTo(obj).change(function(e){
+							tp_inst._onTimeChange();
+							tp_inst._onSelectHandler();
+						});
+
+						return obj;
+					},
+					options: function(tp_inst, obj, unit, opts, val){
+						var o = {},
+							$t = obj.children('select');
+						if(typeof(opts) == 'string'){
+							if(val === undefined){
+								return $t.data(opts);
+							}
+							o[opts] = val;	
+						}
+						else{ o = opts; }
+						return tp_inst.control.create(tp_inst, obj, $t.data('unit'), $t.val(), o.min || $t.data('min'), o.max || $t.data('max'), o.step || $t.data('step'));
+					},
+					value: function(tp_inst, obj, unit, val){
+						var $t = obj.children('select');
+						if(val !== undefined){
+							return $t.val(val);
+						}
+						return $t.val();
+					}
+				}
+			} // end _controls
+
+		});
+
+		$.fn.extend({
+			/*
+			* shorthand just to use timepicker..
+			*/
+			timepicker: function(o) {
+				o = o || {};
+				var tmp_args = Array.prototype.slice.call(arguments);
+
+				if (typeof o == 'object') {
+					tmp_args[0] = $.extend(o, {
+						timeOnly: true
+					});
+				}
+
+				return $(this).each(function() {
+					$.fn.datetimepicker.apply($(this), tmp_args);
+				});
+			},
+
+			/*
+			* extend timepicker to datepicker
+			*/
+			datetimepicker: function(o) {
+				o = o || {};
+				var tmp_args = arguments;
+
+				if (typeof(o) == 'string') {
+					if (o == 'getDate') {
+						return $.fn.datepicker.apply($(this[0]), tmp_args);
+					} else {
+						return this.each(function() {
+							var $t = $(this);
+							$t.datepicker.apply($t, tmp_args);
+						});
+					}
+				} else {
+					return this.each(function() {
+						var $t = $(this);
+						$t.datepicker($.timepicker._newInst($t, o)._defaults);
+					});
+				}
+			}
+		});
+
+		/*
+		* Public Utility to parse date and time
+		*/
+		$.datepicker.parseDateTime = function(dateFormat, timeFormat, dateTimeString, dateSettings, timeSettings) {
+			var parseRes = parseDateTimeInternal(dateFormat, timeFormat, dateTimeString, dateSettings, timeSettings);
+			if (parseRes.timeObj) {
+				var t = parseRes.timeObj;
+				parseRes.date.setHours(t.hour, t.minute, t.second, t.millisec);
+				parseRex.date.setMicroseconds(t.microsec);
+			}
+
+			return parseRes.date;
+		};
+
+		/*
+		* Public utility to parse time
+		*/
+		$.datepicker.parseTime = function(timeFormat, timeString, options) {		
+			var o = extendRemove(extendRemove({}, $.timepicker._defaults), options || {}),
+				iso8601 = (timeFormat.replace(/\'.*?\'/g,'').indexOf('Z') !== -1);
+
+			// Strict parse requires the timeString to match the timeFormat exactly
+			var strictParse = function(f, s, o){
+
+				// pattern for standard and localized AM/PM markers
+				var getPatternAmpm = function(amNames, pmNames) {
+					var markers = [];
+					if (amNames) {
+						$.merge(markers, amNames);
+					}
+					if (pmNames) {
+						$.merge(markers, pmNames);
+					}
+					markers = $.map(markers, function(val) {
+						return val.replace(/[.*+?|()\[\]{}\\]/g, '\\$&');
+					});
+					return '(' + markers.join('|') + ')?';
+				};
+
+				// figure out position of time elements.. cause js cant do named captures
+				var getFormatPositions = function(timeFormat) {
+					var finds = timeFormat.toLowerCase().match(/(h{1,2}|m{1,2}|s{1,2}|l{1}|c{1}|t{1,2}|z|'.*?')/g),
+						orders = {
+							h: -1,
+							m: -1,
+							s: -1,
+							l: -1,
+							c: -1,
+							t: -1,
+							z: -1
+						};
+
+					if (finds) {
+						for (var i = 0; i < finds.length; i++) {
+							if (orders[finds[i].toString().charAt(0)] == -1) {
+								orders[finds[i].toString().charAt(0)] = i + 1;
+							}
+						}
+					}
+					return orders;
+				};
+
+				var regstr = '^' + f.toString()
+						.replace(/([hH]{1,2}|mm?|ss?|[tT]{1,2}|[zZ]|[lc]|'.*?')/g, function (match) {
+								var ml = match.length;
+								switch (match.charAt(0).toLowerCase()) {
+									case 'h': return ml === 1? '(\\d?\\d)':'(\\d{'+ml+'})';
+									case 'm': return ml === 1? '(\\d?\\d)':'(\\d{'+ml+'})';
+									case 's': return ml === 1? '(\\d?\\d)':'(\\d{'+ml+'})';
+									case 'l': return '(\\d?\\d?\\d)';
+									case 'c': return '(\\d?\\d?\\d)';
+									case 'z': return '(z|[-+]\\d\\d:?\\d\\d|\\S+)?';
+									case 't': return getPatternAmpm(o.amNames, o.pmNames);
+									default:    // literal escaped in quotes
+										return '(' + match.replace(/\'/g, "").replace(/(\.|\$|\^|\\|\/|\(|\)|\[|\]|\?|\+|\*)/g, function (m) { return "\\" + m; }) + ')?';
+								}
+							})
+						.replace(/\s/g, '\\s?') +
+						o.timeSuffix + '$',
+					order = getFormatPositions(f),
+					ampm = '',
+					treg;
+
+				treg = s.match(new RegExp(regstr, 'i'));
+
+				var resTime = {
+					hour: 0,
+					minute: 0,
+					second: 0,
+					millisec: 0,
+					microsec: 0
+				};
+
+				if (treg) {
+					if (order.t !== -1) {
+						if (treg[order.t] === undefined || treg[order.t].length === 0) {
+							ampm = '';
+							resTime.ampm = '';
+						} else {
+							ampm = $.inArray(treg[order.t].toUpperCase(), o.amNames) !== -1 ? 'AM' : 'PM';
+							resTime.ampm = o[ampm == 'AM' ? 'amNames' : 'pmNames'][0];
+						}
+					}
+
+					if (order.h !== -1) {
+						if (ampm == 'AM' && treg[order.h] == '12') {
+							resTime.hour = 0; // 12am = 0 hour
+						} else {
+							if (ampm == 'PM' && treg[order.h] != '12') {
+								resTime.hour = parseInt(treg[order.h], 10) + 12; // 12pm = 12 hour, any other pm = hour + 12
+							} else {
+								resTime.hour = Number(treg[order.h]);
+							}
+						}
+					}
+
+					if (order.m !== -1) {
+						resTime.minute = Number(treg[order.m]);
+					}
+					if (order.s !== -1) {
+						resTime.second = Number(treg[order.s]);
+					}
+					if (order.l !== -1) {
+						resTime.millisec = Number(treg[order.l]);
+					}
+					if (order.c !== -1) {
+						resTime.microsec = Number(treg[order.c]);
+					}
+					if (order.z !== -1 && treg[order.z] !== undefined) {
+						resTime.timezone = $.timepicker.timezoneOffsetNumber(treg[order.z]);
+					}
+
+
+					return resTime;
+				}
+				return false;
+			};// end strictParse
+
+			// First try JS Date, if that fails, use strictParse
+			var looseParse = function(f,s,o){
+				try{
+					var d = new Date('2012-01-01 '+ s);
+					if(isNaN(d.getTime())){
+						d = new Date('2012-01-01T'+ s);
+						if(isNaN(d.getTime())){
+							d = new Date('01/01/2012 '+ s);
+							if(isNaN(d.getTime())){
+								throw "Unable to parse time with native Date: "+ s;
+							}
+						}
+					}
+
+					return {
+						hour: d.getHours(),
+						minute: d.getMinutes(),
+						second: d.getSeconds(),
+						millisec: d.getMilliseconds(),
+						microsec: d.getMicroseconds(),
+						timezone: d.getTimezoneOffset()*-1
+					};
+				}
+				catch(err){
+					try{
+						return strictParse(f,s,o);
+					}
+					catch(err2){
+						$.timepicker.log("Unable to parse \ntimeString: "+ s +"\ntimeFormat: "+ f);
+					}				
+				}
+				return false;
+			}; // end looseParse
+			
+			if(typeof o.parse === "function"){
+				return o.parse(timeFormat, timeString, o);
+			}
+			if(o.parse === 'loose'){
+				return looseParse(timeFormat, timeString, o);
+			}
+			return strictParse(timeFormat, timeString, o);
+		};
+
+		/*
+		* Public utility to format the time
+		* format = string format of the time
+		* time = a {}, not a Date() for timezones
+		* options = essentially the regional[].. amNames, pmNames, ampm
+		*/
+		$.datepicker.formatTime = function(format, time, options) {
+			options = options || {};
+			options = $.extend({}, $.timepicker._defaults, options);
+			time = $.extend({
+				hour: 0,
+				minute: 0,
+				second: 0,
+				millisec: 0,
+				timezone: 0
+			}, time);
+
+			var tmptime = format,
+				ampmName = options.amNames[0],
+				hour = parseInt(time.hour, 10);
+
+			if (hour > 11) {
+				ampmName = options.pmNames[0];
+			}
+
+			tmptime = tmptime.replace(/(?:HH?|hh?|mm?|ss?|[tT]{1,2}|[zZ]|[lc]|('.*?'|".*?"))/g, function(match) {
+			switch (match) {
+				case 'HH':
+					return ('0' + hour).slice(-2);
+				case 'H':
+					return hour;
+				case 'hh':
+					return ('0' + convert24to12(hour)).slice(-2);
+				case 'h':
+					return convert24to12(hour);
+				case 'mm':
+					return ('0' + time.minute).slice(-2);
+				case 'm':
+					return time.minute;
+				case 'ss':
+					return ('0' + time.second).slice(-2);
+				case 's':
+					return time.second;
+				case 'l':
+					return ('00' + time.millisec).slice(-3);
+				case 'c':
+					return ('00' + time.microsec).slice(-3);
+				case 'z':
+					return $.timepicker.timezoneOffsetString(time.timezone === null? options.timezone : time.timezone, false);
+				case 'Z':
+					return $.timepicker.timezoneOffsetString(time.timezone === null? options.timezone : time.timezone, true);
+				case 'T': 
+					return ampmName.charAt(0).toUpperCase();
+				case 'TT': 
+					return ampmName.toUpperCase();
+				case 't':
+					return ampmName.charAt(0).toLowerCase();
+				case 'tt':
+					return ampmName.toLowerCase();
+				default:
+					return match.replace(/\'/g, "") || "'";
+				}
+			});
+
+			tmptime = $.trim(tmptime);
+			return tmptime;
+		};
+
+		/*
+		* the bad hack :/ override datepicker so it doesnt close on select
+		// inspired: http://stackoverflow.com/questions/1252512/jquery-datepicker-prevent-closing-picker-when-clicking-a-date/1762378#1762378
+		*/
+		$.datepicker._base_selectDate = $.datepicker._selectDate;
+		$.datepicker._selectDate = function(id, dateStr) {
+			var inst = this._getInst($(id)[0]),
+				tp_inst = this._get(inst, 'timepicker');
+
+			if (tp_inst) {
+				tp_inst._limitMinMaxDateTime(inst, true);
+				inst.inline = inst.stay_open = true;
+				//This way the onSelect handler called from calendarpicker get the full dateTime
+				this._base_selectDate(id, dateStr);
+				inst.inline = inst.stay_open = false;
+				this._notifyChange(inst);
+				this._updateDatepicker(inst);
+			} else {
+				this._base_selectDate(id, dateStr);
+			}
+		};
+
+		/*
+		* second bad hack :/ override datepicker so it triggers an event when changing the input field
+		* and does not redraw the datepicker on every selectDate event
+		*/
+		$.datepicker._base_updateDatepicker = $.datepicker._updateDatepicker;
+		$.datepicker._updateDatepicker = function(inst) {
+
+			// don't popup the datepicker if there is another instance already opened
+			var input = inst.input[0];
+			if ($.datepicker._curInst && $.datepicker._curInst != inst && $.datepicker._datepickerShowing && $.datepicker._lastInput != input) {
+				return;
+			}
+
+			if (typeof(inst.stay_open) !== 'boolean' || inst.stay_open === false) {
+
+				this._base_updateDatepicker(inst);
+
+				// Reload the time control when changing something in the input text field.
+				var tp_inst = this._get(inst, 'timepicker');
+				if (tp_inst) {
+					tp_inst._addTimePicker(inst);
+				}
+			}
+		};
+
+		/*
+		* third bad hack :/ override datepicker so it allows spaces and colon in the input field
+		*/
+		$.datepicker._base_doKeyPress = $.datepicker._doKeyPress;
+		$.datepicker._doKeyPress = function(event) {
+			var inst = $.datepicker._getInst(event.target),
+				tp_inst = $.datepicker._get(inst, 'timepicker');
+
+			if (tp_inst) {
+				if ($.datepicker._get(inst, 'constrainInput')) {
+					var ampm = tp_inst.support.ampm,
+						tz = tp_inst._defaults.showTimezone !== null? tp_inst._defaults.showTimezone : tp_inst.support.timezone,					
+						dateChars = $.datepicker._possibleChars($.datepicker._get(inst, 'dateFormat')),
+						datetimeChars = tp_inst._defaults.timeFormat.toString()
+												.replace(/[hms]/g, '')
+												.replace(/TT/g, ampm ? 'APM' : '')
+												.replace(/Tt/g, ampm ? 'AaPpMm' : '')
+												.replace(/tT/g, ampm ? 'AaPpMm' : '')
+												.replace(/T/g, ampm ? 'AP' : '')
+												.replace(/tt/g, ampm ? 'apm' : '')
+												.replace(/t/g, ampm ? 'ap' : '') + 
+												" " + tp_inst._defaults.separator + 
+												tp_inst._defaults.timeSuffix + 
+												(tz ? tp_inst._defaults.timezoneList.join('') : '') + 
+												(tp_inst._defaults.amNames.join('')) + (tp_inst._defaults.pmNames.join('')) + 
+												dateChars,
+						chr = String.fromCharCode(event.charCode === undefined ? event.keyCode : event.charCode);
+					return event.ctrlKey || (chr < ' ' || !dateChars || datetimeChars.indexOf(chr) > -1);
+				}
+			}
+
+			return $.datepicker._base_doKeyPress(event);
+		};
+
+		/*
+		* Fourth bad hack :/ override _updateAlternate function used in inline mode to init altField
+		*/
+		$.datepicker._base_updateAlternate = $.datepicker._updateAlternate;
+		/* Update any alternate field to synchronise with the main field. */
+		$.datepicker._updateAlternate = function(inst) {
+			var tp_inst = this._get(inst, 'timepicker');
+			if(tp_inst){
+				var altField = tp_inst._defaults.altField;
+				if (altField) { // update alternate field too
+					var altFormat = tp_inst._defaults.altFormat || tp_inst._defaults.dateFormat,
+						date = this._getDate(inst),
+						formatCfg = $.datepicker._getFormatConfig(inst),
+						altFormattedDateTime = '', 
+						altSeparator = tp_inst._defaults.altSeparator ? tp_inst._defaults.altSeparator : tp_inst._defaults.separator, 
+						altTimeSuffix = tp_inst._defaults.altTimeSuffix ? tp_inst._defaults.altTimeSuffix : tp_inst._defaults.timeSuffix,
+						altTimeFormat = tp_inst._defaults.altTimeFormat !== null ? tp_inst._defaults.altTimeFormat : tp_inst._defaults.timeFormat;
+					
+					altFormattedDateTime += $.datepicker.formatTime(altTimeFormat, tp_inst, tp_inst._defaults) + altTimeSuffix;
+					if(!tp_inst._defaults.timeOnly && !tp_inst._defaults.altFieldTimeOnly && date !== null){
+						if(tp_inst._defaults.altFormat){
+							altFormattedDateTime = $.datepicker.formatDate(tp_inst._defaults.altFormat, date, formatCfg) + altSeparator + altFormattedDateTime;
+						}
+						else{
+							altFormattedDateTime = tp_inst.formattedDate + altSeparator + altFormattedDateTime;
+						}
+					}
+					$(altField).val(altFormattedDateTime);
+				}
+			}
+			else{
+				$.datepicker._base_updateAlternate(inst);
+			}
+		};
+
+		/*
+		* Override key up event to sync manual input changes.
+		*/
+		$.datepicker._base_doKeyUp = $.datepicker._doKeyUp;
+		$.datepicker._doKeyUp = function(event) {
+			var inst = $.datepicker._getInst(event.target),
+				tp_inst = $.datepicker._get(inst, 'timepicker');
+
+			if (tp_inst) {
+				if (tp_inst._defaults.timeOnly && (inst.input.val() != inst.lastVal)) {
+					try {
+						$.datepicker._updateDatepicker(inst);
+					} catch (err) {
+						$.timepicker.log(err);
+					}
+				}
+			}
+
+			return $.datepicker._base_doKeyUp(event);
+		};
+
+		/*
+		* override "Today" button to also grab the time.
+		*/
+		$.datepicker._base_gotoToday = $.datepicker._gotoToday;
+		$.datepicker._gotoToday = function(id) {
+			var inst = this._getInst($(id)[0]),
+				$dp = inst.dpDiv;
+			this._base_gotoToday(id);
+			var tp_inst = this._get(inst, 'timepicker');
+			selectLocalTimezone(tp_inst);
+			var now = new Date();
+			this._setTime(inst, now);
+			$('.ui-datepicker-today', $dp).click();
+		};
+
+		/*
+		* Disable & enable the Time in the datetimepicker
+		*/
+		$.datepicker._disableTimepickerDatepicker = function(target) {
+			var inst = this._getInst(target);
+			if (!inst) {
+				return;
+			}
+
+			var tp_inst = this._get(inst, 'timepicker');
+			$(target).datepicker('getDate'); // Init selected[Year|Month|Day]
+			if (tp_inst) {
+				tp_inst._defaults.showTimepicker = false;
+				tp_inst._updateDateTime(inst);
+			}
+		};
+
+		$.datepicker._enableTimepickerDatepicker = function(target) {
+			var inst = this._getInst(target);
+			if (!inst) {
+				return;
+			}
+
+			var tp_inst = this._get(inst, 'timepicker');
+			$(target).datepicker('getDate'); // Init selected[Year|Month|Day]
+			if (tp_inst) {
+				tp_inst._defaults.showTimepicker = true;
+				tp_inst._addTimePicker(inst); // Could be disabled on page load
+				tp_inst._updateDateTime(inst);
+			}
+		};
+
+		/*
+		* Create our own set time function
+		*/
+		$.datepicker._setTime = function(inst, date) {
+			var tp_inst = this._get(inst, 'timepicker');
+			if (tp_inst) {
+				var defaults = tp_inst._defaults;
+
+				// calling _setTime with no date sets time to defaults
+				tp_inst.hour = date ? date.getHours() : defaults.hour;
+				tp_inst.minute = date ? date.getMinutes() : defaults.minute;
+				tp_inst.second = date ? date.getSeconds() : defaults.second;
+				tp_inst.millisec = date ? date.getMilliseconds() : defaults.millisec;
+				tp_inst.microsec = date ? date.getMicroseconds() : defaults.microsec;
+
+				//check if within min/max times.. 
+				tp_inst._limitMinMaxDateTime(inst, true);
+
+				tp_inst._onTimeChange();
+				tp_inst._updateDateTime(inst);
+			}
+		};
+
+		/*
+		* Create new public method to set only time, callable as $().datepicker('setTime', date)
+		*/
+		$.datepicker._setTimeDatepicker = function(target, date, withDate) {
+			var inst = this._getInst(target);
+			if (!inst) {
+				return;
+			}
+
+			var tp_inst = this._get(inst, 'timepicker');
+
+			if (tp_inst) {
+				this._setDateFromField(inst);
+				var tp_date;
+				if (date) {
+					if (typeof date == "string") {
+						tp_inst._parseTime(date, withDate);
+						tp_date = new Date();
+						tp_date.setHours(tp_inst.hour, tp_inst.minute, tp_inst.second, tp_inst.millisec);
+						tp_date.setMicroseconds(tp_inst.microsec);
+					} else {
+						tp_date = new Date(date.getTime());
+					}
+					if (tp_date.toString() == 'Invalid Date') {
+						tp_date = undefined;
+					}
+					this._setTime(inst, tp_date);
+				}
+			}
+
+		};
+
+		/*
+		* override setDate() to allow setting time too within Date object
+		*/
+		$.datepicker._base_setDateDatepicker = $.datepicker._setDateDatepicker;
+		$.datepicker._setDateDatepicker = function(target, date) {
+			var inst = this._getInst(target);
+			if (!inst) {
+				return;
+			}
+
+			var tp_inst = this._get(inst, 'timepicker'),
+				tp_date = (date instanceof Date) ? new Date(date.getTime()) : date;
+			
+			// This is important if you are using the timezone option, javascript's Date 
+			// object will only return the timezone offset for the current locale, so we 
+			// adjust it accordingly.  If not using timezone option this won't matter..
+			// If a timezone is different in tp, keep the timezone as is
+			if(tp_inst && tp_inst.timezone != null){
+				date = $.timepicker.timezoneAdjust(date, tp_inst.timezone);
+				tp_date = $.timepicker.timezoneAdjust(tp_date, tp_inst.timezone);
+			}
+
+			this._updateDatepicker(inst);
+			this._base_setDateDatepicker.apply(this, arguments);
+			this._setTimeDatepicker(target, tp_date, true);
+		};
+
+		/*
+		* override getDate() to allow getting time too within Date object
+		*/
+		$.datepicker._base_getDateDatepicker = $.datepicker._getDateDatepicker;
+		$.datepicker._getDateDatepicker = function(target, noDefault) {
+			var inst = this._getInst(target);
+			if (!inst) {
+				return;
+			}
+
+			var tp_inst = this._get(inst, 'timepicker');
+
+			if (tp_inst) {
+				// if it hasn't yet been defined, grab from field
+				if(inst.lastVal === undefined){
+					this._setDateFromField(inst, noDefault);
+				}
+
+				var date = this._getDate(inst);
+				if (date && tp_inst._parseTime($(target).val(), tp_inst.timeOnly)) {
+					date.setHours(tp_inst.hour, tp_inst.minute, tp_inst.second, tp_inst.millisec);
+					date.setMicroseconds(tp_inst.microsec);
+
+					// This is important if you are using the timezone option, javascript's Date 
+					// object will only return the timezone offset for the current locale, so we 
+					// adjust it accordingly.  If not using timezone option this won't matter..
+					if(tp_inst.timezone != null){
+						date = $.timepicker.timezoneAdjust(date, tp_inst.timezone);
+					}
+				}
+				return date;
+			}
+			return this._base_getDateDatepicker(target, noDefault);
+		};
+
+		/*
+		* override parseDate() because UI 1.8.14 throws an error about "Extra characters"
+		* An option in datapicker to ignore extra format characters would be nicer.
+		*/
+		$.datepicker._base_parseDate = $.datepicker.parseDate;
+		$.datepicker.parseDate = function(format, value, settings) {
+			var date;
+			try {
+				date = this._base_parseDate(format, value, settings);
+			} catch (err) {
+				// Hack!  The error message ends with a colon, a space, and
+				// the "extra" characters.  We rely on that instead of
+				// attempting to perfectly reproduce the parsing algorithm.
+				if (err.indexOf(":") >= 0) {
+					date = this._base_parseDate(format, value.substring(0,value.length-(err.length-err.indexOf(':')-2)), settings);
+					$.timepicker.log("Error parsing the date string: " + err + "\ndate string = " + value + "\ndate format = " + format);
+				} else {
+					throw err;
+				}
+			}
+			return date;
+		};
+
+		/*
+		* override formatDate to set date with time to the input
+		*/
+		$.datepicker._base_formatDate = $.datepicker._formatDate;
+		$.datepicker._formatDate = function(inst, day, month, year) {
+			var tp_inst = this._get(inst, 'timepicker');
+			if (tp_inst) {
+				tp_inst._updateDateTime(inst);
+				return tp_inst.$input.val();
+			}
+			return this._base_formatDate(inst);
+		};
+
+		/*
+		* override options setter to add time to maxDate(Time) and minDate(Time). MaxDate
+		*/
+		$.datepicker._base_optionDatepicker = $.datepicker._optionDatepicker;
+		$.datepicker._optionDatepicker = function(target, name, value) {
+			var inst = this._getInst(target),
+		        name_clone;
+			if (!inst) {
+				return null;
+			}
+
+			var tp_inst = this._get(inst, 'timepicker');
+			if (tp_inst) {
+				var min = null,
+					max = null,
+					onselect = null,
+					overrides = tp_inst._defaults.evnts,
+					fns = {},
+					prop;
+			    if (typeof name == 'string') { // if min/max was set with the string
+			        if (name === 'minDate' || name === 'minDateTime') {
+			            min = value;
+			        } else if (name === 'maxDate' || name === 'maxDateTime') {
+			            max = value;
+			        } else if (name === 'onSelect') {
+			            onselect = value;
+			        } else if (overrides.hasOwnProperty(name)) {
+			            if (typeof (value) === 'undefined') {
+			                return overrides[name];
+			            }
+			            fns[name] = value;
+			            name_clone = {}; //empty results in exiting function after overrides updated
+			        }
+			    } else if (typeof name == 'object') { //if min/max was set with the JSON
+			        if (name.minDate) {
+			            min = name.minDate;
+			        } else if (name.minDateTime) {
+			            min = name.minDateTime;
+			        } else if (name.maxDate) {
+			            max = name.maxDate;
+			        } else if (name.maxDateTime) {
+			            max = name.maxDateTime;
+			        }
+			        for (prop in overrides) {
+			            if (overrides.hasOwnProperty(prop) && name[prop]) {
+			                fns[prop] = name[prop];
+			            }
+			        }
+			    }
+			    for (prop in fns) {
+			        if (fns.hasOwnProperty(prop)) {
+			            overrides[prop] = fns[prop];
+			            if (!name_clone) { name_clone = $.extend({}, name);}
+			            delete name_clone[prop];
+			        }
+			    }
+			    if (name_clone && isEmptyObject(name_clone)) { return; }
+			    if (min) { //if min was set
+			        if (min === 0) {
+			            min = new Date();
+			        } else {
+			            min = new Date(min);
+			        }
+			        tp_inst._defaults.minDate = min;
+			        tp_inst._defaults.minDateTime = min;
+			    } else if (max) { //if max was set
+			        if (max === 0) {
+			            max = new Date();
+			        } else {
+			            max = new Date(max);
+			        }
+			        tp_inst._defaults.maxDate = max;
+			        tp_inst._defaults.maxDateTime = max;
+			    } else if (onselect) {
+			        tp_inst._defaults.onSelect = onselect;
+			    }
+			}
+			if (value === undefined) {
+				return this._base_optionDatepicker.call($.datepicker, target, name);
+			}
+			return this._base_optionDatepicker.call($.datepicker, target, name_clone || name, value);
+		};
+		
+		/*
+		* jQuery isEmptyObject does not check hasOwnProperty - if someone has added to the object prototype,
+		* it will return false for all objects
+		*/
+		var isEmptyObject = function(obj) {
+			var prop;
+			for (prop in obj) {
+				if (obj.hasOwnProperty(obj)) {
+					return false;
+				}
+			}
+			return true;
+		};
+
+		/*
+		* jQuery extend now ignores nulls!
+		*/
+		var extendRemove = function(target, props) {
+			$.extend(target, props);
+			for (var name in props) {
+				if (props[name] === null || props[name] === undefined) {
+					target[name] = props[name];
+				}
+			}
+			return target;
+		};
+
+		/*
+		* Determine by the time format which units are supported
+		* Returns an object of booleans for each unit
+		*/
+		var detectSupport = function(timeFormat){
+			var tf = timeFormat.replace(/\'.*?\'/g,'').toLowerCase(), // removes literals
+				isIn = function(f, t){ // does the format contain the token?
+						return f.indexOf(t) !== -1? true:false; 
+					};
+			return {
+					hour: isIn(tf,'h'),
+					minute: isIn(tf,'m'),
+					second: isIn(tf,'s'),
+					millisec: isIn(tf,'l'),
+					microsec: isIn(tf,'c'),
+					timezone: isIn(tf,'z'),
+					ampm: isIn('t') && isIn(timeFormat,'h'),
+					iso8601: isIn(timeFormat, 'Z')
+				};
+		};
+
+		/*
+		* Converts 24 hour format into 12 hour
+		* Returns 12 hour without leading 0
+		*/
+		var convert24to12 = function(hour) {
+			if (hour > 12) {
+				hour = hour - 12;
+			}
+
+			if (hour === 0) {
+				hour = 12;
+			}
+
+			return String(hour);
+		};
+
+		/*
+		* Splits datetime string into date ans time substrings.
+		* Throws exception when date can't be parsed
+		* Returns [dateString, timeString]
+		*/
+		var splitDateTime = function(dateFormat, dateTimeString, dateSettings, timeSettings) {
+			try {
+				// The idea is to get the number separator occurances in datetime and the time format requested (since time has 
+				// fewer unknowns, mostly numbers and am/pm). We will use the time pattern to split.
+				var separator = timeSettings && timeSettings.separator ? timeSettings.separator : $.timepicker._defaults.separator,
+					format = timeSettings && timeSettings.timeFormat ? timeSettings.timeFormat : $.timepicker._defaults.timeFormat,
+					timeParts = format.split(separator), // how many occurances of separator may be in our format?
+					timePartsLen = timeParts.length,
+					allParts = dateTimeString.split(separator),
+					allPartsLen = allParts.length;
+
+				if (allPartsLen > 1) {
+					return [
+							allParts.splice(0,allPartsLen-timePartsLen).join(separator),
+							allParts.splice(0,timePartsLen).join(separator)
+						];
+				}
+
+			} catch (err) {
+				$.timepicker.log('Could not split the date from the time. Please check the following datetimepicker options' +
+						"\nthrown error: " + err +
+						"\ndateTimeString" + dateTimeString +
+						"\ndateFormat = " + dateFormat +
+						"\nseparator = " + timeSettings.separator +
+						"\ntimeFormat = " + timeSettings.timeFormat);
+
+				if (err.indexOf(":") >= 0) {
+					// Hack!  The error message ends with a colon, a space, and
+					// the "extra" characters.  We rely on that instead of
+					// attempting to perfectly reproduce the parsing algorithm.
+					var dateStringLength = dateTimeString.length - (err.length - err.indexOf(':') - 2),
+						timeString = dateTimeString.substring(dateStringLength);
+
+					return [$.trim(dateTimeString.substring(0, dateStringLength)), $.trim(dateTimeString.substring(dateStringLength))];
+
+				} else {
+					throw err;
+				}
+			}
+			return [dateTimeString, ''];
+		};
+
+		/*
+		* Internal function to parse datetime interval
+		* Returns: {date: Date, timeObj: Object}, where
+		*   date - parsed date without time (type Date)
+		*   timeObj = {hour: , minute: , second: , millisec: , microsec: } - parsed time. Optional
+		*/
+		var parseDateTimeInternal = function(dateFormat, timeFormat, dateTimeString, dateSettings, timeSettings) {
+			var date;
+			var splitRes = splitDateTime(dateFormat, dateTimeString, dateSettings, timeSettings);
+			date = $.datepicker._base_parseDate(dateFormat, splitRes[0], dateSettings);
+			if (splitRes[1] !== '') {
+				var timeString = splitRes[1],
+					parsedTime = $.datepicker.parseTime(timeFormat, timeString, timeSettings);
+
+				if (parsedTime === null) {
+					throw 'Wrong time format';
+				}
+				return {
+					date: date,
+					timeObj: parsedTime
+				};
+			} else {
+				return {
+					date: date
+				};
+			}
+		};
+
+		/*
+		* Internal function to set timezone_select to the local timezone
+		*/
+		var selectLocalTimezone = function(tp_inst, date) {
+			if (tp_inst && tp_inst.timezone_select) {
+				var now = typeof date !== 'undefined' ? date : new Date();
+				tp_inst.timezone_select.val(now.getTimezoneOffset()*-1);
+			}
+		};
+
+		/*
+		* Create a Singleton Insance
+		*/
+		$.timepicker = new Timepicker();
+
+		/**
+		 * Get the timezone offset as string from a date object (eg '+0530' for UTC+5.5)
+		 * @param  number if not a number this value is returned
+		 * @param boolean if true formats in accordance to iso8601 "+12:45"
+		 * @return string
+		 */
+		$.timepicker.timezoneOffsetString = function(tzMinutes, iso8601) {
+			if(isNaN(tzMinutes) || tzMinutes > 840){
+				return tzMinutes;
+			}
+
+			var off = tzMinutes,
+				minutes = off % 60,
+				hours = (off - minutes) / 60,
+				iso = iso8601? ':':'',
+				tz = (off >= 0 ? '+' : '-') + ('0' + (hours * 101).toString()).slice(-2) + iso + ('0' + (minutes * 101).toString()).slice(-2);
+			
+			if(tz == '+00:00'){
+				return 'Z';
+			}
+			return tz;
+		};
+
+		/**
+		 * Get the number in minutes that represents a timezone string
+		 * @param  string formated like "+0500", "-1245"
+		 * @return number
+		 */
+		$.timepicker.timezoneOffsetNumber = function(tzString) {
+			tzString = tzString.toString().replace(':',''); // excuse any iso8601, end up with "+1245"
+
+			if(tzString.toUpperCase() === 'Z'){ // if iso8601 with Z, its 0 minute offset
+				return 0;
+			}
+
+			if(!/^(\-|\+)\d{4}$/.test(tzString)){ // possibly a user defined tz, so just give it back
+				return tzString;
+			}
+
+			return ((tzString.substr(0,1) =='-'? -1 : 1) * // plus or minus
+						((parseInt(tzString.substr(1,2),10)*60) + // hours (converted to minutes)
+						parseInt(tzString.substr(3,2),10))); // minutes
+		};
+
+		/**
+		 * No way to set timezone in js Date, so we must adjust the minutes to compensate. (think setDate, getDate)
+		 * @param  date
+		 * @param  string formated like "+0500", "-1245"
+		 * @return date
+		 */
+		$.timepicker.timezoneAdjust = function(date, toTimezone) {
+			var toTz = $.timepicker.timezoneOffsetNumber(toTimezone);
+			if(!isNaN(toTz)){
+				var currTz = date.getTimezoneOffset()*-1,
+					diff = currTz - toTz; // difference in minutes
+
+				date.setMinutes(date.getMinutes()+diff);
+			}
+			return date;
+		};
+
+		/**
+		 * Calls `timepicker()` on the `startTime` and `endTime` elements, and configures them to
+		 * enforce date range limits.
+		 * n.b. The input value must be correctly formatted (reformatting is not supported)
+		 * @param  Element startTime
+		 * @param  Element endTime
+		 * @param  obj options Options for the timepicker() call
+		 * @return jQuery
+		 */
+		$.timepicker.timeRange = function(startTime, endTime, options) {
+			return $.timepicker.handleRange('timepicker', startTime, endTime, options);
+		};
+
+		/**
+		 * Calls `datetimepicker` on the `startTime` and `endTime` elements, and configures them to
+		 * enforce date range limits.
+		 * @param  Element startTime
+		 * @param  Element endTime
+		 * @param  obj options Options for the `timepicker()` call. Also supports `reformat`,
+		 *   a boolean value that can be used to reformat the input values to the `dateFormat`.
+		 * @param  string method Can be used to specify the type of picker to be added
+		 * @return jQuery
+		 */
+		$.timepicker.datetimeRange = function(startTime, endTime, options) {
+			$.timepicker.handleRange('datetimepicker', startTime, endTime, options);
+		};
+
+		/**
+		 * Calls `method` on the `startTime` and `endTime` elements, and configures them to
+		 * enforce date range limits.
+		 * @param  Element startTime
+		 * @param  Element endTime
+		 * @param  obj options Options for the `timepicker()` call. Also supports `reformat`,
+		 *   a boolean value that can be used to reformat the input values to the `dateFormat`.
+		 * @return jQuery
+		 */
+		$.timepicker.dateRange = function(startTime, endTime, options) {
+			$.timepicker.handleRange('datepicker', startTime, endTime, options);
+		};
+
+		/**
+		 * Calls `method` on the `startTime` and `endTime` elements, and configures them to
+		 * enforce date range limits.
+		 * @param  string method Can be used to specify the type of picker to be added
+		 * @param  Element startTime
+		 * @param  Element endTime
+		 * @param  obj options Options for the `timepicker()` call. Also supports `reformat`,
+		 *   a boolean value that can be used to reformat the input values to the `dateFormat`.
+		 * @return jQuery
+		 */
+		$.timepicker.handleRange = function(method, startTime, endTime, options) {
+			options = $.extend({}, {
+				minInterval: 0, // min allowed interval in milliseconds
+				maxInterval: 0, // max allowed interval in milliseconds
+				start: {},      // options for start picker
+				end: {}         // options for end picker
+			}, options);
+
+			$.fn[method].call(startTime, $.extend({
+				onClose: function(dateText, inst) {
+					checkDates($(this), endTime);
+				},
+				onSelect: function(selectedDateTime) {
+					selected($(this), endTime, 'minDate');
+				}
+			}, options, options.start));
+			$.fn[method].call(endTime, $.extend({
+				onClose: function(dateText, inst) {
+					checkDates($(this), startTime);
+				},
+				onSelect: function(selectedDateTime) {
+					selected($(this), startTime, 'maxDate');
+				}
+			}, options, options.end));
+
+			checkDates(startTime, endTime);
+			selected(startTime, endTime, 'minDate');
+			selected(endTime, startTime, 'maxDate');
+
+			function checkDates(changed, other) {
+				var startdt = startTime[method]('getDate'),
+					enddt = endTime[method]('getDate'),
+					changeddt = changed[method]('getDate');
+
+				if(startdt !== null){
+					var minDate = new Date(startdt.getTime()),
+						maxDate = new Date(startdt.getTime());
+
+					minDate.setMilliseconds(minDate.getMilliseconds() + options.minInterval);
+					maxDate.setMilliseconds(maxDate.getMilliseconds() + options.maxInterval);
+
+					if(options.minInterval > 0 && minDate > enddt){ // minInterval check
+						endTime[method]('setDate',minDate);
+					}
+					else if(options.maxInterval > 0 && maxDate < enddt){ // max interval check
+						endTime[method]('setDate',maxDate);
+					}
+					else if (startdt > enddt) {
+						other[method]('setDate',changeddt);
+					}
+				}
+			}
+
+			function selected(changed, other, option) {
+				if (!changed.val()) {
+					return;
+				}
+				var date = changed[method].call(changed, 'getDate');
+				if(date !== null && options.minInterval > 0){
+					if(option == 'minDate'){
+						date.setMilliseconds(date.getMilliseconds() + options.minInterval); 
+					}
+					if(option == 'maxDate'){
+						date.setMilliseconds(date.getMilliseconds() - options.minInterval);
+					}
+				}
+				if (date.getTime) {
+					other[method].call(other, 'option', option, date);
+				}
+			}
+			return $([startTime.get(0), endTime.get(0)]);
+		};
+
+		/**
+		 * Log error or data to the console during error or debugging
+		 * @param  Object err pass any type object to log to the console during error or debugging
+		 * @return void
+		 */
+		$.timepicker.log = function(err){
+			if(window.console){
+				console.log(err);
+			}
+		};
+
+		/*
+		* Rough microsecond support
+		*/
+		if(!Date.prototype.getMicroseconds){
+			Date.microseconds = 0;
+			Date.prototype.getMicroseconds = function(){ return this.microseconds; };
+			Date.prototype.setMicroseconds = function(m){ this.microseconds = m; return this; };
+		}
+
+		/*
+		* Keep up with the version
+		*/
+		$.timepicker.version = "1.3";
+
+	})(jQuery);
+
+
+/***/ },
+/* 38 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
+		var controllers = __webpack_require__(39) ;
+		var jsonDate = __webpack_require__(24) ;
+		var EditUtil = __webpack_require__(40) ;
+		var commonUtil = __webpack_require__(23) ;
+		var util = __webpack_require__(17) ;
+		var ModalHelper = __webpack_require__(43) ;
+		
+		
+		function cleanTipInfo() {
+			$("#abortTipInfo").html("") ;
+		} ;
+		
+		function addErrorTip(errMsg){
+			$("#abortTipInfo").append("<li><span class ='marginRight15'></span><span class =\"modal-errorTip\">"+errMsg+"</span></li>") ;
+		} ;
+		
+		function addSuccessTip(sucMsg){
+			$("#abortTipInfo").append("<li><span class ='marginRight15'></span><span class =\"modal-successTip\">"+sucMsg+"</span></li>") ;
+		} ;
+		
+		
+		
+		//最外层controller
+		controllers.controller('EditController',['$scope','FormData','HttpOperService','TbShowHideServcie','FormEditStatusServcie','FormStatusService','CustomeEditTbStatusServcie','$timeout',function($scope,FormData,HttpOperService,TbShowHideServcie,FormEditStatusServcie,FormStatusService,CustomeEditTbStatusServcie,$timeout){
+			$scope.contextPath = FormData.contextPath ;
+			//保留一份原始数据，方便数据初始化时使用
+			$scope.orgData = angular.copy(FormData) ;
+			//页面上的form数据
+			$scope.data = FormData ;
+			//页面上所有表格的显示或隐藏的的状态数据
+			$scope.tableStatus = TbShowHideServcie ;//TableStatusServcie
+			//表格复用的自定义是否显示
+			$scope.customeEditTbStatus = CustomeEditTbStatusServcie ;
+			//对表单注册校验
+			var validator = $("#s7_form").validate({meta : ""});
+			window.validator = validator ;
+			
+			//页面上所有控件的状态数据
+			$scope.editStatus = FormEditStatusServcie ;
+			$scope.showStatus = FormStatusService ;
+			var s7Id = $("#s7Id").val() ;
+			$scope.data.id = s7Id ;
+			//日期问题
+			var currDate = new Date();
+			var curMonthStr = commonUtil.getFullDayOrMonthStr(currDate.getMonth()+1)  ;
+			var curDateStr = commonUtil.getFullDayOrMonthStr(currDate.getDate()) ;
+			var nextDateStr= commonUtil.getFullDayOrMonthStr(currDate.getDate() +1) ;
+			//当前日期
+			$scope.currentDateStr = currDate.getFullYear() +'-'+curMonthStr+ '-'+curDateStr;
+			//下一天日期
+			$scope.nextDateStr = currDate.getFullYear() +'-'+curMonthStr+ '-'+nextDateStr ;
+			//所有的表格定义信息都在这里
+			$scope.tableData = jsonDate.tableData ;
+			//-------------区域对应的表格显示隐藏开始--------//
+			//第一次进入页面时需要加载的数据
+			//console.info('准备初始化页面数据..........') ;
+			var url = '';
+			var promise = null;
+			if(FormData.action=="add"){//1.新增
+				url = $scope.contextPath+'/initPage4Add';
+				promise = HttpOperService.getDataByUrl(url) ;
+				EditUtil.initData.dealResultData4Add(promise,$scope) ;
+			}else if (FormData.action=="update"){
+				url = $scope.contextPath+'/initPage4Upate?s7Id='+$scope.data.id;
+				promise = HttpOperService.getDataByUrl(url) ;
+				EditUtil.initData.dealResult4Update(promise,$scope) ;
+			}else if (FormData.action=="copy"){
+				url = $scope.contextPath+'/initPage4Copy?s7Id='+$scope.data.id;
+				promise = HttpOperService.getDataByUrl(url) ;
+				//EditUtil.initData.dealResult4Update(promise,$scope) ;
+				EditUtil.initData.dealResult4Copy(promise,$scope) ;
+			}
+			//console.info('页面部分数据其他处理.......') ;
+			
+			
+			
+			$scope.submitTbTSKCustomeEdit = function(){
+				var tipDivId = "tskCustomeTipInfo" ;
+				var modalHelper = new ModalHelper(tipDivId) ;
+				//tbTSKCustomeEdit_type//tbTSKCustomeEdit_index//tbTSKCustomeEdit_value
+				var tbTSKCustomeEdit_type = $("#tbTSKCustomeEdit_type").val() ;
+				var tbTSKCustomeEdit_index = $("#tbTSKCustomeEdit_index").val() ;
+				var tbTSKCustomeEdit_value = $("#tbTSKCustomeEdit_value").val() ;
+				var maxLength = $("#tbTSKCustomeEdit_value").attr("maxlength") ;
+				var len = util.getByteNumOfStr(tbTSKCustomeEdit_value) ;
+				modalHelper.cleanTipInfo() ;
+				if(len>maxLength){
+					modalHelper.addErrorTip('最多输入'+maxLength+'个字节!') ;
+					return ;
+				}else{
+					$scope.data.listTsk202VO[tbTSKCustomeEdit_index*1][tbTSKCustomeEdit_type] = tbTSKCustomeEdit_value ;
+					$('#tbTSK202Modal').modal('hide') ;
+				}
+			}
+			
+			
+	    }]) ;
+
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
+		
+		var controllers = angular.module("app.controllers",[]) ;
+		return controllers ;
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+/***/ },
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
+		var validateHelper = __webpack_require__(41) ;
+		var util = __webpack_require__(42) ;
+		var jsonDate = __webpack_require__(24) ;
+		var jsonDataHelper = __webpack_require__(22) ;
+		var _  = __webpack_require__(21) ;
+		/**
+		 * 处理表单特殊数据
+		 * @param {Object} formData
+		 */
+		var initOtherData = function (formData){
+			//处理旅行起始日期
+			if(formData.firstTravelYear!=''&&formData.firstTravelMonth!=''&&formData.firstTravelDay!=''){
+				formData.travelStartDate = formData.firstTravelYear+'-' +formData.firstTravelMonth +'-' +formData.firstTravelDay ;
+			}
+			//处理旅行结束日期
+			if(formData.lastTravelYear!=''&&formData.lastTravelMonth!=''&&formData.lastTravelDay!=''){
+				formData.travelEndDate = formData.lastTravelYear+'-' +formData.lastTravelMonth +'-' +formData.lastTravelDay ;
+			}
+			//星期
+			var dayofWake = formData.dayOfWeek ;
+			var len = dayofWake.length ;
+			for(var i = 0 ; i < len ; i++){
+				 var s = dayofWake.charAt(i);
+				 var tmpStr = 'w'+s ;
+				 formData.dayOfWeekShow[tmpStr] = true ;//选中checkbox
+			}
+			//处理页面上的复用字表号的placeholder显示字符串
+			//
+			$(":input[name=reuseList172VO]").attr("placeholder",formData['accountCodeTableNo172']) ;
+			$(":input[name=reuseList173TicketVO]").attr("placeholder",formData['ticketDesignatorTableNo173']) ;
+			$(":input[name=reuseList183VO]").attr("placeholder",formData['securityTableNo183']) ;
+			$(":input[name=reuseList198VO]").attr("placeholder",formData['rbdTableNo198']) ;
+			$(":input[name=reuseList198UpgradeVO]").attr("placeholder",formData['upgradeToRbdTableNo198']) ;
+			$(":input[name=reuseList171VO]").attr("placeholder",formData['cxrResFareTableNo171']) ;
+			$(":input[name=reuseList173TktVO]").attr("placeholder",formData['tktDesignatorTableNo173']) ;
+			$(":input[name=reuseList186VO]").attr("placeholder",formData['carrierFlightTableNo186']) ;
+			$(":input[name=reuseList170VO]").attr("placeholder",formData['serviceFeeCurTableNo170']) ;
+			$(":input[name=reuseList196VO]").attr("placeholder",formData['textTableNo196']) ;
+			$(":input[name=reuseList165VO]").attr("placeholder",formData['equipmentTypeTableNo165']) ;
+			$(":input[name=reuseList178Loc1]").attr("placeholder",formData['list178Loc1Id']) ;
+			$(":input[name=reuseList178Loc2]").attr("placeholder",formData['list178Loc2Id']) ;
+			$(":input[name=reuseList178Loc3]").attr("placeholder",formData['list178Loc3Id']) ;
+			//201暂时不支持$(":input[name=reuseList201VO]").attr("placeholder",formData['list201VO']) ;
+			$(":input[name=reuseListTsk202VO]").attr("placeholder",formData['flightPassTableTsk202']) ;
+			
+		};
+		
+		/**
+		 * @功能描述:处理表格被引用次数数据
+		 * @param referenceMap 被引用的次数map数据
+		 * @param editStatus 页面全局的编辑属性
+		 * @param customeEditTbStatus 自定义表格显示状态
+		 */
+		var initCustomeEditTbData = function(editStatus,customeEditTbStatus,formData){
+			var referenceMap = formData['subTbReferenceCountMap'] ;
+			var keys = _.keys(referenceMap);
+			_.each(keys,function(key){
+				var tmp = referenceMap[key] || '0';
+				var count = tmp*1 ;
+				if(count>1){
+					editStatus[key] = false;
+					customeEditTbStatus[key] = true ;
+				}
+			}) ;
+		}
+
+
+		//这是一个私有的辅助方法
+		var initTbData = function (list,flagData,tbname){
+			if(list.length>0){
+				flagData[tbname] = true ;
+			}else{
+				flagData[tbname] = false ;
+			}
+		};
+
+		var initListData = function (s7VO,flagData){
+			if(s7VO.list170VO.length>0){//170表格
+				initTbData(s7VO.list170VO,flagData ,'list170VO') ;
+			}
+			if(s7VO.list201VO.length>0){//201表格
+				initTbData(s7VO.list201VO,flagData,'list170VO') ;//----11
+			}
+			//198
+			initTbData(s7VO.list198VO,flagData,'list198VO') ;//----9
+			//198_2
+			initTbData(s7VO.list198UpgradeVO,flagData,'list198UpgradeVO') ;//----10
+			//list183VO
+			initTbData(s7VO.list183VO,flagData,'list183VO') ;  //-----1
+			//list186VO
+			initTbData(s7VO.list186VO,flagData,'list186VO') ; //-----7
+			//geo1 //list178Loc1
+			initTbData(s7VO.list178Loc1,flagData,'list178Loc1') ;//--12
+			//geo2 //list178Loc2
+			initTbData(s7VO.list178Loc2,flagData,'list178Loc2') ;//---13
+			//geo3 //list178Loc3
+			initTbData(s7VO.list178Loc3,flagData ,'list178Loc3') ;//----14
+			//196//备注例外行李
+			initTbData(s7VO.list196VO,flagData ,'list196VO') ; //----8
+			//165机型
+			initTbData(s7VO.list165VO,flagData,'list165VO') ;//------6
+			//171
+			initTbData(s7VO.list171VO,flagData,'list171VO') ; //-----2
+			initTbData(s7VO.list172VO,flagData,'list172VO') ; //-----3
+			initTbData(s7VO.list173TicketVO,flagData,'list173TicketVO') ;//------4
+			initTbData(s7VO.list173TktVO,flagData,'list173TktVO') ;//-----5
+			
+			//增加tsk202子表
+			initTbData(s7VO.listTsk202VO,flagData,'listTsk202VO') ;//-----5
+			
+			
+		};
+
+		/**
+		 * 这个方法只能为更新数据时，页面初始化时调用，相当于将页面上的，联动控件触发一下联动检查
+		 */
+		var init4Validate = function(editScope,data,globalEditStatus){/**这里需要重置数据的原因是因为有些value会影响到别的控件的显示*/
+			var statusDes = data.statusDes ;
+			//当状态为3的时候，页面不可编辑
+			if(statusDes=='3'){
+				for(var cname in globalEditStatus){
+					globalEditStatus[cname] = false;
+				}
+			}
+			validateHelper.changeServiceType(editScope,data,globalEditStatus) ;
+			validateHelper.changeNoChargeNotAvailable(editScope,data,globalEditStatus) ;
+			validateHelper.changeSpecifiedServiceFeeApp(editScope,data,globalEditStatus) ;
+			//区域/部分/全程变化
+			validateHelper.changeGeoSpecSectPortJourney(editScope,data,globalEditStatus) ;
+			//折扣变化
+			validateHelper.changeDiscount(editScope.$parent,data,globalEditStatus) ;
+		};
+
+		//填充页面上的select的初始数据//因为这些数据需要从数据库中查询
+		var initScopeSelectList = function  (editScope,returnData) {
+			editScope.serviceGroupList = returnData.serviceGroupList ;
+			editScope.passengerTypeCodeList = returnData.passengerList ;
+			editScope.frequentFlyerStatusList = returnData.ffpList ;
+			var equipmentList = returnData.equipmentList ;
+			//向返回来的数组中添加一个空的选择option
+			equipmentList.splice(0,0,{"description":"选择","code":""}) ;
+			editScope.equipmentList = equipmentList ;
+			//提前购票时间单位
+			editScope.advancedPurchasePeriodList = jsonDate.advancedPurchasePeriodList ;
+			//延长类型
+			//editScope.effectivePeriodTypeList = jsonDate.effectivePeriodTypeList ;
+			editScope.effectivePeriodTypeList = {
+					list:jsonDataHelper.getEffectivePeriodTypeList(editScope.data.basicInfoVo.subGroup) 
+			}
+			//延长时间单位
+			editScope.effectivePeriodUnitList = jsonDate.effectivePeriodUnitList ;
+			//免费/收费
+			editScope.noChargeNotAvailableList = {
+				list:jsonDataHelper.getNoChargeNotAvailableList(editScope.data.serviceType) 
+			} ;
+			//适用于
+			editScope.specifiedServiceFeeAppList = {
+				list:jsonDataHelper.getSpecifiedServiceFeeAppList(editScope.data.serviceType)
+			} ;
+			//区域/部分/全程
+			editScope.geoSpecSectPortJourneyList={
+				list:jsonDataHelper.getgeoSpecSectPortJourneyList(editScope.data.serviceType) 
+			}
+		};
+
+		//处理edit页面上添加时的后数据处理
+		var dealResultData4Add = function  (promise,editScope) {
+			promise.then(function(returnData) {  // 调用承诺API获取数据 .resolve  
+				//初始化数据、测试新增的时候才有意义，上线时此行代码没有意义
+				initListData(editScope.data,editScope.tableStatus) ;
+				//这段初始化数据方法要放在下面，因为内部从scope中取serviceType
+				//不过在添加方法中无所谓了，修改方法中一定要放在下面
+				initScopeSelectList(editScope, returnData) ;
+		    }, function(error) {  // 处理错误 .reject  
+		        console.error('初始化页面数据出错!'+error) ;
+		    }); 
+		} ;
+		//处理edit页面上更新时的后数据处理
+		var dealResult4Update = function (promise,editScope) {
+			promise.then(function(returnData) {  // 调用承诺API获取数据 .resolve  
+				//s7record的信息
+				util.convertS7ToFormData(returnData.s7VO,editScope.data) ;//将查询的s7数据填充到formData中
+				initListData(returnData.s7VO,editScope.tableStatus) ;
+				//其他特殊数据处理
+				initOtherData(editScope.data) ;
+				//list163
+				editScope.data.sel4 = returnData.list163 ;
+				//这段初始化数据方法要放在下面，因为内部从scope中取serviceType
+				//但是必须要放在验证之前，因为验证的时候需要对特殊的字段进行处理
+				//这段代码一定要放在init4Validate()前面
+				initScopeSelectList(editScope, returnData) ;
+				//初始化校验页面数据
+				init4Validate(editScope,editScope.data,editScope.editStatus) ;
+				//处理表格被引用次数数据
+				initCustomeEditTbData(editScope.editStatus,editScope.customeEditTbStatus,editScope.data)
+		    }, function(error) {  // 处理错误 .reject  
+		        console.error('初始化页面数据出错!' + error) ;
+		    }); 
+
+		};
+
+
+		var dealResult4Copy = function  (promise,editScope) {
+			promise.then(function(returnData) {  // 调用承诺API获取数据 .resolve  
+				//s7record的信息
+				util.convertS7ToFormData(returnData.s7VO,editScope.data) ;//将查询的s7数据填充到formData中
+				initListData(returnData.s7VO,editScope.tableStatus) ;
+				//其他特殊数据处理
+				initOtherData(editScope.data) ;
+				//list163
+				editScope.data.sel4 = returnData.list163 ;
+				//这段初始化数据方法要放在下面，因为内部从scope中取serviceType
+				//这段代码一定要放在init4Validate()前面
+				initScopeSelectList(editScope, returnData) ;
+				//初始化校验页面数据
+				init4Validate(editScope,editScope.data,editScope.editStatus) ;
+				//前面部分与复制一样，但是要清空id
+				editScope.data.id ="" ;
+		    }, function(error) {  // 处理错误 .reject  
+		        console.error('初始化页面数据出错!' + error) ;
+		    }); 
+		} ;
+
+
+
+		//这边是要返回的方法的集合处
+		var EditUtil = {
+			initData:{/*初始化*/		
+				dealResultData4Add:dealResultData4Add,
+				dealResult4Update:dealResult4Update,
+				dealResult4Copy:dealResult4Copy
+			}
+
+		} ;	
+
+		return EditUtil ;
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+/***/ },
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
+		var commonUtil = __webpack_require__(23) ;
+		var _ = __webpack_require__(21) ;
+		var jsonDataHelper = __webpack_require__(22) ;
+		
+		//js文件内部私有的工具类
+		var _privateInnerUtil = {} ;
+		_privateInnerUtil.checkIsPageClickFlag = function(isChangeSelectFlag){
+		   //是否是页面点击触发的flag
+			var pageClickFlag = true ;
+			var tmpFlagStr = isChangeSelectFlag +"" ;
+			if(tmpFlagStr=='false'){
+			   pageClickFlag = false;
+			}
+			return pageClickFlag;
+		}
+
+		//所有置为可能为’可编辑‘的状态时都要判断status是否为3
+		var setEditableByStatus = function(globalEditStatus,name,statusDes){
+			var flag = commonUtil.getEditFlagByStatus(statusDes) ;
+			globalEditStatus[name] = flag;
+		};
+
+
+		var NOTICE_TYPE_SINGLE = "singleChangeByFlagNotice" ;
+		var NOTICE_TYPE_SERVICETYPE = "serviceTypeChangeNotice" ;
+
+
+
+		var sendNotice2ForceDirctive4ServiceType = function  (scope,needDigest) {
+			scope.$broadcast(NOTICE_TYPE_SERVICETYPE,needDigest+"") ;//scope.$broadcast('serviceTypeChangeNotice') ;
+		};
+
+		var sendNoticeToForceDirctive4Single = function(scope,needDigest,noticeName,showFlag){
+			scope.$broadcast(NOTICE_TYPE_SINGLE,noticeName,showFlag+"",needDigest+"") ;//适用于
+		};
+
+		var sendNoticeToForceDirctive4SingleArr = function(scope,needDigest,noticeNameFlagList){
+			var len = noticeNameFlagList.length ;
+			for(var i = 0 ; i< len ; i++){
+				var obj = noticeNameFlagList[i] ;
+				var noticeName = obj.name ;
+				var showFlag = obj.flag ;
+				scope.$broadcast(NOTICE_TYPE_SINGLE,noticeName,showFlag+"",needDigest+"") ;//适用于
+			}
+		};
+
+		/**
+		 * 功能描述:'或/和'控件 更新
+		 * @param editScope 页面上最外层的scope
+		 * @param data      表单FormData服务
+		 * @param globalEditStatus  页面是否可编辑的服务
+		 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
+		 */
+		var updateSpecSevFeeAndOrIndicator = function (editScope,data,globalEditStatus) {
+			//是否是页面点击触发的flag
+			//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
+			var statusDes = data.statusDes;
+			var serviceType = data.serviceType ;
+			var noChargeNotAvailable = data.noChargeNotAvailable ;
+			//全额或折扣(全额:1,折扣:0)
+			var discountOrNot = data.discountOrNot ;
+			var specifiedServiceFeeApp = data.specifiedServiceFeeApp ;//适用于
+			
+			//start**********这部分是为了处理可能存在的历史数据问题进行的特殊置空处理
+			if(_.contains(['H','C','P'],specifiedServiceFeeApp)){
+				data.specSevFeeAndOrIndicator = '' ;
+			}
+			//end**********上面的这段特殊置空处理一定要注意(是为了update页面时，如果‘适用于’为‘H/C/P’则强制将‘里程费’和‘或/和’字段置为空)
+			
+			//serviceType 对'或/和'的影响
+			//当服务类型为A、B、E时或/和一定为‘或’ 
+			//当适用于为'H/C/P'时
+			//2.判断是否可编辑
+			if(_.contains(['A','B','E'], serviceType)||noChargeNotAvailable!=''||discountOrNot=='0'||_.contains(['H','C','P'],specifiedServiceFeeApp)){
+				globalEditStatus.specSevFeeAndOrIndicator= false;
+			}else{//当有机会设置为可编辑时继续判断//也就是说不为行李时才有机会可编辑
+				setEditableByStatus(globalEditStatus,'specSevFeeAndOrIndicator',statusDes) ;
+			}
+		};
+		/**
+		 * 功能描述:更新‘收费组件’
+		 * @param editScope 页面上最外层的scope
+		 * @param data      表单FormData服务
+		 * @param globalEditStatus  页面是否可编辑的服务
+		 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
+		 */
+		var updateNoChargeNotAvailable = function(editScope,data,globalEditStatus){
+			//是否是页面点击触发的flag
+			//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
+			var statusDes = data.statusDes;
+			var serviceType = data.serviceType ;//serviceType
+			//如果是免费则将下面的费用变为不可选择
+			//下面的这点之所以没有设置为不可编辑的原因是因为，
+			//2.判断是否可编辑
+			if(serviceType=='C'||serviceType=='P'){//收费一定为收费且不可编辑
+				globalEditStatus.noChargeNotAvailable= false;
+			}else{//可编辑
+				//还要判断当前status是否等于3
+				setEditableByStatus(globalEditStatus,'noChargeNotAvailable',statusDes) ;
+			}
+			//免费/收费
+			editScope.noChargeNotAvailableList.list= jsonDataHelper.getNoChargeNotAvailableList(serviceType) ;
+
+		};
+		//
+		/**
+		 * 功能描述:‘是否检查库存组件’更新
+		 * @param editScope 页面上最外层的scope
+		 * @param data      表单FormData服务
+		 * @param globalEditStatus  页面是否可编辑的服务
+		 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
+		 */
+		var updateAvailability = function(editScope,data,globalEditStatus){
+			//是否是页面点击触发的flag
+			//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
+			var statusDes = data.statusDes;
+			var serviceType = data.serviceType ;//serviceType
+			//将是否检查库存设置为 ‘否’
+			//2.判断是否可编辑
+			if(_.contains(['A','B','E'],serviceType)){
+				globalEditStatus.availability= false;
+			}else{
+				setEditableByStatus(globalEditStatus,'availability',statusDes) ;
+			}
+		} ;
+		/**
+		 * 功能描述:‘适用于组件’更新
+		 * @param editScope 页面上最外层的scope
+		 * @param data      表单FormData服务
+		 * @param globalEditStatus  页面是否可编辑的服务
+		 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
+		 */
+		var updateSpecifiedServiceFeeApp = function(editScope,data,globalEditStatus){
+			var serviceType = data.serviceType ;//serviceType
+			//适用于
+			editScope.specifiedServiceFeeAppList.list = jsonDataHelper.getSpecifiedServiceFeeAppList(serviceType) ;
+		};
+
+		/**
+		 * 功能描述:‘行李适用范围组件’更新
+		 * @param editScope 页面上最外层的scope
+		 * @param data      表单FormData服务
+		 * @param globalEditStatus  页面是否可编辑的服务
+		 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
+		 */
+		var updatebaggageTravelApplication = function(editScope,data,globalEditStatus){
+			//是否是页面点击触发的flag
+			//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
+			var noChargeNotAvailable = data.noChargeNotAvailable ;
+			var statusDes = data.statusDes ;
+			//2.是否可编辑设置
+			if(noChargeNotAvailable=='D'){
+				globalEditStatus.baggageTravelApplication = false;
+			}else{
+				setEditableByStatus(globalEditStatus,'baggageTravelApplication',statusDes) ;
+			}
+		};
+		
+		/**
+		 * 功能描述:‘是否可退组件’更新
+		 * @param editScope 页面上最外层的scope
+		 * @param data      表单FormData服务
+		 * @param globalEditStatus  页面是否可编辑的服务
+		 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
+		 */
+		var updateIndicatorReissueRefund = function(editScope,data,globalEditStatus){
+			//是否是页面点击触发的flag
+			//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
+			var noChargeNotAvailable = data.noChargeNotAvailable ;
+			var statusDes = data.statusDes ;
+			//2.是否可编辑设置
+			if(_.contains(['X','F','E'],noChargeNotAvailable)){//如果不可点击
+				globalEditStatus.indicatorReissueRefund = false;
+			}else{
+				setEditableByStatus(globalEditStatus,'indicatorReissueRefund',statusDes) ;
+			}
+		};
+		/**
+		 * 功能描述:‘区域/部分/全程’更新
+		 * @param editScope 页面上最外层的scope
+		 * @param data      表单FormData服务
+		 * @param globalEditStatus  页面是否可编辑的服务
+		 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
+		 */
+		var updateGeoSpecSectPortJourney = function  (editScope,data,globalEditStatus) {
+			//是否是页面点击触发的flag
+			//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
+			var serviceType = data.serviceType ;
+			var statusDes = data.statusDes ;
+			//2.判断是否可编辑
+			if(_.contains(['B','E'], serviceType)){//不可编辑
+				globalEditStatus.geoSpecSectPortJourney=false;
+			}else{//如果没有被重置为不可编辑，则这里需要重置是否可编辑
+				setEditableByStatus(globalEditStatus,'geoSpecSectPortJourney',statusDes) ;
+			}
+			editScope.geoSpecSectPortJourneyList.list = jsonDataHelper.getgeoSpecSectPortJourneyList(serviceType) ;
+		};
+		
+		/**
+		 * 功能描述:更新‘里程费’
+		 */
+		var updateSpecifiedServiceFeeMileage = function  (editScope,data,globalEditStatus) {
+			var statusDes = data.statusDes ;
+			//全额或折扣(全额:1,折扣:0)
+			var discountOrNot = data.discountOrNot ;//是否打折
+			var mileageExchangeIndicator = data.mileageExchangeIndicator ;//里程兑换标识
+			var specifiedServiceFeeApp = data.specifiedServiceFeeApp ;//适用于
+			//如果为折扣 则 里程费 必须为空,里程兑换标识为1或2时里程费字段必须为空//或则适用于为'H/C/P时'
+			
+			//start**********这部分是为了处理可能存在的历史数据问题进行的特殊置空处理
+			if(_.contains(['H','C','P'],specifiedServiceFeeApp)){
+				data.specifiedServiceFeeMileage = '' ;
+			}
+			//end**********上面的这段特殊置空处理一定要注意(是为了update页面时，如果‘适用于’为‘H/C/P’则强制将‘里程费’和‘或/和’字段置为空)
+			
+			if(discountOrNot=='0'||mileageExchangeIndicator=='1'||mileageExchangeIndicator=='2'||_.contains(['H','C','P'],specifiedServiceFeeApp)){
+				globalEditStatus.specifiedServiceFeeMileage=false;
+			}else{
+				setEditableByStatus(globalEditStatus,'specifiedServiceFeeMileage',statusDes) ;
+			}
+		};
+		
+		/**
+		 * 功能描述:更新‘里程兑换标识’
+		 */
+		var updateMileageExchangeIndicator = function (editScope,data,globalEditStatus){
+			var statusDes = data.statusDes ;
+			//是否收费
+			var noChargeNotAvailable = data.noChargeNotAvailable ;
+			//全额或折扣(全额:1,折扣:0)
+			var discountOrNot = data.discountOrNot ;
+			//‘或/和’
+			var specSevFeeAndOrIndicator = data.specSevFeeAndOrIndicator ;
+			//适用于字段为'H/C/P'
+			var specifiedServiceFeeApp = data.specifiedServiceFeeApp ;
+			//如果为折扣 则 里程费 必须为空
+			if(noChargeNotAvailable!=''||discountOrNot=='0'||specSevFeeAndOrIndicator=='A'||_.contains(['H','C','P'],specifiedServiceFeeApp)){
+				globalEditStatus.mileageExchangeIndicator=false;
+			}else{
+				setEditableByStatus(globalEditStatus,'mileageExchangeIndicator',statusDes) ;
+			}
+		};
+		
+		/**
+		 * 功能描述:更新期限的延迟类型
+		 */
+		var updateEffectivePeriodType = function(editScope,data,globalEditStatus){
+			var subGroup = data.basicInfoVo.subGroup ;//serviceType
+			editScope.effectivePeriodTypeList.list = jsonDataHelper.getEffectivePeriodTypeList(subGroup) ;
+		}
+		
+		
+		
+		
+
+
+		module.exports = {
+			changeServiceType:function(editScope,data,globalEditStatus){/*改变serviceType*/
+				var statusDes = data.statusDes;
+				var serviceType = data.serviceType || '' ;//serviceType
+				//更新是否收费组件的信息
+				updateNoChargeNotAvailable(editScope, data, globalEditStatus) ;
+				//更新'或/和'组件的显隐及是否可编辑状态
+				updateSpecSevFeeAndOrIndicator(editScope,data,globalEditStatus) ;
+				//更新是否检查库存
+				updateAvailability(editScope, data, globalEditStatus) ;
+				//适用于
+				updateSpecifiedServiceFeeApp(editScope, data, globalEditStatus) ;
+				//区域/部分/全程
+				updateGeoSpecSectPortJourney(editScope, data, globalEditStatus) ;
+				//更新延迟期限类型的select
+				updateEffectivePeriodType(editScope, data, globalEditStatus) ;
+				
+				//发送广播隐藏或显示组件
+				//editScope.$broadcast('serviceTypeChangeNotice','false') ;//scope.$broadcast('serviceTypeChangeNotice') ;	
+				sendNotice2ForceDirctive4ServiceType(editScope, 'false') ;
+			},
+			changeNoChargeNotAvailable:function(editScope,data,globalEditStatus){/**当改变是否收费的时候*/
+				var serviceType = data.serviceType || '' ;
+				var noChargeNotAvailable = data.noChargeNotAvailable || '';
+				//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
+				//console.info('serviceType : ' + serviceType) ;
+				//服务类型是不是行李附加服务
+				//var isBaggageFlag = commonUtil.checkBaggageServcie(serviceType) ;
+				var in_flag = true ;
+				if(noChargeNotAvailable==''){//如果不为收费这下面的置空
+					in_flag = true ;
+				}else{//免费的时候需要清空填写的信息
+					in_flag = false;//隐藏 适用于，里程，金额
+				}
+				//console.info('是否为行李服务['+isBaggageFlag+']，收费类型为 ['+noChargeNotAvailable+']--X,E,F,G,H--时隐藏，判断结果flag : ' + in_flag) ;
+				//var specifiedServiceFeeApp_specialFlag = true;
+				//当收费类型为D/X/F/E时暂时不做区分是否为行李或则一般附加服务，这里全部都将适用于置为空
+				//这个地方可能还存在一店暂时先把为d时适用于全部置空
+				//specifiedServiceFeeApp_specialFlag = false ;//如果不为d，则进入其他的校验，按照其他的进行
+				//当是否收费为D时  --行李适用范围必须为空
+				//更新'行李适用范围'组件
+				updatebaggageTravelApplication(editScope,data,globalEditStatus) ;
+				//更新’或/和‘组件
+				updateSpecSevFeeAndOrIndicator(editScope,data,globalEditStatus) ;
+				//更新‘是否可退’组件
+				updateIndicatorReissueRefund(editScope,data,globalEditStatus) ;
+				var freeBaggageAllowancePiecesFlag = false ;//因为免费行李件件数控件只有在serviceType=='A'是才能显示
+				//当是否收费为D/O时行李件数必修为空,行李类型必须为A,行李子代码必须为0DF
+				if(serviceType=='A'){
+					if(noChargeNotAvailable=='D'||noChargeNotAvailable=='O'){
+						freeBaggageAllowancePiecesFlag = false ;
+					}else{
+						freeBaggageAllowancePiecesFlag = true ;
+					}
+				}
+				//行李件数置为空//费用//里程//适用于//里程兑换标
+				var noticeNameFlagList = [
+					{"name":"freeBaggageAllowancePieces","flag":freeBaggageAllowancePiecesFlag},{"name":"list170VOAndlist201VO","flag":in_flag},
+					{"name":"specifiedServiceFeeMileage","flag":in_flag},{"name":"specifiedServiceFeeApp","flag":in_flag}
+				] ;
+				sendNoticeToForceDirctive4SingleArr(editScope, "false", noticeNameFlagList) ;
+				/*{"name":"specifiedServiceFeeApp","flag":in_flag}*/
+				//这个地方是只有当适用于不为hcp，并且为收费时才应该显示
+				/*var specifiedServiceFeeApp = data.specifiedServiceFeeApp ;
+				var flag2 = true ;
+				if(_.contains(['H','C','P'],specifiedServiceFeeApp)){
+					flag2 = false;
+				}else{
+					if(noChargeNotAvailable==''){
+						flag2 = true;
+					}else{
+						flag2 = false ;
+					}
+				}
+				sendNoticeToForceDirctive4Single(editScope, "false", "mileageExchangeIndicator", flag2) ;*/
+				updateMileageExchangeIndicator(editScope,data,globalEditStatus) ;
+			},
+			changeSpecifiedServiceFeeApp:function(editScope,data,globalEditStatus){/**当改变适用于的时候*/
+				var serviceType = data.serviceType ||'';
+				var noChargeNotAvailable = data.noChargeNotAvailable || '';
+				var ssfa = data.specifiedServiceFeeApp || '' ;
+				var in_flag = true ;
+				//因为只有行李服务适用于才会有[H,C,P]，所以这里不需要判断serviceType是否为C，P
+				if(ssfa=='H'||ssfa=='C'||ssfa=='P'){
+					in_flag = false;
+				}else{
+					if(noChargeNotAvailable==''){//如果不为收费这下面的置空
+						in_flag = true ;
+					}else{//免费的时候需要清空填写的信息
+						in_flag = false;//隐藏 适用于，里程，金额
+					}
+				}
+				//console.info('serviceType : ['+serviceType+'] , ssfa : ['+ssfa+']  , in_flag : ['+in_flag+']' ) ;
+				//$scope.FormEditStatusServcie.noChargeNotAvailable =in_flag;
+				//170，201显示或隐藏
+				//editScope.$broadcast('singleChangeByFlagNotice','list170VOAndlist201VO',in_flag+'','false') ;
+				sendNoticeToForceDirctive4Single(editScope, "false", "list170VOAndlist201VO", in_flag) ;
+				//当适用于改变的时候要更新 ‘里程积分兑换标识’状态
+				updateMileageExchangeIndicator(editScope,data,globalEditStatus) ;
+				//更新‘或/者’字段
+				updateSpecSevFeeAndOrIndicator(editScope,data,globalEditStatus) ;
+				//更新‘里程费’字段
+				updateSpecifiedServiceFeeMileage(editScope,data,globalEditStatus) ;
+				
+			},
+			changeGeoSpecSectPortJourney:function  (editScope,data,globalEditStatus) {
+				/*var geoSpecSectPortJourney = data.geoSpecSectPortJourney || '' ;
+				var noticeName = 'geoSpecLoc1AndType' ;
+				var showFlag = true;
+				if(geoSpecSectPortJourney==''){
+					showFlag = false;
+				}
+				sendNoticeToForceDirctive4Single(editScope,'false',noticeName,showFlag+'') ;*/
+			},
+			changeDiscount:function(editScope,data,globalEditStatus){/*当改变折扣时*/
+				//更新‘或/和’是否可编辑状态
+				updateSpecSevFeeAndOrIndicator(editScope,data,globalEditStatus) ;
+				//更新‘里程费’是否可编辑状态
+				updateSpecifiedServiceFeeMileage(editScope,data,globalEditStatus) ;
+				//更新'里程兑换标识'
+				updateMileageExchangeIndicator(editScope,data,globalEditStatus) ;
+			},
+			changeSpecSevFeeAndOrIndicator:function(editScope,data,globalEditStatus){/*当改变‘或/和’时*/
+				//更新'里程兑换标识'
+				updateMileageExchangeIndicator(editScope,data,globalEditStatus) ;
+			},
+			changeMileageExchangeIndicator:function(editScope,data,globalEditStatus){/*当改变‘里程兑换标识’时*/
+				//更新‘里程费’是否可编辑状态
+				updateSpecifiedServiceFeeMileage(editScope,data,globalEditStatus) ;
+			}
+		} ;
+
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+/***/ },
+/* 42 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module) {
+		var util = {};
+		//将查询的s7数据转换为‘FormData’
+		util.convertS7ToFormData = function(s7,formData){
+			for(var p in formData) {
+				var flag =  s7.hasOwnProperty(p);
+				if(flag){
+					var tmpStr = s7[p]  ;
+					formData[p] =  tmpStr ;
+				}
+			}
+			//2.填充部分特殊数据
+			formData.sel1.showStr = s7.basicInfoVo.serviceGroupDescription ;
+			formData.sel2.showStr = s7.basicInfoVo.subGroupDescription ;
+			formData.sel3.showStr = s7.basicInfoVo.commercialName ;
+			formData.sel1.value = s7.basicInfoVo.serviceGroup ;
+			formData.sel2.value = s7.basicInfoVo.subGroup ;
+			formData.sel3.value = s7.basicInfoVo.subCode ;
+			
+		}
+		
+		//提交表单时将formData转换为s7
+		util.convertFormDataToS7 = function(formData){
+			var s7 = {} ;
+			angular.extend(s7,formData) ;
+			util.initTravelDate(s7) ;
+			util.initDayOfWeek(s7) ;
+			//处理部分特殊数据
+			//删除后台不存在的属性字段
+			delete s7.sel1 ;
+			delete s7.sel2 ;
+			delete s7.sel3 ;
+			delete s7.travelStartDate ;
+			delete s7.travelEndDate ;
+			delete s7.dayOfWeekShow ;
+			return s7 ;
+		}
+		
+		
+		util.initTravelDate =function (s7){
+			var arr1 = util.getDateArr(s7.travelStartDate) ;
+			var arr2 = util.getDateArr(s7.travelEndDate) ;
+			s7.firstTravelYear = arr1[0] ;
+			s7.firstTravelMonth = arr1[1] ;
+			s7.firstTravelDay = arr1[2] ;
+			//
+			s7.lastTravelYear = arr2[0] ;
+			s7.lastTravelMonth = arr2[1] ;
+			s7.lastTravelDay= arr2[2] ;
+		}
+		
+		util.initDayOfWeek =function (s7){
+			var dayOfWeekShow = s7.dayOfWeekShow ;
+			var str = ""  ;
+			var index = 1 ;
+			for(var t in dayOfWeekShow){
+	      	var value = dayOfWeekShow[t] ;
+				if(value){
+					str+= index;
+				}
+				index ++ ;
+			}
+			s7.dayOfWeek = str ;
+		}
+		
+		//检查金额是否不为空
+		var checkMemonyIsNotNull = function  (data) {
+			var list170 = data['list170VO'] ;
+			var list201 = data['list201VO'] ;
+			if(list170.length==0&&list201.length==0){
+				return false;
+			}
+			return true ;
+		}
+
+		//判断金额是否为空
+		var testFreeIsNull = function  (data) {
+			var list170 = data['list170VO'] ;
+			var list201 = data['list201VO'] ;
+			if(list170.length>0||list201.length>0){
+				return false ;
+			}
+			return true;
+		};
+
+
+
+		//检查区域1字段是否为空
+		var checkLoc1IsNull = function  (formData) {
+			var geoSpecLoc1Type = formData['geoSpecLoc1Type'] || '' ;
+			var geoSpecLoc1 = formData['geoSpecLoc1'] ;
+			var list178Loc1 = formData['list178Loc1'] ;
+			if( (geoSpecLoc1Type==''||geoSpecLoc1=='')&&list178Loc1.length==0){
+				return true ;
+			}
+			return false;
+		};
+		//检查区域1字段是否为空
+		var checkLoc2IsNull = function  (formData) {
+			var geoSpecLoc2Type = formData['geoSpecLoc2Type'] || '' ;
+			var geoSpecLoc2 = formData['geoSpecLoc2'] ;
+			var list178Loc2 = formData['list178Loc2'] ;
+			if( (geoSpecLoc2Type==''||geoSpecLoc2=='')&&list178Loc2.length==0){
+				return true ;
+			}
+			return false;
+		};
+
+		//检查区域1字段是否为空
+		var checkLoc3IsNull = function  (formData) {
+			var geoSpecLoc3Type = formData['geoSpecLoc3Type'] || '' ;
+			var geoSpecLoc3 = formData['geoSpecLoc3'] ;
+			var list178Loc3 = formData['list178Loc3'] ;
+			if( (geoSpecLoc3Type==''||geoSpecLoc3=='')&&list178Loc3.length==0){
+				return true ;
+			}
+			return false;
+		};
+
+
+
+		//校验交单数据是否可以提交
+		util.validFormData = function(formData ,orgFormData){
+			var serviceType = formData['serviceType'] ;
+			//第一个校验
+			//其他校验
+			//1.表格数据校验[删除表格中的非法数据:eg:第一个字段为空的假数据]
+			util.delInValidList(formData) ;
+			util.dealOtherData(formData) ;
+			//如果适用于为h，c，p
+			var hcpFlag = _.contains(['H','C','P'], formData['specifiedServiceFeeApp']) ;
+			//console.info("--------------------> " +hcpFlag + "   , " + formData['specifiedServiceFeeApp'] )  ;
+			/**1.当收费为收费时,如果适用于不为H,C,P时，金额字段必填，否则金额或则里程费两个不能同时为空*/
+			if(formData['noChargeNotAvailable']==''&&!hcpFlag){
+				var freeIsNullFlag = testFreeIsNull(formData) ;
+				if(formData['specSevFeeAndOrIndicator']=='A'){//或、和字段值为A时
+					if(freeIsNullFlag){
+						$.showTuiErrorDialog('您选择的支付方式为金额和里程，请填写金额!') ;
+						return false;
+					}	
+				}else{//
+					if(formData['specifiedServiceFeeMileage'].length==0&&freeIsNullFlag){//如果里程费为空
+						$.showTuiErrorDialog('请填写金额或里程费!') ;
+						return false;
+					}
+				}
+			}
+			
+			var loc1IsNullFlag = checkLoc1IsNull(formData) ;
+			var loc2IsNullFlag = checkLoc2IsNull(formData) ;
+			var loc3IsNullFlag = checkLoc3IsNull(formData) ;
+			if(formData['geoSpecFromToWithin']!=''){//如果不为不限区域则区域必填
+				if(loc1IsNullFlag){
+					$.showTuiErrorDialog('【区域限制】选择的不是“不限区域”，【区域1】必填！');
+					return false;
+				}
+			}
+			if (formData['geoSpecFromToWithin'] == 'W') {
+				if(!loc2IsNullFlag||!loc3IsNullFlag){
+					$.showTuiErrorDialog('【区域限制】选择了“区域1内部”，【区域2】和【经过区域】不能有值！');
+					return false;
+				}
+			}
+
+			//当‘区域/部分/全程’
+			var geoSpecSectPortJourney = formData['geoSpecSectPortJourney'] || '';
+			//区域限制
+			var geoSpecFromToWithin = formData['geoSpecFromToWithin'] || '';
+			//经停类型
+			var geoSpecStopConnDes = formData['geoSpecStopConnDes'] || '';
+			if(geoSpecSectPortJourney==''){
+				if(!loc1IsNullFlag){
+					$.showTuiErrorDialog('【Sector/Portion/Journey】为空，【区域1】必须为空!');
+					return false;
+				}
+			}else if(geoSpecSectPortJourney=='P'){//loc1必须有值
+				var astr = '' ;
+				var flag2= (loc2IsNullFlag&&geoSpecFromToWithin!='W'&&geoSpecStopConnDes!='T') ;
+				if(loc1IsNullFlag&&flag2){
+					astr = '【sector/portion/journey】选择了portion，【区域1】必填，且：【区域2】有值，或者【区域限制】选择“区域1内部”，或者【经停类型】字段填“T”!' ;
+					$.showTuiErrorDialog(astr);
+					return false;
+				}else if (loc1IsNullFlag){
+					astr = '【Sector/Portion/Journey】选择了Portion，【区域1】必填!' ;
+					$.showTuiErrorDialog(astr);
+					return false;
+				}else if(flag2){
+					astr = '【Sector/Portion/Journey】选择了Portion，【区域2】必填，或者【区域限制】选择“区域1内部”，或者【经停类型】字段填“T”!' ;
+					$.showTuiErrorDialog(astr);
+					return false;
+				}
+			}else if (geoSpecSectPortJourney=='J'){
+				if(loc1IsNullFlag||loc2IsNullFlag){
+					$.showTuiErrorDialog('【Sector/Portion/Journey】选择了Journey，【区域1】和【区域2】必填!');
+					return false;
+				}
+			}
+			//里程如果最大值没有填写则置为最大值5个9
+			if(formData.mileageMaximum==''){
+				formData.mileageMaximum = '99999' ;
+			}
+			return true ;
+		}
+		
+		//处理表单其他数据
+		util.dealOtherData = function(formData){
+			var serviceType = formData.serviceType ;
+			if(serviceType=='A'){
+				formData.firstExcessOccurrence = "" ;
+				formData.lastExcessOccurrence = "" ;
+			}
+			if(serviceType=='C'||serviceType=='P'){
+				if(formData.firstExcessOccurrence.length>0){
+					if(formData.lastExcessOccurrence == ""){//若后者不填写，则后者默认等于前者
+						formData.lastExcessOccurrence = formData.firstExcessOccurrence ;
+					}
+				}
+			}
+		}
+		
+		util.strNotNull = function(str){
+			var tmp = str || "" ;
+			tmp = $.trim(tmp+"") ;
+			var flag = false;
+			if(tmp.length>0){
+				flag = true ;
+			}
+			return flag ;
+		}
+		
+		
+		/**
+		 * <pre>
+		 * 	删除表格中无效数据
+		 * </pre>
+		 * @param {Object} formData
+		 */
+		util.delInValidList = function(formData){
+			//170表格
+			var t170 = [] ;
+			angular.forEach(formData.list170VO,function(m){
+				if(util.strNotNull(m.specFeeAmount)){//如果存在的话
+					t170.push(m) ;
+				}
+			}) ;
+			//list198VO
+			var t198 = [] ;
+			angular.forEach(formData.list198VO,function(m){
+				if(util.strNotNull(m.mktOp)){
+					t198.push(m) ;
+				}
+			}) ;
+			formData.list198VO = t198 ;
+			//list198UpgradeVO
+			var t198up = [] ;
+			angular.forEach(formData.list198UpgradeVO,function(m){
+				if(util.strNotNull(m.rbd1)){
+					t198up.push(m) ;
+				}
+			}) ;
+			formData.list198UpgradeVO = t198up ;
+			//list183VO
+			var t183 = [] ;
+			angular.forEach(formData.list183VO,function(m){
+				var flag = false;
+				for(var p in m){
+					var v = m[p] ;
+					if(util.strNotNull(v)){
+						flag = true ;
+						break ;
+					}
+				}
+				if(flag){
+					t183.push(m) ;	
+				}
+			}) ;
+			formData.list183VO = t183 ;
+			//list186VO
+			var t186 = [] ;
+			angular.forEach(formData.list186VO,function(m){
+				if(util.strNotNull(m.fltNo1)){
+					t186.push(m) ;
+				}
+			}) ;
+			formData.list186VO = t186 ;
+			//list178Loc1
+			var tloc1 = [] ;
+			angular.forEach(formData.list178Loc1,function(m){
+				if(util.strNotNull(m.geoLocType)){
+					tloc1.push(m) ;
+				}
+			}) ;
+			formData.list178Loc1 = tloc1 ;
+			//list178Loc2
+			var tloc2 = [] ;
+			angular.forEach(formData.list178Loc2,function(m){
+				if(util.strNotNull(m.geoLocType)){
+					tloc2.push(m) ;
+				}
+			}) ;
+			formData.list178Loc2 = tloc2 ;
+			//list178Loc3
+			var tloc3 = [] ;
+			angular.forEach(formData.list178Loc3,function(m){
+				if(util.strNotNull(m.geoLocType.length)){
+					tloc3.push(m) ;
+				}
+			}) ;
+			formData.list178Loc3 = tloc3 ;
+			//行李件数表格处理
+			var t196 = [] ;
+			angular.forEach(formData.list196VO,function(m){
+				if(util.strNotNull(m.count)&&util.strNotNull(m.code)){
+					t196.push(m) ;
+				}
+			}) ;
+			formData.list196VO = t196 ;
+			//171表格无效数据删除
+			var t171 = [] ;
+			angular.forEach(formData.list171VO,function(m){
+				if(util.strNotNull(m.carrier)){
+					t171.push(m) ;
+				}
+			}) ;
+			formData.list171VO = t171 ;
+			//172表格删除无效数据
+			var t172 = [] ;
+			angular.forEach(formData.list172VO,function(m){
+				if(util.strNotNull(m.accountCode)){
+					t172.push(m) ;
+				}
+			}) ;
+			formData.list172VO = t172 ;
+			//173-1表格删除无效数据
+			var t173_1 = [] ;
+			angular.forEach(formData.list173TicketVO,function(m){
+				if(util.strNotNull(m.ticketDesignator)){
+					t173_1.push(m) ;
+				}
+			}) ;
+			formData.list173TicketVO = t173_1 ;
+			//173-2表格删除无效数据
+			var t173_2 = [] ;
+			angular.forEach(formData.list173TktVO,function(m){
+				if(m.ticketDesignator.length>0 ){
+					t173_2.push(m) ;
+				}
+			}) ;
+			formData.list173TktVO = t173_2 ;
+			//165
+			var t165 = [] ;
+			angular.forEach(formData.list165VO,function(m){
+				if(m.equipmentCode.length>0){//如果存在的话
+					t165.push(m) ;
+				}
+			}) ;
+			formData.list165VO = t165 ;
+		}
+		
+		util.getDate = function (str) {
+			var strs = str.split('-');
+			var year = strs[0];
+			var month = strs[1];
+			var day = strs[2];
+			return new Date(year, month-1, day);
+		};
+		
+		util.getDateArr = function (str) {
+			var arr = [] ;
+			var year = '' ;
+			var month = '' ;
+			var day  = '' ;
+			if(str.length>0){
+				var infos = str.split('-');
+				if(infos.length==3){
+					arr.push(infos[0]) ;
+					arr.push(infos[1]) ;
+					arr.push(infos[2]) ;
+				}
+			}
+			return arr ;
+		};
+		
+		module.exports = util ;
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 43 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;/**
+	 * <pre>
+	 * 	功能描述:所有的模态框辅助类
+	 * </pre>
+	 * @auther:yicj
+	 * @email:626659321@qq.com
+	 * @date:2016/05/03
+	 * @example:
+	 * html:'<ul id ="tskCustomeTipInfo">'
+	 * js:'var ModalHelper = require('./lib/modal.helper') ; <br/>
+	 * 	   var modalHelper = new ModalHelper("tskCustomeTipInfo");'
+	 */
+	!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
+		function ModalHelper(tipId){
+			if(this==window){
+				throw new Error("please new an ModalHelper object to use it !");
+			}
+			this.el = $("#"+tipId) ;
+		} ;
+		
+		
+		ModalHelper.prototype.cleanTipInfo = function(){
+			this.el.html("") ;
+		} ;
+		
+		ModalHelper.prototype.addErrorTip = function(errMsg){
+			this.el.append("<li><span class ='modal-errorTip'>"+errMsg+"</span></li>") ;
+		} ;
+		ModalHelper.prototype.addSuccessTip = function(sucMsg){
+			this.el.append("<li><span class =\"modal-successTip\">"+sucMsg+"</span></li>") ;
+		} ;
+		module.exports = ModalHelper;
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+
+
+
+/***/ },
+/* 44 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
+		  var controllers = __webpack_require__(39) ;
+		  var util = __webpack_require__(42) ;
+
+		  //当提交的时候将页面上所有字段的$dirty全部置为true
+		  function changeInputStatus4Submit(data,myForm){
+		  		var keys1 = _.keys(data) ;
+		  		var keys2 = _.keys(myForm) ;
+		  		_.each(keys2,function(item){
+		  			if(_.contains(keys1,item)){
+		  				 myForm[item].$setDirty(true) ;
+		  			}
+		  		}) ;
+		  } ;
+		    //保存表格数据到后台
+	      //headerController
+		  controllers.controller('HeaderCtrl',['$scope','FormData','HttpOperService','$log',function($scope,FormData,HttpOperService,$log){
+		  	  $scope.contextPath = FormData.contextPath ;
+		  	  $scope.data = FormData ;
+		  	   //提交表单数据
+		  	  $scope.submitForm = function(saveOrSaveAndPublish){
+				   var action = $scope.data.action ;
+				    var sel3ShowStr =  $scope.data.sel3.showStr ;
+				    var flag = validator.form() ;
+				    var ngFlag = $scope.myForm.$valid ;
+				    //$log.info('flag : ' + flag) ;
+				    //$log.info('ngFlag : '  + ngFlag) ;
+				    if(action=='add'&&sel3ShowStr==''){
+				   		$.showTuiErrorDialog('请选择服务到最后一级！');
+				     }else{
+				     	changeInputStatus4Submit($scope.data,$scope.myForm) ;
+					    if(flag&&ngFlag){
+						   saveFormData(saveOrSaveAndPublish,$scope.data) ;
+					    }
+				     }
+			   }
+		  	    /**
+				 * <pre>
+				 * 	功能描述:保存表单数据
+				 * </pre>
+				 * @param {Object} operType  ['save','saveAndPublish']  点击‘保存’,‘保存并发布’
+				 */
+			      function saveFormData (operType,formData){
+						var tokenId = $("#tokenId").val() ;
+						var flag = false ;
+						var s7 = util.convertFormDataToS7(formData) ;
+						flag = util.validFormData(s7,formData) ;
+						//flag = false;//本地测试禁止表单提交
+						if(flag){//如果校验通过的话则提交表单数据到后台
+							$.showTuiConfirmDialog('保存?', function() {
+								var url = "" ;
+								if(operType=='save'){
+									if(formData.action == "add"||formData.action == "copy"){//新增数据的话
+										url = formData.contextPath + "/addS7"
+									}else if(formData.action=="update"){//更新数据的话
+										url = formData.contextPath + "/updateS7" ;
+									}
+								}else if (operType=='saveAndPublish'){
+									url = formData.contextPath + "/saveAndPublishS7" ;
+								}
+								var config = {"tokenId":tokenId} ;
+								var promise = HttpOperService.postDate(url,s7,config) ;
+								promise.then(function (data) {
+									if (data.flag == 'true' ) {
+										$.showTuiSuccessDialog('保存成功！', function() {
+											$.showTuiWaitingDialog('即将返回查询界面!', 200, 60);
+											window.location.href= formData.contextPath+'/oc/ocView' ;
+										});
+									} else {
+										$.showTuiErrorDialog('保存数据出错！');
+									}
+								},function(error){
+									$.showTuiErrorDialog('保存数据出错！');
+								}) ;
+							});
+						}
+				 }
+		  	  
+		  }])  ;
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+/***/ },
+/* 45 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
+		  var controllers = __webpack_require__(39) ;
+		  var jsonDataHelper = __webpack_require__(22) ;
+		  var commonUtil = __webpack_require__(23) ;
+		  var _ = __webpack_require__(21) ;
+		  var validateHelper = __webpack_require__(41) ;
+		  
+		  
+		  var clearAllReuseTbHistory = function(){
+		  	//201暂时不支持复用，所以不用清空历史
+		  	var namesArrs = ["reuseList172VO","reuseList173TicketVO","reuseList183VO","reuseList198VO","reuseList198UpgradeVO",
+		  	"reuseList171VO","reuseList173TktVO","reuseList186VO","reuseList170VO","reuseList196VO","reuseList165VO",
+		  	"reuseList178Loc1","reuseList178Loc2","reuseList178Loc3","reuseListTsk202VO"] ;
+		  	for(var i=0 ; i<namesArrs.length;  i++){
+		  		$(":input[name="+namesArrs[i]+"]").val("").attr("placeholder","") ;
+		  	}
+		  };
+		  
+		  var changeDefaultValueByServiceType = function(data){
+			  var serviceType = data.serviceType ;
+			  ////1.当为免费行李时，‘或/和’字段为空
+			  if(_.contains(['A','B','E'], serviceType)){
+				 data.specSevFeeAndOrIndicator= '' ;
+			  }
+			  //2.更新‘是否收费’的默认值
+			  if(serviceType=='A'){
+				 data.noChargeNotAvailable = 'F' ;//设置为免费
+			  }else if (serviceType=='B'){
+				 data.noChargeNotAvailable = 'F' ;//设置为免费
+			  }else if (serviceType=='C'||serviceType=='P'){
+				 data.noChargeNotAvailable = '' ;//设置为收费
+			  }else if (serviceType=='E'){
+				 data.noChargeNotAvailable = 'X' ;//设置为收费
+			  }
+			  //3.更新‘是否检查库存’
+			  if(_.contains(['A','B','E'],serviceType)){
+				 data.availability = 'N' ;
+			  }
+			  //4.更新‘区域/部分/全程’
+			  if(_.contains(['B','E'], serviceType)){
+				 data.geoSpecSectPortJourney = 'S' ;
+			  }else if(serviceType=='F'){
+				 data.geoSpecSectPortJourney = 'S' ;
+			  }else{
+				 data.geoSpecSectPortJourney = '' ;
+			  }
+			  
+		  }
+		  
+
+	      var dealData4NewServiceType = function(data,orgData,l,FormEditStatusServcie,editScope){
+	      		//第一部分:主要为点击事件后的页面表单赋值工作
+				var serviceType = l.serviceType ;
+				var carrCode = l.carrCode ;
+				var serviceSubCode = l.serviceSubCode ;
+				var commercialName = l.commercialName ;
+				//第一步:重置表单数据
+				//当点击的饿时候把整个表单重置//除了serviceType外的其他字段
+				for(var pname in data){
+					if(!_.contains(['sel1','sel2','sel3','sel4','firstMaintenanceDate'], pname)){
+						data[pname] = angular.copy(orgData[pname]) ;
+					}
+				}
+				//validator是绑定在window上的全局变量
+				validator.resetForm();
+				//第二步：填充当前选中的数据
+				data.carrCode = carrCode ;
+				data.serviceAndSubCode = serviceSubCode ;
+				data.serviceType = serviceType ;
+				//填充basicInfo信息start
+				data.basicInfoVo.serviceGroup= l.attributesGroup ;
+				data.basicInfoVo.subGroup= l.attributesSubgroup ;
+				data.basicInfoVo.subCode= l.serviceSubCode ;
+				//清除表格复用的信息
+				clearAllReuseTbHistory() ;
+				//填充basicInfo信息end
+				data.sel3.showStr = '['+serviceSubCode+']'+commercialName ;
+				data.sel3.value = serviceSubCode ;
+				data.sel3.serviceGroup = l.attributesGroup ;
+				//清空金额缓存数据(初始化为全额状态)
+				data.discountOrNot = '1' ;
+				data.list201VO = [] ;//数据初始化
+				//赋默认值部分
+				changeDefaultValueByServiceType(data) ;
+				//第二部分：主要做页面的显隐以及是否可编辑工作
+				validateHelper.changeServiceType(editScope,data,FormEditStatusServcie) ;
+				editScope.myForm.$setPristine() ;
+		  };
+
+
+
+		  //页面第一个部分/////////选择附加服务部分/////////////////////////////////////////
+		  //select级联controller
+		   controllers.controller('BasicInfoCtrl',['$scope','HttpOperService','FormData','DEFAULT_SERVICETYPE','FormEditStatusServcie',function($scope,HttpOperService,FormData,DEFAULT_SERVICETYPE,FormEditStatusServcie){
+				//chooseInput的输入数据
+				$scope.chooseInputData = {
+					"choose1":"",
+					"choose2":"",
+					"choose3":""
+				} ;
+		   		$scope.data = FormData ;
+				$scope.showChooseFunc = function(){
+					var str = "" ;
+					var str1 = FormData.sel1.showStr || "" ;
+					var str2 = FormData.sel2.showStr || "" ;
+					var str3 = FormData.sel3.showStr || "" ;
+					if(str1.length>0){
+						str = str1 ;
+					}
+					if(str2.length>0){
+						str += " > "+str2 ;
+					}
+					if(str3.length>0){
+						str += " > "+str3 ;
+					}
+					return str ;
+				};
+
+				//choose第一个框中li点击事件
+				$scope.subGroupQuery = function(showStr,serviceGroup){
+					var contextPath = $scope.contextPath ;
+					FormData.sel1.showStr = showStr ;
+					FormData.sel1.value = serviceGroup ;
+					//把第二个选项框以前保留的信息清空
+					FormData.sel2.showStr = "" ;
+					FormData.sel2.value = "" ;
+					//把第三个选项框以前保留的信息清空
+					FormData.sel3.showStr = "" ;
+					FormData.sel3.value = "" ;
+					FormData.sel3.serviceGroup = "" ;
+					FormData.sel3.textTableNo163 = "" ;
+					$scope.lastGroupList = [] ;
+					$scope.lastGroupList2 = [] ;
+					//清空formData信息
+					FormData.serviceAndSubCode = "" ;
+					FormData.serviceType = DEFAULT_SERVICETYPE ;//
+					FormData.noChargeNotAvailable = "" ;//设置为默认
+					var url = contextPath+"/basicInfo/queryBasicInfoByGroup" ;
+					var carrier = $scope.data.carrCode  ;
+					var jqeryData = {} ;//post方式提交
+					var jueryParam = {carrier: carrier,serviceGroup:serviceGroup};//地址问号形式
+					var promise =HttpOperService.postDate(url,jqeryData,jueryParam) ;
+					promise.then(function(retData){
+						$scope.subGroupList = retData ;
+					},function(err){
+						alert("查询出错!") ;
+					}) ;
+					$scope.data.basicInfoVo.serviceGroup= "";
+					$scope.data.basicInfoVo.subGroup= "" ;
+					$scope.data.basicInfoVo.subCode= "" ;
+					$scope.data.sel4 = [];
+				};
+
+				//第二个li点击事件
+				$scope.s5Query = function(showStr,subGroup){
+					var contextPath = $scope.contextPath ;
+					FormData.sel2.showStr = showStr ;
+					FormData.sel2.value = subGroup ;
+					//清空第三个选项框
+					FormData.sel3.showStr = "" ;
+					FormData.sel3.value = "" ;
+					FormData.sel3.serviceGroup = "" ;
+					FormData.sel3.textTableNo163 = "" ;
+					$scope.lastGroupList = [] ;
+					FormData.serviceAndSubCode = "" ;
+					FormData.serviceType = DEFAULT_SERVICETYPE ;//
+					$scope.lastGroupList2 = [] ;
+
+					FormData.noChargeNotAvailable = "" ;//设置为默认
+					var url = contextPath+"/s5/queryS5BySubGroup" ;
+					var carrier = $scope.data.carrCode  ;
+					var serviceGroup = FormData.sel1.value ;
+					var jqeryData = {} ;//post方式提交
+					var jueryParam = {carrier: carrier,serviceGroup:serviceGroup,subGroup:subGroup};//地址问号形式
+					var promise =HttpOperService.postDate(url,jqeryData,jueryParam) ;
+					promise.then(function(retData){
+						$scope.lastGroupList = retData ;
+					},function(err){
+						alert("查询出错!") ;
+					}) ;
+					$scope.data.basicInfoVo.serviceGroup= "" ;
+					$scope.data.basicInfoVo.subGroup= "" ;
+					$scope.data.basicInfoVo.subCode= "" ;
+					$scope.data.sel4 = [];
+				};
+
+				//第三个li点击事件
+				$scope.lastChooseClick = function(l){
+					//l.attributesGroup与上面的serviceGroup一样
+					var serviceGroup = l.attributesGroup ;	
+					var serviceType = l.serviceType ;
+					var pageNeedNewRunderFlag = true ;
+					//下面的这段暂时注释掉，以后可能需要根据点击要判断当前页面是否需要重置数据
+					//点击本次li前的数据
+					//var oldServiceGroup = $scope.data.sel3.serviceGroup ;
+					//var oldServiceType = FormData.serviceType ;
+					/*if(oldServiceGroup==serviceGroup){//表示之前点击过第三个li并且一直保持在第三个li上面
+						if(oldServiceType==serviceType){//表示serviceGroup和serviceType都没有变，则页面不需要重新渲染
+							pageNeedNewRunderFlag = false;
+						}
+					}*/
+					//000000 这里暂时全都做页面重置(以后的重置方式最佳实践:1-->应该把force指令里面控制显隐的变量修改为只有serviceType一个。
+					//000000 2-->然后对于比较特殊的页面元素例如:升舱，则特殊处理，在页面上直接用ng-show=’serviceGroup‘来控制显隐),
+					//000000 这样后期才更利于需求的变化
+					//后期做这个功能
+					if(pageNeedNewRunderFlag){//只有当页面需要重新渲染时
+						//console.info('本次点击需要重新刷新页面....') ;
+						//处理点击后的数据
+						dealData4NewServiceType($scope.data,$scope.orgData,l,FormEditStatusServcie, $scope.$parent) ;
+						
+					}
+					//第四步:查询数据为后面显示准备
+					var textTableNo163 = l.subCodeTableNo163||'' ;
+					var oldTextTableNo163 = FormData.sel3.textTableNo163 ||'';
+					if(oldTextTableNo163!=textTableNo163){//如果上次和这次不相同才需要重新渲染第四列
+						textTableNo163 = textTableNo163*1 ;
+						var url = FormData.contextPath+"/s7/query4ClickService" ;
+						var queryParam = {"subCodeTableNo163":textTableNo163+"",
+										  "carrCode":l.carrCode,
+										  "serviceType":l.serviceType,
+										  "serviceAndSubCode":l.serviceSubCode} ;
+						var promise =HttpOperService.postDate(url,queryParam,{}) ;
+						promise.then(function(retData){
+							$scope.lastGroupList2 = retData.tb163List ;
+						  	$scope.data.sel4 = retData.tb163List;
+						  	$scope.data.sequenceNumber = retData.maxSequenceNumber*1+10 ;
+						},function(err){
+							alert("查询出错!") ;
+						}) ;
+
+					}
+				};
+		   }]) ;
+		   // ng-show = "lastGroupList2.length>0"
+
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+
+/***/ },
+/* 46 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
+		var controllers = __webpack_require__(39) ;
+		var jsonDate = __webpack_require__(24) ;
+		var commonUtil = __webpack_require__(23) ;
+		var jsonDataHelper = __webpack_require__(22) ;
+		var _ = __webpack_require__(21) ;
+		var validHelper = __webpack_require__(41) ;
+		
+		var _checkHaseErrorInfo = function  (inputEl) {
+			if(inputEl.hasClass('error')){
+				return true ;
+			}
+			return false;
+		};
+		
+		var _delayValidateElement = function(inputEl){
+			if(_checkHaseErrorInfo(inputEl)){
+				setTimeout(function(){
+					validator.element(inputEl) ;
+				},100) ;
+			}
+		};
+
+	   //页面第二个部分///////费用确定部分////////////////////////////////////////////////////////
+	   controllers.controller('ChargeConfirmCtrl',['$scope','FormData','FormEditStatusServcie',function($scope,FormData,FormEditStatusServcie){
+	   			$scope.data  = FormData ;
+				//当选择免费或则收费时触发的事件
+				//行李重量单位集合
+				$scope.weightUnitList = jsonDate.weightUnitList ;
+				//SPEC_SERVICE_FEE_COL_SUB//包含/扣除
+				$scope.specServiceFeeColSubList = jsonDate.specServiceFeeColSubList ;
+				//净价/销售价
+				$scope.specServiceFeeNetSellList = jsonDate.specServiceFeeNetSellList ;
+				$scope.baggageTravelApplicationList = jsonDate.baggageTravelApplicationList ;
+
+				//当是否收费改变时触发的函数
+				$scope.changeNoChargeNotAvailable = function  () {
+					var editScope = $scope.$parent ;
+					var data = $scope.data;
+					var globalEditStatus = FormEditStatusServcie ;
+					var noChargeNotAvailable = data.noChargeNotAvailable ;
+					var serviceType = data.serviceType ;
+					//1.赋默认值
+					//1.1--‘行李适用范围组件’
+					if(noChargeNotAvailable=='D'){
+						data.baggageTravelApplication = '' ;
+					}
+					//1.2--‘是否可退组件’
+					if(noChargeNotAvailable==''){
+						data.indicatorReissueRefund='N'; 	
+					}else if(_.contains(['X','F','E'],noChargeNotAvailable)){
+						data.indicatorReissueRefund=''; 
+					}
+					//当为免费的时候清空170的子表复用号
+					if(noChargeNotAvailable!=''){
+						data.reuseList170VO = '' ;
+						$(":input[name=reuseList170VO]").val('').attr('placeholder','') ;
+					}
+					//当为免费的时候‘里程兑换标识’隐藏
+					if(noChargeNotAvailable!=''){
+						data.mileageExchangeIndicator = '0' ;
+					}
+					//2.更新将被影响控件的编辑状态以及显隐
+					validHelper.changeNoChargeNotAvailable(editScope,data,globalEditStatus) ;
+				} ;
+
+				//适用于改变时
+				$scope.changeSpecifiedServiceFeeApp = function(){
+					var globalEditStatus = FormEditStatusServcie ;
+					var editScope = $scope.$parent ;
+					var data = $scope.data ;
+					var noChargeNotAvailable = data.noChargeNotAvailable || '';
+					var ssfa = data.specifiedServiceFeeApp || '' ;
+					//当hcp时 170和201都会被清空、否则不会改变170和201表的状态
+					if(ssfa=='H'||ssfa=='C'||ssfa=='P'){//则将会隐藏170以及201所以需要将可能存在的子表号清空
+						data.reuseList170VO = '' ;
+						$(":input[name=reuseList170VO]").val('').attr('placeholder','') ;
+						//里程积分兑换标识必须为空
+						data.mileageExchangeIndicator = '0' ;
+						//里程费为空
+						data.specifiedServiceFeeMileage = ''
+						//或/和字段为空
+						data.specSevFeeAndOrIndicator = '' ;
+						
+					}
+					validHelper.changeSpecifiedServiceFeeApp(editScope,data,globalEditStatus) ;
+				};
+				
+				//当改变使用时间限制类型的时候
+				$scope.changeUseDateLimitTye = function(type){
+					type = type || '' ;
+					var statusDes = $scope.data.statusDes ;
+					var canEditFlag = commonUtil.getEditFlagByStatus(statusDes) ;
+					if(canEditFlag){
+						var oldType = $scope.data.useDateLimitTye ;
+						if(oldType==type) return ;
+						if(type==''){//如果为时间段
+							$scope.data.useDateLimitTye = '' ;
+							//将期限数据清空
+							$scope.data.effectivePeriodType= '' ;
+							$scope.data.effectivePeriodNumber = '' ;
+							$scope.data.effectivePeriodUnit = '' ;
+						}else if(type=='1'){//如果为期限
+							$scope.data.useDateLimitTye = '1' ;
+							//将时间段数据清空
+							$scope.data.firstUseDate = '' ;
+							$scope.data.lastUseDate = '' ;
+						}
+					}
+				}
+				
+				//-------------区域对应的表格显示隐藏结束--------//
+				$scope.changeEffectivePeriodType = function (){
+					var input1 = $(':input[name=effectivePeriodNumber]') ;
+					if($scope.data.effectivePeriodType==''){
+						$scope.data.effectivePeriodNumber='';
+						$scope.data.effectivePeriodUnit='';
+						_delayValidateElement(input1) ;
+					}else{
+						$scope.data.effectivePeriodUnit='D';
+					}
+				}
+
+				//table内部选择，全额或折扣
+				$scope.clickDiscount2 = function(l){
+					var type = l.discountType ;
+					if(type=='1'){//全额
+						l.discountNum = '' ;
+					}else{
+						l.onePriceNum = '' ;
+					}
+				};
+				//金额选择全额或则折扣时
+				$scope.clickDiscount = function(dt){
+					//整个编辑状态为3的时候是不能编辑的
+					var pageEditFlag = commonUtil.getEditFlagByStatus(FormData['statusDes']) ;
+					if(!pageEditFlag)return ;
+					//当点击时可以触发展开表格
+					$scope.data.discountOrNot = dt ;
+					if(dt=='1'){//全额
+						$scope.data.list201VO = [] ;
+					}else{//折扣
+						//第三列一定要已选中
+						$scope.data.list170VO = [] ;
+						//将复用170数据清空
+						$scope.data.reuseList170VO = '' ;
+						$(":input[name='reuseList170VO']").val('') ;
+						$scope.data.list201VO = [] ;//数据初始化
+						//1.判断套餐/非套餐
+						//2.套餐:显示每一条,非套餐的话总的显示一条
+						var serviceGroup = $scope.data.sel1.value;    //BD
+						if(serviceGroup!=null&&serviceGroup.length>2&&serviceGroup.indexOf('BD')===0){
+							//说明是套餐
+							var tmpArr = [] ;//[1]页面显示的字符串,[2]折扣类型,[3]一口价,[4]一口价单位,[5]折扣数
+							for(var i = 0 ; i < $scope.data.sel4.length;i++){
+								var l = $scope.data.sel4[i] ;
+								var obj = {"subCode":l.subCode,"commercialName":l.commercialName,"discountType":'1',"onePriceNum":'',"discountNum":''};
+								tmpArr.push(obj) ;
+							}
+							$scope.data.list201VO = tmpArr ;
+						}else{//说明是非套餐
+							$scope.data.list201VO = [] ;//数据初始化
+							//显示str $scope.data.sel3.showStr
+							var subCode = $scope.data.sel3.value ;
+							var index = 2+subCode.length ;//'['+subCode+']'
+							var sel3ShowStr = $scope.data.sel3.showStr ;
+							var commercialName = sel3ShowStr.substring(index);
+							//[1]页面显示的字符串,[2]折扣类型,[3]一口价,[4]一口价单位,[5]折扣数
+							var obj = {"subCode":subCode,"commercialName":commercialName,"discountType":'1',"onePriceNum":'',"discountNum":''};
+							$scope.data.list201VO = [obj] ;
+						}
+						//和/或--里程积分--里程兑换标识
+						//当选择折扣时要更新这三个字段都必须为空且不可改变
+						$scope.data.specSevFeeAndOrIndicator = "" ;
+						$scope.data.specifiedServiceFeeMileage = "" ;
+						$scope.data.mileageExchangeIndicator = "0" ;
+					}
+					//更新组件的状态
+					validHelper.changeDiscount($scope.$parent,$scope.data,FormEditStatusServcie) ;
+				};
+				
+				//当点击‘或/和’时
+				$scope.clickSpecSevFeeAndOrIndicator = function(type){
+					if(type=='A'){//当本字段的值为A--1.里程兑换标识必须为空2.折扣表标识值必须为0
+						$scope.data.mileageExchangeIndicator ='0' ;
+					}else{
+						
+					}
+					validHelper.changeSpecSevFeeAndOrIndicator($scope.$parent,$scope.data,FormEditStatusServcie) ;
+				}
+				//当点击‘里程兑换标识’
+				$scope.clickMileageExchangeIndicator = function(type){
+					if(type='1'||type=='2'){
+						$scope.data.specifiedServiceFeeMileage ='' ;
+					}
+					validHelper.changeMileageExchangeIndicator($scope.$parent,$scope.data,FormEditStatusServcie) ;
+				}
+				
+	   }]) ;
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+
+/***/ },
+/* 47 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
+		    var controllers = __webpack_require__(39) ;
+			var jsonDate = __webpack_require__(24) ;
+			var validHelper = __webpack_require__(41) ;
+			var _checkHaseErrorInfo = function  (inputEl) {
+				if(inputEl.hasClass('error')){
+					return true ;
+				}
+				return false;
+			};
+			var _delayValidateElement = function(inputEl){
+				if(_checkHaseErrorInfo(inputEl)){
+					setTimeout(function(){
+						validator.element(inputEl) ;
+					},100) ;
+				}
+			};
+		    //页面第三部分/////////规则详细部分/////////////////////////////////////////////////////////
+		    controllers.controller('RuleDetailCtrl',['$scope','FormData','FormEditStatusServcie',function($scope,FormData,FormEditStatusServcie){
+				$scope.data = FormData ;
+				//$scope.NEW_ADD_STR = NEW_ADD_STR ;
+				$scope.noCharge_notAvailableList = jsonDate.noCharge_notAvailableList ;
+				//舱位list集合
+				$scope.cabinList = jsonDate.cabinList ;
+				//区域集合
+			    $scope.geoLocTypeList = jsonDate.geoLocTypeList ;
+				//退/改
+				$scope.indicatorReissueRefundList = jsonDate.indicatorReissueRefundList ;
+				//退款形式
+				$scope.formOfRefundList = jsonDate.formOfRefundList ;
+				$scope.geoSpecExceptionStopUnitList = jsonDate.geoSpecExceptionStopUnitList ;
+				$scope.timeApplicationList = jsonDate.timeApplicationList ;
+				
+				$scope.getUpGradeTableTile = function(){
+					var sel1Value = FormData.sel1.value ;
+					var tmpStr = "" ;
+					if(sel1Value=="SA"||sel1Value=="BDSA"){
+						tmpStr = "座位属性表" ;
+					}else if (sel1Value=="UP"||sel1Value=="BDUP"){
+						tmpStr = "升舱属性表" ;
+					}
+					return tmpStr ;
+				}
+				
+				var list = ["SA","BDSA","UP","BDUP"] ;
+				$scope.showUpGradeTableFlag = function(){
+					var flag = false;
+					var index = list.indexOf(FormData.sel1.value) ;
+					if(index!=-1){
+						flag = true ;
+					}
+					if(flag){//如果为true，并且serviceType为M，或F时显示
+						if($scope.data.serviceType=='M'||$scope.data.serviceType=='F'){
+							flag = true ;
+						}else{
+							flag = false;
+						}
+					}
+					return flag ;
+				}
+				
+				var list2 = ['UP','BDUP'] ;
+				$scope.showUpGradeServiceFlag = function(){//升舱到的服务等级
+					var flag = false;
+					var index = list2.indexOf(FormData.sel1.value) ;
+					if(index!=-1){
+						flag = true ;
+					}
+					if(flag){//如果为true，并且serviceType为M，或F时显示
+						if($scope.data.serviceType=='M'||$scope.data.serviceType=='F'){
+							flag = true ;
+						}else{
+							flag = false;
+						}
+					}
+					return flag ;
+				}
+				
+				
+				//upGradeTable td input size //如果是座位属性表长度为10，订座属性表长度为3
+				$scope.getUpGradeInputSize = function(){
+					var sel1Value = FormData.sel1.value ;
+					var len = 5 ;
+					if(sel1Value=="SA"||sel1Value=="BDSA"){
+						len = 10 ;
+					}else if (sel1Value=="UP"||sel1Value=="BDUP"){
+						len = 5 ;
+					}
+					return len ;
+				}
+				//data.list178Loc1开始
+				//区域1 select改变
+				$scope.selectChangeGeoSpecLoc1 = function (){
+					$scope.data.geoSpecLoc1 = "" ;
+					var inputElement = $(":input[name='geoSpecLoc1']") ;
+					_delayValidateElement(inputElement) ;
+				}
+				//区域2 select改变
+				$scope.selectChangeGeoSpecLoc2 = function (){
+					$scope.data.geoSpecLoc2 = "" ;
+					var inputElement = $(":input[name='geoSpecLoc2']") ;
+					_delayValidateElement(inputElement) ;
+				}
+				//区域3 select改变
+				$scope.selectChangeGeoSpecLoc3 = function (){
+					$scope.data.geoSpecLoc3 = "" ;
+					var inputElement = $(":input[name='geoSpecLoc3']") ;
+					_delayValidateElement(inputElement) ;
+				}
+				
+				//当区域、部分、全程select发生变化的时候
+				$scope.changeGeoSpecSectPortJourney = function  () {
+					var editScope = $scope.$parent ;
+					var data = $scope.data;
+					var globalEditStatus = FormEditStatusServcie ;
+					validHelper.changeGeoSpecSectPortJourney(editScope,data,globalEditStatus) ;
+				}
+
+		  }]) ;
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+
+/***/ },
+/* 48 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
+		var app = angular.module('app.filter',[]); 
+		//过滤choose1
+		app.filter("serviceGroupFilter", function() {
+		    var myFunc = function(data,inputStr){
+				inputStr = inputStr || "" ;
+		        var retData = [] ;
+		        if(inputStr.length>0){
+					inputStr = inputStr.toLowerCase() ;
+		            angular.forEach(data,function(e){
+		                if(e.serviceGroupDescription.toLowerCase().indexOf(inputStr)!=-1){
+		                    retData.push(e) ;
+		                }
+		            }) ;
+		        }else{
+		            retData = data ;
+		        }
+		        return retData ;
+		    }
+		    return myFunc ;
+		});
+		
+		//subGroupDescription
+		app.filter("subGroupFilter", function() {
+		    var myFunc = function(data,inputStr){
+				inputStr = inputStr || "" ;
+		        var retData = [] ;
+		        if(inputStr.length>0){
+					inputStr = inputStr.toLowerCase() ;
+		            angular.forEach(data,function(e){
+		                if(e.subGroupDescription.toLowerCase().indexOf(inputStr)!=-1){
+		                    retData.push(e) ;
+		                }
+		            }) ;
+		        }else{
+		            retData = data ;
+		        }
+		        return retData ;
+		    }
+		    return myFunc ;
+		});
+		//lastGroupList
+		app.filter("lastGroupFilter", function() {
+		    var myFunc = function(data,inputStr){
+				inputStr = inputStr || "" ;
+		        var retData = [] ;
+		        if(inputStr.length>0){
+					inputStr = inputStr.toLowerCase() ;
+		            angular.forEach(data,function(e){
+						var tmpStr = "["+e.serviceSubCode+"]"+e.commercialName ;
+		                if(tmpStr.toLowerCase().indexOf(inputStr)!=-1){
+		                    retData.push(e) ;
+		                }
+		            }) ;
+		        }else{
+		            retData = data ;
+		        }
+		        return retData ;
+		    }
+		    return myFunc ;
+		});
+		
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+/***/ },
+/* 49 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;/* ========================================================================
+	 * Bootstrap: modal.js v3.3.6
+	 * http://getbootstrap.com/javascript/#modals
+	 * ========================================================================
+	 * Copyright 2011-2015 Twitter, Inc.
+	 * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+	 * ======================================================================== */
+	!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module) {
+	+function ($) {
+	  'use strict';
+	  // MODAL CLASS DEFINITION
+	  // ======================
+	  var Modal = function (element, options) {
+	    this.options             = options
+	    this.$body               = $(document.body)
+	    this.$element            = $(element)
+	    this.$dialog             = this.$element.find('.modal-dialog')
+	    this.$backdrop           = null
+	    this.isShown             = null
+	    this.originalBodyPad     = null
+	    this.scrollbarWidth      = 0
+	    this.ignoreBackdropClick = false
+
+	    if (this.options.remote) {
+	      this.$element
+	        .find('.modal-content')
+	        .load(this.options.remote, $.proxy(function () {
+	          this.$element.trigger('loaded.bs.modal')
+	        }, this))
+	    }
+	  }
+
+	  Modal.VERSION  = '3.3.6'
+
+	  Modal.TRANSITION_DURATION = 300
+	  Modal.BACKDROP_TRANSITION_DURATION = 150
+
+	  Modal.DEFAULTS = {
+	    backdrop: true,
+	    keyboard: true,
+	    show: true
+	  }
+
+	  Modal.prototype.toggle = function (_relatedTarget) {
+	    return this.isShown ? this.hide() : this.show(_relatedTarget)
+	  }
+
+	  Modal.prototype.show = function (_relatedTarget) {
+	    var that = this
+	    var e    = $.Event('show.bs.modal', { relatedTarget: _relatedTarget })
+
+	    this.$element.trigger(e)
+
+	    if (this.isShown || e.isDefaultPrevented()) return
+
+	    this.isShown = true
+
+	    this.checkScrollbar()
+	    this.setScrollbar()
+	    this.$body.addClass('modal-open')
+
+	    this.escape()
+	    this.resize()
+
+	    this.$element.on('click.dismiss.bs.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))
+
+	    this.$dialog.on('mousedown.dismiss.bs.modal', function () {
+	      that.$element.one('mouseup.dismiss.bs.modal', function (e) {
+	        if ($(e.target).is(that.$element)) that.ignoreBackdropClick = true
+	      })
+	    })
+
+	    this.backdrop(function () {
+	      var transition = $.support.transition && that.$element.hasClass('fade')
+
+	      if (!that.$element.parent().length) {
+	        that.$element.appendTo(that.$body) // don't move modals dom position
+	      }
+
+	      that.$element
+	        .show()
+	        .scrollTop(0)
+
+	      that.adjustDialog()
+
+	      if (transition) {
+	        that.$element[0].offsetWidth // force reflow
+	      }
+
+	      that.$element.addClass('in')
+
+	      that.enforceFocus()
+
+	      var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })
+
+	      transition ?
+	        that.$dialog // wait for modal to slide in
+	          .one('bsTransitionEnd', function () {
+	            that.$element.trigger('focus').trigger(e)
+	          })
+	          .emulateTransitionEnd(Modal.TRANSITION_DURATION) :
+	        that.$element.trigger('focus').trigger(e)
+	    })
+	  }
+
+	  Modal.prototype.hide = function (e) {
+	    if (e) e.preventDefault()
+
+	    e = $.Event('hide.bs.modal')
+
+	    this.$element.trigger(e)
+
+	    if (!this.isShown || e.isDefaultPrevented()) return
+
+	    this.isShown = false
+
+	    this.escape()
+	    this.resize()
+
+	    $(document).off('focusin.bs.modal')
+
+	    this.$element
+	      .removeClass('in')
+	      .off('click.dismiss.bs.modal')
+	      .off('mouseup.dismiss.bs.modal')
+
+	    this.$dialog.off('mousedown.dismiss.bs.modal')
+
+	    $.support.transition && this.$element.hasClass('fade') ?
+	      this.$element
+	        .one('bsTransitionEnd', $.proxy(this.hideModal, this))
+	        .emulateTransitionEnd(Modal.TRANSITION_DURATION) :
+	      this.hideModal()
+	  }
+
+	  Modal.prototype.enforceFocus = function () {
+	    $(document)
+	      .off('focusin.bs.modal') // guard against infinite focus loop
+	      .on('focusin.bs.modal', $.proxy(function (e) {
+	        if (this.$element[0] !== e.target && !this.$element.has(e.target).length) {
+	          this.$element.trigger('focus')
+	        }
+	      }, this))
+	  }
+
+	  Modal.prototype.escape = function () {
+	    if (this.isShown && this.options.keyboard) {
+	      this.$element.on('keydown.dismiss.bs.modal', $.proxy(function (e) {
+	        e.which == 27 && this.hide()
+	      }, this))
+	    } else if (!this.isShown) {
+	      this.$element.off('keydown.dismiss.bs.modal')
+	    }
+	  }
+
+	  Modal.prototype.resize = function () {
+	    if (this.isShown) {
+	      $(window).on('resize.bs.modal', $.proxy(this.handleUpdate, this))
+	    } else {
+	      $(window).off('resize.bs.modal')
+	    }
+	  }
+
+	  Modal.prototype.hideModal = function () {
+	    var that = this
+	    this.$element.hide()
+	    this.backdrop(function () {
+	      that.$body.removeClass('modal-open')
+	      that.resetAdjustments()
+	      that.resetScrollbar()
+	      that.$element.trigger('hidden.bs.modal')
+	    })
+	  }
+
+	  Modal.prototype.removeBackdrop = function () {
+	    this.$backdrop && this.$backdrop.remove()
+	    this.$backdrop = null
+	  }
+
+	  Modal.prototype.backdrop = function (callback) {
+	    var that = this
+	    var animate = this.$element.hasClass('fade') ? 'fade' : ''
+
+	    if (this.isShown && this.options.backdrop) {
+	      var doAnimate = $.support.transition && animate
+
+	      this.$backdrop = $(document.createElement('div'))
+	        .addClass('modal-backdrop ' + animate)
+	        .appendTo(this.$body)
+
+	      this.$element.on('click.dismiss.bs.modal', $.proxy(function (e) {
+	        if (this.ignoreBackdropClick) {
+	          this.ignoreBackdropClick = false
+	          return
+	        }
+	        if (e.target !== e.currentTarget) return
+	        this.options.backdrop == 'static'
+	          ? this.$element[0].focus()
+	          : this.hide()
+	      }, this))
+
+	      if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
+
+	      this.$backdrop.addClass('in')
+
+	      if (!callback) return
+
+	      doAnimate ?
+	        this.$backdrop
+	          .one('bsTransitionEnd', callback)
+	          .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :
+	        callback()
+
+	    } else if (!this.isShown && this.$backdrop) {
+	      this.$backdrop.removeClass('in')
+
+	      var callbackRemove = function () {
+	        that.removeBackdrop()
+	        callback && callback()
+	      }
+	      $.support.transition && this.$element.hasClass('fade') ?
+	        this.$backdrop
+	          .one('bsTransitionEnd', callbackRemove)
+	          .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :
+	        callbackRemove()
+
+	    } else if (callback) {
+	      callback()
+	    }
+	  }
+
+	  // these following methods are used to handle overflowing modals
+
+	  Modal.prototype.handleUpdate = function () {
+	    this.adjustDialog()
+	  }
+
+	  Modal.prototype.adjustDialog = function () {
+	    var modalIsOverflowing = this.$element[0].scrollHeight > document.documentElement.clientHeight
+		var clientHeight = $(window).height() ;
+	    var height = this.$dialog.height() ;
+	    var top = (clientHeight -height)/2 -50 ;
+	    this.$element.css({
+	      paddingLeft:  !this.bodyIsOverflowing && modalIsOverflowing ? this.scrollbarWidth : '',
+	      paddingRight: this.bodyIsOverflowing && !modalIsOverflowing ? this.scrollbarWidth : '',
+	      top:top+"px"
+	    });
+	  }
+
+	  Modal.prototype.resetAdjustments = function () {
+	    this.$element.css({
+	      paddingLeft: '',
+	      paddingRight: '',
+	      top:''
+	    })
+	  }
+
+	  Modal.prototype.checkScrollbar = function () {
+	    var fullWindowWidth = window.innerWidth
+	    if (!fullWindowWidth) { // workaround for missing window.innerWidth in IE8
+	      var documentElementRect = document.documentElement.getBoundingClientRect()
+	      fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left)
+	    }
+	    this.bodyIsOverflowing = document.body.clientWidth < fullWindowWidth
+	    this.scrollbarWidth = this.measureScrollbar()
+	  }
+
+	  Modal.prototype.setScrollbar = function () {
+	    var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
+	    this.originalBodyPad = document.body.style.paddingRight || ''
+	    if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
+	  }
+
+	  Modal.prototype.resetScrollbar = function () {
+	    this.$body.css('padding-right', this.originalBodyPad)
+	  }
+
+	  Modal.prototype.measureScrollbar = function () { // thx walsh
+	    var scrollDiv = document.createElement('div')
+	    scrollDiv.className = 'modal-scrollbar-measure'
+	    this.$body.append(scrollDiv)
+	    var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
+	    this.$body[0].removeChild(scrollDiv)
+	    return scrollbarWidth
+	  }
+
+
+	  // MODAL PLUGIN DEFINITION
+	  // =======================
+
+	  function Plugin(option, _relatedTarget) {
+	    return this.each(function () {
+	      var $this   = $(this)
+	      var data    = $this.data('bs.modal')
+	      var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option)
+
+	      if (!data) $this.data('bs.modal', (data = new Modal(this, options)))
+	      if (typeof option == 'string') data[option](_relatedTarget)
+	      else if (options.show) data.show(_relatedTarget)
+	    })
+	  }
+
+	  var old = $.fn.modal
+
+	  $.fn.modal             = Plugin
+	  $.fn.modal.Constructor = Modal
+
+
+	  // MODAL NO CONFLICT
+	  // =================
+
+	  $.fn.modal.noConflict = function () {
+	    $.fn.modal = old
+	    return this
+	  }
+
+
+	  // MODAL DATA-API
+	  // ==============
+
+	  $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
+	    var $this   = $(this)
+	    var href    = $this.attr('href')
+	    var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) // strip for ie7
+	    var option  = $target.data('bs.modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data())
+
+	    if ($this.is('a')) e.preventDefault()
+
+	    $target.one('show.bs.modal', function (showEvent) {
+	      if (showEvent.isDefaultPrevented()) return // only register focus restorer if modal will actually get shown
+	      $target.one('hidden.bs.modal', function () {
+	        $this.is(':visible') && $this.trigger('focus')
+	      })
+	    })
+	    Plugin.call($target, option, this)
+	  })
+
+	}(jQuery);
+
+	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+
+/***/ }
+/******/ ]);

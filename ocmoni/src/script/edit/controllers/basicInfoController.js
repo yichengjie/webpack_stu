@@ -1,3 +1,4 @@
+ 'use strict'
   var controllers = require('./controllers') ;
   var jsonDataHelper = require('../data/jsonDataHelper') ;
   var commonUtil = require('../util/commonUtil') ;

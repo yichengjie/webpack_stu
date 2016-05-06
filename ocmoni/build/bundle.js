@@ -56,29 +56,27 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module) {
-		//var pathStr = require.resolve('src/main') ;
-		//console.info("path : " + pathStr) ;
-		__webpack_require__(2) ;
-		__webpack_require__(8) ;
-		__webpack_require__(11) ;
-		__webpack_require__(49) ;
-		module.exports = {
-	 		init: function(){
-				angular.element(document).ready(function() {
-				    angular.bootstrap(document, ['app']);
-					pageLoadComplete() ;
-				});
-	 		}
-	 	};
-		
-	 	function pageLoadComplete (){
-	 		$("body").addClass("helper_background_color1") ;
-			$("#loading").addClass('hidden') ;
-			$("#EditMainBoxDiv").removeClass('hidden') ;
-			$("#myheader").removeClass('hidden') ;
-	 	}
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	//var pathStr = require.resolve('src/main') ;
+	//console.info("path : " + pathStr) ;
+	__webpack_require__(2) ;
+	__webpack_require__(8) ;
+	__webpack_require__(11) ;
+	__webpack_require__(49) ;
+	module.exports = {
+		init: function(){
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['app']);
+				pageLoadComplete() ;
+			});
+		}
+	};
+
+	function pageLoadComplete (){
+		$("body").addClass("helper_background_color1") ;
+		$("#loading").addClass('hidden') ;
+		$("#EditMainBoxDiv").removeClass('hidden') ;
+		$("#myheader").removeClass('hidden') ;
+	}
 
 
 /***/ },
@@ -4153,860 +4151,850 @@
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module) {
-		//require("ui-router") ;
-		__webpack_require__(12) ;
-		__webpack_require__(18) ;
-		__webpack_require__(35) ;
-		__webpack_require__(48) ;
-		var _ = __webpack_require__(21) ;
-	    //var editallHtml = require("./tpls/edit.all.html") ;
-		//把需要的模块全部加载到testApp中
-		var app = angular.module('app',['pasvaz.bindonce','ngMessages','app.factory','app.controllers','app.directives','app.filter']);
-		app.constant('DEFAULT_SERVICETYPE','F') ;//默认的serviceType
-		
-		
-		
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+	//require("ui-router") ;
+	__webpack_require__(12) ;
+	__webpack_require__(18) ;
+	__webpack_require__(35) ;
+	__webpack_require__(48) ;
+	var _ = __webpack_require__(21) ;
+	//var editallHtml = require("./tpls/edit.all.html") ;
+	//把需要的模块全部加载到testApp中
+	var app = angular.module('app',['pasvaz.bindonce','ngMessages','app.factory','app.controllers','app.directives','app.filter']);
+	app.constant('DEFAULT_SERVICETYPE','F') ;//默认的serviceType
+
+
+
 
 
 /***/ },
 /* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
-		__webpack_require__(13) ;
-		__webpack_require__(15) ;
-		__webpack_require__(16) ;
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+	__webpack_require__(13) ;
+	__webpack_require__(15) ;
+	__webpack_require__(16) ;
+
 
 /***/ },
 /* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
-		var app = __webpack_require__(14) ;
-		app.factory('FormData',['DEFAULT_SERVICETYPE',function(DEFAULT_SERVICETYPE) {
-			var contextPath = $.trim($("#contextPath").val()) ;
-			var carrCode = $.trim($("#carrCode").val()) ;
-			var action = $.trim($("#action").val()) ;
-			//console.log("[contextPath : "+contextPath+"],[carrCode : "+carrCode+"],[action:"+action+"]") ;
-			return {
-			   "id":"",
-			   "status":"",
-			   "statusDes":"",
-			   "contextPath":contextPath,
-			   "carrCode":carrCode,
-			   "serviceAndSubCode":"",
-			   "serviceType":DEFAULT_SERVICETYPE,/*s7中包含信息//默认值为"F"//根据选择的s5决定是"F"/"M"*/
-			   "action":action,
-			   "sel1":{"showStr":"","value":""},
-			   "sel2":{"showStr":"","value":""},
-			   "sel3":{"showStr":"","value":"","textTableNo163":"","serviceGroup":"","serviceType":""},
-			   "sel4":[],
-			   "basicInfoVo":{
-			   		"id":"",
-					"subCode":"",
-					"indCxr":"",
-					"subDescription":"",
-					"ftmCode":"",
-					"carrCode":"",
-					"ftmDescription":"",
-					"serviceGroup":"",
-					"serviceGroupDescription":"",
-					"subGroup":"",
-					"subGroupDescription":"",
-					"serveceType":"",
-					"commercialName":""//商务名称
-			   },
-			   "firstMaintenanceDate":"",/*-----------页面第二部分开始--------------*/
-			   "lastMaintenanceDate":"",
-			   "description":"",/*描述*/
-			   "fareBasis":"",/*运价基础*/
-			   "freeBaggageAllowancePieces":"",/*免费行李件数*/
-			   "firstExcessOccurrence":"",/*收费行李件数起点*/
-			   "lastExcessOccurrence":"",/*收费行李件数结束*/
-			   "freeBaggageAllowanceWeight":"",/*免费重量*/
-			   "freeBaggageAllowanceUnit":"",/*免费单位*/
-			   "noChargeNotAvailable":"",/*"E"的时候"免费"//s7中包含信息*/
-			   "baggageTravelApplication":"",
-			   "textTableNo196":"",
-			   "list196VO":[/*备注例外行李*/],
-			   "discountOrNot":"1",/*是否打折，这个字段不会保存到数据库*/
-			   "discountRuleTableNo201":"",
-			   "list201VO":[],
-			   "serviceFeeCurTableNo170":"",
-			   "list170VO":[],
-				/*-------------页面第二部分结束---------------------------*/
-				"mileageMinimum":"",/*里程//新增字段*/
-				"mileageMaximum":"",/*里程//新增字段*/
-				"specifiedServiceFeeApp":"",/*适用于//新增字段*/
-				"specServiceFeeColSub":"",/*包含，扣除//新增字段*/
-				"specServiceFeeNetSell":"",/*净价/销售价//新增字段*/
-				"specSevFeeAndOrIndicator":"",/*或、和//新增字段*/
-				"specifiedServiceFeeMileage":"",/*里程费//新增字段*/
-				"mileageExchangeIndicator":"0",/*里程兑换标识*/
-				"availability":"N",/*必须检查可用性（查库存）*/
-			 	"sequenceNumber":"",/*优先级序号--------------------页面第三部分开始---------------------------*/
-			 	"passengerTypeCode":"",/*旅客类型*/
-			 	"minPassengerAge":"",/*最小年龄--新增字段*/
-				"maxPassengerAge":"",/*最大年龄--新增字段*/
-			 	"firstPassengerOccurrence":"",/*个数范围    第几个到第几个【数字】//新增字段*/
-			 	"lastPassengerOccurrence":"",/*个数范围    第几个到第几个【数字】//新增字段*/
-			 	"customerIndexScoreMinimum":"",/*客户积分范围【数字】//新增*/
-			 	"customerIndexScoreMaxmum":"",/*客户积分范围【数字】//新增*/
-			 	"frequentFlyerStatus":"",/*常旅客状态*/
-			 	"accountCodeTableNo172":"",/*大客户/特殊客户表（T172）--子表//新增*/
-			 	"list172VO":[],
-			 	"ticketDesignatorTableNo173":"",/*指定客票表（T173）--子表//新增*/
-			 	"list173TicketVO":[],
-				"tktDesignatorTableNo173":"",/*173*/
-				"list173TktVO":[],
-			 	"tourCode":"",/*旅行编码（关联客票）【字母或数字】--新增*/
-			 	"cabin":"",/*服务等级*/
-			 	"upgradeToCabin":"",
-			 	"rbdTableNo198":"",/*暂时没啥用,后台也不使用这个字段*/
-				"list198VO":[],/*订座属性表*/
-				"upgradeToRbdTableNo198":"",/*暂时没啥用，后台也不是该字段*/
-				"list198UpgradeVO":[],/*座位属性表，或则升舱属性表*/
-				"securityTableNo183":"",//发布安全表//暂时没啥用，后台也不是该字段*/
-				"list183VO":[],//安全发布表*/
-				"publicPrivateIndicator":"",/*公有、私有//新增字段*/
-				"carrierFlightTableNo186":"",/*航班信息表//暂时没啥用，后台也不是该字段*/
-				"list186VO":[],
-				"taxApplication":"Y",/*是否含税费,新增字段*/
-				"tariff":"",/*税费*/
-				"rule":"",/*规则*/
-				"cxrResFareTableNo171":"",/*客票舱位等级表*/
-				"list171VO":[],/*客票舱位等级表*/
-				"equipment":"",/*机型*/
-				"equipmentTypeTableNo165":"",
-				"list165VO":[] ,
-				"startTime":"",/*开始时刻*/
-				"stopTime":"",/*结束时刻*/
-				"timeApplication":"D",/*应用范围,新增字段*/
-				"dayOfWeek":"",/*星期 -- 新增字段*/
-				"dayOfWeekShow":{"w1":false,"w2":false,"w3":false,"w4":false,"w5":false,"w6":false,"w7":false},/*前台数据，后台无对应的属性*/
-				"advancedPurchasePeriod":"",/*提前购票时间--新增字段*/
-				"advancedPurchaseUnit":"",/*时间单位 -- 新增字段*/
-				"advancedPurchaseTktIssue":"",/*是否与机票同时出票 -- 新增字段*/
-				"indicatorReissueRefund":"",/*退、改 -- 新增字段*/
-				"formOfRefund":"",/*退款形式--新增字段*/
-				"indicatorComission":"Y",/*(是否有)代理费--新增字段*/
-				"indicatorInterline":"Y",/*是*/
-				"firstTravelYear":"",
-				"firstTravelMonth":"",
-				"firstTravelDay":"",
-				"lastTravelYear":"",
-				"lastTravelMonth":"",
-				"lastTravelDay":"",
-				"travelStartDate":"",/*这个是中间数据，后台不存在对应的属性*/
-				"travelEndDate":"",/*这个是中间数据，后台不存在对应的属性*/
-				"list178Loc1Id":"",/*区域1表格id*/
-				"list178Loc1":[],/*区域1对应的表格*/
-				"list178Loc2Id":"",/*区域2表格id*/
-				"list178Loc2":[],/*区域2对应的表格*/
-				"list178Loc3Id":"",/*区域3表格id*/
-				"list178Loc3":[],/*区域2对应的表格*/
-				"geoSpecFromToWithin":"",/*区域限制*/
-				"geoSpecSectPortJourney":"P",/*航段限制-目前返回的是定死的字符串‘P’*/
-				"geoSpecLoc1Type":"",/*区域1类型*/
-				"geoSpecLoc1":"",/*区域1代码*/
-				"geoSpecLoc2Type":"",/*区域2类型*/
-				"geoSpecLoc2":"",/*区域2代码*/
-				"geoSpecLoc3Type":"",/*区域3类型*/
-				"geoSpecLoc3":"",/*区域3代码 下面的都是新增 的字段*/
-				"geoSpecTravelIndicator":"",/*指定区域*/
-				"geoSpecExceptionStopTime":"",/*经停时间,新增字段*/
-				"geoSpecExceptionStopUnit":"",/*经停单位*/
-				"geoSpecStopConnDes":"",/*经停类型(限输入1位字母)*/
-				"effectivePeriodType":"",/*延长类型*/
-				"effectivePeriodNumber":"",/*延长时长*/
-				"effectivePeriodUnit":"",/*延长时间单位*/
-				"reuseList172VO":"",
-				"reuseList173TicketVO":"",
-				"reuseList183VO":"",
-				"reuseList198VO":"",
-				"reuseList198UpgradeVO":"",
-				"reuseList171VO":"",
-				"reuseList173TktVO":"",
-				"reuseList186VO":"",
-				"reuseList170VO":"",
-				"reuseList196VO":"",
-				"reuseList165VO":"",
-				"reuseList201VO":"",
-				"reuseList178Loc1":"",
-				"reuseList178Loc2":"",
-				"reuseList178Loc3":"",
-				"reuseListTsk202VO":"",
-				"allowancePeopleMinimum":"",/*服务适用范围起始*/
-				"allowancePeopleMaximum":"",/*服务适用范围截止*/
-				"serviceNumberMinimum":"",/*服务套数范围起始*/
-				"serviceNumberMaximum":"",/*服务套数终止*/
-				"firstUseDate":"",/*使用生效日期*/
-				"lastUseDate":"",/*使用截止日期*/
-				"useDateLimitTye":"",/*使用时间限制类型[时间段:‘’]或则[期限:'1']*/
-				"flightPassTableTsk202":"",
-				"listTsk202VO":[],
-				"allowedService":"FLT",/*允许兑换的服务ALL:不限，FLT:航班--默认值，SVS:服务*/
-				"subTbReferenceCountMap":{
-					"list172VO":"0",
-					"list173TicketVO":"0",
-					"list183VO":"0",
-					"list198VO":"0",
-					"list198UpgradeVO":"0",
-					"list171VO":"0",
-					"list173TktVO":"0",
-					"list186VO":"0",
-					"list170VO":"0",
-					"list196VO":"0",
-					"list165VO":"0",
-					"list201VO":"0",
-					"list178Loc1":"0",
-					"list178Loc2":"0",
-					"list178Loc3":"0",
-					"listTsk202VO":"0"
-				}
-			};
-		
-		}]);
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-		
+	var app = __webpack_require__(14) ;
+	app.factory('FormData',['DEFAULT_SERVICETYPE',function(DEFAULT_SERVICETYPE) {
+		var contextPath = $.trim($("#contextPath").val()) ;
+		var carrCode = $.trim($("#carrCode").val()) ;
+		var action = $.trim($("#action").val()) ;
+		//console.log("[contextPath : "+contextPath+"],[carrCode : "+carrCode+"],[action:"+action+"]") ;
+		return {
+		   "id":"",
+		   "status":"",
+		   "statusDes":"",
+		   "contextPath":contextPath,
+		   "carrCode":carrCode,
+		   "serviceAndSubCode":"",
+		   "serviceType":DEFAULT_SERVICETYPE,/*s7中包含信息//默认值为"F"//根据选择的s5决定是"F"/"M"*/
+		   "action":action,
+		   "sel1":{"showStr":"","value":""},
+		   "sel2":{"showStr":"","value":""},
+		   "sel3":{"showStr":"","value":"","textTableNo163":"","serviceGroup":"","serviceType":""},
+		   "sel4":[],
+		   "basicInfoVo":{
+				"id":"",
+				"subCode":"",
+				"indCxr":"",
+				"subDescription":"",
+				"ftmCode":"",
+				"carrCode":"",
+				"ftmDescription":"",
+				"serviceGroup":"",
+				"serviceGroupDescription":"",
+				"subGroup":"",
+				"subGroupDescription":"",
+				"serveceType":"",
+				"commercialName":""//商务名称
+		   },
+		   "firstMaintenanceDate":"",/*-----------页面第二部分开始--------------*/
+		   "lastMaintenanceDate":"",
+		   "description":"",/*描述*/
+		   "fareBasis":"",/*运价基础*/
+		   "freeBaggageAllowancePieces":"",/*免费行李件数*/
+		   "firstExcessOccurrence":"",/*收费行李件数起点*/
+		   "lastExcessOccurrence":"",/*收费行李件数结束*/
+		   "freeBaggageAllowanceWeight":"",/*免费重量*/
+		   "freeBaggageAllowanceUnit":"",/*免费单位*/
+		   "noChargeNotAvailable":"",/*"E"的时候"免费"//s7中包含信息*/
+		   "baggageTravelApplication":"",
+		   "textTableNo196":"",
+		   "list196VO":[/*备注例外行李*/],
+		   "discountOrNot":"1",/*是否打折，这个字段不会保存到数据库*/
+		   "discountRuleTableNo201":"",
+		   "list201VO":[],
+		   "serviceFeeCurTableNo170":"",
+		   "list170VO":[],
+			/*-------------页面第二部分结束---------------------------*/
+			"mileageMinimum":"",/*里程//新增字段*/
+			"mileageMaximum":"",/*里程//新增字段*/
+			"specifiedServiceFeeApp":"",/*适用于//新增字段*/
+			"specServiceFeeColSub":"",/*包含，扣除//新增字段*/
+			"specServiceFeeNetSell":"",/*净价/销售价//新增字段*/
+			"specSevFeeAndOrIndicator":"",/*或、和//新增字段*/
+			"specifiedServiceFeeMileage":"",/*里程费//新增字段*/
+			"mileageExchangeIndicator":"0",/*里程兑换标识*/
+			"availability":"N",/*必须检查可用性（查库存）*/
+			"sequenceNumber":"",/*优先级序号--------------------页面第三部分开始---------------------------*/
+			"passengerTypeCode":"",/*旅客类型*/
+			"minPassengerAge":"",/*最小年龄--新增字段*/
+			"maxPassengerAge":"",/*最大年龄--新增字段*/
+			"firstPassengerOccurrence":"",/*个数范围    第几个到第几个【数字】//新增字段*/
+			"lastPassengerOccurrence":"",/*个数范围    第几个到第几个【数字】//新增字段*/
+			"customerIndexScoreMinimum":"",/*客户积分范围【数字】//新增*/
+			"customerIndexScoreMaxmum":"",/*客户积分范围【数字】//新增*/
+			"frequentFlyerStatus":"",/*常旅客状态*/
+			"accountCodeTableNo172":"",/*大客户/特殊客户表（T172）--子表//新增*/
+			"list172VO":[],
+			"ticketDesignatorTableNo173":"",/*指定客票表（T173）--子表//新增*/
+			"list173TicketVO":[],
+			"tktDesignatorTableNo173":"",/*173*/
+			"list173TktVO":[],
+			"tourCode":"",/*旅行编码（关联客票）【字母或数字】--新增*/
+			"cabin":"",/*服务等级*/
+			"upgradeToCabin":"",
+			"rbdTableNo198":"",/*暂时没啥用,后台也不使用这个字段*/
+			"list198VO":[],/*订座属性表*/
+			"upgradeToRbdTableNo198":"",/*暂时没啥用，后台也不是该字段*/
+			"list198UpgradeVO":[],/*座位属性表，或则升舱属性表*/
+			"securityTableNo183":"",//发布安全表//暂时没啥用，后台也不是该字段*/
+			"list183VO":[],//安全发布表*/
+			"publicPrivateIndicator":"",/*公有、私有//新增字段*/
+			"carrierFlightTableNo186":"",/*航班信息表//暂时没啥用，后台也不是该字段*/
+			"list186VO":[],
+			"taxApplication":"Y",/*是否含税费,新增字段*/
+			"tariff":"",/*税费*/
+			"rule":"",/*规则*/
+			"cxrResFareTableNo171":"",/*客票舱位等级表*/
+			"list171VO":[],/*客票舱位等级表*/
+			"equipment":"",/*机型*/
+			"equipmentTypeTableNo165":"",
+			"list165VO":[] ,
+			"startTime":"",/*开始时刻*/
+			"stopTime":"",/*结束时刻*/
+			"timeApplication":"D",/*应用范围,新增字段*/
+			"dayOfWeek":"",/*星期 -- 新增字段*/
+			"dayOfWeekShow":{"w1":false,"w2":false,"w3":false,"w4":false,"w5":false,"w6":false,"w7":false},/*前台数据，后台无对应的属性*/
+			"advancedPurchasePeriod":"",/*提前购票时间--新增字段*/
+			"advancedPurchaseUnit":"",/*时间单位 -- 新增字段*/
+			"advancedPurchaseTktIssue":"",/*是否与机票同时出票 -- 新增字段*/
+			"indicatorReissueRefund":"",/*退、改 -- 新增字段*/
+			"formOfRefund":"",/*退款形式--新增字段*/
+			"indicatorComission":"Y",/*(是否有)代理费--新增字段*/
+			"indicatorInterline":"Y",/*是*/
+			"firstTravelYear":"",
+			"firstTravelMonth":"",
+			"firstTravelDay":"",
+			"lastTravelYear":"",
+			"lastTravelMonth":"",
+			"lastTravelDay":"",
+			"travelStartDate":"",/*这个是中间数据，后台不存在对应的属性*/
+			"travelEndDate":"",/*这个是中间数据，后台不存在对应的属性*/
+			"list178Loc1Id":"",/*区域1表格id*/
+			"list178Loc1":[],/*区域1对应的表格*/
+			"list178Loc2Id":"",/*区域2表格id*/
+			"list178Loc2":[],/*区域2对应的表格*/
+			"list178Loc3Id":"",/*区域3表格id*/
+			"list178Loc3":[],/*区域2对应的表格*/
+			"geoSpecFromToWithin":"",/*区域限制*/
+			"geoSpecSectPortJourney":"P",/*航段限制-目前返回的是定死的字符串‘P’*/
+			"geoSpecLoc1Type":"",/*区域1类型*/
+			"geoSpecLoc1":"",/*区域1代码*/
+			"geoSpecLoc2Type":"",/*区域2类型*/
+			"geoSpecLoc2":"",/*区域2代码*/
+			"geoSpecLoc3Type":"",/*区域3类型*/
+			"geoSpecLoc3":"",/*区域3代码 下面的都是新增 的字段*/
+			"geoSpecTravelIndicator":"",/*指定区域*/
+			"geoSpecExceptionStopTime":"",/*经停时间,新增字段*/
+			"geoSpecExceptionStopUnit":"",/*经停单位*/
+			"geoSpecStopConnDes":"",/*经停类型(限输入1位字母)*/
+			"effectivePeriodType":"",/*延长类型*/
+			"effectivePeriodNumber":"",/*延长时长*/
+			"effectivePeriodUnit":"",/*延长时间单位*/
+			"reuseList172VO":"",
+			"reuseList173TicketVO":"",
+			"reuseList183VO":"",
+			"reuseList198VO":"",
+			"reuseList198UpgradeVO":"",
+			"reuseList171VO":"",
+			"reuseList173TktVO":"",
+			"reuseList186VO":"",
+			"reuseList170VO":"",
+			"reuseList196VO":"",
+			"reuseList165VO":"",
+			"reuseList201VO":"",
+			"reuseList178Loc1":"",
+			"reuseList178Loc2":"",
+			"reuseList178Loc3":"",
+			"reuseListTsk202VO":"",
+			"allowancePeopleMinimum":"",/*服务适用范围起始*/
+			"allowancePeopleMaximum":"",/*服务适用范围截止*/
+			"serviceNumberMinimum":"",/*服务套数范围起始*/
+			"serviceNumberMaximum":"",/*服务套数终止*/
+			"firstUseDate":"",/*使用生效日期*/
+			"lastUseDate":"",/*使用截止日期*/
+			"useDateLimitTye":"",/*使用时间限制类型[时间段:‘’]或则[期限:'1']*/
+			"flightPassTableTsk202":"",
+			"listTsk202VO":[],
+			"allowedService":"FLT",/*允许兑换的服务ALL:不限，FLT:航班--默认值，SVS:服务*/
+			"subTbReferenceCountMap":{
+				"list172VO":"0",
+				"list173TicketVO":"0",
+				"list183VO":"0",
+				"list198VO":"0",
+				"list198UpgradeVO":"0",
+				"list171VO":"0",
+				"list173TktVO":"0",
+				"list186VO":"0",
+				"list170VO":"0",
+				"list196VO":"0",
+				"list165VO":"0",
+				"list201VO":"0",
+				"list178Loc1":"0",
+				"list178Loc2":"0",
+				"list178Loc3":"0",
+				"listTsk202VO":"0"
+			}
+		};
+
+	}]);
+
 
 /***/ },
 /* 14 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
-		var app = angular.module('app.factory',[]); 
-		//require('angular-resource') ;
-	 	return app ;
-	 }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+	var app = angular.module('app.factory',[]);
+	//require('angular-resource') ;
+	module.exports = app ;
 
 
 /***/ },
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
-		var services = __webpack_require__(14) ;
-		services.factory("TbShowHideServcie", function(){
-		    return {
-		        "list183VO":false,
-		        "list171VO":false,
-		        "list172VO":false,
-		        "list173TicketVO":false,
-		        "list173TktVO":false,
-		        "list165VO":false,
-		        "list186VO":false,
-		        "list196VO":false,
-		        "list198VO":false,
-		        "list198UpgradeVO":false,
-		        "list170VO":true,
-		        "list178Loc1":false,
-		        "list178Loc2":false,
-		        "list178Loc3":false,
-		        "listTsk202VO":false
-		    };
-		}) ;
-		
-		//自定义表格按钮是否显示service
-		services.factory("CustomeEditTbStatusServcie", function(){
-		    return {
-		        "list183VO":false,
-		        "list171VO":false,
-		        "list172VO":false,
-		        "list173TicketVO":false,
-		        "list173TktVO":false,
-		        "list165VO":false,
-		        "list186VO":false,
-		        "list196VO":false,
-		        "list198VO":false,
-		        "list198UpgradeVO":false,
-		        "list170VO":false,
-		        "list178Loc1":false,
-		        "list178Loc2":false,
-		        "list178Loc3":false,
-		        "listTsk202VO":false
-		    };
-		}) ;
+	var services = __webpack_require__(14) ;
+	services.factory("TbShowHideServcie", function(){
+		return {
+			"list183VO":false,
+			"list171VO":false,
+			"list172VO":false,
+			"list173TicketVO":false,
+			"list173TktVO":false,
+			"list165VO":false,
+			"list186VO":false,
+			"list196VO":false,
+			"list198VO":false,
+			"list198UpgradeVO":false,
+			"list170VO":true,
+			"list178Loc1":false,
+			"list178Loc2":false,
+			"list178Loc3":false,
+			"listTsk202VO":false
+		};
+	}) ;
 
-		services.factory("ListVo2tbNoMap", function(){
-		    return {
-		        "list183VO":"securityTableNo183",
-		        "list171VO":"cxrResFareTableNo171",
-		        "list172VO":"accountCodeTableNo172",
-		        "list173TicketVO":"ticketDesignatorTableNo173",
-		        "list173TktVO":"tktDesignatorTableNo173",
-		        "list165VO":"equipmentTypeTableNo165",
-		        "list186VO":"carrierFlightTableNo186",
-		        "list196VO":"textTableNo196",
-		        "list198VO":"rbdTableNo198",
-		        "list198UpgradeVO":"upgradeToRbdTableNo198",
-		        "list170VO":"serviceFeeCurTableNo170",
-		        "list178Loc1":"list178Loc1Id",
-		        "list178Loc2":"list178Loc2Id",
-		        "list178Loc3":"list178Loc3Id",
-		        "listTsk202VO":"flightPassTableTsk202"
-		    };
-		}) ;
+	//自定义表格按钮是否显示service
+	services.factory("CustomeEditTbStatusServcie", function(){
+		return {
+			"list183VO":false,
+			"list171VO":false,
+			"list172VO":false,
+			"list173TicketVO":false,
+			"list173TktVO":false,
+			"list165VO":false,
+			"list186VO":false,
+			"list196VO":false,
+			"list198VO":false,
+			"list198UpgradeVO":false,
+			"list170VO":false,
+			"list178Loc1":false,
+			"list178Loc2":false,
+			"list178Loc3":false,
+			"listTsk202VO":false
+		};
+	}) ;
 
-		/*控制页面上的控件是否可编辑*/
-		services.factory("FormEditStatusServcie", function(){
-		    return {
-		        "firstMaintenanceDate":true,
-		        "lastMaintenanceDate":true,
-		        "description":true,
-		        "fareBasis":true,
-		        "availability":true,
-		        "freeBaggageAllowancePieces":true,
-		        "firstExcessOccurrence":true,
-		        "lastExcessOccurrence":true,
-		        "freeBaggageAllowanceWeight":true,
-		        "freeBaggageAllowanceUnit":true,
-		        "baggageTravelApplication":true,
-		        "list196VO":true,
-		        "noChargeNotAvailable":true,
-		        "list170VO":true,
-		        "list201VO":true,
-		        "specSevFeeAndOrIndicator":true,
-		        "specifiedServiceFeeMileage":true,
-		        "specifiedServiceFeeApp":true,
-		        "specServiceFeeColSub":true,
-		        "specServiceFeeNetSell":true,
-		        "indicatorComission":true,
-		        "taxApplication":true,
-		        "sequenceNumber":true,
-		        "passengerTypeCode":true,
-		        "minPassengerAge":true,
-		        "maxPassengerAge":true,
-		        "firstPassengerOccurrence":true,
-		        "lastPassengerOccurrence":true,
-		        "frequentFlyerStatus":true,
-		        "mileageMinimum":true,
-		        "mileageMaximum":true,
-		        "customerIndexScoreMinimum":true,
-		        "customerIndexScoreMaxmum":true,
-		        "list172VO":true,
-		        "list183VO":true,
-		        "publicPrivateIndicator":true,
-		        "geoSpecFromToWithin":true,
-		        "geoSpecSectPortJourney":true,
-		        "geoSpecTravelIndicator":true,
-		        "geoSpecExceptionStopTime":true,
-		        "geoSpecExceptionStopUnit":true,
-		        "geoSpecStopConnDes":true,
-		        "geoSpecLoc1Type":true,
-		        "geoSpecLoc1":true,
-		        "list178Loc1":true,
-		        "geoSpecLoc2Type":true,
-		        "geoSpecLoc2":true,
-		        "list178Loc2":true,
-		        "geoSpecLoc3Type":true,
-		        "geoSpecLoc3":true,
-		        "list178Loc3":true,
-		        "travelStartDate":true,
-		        "travelEndDate":true,
-		        "startTime":true,
-		        "stopTime":true,
-		        "timeApplication":true,
-		        "dayOfWeek":true,
-		        "equipment":true,
-		        "list165VO":true,
-		        "list186VO":true,
-		        "cabin":true,
-		        "list198VO":true,
-		        "upgradeToCabin":true,
-		        "list198UpgradeVO":true,
-		        "advancedPurchasePeriod":true,
-		        "advancedPurchaseUnit":true,
-		        "tourCode":true,
-		        "list173TicketVO":true,
-		        "tariff":true,
-		        "rule":true,
-		        "list173TktVO":true,
-		        "list171VO":true,
-		        "advancedPurchaseTktIssue":true,
-		        "indicatorReissueRefund":true,
-		        "formOfRefund":true,
-		        "indicatorInterline":true,
-				"allowancePeopleMinimum":true,
-				"allowancePeopleMaximum":true,
-				"effectivePeriodType":true,
-				"effectivePeriodNumber":true,
-				"effectivePeriodUnit":true,
-				"serviceNumberMinimum":true,
-				"serviceNumberMaximum":true,
-				"firstUseDate":true,
-				"lastUseDate":true,
-				"mileageExchangeIndicator":true,
-				"listTsk202VO":true
-		    };
-		}) ;
+	services.factory("ListVo2tbNoMap", function(){
+		return {
+			"list183VO":"securityTableNo183",
+			"list171VO":"cxrResFareTableNo171",
+			"list172VO":"accountCodeTableNo172",
+			"list173TicketVO":"ticketDesignatorTableNo173",
+			"list173TktVO":"tktDesignatorTableNo173",
+			"list165VO":"equipmentTypeTableNo165",
+			"list186VO":"carrierFlightTableNo186",
+			"list196VO":"textTableNo196",
+			"list198VO":"rbdTableNo198",
+			"list198UpgradeVO":"upgradeToRbdTableNo198",
+			"list170VO":"serviceFeeCurTableNo170",
+			"list178Loc1":"list178Loc1Id",
+			"list178Loc2":"list178Loc2Id",
+			"list178Loc3":"list178Loc3Id",
+			"listTsk202VO":"flightPassTableTsk202"
+		};
+	}) ;
 
-
-		//整个页面的组件在serviceType为xxx时应该显示到页面上(控制显隐关系)
-		services.factory("FormStatusService", function(){
-		    return {
-		        "firstMaintenanceDate":{
-		        	"typeList":["F","M","R","T","A","B","C","E","P"],
-		        	"groupList":[],
-		        	"nameList":["firstMaintenanceDate"],
-		        	"showFlag":true
-		        },
-		        "lastMaintenanceDate":{
-		        	"typeList":["F","M","R","T","A","B","C","E","P"],
-		        	"groupList":[],
-		        	"nameList":["lastMaintenanceDate"],
-		        	"showFlag":true
-		        },
-		        "description":{
-		        	"typeList":["F","M","R","T","B","E"],
-		        	"groupList":[],
-		        	"nameList":["description"],
-		        	"showFlag":true
-		        },
-		        "fareBasis":{
-		        	"typeList":["F","M","R","T","A","B","C","E","P"],
-		        	"groupList":[],
-		        	"nameList":["fareBasis"],
-		        	"showFlag":true
-		        },
-		        "availability":{
-		        	"typeList":["F","M","R","T","A","B","C","E","P"],
-		        	"groupList":[],
-		        	"nameList":["availability"],
-		        	"showFlag":true
-		        },
-		        "freeBaggageAllowancePieces":{
-		        	"typeList":["A"],
-		        	"groupList":[],
-		        	"nameList":["freeBaggageAllowancePieces"],
-		        	"showFlag":true
-		        },
-		        "firstAndLastExcessOccurrence":{
-		        	"typeList":["C","P"],
-		        	"groupList":[],
-		        	"nameList":["firstExcessOccurrence","lastExcessOccurrence"],
-		        	"showFlag":true
-		        },
-		        "freeBaggageAllowanceWeight":{
-		        	"typeList":["A","C","P"],
-		        	"groupList":[],
-		        	"nameList":["freeBaggageAllowanceWeight","freeBaggageAllowanceUnit"],
-		        	"showFlag":true
-		        },
-		        "baggageTravelApplication":{
-		        	"typeList":["A","C","P"],
-		        	"groupList":[],
-		        	"nameList":["baggageTravelApplication"],
-		        	"showFlag":true
-		        },
-				"list196VO":{
-					"typeList":["A","C","P"],
-					"groupList":[],
-					"nameList":["list196VO"],
-					"showFlag":true
-				},
-				"noChargeNotAvailable":{
-					"typeList":["F","M","R","T","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["noChargeNotAvailable"],
-					"showFlag":true
-				},
-				"list170VOAndlist201VO":{
-					"typeList":["F","M","R","T","C","P"],
-					"groupList":[],
-					"nameList":["list170VO","list201VO"],
-					"showFlag":true
-				},
-				"specSevFeeAndOrIndicator":{
-					"typeList":["F","M","R","T","C","P"],
-					"groupList":[],
-					"nameList":["specSevFeeAndOrIndicator"],
-					"showFlag":true
-				},
-				"specifiedServiceFeeMileage":{
-					"typeList":["F","M","R","T","C","P"],
-					"groupList":[],
-					"nameList":["specifiedServiceFeeMileage"],
-					"showFlag":true
-				},
-				"specifiedServiceFeeApp":{
-					"typeList":["F","M","R","T","C","P"],
-					"groupList":[],
-					"nameList":["specifiedServiceFeeApp"],
-					"showFlag":true
-				},
-				"specServiceFeeColSub":{
-					"typeList":["F","M","R","T","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["specServiceFeeColSub"],
-					"showFlag":true
-				},
-				"specServiceFeeNetSell":{
-					"typeList":["F","M","R","T","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["specServiceFeeNetSell"],
-					"showFlag":true
-				},
-				"indicatorComission":{
-					"typeList":["F","M","R","T","C","P"],
-					"groupList":[],
-					"nameList":["indicatorComission"],
-					"showFlag":true
-				},
-				"taxApplication":{
-					"typeList":["F","M","R","T","C","P"],
-					"groupList":[],
-					"nameList":["taxApplication"],
-					"showFlag":true
-				},
-				"sequenceNumber":{
-					"typeList":["F","M","R","T","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["sequenceNumber"],
-					"showFlag":true
-				},
-				"passengerTypeCode":{
-					"typeList":["F","M","R","T","A","B","C","P"],
-					"groupList":[],
-					"nameList":["passengerTypeCode"],
-					"showFlag":true
-				},
-				"minAndMaxPassengerAge":{
-					"typeList":["F","M","R","T","A","B","C","P"],
-					"groupList":[],
-					"nameList":["minPassengerAge","maxPassengerAge"],
-					"showFlag":true
-				},
-				"firstAndLastPassengerOccurrence":{
-					"typeList":["F","M","R","T"],
-					"groupList":[],
-					"nameList":["firstPassengerOccurrence","lastPassengerOccurrence"],
-					"showFlag":true
-				},
-				"frequentFlyerStatus":{
-					"typeList":["F","M","R","T","B","C","P"],
-					"groupList":[],
-					"nameList":["frequentFlyerStatus"],
-					"showFlag":true
-				},
-				"mileageMinAndMaximum":{
-					"typeList":["F","T","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["mileageMinimum","mileageMaximum"],
-					"showFlag":true
-				},
-				"customerIndexScoreMinAndMaximum":{
-					"typeList":["F","M","R","T","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["customerIndexScoreMinimum","customerIndexScoreMaxmum"],
-					"showFlag":true
-				},
-				"list172VO":{
-					"typeList":["F","M","R","T","A","B","C","P"],
-					"groupList":[],
-					"nameList":["list172VO"],
-					"showFlag":true
-				},
-				"list183VO":{
-					"typeList":["F","M","R","T","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["list183VO"],
-					"showFlag":true
-				},
-				"publicPrivateIndicator":{
-					"typeList":["F","M","R","T","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["publicPrivateIndicator"],
-					"showFlag":true
-				},
-				"geoSpecFromToWithin":{
-					"typeList":["F","R","T","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["geoSpecFromToWithin"],
-					"showFlag":true
-				},
-				"geoSpecSectPortJourney":{
-					"typeList":["F","R","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["geoSpecSectPortJourney"],
-					"showFlag":true
-				},
-				"geoSpecTravelIndicator":{
-					"typeList":["F","R","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["geoSpecTravelIndicator"],
-					"showFlag":true
-				},
-				"geoSpecExceptionStopTimeAndUnit":{
-					"typeList":["F","R","A","C","P"],
-					"groupList":[],
-					"nameList":["geoSpecExceptionStopTime","geoSpecExceptionStopUnit"],
-					"showFlag":true
-				},
-				"geoSpecStopConnDes":{
-					"typeList":["F","R","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["geoSpecStopConnDes"],
-					"showFlag":true
-				},
-				"geoSpecLoc1AndType":{
-					"typeList":["F","M","R","T","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["geoSpecLoc1Type","geoSpecLoc1"],
-					"showFlag":true
-				},
-				"list178Loc1":{
-					"typeList":["F","M","A","C","P","T"],
-					"groupList":[],
-					"nameList":["list178Loc1"],
-					"showFlag":true
-				},
-				"geoSpecLoc2AndType":{
-					"typeList":["F","R","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["geoSpecLoc2Type","geoSpecLoc2"],
-					"showFlag":true
-				},
-				"list178Loc2":{
-					"typeList":["F","M","A","C","P","T"],
-					"groupList":[],
-					"nameList":["list178Loc2"],
-					"showFlag":true
-				},
-				"geoSpecLoc3AndType":{
-					"typeList":["F","R","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["geoSpecLoc3Type","geoSpecLoc3"],
-					"showFlag":true
-				},
-				"list178Loc3":{
-					"typeList":["F","M","A","C","P","T"],
-					"groupList":[],
-					"nameList":["list178Loc3"],
-					"showFlag":true
-				},
-				"travelStartDate":{
-					"typeList":["F","M","R","T","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["travelStartDate"],
-					"showFlag":true
-				},
-				"travelEndDate":{
-					"typeList":["F","M","R","T","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["travelEndDate"],
-					"showFlag":true
-				},
-				"startTime":{
-					"typeList":["F","T","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["startTime"],
-					"showFlag":true
-				},
-				"stopTime":{
-					"typeList":["F","T","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["stopTime"],
-					"showFlag":true
-				},
-				"timeApplication":{
-					"typeList":["hidden"],
-					"groupList":[],
-					"nameList":["timeApplication"],
-					"showFlag":true
-				},
-				"dayOfWeek":{
-					"typeList":["F","T","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["dayOfWeek"],
-					"showFlag":true
-				},
-				"equipmentAndlist165":{
-					"typeList":["F","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["equipment","list165VO"],
-					"showFlag":true
-				},
-				"list186VO":{
-					"typeList":["F","R","T","A","B","C","E","P"],
-					"groupList":[],
-					"nameList":["list186VO"],
-					"showFlag":true
-				},
-				"cabin":{
-					"typeList":["F","A","B","C","P"],
-					"groupList":[],
-					"nameList":["cabin"],
-					"showFlag":true
-				},
-				"list198VO":{
-					"typeList":["F","A","B","C","P"],
-					"groupList":[],
-					"nameList":["list198VO"],
-					"showFlag":true
-				},
-				"upgradeToCabin":{
-					"typeList":["F","M"],
-					"groupList":["UP","BDUP"],
-					"nameList":["upgradeToCabin"],
-					"showFlag":true
-				},
-				"list198UpgradeVO":{
-					"typeList":["F","M"],
-					"groupList":["UP","BDUP","SA","BDSA"],
-					"nameList":["list198UpgradeVO"],
-					"showFlag":true
-				},
-				"advancedPurchasePeriodAndUnit":{
-					"typeList":["F","M","R","T","C","P"],
-					"groupList":[],
-					"nameList":["advancedPurchasePeriod","advancedPurchaseUnit"],
-					"showFlag":true
-				},
-				"tourCode":{
-					"typeList":["F","M","R","T","A","B","C","P"],
-					"groupList":[],
-					"nameList":["tourCode"],
-					"showFlag":true
-				},
-				"list173TicketVO":{
-					"typeList":["F","M","R","T","A","B","C","P"],
-					"groupList":[],
-					"nameList":["list173TicketVO"],
-					"showFlag":true
-				},
-				"tariff":{
-					"typeList":["F","R","A","B","C","P"],
-					"groupList":[],
-					"nameList":["tariff"],
-					"showFlag":true
-				},
-				"rule":{
-					"typeList":["F","R","A","B","C","P"],
-					"groupList":[],
-					"nameList":["rule"],
-					"showFlag":true
-				},
-				"list173TktVO":{
-					"typeList":["F","R","A","B","C","P"],
-					"groupList":[],
-					"nameList":["list173TktVO"],
-					"showFlag":true
-				},
-				"list171VO":{
-					"typeList":["F","R","A","B","C","P"],
-					"groupList":[],
-					"nameList":["list171VO"],
-					"showFlag":true
-				},
-				"advancedPurchaseTktIssue":{
-					"typeList":["F","R","T","P"],
-					"groupList":[],
-					"nameList":["advancedPurchaseTktIssue"],
-					"showFlag":true
-				},
-				"indicatorReissueRefund":{
-					"typeList":["F","M","A","C","P","T"],
-					"groupList":[],
-					"nameList":["indicatorReissueRefund"],
-					"showFlag":true
-				},
-				"formOfRefund":{
-					"typeList":["F","M","R","T","C","P"],
-					"groupList":[],
-					"nameList":["formOfRefund"],
-					"showFlag":true
-				},
-				"indicatorInterline":{
-					"typeList":["F","M","R","T","C","P"],
-					"groupList":[],
-					"nameList":["indicatorInterline"],
-					"showFlag":true
-				},
-				"allowancePeopleMinAndMaximum":{/*服务适用人数范围*/
-					"typeList":["F","R","T","A","B","C","E","P"],
-					"groupList":["FP"],
-					"nameList":["allowancePeopleMinimum","allowancePeopleMaximum"],
-					"showFlag":true
-				},
-				"effectivePeriodInfo":{/*延长时间*/
-					"typeList":["F","R","T","A","B","C","E","P"],
-					"groupList":["FL","FP"],
-					"nameList":["effectivePeriodType","effectivePeriodNumber","effectivePeriodUnit"],
-					"showFlag":true
-				},
-				"serviceNumberMinAndMaximum":{/*服务套数*/
-					"typeList":["F","R","T","A","B","C","E","P"],
-					"groupList":["FP"],
-					"nameList":["serviceNumberMinimum","serviceNumberMaximum"],
-					"showFlag":true
-				},
-				"firstAndLastUseDate":{/*期限开始*/
-					"typeList":["F","R","T","A","B","C","E","P"],
-					"groupList":["FP"],
-					"nameList":["firstUseDate","lastUseDate"],
-					"showFlag":true
-				},
-				"mileageExchangeIndicator":{
-					"typeList":["F","M","R","T"],
-					"groupList":[],
-					"nameList":["mileageExchangeIndicator"],
-					"showFlag":true
-				}
-		    };
-		}) ;
+	/*控制页面上的控件是否可编辑*/
+	services.factory("FormEditStatusServcie", function(){
+		return {
+			"firstMaintenanceDate":true,
+			"lastMaintenanceDate":true,
+			"description":true,
+			"fareBasis":true,
+			"availability":true,
+			"freeBaggageAllowancePieces":true,
+			"firstExcessOccurrence":true,
+			"lastExcessOccurrence":true,
+			"freeBaggageAllowanceWeight":true,
+			"freeBaggageAllowanceUnit":true,
+			"baggageTravelApplication":true,
+			"list196VO":true,
+			"noChargeNotAvailable":true,
+			"list170VO":true,
+			"list201VO":true,
+			"specSevFeeAndOrIndicator":true,
+			"specifiedServiceFeeMileage":true,
+			"specifiedServiceFeeApp":true,
+			"specServiceFeeColSub":true,
+			"specServiceFeeNetSell":true,
+			"indicatorComission":true,
+			"taxApplication":true,
+			"sequenceNumber":true,
+			"passengerTypeCode":true,
+			"minPassengerAge":true,
+			"maxPassengerAge":true,
+			"firstPassengerOccurrence":true,
+			"lastPassengerOccurrence":true,
+			"frequentFlyerStatus":true,
+			"mileageMinimum":true,
+			"mileageMaximum":true,
+			"customerIndexScoreMinimum":true,
+			"customerIndexScoreMaxmum":true,
+			"list172VO":true,
+			"list183VO":true,
+			"publicPrivateIndicator":true,
+			"geoSpecFromToWithin":true,
+			"geoSpecSectPortJourney":true,
+			"geoSpecTravelIndicator":true,
+			"geoSpecExceptionStopTime":true,
+			"geoSpecExceptionStopUnit":true,
+			"geoSpecStopConnDes":true,
+			"geoSpecLoc1Type":true,
+			"geoSpecLoc1":true,
+			"list178Loc1":true,
+			"geoSpecLoc2Type":true,
+			"geoSpecLoc2":true,
+			"list178Loc2":true,
+			"geoSpecLoc3Type":true,
+			"geoSpecLoc3":true,
+			"list178Loc3":true,
+			"travelStartDate":true,
+			"travelEndDate":true,
+			"startTime":true,
+			"stopTime":true,
+			"timeApplication":true,
+			"dayOfWeek":true,
+			"equipment":true,
+			"list165VO":true,
+			"list186VO":true,
+			"cabin":true,
+			"list198VO":true,
+			"upgradeToCabin":true,
+			"list198UpgradeVO":true,
+			"advancedPurchasePeriod":true,
+			"advancedPurchaseUnit":true,
+			"tourCode":true,
+			"list173TicketVO":true,
+			"tariff":true,
+			"rule":true,
+			"list173TktVO":true,
+			"list171VO":true,
+			"advancedPurchaseTktIssue":true,
+			"indicatorReissueRefund":true,
+			"formOfRefund":true,
+			"indicatorInterline":true,
+			"allowancePeopleMinimum":true,
+			"allowancePeopleMaximum":true,
+			"effectivePeriodType":true,
+			"effectivePeriodNumber":true,
+			"effectivePeriodUnit":true,
+			"serviceNumberMinimum":true,
+			"serviceNumberMaximum":true,
+			"firstUseDate":true,
+			"lastUseDate":true,
+			"mileageExchangeIndicator":true,
+			"listTsk202VO":true
+		};
+	}) ;
 
 
-		
+	//整个页面的组件在serviceType为xxx时应该显示到页面上(控制显隐关系)
+	services.factory("FormStatusService", function(){
+		return {
+			"firstMaintenanceDate":{
+				"typeList":["F","M","R","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["firstMaintenanceDate"],
+				"showFlag":true
+			},
+			"lastMaintenanceDate":{
+				"typeList":["F","M","R","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["lastMaintenanceDate"],
+				"showFlag":true
+			},
+			"description":{
+				"typeList":["F","M","R","T","B","E"],
+				"groupList":[],
+				"nameList":["description"],
+				"showFlag":true
+			},
+			"fareBasis":{
+				"typeList":["F","M","R","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["fareBasis"],
+				"showFlag":true
+			},
+			"availability":{
+				"typeList":["F","M","R","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["availability"],
+				"showFlag":true
+			},
+			"freeBaggageAllowancePieces":{
+				"typeList":["A"],
+				"groupList":[],
+				"nameList":["freeBaggageAllowancePieces"],
+				"showFlag":true
+			},
+			"firstAndLastExcessOccurrence":{
+				"typeList":["C","P"],
+				"groupList":[],
+				"nameList":["firstExcessOccurrence","lastExcessOccurrence"],
+				"showFlag":true
+			},
+			"freeBaggageAllowanceWeight":{
+				"typeList":["A","C","P"],
+				"groupList":[],
+				"nameList":["freeBaggageAllowanceWeight","freeBaggageAllowanceUnit"],
+				"showFlag":true
+			},
+			"baggageTravelApplication":{
+				"typeList":["A","C","P"],
+				"groupList":[],
+				"nameList":["baggageTravelApplication"],
+				"showFlag":true
+			},
+			"list196VO":{
+				"typeList":["A","C","P"],
+				"groupList":[],
+				"nameList":["list196VO"],
+				"showFlag":true
+			},
+			"noChargeNotAvailable":{
+				"typeList":["F","M","R","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["noChargeNotAvailable"],
+				"showFlag":true
+			},
+			"list170VOAndlist201VO":{
+				"typeList":["F","M","R","T","C","P"],
+				"groupList":[],
+				"nameList":["list170VO","list201VO"],
+				"showFlag":true
+			},
+			"specSevFeeAndOrIndicator":{
+				"typeList":["F","M","R","T","C","P"],
+				"groupList":[],
+				"nameList":["specSevFeeAndOrIndicator"],
+				"showFlag":true
+			},
+			"specifiedServiceFeeMileage":{
+				"typeList":["F","M","R","T","C","P"],
+				"groupList":[],
+				"nameList":["specifiedServiceFeeMileage"],
+				"showFlag":true
+			},
+			"specifiedServiceFeeApp":{
+				"typeList":["F","M","R","T","C","P"],
+				"groupList":[],
+				"nameList":["specifiedServiceFeeApp"],
+				"showFlag":true
+			},
+			"specServiceFeeColSub":{
+				"typeList":["F","M","R","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["specServiceFeeColSub"],
+				"showFlag":true
+			},
+			"specServiceFeeNetSell":{
+				"typeList":["F","M","R","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["specServiceFeeNetSell"],
+				"showFlag":true
+			},
+			"indicatorComission":{
+				"typeList":["F","M","R","T","C","P"],
+				"groupList":[],
+				"nameList":["indicatorComission"],
+				"showFlag":true
+			},
+			"taxApplication":{
+				"typeList":["F","M","R","T","C","P"],
+				"groupList":[],
+				"nameList":["taxApplication"],
+				"showFlag":true
+			},
+			"sequenceNumber":{
+				"typeList":["F","M","R","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["sequenceNumber"],
+				"showFlag":true
+			},
+			"passengerTypeCode":{
+				"typeList":["F","M","R","T","A","B","C","P"],
+				"groupList":[],
+				"nameList":["passengerTypeCode"],
+				"showFlag":true
+			},
+			"minAndMaxPassengerAge":{
+				"typeList":["F","M","R","T","A","B","C","P"],
+				"groupList":[],
+				"nameList":["minPassengerAge","maxPassengerAge"],
+				"showFlag":true
+			},
+			"firstAndLastPassengerOccurrence":{
+				"typeList":["F","M","R","T"],
+				"groupList":[],
+				"nameList":["firstPassengerOccurrence","lastPassengerOccurrence"],
+				"showFlag":true
+			},
+			"frequentFlyerStatus":{
+				"typeList":["F","M","R","T","B","C","P"],
+				"groupList":[],
+				"nameList":["frequentFlyerStatus"],
+				"showFlag":true
+			},
+			"mileageMinAndMaximum":{
+				"typeList":["F","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["mileageMinimum","mileageMaximum"],
+				"showFlag":true
+			},
+			"customerIndexScoreMinAndMaximum":{
+				"typeList":["F","M","R","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["customerIndexScoreMinimum","customerIndexScoreMaxmum"],
+				"showFlag":true
+			},
+			"list172VO":{
+				"typeList":["F","M","R","T","A","B","C","P"],
+				"groupList":[],
+				"nameList":["list172VO"],
+				"showFlag":true
+			},
+			"list183VO":{
+				"typeList":["F","M","R","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["list183VO"],
+				"showFlag":true
+			},
+			"publicPrivateIndicator":{
+				"typeList":["F","M","R","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["publicPrivateIndicator"],
+				"showFlag":true
+			},
+			"geoSpecFromToWithin":{
+				"typeList":["F","R","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["geoSpecFromToWithin"],
+				"showFlag":true
+			},
+			"geoSpecSectPortJourney":{
+				"typeList":["F","R","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["geoSpecSectPortJourney"],
+				"showFlag":true
+			},
+			"geoSpecTravelIndicator":{
+				"typeList":["F","R","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["geoSpecTravelIndicator"],
+				"showFlag":true
+			},
+			"geoSpecExceptionStopTimeAndUnit":{
+				"typeList":["F","R","A","C","P"],
+				"groupList":[],
+				"nameList":["geoSpecExceptionStopTime","geoSpecExceptionStopUnit"],
+				"showFlag":true
+			},
+			"geoSpecStopConnDes":{
+				"typeList":["F","R","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["geoSpecStopConnDes"],
+				"showFlag":true
+			},
+			"geoSpecLoc1AndType":{
+				"typeList":["F","M","R","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["geoSpecLoc1Type","geoSpecLoc1"],
+				"showFlag":true
+			},
+			"list178Loc1":{
+				"typeList":["F","M","A","C","P","T"],
+				"groupList":[],
+				"nameList":["list178Loc1"],
+				"showFlag":true
+			},
+			"geoSpecLoc2AndType":{
+				"typeList":["F","R","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["geoSpecLoc2Type","geoSpecLoc2"],
+				"showFlag":true
+			},
+			"list178Loc2":{
+				"typeList":["F","M","A","C","P","T"],
+				"groupList":[],
+				"nameList":["list178Loc2"],
+				"showFlag":true
+			},
+			"geoSpecLoc3AndType":{
+				"typeList":["F","R","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["geoSpecLoc3Type","geoSpecLoc3"],
+				"showFlag":true
+			},
+			"list178Loc3":{
+				"typeList":["F","M","A","C","P","T"],
+				"groupList":[],
+				"nameList":["list178Loc3"],
+				"showFlag":true
+			},
+			"travelStartDate":{
+				"typeList":["F","M","R","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["travelStartDate"],
+				"showFlag":true
+			},
+			"travelEndDate":{
+				"typeList":["F","M","R","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["travelEndDate"],
+				"showFlag":true
+			},
+			"startTime":{
+				"typeList":["F","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["startTime"],
+				"showFlag":true
+			},
+			"stopTime":{
+				"typeList":["F","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["stopTime"],
+				"showFlag":true
+			},
+			"timeApplication":{
+				"typeList":["hidden"],
+				"groupList":[],
+				"nameList":["timeApplication"],
+				"showFlag":true
+			},
+			"dayOfWeek":{
+				"typeList":["F","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["dayOfWeek"],
+				"showFlag":true
+			},
+			"equipmentAndlist165":{
+				"typeList":["F","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["equipment","list165VO"],
+				"showFlag":true
+			},
+			"list186VO":{
+				"typeList":["F","R","T","A","B","C","E","P"],
+				"groupList":[],
+				"nameList":["list186VO"],
+				"showFlag":true
+			},
+			"cabin":{
+				"typeList":["F","A","B","C","P"],
+				"groupList":[],
+				"nameList":["cabin"],
+				"showFlag":true
+			},
+			"list198VO":{
+				"typeList":["F","A","B","C","P"],
+				"groupList":[],
+				"nameList":["list198VO"],
+				"showFlag":true
+			},
+			"upgradeToCabin":{
+				"typeList":["F","M"],
+				"groupList":["UP","BDUP"],
+				"nameList":["upgradeToCabin"],
+				"showFlag":true
+			},
+			"list198UpgradeVO":{
+				"typeList":["F","M"],
+				"groupList":["UP","BDUP","SA","BDSA"],
+				"nameList":["list198UpgradeVO"],
+				"showFlag":true
+			},
+			"advancedPurchasePeriodAndUnit":{
+				"typeList":["F","M","R","T","C","P"],
+				"groupList":[],
+				"nameList":["advancedPurchasePeriod","advancedPurchaseUnit"],
+				"showFlag":true
+			},
+			"tourCode":{
+				"typeList":["F","M","R","T","A","B","C","P"],
+				"groupList":[],
+				"nameList":["tourCode"],
+				"showFlag":true
+			},
+			"list173TicketVO":{
+				"typeList":["F","M","R","T","A","B","C","P"],
+				"groupList":[],
+				"nameList":["list173TicketVO"],
+				"showFlag":true
+			},
+			"tariff":{
+				"typeList":["F","R","A","B","C","P"],
+				"groupList":[],
+				"nameList":["tariff"],
+				"showFlag":true
+			},
+			"rule":{
+				"typeList":["F","R","A","B","C","P"],
+				"groupList":[],
+				"nameList":["rule"],
+				"showFlag":true
+			},
+			"list173TktVO":{
+				"typeList":["F","R","A","B","C","P"],
+				"groupList":[],
+				"nameList":["list173TktVO"],
+				"showFlag":true
+			},
+			"list171VO":{
+				"typeList":["F","R","A","B","C","P"],
+				"groupList":[],
+				"nameList":["list171VO"],
+				"showFlag":true
+			},
+			"advancedPurchaseTktIssue":{
+				"typeList":["F","R","T","P"],
+				"groupList":[],
+				"nameList":["advancedPurchaseTktIssue"],
+				"showFlag":true
+			},
+			"indicatorReissueRefund":{
+				"typeList":["F","M","A","C","P","T"],
+				"groupList":[],
+				"nameList":["indicatorReissueRefund"],
+				"showFlag":true
+			},
+			"formOfRefund":{
+				"typeList":["F","M","R","T","C","P"],
+				"groupList":[],
+				"nameList":["formOfRefund"],
+				"showFlag":true
+			},
+			"indicatorInterline":{
+				"typeList":["F","M","R","T","C","P"],
+				"groupList":[],
+				"nameList":["indicatorInterline"],
+				"showFlag":true
+			},
+			"allowancePeopleMinAndMaximum":{/*服务适用人数范围*/
+				"typeList":["F","R","T","A","B","C","E","P"],
+				"groupList":["FP"],
+				"nameList":["allowancePeopleMinimum","allowancePeopleMaximum"],
+				"showFlag":true
+			},
+			"effectivePeriodInfo":{/*延长时间*/
+				"typeList":["F","R","T","A","B","C","E","P"],
+				"groupList":["FL","FP"],
+				"nameList":["effectivePeriodType","effectivePeriodNumber","effectivePeriodUnit"],
+				"showFlag":true
+			},
+			"serviceNumberMinAndMaximum":{/*服务套数*/
+				"typeList":["F","R","T","A","B","C","E","P"],
+				"groupList":["FP"],
+				"nameList":["serviceNumberMinimum","serviceNumberMaximum"],
+				"showFlag":true
+			},
+			"firstAndLastUseDate":{/*期限开始*/
+				"typeList":["F","R","T","A","B","C","E","P"],
+				"groupList":["FP"],
+				"nameList":["firstUseDate","lastUseDate"],
+				"showFlag":true
+			},
+			"mileageExchangeIndicator":{
+				"typeList":["F","M","R","T"],
+				"groupList":[],
+				"nameList":["mileageExchangeIndicator"],
+				"showFlag":true
+			}
+		};
+	}) ;
 
-	 }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+
+
 
 
 /***/ },
 /* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
-		var app = __webpack_require__(14) ;
-		var util = __webpack_require__(17) ;
-		// $q 是内置服务，所以可以直接使用  //HttpOperService//S7EditService
-		app.factory('HttpOperService', ['$http', '$q', function ($http, $q) {  
-		  return {  
-			    getDataByUrl : function(url) {  
-			      var deferred = $q.defer(); // 声明延后执行，表示要去监控后面的执行  
-			      $http({method: 'GET', url: url}).  
-			      success(function(data, status, headers, config) {  
-			        deferred.resolve(data);  // 声明执行成功，即http请求数据成功，可以返回数据了  
-			      }).  
-			      error(function(data, status, headers, config) {  
-			        deferred.reject(data);   // 声明执行失败，即服务器返回错误  
-			      });  
-			      return deferred.promise;   // 返回承诺，这里并不是最终数据，而是访问最终数据的API  
-			    },
-			    postDate:function(url,queryParam,config){
-			    	var deferred = $q.defer(); // 声明延后执行，表示要去监控后面的执行  
-			    	var tmpCfg = {} ;
-			    	if(config!=null){
-			    		tmpCfg = config ;
-			    	}
-			    	var csrfInfo = util.getCSRFInfo() ;
-			    	tmpCfg = $.extend(tmpCfg,csrfInfo) ;
-			        $http({method: 'POST', url: url,data:queryParam,params:tmpCfg}).  
-			        success(function(data, status, headers, config) {  
-			           deferred.resolve(data);  // 声明执行成功，即http请求数据成功，可以返回数据了  
-			        }).  
-			        error(function(data, status, headers, config) {  
-			           deferred.reject(data);   // 声明执行失败，即服务器返回错误  
-			        });  
-			      	return deferred.promise;   // 返回承诺，这里并不是最终数据，而是访问最终数据的API  
-			    }
-			};
-		}]);  
+	var app = __webpack_require__(14) ;
+	var util = __webpack_require__(17) ;
+	// $q 是内置服务，所以可以直接使用  //HttpOperService//S7EditService
+	app.factory('HttpOperService', ['$http', '$q', function ($http, $q) {
+	  return {
+			getDataByUrl : function(url) {
+			  var deferred = $q.defer(); // 声明延后执行，表示要去监控后面的执行
+			  $http({method: 'GET', url: url}).
+			  success(function(data, status, headers, config) {
+				deferred.resolve(data);  // 声明执行成功，即http请求数据成功，可以返回数据了
+			  }).
+			  error(function(data, status, headers, config) {
+				deferred.reject(data);   // 声明执行失败，即服务器返回错误
+			  });
+			  return deferred.promise;   // 返回承诺，这里并不是最终数据，而是访问最终数据的API
+			},
+			postDate:function(url,queryParam,config){
+				var deferred = $q.defer(); // 声明延后执行，表示要去监控后面的执行
+				var tmpCfg = {} ;
+				if(config!=null){
+					tmpCfg = config ;
+				}
+				var csrfInfo = util.getCSRFInfo() ;
+				tmpCfg = $.extend(tmpCfg,csrfInfo) ;
+				$http({method: 'POST', url: url,data:queryParam,params:tmpCfg}).
+				success(function(data, status, headers, config) {
+				   deferred.resolve(data);  // 声明执行成功，即http请求数据成功，可以返回数据了
+				}).
+				error(function(data, status, headers, config) {
+				   deferred.reject(data);   // 声明执行失败，即服务器返回错误
+				});
+				return deferred.promise;   // 返回承诺，这里并不是最终数据，而是访问最终数据的API
+			}
+		};
+	}]);
 
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
 
 /***/ },
 /* 17 */
@@ -5230,17 +5218,15 @@
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
-		__webpack_require__(19) ;//公共指令
-		__webpack_require__(25) ;//基本信息指令
-		//require("./tb198UpGradeDirective") ;//[座位属性表/升舱属性]table198指令
-		__webpack_require__(29) ;//规则明细指令
-		__webpack_require__(30) ;//规则明细指令
-		//require("./select2Directive") ;//暂时不适用这个指令
-		//加入校验指令
-		__webpack_require__(34) ;
+	__webpack_require__(19) ;//公共指令
+	__webpack_require__(25) ;//基本信息指令
+	//require("./tb198UpGradeDirective") ;//[座位属性表/升舱属性]table198指令
+	__webpack_require__(29) ;//规则明细指令
+	__webpack_require__(30) ;//规则明细指令
+	//require("./select2Directive") ;//暂时不适用这个指令
+	//加入校验指令
+	__webpack_require__(34) ;
 		
-	 }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
 
 
 
@@ -5249,554 +5235,550 @@
 /* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){
-		 var directives = __webpack_require__(20) ;
-		 var _ = __webpack_require__(21) ;
-		 var jsonDataHelper = __webpack_require__(22) ;
-		 var commonUtil = __webpack_require__(23) ;
-		 
-		 var convertFirstCharUpper = function(str){
-		 	str = str || "" ;
-		 	return str.replace(/(\w)/,function(v){return v.toUpperCase()});
-		 }
+	 var directives = __webpack_require__(20) ;
+	 var _ = __webpack_require__(21) ;
+	 var jsonDataHelper = __webpack_require__(22) ;
+	 var commonUtil = __webpack_require__(23) ;
 
-		 //显示隐藏表格
-		 directives.directive('showHideTable',['TbShowHideServcie',function(TbShowHideServcie){
-		    return {
-		        restrict: 'E',
-		        replace: true,
-		        scope: {},
-		        controller:['$scope','$element','$attrs',function($scope,$element,$attrs){
-		        	$scope.tableStatus = TbShowHideServcie ;
-		        }],
-		        template:function(elem,attrs){
-		        	var tname = attrs['tname'] ;
-		        	var tmpStr = "tableStatus."+tname ;
-		        	var html = '<a  href = "javascript:void(0)"><span ng-show="'+tmpStr+'" >收起表格</span><span ng-show="!'+tmpStr+'">填写表格</span></a>' ;
-		        	return html ;
-		        }, 
-		        transclude:true,
-		        link: function(scope, element, attrs){
-		        	element.bind('click',function(){
-		        		var tname = attrs['tname'] ;
-		        		scope.$apply(function(){
-							scope.tableStatus[tname] = !scope.tableStatus[tname] ;
-		        		}) ;
-		        	}) ;
-		        }
-		    };
-		}]) ;
+	 var convertFirstCharUpper = function(str){
+		str = str || "" ;
+		return str.replace(/(\w)/,function(v){return v.toUpperCase()});
+	 }
 
-
-		var _fillData4AutoComplete = function(suggestion,tbname ,FormData,FormEditStatusServcie,HttpOperService,customeEditStatus,tbnoName){
-			//scope.showCustomeEditFlag = true;
-	    	var tbNO = suggestion.data ;
-	    	var url = FormData.contextPath+"/queryTableInfoByTbNO.action?tbNO="+tbNO+"&tbname="+tbname ;
-	    	var promise = HttpOperService.getDataByUrl(url) ;
-	    	var oldTbNo = FormData[tbnoName] ;
-	    	var subTbReferenceCount = FormData['subTbReferenceCountMap'][tbname] *1;
-	    	var reusePropName = "reuse"+convertFirstCharUpper(tbname) ;
-	    	promise.then(function  (retData) {
-	    		var list = jsonDataHelper.convert2TableDataList(retData.list,tbname) ;
-	    		//如果当前标号与复用标号相同的话，并且是只被当前r7引用的话，说明不是复用，而是修改自己的记录
-	    		if(subTbReferenceCount<=1&&oldTbNo==tbNO){//如果和之前的标号相同，并且被r7引用条数不大于1的话,可编辑
-					//1.设置表格可编辑
-					FormEditStatusServcie[tbname] = true;
-					//2.清除复用标志
-					FormData[reusePropName] = ''; 
-					//3.隐藏自定义表格按钮
-					customeEditStatus[tbname] = true;
-	    		}else{
-	    			FormEditStatusServcie[tbname] = false;
-	    			//显示自定义表格按钮
-	    			customeEditStatus[tbname] = true;
-	    		}
-	    		FormData[tbname] = list ;
-	    	},function(error){
-	    		console.info('获取数据出错!'+error) ;
-	    	}) ;
-		} ;
-		
-
-		directives.directive('ocComplete', ['FormEditStatusServcie','FormData','HttpOperService','ListVo2tbNoMap','TbShowHideServcie','CustomeEditTbStatusServcie',function (FormEditStatusServcie,FormData,HttpOperService,ListVo2tbNoMap,TbShowHideServcie,CustomeEditTbStatusServcie) {
-		 	return {
-		 		restrict: 'E',
-		 		replace:true,
-		 		scope:true,
-		 		template:function  (elem,attrs) {
-		 			//获取当前页面控件是否是非编辑状态
-		 			var str ="" ;
-	 				var tbname = attrs['tbname'] ;
-	 				var reuseTablePropName = "reuse"+convertFirstCharUpper(tbname) ;
-		 			var tbnoName = ListVo2tbNoMap[tbname] ;
-		 			//var botext = "data."+tbnoName ;
-		 			var sotext = "customeEditStatus."+tbname;
-		 			str ='<span class ="marginRL15">' + 
-							'<label class ="text-info">复用表号: </label>' +
-							'<span style="position:relative;">'+
-								'<input type="text"  name="'+reuseTablePropName+'" ng-disable ="data.statusDes==\'3\'" class="autocomplete reusetbnoinput" placeholder=""  >'+
-								'<i class="icon iconfont icon-sousuo searchinput gray"></i>'+
-							'</span>'+
-							'<span class ="text-danger pointer marginRL15" name="customeEdit" ng-show ="'+sotext+'">自定义表格</span>'+
-						 '</span>' ;
-					return str ;
-		 		},
-		 		link: function (scope, elem, attrs) {
-		 			scope.data = FormData ;
-		 			var tbname = attrs['tbname'] ;
-		 			var tbnoName = ListVo2tbNoMap[tbname] ;
-		 			//是否显示自定义表格
-		 			scope.customeEditStatus = CustomeEditTbStatusServcie;
-		 			/*elem.find("i").bind('click',function(event){
-		 				event.stopPropagation() ;
-		 				event.preventDefault() ;
-		 				//elem.find('input').focus() ;
-		 			}) ;*/
-		 			//点击自定义表格按钮
-		 			elem.find('span[name="customeEdit"]').bind('click',function  (event) {
-		 				//scope.showCustomeEditFlag = false;
-		 				scope.customeEditStatus[tbname] = false;
-		 				//1.清除复用的表号
-		 				var reuseTablePropName = "reuse"+convertFirstCharUpper(tbname) ;
-		 				FormData[reuseTablePropName] = '' ;
-		 				//2.清除复用的list数据
-		 				//var list = FormData[tbname] ;
-		 				//获取当前页面控件是否是非编辑状态
-		 				var editFlag = commonUtil.getEditFlagByStatus(FormData.statusDes) ;
-		 				elem.find(':input').val('')
-						scope.$apply(function  () {
-		 					FormEditStatusServcie[tbname] = editFlag;
-					    	FormData[tbname] = [] ;
-						}) ;
-						//清空placeholder提示
-						elem.find(':input').removeAttr('placeholder'); 
-						//只要被点击自定义就需要把这里置为-1，表示当前是自定义字表数据
-						FormData[tbnoName] = '-1' ;
-						/*//根据本引用次数判断是否清除源字表号(1.如果被引用一次则源表号任可重复利用，2.如果被多次引用则将源标号置为空)
-						var referenceCount = FormData.subTbReferenceCountMap[tbname] ;
-						if(referenceCount>1){
-							//console.info('【'+referenceCount+'】被引用次数大于一，需要把源子表号置为空...') ;
-							FormData[tbnoName] = '' ;
-						}*/
-						
-		 			}) ;
-					elem.find(".autocomplete").autocomplete({
-						minChars:0,
-						serviceUrl: scope.data.contextPath+'/queryTableNoByTableName',
-						/*noCache:true,*/
-					    onSelect: function (suggestion) {
-					    	//判断当前是否有数据，并且当前数据是否可编辑,如果这样的话要给出提示信息
-					    	var list = FormData[tbname] ;
-					    	var editFlag = commonUtil.getEditFlagByStatus(FormData.statusDes) ;
-					    	var reuseTablePropName = "reuse"+convertFirstCharUpper(tbname) ;
-					    	var reuseTableNo = FormData[reuseTablePropName] ;
-					    	//判断当前表格是否可编辑
-					    	var tbEditAbleFlag = FormEditStatusServcie[tbname] ;
-					    	//当前表格如果可编辑那么
-					    	if(list.length>0&&editFlag&&reuseTableNo==''&&tbEditAbleFlag){
-					    		$.showTuiConfirmDialog2('确定放弃已编辑的内容？', function() {
-					    			var selectedTableNo = suggestion.data ;
-							    	var reuseTablePropName = "reuse"+convertFirstCharUpper(tbname) ;
-							    	FormData[reuseTablePropName] = selectedTableNo ;
-							    	_fillData4AutoComplete(suggestion,tbname ,FormData,FormEditStatusServcie,HttpOperService,scope.customeEditStatus,tbnoName) ;
-							    	//将表格置为显示状态
-							    	TbShowHideServcie[tbname] = true ;
-		 						},function(){
-		 							FormData[reuseTablePropName] = '' ;
-				    				elem.find(':input').val('') ;
-		 						}) ;
-					    	}else{
-						    	var selectedTableNo = suggestion.data ;
-						    	var reuseTablePropName = "reuse"+convertFirstCharUpper(tbname) ;
-						    	FormData[reuseTablePropName] = selectedTableNo ;
-						    	_fillData4AutoComplete(suggestion,tbname ,FormData,FormEditStatusServcie,HttpOperService,scope.customeEditStatus,tbnoName) ;
-						    	//将表格置为显示状态
-						    	TbShowHideServcie[tbname] = true ;
-					    	}
-					    },
-					    paramName:'q' ,
-					    params:{"tbname":tbname},
-					    transformResult: function(response) {
-					    	var jsonData = JSON.parse(response) ;
-					    	var flag = jsonData.flag ;
-					    	//console.info('flag : ' + flag) ;
-					    	if(flag=='true'){
-								return {
-						            suggestions: $.map(jsonData.list, function(dataItem) {
-						                return { value: dataItem+"", data: dataItem };
-						            })
-						        };
-					    	}else{
-					    		//console.info('获取表格出错...') ;
-					    		return {
-					    			suggestions:[]
-					    		}
-					    	}
-					    }
-					});
-		 		}
-		 	};
-		}]) ;
-
-
-		 //刚添加的一行表格td需要触发focus函数,否则如果直接点击页头部分的保存按钮将无法进行tui的require等校验//不知道为什么
-		 directives.directive('setFocus', function(){
-			  return {
-		        restrict: 'AE',
-		        replace: true,
-				scope:true,
-				link: function(scope, elem, attrs) {
-		           elem.trigger('click') ;
-		        }
-		      };
-	      });
-
-		 //区域长度限制
-		 directives.directive('geoMaxLength',function(){
-		    return {
-		        restrict: 'AE',
-		        replace: true,
-		        scope:true,
-		        controller:['$scope', '$element', '$attrs',function($scope, $element, $attrs){
-					$scope.getGeoLengthByType = function(type){
-						type = type || "" ;
-					  	var obj = {'A':'1','C':'3','N':'2','P':'3','S':'2','Z':'3'} ;
-					    var len = eval("obj['"+type+"']") || 0;
-						return len ;
-					}
-				}],
-		        link: function(scope, element, attrs){
-		            scope.$watch(attrs['geoMaxLength'], myWatchCallbackFunc);
-		            function myWatchCallbackFunc (){
-		                var geoMaxLength = attrs['geoMaxLength'] ;
-		                var value  = scope.$eval(geoMaxLength) ;
-						var len = scope.getGeoLengthByType(value) ;
-						element.attr('maxlength',len) ;//设置长度
-		            }
-		        }
-		    }
-		  }) ;
-		  
-		  function _convertStr2Json (jsonStr){
-		  	var str = jsonStr || '' ;
-		  	str += '' ;
-		  	var retJson = {} ;
-		  	try{
-		  		var retStr = str.replace(/'/g,'"') ;
-		  		retJson = JSON.parse(retStr) ;
-		  	}catch(e){
-		  		console.info(e) ;
-		  	}
-		  	return retJson ;
-		  }
-		  
-
-		 //tui长度限制属性
-		 directives.directive('tuiMaxLength',function(){
-		 	function _splitMaxLengtAttr (str){
-			  	str = str || '' ;
-			  	str += '' ;
-			  	var arr = [] ;
-			  	var str1 = "" ;
-			  	var str2 = "" ;
-			  	try{
-				  	var start1 = str.indexOf('{');
-			        var end1 = str.indexOf('}');
-			        str1 = str.substr(start1,end1+1)  ;
-			        var start2 = str.indexOf('[') ;
-			        var end2 = str.indexOf(']') ;
-			        str2 = str.substring(start2+1,end2) ;
-			  	}catch(e){
-			  		console.info(e) ;
-			  	}
-			  	if(str1.length>0&&str2.length>0){
-			  		arr[0] = str1 ;
-			  		arr[1] = str2 ;
-			  	}
-		        return arr ;
+	 //显示隐藏表格
+	 directives.directive('showHideTable',['TbShowHideServcie',function(TbShowHideServcie){
+		return {
+			restrict: 'E',
+			replace: true,
+			scope: {},
+			controller:['$scope','$element','$attrs',function($scope,$element,$attrs){
+				$scope.tableStatus = TbShowHideServcie ;
+			}],
+			template:function(elem,attrs){
+				var tname = attrs['tname'] ;
+				var tmpStr = "tableStatus."+tname ;
+				var html = '<a  href = "javascript:void(0)"><span ng-show="'+tmpStr+'" >收起表格</span><span ng-show="!'+tmpStr+'">填写表格</span></a>' ;
+				return html ;
+			},
+			transclude:true,
+			link: function(scope, element, attrs){
+				element.bind('click',function(){
+					var tname = attrs['tname'] ;
+					scope.$apply(function(){
+						scope.tableStatus[tname] = !scope.tableStatus[tname] ;
+					}) ;
+				}) ;
 			}
-		    return {
-		        restrict: 'AE',
-		        replace: true,
-		        scope: true,
-		        link: function(scope, element, attrs){
-		        	var attrStr = attrs['tuiMaxLength'] ;
-		            var infoArr = _splitMaxLengtAttr(attrStr) ;
-		            var str1 = "" ;
-		            var str2 = "" ;
-		            var jsonObj = {} ;
-		            //填写的字符串是否格式完好
-		            var goodStrFlag = false;
-		            if(infoArr.length==2){
-		             	goodStrFlag = true ;
-		             	str1 = infoArr[0] ;
-		             	str2 = infoArr[1] ;
-		             	jsonObj =  _convertStr2Json(str1) ; 
-		            }
-		            if(goodStrFlag){
-			            scope.$watch(attrs['tuiMaxLength'], function(){
-				        	var value2  = scope.$eval(str2) ;
-				        	var valueAtrr = jsonObj[value2] ;
-							element.attr('maxlength',valueAtrr) ;
-			            });
-		            }
-		        }
-		    }
-		  }) ;
+		};
+	}]) ;
 
-		directives.directive("upperInput",function(){
-		    return{
-		        restrict:'A',
-		        require:'ngModel',
-		        link:function(scope,element,attrs,ngModel){
-		            if (!ngModel)
-		                return; // do nothing if no ng-model
-		            // Specify how UI should be updated
-		            ngModel.$render = function() {
-		                var tmp = ngModel.$viewValue || '' ;
-		                tmp = tmp.toUpperCase() ;
-		                element.val(tmp);
-		                ngModel.$setViewValue(tmp);
-		            };
-		            // Listen for change events to enable binding
-		            element.bind('blur', function() {
-		                scope.$apply(read);
-		            });
-		            //read(); // initialize
-		            /// Write data to the model
-		            function read() {
-		                var tmp = ngModel.$viewValue || '';
-		                tmp = tmp.toUpperCase() ;
-		                ngModel.$setViewValue(tmp);
-		                element.val(tmp);
-		            }
-		        }
-		    }
+
+	var _fillData4AutoComplete = function(suggestion,tbname ,FormData,FormEditStatusServcie,HttpOperService,customeEditStatus,tbnoName){
+		//scope.showCustomeEditFlag = true;
+		var tbNO = suggestion.data ;
+		var url = FormData.contextPath+"/queryTableInfoByTbNO.action?tbNO="+tbNO+"&tbname="+tbname ;
+		var promise = HttpOperService.getDataByUrl(url) ;
+		var oldTbNo = FormData[tbnoName] ;
+		var subTbReferenceCount = FormData['subTbReferenceCountMap'][tbname] *1;
+		var reusePropName = "reuse"+convertFirstCharUpper(tbname) ;
+		promise.then(function  (retData) {
+			var list = jsonDataHelper.convert2TableDataList(retData.list,tbname) ;
+			//如果当前标号与复用标号相同的话，并且是只被当前r7引用的话，说明不是复用，而是修改自己的记录
+			if(subTbReferenceCount<=1&&oldTbNo==tbNO){//如果和之前的标号相同，并且被r7引用条数不大于1的话,可编辑
+				//1.设置表格可编辑
+				FormEditStatusServcie[tbname] = true;
+				//2.清除复用标志
+				FormData[reusePropName] = '';
+				//3.隐藏自定义表格按钮
+				customeEditStatus[tbname] = true;
+			}else{
+				FormEditStatusServcie[tbname] = false;
+				//显示自定义表格按钮
+				customeEditStatus[tbname] = true;
+			}
+			FormData[tbname] = list ;
+		},function(error){
+			console.info('获取数据出错!'+error) ;
 		}) ;
-		 //178表格显示隐藏的链接指令
-		 directives.directive('linkTable', ['TbShowHideServcie','FormEditStatusServcie',function(TbShowHideServcie,FormEditStatusServcie){
-	          return {
-		        restrict: 'AE',
-		        replace: true,
-				scope:{
-					list:'=',
-					tbname:'@'
-				},
-				controller:['$scope',function($scope){
-					$scope.showStatus = TbShowHideServcie;
-					$scope.editStatus = FormEditStatusServcie ;
-					//点击显示隐藏表格事件处理
-					$scope.myClick = function(){
-						var tbname = $scope.tbname;
-						$scope.showStatus[tbname] = !$scope.showStatus[tbname] ;
-						if(!$scope.showStatus[tbname]){////点击取消自定义区域
-							var len = $scope.list.length ;
-							if($scope.editStatus[tbname]){//如何表格可编辑则清空数据
-								outAllSelect() ;
-								$scope.list.splice(0,len) ;
+	} ;
+
+
+	directives.directive('ocComplete', ['FormEditStatusServcie','FormData','HttpOperService','ListVo2tbNoMap','TbShowHideServcie','CustomeEditTbStatusServcie',function (FormEditStatusServcie,FormData,HttpOperService,ListVo2tbNoMap,TbShowHideServcie,CustomeEditTbStatusServcie) {
+		return {
+			restrict: 'E',
+			replace:true,
+			scope:true,
+			template:function  (elem,attrs) {
+				//获取当前页面控件是否是非编辑状态
+				var str ="" ;
+				var tbname = attrs['tbname'] ;
+				var reuseTablePropName = "reuse"+convertFirstCharUpper(tbname) ;
+				var tbnoName = ListVo2tbNoMap[tbname] ;
+				//var botext = "data."+tbnoName ;
+				var sotext = "customeEditStatus."+tbname;
+				str ='<span class ="marginRL15">' +
+						'<label class ="text-info">复用表号: </label>' +
+						'<span style="position:relative;">'+
+							'<input type="text"  name="'+reuseTablePropName+'" ng-disable ="data.statusDes==\'3\'" class="autocomplete reusetbnoinput" placeholder=""  >'+
+							'<i class="icon iconfont icon-sousuo searchinput gray"></i>'+
+						'</span>'+
+						'<span class ="text-danger pointer marginRL15" name="customeEdit" ng-show ="'+sotext+'">自定义表格</span>'+
+					 '</span>' ;
+				return str ;
+			},
+			link: function (scope, elem, attrs) {
+				scope.data = FormData ;
+				var tbname = attrs['tbname'] ;
+				var tbnoName = ListVo2tbNoMap[tbname] ;
+				//是否显示自定义表格
+				scope.customeEditStatus = CustomeEditTbStatusServcie;
+				/*elem.find("i").bind('click',function(event){
+					event.stopPropagation() ;
+					event.preventDefault() ;
+					//elem.find('input').focus() ;
+				}) ;*/
+				//点击自定义表格按钮
+				elem.find('span[name="customeEdit"]').bind('click',function  (event) {
+					//scope.showCustomeEditFlag = false;
+					scope.customeEditStatus[tbname] = false;
+					//1.清除复用的表号
+					var reuseTablePropName = "reuse"+convertFirstCharUpper(tbname) ;
+					FormData[reuseTablePropName] = '' ;
+					//2.清除复用的list数据
+					//var list = FormData[tbname] ;
+					//获取当前页面控件是否是非编辑状态
+					var editFlag = commonUtil.getEditFlagByStatus(FormData.statusDes) ;
+					elem.find(':input').val('')
+					scope.$apply(function  () {
+						FormEditStatusServcie[tbname] = editFlag;
+						FormData[tbname] = [] ;
+					}) ;
+					//清空placeholder提示
+					elem.find(':input').removeAttr('placeholder');
+					//只要被点击自定义就需要把这里置为-1，表示当前是自定义字表数据
+					FormData[tbnoName] = '-1' ;
+					/*//根据本引用次数判断是否清除源字表号(1.如果被引用一次则源表号任可重复利用，2.如果被多次引用则将源标号置为空)
+					var referenceCount = FormData.subTbReferenceCountMap[tbname] ;
+					if(referenceCount>1){
+						//console.info('【'+referenceCount+'】被引用次数大于一，需要把源子表号置为空...') ;
+						FormData[tbnoName] = '' ;
+					}*/
+
+				}) ;
+				elem.find(".autocomplete").autocomplete({
+					minChars:0,
+					serviceUrl: scope.data.contextPath+'/queryTableNoByTableName',
+					/*noCache:true,*/
+					onSelect: function (suggestion) {
+						//判断当前是否有数据，并且当前数据是否可编辑,如果这样的话要给出提示信息
+						var list = FormData[tbname] ;
+						var editFlag = commonUtil.getEditFlagByStatus(FormData.statusDes) ;
+						var reuseTablePropName = "reuse"+convertFirstCharUpper(tbname) ;
+						var reuseTableNo = FormData[reuseTablePropName] ;
+						//判断当前表格是否可编辑
+						var tbEditAbleFlag = FormEditStatusServcie[tbname] ;
+						//当前表格如果可编辑那么
+						if(list.length>0&&editFlag&&reuseTableNo==''&&tbEditAbleFlag){
+							$.showTuiConfirmDialog2('确定放弃已编辑的内容？', function() {
+								var selectedTableNo = suggestion.data ;
+								var reuseTablePropName = "reuse"+convertFirstCharUpper(tbname) ;
+								FormData[reuseTablePropName] = selectedTableNo ;
+								_fillData4AutoComplete(suggestion,tbname ,FormData,FormEditStatusServcie,HttpOperService,scope.customeEditStatus,tbnoName) ;
+								//将表格置为显示状态
+								TbShowHideServcie[tbname] = true ;
+							},function(){
+								FormData[reuseTablePropName] = '' ;
+								elem.find(':input').val('') ;
+							}) ;
+						}else{
+							var selectedTableNo = suggestion.data ;
+							var reuseTablePropName = "reuse"+convertFirstCharUpper(tbname) ;
+							FormData[reuseTablePropName] = selectedTableNo ;
+							_fillData4AutoComplete(suggestion,tbname ,FormData,FormEditStatusServcie,HttpOperService,scope.customeEditStatus,tbnoName) ;
+							//将表格置为显示状态
+							TbShowHideServcie[tbname] = true ;
+						}
+					},
+					paramName:'q' ,
+					params:{"tbname":tbname},
+					transformResult: function(response) {
+						var jsonData = JSON.parse(response) ;
+						var flag = jsonData.flag ;
+						//console.info('flag : ' + flag) ;
+						if(flag=='true'){
+							return {
+								suggestions: $.map(jsonData.list, function(dataItem) {
+									return { value: dataItem+"", data: dataItem };
+								})
+							};
+						}else{
+							//console.info('获取表格出错...') ;
+							return {
+								suggestions:[]
 							}
 						}
 					}
-					function outAllSelect(){//将所有tr全部置为非选中状态
-						angular.forEach($scope.list,function(l){
-							l.selected = false ;
+				});
+			}
+		};
+	}]) ;
+
+
+	 //刚添加的一行表格td需要触发focus函数,否则如果直接点击页头部分的保存按钮将无法进行tui的require等校验//不知道为什么
+	 directives.directive('setFocus', function(){
+		  return {
+			restrict: 'AE',
+			replace: true,
+			scope:true,
+			link: function(scope, elem, attrs) {
+			   elem.trigger('click') ;
+			}
+		  };
+	  });
+
+	 //区域长度限制
+	 directives.directive('geoMaxLength',function(){
+		return {
+			restrict: 'AE',
+			replace: true,
+			scope:true,
+			controller:['$scope', '$element', '$attrs',function($scope, $element, $attrs){
+				$scope.getGeoLengthByType = function(type){
+					type = type || "" ;
+					var obj = {'A':'1','C':'3','N':'2','P':'3','S':'2','Z':'3'} ;
+					var len = eval("obj['"+type+"']") || 0;
+					return len ;
+				}
+			}],
+			link: function(scope, element, attrs){
+				scope.$watch(attrs['geoMaxLength'], myWatchCallbackFunc);
+				function myWatchCallbackFunc (){
+					var geoMaxLength = attrs['geoMaxLength'] ;
+					var value  = scope.$eval(geoMaxLength) ;
+					var len = scope.getGeoLengthByType(value) ;
+					element.attr('maxlength',len) ;//设置长度
+				}
+			}
+		}
+	  }) ;
+
+	  function _convertStr2Json (jsonStr){
+		var str = jsonStr || '' ;
+		str += '' ;
+		var retJson = {} ;
+		try{
+			var retStr = str.replace(/'/g,'"') ;
+			retJson = JSON.parse(retStr) ;
+		}catch(e){
+			console.info(e) ;
+		}
+		return retJson ;
+	  }
+
+
+	 //tui长度限制属性
+	 directives.directive('tuiMaxLength',function(){
+		function _splitMaxLengtAttr (str){
+			str = str || '' ;
+			str += '' ;
+			var arr = [] ;
+			var str1 = "" ;
+			var str2 = "" ;
+			try{
+				var start1 = str.indexOf('{');
+				var end1 = str.indexOf('}');
+				str1 = str.substr(start1,end1+1)  ;
+				var start2 = str.indexOf('[') ;
+				var end2 = str.indexOf(']') ;
+				str2 = str.substring(start2+1,end2) ;
+			}catch(e){
+				console.info(e) ;
+			}
+			if(str1.length>0&&str2.length>0){
+				arr[0] = str1 ;
+				arr[1] = str2 ;
+			}
+			return arr ;
+		}
+		return {
+			restrict: 'AE',
+			replace: true,
+			scope: true,
+			link: function(scope, element, attrs){
+				var attrStr = attrs['tuiMaxLength'] ;
+				var infoArr = _splitMaxLengtAttr(attrStr) ;
+				var str1 = "" ;
+				var str2 = "" ;
+				var jsonObj = {} ;
+				//填写的字符串是否格式完好
+				var goodStrFlag = false;
+				if(infoArr.length==2){
+					goodStrFlag = true ;
+					str1 = infoArr[0] ;
+					str2 = infoArr[1] ;
+					jsonObj =  _convertStr2Json(str1) ;
+				}
+				if(goodStrFlag){
+					scope.$watch(attrs['tuiMaxLength'], function(){
+						var value2  = scope.$eval(str2) ;
+						var valueAtrr = jsonObj[value2] ;
+						element.attr('maxlength',valueAtrr) ;
+					});
+				}
+			}
+		}
+	  }) ;
+
+	directives.directive("upperInput",function(){
+		return{
+			restrict:'A',
+			require:'ngModel',
+			link:function(scope,element,attrs,ngModel){
+				if (!ngModel)
+					return; // do nothing if no ng-model
+				// Specify how UI should be updated
+				ngModel.$render = function() {
+					var tmp = ngModel.$viewValue || '' ;
+					tmp = tmp.toUpperCase() ;
+					element.val(tmp);
+					ngModel.$setViewValue(tmp);
+				};
+				// Listen for change events to enable binding
+				element.bind('blur', function() {
+					scope.$apply(read);
+				});
+				//read(); // initialize
+				/// Write data to the model
+				function read() {
+					var tmp = ngModel.$viewValue || '';
+					tmp = tmp.toUpperCase() ;
+					ngModel.$setViewValue(tmp);
+					element.val(tmp);
+				}
+			}
+		}
+	}) ;
+	 //178表格显示隐藏的链接指令
+	 directives.directive('linkTable', ['TbShowHideServcie','FormEditStatusServcie',function(TbShowHideServcie,FormEditStatusServcie){
+		  return {
+			restrict: 'AE',
+			replace: true,
+			scope:{
+				list:'=',
+				tbname:'@'
+			},
+			controller:['$scope',function($scope){
+				$scope.showStatus = TbShowHideServcie;
+				$scope.editStatus = FormEditStatusServcie ;
+				//点击显示隐藏表格事件处理
+				$scope.myClick = function(){
+					var tbname = $scope.tbname;
+					$scope.showStatus[tbname] = !$scope.showStatus[tbname] ;
+					if(!$scope.showStatus[tbname]){////点击取消自定义区域
+						var len = $scope.list.length ;
+						if($scope.editStatus[tbname]){//如何表格可编辑则清空数据
+							outAllSelect() ;
+							$scope.list.splice(0,len) ;
+						}
+					}
+				}
+				function outAllSelect(){//将所有tr全部置为非选中状态
+					angular.forEach($scope.list,function(l){
+						l.selected = false ;
+					}) ;
+				}
+			}],
+			template:function(elem,attrs){
+				var strtip = attrs['strtip'] ;
+				var tbname = attrs['tbname'] ;
+				var tmp = "showStatus."+ tbname;
+				var retstr = '<a href="javascript:void(0)"><span ng-show="!'+tmp+'">'+strtip+'</span><span ng-show="'+tmp+'">取消自定义</span></a>' ;
+				return retstr ;
+			},
+			link: function(scope, elem, attrs) {
+				elem.bind('click', function() {
+					scope.$apply(function(){
+						scope.myClick() ;
+					}) ;
+				});
+			}
+		  };
+	  }]) ;
+
+
+
+	  //日期插件
+	 directives.directive('datepicker',function(){
+		return{
+			restrict: 'A',
+			scope: true,
+			require:'ngModel',
+			link: function (scope,elem,attr,ctrl) {
+				if(!ctrl) return ;
+				var minDateStr = attr['datepicker'] ;
+				var minDate = new Date(minDateStr) ;
+				//配置日期控件
+				var optionObj = {} ;
+				optionObj.dateFormat = "yy-mm-dd" ;
+				var updateModel = function(dateText){
+					scope.$apply(function  () {
+						//调用angular内部的工具更新双向绑定关系
+						ctrl.$setViewValue(dateText) ;
+					}) ;
+				}
+				optionObj.onSelect = function(dateText,picker){
+					updateModel(dateText) ;
+				   // elem.focus() ;
+				   // validator.element(elem) ;
+					if(scope.select){
+						scope.$apply(function  () {
+							scope.select({date:dateText}) ;
 						}) ;
 					}
-				}],
-		        template:function(elem,attrs){
-		        	var strtip = attrs['strtip'] ;
-		        	var tbname = attrs['tbname'] ;
-		        	var tmp = "showStatus."+ tbname;
-					var retstr = '<a href="javascript:void(0)"><span ng-show="!'+tmp+'">'+strtip+'</span><span ng-show="'+tmp+'">取消自定义</span></a>' ;
-					return retstr ;
-		        }, 
-				link: function(scope, elem, attrs) {
-		            elem.bind('click', function() {
-						scope.$apply(function(){
-							scope.myClick() ;
-						}) ;
-		            });
-		        }
-		      };
-	      }]) ;
-
-		
-			
-		  //日期插件
-		 directives.directive('datepicker',function(){
+				}
+				optionObj.minDate = minDate ;
+				optionObj.showButtonPanel = true ;
+				/*ctrl.$render = function(){
+					//console.info('这个方法好像只有在第一次加载的收执行.......') ;
+					//下面这段步骤1和步骤2千万不能弄混了，1必须在前面
+					//1.将后台ng-model中的数据填充到页面上
+					 elem.datepicker('setDate',ctrl.$viewValue || '') ;//最后期发现是setDate的时候会根据最新的日期设置显示的页面上的html日期字符串
+					//2.下面写这个的原因是如果我们的日期控件设置了最小日期的话，当我们修改数据时，
+					//如果从数据库中读取的字段日期小于最小日期，datepicker会自动的将控件的日期设置为今天的日期,
+					//而这时angular并不知道，所有这里手动设置为页面上的html字符串,只有第一次加载时才可能出现这个问题
+					var viewView = ctrl.$viewValue ;
+					var textValue = $(elem).val() ;
+					if(viewView!=textValue){
+						ctrl.$setViewValue(textValue);
+					}
+				}*/
+				elem.datepicker(optionObj);
+			}
+		  };
+		}) ;
+		//时间插件
+		directives.directive('timepicker',function(){
 			return{
 				restrict: 'A',
-				scope: true,
-				require:'ngModel',
-				link: function (scope,elem,attr,ctrl) {
-					if(!ctrl) return ;
-					var minDateStr = attr['datepicker'] ;
-					var minDate = new Date(minDateStr) ;
-					//配置日期控件
-			        var optionObj = {} ;
-			        optionObj.dateFormat = "yy-mm-dd" ;
-			        var updateModel = function(dateText){
-			            scope.$apply(function  () {
-			                //调用angular内部的工具更新双向绑定关系
-			                ctrl.$setViewValue(dateText) ;
-			            }) ;
-			        }
-		            optionObj.onSelect = function(dateText,picker){
-		                updateModel(dateText) ;
-		               // elem.focus() ;
-		               // validator.element(elem) ;
-		                if(scope.select){
-		                    scope.$apply(function  () {
-		                        scope.select({date:dateText}) ;
-		                    }) ;
-		                }
-		            }
-		            optionObj.minDate = minDate ;
-		            optionObj.showButtonPanel = true ;
-		            /*ctrl.$render = function(){
-		            	//console.info('这个方法好像只有在第一次加载的收执行.......') ;
-		                //下面这段步骤1和步骤2千万不能弄混了，1必须在前面
-		                //1.将后台ng-model中的数据填充到页面上
-		                 elem.datepicker('setDate',ctrl.$viewValue || '') ;//最后期发现是setDate的时候会根据最新的日期设置显示的页面上的html日期字符串
-		                //2.下面写这个的原因是如果我们的日期控件设置了最小日期的话，当我们修改数据时，
-		                //如果从数据库中读取的字段日期小于最小日期，datepicker会自动的将控件的日期设置为今天的日期,
-		                //而这时angular并不知道，所有这里手动设置为页面上的html字符串,只有第一次加载时才可能出现这个问题
-		                var viewView = ctrl.$viewValue ;
-		                var textValue = $(elem).val() ;
-		                if(viewView!=textValue){
-							ctrl.$setViewValue(textValue);
-		                }
-		            }*/
-					elem.datepicker(optionObj);
+				scope: {},
+				link: function (scope,elem,attr) {
+					var timeVar = {
+						controlType:'select',
+						timeFormat: 'HHmm',
+						timeOnly:  true,
+						timeOnlyTitle: '选择时间',//Choose Time
+						timeText: '时间',//Time
+						hourText: '小时',//Hou
+						minuteText: '分钟',//Minute
+						currentText: '当前',//Current
+						closeText: '关闭'//Close
+					};
+					$(elem).datetimepicker(timeVar);
 				}
-			  };
-			}) ;
-			//时间插件
-			directives.directive('timepicker',function(){
-				return{
-					restrict: 'A',
-					scope: {},
-					link: function (scope,elem,attr) {
-						var timeVar = {
-							controlType:'select',
-							timeFormat: 'HHmm',
-							timeOnly:  true,
-							timeOnlyTitle: '选择时间',//Choose Time
-							timeText: '时间',//Time
-							hourText: '小时',//Hou
-							minuteText: '分钟',//Minute
-							currentText: '当前',//Current
-							closeText: '关闭'//Close
-						};
-						$(elem).datetimepicker(timeVar);
+			};
+		}) ;
+
+
+		//重置数据
+		var resetDataByFlag = function(nameList,flag,data,orgData){
+			if(!flag){//如果隐藏这需要重置数据
+				for(var i = 0 ; i < nameList.length ;i++){
+					var curName = nameList[i] ;
+					var oldValue = orgData[curName] ;
+					var tmpValue = ""  ;
+					if(_.isArray(oldValue)){//如果是数组则
+						tmpValue = [] ;
+					}else if(_.isObject(oldValue)){
+						tmpValue =angular.copy(oldValue)  ;
 					}
-				};
-			}) ;
+					data[curName] = tmpValue ;
+				}
+			}
+		};
 
-			
-			//重置数据
-			var resetDataByFlag = function(nameList,flag,data,orgData){
-			    if(!flag){//如果隐藏这需要重置数据
-			        for(var i = 0 ; i < nameList.length ;i++){
-			        	var curName = nameList[i] ;
-			        	var oldValue = orgData[curName] ;
-			        	var tmpValue = ""  ;
-			        	if(_.isArray(oldValue)){//如果是数组则
-			        		tmpValue = [] ;
-			        	}else if(_.isObject(oldValue)){
-			        		tmpValue =angular.copy(oldValue)  ;
-			        	}
-			        	data[curName] = tmpValue ;
-			        }
-			    }
-			};
+		var getFlagByServiceTypeAndServiceGroup = function (typeList, groupList,serviceType,serviceGroup) {
+			var flag = _.contains(typeList,serviceType) ;
+			if(flag&&groupList&&groupList.length>0){
+				flag = _.contains(groupList, serviceGroup) ;
+			}
+			return flag ;
+		};
 
-			var getFlagByServiceTypeAndServiceGroup = function (typeList, groupList,serviceType,serviceGroup) {
-			    var flag = _.contains(typeList,serviceType) ;
-			    if(flag&&groupList&&groupList.length>0){
-			    	flag = _.contains(groupList, serviceGroup) ;
-			    }
-			    return flag ;
-			};
-
-			directives.directive('force',['FormStatusService','FormData',function(FormStatusService,FormData){
-				return  {
-					restrict:'A',
-					scope:{orgData:'='},
-					link: function (scope,elem,attrs) {//
-						//@param : event 事件本身
-						//@param ：needDigest ： 是否需要手动进行脏数据检查
-						scope.$on('serviceTypeChangeNotice',function(event,needDigest){
-							for(var fname in FormStatusService){
-								var typeList = FormStatusService[fname]['typeList'] ;
-								var groupList = FormStatusService[fname]['groupList'] ;
-								var serviceType = FormData.serviceType;
-								var serviceGroup = FormData.sel1.value ;
-								var oldFlag = FormStatusService[fname]['showFlag'] ;
-								var flag = getFlagByServiceTypeAndServiceGroup(typeList, groupList,serviceType,serviceGroup) ;
-								/*if(fname=='mileageExchangeIndicator'){
-									console.info('oldFlag : ' + oldFlag) ;
-									console.info('serviceTypeChangeNotice --->  fname : [' + fname + ']-- flag : [' + flag + ']   , serviceType : ['+serviceType+'] , typeList ['+typeList+'] , groupList :['+groupList+']  , servcieGroup : ['+serviceGroup+'] ') ;
-								}*/
-								//console.info('serviceTypeChangeNotice --->  fname : [' + fname + ']-- flag : [' + flag + ']   , serviceType : ['+serviceType+'] , typeList ['+typeList+'] , groupList :['+groupList+']  , servcieGroup : ['+serviceGroup+'] ') ;
-								if(oldFlag==!flag){//如果不同
-									var nameList = FormStatusService[fname]['nameList'] ;
-									resetDataByFlag(nameList,flag,FormData,scope.orgData) ;
-									FormStatusService[fname]['showFlag']= flag;
-									/*if(fname=='mileageExchangeIndicator'){
-										console.info("FormStatusService[fname]['showFlag'] : " + FormStatusService[fname]['showFlag'])
-									}*/
-									if(needDigest&&needDigest=='true'){
-										scope.$digest() ;
-									}
-								}
-							}
-						}) ;
-						// @param :event :自带的事件本身
-						// @param :in_fname : 传入的forceName
-						// @param :in_flag :传入的隐藏显示的falg----第一要传递字符串
-						// @param :needDigest ：是否需要手动脏数据检查  第一要传递字符串
-						scope.$on('singleChangeByFlagNotice', function (event,in_fname,in_flag,needDigest) {
-							var fname = in_fname ;
-							var newFlag = in_flag=='true'?true:false;
-							var oldFlag = FormStatusService[fname]['showFlag'] ;
-							//console.info("singleChangeByFlagNotice -------> fname : ["+fname+"] , newFlag : ["+newFlag+"] , oldFlag : ["+oldFlag+"] ") ;
-							//****这里需要修复一个bug,typeList如果判断为显示，说明传过来的flag才真正应该为true,如果typeList判断为false那么无论外面传入的是否为true，都因该被置为false
+		directives.directive('force',['FormStatusService','FormData',function(FormStatusService,FormData){
+			return  {
+				restrict:'A',
+				scope:{orgData:'='},
+				link: function (scope,elem,attrs) {//
+					//@param : event 事件本身
+					//@param ：needDigest ： 是否需要手动进行脏数据检查
+					scope.$on('serviceTypeChangeNotice',function(event,needDigest){
+						for(var fname in FormStatusService){
 							var typeList = FormStatusService[fname]['typeList'] ;
 							var groupList = FormStatusService[fname]['groupList'] ;
 							var serviceType = FormData.serviceType;
 							var serviceGroup = FormData.sel1.value ;
-							var typeFlag = getFlagByServiceTypeAndServiceGroup(typeList, groupList,serviceType,serviceGroup) ;
-							//如果根据typeList判断因该隐藏，那么一定为隐藏，否则根据传入的flag做判断
-							if(typeFlag==false){
-								newFlag = false;
-							}
-							if(newFlag==!oldFlag){//当前显隐与将要的显隐相反时
+							var oldFlag = FormStatusService[fname]['showFlag'] ;
+							var flag = getFlagByServiceTypeAndServiceGroup(typeList, groupList,serviceType,serviceGroup) ;
+							/*if(fname=='mileageExchangeIndicator'){
+								console.info('oldFlag : ' + oldFlag) ;
+								console.info('serviceTypeChangeNotice --->  fname : [' + fname + ']-- flag : [' + flag + ']   , serviceType : ['+serviceType+'] , typeList ['+typeList+'] , groupList :['+groupList+']  , servcieGroup : ['+serviceGroup+'] ') ;
+							}*/
+							//console.info('serviceTypeChangeNotice --->  fname : [' + fname + ']-- flag : [' + flag + ']   , serviceType : ['+serviceType+'] , typeList ['+typeList+'] , groupList :['+groupList+']  , servcieGroup : ['+serviceGroup+'] ') ;
+							if(oldFlag==!flag){//如果不同
 								var nameList = FormStatusService[fname]['nameList'] ;
-								resetDataByFlag(nameList,newFlag,FormData,scope.orgData) ;
-								FormStatusService[fname]['showFlag']= newFlag;
+								resetDataByFlag(nameList,flag,FormData,scope.orgData) ;
+								FormStatusService[fname]['showFlag']= flag;
+								/*if(fname=='mileageExchangeIndicator'){
+									console.info("FormStatusService[fname]['showFlag'] : " + FormStatusService[fname]['showFlag'])
+								}*/
 								if(needDigest&&needDigest=='true'){
 									scope.$digest() ;
 								}
-							}else{
-								//console.info('当前显隐与将要发生的显隐相同，不需要切换') ;
 							}
-						}) ;
-					}
-				} ;
-			}]) ;
+						}
+					}) ;
+					// @param :event :自带的事件本身
+					// @param :in_fname : 传入的forceName
+					// @param :in_flag :传入的隐藏显示的falg----第一要传递字符串
+					// @param :needDigest ：是否需要手动脏数据检查  第一要传递字符串
+					scope.$on('singleChangeByFlagNotice', function (event,in_fname,in_flag,needDigest) {
+						var fname = in_fname ;
+						var newFlag = in_flag=='true'?true:false;
+						var oldFlag = FormStatusService[fname]['showFlag'] ;
+						//console.info("singleChangeByFlagNotice -------> fname : ["+fname+"] , newFlag : ["+newFlag+"] , oldFlag : ["+oldFlag+"] ") ;
+						//****这里需要修复一个bug,typeList如果判断为显示，说明传过来的flag才真正应该为true,如果typeList判断为false那么无论外面传入的是否为true，都因该被置为false
+						var typeList = FormStatusService[fname]['typeList'] ;
+						var groupList = FormStatusService[fname]['groupList'] ;
+						var serviceType = FormData.serviceType;
+						var serviceGroup = FormData.sel1.value ;
+						var typeFlag = getFlagByServiceTypeAndServiceGroup(typeList, groupList,serviceType,serviceGroup) ;
+						//如果根据typeList判断因该隐藏，那么一定为隐藏，否则根据传入的flag做判断
+						if(typeFlag==false){
+							newFlag = false;
+						}
+						if(newFlag==!oldFlag){//当前显隐与将要的显隐相反时
+							var nameList = FormStatusService[fname]['nameList'] ;
+							resetDataByFlag(nameList,newFlag,FormData,scope.orgData) ;
+							FormStatusService[fname]['showFlag']= newFlag;
+							if(needDigest&&needDigest=='true'){
+								scope.$digest() ;
+							}
+						}else{
+							//console.info('当前显隐与将要发生的显隐相同，不需要切换') ;
+						}
+					}) ;
+				}
+			} ;
+		}]) ;
 
-	 }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
 
 
 /***/ },
 /* 20 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
-		 var directives = angular.module('app.directives',[]); 
-		 return directives ;
-	 }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+	 var directives = angular.module('app.directives',[]);
+	 module.exports = directives ;
 
 
 
@@ -7359,345 +7341,339 @@
 /* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
-		var _ = __webpack_require__(21) ;
-		var util = __webpack_require__(23) ;
-		var editJsonData = __webpack_require__(24) ;
+	var _ = __webpack_require__(21) ;
+	var util = __webpack_require__(23) ;
+	var editJsonData = __webpack_require__(24) ;
 
-		module.exports = {
-			getNoChargeNotAvailableList:function(serviceType){
-				var tmp = serviceType || '' ;
-				var retArr = [] ;//{"name":"免费，行李规则遵循市场方航空公司规则","value":"D"},{"name":"免费，行李规则遵循承运方航空公司规则","value":"O"}
-				var defaultArr = [{"name":"收费","value":""},{"name":"不适用","value":"X"},
-			        {"name":"免费，不出EMD单","value":"F"},{"name":"免费，出EMD单","value":"E"},
-			        {"name":"免费，不出EMD单，不要求预定","value":"G"},{"name":"免费，出EMD单，不要求预定","value":"H"}] ;
-				if(tmp=='A'){
-					retArr = [{"name":"不适用","value":"X"},{"name":"免费，不出EMD单","value":"F"},{"name":"免费，出EMD单","value":"E"},
-			        {"name":"免费，不出EMD单，不要求预定","value":"G"},{"name":"免费，出EMD单，不要求预定","value":"H"},
-			        {"name":"免费，行李规则遵循市场方航空公司规则","value":"D"},{"name":"免费，行李规则遵循承运方航空公司规则","value":"O"}] ;
-				} else if (tmp=='B'){
-					retArr = [{"name":"免费，不出EMD单","value":"F"}] ;
-				}else if (tmp=='E'){
-					retArr = [{"name":"不适用","value":"X"}] ;
-				}else{
-					retArr = defaultArr ;
-				}
-				return retArr ;
-			},
-			getSpecifiedServiceFeeAppList:function(serviceType){/**适用于**/
-				var tmp = serviceType || '' ;
-				var arr = [{"name":"每一个票价组成部分算一次服务费用","value":"1"},
-	  				{"name":"每一个票价组成部分算一半的服务费用","value":"2"},{"name":"每用一次服务算一次服务费用","value":"3"},
-	  				{"name":"匹配的部分航程算一次服务费用","value":"4"},{"name":"服务收费对应每张售票","value":"5"}] ;
-				switch(tmp){
-				case 'F':
-				  arr = [{"name":"每一个票价组成部分算一次服务费用","value":"1"},
-	  				{"name":"每一个票价组成部分算一半的服务费用","value":"2"},{"name":"每用一次服务算一次服务费用","value":"3"},
-	  				{"name":"匹配的部分航程算一次服务费用","value":"4"},{"name":"服务收费对应每张售票","value":"5"}] ;
-				  break;
-				case 'M':
-				  arr = [{"name":"每用一次服务算一次服务费用","value":"3"}] ;
-				  break;
-			    case 'R':
-				   arr = [{"name":"服务收费对应每张售票","value":"5"}] ;
-				  break;
-				case 'T':
-				   arr = [{"name":"每用一次服务算一次服务费用","value":"3"},{"name":"服务收费对应每张售票","value":"5"}] ;
-				  break;
-				case 'A':
-				  arr=[] ;
-				  break;
-				case 'B':
-				  arr=[] ;
-				  break;
-				case 'C':
-				  arr=[
-				  {"name":"按托运点收费","value":"3"},{"name":"按全行程收费","value":"4"},
-	  				{"name":"每公斤按公布运价的0.5%收费","value":"H"},{"name":"每公斤按公布运价的1%收费","value":"C"},
-	  				{"name":"每公斤按公布运价的1.5%收费","value":"P"},{"name":"按每公斤收费","value":"K"},
-	  				{"name":"按每5公斤收费","value":"F"}] ;
-				  break;
-				case 'E':
-				  arr=[] ;
-				  break;
-				case 'P':
-				  arr=[
-				  {"name":"按托运点收费","value":"3"},{"name":"按全行程收费","value":"4"},
-	  				{"name":"每公斤按公布运价的0.5%收费","value":"H"},{"name":"每公斤按公布运价的1%收费","value":"C"},
-	  				{"name":"每公斤按公布运价的1.5%收费","value":"P"},{"name":"按每公斤收费","value":"K"},
-	  				{"name":"按每5公斤收费","value":"F"}] ;
-				  break;
-				default:
-				  console.info('传入的serviceType有问题') ;
-				}	
-				return arr ;
-			},
-			getgeoSpecSectPortJourneyList:function  (serviceType) {
-				var tmp = serviceType || '' ;//geoSpecSectPortJourneyList
-				var arr = [{"name":"Sector","value":"S"},
-					{"name":"Portion","value":"P"},{"name":"Journy","value":"J"}] ;
-				var isBaggageFlag = util.checkBaggageServcie(tmp) ;
-				if(_.contains(['B','E'], tmp)){
-					arr = [{"name":"Sector","value":"S"}] ;
-				}else if(_.contains(['A','C','P'], tmp)){
-					arr = [{"name":"选择","value":""},{"name":"Portion","value":"P"},{"name":"Journy","value":"J"}] ;
-				}else if(_.contains(['M','R','T'], tmp)){
-					arr = [{"name":"选择","value":""}] ;
-				}else if(tmp=='F'){
-					arr = [{"name":"Sector","value":"S"},{"name":"Portion","value":"P"},{"name":"Journy","value":"J"}] ;
-				}
-				return arr ;
-			},
-			convert2TableDataList:function  (list,tbname) {
-				list = list || [] ;
-				var len = list.length ;
-				var retList = [] ;
-				var tmpObj = editJsonData['tableData'][tbname]['addObj'] ||{};
-				var propArr = [] ;
-				for (var prop in tmpObj) {
-					if(prop!='selected'){
-						propArr.push(prop) ;
-					}
-				}
-				_.each(list,function (item) {
-					var obj = {} ;
-					_.each(propArr,function(prop){
-						obj[prop] = item[prop] +'' ;
-					}) ;
-					retList.push(obj) ;
-				}) ;
-				return retList ;
-			},
-			getEffectivePeriodTypeList:function(subGroup){
-				var arr = [{"name":"选择","value":""},{"name":"距购买服务后","value":"A"},
-				           {"name":"距服务兑换后","value":"B"},{"name":"距航班起飞前","value":"D"}] ;
-				if(subGroup=='FP'){
-					arr = [{"name":"选择","value":""},{"name":"距购买服务后","value":"A"}] ;
-				}else if(subGroup=='FL'){
-					arr = [{"name":"选择","value":""},{"name":"距服务兑换后","value":"B"},{"name":"距航班起飞前","value":"D"}] ;
-				}
-				return arr ;
+	module.exports = {
+		getNoChargeNotAvailableList:function(serviceType){
+			var tmp = serviceType || '' ;
+			var retArr = [] ;//{"name":"免费，行李规则遵循市场方航空公司规则","value":"D"},{"name":"免费，行李规则遵循承运方航空公司规则","value":"O"}
+			var defaultArr = [{"name":"收费","value":""},{"name":"不适用","value":"X"},
+				{"name":"免费，不出EMD单","value":"F"},{"name":"免费，出EMD单","value":"E"},
+				{"name":"免费，不出EMD单，不要求预定","value":"G"},{"name":"免费，出EMD单，不要求预定","value":"H"}] ;
+			if(tmp=='A'){
+				retArr = [{"name":"不适用","value":"X"},{"name":"免费，不出EMD单","value":"F"},{"name":"免费，出EMD单","value":"E"},
+				{"name":"免费，不出EMD单，不要求预定","value":"G"},{"name":"免费，出EMD单，不要求预定","value":"H"},
+				{"name":"免费，行李规则遵循市场方航空公司规则","value":"D"},{"name":"免费，行李规则遵循承运方航空公司规则","value":"O"}] ;
+			} else if (tmp=='B'){
+				retArr = [{"name":"免费，不出EMD单","value":"F"}] ;
+			}else if (tmp=='E'){
+				retArr = [{"name":"不适用","value":"X"}] ;
+			}else{
+				retArr = defaultArr ;
 			}
-		} ;
+			return retArr ;
+		},
+		getSpecifiedServiceFeeAppList:function(serviceType){/**适用于**/
+			var tmp = serviceType || '' ;
+			var arr = [{"name":"每一个票价组成部分算一次服务费用","value":"1"},
+				{"name":"每一个票价组成部分算一半的服务费用","value":"2"},{"name":"每用一次服务算一次服务费用","value":"3"},
+				{"name":"匹配的部分航程算一次服务费用","value":"4"},{"name":"服务收费对应每张售票","value":"5"}] ;
+			switch(tmp){
+			case 'F':
+			  arr = [{"name":"每一个票价组成部分算一次服务费用","value":"1"},
+				{"name":"每一个票价组成部分算一半的服务费用","value":"2"},{"name":"每用一次服务算一次服务费用","value":"3"},
+				{"name":"匹配的部分航程算一次服务费用","value":"4"},{"name":"服务收费对应每张售票","value":"5"}] ;
+			  break;
+			case 'M':
+			  arr = [{"name":"每用一次服务算一次服务费用","value":"3"}] ;
+			  break;
+			case 'R':
+			   arr = [{"name":"服务收费对应每张售票","value":"5"}] ;
+			  break;
+			case 'T':
+			   arr = [{"name":"每用一次服务算一次服务费用","value":"3"},{"name":"服务收费对应每张售票","value":"5"}] ;
+			  break;
+			case 'A':
+			  arr=[] ;
+			  break;
+			case 'B':
+			  arr=[] ;
+			  break;
+			case 'C':
+			  arr=[
+			  {"name":"按托运点收费","value":"3"},{"name":"按全行程收费","value":"4"},
+				{"name":"每公斤按公布运价的0.5%收费","value":"H"},{"name":"每公斤按公布运价的1%收费","value":"C"},
+				{"name":"每公斤按公布运价的1.5%收费","value":"P"},{"name":"按每公斤收费","value":"K"},
+				{"name":"按每5公斤收费","value":"F"}] ;
+			  break;
+			case 'E':
+			  arr=[] ;
+			  break;
+			case 'P':
+			  arr=[
+			  {"name":"按托运点收费","value":"3"},{"name":"按全行程收费","value":"4"},
+				{"name":"每公斤按公布运价的0.5%收费","value":"H"},{"name":"每公斤按公布运价的1%收费","value":"C"},
+				{"name":"每公斤按公布运价的1.5%收费","value":"P"},{"name":"按每公斤收费","value":"K"},
+				{"name":"按每5公斤收费","value":"F"}] ;
+			  break;
+			default:
+			  console.info('传入的serviceType有问题') ;
+			}
+			return arr ;
+		},
+		getgeoSpecSectPortJourneyList:function  (serviceType) {
+			var tmp = serviceType || '' ;//geoSpecSectPortJourneyList
+			var arr = [{"name":"Sector","value":"S"},
+				{"name":"Portion","value":"P"},{"name":"Journy","value":"J"}] ;
+			var isBaggageFlag = util.checkBaggageServcie(tmp) ;
+			if(_.contains(['B','E'], tmp)){
+				arr = [{"name":"Sector","value":"S"}] ;
+			}else if(_.contains(['A','C','P'], tmp)){
+				arr = [{"name":"选择","value":""},{"name":"Portion","value":"P"},{"name":"Journy","value":"J"}] ;
+			}else if(_.contains(['M','R','T'], tmp)){
+				arr = [{"name":"选择","value":""}] ;
+			}else if(tmp=='F'){
+				arr = [{"name":"Sector","value":"S"},{"name":"Portion","value":"P"},{"name":"Journy","value":"J"}] ;
+			}
+			return arr ;
+		},
+		convert2TableDataList:function  (list,tbname) {
+			list = list || [] ;
+			var len = list.length ;
+			var retList = [] ;
+			var tmpObj = editJsonData['tableData'][tbname]['addObj'] ||{};
+			var propArr = [] ;
+			for (var prop in tmpObj) {
+				if(prop!='selected'){
+					propArr.push(prop) ;
+				}
+			}
+			_.each(list,function (item) {
+				var obj = {} ;
+				_.each(propArr,function(prop){
+					obj[prop] = item[prop] +'' ;
+				}) ;
+				retList.push(obj) ;
+			}) ;
+			return retList ;
+		},
+		getEffectivePeriodTypeList:function(subGroup){
+			var arr = [{"name":"选择","value":""},{"name":"距购买服务后","value":"A"},
+					   {"name":"距服务兑换后","value":"B"},{"name":"距航班起飞前","value":"D"}] ;
+			if(subGroup=='FP'){
+				arr = [{"name":"选择","value":""},{"name":"距购买服务后","value":"A"}] ;
+			}else if(subGroup=='FL'){
+				arr = [{"name":"选择","value":""},{"name":"距服务兑换后","value":"B"},{"name":"距航班起飞前","value":"D"}] ;
+			}
+			return arr ;
+		}
+	} ;
 
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
 
 /***/ },
 /* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
-		var _ = __webpack_require__(21) ;
-		module.exports = {
-			checkCommonServcie:function(serviceType){//判断服务类型是不是一般附加服务
-				var arr = ['F','M','R','T'] ;	
-				var flag = _.contains(arr, serviceType) ;
-				return flag ;
-			},
-			checkBaggageServcie:function(serviceType){//判断服务类型是不是行李附加服务
-				var arr = ['A','B','C','E','P'] ;
-				var flag = _.contains(arr, serviceType) ;
-				return flag ;
-			},
-			getFullDayOrMonthStr:function(dateOrMonthNum){//获得日或月的字符串
-				if(dateOrMonthNum<10){
-					return "0"+dateOrMonthNum ;
-				}
-				return dateOrMonthNum+"";
-			},
-			getEditFlagByStatus:function(statusDes){//通过status获取是否可编辑的flag
-				if(statusDes=='3'){
-					return false;
-				}else{
-					return true ;
-				}
+	var _ = __webpack_require__(21) ;
+	module.exports = {
+		checkCommonServcie:function(serviceType){//判断服务类型是不是一般附加服务
+			var arr = ['F','M','R','T'] ;
+			var flag = _.contains(arr, serviceType) ;
+			return flag ;
+		},
+		checkBaggageServcie:function(serviceType){//判断服务类型是不是行李附加服务
+			var arr = ['A','B','C','E','P'] ;
+			var flag = _.contains(arr, serviceType) ;
+			return flag ;
+		},
+		getFullDayOrMonthStr:function(dateOrMonthNum){//获得日或月的字符串
+			if(dateOrMonthNum<10){
+				return "0"+dateOrMonthNum ;
 			}
-		} ;
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+			return dateOrMonthNum+"";
+		},
+		getEditFlagByStatus:function(statusDes){//通过status获取是否可编辑的flag
+			if(statusDes=='3'){
+				return false;
+			}else{
+				return true ;
+			}
+		}
+	} ;
+
 
 /***/ },
 /* 24 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
-	    var jsonDate = {
-	      advancedPurchasePeriodList:[//提前购票时间单位
-	        {"name":"分","value":"N"}, {"name":"小时","value":"H"},
-	        {"name":"天","value":"D"}, {"name":"月","value":"M"}
-	      ],//advancedPurchasePeriodList end
-	      tableData:{
-	        "list170VO":{
-	  			"addObj":{"saleGeographicPointType":"","saleGeographicPoint":"","specFeeAmount":"","specFeeCurrency":"CNY","selected":true}
-	  		  },
-	        "list198VO":{
-	            "addObj":{"mktOp":"","cxr":"","rbd1":"","rbd2":"","rbd3":"","rbd4":"","rbd5":"","selected":true}
+	  var jsonDate = {
+	    advancedPurchasePeriodList:[//提前购票时间单位
+	      {"name":"分","value":"N"}, {"name":"小时","value":"H"},
+	      {"name":"天","value":"D"}, {"name":"月","value":"M"}
+	    ],//advancedPurchasePeriodList end
+	    tableData:{
+	      "list170VO":{
+	          "addObj":{"saleGeographicPointType":"","saleGeographicPoint":"","specFeeAmount":"","specFeeCurrency":"CNY","selected":true}
 	        },
-	        "list198UpgradeVO":{
-	          "addObj":{"mktOp":"","cxr":"","rbd1":"","rbd2":"","rbd3":"","rbd4":"","rbd5":"","selected":true} 
-	        },
-	        "list196VO":{
-	            "addObj":{"count":"","code":"","selected":true}
-	        },
-	        "list186VO":{
-	            "addObj":{"mktCarrier":"","optCarrier":"","fltNo1":"","fltNo2":"","selected":true}
-	        },
-	        "list183VO":{
-	            "addObj":{"travelAgency":"","carrierGds":"","dutyFunctionCode":"","geographicSpecificationType":"","geographicSpecification":"","codeType":"","code":"","viewBookTkt":"","selected":true}
-	        },
-	        "list165VO":{
-	            "addObj":{"equipmentCode":"","selected":true}
-	        },
-	        "list171VO":{
-	            "addObj":{"carrier":"","resFareClassCode":"","fareTypeCode":"","selected":true}
-	        },
-	        "list172VO":{
-	            "addObj":{"accountCode":"","selected":true}
-	        },
-	        "list173TicketVO":{
-	            "addObj":{"ticketDesignator":"","selected":true}
-	        },
-	        "list173TktVO":{
-	            "addObj":{"ticketDesignator":"","selected":true}
-	        },
-	        "list178Loc1":{
-	            "addObj":{"geoLocType":"","geoLocSpec":"","appl":"","selected":true}
-	        },
-	        "list178Loc2":{
-	            "addObj":{"geoLocType":"","geoLocSpec":"","appl":"","selected":true}
-	        },
-	        "list178Loc3":{
-	            "addObj":{"geoLocType":"","geoLocSpec":"","appl":"","selected":true}
-	        },
-	        "listTsk202VO":{
-	        	"addObj":{"allowedRbd":"","originalFareOffice":"","originalFareIataNo":"","originalFareDepartmentCode":"",
-	        	"originalFareBasis":"","newFareBasis":"","flightSpreadFactor":"0","flightSpreadAmount":"","flightSpreadUnit":"",
-	        	"flightTourCodeFactor":"","flightTourCodeText":"","flightEiFactor":"","flightEiText":"","selected":true}
-	        }
-	      },//table end
-	      weightUnitList:[//行李重量单位集合
-	        {"name":"选择","value":""},{"name":"千克","value":"K"},{"name":"磅","value":"P"}
-	      ],
-	      specServiceFeeColSubList:[	//SPEC_SERVICE_FEE_COL_SUB//包含/扣除
-		       {"name":"包含在票价中","value":"I"},{"name":"单独收费","value":""}
-	      ],
-	      noChargeNotAvailableList:[//免费/收费
-	        {"name":"收费","value":""},{"name":"不适用","value":"X"},
-	        {"name":"免费，不出EMD单","value":"F"},{"name":"免费，出EMD单","value":"E"},
-	        {"name":"免费，不出EMD单，不要求预定","value":"G"},{"name":"免费，出EMD单，不要求预定","value":"H"},
-	        {"name":"免费，行李规则遵循市场方航空公司规则","value":"D"},{"name":"免费，行李规则遵循承运方航空公司规则","value":"O"}
-	      ],
-	      specServiceFeeNetSellList:[//净价/销售价
-	        {"name":"销售价","value":""},{"name":"净价","value":"N"}
-	      ],
-	      baggageTravelApplicationList:[
-	        {"name":"必须匹配所有的航段","value":"A"},{"name":"至少匹配一个航段","value":"S"},
-	        {"name":"必须匹配旅行航段中的主航段","value":"M"},{"name":"必须匹配整个行程的每一段","value":"J"},
-	        {"name":"不限制","value":""}
-	      ],
-	      noCharge_notAvailableList:[
-	        {"name":"收费","value":""},{"name":"不适用","value":"X"},
-	        {"name":"免费，不出EMD单","value":"F"},{"name":"免费，出EMD单","value":"E"},
-	        {"name":"免费，不出EMD单，不要求预定","value":"G"},{"name":"免费，出EMD单，不要求预定","value":"H"},
-	        {"name":"免费，行李规则遵循市场方航空公司规则","value":"D"},{"name":"免费，行李规则遵循承运方航空公司规则","value":"O"}
-	      ],
-	      cabinList:[//舱位list集合
-	      	{"name":"选择","value":""},
-	        {"name":"豪华头等舱","value":"R"},{"name":"头等舱","value":"F"},
-	        {"name":"豪华商务舱","value":"J"},{"name":"商务舱","value":"C"},
-	        {"name":"豪华经济舱","value":"P"},{"name":"经济舱","value":"Y"}
-	      ],
-	      geoLocTypeList:[//区域集合
-	        {"name":"选择","value":""},
-					{"name":"大区","value":"A"},{"name":"城市","value":"C"},
-					{"name":"国家","value":"N"},{"name":"机场","value":"P"},
-					{"name":"州","value":"S"},{"name":"区域","value":"Z"}
-	      ],
-	      indicatorReissueRefundList:[
-	         {"name":"不可退款","value":"N"},
-	         {"name":"可退款","value":"Y"}, {"name":"可改","value":"R"}
-	      ],
-	      formOfRefundList:[//退款形式
-	        {"name":"选择","value":""},{"name":"按原付款渠道退款","value":"1"},
-					{"name":"按电子凭证退款","value":"2"}
-	      ],
-	     
-	      geoSpecExceptionStopUnitList:[
-	        {"name":"选择","value":""},{"name":"分","value":"N"},
-	        {"name":"小时","value":"H"},{"name":"天","value":"D"},
-	        {"name":"周","value":"W"},{"name":"月","value":"M"}
-	      ],
-	      timeApplicationList:[
-	        {"name":"选择","value":""},{"name":"分别","value":"D"},
-					{"name":"之间","value":"R"}
-	      ],
-	      effectivePeriodTypeList:[	//effective_period_type//延长类型
-	        {"name":"选择","value":""},{"name":"距购买服务后","value":"A"},
-	        {"name":"距服务兑换后","value":"B"},{"name":"距航班起飞前","value":"D"}
-	        
-	      ],
-	      effectivePeriodUnitList:[	//effective_period_unit//延长时间单位
-	        {"name":"天","value":"D"},{"name":"月","value":"M"},
-	        {"name":"小时","value":"H"}
-	      ]
-	    } ;
-	   return jsonDate ;
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+	      "list198VO":{
+	          "addObj":{"mktOp":"","cxr":"","rbd1":"","rbd2":"","rbd3":"","rbd4":"","rbd5":"","selected":true}
+	      },
+	      "list198UpgradeVO":{
+	        "addObj":{"mktOp":"","cxr":"","rbd1":"","rbd2":"","rbd3":"","rbd4":"","rbd5":"","selected":true}
+	      },
+	      "list196VO":{
+	          "addObj":{"count":"","code":"","selected":true}
+	      },
+	      "list186VO":{
+	          "addObj":{"mktCarrier":"","optCarrier":"","fltNo1":"","fltNo2":"","selected":true}
+	      },
+	      "list183VO":{
+	          "addObj":{"travelAgency":"","carrierGds":"","dutyFunctionCode":"","geographicSpecificationType":"","geographicSpecification":"","codeType":"","code":"","viewBookTkt":"","selected":true}
+	      },
+	      "list165VO":{
+	          "addObj":{"equipmentCode":"","selected":true}
+	      },
+	      "list171VO":{
+	          "addObj":{"carrier":"","resFareClassCode":"","fareTypeCode":"","selected":true}
+	      },
+	      "list172VO":{
+	          "addObj":{"accountCode":"","selected":true}
+	      },
+	      "list173TicketVO":{
+	          "addObj":{"ticketDesignator":"","selected":true}
+	      },
+	      "list173TktVO":{
+	          "addObj":{"ticketDesignator":"","selected":true}
+	      },
+	      "list178Loc1":{
+	          "addObj":{"geoLocType":"","geoLocSpec":"","appl":"","selected":true}
+	      },
+	      "list178Loc2":{
+	          "addObj":{"geoLocType":"","geoLocSpec":"","appl":"","selected":true}
+	      },
+	      "list178Loc3":{
+	          "addObj":{"geoLocType":"","geoLocSpec":"","appl":"","selected":true}
+	      },
+	      "listTsk202VO":{
+	          "addObj":{"allowedRbd":"","originalFareOffice":"","originalFareIataNo":"","originalFareDepartmentCode":"",
+	          "originalFareBasis":"","newFareBasis":"","flightSpreadFactor":"0","flightSpreadAmount":"","flightSpreadUnit":"",
+	          "flightTourCodeFactor":"","flightTourCodeText":"","flightEiFactor":"","flightEiText":"","selected":true}
+	      }
+	    },//table end
+	    weightUnitList:[//行李重量单位集合
+	      {"name":"选择","value":""},{"name":"千克","value":"K"},{"name":"磅","value":"P"}
+	    ],
+	    specServiceFeeColSubList:[	//SPEC_SERVICE_FEE_COL_SUB//包含/扣除
+	         {"name":"包含在票价中","value":"I"},{"name":"单独收费","value":""}
+	    ],
+	    noChargeNotAvailableList:[//免费/收费
+	      {"name":"收费","value":""},{"name":"不适用","value":"X"},
+	      {"name":"免费，不出EMD单","value":"F"},{"name":"免费，出EMD单","value":"E"},
+	      {"name":"免费，不出EMD单，不要求预定","value":"G"},{"name":"免费，出EMD单，不要求预定","value":"H"},
+	      {"name":"免费，行李规则遵循市场方航空公司规则","value":"D"},{"name":"免费，行李规则遵循承运方航空公司规则","value":"O"}
+	    ],
+	    specServiceFeeNetSellList:[//净价/销售价
+	      {"name":"销售价","value":""},{"name":"净价","value":"N"}
+	    ],
+	    baggageTravelApplicationList:[
+	      {"name":"必须匹配所有的航段","value":"A"},{"name":"至少匹配一个航段","value":"S"},
+	      {"name":"必须匹配旅行航段中的主航段","value":"M"},{"name":"必须匹配整个行程的每一段","value":"J"},
+	      {"name":"不限制","value":""}
+	    ],
+	    noCharge_notAvailableList:[
+	      {"name":"收费","value":""},{"name":"不适用","value":"X"},
+	      {"name":"免费，不出EMD单","value":"F"},{"name":"免费，出EMD单","value":"E"},
+	      {"name":"免费，不出EMD单，不要求预定","value":"G"},{"name":"免费，出EMD单，不要求预定","value":"H"},
+	      {"name":"免费，行李规则遵循市场方航空公司规则","value":"D"},{"name":"免费，行李规则遵循承运方航空公司规则","value":"O"}
+	    ],
+	    cabinList:[//舱位list集合
+	      {"name":"选择","value":""},
+	      {"name":"豪华头等舱","value":"R"},{"name":"头等舱","value":"F"},
+	      {"name":"豪华商务舱","value":"J"},{"name":"商务舱","value":"C"},
+	      {"name":"豪华经济舱","value":"P"},{"name":"经济舱","value":"Y"}
+	    ],
+	    geoLocTypeList:[//区域集合
+	      {"name":"选择","value":""},
+	              {"name":"大区","value":"A"},{"name":"城市","value":"C"},
+	              {"name":"国家","value":"N"},{"name":"机场","value":"P"},
+	              {"name":"州","value":"S"},{"name":"区域","value":"Z"}
+	    ],
+	    indicatorReissueRefundList:[
+	       {"name":"不可退款","value":"N"},
+	       {"name":"可退款","value":"Y"}, {"name":"可改","value":"R"}
+	    ],
+	    formOfRefundList:[//退款形式
+	      {"name":"选择","value":""},{"name":"按原付款渠道退款","value":"1"},
+	              {"name":"按电子凭证退款","value":"2"}
+	    ],
+
+	    geoSpecExceptionStopUnitList:[
+	      {"name":"选择","value":""},{"name":"分","value":"N"},
+	      {"name":"小时","value":"H"},{"name":"天","value":"D"},
+	      {"name":"周","value":"W"},{"name":"月","value":"M"}
+	    ],
+	    timeApplicationList:[
+	      {"name":"选择","value":""},{"name":"分别","value":"D"},
+	              {"name":"之间","value":"R"}
+	    ],
+	    effectivePeriodTypeList:[	//effective_period_type//延长类型
+	      {"name":"选择","value":""},{"name":"距购买服务后","value":"A"},
+	      {"name":"距服务兑换后","value":"B"},{"name":"距航班起飞前","value":"D"}
+
+	    ],
+	    effectivePeriodUnitList:[	//effective_period_unit//延长时间单位
+	      {"name":"天","value":"D"},{"name":"月","value":"M"},
+	      {"name":"小时","value":"H"}
+	    ]
+	  } ;
+	 module.exports= jsonDate ;
 
 
 /***/ },
 /* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){
-		 var _ = __webpack_require__(21) ;
-		 var directives = __webpack_require__(20) ;
-		 var headerHtml = __webpack_require__(26) ;
-		 var chooseDivHtml = __webpack_require__(27) ;
-		 var chooseUlHtml = __webpack_require__(28) ;
-		 directives.directive('headerNav', function() {
-		    return {
-		        restrict: 'E',
-		        replace: true,
-				scope:true,
-		        template: function(elem,attrs){
-		        	var action  = $.trim($("#action").val()) ;
-		        	var headerTipStr = "" ;
-		        	 if(action=="add"){
-		    			 headerTipStr = "新建服务费用" ;
-		    		  }else{//表示为修改页面跳转过来的
-		    		  	  headerTipStr = "更新服务费用" ;
-		    		  }
-		        	 var template = _.template(headerHtml);
-		        	 var str = template({headerTipStr: headerTipStr});
-		        	return str ;
-		        },
-		        link:function(scope,elem,attrs){
-		        	scope.backPage = function (){
-		        		  var contextPath = $.trim($("#contextPath").val());
-		    			  window.location.href= contextPath+'/oc/ocView' ;
-		    		  }
-		        }
-		    };
-		 });
+	 var _ = __webpack_require__(21) ;
+	 var directives = __webpack_require__(20) ;
+	 var headerHtml = __webpack_require__(26) ;
+	 var chooseDivHtml = __webpack_require__(27) ;
+	 var chooseUlHtml = __webpack_require__(28) ;
+	 directives.directive('headerNav', function() {
+		return {
+			restrict: 'E',
+			replace: true,
+			scope:true,
+			template: function(elem,attrs){
+				var action  = $.trim($("#action").val()) ;
+				var headerTipStr = "" ;
+				 if(action=="add"){
+					 headerTipStr = "新建服务费用" ;
+				  }else{//表示为修改页面跳转过来的
+					  headerTipStr = "更新服务费用" ;
+				  }
+				 var template = _.template(headerHtml);
+				 var str = template({headerTipStr: headerTipStr});
+				return str ;
+			},
+			link:function(scope,elem,attrs){
+				scope.backPage = function (){
+					  var contextPath = $.trim($("#contextPath").val());
+					  window.location.href= contextPath+'/oc/ocView' ;
+				  }
+			}
+		};
+	 });
 
-		 directives.directive('chooseDiv', function() {
-		    return {
-		        restrict: 'AE',
-		        replace: true,
-				scope:true,
-				transclude:true,
-		        template: chooseDivHtml,
-				compile: function compile(tElement, tAttrs, transclude){
-					var urlStr = tAttrs['htmlUrl'] ;
-					var template = _.template(chooseUlHtml);
-					var htmlStr = template({value: urlStr});
-					var tmpDiv = tElement.find('div.service_list') ;
-					tmpDiv.append(htmlStr) ;
-				}
-		    };
-		 });
+	 directives.directive('chooseDiv', function() {
+		return {
+			restrict: 'AE',
+			replace: true,
+			scope:true,
+			transclude:true,
+			template: chooseDivHtml,
+			compile: function compile(tElement, tAttrs, transclude){
+				var urlStr = tAttrs['htmlUrl'] ;
+				var template = _.template(chooseUlHtml);
+				var htmlStr = template({value: urlStr});
+				var tmpDiv = tElement.find('div.service_list') ;
+				tmpDiv.append(htmlStr) ;
+			}
+		};
+	 });
 
-	 }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
 
 
 /***/ },
@@ -7722,202 +7698,200 @@
 /* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
-		 var directives = __webpack_require__(20) ;
-		 directives.directive('geoSpecInput', function() {
-		    return {
-		        restrict: 'E',
-		        replace: true,
-				scope:true,
-		        template: geoSpecInputHtml,
-				transclude:true
-		    };
-		 });
+	 var directives = __webpack_require__(20) ;
+	 directives.directive('geoSpecInput', function() {
+		return {
+			restrict: 'E',
+			replace: true,
+			scope:true,
+			template: geoSpecInputHtml,
+			transclude:true
+		};
+	 });
 		 
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
 
 /***/ },
 /* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
-		 var directives = __webpack_require__(20) ;
-		 var tableHtml = __webpack_require__(31) ;
-		 var trHtml = __webpack_require__(32) ;
-		 var theadHtml = __webpack_require__(33) ;
-		 var _ = __webpack_require__(21) ;
-		 //重置数据
-		 function reseat198VO (l198){
-			if(l198){
-				l198.cxr = "" ;
-				l198.rbd1 = "" ;
-				l198.rbd2 = "" ;
-				l198.rbd3 = "" ;
-				l198.rbd4 = "" ;
-				l198.rbd5 = "" ;
-			}
-		 }
-		 function outAllSelect(list){//将所有tr全部置为非选中状态
-			angular.forEach(list,function(l){
-				l.selected = false ;
-			}) ;
-		 }
+	 var directives = __webpack_require__(20) ;
+	 var tableHtml = __webpack_require__(31) ;
+	 var trHtml = __webpack_require__(32) ;
+	 var theadHtml = __webpack_require__(33) ;
+	 var _ = __webpack_require__(21) ;
+	 //重置数据
+	 function reseat198VO (l198){
+		if(l198){
+			l198.cxr = "" ;
+			l198.rbd1 = "" ;
+			l198.rbd2 = "" ;
+			l198.rbd3 = "" ;
+			l198.rbd4 = "" ;
+			l198.rbd5 = "" ;
+		}
+	 }
+	 function outAllSelect(list){//将所有tr全部置为非选中状态
+		angular.forEach(list,function(l){
+			l.selected = false ;
+		}) ;
+	 }
 
-		 directives.directive('tableInfo', ['FormEditStatusServcie','FormData',function(FormEditStatusServcie,FormData){
-			  return {
-		        restrict: 'AE',
-		        replace: true,
-				template:function(elem,atrrs){
-					//var tableWidth = atrrs['tableWidth'] ;
-					//var tableTemplate = _.template(tableHtml);
-					//var tableStr = tableTemplate({"tableWidth": tableWidth}) ;
-					//return tableStr ;
-					return tableHtml ;
-				},
-				scope:{
-					tableData:'=',
-					list:'='
-				},
-				controller:['$scope',function($scope){
-					$scope.data = FormData ;
-					$scope.editStatus = FormEditStatusServcie ;
-					//新增一行记录
-					this.tbAddLine = function(){
-						outAllSelect($scope.list) ;
-						var obj = angular.copy($scope.tableData.addObj) ;
-						$scope.list.push(obj) ;
-					}
-					//删除一行记录
-					this.tbDelLine = function (){
-						var len = $scope.list.length ;
-						if(len>=1){
-							var num = len-1 ;
-							angular.forEach($scope.list,function(l,index){
-								if(l.selected){
-									num = index ;
-								}
-							}) ;
-							outAllSelect($scope.list) ;
-							$scope.list.splice(num,1) ;
-						}
-					}
-					
-					$scope.clickTr = function(l){
-						outAllSelect($scope.list) ;
-						l.selected = true ;
-					}
-					//下面是特殊的部分，select可能会存在//如果你的表格比较特殊的话可能需要修改修改下面的部分代码
-					/**这一部分算是半工作能够部分(因为有的表格会使用这部分数据，但是有的表格不使用这部分数据)**/
-					$scope.geoSpecTypeList = [
-						{"name":"选择","value":""},
-						{"name":"大区","value":"A"},{"name":"城市","value":"C"},
-						{"name":"国家","value":"N"},{"name":"机场","value":"P"},
-						{"name":"州","value":"S"},{"name":"区域","value":"Z"}
-					] ;
-					$scope.codeTypeList = [
-						{"name":"选择","value":""},{"name":"代理人office号","value":"T"},
-						{"name":"IATA号","value":"I"},{"name":"Department/Identifier","value":"X"},
-						{"name":"CRS/CXR Department Code","value":"V"},{"name":"ERSP No","value":"E"},
-						{"name":"LNIATA Number (CRT Address)","value":"L"},{"name":"Airline specific codes","value":"A"}
-					] ;
-					//市场方/承运方
-					$scope.marketingOpreratingList = [
-						{"name":"选择","value":""},
-						{"name":"市场方","value":"M"},{"name":"承运方","value":"O"},
-						{"name":"市场方/承运方","value":"E"}
-					] ;
-					/*********183特殊部分开始*******************/
-					$scope.selectChange183Tb1 = function(l183){
-						l183.geographicSpecification = "" ;
-					}
-					$scope.selectChange183Tb2 = function(l183){
-						l183.code = "" ;
-					}
-					$scope.viewBookTktList = [// 权限list
-						{"name":"选择","value":""},{"name":"查看/订票/出票","value":1},
-						{"name":"仅查看","value":2}
-					] ;
-					/*********183特殊部分结束*******************/
-					
-					/*********198特殊部分开始*******************/
-					$scope.selectChange198Tb = function(l198){
-						reseat198VO(l198) ;
-					}
-
-					$scope.selectChange198TbUpGrade = function(l198UpGrade){
-						reseat198VO(l198UpGrade) ;
-					}
-					/*********198特殊部分结束*******************/
-					/*********170特殊部分开始*******************/
-					$scope.selectChange170Tb = function(l170){
-						reseat170VO(l170) ;
-					}
-					function reseat170VO (l170){
-						if(l170){
-							l170.saleGeographicPoint = "" ;
-						}
-					}
-				    /*********170特殊部分结束*******************/
-					//178表格的区域select框发生变化时触发的函数
-					$scope.selectChange178Tb = function(l178){
-						l178.geoLocSpec = "" ;
-					}
-					//tsk202子表的特殊处理函数
-					$scope.customeEdit202Text = function(oldValue,type,index){
-						//tbTSKCustomeEdit_type//tbTSKCustomeEdit_index//tbTSKCustomeEdit_value
-						$("#tbTSKCustomeEdit_type").val(type) ;
-						$("#tbTSKCustomeEdit_index").val(index) ;
-						$("#tbTSKCustomeEdit_value").val(oldValue) ;
-						//显示的时候清除可能存在的错误提示
-						$("#tskCustomeTipInfo").html("") ;
-						$("#tbTSK202Modal").modal("show") ;
-						$("#tbTSKCustomeEdit_value").focus() ;
-						if("flightTourCodeText"==type){//13个字
-							$("#tbTSKCustomeEdit_value").attr("maxLength",13) ;
-						}else if("flightEiText"==type){//80个字
-							$("#tbTSKCustomeEdit_value").attr("maxLength",80) ;
-						}
-					}
-					
-				}],
-				controllerAs:'ctrl',
-				compile: function (tElement, tAttrs, transclude){
-					var urlStr = tAttrs['htmlUrl'] ;
-					var headerTeplate = _.template(theadHtml) ; 
-					var bodyTemplate = _.template(trHtml);
-					var headStr = headerTeplate({value: urlStr}) ;
-					var bodyStr = bodyTemplate({value: urlStr});
-					var tableElement =  angular.element(tElement) ;
-					tableElement.find('thead').append(headStr) ;
-					tableElement.find('tbody').append(bodyStr) ;
-					return {
-						post: function(scope, element, attrs,ctrl){
-							var tbname = attrs['tbname'] ;
-							element.find("div.delete_line").bind('click',function(){
-								if (scope.editStatus[tbname]) {//当当前表格可以编辑时
-									scope.$apply(function  () {
-										ctrl.tbDelLine() ;
-									}) ;
-								}else{
-									//console.info('表格['+tbname+']当前的状态为：不可编辑') ;
-								}
-							}) ;
-							element.find("div.add_line").bind('click',function(){
-								if (scope.editStatus[tbname]) {//当当前表格可以编辑时
-									scope.$apply(function  () {
-										ctrl.tbAddLine() ;
-									}) ;
-								}else{
-									//console.info('表格['+tbname+']当前的状态为：不可编辑') ;
-								}
-							}) ;
-						}
-					};
+	 directives.directive('tableInfo', ['FormEditStatusServcie','FormData',function(FormEditStatusServcie,FormData){
+		  return {
+			restrict: 'AE',
+			replace: true,
+			template:function(elem,atrrs){
+				//var tableWidth = atrrs['tableWidth'] ;
+				//var tableTemplate = _.template(tableHtml);
+				//var tableStr = tableTemplate({"tableWidth": tableWidth}) ;
+				//return tableStr ;
+				return tableHtml ;
+			},
+			scope:{
+				tableData:'=',
+				list:'='
+			},
+			controller:['$scope',function($scope){
+				$scope.data = FormData ;
+				$scope.editStatus = FormEditStatusServcie ;
+				//新增一行记录
+				this.tbAddLine = function(){
+					outAllSelect($scope.list) ;
+					var obj = angular.copy($scope.tableData.addObj) ;
+					$scope.list.push(obj) ;
 				}
-		      };
-	      }]);
-		  
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+				//删除一行记录
+				this.tbDelLine = function (){
+					var len = $scope.list.length ;
+					if(len>=1){
+						var num = len-1 ;
+						angular.forEach($scope.list,function(l,index){
+							if(l.selected){
+								num = index ;
+							}
+						}) ;
+						outAllSelect($scope.list) ;
+						$scope.list.splice(num,1) ;
+					}
+				}
+
+				$scope.clickTr = function(l){
+					outAllSelect($scope.list) ;
+					l.selected = true ;
+				}
+				//下面是特殊的部分，select可能会存在//如果你的表格比较特殊的话可能需要修改修改下面的部分代码
+				/**这一部分算是半工作能够部分(因为有的表格会使用这部分数据，但是有的表格不使用这部分数据)**/
+				$scope.geoSpecTypeList = [
+					{"name":"选择","value":""},
+					{"name":"大区","value":"A"},{"name":"城市","value":"C"},
+					{"name":"国家","value":"N"},{"name":"机场","value":"P"},
+					{"name":"州","value":"S"},{"name":"区域","value":"Z"}
+				] ;
+				$scope.codeTypeList = [
+					{"name":"选择","value":""},{"name":"代理人office号","value":"T"},
+					{"name":"IATA号","value":"I"},{"name":"Department/Identifier","value":"X"},
+					{"name":"CRS/CXR Department Code","value":"V"},{"name":"ERSP No","value":"E"},
+					{"name":"LNIATA Number (CRT Address)","value":"L"},{"name":"Airline specific codes","value":"A"}
+				] ;
+				//市场方/承运方
+				$scope.marketingOpreratingList = [
+					{"name":"选择","value":""},
+					{"name":"市场方","value":"M"},{"name":"承运方","value":"O"},
+					{"name":"市场方/承运方","value":"E"}
+				] ;
+				/*********183特殊部分开始*******************/
+				$scope.selectChange183Tb1 = function(l183){
+					l183.geographicSpecification = "" ;
+				}
+				$scope.selectChange183Tb2 = function(l183){
+					l183.code = "" ;
+				}
+				$scope.viewBookTktList = [// 权限list
+					{"name":"选择","value":""},{"name":"查看/订票/出票","value":1},
+					{"name":"仅查看","value":2}
+				] ;
+				/*********183特殊部分结束*******************/
+
+				/*********198特殊部分开始*******************/
+				$scope.selectChange198Tb = function(l198){
+					reseat198VO(l198) ;
+				}
+
+				$scope.selectChange198TbUpGrade = function(l198UpGrade){
+					reseat198VO(l198UpGrade) ;
+				}
+				/*********198特殊部分结束*******************/
+				/*********170特殊部分开始*******************/
+				$scope.selectChange170Tb = function(l170){
+					reseat170VO(l170) ;
+				}
+				function reseat170VO (l170){
+					if(l170){
+						l170.saleGeographicPoint = "" ;
+					}
+				}
+				/*********170特殊部分结束*******************/
+				//178表格的区域select框发生变化时触发的函数
+				$scope.selectChange178Tb = function(l178){
+					l178.geoLocSpec = "" ;
+				}
+				//tsk202子表的特殊处理函数
+				$scope.customeEdit202Text = function(oldValue,type,index){
+					//tbTSKCustomeEdit_type//tbTSKCustomeEdit_index//tbTSKCustomeEdit_value
+					$("#tbTSKCustomeEdit_type").val(type) ;
+					$("#tbTSKCustomeEdit_index").val(index) ;
+					$("#tbTSKCustomeEdit_value").val(oldValue) ;
+					//显示的时候清除可能存在的错误提示
+					$("#tskCustomeTipInfo").html("") ;
+					$("#tbTSK202Modal").modal("show") ;
+					$("#tbTSKCustomeEdit_value").focus() ;
+					if("flightTourCodeText"==type){//13个字
+						$("#tbTSKCustomeEdit_value").attr("maxLength",13) ;
+					}else if("flightEiText"==type){//80个字
+						$("#tbTSKCustomeEdit_value").attr("maxLength",80) ;
+					}
+				}
+
+			}],
+			controllerAs:'ctrl',
+			compile: function (tElement, tAttrs, transclude){
+				var urlStr = tAttrs['htmlUrl'] ;
+				var headerTeplate = _.template(theadHtml) ;
+				var bodyTemplate = _.template(trHtml);
+				var headStr = headerTeplate({value: urlStr}) ;
+				var bodyStr = bodyTemplate({value: urlStr});
+				var tableElement =  angular.element(tElement) ;
+				tableElement.find('thead').append(headStr) ;
+				tableElement.find('tbody').append(bodyStr) ;
+				return {
+					post: function(scope, element, attrs,ctrl){
+						var tbname = attrs['tbname'] ;
+						element.find("div.delete_line").bind('click',function(){
+							if (scope.editStatus[tbname]) {//当当前表格可以编辑时
+								scope.$apply(function  () {
+									ctrl.tbDelLine() ;
+								}) ;
+							}else{
+								//console.info('表格['+tbname+']当前的状态为：不可编辑') ;
+							}
+						}) ;
+						element.find("div.add_line").bind('click',function(){
+							if (scope.editStatus[tbname]) {//当当前表格可以编辑时
+								scope.$apply(function  () {
+									ctrl.tbAddLine() ;
+								}) ;
+							}else{
+								//console.info('表格['+tbname+']当前的状态为：不可编辑') ;
+							}
+						}) ;
+					}
+				};
+			}
+		  };
+	  }]);
+
+
 
 /***/ },
 /* 31 */
@@ -7941,346 +7915,343 @@
 /* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module) {
-	    var util = __webpack_require__(17) ;
-	    var app = __webpack_require__(20) ;
-	    var _ = __webpack_require__(21) ;
-	    
+	var util = __webpack_require__(17) ;
+	var app = __webpack_require__(20) ;
+	var _ = __webpack_require__(21) ;
 
-	    //区域校验
-	    app.directive('geo',function(){
-	        var obj = {'A':'areacode','C':'citycode','N':'countrycode','P':'airportcode','S':'statecode','Z':'zonecode'} ;
-	        var values = _.values(obj); 
-	        function resetAllSuccess (ctrl){
-	            _.each(values, function(item){
-	                ctrl.$setValidity(item,true);
+
+	//区域校验
+	app.directive('geo',function(){
+	    var obj = {'A':'areacode','C':'citycode','N':'countrycode','P':'airportcode','S':'statecode','Z':'zonecode'} ;
+	    var values = _.values(obj);
+	    function resetAllSuccess (ctrl){
+	        _.each(values, function(item){
+	            ctrl.$setValidity(item,true);
+	        });
+	    };
+	    return {
+	        restrict:"A",
+	        scope:true,
+	        require:"ngModel",
+	        link:function(scope,ele,attrs,ctrl){
+	            ctrl.$parsers.push(function(viewValue){
+	                var flag = true ;
+	                var key = "" ;
+	                if(viewValue!=''){
+	                    var geo = attrs['geo'] ;
+	                    var geoSpecLocType = scope.data[geo] ;
+	                    key = obj[geoSpecLocType] ;
+	                    flag = util.isValidGeoLocal(viewValue,geoSpecLocType) ;
+	                }
+	                resetAllSuccess(ctrl) ;
+	                if(key!=null&&key.length>0){
+	                    ctrl.$setValidity(key,flag);
+	                }
+	                return viewValue;
 	            });
-	        };
-	        return {
-	            restrict:"A",
-	            scope:true,
-	            require:"ngModel",
-	            link:function(scope,ele,attrs,ctrl){
-	                ctrl.$parsers.push(function(viewValue){
-	                    var flag = true ;
-	                    var key = "" ;
-	                    if(viewValue!=''){
-	                        var geo = attrs['geo'] ;
-	                        var geoSpecLocType = scope.data[geo] ;
-	                        key = obj[geoSpecLocType] ;
-	                        flag = util.isValidGeoLocal(viewValue,geoSpecLocType) ;
-	                    }
-	                    resetAllSuccess(ctrl) ;
-	                    if(key!=null&&key.length>0){
-	                        ctrl.$setValidity(key,flag);
-	                    }
-	                    return viewValue;
-	                });
-	            }
-	        };
-	    });
+	        }
+	    };
+	});
 
 
 
-	    //letter
-	     app.directive('letter',function(){
-	        return {
-	            restrict:"A",
-	            scope:true,
-	            require:"ngModel",
-	            link:function(scope,ele,attrs,ctrl){
-	                ctrl.$validators.letter = function(modelValue,viewValue){
-	                    if(viewValue!=''){
-	                        return util.isLetter(viewValue);
-	                    }
-	                    return true;
-	                };
-	            }
-	        };
-	    });
+	//letter
+	 app.directive('letter',function(){
+	    return {
+	        restrict:"A",
+	        scope:true,
+	        require:"ngModel",
+	        link:function(scope,ele,attrs,ctrl){
+	            ctrl.$validators.letter = function(modelValue,viewValue){
+	                if(viewValue!=''){
+	                    return util.isLetter(viewValue);
+	                }
+	                return true;
+	            };
+	        }
+	    };
+	});
 
-	    //lettersOrNumber
-	    app.directive('lorn',function(){
-	        return {
-	            restrict:"A",
-	            scope:true,
-	            require:"?ngModel",
-	            link:function(scope,ele,attrs,ctrl){
-	                if(!ctrl) return ;
-	                ctrl.$validators.lorn = function(modelValue,viewValue){
-	                    if(viewValue!=''){
-	                        return util.islettersOrNumber(viewValue);
-	                    }
-	                    return true;
-	                };
-	            }
-	        };
-	    });
+	//lettersOrNumber
+	app.directive('lorn',function(){
+	    return {
+	        restrict:"A",
+	        scope:true,
+	        require:"?ngModel",
+	        link:function(scope,ele,attrs,ctrl){
+	            if(!ctrl) return ;
+	            ctrl.$validators.lorn = function(modelValue,viewValue){
+	                if(viewValue!=''){
+	                    return util.islettersOrNumber(viewValue);
+	                }
+	                return true;
+	            };
+	        }
+	    };
+	});
 
-	    //positiveInteger(正整数不包括'0')
-	    app.directive('pint',function(){
-	        return {
-	            restrict:"A",
-	            scope:true,
-	            require:"?ngModel",
-	            link:function(scope,ele,attrs,ctrl){
-	                if(!ctrl) return ;
-	                ctrl.$validators.pint = function(modelValue,viewValue){
-	                    if(viewValue!=''){
-	                        return util.isPositiveInteger(viewValue);
-	                    }
-	                    return true;
-	                };
-	            }
-	        };
-	    });
+	//positiveInteger(正整数不包括'0')
+	app.directive('pint',function(){
+	    return {
+	        restrict:"A",
+	        scope:true,
+	        require:"?ngModel",
+	        link:function(scope,ele,attrs,ctrl){
+	            if(!ctrl) return ;
+	            ctrl.$validators.pint = function(modelValue,viewValue){
+	                if(viewValue!=''){
+	                    return util.isPositiveInteger(viewValue);
+	                }
+	                return true;
+	            };
+	        }
+	    };
+	});
 
 
-	    //nonNegativeInteger(包括‘0’)
-	    app.directive('nnint',function(){
-	        return {
-	            restrict:"A",
-	            scope:true,
-	            require:"?ngModel",
-	            link:function(scope,ele,attrs,ctrl){
-	                if(!ctrl) return ;
-	                ctrl.$validators.nnint = function(modelValue,viewValue){
-	                    if(viewValue!=''){
-	                        return util.isNonNegativeInteger(viewValue);
-	                    }
-	                    return true;
-	                };
-	            }
-	        };
-	    });
+	//nonNegativeInteger(包括‘0’)
+	app.directive('nnint',function(){
+	    return {
+	        restrict:"A",
+	        scope:true,
+	        require:"?ngModel",
+	        link:function(scope,ele,attrs,ctrl){
+	            if(!ctrl) return ;
+	            ctrl.$validators.nnint = function(modelValue,viewValue){
+	                if(viewValue!=''){
+	                    return util.isNonNegativeInteger(viewValue);
+	                }
+	                return true;
+	            };
+	        }
+	    };
+	});
 
-	    //small
-	    app.directive('smaller',function(){
-	        return {
-	            restrict:"A",
-	            scope:true,
-	            require:"ngModel",
-	            link:function(scope,ele,attrs,ctrl){
-	                ctrl.$validators.smaller = function(modelValue, viewValue) {
-	                    var flag = true ;
-	                    var compareVal = attrs['smaller'] ;
-	                    if(viewValue!=''&&compareVal!=''){
-	                        if(!isNaN(viewValue)&&!isNaN(compareVal)){//都为数值时
-	                            var curInt = parseFloat(viewValue) ;
-	                            var comInt = parseFloat(compareVal) ;
-	                            if(curInt>comInt){
-	                                flag = false;
-	                            }
+	//small
+	app.directive('smaller',function(){
+	    return {
+	        restrict:"A",
+	        scope:true,
+	        require:"ngModel",
+	        link:function(scope,ele,attrs,ctrl){
+	            ctrl.$validators.smaller = function(modelValue, viewValue) {
+	                var flag = true ;
+	                var compareVal = attrs['smaller'] ;
+	                if(viewValue!=''&&compareVal!=''){
+	                    if(!isNaN(viewValue)&&!isNaN(compareVal)){//都为数值时
+	                        var curInt = parseFloat(viewValue) ;
+	                        var comInt = parseFloat(compareVal) ;
+	                        if(curInt>comInt){
+	                            flag = false;
 	                        }
 	                    }
-	                    return flag;
-	                };
-	                attrs.$observe('smaller', function() {
-	                    ctrl.$validate();
-	                });
-	            }
-	        };
-	    });
+	                }
+	                return flag;
+	            };
+	            attrs.$observe('smaller', function() {
+	                ctrl.$validate();
+	            });
+	        }
+	    };
+	});
 
-	    //bigger
-	    app.directive('bigger',function(){
-	        return {
-	            restrict:"A",
-	            scope:true,
-	            require:"ngModel",
-	            link:function(scope,ele,attrs,ctrl){
-	                ctrl.$validators.bigger = function(modelValue, viewValue) {
-	                    var flag = true ;
-	                    var compareVal = attrs['bigger'] ;
-	                    if(viewValue!=''&&compareVal!=''){
-	                        if(!isNaN(viewValue)&&!isNaN(compareVal)){//都为数值时
-	                            var curInt = parseFloat(viewValue) ;
-	                            var comInt = parseFloat(compareVal) ;
-	                            if(curInt<comInt){
-	                                flag = false;
-	                            }
+	//bigger
+	app.directive('bigger',function(){
+	    return {
+	        restrict:"A",
+	        scope:true,
+	        require:"ngModel",
+	        link:function(scope,ele,attrs,ctrl){
+	            ctrl.$validators.bigger = function(modelValue, viewValue) {
+	                var flag = true ;
+	                var compareVal = attrs['bigger'] ;
+	                if(viewValue!=''&&compareVal!=''){
+	                    if(!isNaN(viewValue)&&!isNaN(compareVal)){//都为数值时
+	                        var curInt = parseFloat(viewValue) ;
+	                        var comInt = parseFloat(compareVal) ;
+	                        if(curInt<comInt){
+	                            flag = false;
 	                        }
 	                    }
-	                    return flag;
-	                };
-	                attrs.$observe('bigger', function() {
-	                    ctrl.$validate();
-	                });
-	            }
+	                }
+	                return flag;
+	            };
+	            attrs.$observe('bigger', function() {
+	                ctrl.$validate();
+	            });
 	        }
-	    });
+	    }
+	});
 
-	    //biggerDate
-	    app.directive('bd',function(){
-	        return {
-	            restrict:"A",
-	            scope:true,
-	            require:"ngModel",
-	            link:function(scope,ele,attrs,ctrl){
-	                if (!ctrl) return;
-	                ctrl.$validators.bd = function(modelValue, viewValue) {
-	                    var compareVal = attrs['bd'] ;
-	                    if(viewValue!=''&&compareVal!=''){
-	                        return util.isBiggerDateThan(viewValue,compareVal) ;
+	//biggerDate
+	app.directive('bd',function(){
+	    return {
+	        restrict:"A",
+	        scope:true,
+	        require:"ngModel",
+	        link:function(scope,ele,attrs,ctrl){
+	            if (!ctrl) return;
+	            ctrl.$validators.bd = function(modelValue, viewValue) {
+	                var compareVal = attrs['bd'] ;
+	                if(viewValue!=''&&compareVal!=''){
+	                    return util.isBiggerDateThan(viewValue,compareVal) ;
+	                }
+	                return true;
+	            };
+	            attrs.$observe('bd', function() {
+	                ctrl.$validate();
+	            });
+	        }
+	    }
+	});
+
+	//smallerDate
+	app.directive('sd',function(){
+	    return {
+	        restrict:"A",
+	        scope:true,
+	        require:"ngModel",
+	        link:function(scope,ele,attrs,ctrl){
+	            if (!ctrl) return;
+	            ctrl.$validators.sd = function(modelValue, viewValue) {
+	                var compareVal = attrs['sd'] ;
+	                if(viewValue!=''&&compareVal!=''){
+	                    return util.isSmallerDateThan(viewValue,compareVal) ;
+	                }
+	                return true;
+	            };
+	            attrs.$observe('sd', function() {
+	                ctrl.$validate();
+	            });
+	        }
+	    }
+	});
+
+
+	//biggerThanCurrent
+	app.directive('btc',function(){
+	    return {
+	        restrict:"A",
+	        scope:true,
+	        require:"ngModel",
+	        link:function(scope,ele,attrs,ctrl){
+	            if (!ctrl) return;
+	            ctrl.$validators.btc = function(modelValue, viewValue) {
+	                 var statusDes = scope.data.statusDes ;
+	                 if(viewValue!=''&&!util.checkStatusIsDisable(statusDes)){
+	                      return util.isBiggerThanCurrent(viewValue) ;
+	                }
+	                 return true ;
+	            };
+	        }
+	    }
+	});
+
+
+	app.directive('dateoc',function(){
+	    return {
+	        restrict:"A",
+	        scope:true,
+	        require:"ngModel",
+	        link:function(scope,ele,attrs,ctrl){
+	            if (!ctrl) return;
+	            ctrl.$validators.dateoc = function(modelValue, viewValue) {
+	                    if(viewValue!=''){
+	                        return util.isDateOC(viewValue);
 	                    }
-	                    return true;
-	                };
-	                attrs.$observe('bd', function() {
-	                    ctrl.$validate();
-	                });
-	            }
+	                    return true ;
+	            };
 	        }
-	    });
+	    }
+	});
 
-	    //smallerDate
-	    app.directive('sd',function(){
-	        return {
-	            restrict:"A",
-	            scope:true,
-	            require:"ngModel",
-	            link:function(scope,ele,attrs,ctrl){
-	                if (!ctrl) return;
-	                ctrl.$validators.sd = function(modelValue, viewValue) {
-	                    var compareVal = attrs['sd'] ;
-	                    if(viewValue!=''&&compareVal!=''){
-	                        return util.isSmallerDateThan(viewValue,compareVal) ; 
+	//自定义校验(三字码)
+	app.directive('threecode',function(){
+	    return {
+	        restrict:"A",
+	        scope:true,
+	        require:"ngModel",
+	        link:function(scope,ele,attrs,ctrl){
+	            if (!ctrl) return;
+	            ctrl.$validators.threecode = function(modelValue, viewValue) {
+	                    if(viewValue!=''){
+	                        return util.isThreecode(viewValue) ;
 	                    }
-	                    return true;
-	                };
-	                attrs.$observe('sd', function() {
-	                    ctrl.$validate();
-	                });
-	            }
+	                    return true ;
+	            };
 	        }
-	    });
-	    
-	    
-	    //biggerThanCurrent
-	    app.directive('btc',function(){
-	        return {
-	            restrict:"A",
-	            scope:true,
-	            require:"ngModel",
-	            link:function(scope,ele,attrs,ctrl){
-	            	if (!ctrl) return;
-	                ctrl.$validators.btc = function(modelValue, viewValue) {
-	                     var statusDes = scope.data.statusDes ;
-		                 if(viewValue!=''&&!util.checkStatusIsDisable(statusDes)){
-		                      return util.isBiggerThanCurrent(viewValue) ;
-		                }
-		                 return true ;
-	                };
-	            }
-	        }
-	    });
-	    
-	    
-	    app.directive('dateoc',function(){
-	        return {
-	            restrict:"A",
-	            scope:true,
-	            require:"ngModel",
-	            link:function(scope,ele,attrs,ctrl){
-	                if (!ctrl) return;
-	                ctrl.$validators.dateoc = function(modelValue, viewValue) {
-			                if(viewValue!=''){
-		                        return util.isDateOC(viewValue);
-		                    }
-		                    return true ;
-	                };
-	            }
-	        }
-	    });
-	    
-	  //自定义校验(三字码)
-	    app.directive('threecode',function(){
-	        return {
-	            restrict:"A",
-	            scope:true,
-	            require:"ngModel",
-	            link:function(scope,ele,attrs,ctrl){
-	            	if (!ctrl) return;
-	                ctrl.$validators.threecode = function(modelValue, viewValue) {
-			                if(viewValue!=''){
-		                        return util.isThreecode(viewValue) ;
-		                    }
-		                    return true ;
-	                };
-	            }
-	        }
-	    });
+	    }
+	});
 
-	    app.directive('air',function(){
-	        return {
-	            restrict:"A",
-	            scope:true,
-	            require:"ngModel",
-	            link:function(scope,ele,attrs,ctrl){
-	            	if (!ctrl) return;
-	                ctrl.$validators.threecode = function(modelValue, viewValue) {
-			                if(viewValue!=''){
-		                        return util.isAir(viewValue);
-		                    }
-		                    return true ;
-	                };
-	            }
+	app.directive('air',function(){
+	    return {
+	        restrict:"A",
+	        scope:true,
+	        require:"ngModel",
+	        link:function(scope,ele,attrs,ctrl){
+	            if (!ctrl) return;
+	            ctrl.$validators.threecode = function(modelValue, viewValue) {
+	                    if(viewValue!=''){
+	                        return util.isAir(viewValue);
+	                    }
+	                    return true ;
+	            };
 	        }
-	    });
+	    }
+	});
 
-	    //发布对象校验
-	    app.directive('publicobj',function(){
-	        return {
-	            restrict:"A",
-	            scope:true,
-	            require:"ngModel",
-	            link:function(scope,ele,attrs,ctrl){
-	                ctrl.$parsers.push(function(viewValue){
-	                    var curType = attrs['publicobj'] ;
-	                    var len = viewValue.length ;
-	                    if(curType=='T'){
-	                        if(len>6){
-	                            ctrl.$setValidity('length6',false);
-	                        }else{
-	                            ctrl.$setValidity('length6',true);
-	                        }
-	                        ctrl.$setValidity('length8',true);
+	//发布对象校验
+	app.directive('publicobj',function(){
+	    return {
+	        restrict:"A",
+	        scope:true,
+	        require:"ngModel",
+	        link:function(scope,ele,attrs,ctrl){
+	            ctrl.$parsers.push(function(viewValue){
+	                var curType = attrs['publicobj'] ;
+	                var len = viewValue.length ;
+	                if(curType=='T'){
+	                    if(len>6){
+	                        ctrl.$setValidity('length6',false);
 	                    }else{
-	                        if(len>8){
-	                            ctrl.$setValidity('length8',false);
-	                        }else{
-	                            ctrl.$setValidity('length8',true);
-	                        }
 	                        ctrl.$setValidity('length6',true);
 	                    }
-	                    return viewValue;
-	                });
-	            }
+	                    ctrl.$setValidity('length8',true);
+	                }else{
+	                    if(len>8){
+	                        ctrl.$setValidity('length8',false);
+	                    }else{
+	                        ctrl.$setValidity('length8',true);
+	                    }
+	                    ctrl.$setValidity('length6',true);
+	                }
+	                return viewValue;
+	            });
 	        }
-	    });
-	    
-	    
-	    
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+	    }
+	});
+
+
+
+
 
 /***/ },
 /* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;//主要用来加载各个控制器（所有的控制器都将在这个文件中被加载）,除此之外再不用做其他，
+	//主要用来加载各个控制器（所有的控制器都将在这个文件中被加载）,除此之外再不用做其他，
 	//因为我们可以有很多个控制器文件，按照具体需要进行添加。
-	!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module) {
-		 //需要的插件
-		 __webpack_require__(36) ;
-		 __webpack_require__(38) ;
-		 //头部
-		 __webpack_require__(44) ;
-		 //基本信息部分
-		 __webpack_require__(45) ;
-		 //第一块信息
-		 __webpack_require__(46) ;
-		 //第二块信息
-		 __webpack_require__(47) ;
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	 //需要的插件
+	 __webpack_require__(36) ;
+	 __webpack_require__(38) ;
+	 //头部
+	 __webpack_require__(44) ;
+	 //基本信息部分
+	 __webpack_require__(45) ;
+	 //第一块信息
+	 __webpack_require__(46) ;
+	 //第二块信息
+	 __webpack_require__(47) ;
 
 
 /***/ },
@@ -10401,1145 +10372,1139 @@
 /* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
-		var controllers = __webpack_require__(39) ;
-		var jsonDate = __webpack_require__(24) ;
-		var EditUtil = __webpack_require__(40) ;
-		var commonUtil = __webpack_require__(23) ;
-		var util = __webpack_require__(17) ;
-		var ModalHelper = __webpack_require__(43) ;
-		
-		
-		function cleanTipInfo() {
-			$("#abortTipInfo").html("") ;
-		} ;
-		
-		function addErrorTip(errMsg){
-			$("#abortTipInfo").append("<li><span class ='marginRight15'></span><span class =\"modal-errorTip\">"+errMsg+"</span></li>") ;
-		} ;
-		
-		function addSuccessTip(sucMsg){
-			$("#abortTipInfo").append("<li><span class ='marginRight15'></span><span class =\"modal-successTip\">"+sucMsg+"</span></li>") ;
-		} ;
-		
-		
-		
-		//最外层controller
-		controllers.controller('EditController',['$scope','FormData','HttpOperService','TbShowHideServcie','FormEditStatusServcie','FormStatusService','CustomeEditTbStatusServcie','$timeout',function($scope,FormData,HttpOperService,TbShowHideServcie,FormEditStatusServcie,FormStatusService,CustomeEditTbStatusServcie,$timeout){
-			$scope.contextPath = FormData.contextPath ;
-			//保留一份原始数据，方便数据初始化时使用
-			$scope.orgData = angular.copy(FormData) ;
-			//页面上的form数据
-			$scope.data = FormData ;
-			//页面上所有表格的显示或隐藏的的状态数据
-			$scope.tableStatus = TbShowHideServcie ;//TableStatusServcie
-			//表格复用的自定义是否显示
-			$scope.customeEditTbStatus = CustomeEditTbStatusServcie ;
-			//对表单注册校验
-			var validator = $("#s7_form").validate({meta : ""});
-			window.validator = validator ;
-			
-			//页面上所有控件的状态数据
-			$scope.editStatus = FormEditStatusServcie ;
-			$scope.showStatus = FormStatusService ;
-			var s7Id = $("#s7Id").val() ;
-			$scope.data.id = s7Id ;
-			//日期问题
-			var currDate = new Date();
-			var curMonthStr = commonUtil.getFullDayOrMonthStr(currDate.getMonth()+1)  ;
-			var curDateStr = commonUtil.getFullDayOrMonthStr(currDate.getDate()) ;
-			var nextDateStr= commonUtil.getFullDayOrMonthStr(currDate.getDate() +1) ;
-			//当前日期
-			$scope.currentDateStr = currDate.getFullYear() +'-'+curMonthStr+ '-'+curDateStr;
-			//下一天日期
-			$scope.nextDateStr = currDate.getFullYear() +'-'+curMonthStr+ '-'+nextDateStr ;
-			//所有的表格定义信息都在这里
-			$scope.tableData = jsonDate.tableData ;
-			//-------------区域对应的表格显示隐藏开始--------//
-			//第一次进入页面时需要加载的数据
-			//console.info('准备初始化页面数据..........') ;
-			var url = '';
-			var promise = null;
-			if(FormData.action=="add"){//1.新增
-				url = $scope.contextPath+'/initPage4Add';
-				promise = HttpOperService.getDataByUrl(url) ;
-				EditUtil.initData.dealResultData4Add(promise,$scope) ;
-			}else if (FormData.action=="update"){
-				url = $scope.contextPath+'/initPage4Upate?s7Id='+$scope.data.id;
-				promise = HttpOperService.getDataByUrl(url) ;
-				EditUtil.initData.dealResult4Update(promise,$scope) ;
-			}else if (FormData.action=="copy"){
-				url = $scope.contextPath+'/initPage4Copy?s7Id='+$scope.data.id;
-				promise = HttpOperService.getDataByUrl(url) ;
-				//EditUtil.initData.dealResult4Update(promise,$scope) ;
-				EditUtil.initData.dealResult4Copy(promise,$scope) ;
-			}
-			//console.info('页面部分数据其他处理.......') ;
-			
-			
-			
-			$scope.submitTbTSKCustomeEdit = function(){
-				var tipDivId = "tskCustomeTipInfo" ;
-				var modalHelper = new ModalHelper(tipDivId) ;
-				//tbTSKCustomeEdit_type//tbTSKCustomeEdit_index//tbTSKCustomeEdit_value
-				var tbTSKCustomeEdit_type = $("#tbTSKCustomeEdit_type").val() ;
-				var tbTSKCustomeEdit_index = $("#tbTSKCustomeEdit_index").val() ;
-				var tbTSKCustomeEdit_value = $("#tbTSKCustomeEdit_value").val() ;
-				var maxLength = $("#tbTSKCustomeEdit_value").attr("maxlength") ;
-				var len = util.getByteNumOfStr(tbTSKCustomeEdit_value) ;
-				modalHelper.cleanTipInfo() ;
-				if(len>maxLength){
-					modalHelper.addErrorTip('最多输入'+maxLength+'个字节!') ;
-					return ;
-				}else{
-					$scope.data.listTsk202VO[tbTSKCustomeEdit_index*1][tbTSKCustomeEdit_type] = tbTSKCustomeEdit_value ;
-					$('#tbTSK202Modal').modal('hide') ;
-				}
-			}
-			
-			
-	    }]) ;
+	var controllers = __webpack_require__(39) ;
+	var jsonDate = __webpack_require__(24) ;
+	var EditUtil = __webpack_require__(40) ;
+	var commonUtil = __webpack_require__(23) ;
+	var util = __webpack_require__(17) ;
+	var ModalHelper = __webpack_require__(43) ;
 
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+
+	function cleanTipInfo() {
+		$("#abortTipInfo").html("") ;
+	} ;
+
+	function addErrorTip(errMsg){
+		$("#abortTipInfo").append("<li><span class ='marginRight15'></span><span class =\"modal-errorTip\">"+errMsg+"</span></li>") ;
+	} ;
+
+	function addSuccessTip(sucMsg){
+		$("#abortTipInfo").append("<li><span class ='marginRight15'></span><span class =\"modal-successTip\">"+sucMsg+"</span></li>") ;
+	} ;
+
+
+
+	//最外层controller
+	controllers.controller('EditController',['$scope','FormData','HttpOperService','TbShowHideServcie','FormEditStatusServcie','FormStatusService','CustomeEditTbStatusServcie','$timeout',function($scope,FormData,HttpOperService,TbShowHideServcie,FormEditStatusServcie,FormStatusService,CustomeEditTbStatusServcie,$timeout){
+		$scope.contextPath = FormData.contextPath ;
+		//保留一份原始数据，方便数据初始化时使用
+		$scope.orgData = angular.copy(FormData) ;
+		//页面上的form数据
+		$scope.data = FormData ;
+		//页面上所有表格的显示或隐藏的的状态数据
+		$scope.tableStatus = TbShowHideServcie ;//TableStatusServcie
+		//表格复用的自定义是否显示
+		$scope.customeEditTbStatus = CustomeEditTbStatusServcie ;
+		//对表单注册校验
+		var validator = $("#s7_form").validate({meta : ""});
+		window.validator = validator ;
+
+		//页面上所有控件的状态数据
+		$scope.editStatus = FormEditStatusServcie ;
+		$scope.showStatus = FormStatusService ;
+		var s7Id = $("#s7Id").val() ;
+		$scope.data.id = s7Id ;
+		//日期问题
+		var currDate = new Date();
+		var curMonthStr = commonUtil.getFullDayOrMonthStr(currDate.getMonth()+1)  ;
+		var curDateStr = commonUtil.getFullDayOrMonthStr(currDate.getDate()) ;
+		var nextDateStr= commonUtil.getFullDayOrMonthStr(currDate.getDate() +1) ;
+		//当前日期
+		$scope.currentDateStr = currDate.getFullYear() +'-'+curMonthStr+ '-'+curDateStr;
+		//下一天日期
+		$scope.nextDateStr = currDate.getFullYear() +'-'+curMonthStr+ '-'+nextDateStr ;
+		//所有的表格定义信息都在这里
+		$scope.tableData = jsonDate.tableData ;
+		//-------------区域对应的表格显示隐藏开始--------//
+		//第一次进入页面时需要加载的数据
+		//console.info('准备初始化页面数据..........') ;
+		var url = '';
+		var promise = null;
+		if(FormData.action=="add"){//1.新增
+			url = $scope.contextPath+'/initPage4Add';
+			promise = HttpOperService.getDataByUrl(url) ;
+			EditUtil.initData.dealResultData4Add(promise,$scope) ;
+		}else if (FormData.action=="update"){
+			url = $scope.contextPath+'/initPage4Upate?s7Id='+$scope.data.id;
+			promise = HttpOperService.getDataByUrl(url) ;
+			EditUtil.initData.dealResult4Update(promise,$scope) ;
+		}else if (FormData.action=="copy"){
+			url = $scope.contextPath+'/initPage4Copy?s7Id='+$scope.data.id;
+			promise = HttpOperService.getDataByUrl(url) ;
+			//EditUtil.initData.dealResult4Update(promise,$scope) ;
+			EditUtil.initData.dealResult4Copy(promise,$scope) ;
+		}
+		//console.info('页面部分数据其他处理.......') ;
+
+
+
+		$scope.submitTbTSKCustomeEdit = function(){
+			var tipDivId = "tskCustomeTipInfo" ;
+			var modalHelper = new ModalHelper(tipDivId) ;
+			//tbTSKCustomeEdit_type//tbTSKCustomeEdit_index//tbTSKCustomeEdit_value
+			var tbTSKCustomeEdit_type = $("#tbTSKCustomeEdit_type").val() ;
+			var tbTSKCustomeEdit_index = $("#tbTSKCustomeEdit_index").val() ;
+			var tbTSKCustomeEdit_value = $("#tbTSKCustomeEdit_value").val() ;
+			var maxLength = $("#tbTSKCustomeEdit_value").attr("maxlength") ;
+			var len = util.getByteNumOfStr(tbTSKCustomeEdit_value) ;
+			modalHelper.cleanTipInfo() ;
+			if(len>maxLength){
+				modalHelper.addErrorTip('最多输入'+maxLength+'个字节!') ;
+				return ;
+			}else{
+				$scope.data.listTsk202VO[tbTSKCustomeEdit_index*1][tbTSKCustomeEdit_type] = tbTSKCustomeEdit_value ;
+				$('#tbTSK202Modal').modal('hide') ;
+			}
+		}
+
+
+	}]) ;
+
 
 
 /***/ },
 /* 39 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
-		
-		var controllers = angular.module("app.controllers",[]) ;
-		return controllers ;
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+	var controllers = angular.module("app.controllers",[]) ;
+	module.exports= controllers ;
+
 
 /***/ },
 /* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
-		var validateHelper = __webpack_require__(41) ;
-		var util = __webpack_require__(42) ;
-		var jsonDate = __webpack_require__(24) ;
-		var jsonDataHelper = __webpack_require__(22) ;
-		var _  = __webpack_require__(21) ;
-		/**
-		 * 处理表单特殊数据
-		 * @param {Object} formData
-		 */
-		var initOtherData = function (formData){
-			//处理旅行起始日期
-			if(formData.firstTravelYear!=''&&formData.firstTravelMonth!=''&&formData.firstTravelDay!=''){
-				formData.travelStartDate = formData.firstTravelYear+'-' +formData.firstTravelMonth +'-' +formData.firstTravelDay ;
+	var validateHelper = __webpack_require__(41) ;
+	var util = __webpack_require__(42) ;
+	var jsonDate = __webpack_require__(24) ;
+	var jsonDataHelper = __webpack_require__(22) ;
+	var _  = __webpack_require__(21) ;
+	/**
+	 * 处理表单特殊数据
+	 * @param {Object} formData
+	 */
+	var initOtherData = function (formData){
+		//处理旅行起始日期
+		if(formData.firstTravelYear!=''&&formData.firstTravelMonth!=''&&formData.firstTravelDay!=''){
+			formData.travelStartDate = formData.firstTravelYear+'-' +formData.firstTravelMonth +'-' +formData.firstTravelDay ;
+		}
+		//处理旅行结束日期
+		if(formData.lastTravelYear!=''&&formData.lastTravelMonth!=''&&formData.lastTravelDay!=''){
+			formData.travelEndDate = formData.lastTravelYear+'-' +formData.lastTravelMonth +'-' +formData.lastTravelDay ;
+		}
+		//星期
+		var dayofWake = formData.dayOfWeek ;
+		var len = dayofWake.length ;
+		for(var i = 0 ; i < len ; i++){
+			 var s = dayofWake.charAt(i);
+			 var tmpStr = 'w'+s ;
+			 formData.dayOfWeekShow[tmpStr] = true ;//选中checkbox
+		}
+		//处理页面上的复用字表号的placeholder显示字符串
+		//
+		$(":input[name=reuseList172VO]").attr("placeholder",formData['accountCodeTableNo172']) ;
+		$(":input[name=reuseList173TicketVO]").attr("placeholder",formData['ticketDesignatorTableNo173']) ;
+		$(":input[name=reuseList183VO]").attr("placeholder",formData['securityTableNo183']) ;
+		$(":input[name=reuseList198VO]").attr("placeholder",formData['rbdTableNo198']) ;
+		$(":input[name=reuseList198UpgradeVO]").attr("placeholder",formData['upgradeToRbdTableNo198']) ;
+		$(":input[name=reuseList171VO]").attr("placeholder",formData['cxrResFareTableNo171']) ;
+		$(":input[name=reuseList173TktVO]").attr("placeholder",formData['tktDesignatorTableNo173']) ;
+		$(":input[name=reuseList186VO]").attr("placeholder",formData['carrierFlightTableNo186']) ;
+		$(":input[name=reuseList170VO]").attr("placeholder",formData['serviceFeeCurTableNo170']) ;
+		$(":input[name=reuseList196VO]").attr("placeholder",formData['textTableNo196']) ;
+		$(":input[name=reuseList165VO]").attr("placeholder",formData['equipmentTypeTableNo165']) ;
+		$(":input[name=reuseList178Loc1]").attr("placeholder",formData['list178Loc1Id']) ;
+		$(":input[name=reuseList178Loc2]").attr("placeholder",formData['list178Loc2Id']) ;
+		$(":input[name=reuseList178Loc3]").attr("placeholder",formData['list178Loc3Id']) ;
+		//201暂时不支持$(":input[name=reuseList201VO]").attr("placeholder",formData['list201VO']) ;
+		$(":input[name=reuseListTsk202VO]").attr("placeholder",formData['flightPassTableTsk202']) ;
+
+	};
+
+	/**
+	 * @功能描述:处理表格被引用次数数据
+	 * @param referenceMap 被引用的次数map数据
+	 * @param editStatus 页面全局的编辑属性
+	 * @param customeEditTbStatus 自定义表格显示状态
+	 */
+	var initCustomeEditTbData = function(editStatus,customeEditTbStatus,formData){
+		var referenceMap = formData['subTbReferenceCountMap'] ;
+		var keys = _.keys(referenceMap);
+		_.each(keys,function(key){
+			var tmp = referenceMap[key] || '0';
+			var count = tmp*1 ;
+			if(count>1){
+				editStatus[key] = false;
+				customeEditTbStatus[key] = true ;
 			}
-			//处理旅行结束日期
-			if(formData.lastTravelYear!=''&&formData.lastTravelMonth!=''&&formData.lastTravelDay!=''){
-				formData.travelEndDate = formData.lastTravelYear+'-' +formData.lastTravelMonth +'-' +formData.lastTravelDay ;
+		}) ;
+	}
+
+
+	//这是一个私有的辅助方法
+	var initTbData = function (list,flagData,tbname){
+		if(list.length>0){
+			flagData[tbname] = true ;
+		}else{
+			flagData[tbname] = false ;
+		}
+	};
+
+	var initListData = function (s7VO,flagData){
+		if(s7VO.list170VO.length>0){//170表格
+			initTbData(s7VO.list170VO,flagData ,'list170VO') ;
+		}
+		if(s7VO.list201VO.length>0){//201表格
+			initTbData(s7VO.list201VO,flagData,'list170VO') ;//----11
+		}
+		//198
+		initTbData(s7VO.list198VO,flagData,'list198VO') ;//----9
+		//198_2
+		initTbData(s7VO.list198UpgradeVO,flagData,'list198UpgradeVO') ;//----10
+		//list183VO
+		initTbData(s7VO.list183VO,flagData,'list183VO') ;  //-----1
+		//list186VO
+		initTbData(s7VO.list186VO,flagData,'list186VO') ; //-----7
+		//geo1 //list178Loc1
+		initTbData(s7VO.list178Loc1,flagData,'list178Loc1') ;//--12
+		//geo2 //list178Loc2
+		initTbData(s7VO.list178Loc2,flagData,'list178Loc2') ;//---13
+		//geo3 //list178Loc3
+		initTbData(s7VO.list178Loc3,flagData ,'list178Loc3') ;//----14
+		//196//备注例外行李
+		initTbData(s7VO.list196VO,flagData ,'list196VO') ; //----8
+		//165机型
+		initTbData(s7VO.list165VO,flagData,'list165VO') ;//------6
+		//171
+		initTbData(s7VO.list171VO,flagData,'list171VO') ; //-----2
+		initTbData(s7VO.list172VO,flagData,'list172VO') ; //-----3
+		initTbData(s7VO.list173TicketVO,flagData,'list173TicketVO') ;//------4
+		initTbData(s7VO.list173TktVO,flagData,'list173TktVO') ;//-----5
+
+		//增加tsk202子表
+		initTbData(s7VO.listTsk202VO,flagData,'listTsk202VO') ;//-----5
+
+
+	};
+
+	/**
+	 * 这个方法只能为更新数据时，页面初始化时调用，相当于将页面上的，联动控件触发一下联动检查
+	 */
+	var init4Validate = function(editScope,data,globalEditStatus){/**这里需要重置数据的原因是因为有些value会影响到别的控件的显示*/
+		var statusDes = data.statusDes ;
+		//当状态为3的时候，页面不可编辑
+		if(statusDes=='3'){
+			for(var cname in globalEditStatus){
+				globalEditStatus[cname] = false;
 			}
-			//星期
-			var dayofWake = formData.dayOfWeek ;
-			var len = dayofWake.length ;
-			for(var i = 0 ; i < len ; i++){
-				 var s = dayofWake.charAt(i);
-				 var tmpStr = 'w'+s ;
-				 formData.dayOfWeekShow[tmpStr] = true ;//选中checkbox
-			}
-			//处理页面上的复用字表号的placeholder显示字符串
-			//
-			$(":input[name=reuseList172VO]").attr("placeholder",formData['accountCodeTableNo172']) ;
-			$(":input[name=reuseList173TicketVO]").attr("placeholder",formData['ticketDesignatorTableNo173']) ;
-			$(":input[name=reuseList183VO]").attr("placeholder",formData['securityTableNo183']) ;
-			$(":input[name=reuseList198VO]").attr("placeholder",formData['rbdTableNo198']) ;
-			$(":input[name=reuseList198UpgradeVO]").attr("placeholder",formData['upgradeToRbdTableNo198']) ;
-			$(":input[name=reuseList171VO]").attr("placeholder",formData['cxrResFareTableNo171']) ;
-			$(":input[name=reuseList173TktVO]").attr("placeholder",formData['tktDesignatorTableNo173']) ;
-			$(":input[name=reuseList186VO]").attr("placeholder",formData['carrierFlightTableNo186']) ;
-			$(":input[name=reuseList170VO]").attr("placeholder",formData['serviceFeeCurTableNo170']) ;
-			$(":input[name=reuseList196VO]").attr("placeholder",formData['textTableNo196']) ;
-			$(":input[name=reuseList165VO]").attr("placeholder",formData['equipmentTypeTableNo165']) ;
-			$(":input[name=reuseList178Loc1]").attr("placeholder",formData['list178Loc1Id']) ;
-			$(":input[name=reuseList178Loc2]").attr("placeholder",formData['list178Loc2Id']) ;
-			$(":input[name=reuseList178Loc3]").attr("placeholder",formData['list178Loc3Id']) ;
-			//201暂时不支持$(":input[name=reuseList201VO]").attr("placeholder",formData['list201VO']) ;
-			$(":input[name=reuseListTsk202VO]").attr("placeholder",formData['flightPassTableTsk202']) ;
-			
-		};
-		
-		/**
-		 * @功能描述:处理表格被引用次数数据
-		 * @param referenceMap 被引用的次数map数据
-		 * @param editStatus 页面全局的编辑属性
-		 * @param customeEditTbStatus 自定义表格显示状态
-		 */
-		var initCustomeEditTbData = function(editStatus,customeEditTbStatus,formData){
-			var referenceMap = formData['subTbReferenceCountMap'] ;
-			var keys = _.keys(referenceMap);
-			_.each(keys,function(key){
-				var tmp = referenceMap[key] || '0';
-				var count = tmp*1 ;
-				if(count>1){
-					editStatus[key] = false;
-					customeEditTbStatus[key] = true ;
-				}
-			}) ;
+		}
+		validateHelper.changeServiceType(editScope,data,globalEditStatus) ;
+		validateHelper.changeNoChargeNotAvailable(editScope,data,globalEditStatus) ;
+		validateHelper.changeSpecifiedServiceFeeApp(editScope,data,globalEditStatus) ;
+		//区域/部分/全程变化
+		validateHelper.changeGeoSpecSectPortJourney(editScope,data,globalEditStatus) ;
+		//折扣变化
+		validateHelper.changeDiscount(editScope.$parent,data,globalEditStatus) ;
+	};
+
+	//填充页面上的select的初始数据//因为这些数据需要从数据库中查询
+	var initScopeSelectList = function  (editScope,returnData) {
+		editScope.serviceGroupList = returnData.serviceGroupList ;
+		editScope.passengerTypeCodeList = returnData.passengerList ;
+		editScope.frequentFlyerStatusList = returnData.ffpList ;
+		var equipmentList = returnData.equipmentList ;
+		//向返回来的数组中添加一个空的选择option
+		equipmentList.splice(0,0,{"description":"选择","code":""}) ;
+		editScope.equipmentList = equipmentList ;
+		//提前购票时间单位
+		editScope.advancedPurchasePeriodList = jsonDate.advancedPurchasePeriodList ;
+		//延长类型
+		//editScope.effectivePeriodTypeList = jsonDate.effectivePeriodTypeList ;
+		editScope.effectivePeriodTypeList = {
+				list:jsonDataHelper.getEffectivePeriodTypeList(editScope.data.basicInfoVo.subGroup)
+		}
+		//延长时间单位
+		editScope.effectivePeriodUnitList = jsonDate.effectivePeriodUnitList ;
+		//免费/收费
+		editScope.noChargeNotAvailableList = {
+			list:jsonDataHelper.getNoChargeNotAvailableList(editScope.data.serviceType)
+		} ;
+		//适用于
+		editScope.specifiedServiceFeeAppList = {
+			list:jsonDataHelper.getSpecifiedServiceFeeAppList(editScope.data.serviceType)
+		} ;
+		//区域/部分/全程
+		editScope.geoSpecSectPortJourneyList={
+			list:jsonDataHelper.getgeoSpecSectPortJourneyList(editScope.data.serviceType)
+		}
+	};
+
+	//处理edit页面上添加时的后数据处理
+	var dealResultData4Add = function  (promise,editScope) {
+		promise.then(function(returnData) {  // 调用承诺API获取数据 .resolve
+			//初始化数据、测试新增的时候才有意义，上线时此行代码没有意义
+			initListData(editScope.data,editScope.tableStatus) ;
+			//这段初始化数据方法要放在下面，因为内部从scope中取serviceType
+			//不过在添加方法中无所谓了，修改方法中一定要放在下面
+			initScopeSelectList(editScope, returnData) ;
+		}, function(error) {  // 处理错误 .reject
+			console.error('初始化页面数据出错!'+error) ;
+		});
+	} ;
+	//处理edit页面上更新时的后数据处理
+	var dealResult4Update = function (promise,editScope) {
+		promise.then(function(returnData) {  // 调用承诺API获取数据 .resolve
+			//s7record的信息
+			util.convertS7ToFormData(returnData.s7VO,editScope.data) ;//将查询的s7数据填充到formData中
+			initListData(returnData.s7VO,editScope.tableStatus) ;
+			//其他特殊数据处理
+			initOtherData(editScope.data) ;
+			//list163
+			editScope.data.sel4 = returnData.list163 ;
+			//这段初始化数据方法要放在下面，因为内部从scope中取serviceType
+			//但是必须要放在验证之前，因为验证的时候需要对特殊的字段进行处理
+			//这段代码一定要放在init4Validate()前面
+			initScopeSelectList(editScope, returnData) ;
+			//初始化校验页面数据
+			init4Validate(editScope,editScope.data,editScope.editStatus) ;
+			//处理表格被引用次数数据
+			initCustomeEditTbData(editScope.editStatus,editScope.customeEditTbStatus,editScope.data)
+		}, function(error) {  // 处理错误 .reject
+			console.error('初始化页面数据出错!' + error) ;
+		});
+
+	};
+
+
+	var dealResult4Copy = function  (promise,editScope) {
+		promise.then(function(returnData) {  // 调用承诺API获取数据 .resolve
+			//s7record的信息
+			util.convertS7ToFormData(returnData.s7VO,editScope.data) ;//将查询的s7数据填充到formData中
+			initListData(returnData.s7VO,editScope.tableStatus) ;
+			//其他特殊数据处理
+			initOtherData(editScope.data) ;
+			//list163
+			editScope.data.sel4 = returnData.list163 ;
+			//这段初始化数据方法要放在下面，因为内部从scope中取serviceType
+			//这段代码一定要放在init4Validate()前面
+			initScopeSelectList(editScope, returnData) ;
+			//初始化校验页面数据
+			init4Validate(editScope,editScope.data,editScope.editStatus) ;
+			//前面部分与复制一样，但是要清空id
+			editScope.data.id ="" ;
+		}, function(error) {  // 处理错误 .reject
+			console.error('初始化页面数据出错!' + error) ;
+		});
+	} ;
+
+
+
+	//这边是要返回的方法的集合处
+	var EditUtil = {
+		initData:{/*初始化*/
+			dealResultData4Add:dealResultData4Add,
+			dealResult4Update:dealResult4Update,
+			dealResult4Copy:dealResult4Copy
 		}
 
+	} ;
 
-		//这是一个私有的辅助方法
-		var initTbData = function (list,flagData,tbname){
-			if(list.length>0){
-				flagData[tbname] = true ;
-			}else{
-				flagData[tbname] = false ;
-			}
-		};
+	module.exports = EditUtil ;
 
-		var initListData = function (s7VO,flagData){
-			if(s7VO.list170VO.length>0){//170表格
-				initTbData(s7VO.list170VO,flagData ,'list170VO') ;
-			}
-			if(s7VO.list201VO.length>0){//201表格
-				initTbData(s7VO.list201VO,flagData,'list170VO') ;//----11
-			}
-			//198
-			initTbData(s7VO.list198VO,flagData,'list198VO') ;//----9
-			//198_2
-			initTbData(s7VO.list198UpgradeVO,flagData,'list198UpgradeVO') ;//----10
-			//list183VO
-			initTbData(s7VO.list183VO,flagData,'list183VO') ;  //-----1
-			//list186VO
-			initTbData(s7VO.list186VO,flagData,'list186VO') ; //-----7
-			//geo1 //list178Loc1
-			initTbData(s7VO.list178Loc1,flagData,'list178Loc1') ;//--12
-			//geo2 //list178Loc2
-			initTbData(s7VO.list178Loc2,flagData,'list178Loc2') ;//---13
-			//geo3 //list178Loc3
-			initTbData(s7VO.list178Loc3,flagData ,'list178Loc3') ;//----14
-			//196//备注例外行李
-			initTbData(s7VO.list196VO,flagData ,'list196VO') ; //----8
-			//165机型
-			initTbData(s7VO.list165VO,flagData,'list165VO') ;//------6
-			//171
-			initTbData(s7VO.list171VO,flagData,'list171VO') ; //-----2
-			initTbData(s7VO.list172VO,flagData,'list172VO') ; //-----3
-			initTbData(s7VO.list173TicketVO,flagData,'list173TicketVO') ;//------4
-			initTbData(s7VO.list173TktVO,flagData,'list173TktVO') ;//-----5
-			
-			//增加tsk202子表
-			initTbData(s7VO.listTsk202VO,flagData,'listTsk202VO') ;//-----5
-			
-			
-		};
-
-		/**
-		 * 这个方法只能为更新数据时，页面初始化时调用，相当于将页面上的，联动控件触发一下联动检查
-		 */
-		var init4Validate = function(editScope,data,globalEditStatus){/**这里需要重置数据的原因是因为有些value会影响到别的控件的显示*/
-			var statusDes = data.statusDes ;
-			//当状态为3的时候，页面不可编辑
-			if(statusDes=='3'){
-				for(var cname in globalEditStatus){
-					globalEditStatus[cname] = false;
-				}
-			}
-			validateHelper.changeServiceType(editScope,data,globalEditStatus) ;
-			validateHelper.changeNoChargeNotAvailable(editScope,data,globalEditStatus) ;
-			validateHelper.changeSpecifiedServiceFeeApp(editScope,data,globalEditStatus) ;
-			//区域/部分/全程变化
-			validateHelper.changeGeoSpecSectPortJourney(editScope,data,globalEditStatus) ;
-			//折扣变化
-			validateHelper.changeDiscount(editScope.$parent,data,globalEditStatus) ;
-		};
-
-		//填充页面上的select的初始数据//因为这些数据需要从数据库中查询
-		var initScopeSelectList = function  (editScope,returnData) {
-			editScope.serviceGroupList = returnData.serviceGroupList ;
-			editScope.passengerTypeCodeList = returnData.passengerList ;
-			editScope.frequentFlyerStatusList = returnData.ffpList ;
-			var equipmentList = returnData.equipmentList ;
-			//向返回来的数组中添加一个空的选择option
-			equipmentList.splice(0,0,{"description":"选择","code":""}) ;
-			editScope.equipmentList = equipmentList ;
-			//提前购票时间单位
-			editScope.advancedPurchasePeriodList = jsonDate.advancedPurchasePeriodList ;
-			//延长类型
-			//editScope.effectivePeriodTypeList = jsonDate.effectivePeriodTypeList ;
-			editScope.effectivePeriodTypeList = {
-					list:jsonDataHelper.getEffectivePeriodTypeList(editScope.data.basicInfoVo.subGroup) 
-			}
-			//延长时间单位
-			editScope.effectivePeriodUnitList = jsonDate.effectivePeriodUnitList ;
-			//免费/收费
-			editScope.noChargeNotAvailableList = {
-				list:jsonDataHelper.getNoChargeNotAvailableList(editScope.data.serviceType) 
-			} ;
-			//适用于
-			editScope.specifiedServiceFeeAppList = {
-				list:jsonDataHelper.getSpecifiedServiceFeeAppList(editScope.data.serviceType)
-			} ;
-			//区域/部分/全程
-			editScope.geoSpecSectPortJourneyList={
-				list:jsonDataHelper.getgeoSpecSectPortJourneyList(editScope.data.serviceType) 
-			}
-		};
-
-		//处理edit页面上添加时的后数据处理
-		var dealResultData4Add = function  (promise,editScope) {
-			promise.then(function(returnData) {  // 调用承诺API获取数据 .resolve  
-				//初始化数据、测试新增的时候才有意义，上线时此行代码没有意义
-				initListData(editScope.data,editScope.tableStatus) ;
-				//这段初始化数据方法要放在下面，因为内部从scope中取serviceType
-				//不过在添加方法中无所谓了，修改方法中一定要放在下面
-				initScopeSelectList(editScope, returnData) ;
-		    }, function(error) {  // 处理错误 .reject  
-		        console.error('初始化页面数据出错!'+error) ;
-		    }); 
-		} ;
-		//处理edit页面上更新时的后数据处理
-		var dealResult4Update = function (promise,editScope) {
-			promise.then(function(returnData) {  // 调用承诺API获取数据 .resolve  
-				//s7record的信息
-				util.convertS7ToFormData(returnData.s7VO,editScope.data) ;//将查询的s7数据填充到formData中
-				initListData(returnData.s7VO,editScope.tableStatus) ;
-				//其他特殊数据处理
-				initOtherData(editScope.data) ;
-				//list163
-				editScope.data.sel4 = returnData.list163 ;
-				//这段初始化数据方法要放在下面，因为内部从scope中取serviceType
-				//但是必须要放在验证之前，因为验证的时候需要对特殊的字段进行处理
-				//这段代码一定要放在init4Validate()前面
-				initScopeSelectList(editScope, returnData) ;
-				//初始化校验页面数据
-				init4Validate(editScope,editScope.data,editScope.editStatus) ;
-				//处理表格被引用次数数据
-				initCustomeEditTbData(editScope.editStatus,editScope.customeEditTbStatus,editScope.data)
-		    }, function(error) {  // 处理错误 .reject  
-		        console.error('初始化页面数据出错!' + error) ;
-		    }); 
-
-		};
-
-
-		var dealResult4Copy = function  (promise,editScope) {
-			promise.then(function(returnData) {  // 调用承诺API获取数据 .resolve  
-				//s7record的信息
-				util.convertS7ToFormData(returnData.s7VO,editScope.data) ;//将查询的s7数据填充到formData中
-				initListData(returnData.s7VO,editScope.tableStatus) ;
-				//其他特殊数据处理
-				initOtherData(editScope.data) ;
-				//list163
-				editScope.data.sel4 = returnData.list163 ;
-				//这段初始化数据方法要放在下面，因为内部从scope中取serviceType
-				//这段代码一定要放在init4Validate()前面
-				initScopeSelectList(editScope, returnData) ;
-				//初始化校验页面数据
-				init4Validate(editScope,editScope.data,editScope.editStatus) ;
-				//前面部分与复制一样，但是要清空id
-				editScope.data.id ="" ;
-		    }, function(error) {  // 处理错误 .reject  
-		        console.error('初始化页面数据出错!' + error) ;
-		    }); 
-		} ;
-
-
-
-		//这边是要返回的方法的集合处
-		var EditUtil = {
-			initData:{/*初始化*/		
-				dealResultData4Add:dealResultData4Add,
-				dealResult4Update:dealResult4Update,
-				dealResult4Copy:dealResult4Copy
-			}
-
-		} ;	
-
-		return EditUtil ;
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
 
 /***/ },
 /* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
-		var commonUtil = __webpack_require__(23) ;
-		var _ = __webpack_require__(21) ;
-		var jsonDataHelper = __webpack_require__(22) ;
-		
-		//js文件内部私有的工具类
-		var _privateInnerUtil = {} ;
-		_privateInnerUtil.checkIsPageClickFlag = function(isChangeSelectFlag){
-		   //是否是页面点击触发的flag
-			var pageClickFlag = true ;
-			var tmpFlagStr = isChangeSelectFlag +"" ;
-			if(tmpFlagStr=='false'){
-			   pageClickFlag = false;
-			}
-			return pageClickFlag;
+	var commonUtil = __webpack_require__(23) ;
+	var _ = __webpack_require__(21) ;
+	var jsonDataHelper = __webpack_require__(22) ;
+
+	//js文件内部私有的工具类
+	var _privateInnerUtil = {} ;
+	_privateInnerUtil.checkIsPageClickFlag = function(isChangeSelectFlag){
+	   //是否是页面点击触发的flag
+		var pageClickFlag = true ;
+		var tmpFlagStr = isChangeSelectFlag +"" ;
+		if(tmpFlagStr=='false'){
+		   pageClickFlag = false;
 		}
+		return pageClickFlag;
+	}
 
-		//所有置为可能为’可编辑‘的状态时都要判断status是否为3
-		var setEditableByStatus = function(globalEditStatus,name,statusDes){
-			var flag = commonUtil.getEditFlagByStatus(statusDes) ;
-			globalEditStatus[name] = flag;
-		};
-
-
-		var NOTICE_TYPE_SINGLE = "singleChangeByFlagNotice" ;
-		var NOTICE_TYPE_SERVICETYPE = "serviceTypeChangeNotice" ;
+	//所有置为可能为’可编辑‘的状态时都要判断status是否为3
+	var setEditableByStatus = function(globalEditStatus,name,statusDes){
+		var flag = commonUtil.getEditFlagByStatus(statusDes) ;
+		globalEditStatus[name] = flag;
+	};
 
 
+	var NOTICE_TYPE_SINGLE = "singleChangeByFlagNotice" ;
+	var NOTICE_TYPE_SERVICETYPE = "serviceTypeChangeNotice" ;
 
-		var sendNotice2ForceDirctive4ServiceType = function  (scope,needDigest) {
-			scope.$broadcast(NOTICE_TYPE_SERVICETYPE,needDigest+"") ;//scope.$broadcast('serviceTypeChangeNotice') ;
-		};
 
-		var sendNoticeToForceDirctive4Single = function(scope,needDigest,noticeName,showFlag){
+
+	var sendNotice2ForceDirctive4ServiceType = function  (scope,needDigest) {
+		scope.$broadcast(NOTICE_TYPE_SERVICETYPE,needDigest+"") ;//scope.$broadcast('serviceTypeChangeNotice') ;
+	};
+
+	var sendNoticeToForceDirctive4Single = function(scope,needDigest,noticeName,showFlag){
+		scope.$broadcast(NOTICE_TYPE_SINGLE,noticeName,showFlag+"",needDigest+"") ;//适用于
+	};
+
+	var sendNoticeToForceDirctive4SingleArr = function(scope,needDigest,noticeNameFlagList){
+		var len = noticeNameFlagList.length ;
+		for(var i = 0 ; i< len ; i++){
+			var obj = noticeNameFlagList[i] ;
+			var noticeName = obj.name ;
+			var showFlag = obj.flag ;
 			scope.$broadcast(NOTICE_TYPE_SINGLE,noticeName,showFlag+"",needDigest+"") ;//适用于
-		};
-
-		var sendNoticeToForceDirctive4SingleArr = function(scope,needDigest,noticeNameFlagList){
-			var len = noticeNameFlagList.length ;
-			for(var i = 0 ; i< len ; i++){
-				var obj = noticeNameFlagList[i] ;
-				var noticeName = obj.name ;
-				var showFlag = obj.flag ;
-				scope.$broadcast(NOTICE_TYPE_SINGLE,noticeName,showFlag+"",needDigest+"") ;//适用于
-			}
-		};
-
-		/**
-		 * 功能描述:'或/和'控件 更新
-		 * @param editScope 页面上最外层的scope
-		 * @param data      表单FormData服务
-		 * @param globalEditStatus  页面是否可编辑的服务
-		 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
-		 */
-		var updateSpecSevFeeAndOrIndicator = function (editScope,data,globalEditStatus) {
-			//是否是页面点击触发的flag
-			//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
-			var statusDes = data.statusDes;
-			var serviceType = data.serviceType ;
-			var noChargeNotAvailable = data.noChargeNotAvailable ;
-			//全额或折扣(全额:1,折扣:0)
-			var discountOrNot = data.discountOrNot ;
-			var specifiedServiceFeeApp = data.specifiedServiceFeeApp ;//适用于
-			
-			//start**********这部分是为了处理可能存在的历史数据问题进行的特殊置空处理
-			if(_.contains(['H','C','P'],specifiedServiceFeeApp)){
-				data.specSevFeeAndOrIndicator = '' ;
-			}
-			//end**********上面的这段特殊置空处理一定要注意(是为了update页面时，如果‘适用于’为‘H/C/P’则强制将‘里程费’和‘或/和’字段置为空)
-			
-			//serviceType 对'或/和'的影响
-			//当服务类型为A、B、E时或/和一定为‘或’ 
-			//当适用于为'H/C/P'时
-			//2.判断是否可编辑
-			if(_.contains(['A','B','E'], serviceType)||noChargeNotAvailable!=''||discountOrNot=='0'||_.contains(['H','C','P'],specifiedServiceFeeApp)){
-				globalEditStatus.specSevFeeAndOrIndicator= false;
-			}else{//当有机会设置为可编辑时继续判断//也就是说不为行李时才有机会可编辑
-				setEditableByStatus(globalEditStatus,'specSevFeeAndOrIndicator',statusDes) ;
-			}
-		};
-		/**
-		 * 功能描述:更新‘收费组件’
-		 * @param editScope 页面上最外层的scope
-		 * @param data      表单FormData服务
-		 * @param globalEditStatus  页面是否可编辑的服务
-		 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
-		 */
-		var updateNoChargeNotAvailable = function(editScope,data,globalEditStatus){
-			//是否是页面点击触发的flag
-			//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
-			var statusDes = data.statusDes;
-			var serviceType = data.serviceType ;//serviceType
-			//如果是免费则将下面的费用变为不可选择
-			//下面的这点之所以没有设置为不可编辑的原因是因为，
-			//2.判断是否可编辑
-			if(serviceType=='C'||serviceType=='P'){//收费一定为收费且不可编辑
-				globalEditStatus.noChargeNotAvailable= false;
-			}else{//可编辑
-				//还要判断当前status是否等于3
-				setEditableByStatus(globalEditStatus,'noChargeNotAvailable',statusDes) ;
-			}
-			//免费/收费
-			editScope.noChargeNotAvailableList.list= jsonDataHelper.getNoChargeNotAvailableList(serviceType) ;
-
-		};
-		//
-		/**
-		 * 功能描述:‘是否检查库存组件’更新
-		 * @param editScope 页面上最外层的scope
-		 * @param data      表单FormData服务
-		 * @param globalEditStatus  页面是否可编辑的服务
-		 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
-		 */
-		var updateAvailability = function(editScope,data,globalEditStatus){
-			//是否是页面点击触发的flag
-			//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
-			var statusDes = data.statusDes;
-			var serviceType = data.serviceType ;//serviceType
-			//将是否检查库存设置为 ‘否’
-			//2.判断是否可编辑
-			if(_.contains(['A','B','E'],serviceType)){
-				globalEditStatus.availability= false;
-			}else{
-				setEditableByStatus(globalEditStatus,'availability',statusDes) ;
-			}
-		} ;
-		/**
-		 * 功能描述:‘适用于组件’更新
-		 * @param editScope 页面上最外层的scope
-		 * @param data      表单FormData服务
-		 * @param globalEditStatus  页面是否可编辑的服务
-		 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
-		 */
-		var updateSpecifiedServiceFeeApp = function(editScope,data,globalEditStatus){
-			var serviceType = data.serviceType ;//serviceType
-			//适用于
-			editScope.specifiedServiceFeeAppList.list = jsonDataHelper.getSpecifiedServiceFeeAppList(serviceType) ;
-		};
-
-		/**
-		 * 功能描述:‘行李适用范围组件’更新
-		 * @param editScope 页面上最外层的scope
-		 * @param data      表单FormData服务
-		 * @param globalEditStatus  页面是否可编辑的服务
-		 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
-		 */
-		var updatebaggageTravelApplication = function(editScope,data,globalEditStatus){
-			//是否是页面点击触发的flag
-			//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
-			var noChargeNotAvailable = data.noChargeNotAvailable ;
-			var statusDes = data.statusDes ;
-			//2.是否可编辑设置
-			if(noChargeNotAvailable=='D'){
-				globalEditStatus.baggageTravelApplication = false;
-			}else{
-				setEditableByStatus(globalEditStatus,'baggageTravelApplication',statusDes) ;
-			}
-		};
-		
-		/**
-		 * 功能描述:‘是否可退组件’更新
-		 * @param editScope 页面上最外层的scope
-		 * @param data      表单FormData服务
-		 * @param globalEditStatus  页面是否可编辑的服务
-		 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
-		 */
-		var updateIndicatorReissueRefund = function(editScope,data,globalEditStatus){
-			//是否是页面点击触发的flag
-			//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
-			var noChargeNotAvailable = data.noChargeNotAvailable ;
-			var statusDes = data.statusDes ;
-			//2.是否可编辑设置
-			if(_.contains(['X','F','E'],noChargeNotAvailable)){//如果不可点击
-				globalEditStatus.indicatorReissueRefund = false;
-			}else{
-				setEditableByStatus(globalEditStatus,'indicatorReissueRefund',statusDes) ;
-			}
-		};
-		/**
-		 * 功能描述:‘区域/部分/全程’更新
-		 * @param editScope 页面上最外层的scope
-		 * @param data      表单FormData服务
-		 * @param globalEditStatus  页面是否可编辑的服务
-		 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
-		 */
-		var updateGeoSpecSectPortJourney = function  (editScope,data,globalEditStatus) {
-			//是否是页面点击触发的flag
-			//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
-			var serviceType = data.serviceType ;
-			var statusDes = data.statusDes ;
-			//2.判断是否可编辑
-			if(_.contains(['B','E'], serviceType)){//不可编辑
-				globalEditStatus.geoSpecSectPortJourney=false;
-			}else{//如果没有被重置为不可编辑，则这里需要重置是否可编辑
-				setEditableByStatus(globalEditStatus,'geoSpecSectPortJourney',statusDes) ;
-			}
-			editScope.geoSpecSectPortJourneyList.list = jsonDataHelper.getgeoSpecSectPortJourneyList(serviceType) ;
-		};
-		
-		/**
-		 * 功能描述:更新‘里程费’
-		 */
-		var updateSpecifiedServiceFeeMileage = function  (editScope,data,globalEditStatus) {
-			var statusDes = data.statusDes ;
-			//全额或折扣(全额:1,折扣:0)
-			var discountOrNot = data.discountOrNot ;//是否打折
-			var mileageExchangeIndicator = data.mileageExchangeIndicator ;//里程兑换标识
-			var specifiedServiceFeeApp = data.specifiedServiceFeeApp ;//适用于
-			//如果为折扣 则 里程费 必须为空,里程兑换标识为1或2时里程费字段必须为空//或则适用于为'H/C/P时'
-			
-			//start**********这部分是为了处理可能存在的历史数据问题进行的特殊置空处理
-			if(_.contains(['H','C','P'],specifiedServiceFeeApp)){
-				data.specifiedServiceFeeMileage = '' ;
-			}
-			//end**********上面的这段特殊置空处理一定要注意(是为了update页面时，如果‘适用于’为‘H/C/P’则强制将‘里程费’和‘或/和’字段置为空)
-			
-			if(discountOrNot=='0'||mileageExchangeIndicator=='1'||mileageExchangeIndicator=='2'||_.contains(['H','C','P'],specifiedServiceFeeApp)){
-				globalEditStatus.specifiedServiceFeeMileage=false;
-			}else{
-				setEditableByStatus(globalEditStatus,'specifiedServiceFeeMileage',statusDes) ;
-			}
-		};
-		
-		/**
-		 * 功能描述:更新‘里程兑换标识’
-		 */
-		var updateMileageExchangeIndicator = function (editScope,data,globalEditStatus){
-			var statusDes = data.statusDes ;
-			//是否收费
-			var noChargeNotAvailable = data.noChargeNotAvailable ;
-			//全额或折扣(全额:1,折扣:0)
-			var discountOrNot = data.discountOrNot ;
-			//‘或/和’
-			var specSevFeeAndOrIndicator = data.specSevFeeAndOrIndicator ;
-			//适用于字段为'H/C/P'
-			var specifiedServiceFeeApp = data.specifiedServiceFeeApp ;
-			//如果为折扣 则 里程费 必须为空
-			if(noChargeNotAvailable!=''||discountOrNot=='0'||specSevFeeAndOrIndicator=='A'||_.contains(['H','C','P'],specifiedServiceFeeApp)){
-				globalEditStatus.mileageExchangeIndicator=false;
-			}else{
-				setEditableByStatus(globalEditStatus,'mileageExchangeIndicator',statusDes) ;
-			}
-		};
-		
-		/**
-		 * 功能描述:更新期限的延迟类型
-		 */
-		var updateEffectivePeriodType = function(editScope,data,globalEditStatus){
-			var subGroup = data.basicInfoVo.subGroup ;//serviceType
-			editScope.effectivePeriodTypeList.list = jsonDataHelper.getEffectivePeriodTypeList(subGroup) ;
 		}
-		
-		
-		
-		
+	};
+
+	/**
+	 * 功能描述:'或/和'控件 更新
+	 * @param editScope 页面上最外层的scope
+	 * @param data      表单FormData服务
+	 * @param globalEditStatus  页面是否可编辑的服务
+	 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
+	 */
+	var updateSpecSevFeeAndOrIndicator = function (editScope,data,globalEditStatus) {
+		//是否是页面点击触发的flag
+		//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
+		var statusDes = data.statusDes;
+		var serviceType = data.serviceType ;
+		var noChargeNotAvailable = data.noChargeNotAvailable ;
+		//全额或折扣(全额:1,折扣:0)
+		var discountOrNot = data.discountOrNot ;
+		var specifiedServiceFeeApp = data.specifiedServiceFeeApp ;//适用于
+
+		//start**********这部分是为了处理可能存在的历史数据问题进行的特殊置空处理
+		if(_.contains(['H','C','P'],specifiedServiceFeeApp)){
+			data.specSevFeeAndOrIndicator = '' ;
+		}
+		//end**********上面的这段特殊置空处理一定要注意(是为了update页面时，如果‘适用于’为‘H/C/P’则强制将‘里程费’和‘或/和’字段置为空)
+
+		//serviceType 对'或/和'的影响
+		//当服务类型为A、B、E时或/和一定为‘或’
+		//当适用于为'H/C/P'时
+		//2.判断是否可编辑
+		if(_.contains(['A','B','E'], serviceType)||noChargeNotAvailable!=''||discountOrNot=='0'||_.contains(['H','C','P'],specifiedServiceFeeApp)){
+			globalEditStatus.specSevFeeAndOrIndicator= false;
+		}else{//当有机会设置为可编辑时继续判断//也就是说不为行李时才有机会可编辑
+			setEditableByStatus(globalEditStatus,'specSevFeeAndOrIndicator',statusDes) ;
+		}
+	};
+	/**
+	 * 功能描述:更新‘收费组件’
+	 * @param editScope 页面上最外层的scope
+	 * @param data      表单FormData服务
+	 * @param globalEditStatus  页面是否可编辑的服务
+	 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
+	 */
+	var updateNoChargeNotAvailable = function(editScope,data,globalEditStatus){
+		//是否是页面点击触发的flag
+		//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
+		var statusDes = data.statusDes;
+		var serviceType = data.serviceType ;//serviceType
+		//如果是免费则将下面的费用变为不可选择
+		//下面的这点之所以没有设置为不可编辑的原因是因为，
+		//2.判断是否可编辑
+		if(serviceType=='C'||serviceType=='P'){//收费一定为收费且不可编辑
+			globalEditStatus.noChargeNotAvailable= false;
+		}else{//可编辑
+			//还要判断当前status是否等于3
+			setEditableByStatus(globalEditStatus,'noChargeNotAvailable',statusDes) ;
+		}
+		//免费/收费
+		editScope.noChargeNotAvailableList.list= jsonDataHelper.getNoChargeNotAvailableList(serviceType) ;
+
+	};
+	//
+	/**
+	 * 功能描述:‘是否检查库存组件’更新
+	 * @param editScope 页面上最外层的scope
+	 * @param data      表单FormData服务
+	 * @param globalEditStatus  页面是否可编辑的服务
+	 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
+	 */
+	var updateAvailability = function(editScope,data,globalEditStatus){
+		//是否是页面点击触发的flag
+		//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
+		var statusDes = data.statusDes;
+		var serviceType = data.serviceType ;//serviceType
+		//将是否检查库存设置为 ‘否’
+		//2.判断是否可编辑
+		if(_.contains(['A','B','E'],serviceType)){
+			globalEditStatus.availability= false;
+		}else{
+			setEditableByStatus(globalEditStatus,'availability',statusDes) ;
+		}
+	} ;
+	/**
+	 * 功能描述:‘适用于组件’更新
+	 * @param editScope 页面上最外层的scope
+	 * @param data      表单FormData服务
+	 * @param globalEditStatus  页面是否可编辑的服务
+	 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
+	 */
+	var updateSpecifiedServiceFeeApp = function(editScope,data,globalEditStatus){
+		var serviceType = data.serviceType ;//serviceType
+		//适用于
+		editScope.specifiedServiceFeeAppList.list = jsonDataHelper.getSpecifiedServiceFeeAppList(serviceType) ;
+	};
+
+	/**
+	 * 功能描述:‘行李适用范围组件’更新
+	 * @param editScope 页面上最外层的scope
+	 * @param data      表单FormData服务
+	 * @param globalEditStatus  页面是否可编辑的服务
+	 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
+	 */
+	var updatebaggageTravelApplication = function(editScope,data,globalEditStatus){
+		//是否是页面点击触发的flag
+		//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
+		var noChargeNotAvailable = data.noChargeNotAvailable ;
+		var statusDes = data.statusDes ;
+		//2.是否可编辑设置
+		if(noChargeNotAvailable=='D'){
+			globalEditStatus.baggageTravelApplication = false;
+		}else{
+			setEditableByStatus(globalEditStatus,'baggageTravelApplication',statusDes) ;
+		}
+	};
+
+	/**
+	 * 功能描述:‘是否可退组件’更新
+	 * @param editScope 页面上最外层的scope
+	 * @param data      表单FormData服务
+	 * @param globalEditStatus  页面是否可编辑的服务
+	 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
+	 */
+	var updateIndicatorReissueRefund = function(editScope,data,globalEditStatus){
+		//是否是页面点击触发的flag
+		//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
+		var noChargeNotAvailable = data.noChargeNotAvailable ;
+		var statusDes = data.statusDes ;
+		//2.是否可编辑设置
+		if(_.contains(['X','F','E'],noChargeNotAvailable)){//如果不可点击
+			globalEditStatus.indicatorReissueRefund = false;
+		}else{
+			setEditableByStatus(globalEditStatus,'indicatorReissueRefund',statusDes) ;
+		}
+	};
+	/**
+	 * 功能描述:‘区域/部分/全程’更新
+	 * @param editScope 页面上最外层的scope
+	 * @param data      表单FormData服务
+	 * @param globalEditStatus  页面是否可编辑的服务
+	 * @param isChangeSelectFlag 是否是页面改变select的值触发的标志
+	 */
+	var updateGeoSpecSectPortJourney = function  (editScope,data,globalEditStatus) {
+		//是否是页面点击触发的flag
+		//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
+		var serviceType = data.serviceType ;
+		var statusDes = data.statusDes ;
+		//2.判断是否可编辑
+		if(_.contains(['B','E'], serviceType)){//不可编辑
+			globalEditStatus.geoSpecSectPortJourney=false;
+		}else{//如果没有被重置为不可编辑，则这里需要重置是否可编辑
+			setEditableByStatus(globalEditStatus,'geoSpecSectPortJourney',statusDes) ;
+		}
+		editScope.geoSpecSectPortJourneyList.list = jsonDataHelper.getgeoSpecSectPortJourneyList(serviceType) ;
+	};
+
+	/**
+	 * 功能描述:更新‘里程费’
+	 */
+	var updateSpecifiedServiceFeeMileage = function  (editScope,data,globalEditStatus) {
+		var statusDes = data.statusDes ;
+		//全额或折扣(全额:1,折扣:0)
+		var discountOrNot = data.discountOrNot ;//是否打折
+		var mileageExchangeIndicator = data.mileageExchangeIndicator ;//里程兑换标识
+		var specifiedServiceFeeApp = data.specifiedServiceFeeApp ;//适用于
+		//如果为折扣 则 里程费 必须为空,里程兑换标识为1或2时里程费字段必须为空//或则适用于为'H/C/P时'
+
+		//start**********这部分是为了处理可能存在的历史数据问题进行的特殊置空处理
+		if(_.contains(['H','C','P'],specifiedServiceFeeApp)){
+			data.specifiedServiceFeeMileage = '' ;
+		}
+		//end**********上面的这段特殊置空处理一定要注意(是为了update页面时，如果‘适用于’为‘H/C/P’则强制将‘里程费’和‘或/和’字段置为空)
+
+		if(discountOrNot=='0'||mileageExchangeIndicator=='1'||mileageExchangeIndicator=='2'||_.contains(['H','C','P'],specifiedServiceFeeApp)){
+			globalEditStatus.specifiedServiceFeeMileage=false;
+		}else{
+			setEditableByStatus(globalEditStatus,'specifiedServiceFeeMileage',statusDes) ;
+		}
+	};
+
+	/**
+	 * 功能描述:更新‘里程兑换标识’
+	 */
+	var updateMileageExchangeIndicator = function (editScope,data,globalEditStatus){
+		var statusDes = data.statusDes ;
+		//是否收费
+		var noChargeNotAvailable = data.noChargeNotAvailable ;
+		//全额或折扣(全额:1,折扣:0)
+		var discountOrNot = data.discountOrNot ;
+		//‘或/和’
+		var specSevFeeAndOrIndicator = data.specSevFeeAndOrIndicator ;
+		//适用于字段为'H/C/P'
+		var specifiedServiceFeeApp = data.specifiedServiceFeeApp ;
+		//如果为折扣 则 里程费 必须为空
+		if(noChargeNotAvailable!=''||discountOrNot=='0'||specSevFeeAndOrIndicator=='A'||_.contains(['H','C','P'],specifiedServiceFeeApp)){
+			globalEditStatus.mileageExchangeIndicator=false;
+		}else{
+			setEditableByStatus(globalEditStatus,'mileageExchangeIndicator',statusDes) ;
+		}
+	};
+
+	/**
+	 * 功能描述:更新期限的延迟类型
+	 */
+	var updateEffectivePeriodType = function(editScope,data,globalEditStatus){
+		var subGroup = data.basicInfoVo.subGroup ;//serviceType
+		editScope.effectivePeriodTypeList.list = jsonDataHelper.getEffectivePeriodTypeList(subGroup) ;
+	}
 
 
-		module.exports = {
-			changeServiceType:function(editScope,data,globalEditStatus){/*改变serviceType*/
-				var statusDes = data.statusDes;
-				var serviceType = data.serviceType || '' ;//serviceType
-				//更新是否收费组件的信息
-				updateNoChargeNotAvailable(editScope, data, globalEditStatus) ;
-				//更新'或/和'组件的显隐及是否可编辑状态
-				updateSpecSevFeeAndOrIndicator(editScope,data,globalEditStatus) ;
-				//更新是否检查库存
-				updateAvailability(editScope, data, globalEditStatus) ;
-				//适用于
-				updateSpecifiedServiceFeeApp(editScope, data, globalEditStatus) ;
-				//区域/部分/全程
-				updateGeoSpecSectPortJourney(editScope, data, globalEditStatus) ;
-				//更新延迟期限类型的select
-				updateEffectivePeriodType(editScope, data, globalEditStatus) ;
-				
-				//发送广播隐藏或显示组件
-				//editScope.$broadcast('serviceTypeChangeNotice','false') ;//scope.$broadcast('serviceTypeChangeNotice') ;	
-				sendNotice2ForceDirctive4ServiceType(editScope, 'false') ;
-			},
-			changeNoChargeNotAvailable:function(editScope,data,globalEditStatus){/**当改变是否收费的时候*/
-				var serviceType = data.serviceType || '' ;
-				var noChargeNotAvailable = data.noChargeNotAvailable || '';
-				//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
-				//console.info('serviceType : ' + serviceType) ;
-				//服务类型是不是行李附加服务
-				//var isBaggageFlag = commonUtil.checkBaggageServcie(serviceType) ;
-				var in_flag = true ;
+
+
+
+
+	module.exports = {
+		changeServiceType:function(editScope,data,globalEditStatus){/*改变serviceType*/
+			var statusDes = data.statusDes;
+			var serviceType = data.serviceType || '' ;//serviceType
+			//更新是否收费组件的信息
+			updateNoChargeNotAvailable(editScope, data, globalEditStatus) ;
+			//更新'或/和'组件的显隐及是否可编辑状态
+			updateSpecSevFeeAndOrIndicator(editScope,data,globalEditStatus) ;
+			//更新是否检查库存
+			updateAvailability(editScope, data, globalEditStatus) ;
+			//适用于
+			updateSpecifiedServiceFeeApp(editScope, data, globalEditStatus) ;
+			//区域/部分/全程
+			updateGeoSpecSectPortJourney(editScope, data, globalEditStatus) ;
+			//更新延迟期限类型的select
+			updateEffectivePeriodType(editScope, data, globalEditStatus) ;
+
+			//发送广播隐藏或显示组件
+			//editScope.$broadcast('serviceTypeChangeNotice','false') ;//scope.$broadcast('serviceTypeChangeNotice') ;
+			sendNotice2ForceDirctive4ServiceType(editScope, 'false') ;
+		},
+		changeNoChargeNotAvailable:function(editScope,data,globalEditStatus){/**当改变是否收费的时候*/
+			var serviceType = data.serviceType || '' ;
+			var noChargeNotAvailable = data.noChargeNotAvailable || '';
+			//var pageClickFlag = _privateInnerUtil.checkIsPageClickFlag(isChangeSelectFlag) ;
+			//console.info('serviceType : ' + serviceType) ;
+			//服务类型是不是行李附加服务
+			//var isBaggageFlag = commonUtil.checkBaggageServcie(serviceType) ;
+			var in_flag = true ;
+			if(noChargeNotAvailable==''){//如果不为收费这下面的置空
+				in_flag = true ;
+			}else{//免费的时候需要清空填写的信息
+				in_flag = false;//隐藏 适用于，里程，金额
+			}
+			//console.info('是否为行李服务['+isBaggageFlag+']，收费类型为 ['+noChargeNotAvailable+']--X,E,F,G,H--时隐藏，判断结果flag : ' + in_flag) ;
+			//var specifiedServiceFeeApp_specialFlag = true;
+			//当收费类型为D/X/F/E时暂时不做区分是否为行李或则一般附加服务，这里全部都将适用于置为空
+			//这个地方可能还存在一店暂时先把为d时适用于全部置空
+			//specifiedServiceFeeApp_specialFlag = false ;//如果不为d，则进入其他的校验，按照其他的进行
+			//当是否收费为D时  --行李适用范围必须为空
+			//更新'行李适用范围'组件
+			updatebaggageTravelApplication(editScope,data,globalEditStatus) ;
+			//更新’或/和‘组件
+			updateSpecSevFeeAndOrIndicator(editScope,data,globalEditStatus) ;
+			//更新‘是否可退’组件
+			updateIndicatorReissueRefund(editScope,data,globalEditStatus) ;
+			var freeBaggageAllowancePiecesFlag = false ;//因为免费行李件件数控件只有在serviceType=='A'是才能显示
+			//当是否收费为D/O时行李件数必修为空,行李类型必须为A,行李子代码必须为0DF
+			if(serviceType=='A'){
+				if(noChargeNotAvailable=='D'||noChargeNotAvailable=='O'){
+					freeBaggageAllowancePiecesFlag = false ;
+				}else{
+					freeBaggageAllowancePiecesFlag = true ;
+				}
+			}
+			//行李件数置为空//费用//里程//适用于//里程兑换标
+			var noticeNameFlagList = [
+				{"name":"freeBaggageAllowancePieces","flag":freeBaggageAllowancePiecesFlag},{"name":"list170VOAndlist201VO","flag":in_flag},
+				{"name":"specifiedServiceFeeMileage","flag":in_flag},{"name":"specifiedServiceFeeApp","flag":in_flag}
+			] ;
+			sendNoticeToForceDirctive4SingleArr(editScope, "false", noticeNameFlagList) ;
+			/*{"name":"specifiedServiceFeeApp","flag":in_flag}*/
+			//这个地方是只有当适用于不为hcp，并且为收费时才应该显示
+			/*var specifiedServiceFeeApp = data.specifiedServiceFeeApp ;
+			var flag2 = true ;
+			if(_.contains(['H','C','P'],specifiedServiceFeeApp)){
+				flag2 = false;
+			}else{
+				if(noChargeNotAvailable==''){
+					flag2 = true;
+				}else{
+					flag2 = false ;
+				}
+			}
+			sendNoticeToForceDirctive4Single(editScope, "false", "mileageExchangeIndicator", flag2) ;*/
+			updateMileageExchangeIndicator(editScope,data,globalEditStatus) ;
+		},
+		changeSpecifiedServiceFeeApp:function(editScope,data,globalEditStatus){/**当改变适用于的时候*/
+			var serviceType = data.serviceType ||'';
+			var noChargeNotAvailable = data.noChargeNotAvailable || '';
+			var ssfa = data.specifiedServiceFeeApp || '' ;
+			var in_flag = true ;
+			//因为只有行李服务适用于才会有[H,C,P]，所以这里不需要判断serviceType是否为C，P
+			if(ssfa=='H'||ssfa=='C'||ssfa=='P'){
+				in_flag = false;
+			}else{
 				if(noChargeNotAvailable==''){//如果不为收费这下面的置空
 					in_flag = true ;
 				}else{//免费的时候需要清空填写的信息
 					in_flag = false;//隐藏 适用于，里程，金额
 				}
-				//console.info('是否为行李服务['+isBaggageFlag+']，收费类型为 ['+noChargeNotAvailable+']--X,E,F,G,H--时隐藏，判断结果flag : ' + in_flag) ;
-				//var specifiedServiceFeeApp_specialFlag = true;
-				//当收费类型为D/X/F/E时暂时不做区分是否为行李或则一般附加服务，这里全部都将适用于置为空
-				//这个地方可能还存在一店暂时先把为d时适用于全部置空
-				//specifiedServiceFeeApp_specialFlag = false ;//如果不为d，则进入其他的校验，按照其他的进行
-				//当是否收费为D时  --行李适用范围必须为空
-				//更新'行李适用范围'组件
-				updatebaggageTravelApplication(editScope,data,globalEditStatus) ;
-				//更新’或/和‘组件
-				updateSpecSevFeeAndOrIndicator(editScope,data,globalEditStatus) ;
-				//更新‘是否可退’组件
-				updateIndicatorReissueRefund(editScope,data,globalEditStatus) ;
-				var freeBaggageAllowancePiecesFlag = false ;//因为免费行李件件数控件只有在serviceType=='A'是才能显示
-				//当是否收费为D/O时行李件数必修为空,行李类型必须为A,行李子代码必须为0DF
-				if(serviceType=='A'){
-					if(noChargeNotAvailable=='D'||noChargeNotAvailable=='O'){
-						freeBaggageAllowancePiecesFlag = false ;
-					}else{
-						freeBaggageAllowancePiecesFlag = true ;
-					}
-				}
-				//行李件数置为空//费用//里程//适用于//里程兑换标
-				var noticeNameFlagList = [
-					{"name":"freeBaggageAllowancePieces","flag":freeBaggageAllowancePiecesFlag},{"name":"list170VOAndlist201VO","flag":in_flag},
-					{"name":"specifiedServiceFeeMileage","flag":in_flag},{"name":"specifiedServiceFeeApp","flag":in_flag}
-				] ;
-				sendNoticeToForceDirctive4SingleArr(editScope, "false", noticeNameFlagList) ;
-				/*{"name":"specifiedServiceFeeApp","flag":in_flag}*/
-				//这个地方是只有当适用于不为hcp，并且为收费时才应该显示
-				/*var specifiedServiceFeeApp = data.specifiedServiceFeeApp ;
-				var flag2 = true ;
-				if(_.contains(['H','C','P'],specifiedServiceFeeApp)){
-					flag2 = false;
-				}else{
-					if(noChargeNotAvailable==''){
-						flag2 = true;
-					}else{
-						flag2 = false ;
-					}
-				}
-				sendNoticeToForceDirctive4Single(editScope, "false", "mileageExchangeIndicator", flag2) ;*/
-				updateMileageExchangeIndicator(editScope,data,globalEditStatus) ;
-			},
-			changeSpecifiedServiceFeeApp:function(editScope,data,globalEditStatus){/**当改变适用于的时候*/
-				var serviceType = data.serviceType ||'';
-				var noChargeNotAvailable = data.noChargeNotAvailable || '';
-				var ssfa = data.specifiedServiceFeeApp || '' ;
-				var in_flag = true ;
-				//因为只有行李服务适用于才会有[H,C,P]，所以这里不需要判断serviceType是否为C，P
-				if(ssfa=='H'||ssfa=='C'||ssfa=='P'){
-					in_flag = false;
-				}else{
-					if(noChargeNotAvailable==''){//如果不为收费这下面的置空
-						in_flag = true ;
-					}else{//免费的时候需要清空填写的信息
-						in_flag = false;//隐藏 适用于，里程，金额
-					}
-				}
-				//console.info('serviceType : ['+serviceType+'] , ssfa : ['+ssfa+']  , in_flag : ['+in_flag+']' ) ;
-				//$scope.FormEditStatusServcie.noChargeNotAvailable =in_flag;
-				//170，201显示或隐藏
-				//editScope.$broadcast('singleChangeByFlagNotice','list170VOAndlist201VO',in_flag+'','false') ;
-				sendNoticeToForceDirctive4Single(editScope, "false", "list170VOAndlist201VO", in_flag) ;
-				//当适用于改变的时候要更新 ‘里程积分兑换标识’状态
-				updateMileageExchangeIndicator(editScope,data,globalEditStatus) ;
-				//更新‘或/者’字段
-				updateSpecSevFeeAndOrIndicator(editScope,data,globalEditStatus) ;
-				//更新‘里程费’字段
-				updateSpecifiedServiceFeeMileage(editScope,data,globalEditStatus) ;
-				
-			},
-			changeGeoSpecSectPortJourney:function  (editScope,data,globalEditStatus) {
-				/*var geoSpecSectPortJourney = data.geoSpecSectPortJourney || '' ;
-				var noticeName = 'geoSpecLoc1AndType' ;
-				var showFlag = true;
-				if(geoSpecSectPortJourney==''){
-					showFlag = false;
-				}
-				sendNoticeToForceDirctive4Single(editScope,'false',noticeName,showFlag+'') ;*/
-			},
-			changeDiscount:function(editScope,data,globalEditStatus){/*当改变折扣时*/
-				//更新‘或/和’是否可编辑状态
-				updateSpecSevFeeAndOrIndicator(editScope,data,globalEditStatus) ;
-				//更新‘里程费’是否可编辑状态
-				updateSpecifiedServiceFeeMileage(editScope,data,globalEditStatus) ;
-				//更新'里程兑换标识'
-				updateMileageExchangeIndicator(editScope,data,globalEditStatus) ;
-			},
-			changeSpecSevFeeAndOrIndicator:function(editScope,data,globalEditStatus){/*当改变‘或/和’时*/
-				//更新'里程兑换标识'
-				updateMileageExchangeIndicator(editScope,data,globalEditStatus) ;
-			},
-			changeMileageExchangeIndicator:function(editScope,data,globalEditStatus){/*当改变‘里程兑换标识’时*/
-				//更新‘里程费’是否可编辑状态
-				updateSpecifiedServiceFeeMileage(editScope,data,globalEditStatus) ;
 			}
-		} ;
+			//console.info('serviceType : ['+serviceType+'] , ssfa : ['+ssfa+']  , in_flag : ['+in_flag+']' ) ;
+			//$scope.FormEditStatusServcie.noChargeNotAvailable =in_flag;
+			//170，201显示或隐藏
+			//editScope.$broadcast('singleChangeByFlagNotice','list170VOAndlist201VO',in_flag+'','false') ;
+			sendNoticeToForceDirctive4Single(editScope, "false", "list170VOAndlist201VO", in_flag) ;
+			//当适用于改变的时候要更新 ‘里程积分兑换标识’状态
+			updateMileageExchangeIndicator(editScope,data,globalEditStatus) ;
+			//更新‘或/者’字段
+			updateSpecSevFeeAndOrIndicator(editScope,data,globalEditStatus) ;
+			//更新‘里程费’字段
+			updateSpecifiedServiceFeeMileage(editScope,data,globalEditStatus) ;
 
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+		},
+		changeGeoSpecSectPortJourney:function  (editScope,data,globalEditStatus) {
+			/*var geoSpecSectPortJourney = data.geoSpecSectPortJourney || '' ;
+			var noticeName = 'geoSpecLoc1AndType' ;
+			var showFlag = true;
+			if(geoSpecSectPortJourney==''){
+				showFlag = false;
+			}
+			sendNoticeToForceDirctive4Single(editScope,'false',noticeName,showFlag+'') ;*/
+		},
+		changeDiscount:function(editScope,data,globalEditStatus){/*当改变折扣时*/
+			//更新‘或/和’是否可编辑状态
+			updateSpecSevFeeAndOrIndicator(editScope,data,globalEditStatus) ;
+			//更新‘里程费’是否可编辑状态
+			updateSpecifiedServiceFeeMileage(editScope,data,globalEditStatus) ;
+			//更新'里程兑换标识'
+			updateMileageExchangeIndicator(editScope,data,globalEditStatus) ;
+		},
+		changeSpecSevFeeAndOrIndicator:function(editScope,data,globalEditStatus){/*当改变‘或/和’时*/
+			//更新'里程兑换标识'
+			updateMileageExchangeIndicator(editScope,data,globalEditStatus) ;
+		},
+		changeMileageExchangeIndicator:function(editScope,data,globalEditStatus){/*当改变‘里程兑换标识’时*/
+			//更新‘里程费’是否可编辑状态
+			updateSpecifiedServiceFeeMileage(editScope,data,globalEditStatus) ;
+		}
+	} ;
+
+
 
 /***/ },
 /* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module) {
-		var util = {};
-		//将查询的s7数据转换为‘FormData’
-		util.convertS7ToFormData = function(s7,formData){
-			for(var p in formData) {
-				var flag =  s7.hasOwnProperty(p);
-				if(flag){
-					var tmpStr = s7[p]  ;
-					formData[p] =  tmpStr ;
+	var _ = __webpack_require__(21) ;
+	var util = {};
+	//将查询的s7数据转换为‘FormData’
+	util.convertS7ToFormData = function(s7,formData){
+		for(var p in formData) {
+			var flag =  s7.hasOwnProperty(p);
+			if(flag){
+				var tmpStr = s7[p]  ;
+				formData[p] =  tmpStr ;
+			}
+		}
+		//2.填充部分特殊数据
+		formData.sel1.showStr = s7.basicInfoVo.serviceGroupDescription ;
+		formData.sel2.showStr = s7.basicInfoVo.subGroupDescription ;
+		formData.sel3.showStr = s7.basicInfoVo.commercialName ;
+		formData.sel1.value = s7.basicInfoVo.serviceGroup ;
+		formData.sel2.value = s7.basicInfoVo.subGroup ;
+		formData.sel3.value = s7.basicInfoVo.subCode ;
+
+	}
+
+	//提交表单时将formData转换为s7
+	util.convertFormDataToS7 = function(formData){
+		var s7 = {} ;
+		angular.extend(s7,formData) ;
+		util.initTravelDate(s7) ;
+		util.initDayOfWeek(s7) ;
+		//处理部分特殊数据
+		//删除后台不存在的属性字段
+		delete s7.sel1 ;
+		delete s7.sel2 ;
+		delete s7.sel3 ;
+		delete s7.travelStartDate ;
+		delete s7.travelEndDate ;
+		delete s7.dayOfWeekShow ;
+		return s7 ;
+	}
+
+
+	util.initTravelDate =function (s7){
+		var arr1 = util.getDateArr(s7.travelStartDate) ;
+		var arr2 = util.getDateArr(s7.travelEndDate) ;
+		s7.firstTravelYear = arr1[0] ;
+		s7.firstTravelMonth = arr1[1] ;
+		s7.firstTravelDay = arr1[2] ;
+		//
+		s7.lastTravelYear = arr2[0] ;
+		s7.lastTravelMonth = arr2[1] ;
+		s7.lastTravelDay= arr2[2] ;
+	}
+
+	util.initDayOfWeek =function (s7){
+		var dayOfWeekShow = s7.dayOfWeekShow ;
+		var str = ""  ;
+		var index = 1 ;
+		for(var t in dayOfWeekShow){
+		var value = dayOfWeekShow[t] ;
+			if(value){
+				str+= index;
+			}
+			index ++ ;
+		}
+		s7.dayOfWeek = str ;
+	}
+
+	//检查金额是否不为空
+	var checkMemonyIsNotNull = function  (data) {
+		var list170 = data['list170VO'] ;
+		var list201 = data['list201VO'] ;
+		if(list170.length==0&&list201.length==0){
+			return false;
+		}
+		return true ;
+	}
+
+	//判断金额是否为空
+	var testFreeIsNull = function  (data) {
+		var list170 = data['list170VO'] ;
+		var list201 = data['list201VO'] ;
+		if(list170.length>0||list201.length>0){
+			return false ;
+		}
+		return true;
+	};
+
+
+
+	//检查区域1字段是否为空
+	var checkLoc1IsNull = function  (formData) {
+		var geoSpecLoc1Type = formData['geoSpecLoc1Type'] || '' ;
+		var geoSpecLoc1 = formData['geoSpecLoc1'] ;
+		var list178Loc1 = formData['list178Loc1'] ;
+		if( (geoSpecLoc1Type==''||geoSpecLoc1=='')&&list178Loc1.length==0){
+			return true ;
+		}
+		return false;
+	};
+	//检查区域1字段是否为空
+	var checkLoc2IsNull = function  (formData) {
+		var geoSpecLoc2Type = formData['geoSpecLoc2Type'] || '' ;
+		var geoSpecLoc2 = formData['geoSpecLoc2'] ;
+		var list178Loc2 = formData['list178Loc2'] ;
+		if( (geoSpecLoc2Type==''||geoSpecLoc2=='')&&list178Loc2.length==0){
+			return true ;
+		}
+		return false;
+	};
+
+	//检查区域1字段是否为空
+	var checkLoc3IsNull = function  (formData) {
+		var geoSpecLoc3Type = formData['geoSpecLoc3Type'] || '' ;
+		var geoSpecLoc3 = formData['geoSpecLoc3'] ;
+		var list178Loc3 = formData['list178Loc3'] ;
+		if( (geoSpecLoc3Type==''||geoSpecLoc3=='')&&list178Loc3.length==0){
+			return true ;
+		}
+		return false;
+	};
+
+
+
+	//校验交单数据是否可以提交
+	util.validFormData = function(formData ,orgFormData){
+		var serviceType = formData['serviceType'] ;
+		//第一个校验
+		//其他校验
+		//1.表格数据校验[删除表格中的非法数据:eg:第一个字段为空的假数据]
+		util.delInValidList(formData) ;
+		util.dealOtherData(formData) ;
+		//如果适用于为h，c，p
+		var hcpFlag = _.contains(['H','C','P'], formData['specifiedServiceFeeApp']) ;
+		//console.info("--------------------> " +hcpFlag + "   , " + formData['specifiedServiceFeeApp'] )  ;
+		/**1.当收费为收费时,如果适用于不为H,C,P时，金额字段必填，否则金额或则里程费两个不能同时为空*/
+		if(formData['noChargeNotAvailable']==''&&!hcpFlag){
+			var freeIsNullFlag = testFreeIsNull(formData) ;
+			if(formData['specSevFeeAndOrIndicator']=='A'){//或、和字段值为A时
+				if(freeIsNullFlag){
+					$.showTuiErrorDialog('您选择的支付方式为金额和里程，请填写金额!') ;
+					return false;
+				}
+			}else{//
+				if(formData['specifiedServiceFeeMileage'].length==0&&freeIsNullFlag){//如果里程费为空
+					$.showTuiErrorDialog('请填写金额或里程费!') ;
+					return false;
 				}
 			}
-			//2.填充部分特殊数据
-			formData.sel1.showStr = s7.basicInfoVo.serviceGroupDescription ;
-			formData.sel2.showStr = s7.basicInfoVo.subGroupDescription ;
-			formData.sel3.showStr = s7.basicInfoVo.commercialName ;
-			formData.sel1.value = s7.basicInfoVo.serviceGroup ;
-			formData.sel2.value = s7.basicInfoVo.subGroup ;
-			formData.sel3.value = s7.basicInfoVo.subCode ;
-			
 		}
-		
-		//提交表单时将formData转换为s7
-		util.convertFormDataToS7 = function(formData){
-			var s7 = {} ;
-			angular.extend(s7,formData) ;
-			util.initTravelDate(s7) ;
-			util.initDayOfWeek(s7) ;
-			//处理部分特殊数据
-			//删除后台不存在的属性字段
-			delete s7.sel1 ;
-			delete s7.sel2 ;
-			delete s7.sel3 ;
-			delete s7.travelStartDate ;
-			delete s7.travelEndDate ;
-			delete s7.dayOfWeekShow ;
-			return s7 ;
-		}
-		
-		
-		util.initTravelDate =function (s7){
-			var arr1 = util.getDateArr(s7.travelStartDate) ;
-			var arr2 = util.getDateArr(s7.travelEndDate) ;
-			s7.firstTravelYear = arr1[0] ;
-			s7.firstTravelMonth = arr1[1] ;
-			s7.firstTravelDay = arr1[2] ;
-			//
-			s7.lastTravelYear = arr2[0] ;
-			s7.lastTravelMonth = arr2[1] ;
-			s7.lastTravelDay= arr2[2] ;
-		}
-		
-		util.initDayOfWeek =function (s7){
-			var dayOfWeekShow = s7.dayOfWeekShow ;
-			var str = ""  ;
-			var index = 1 ;
-			for(var t in dayOfWeekShow){
-	      	var value = dayOfWeekShow[t] ;
-				if(value){
-					str+= index;
-				}
-				index ++ ;
-			}
-			s7.dayOfWeek = str ;
-		}
-		
-		//检查金额是否不为空
-		var checkMemonyIsNotNull = function  (data) {
-			var list170 = data['list170VO'] ;
-			var list201 = data['list201VO'] ;
-			if(list170.length==0&&list201.length==0){
+
+		var loc1IsNullFlag = checkLoc1IsNull(formData) ;
+		var loc2IsNullFlag = checkLoc2IsNull(formData) ;
+		var loc3IsNullFlag = checkLoc3IsNull(formData) ;
+		if(formData['geoSpecFromToWithin']!=''){//如果不为不限区域则区域必填
+			if(loc1IsNullFlag){
+				$.showTuiErrorDialog('【区域限制】选择的不是“不限区域”，【区域1】必填！');
 				return false;
 			}
-			return true ;
+		}
+		if (formData['geoSpecFromToWithin'] == 'W') {
+			if(!loc2IsNullFlag||!loc3IsNullFlag){
+				$.showTuiErrorDialog('【区域限制】选择了“区域1内部”，【区域2】和【经过区域】不能有值！');
+				return false;
+			}
 		}
 
-		//判断金额是否为空
-		var testFreeIsNull = function  (data) {
-			var list170 = data['list170VO'] ;
-			var list201 = data['list201VO'] ;
-			if(list170.length>0||list201.length>0){
-				return false ;
+		//当‘区域/部分/全程’
+		var geoSpecSectPortJourney = formData['geoSpecSectPortJourney'] || '';
+		//区域限制
+		var geoSpecFromToWithin = formData['geoSpecFromToWithin'] || '';
+		//经停类型
+		var geoSpecStopConnDes = formData['geoSpecStopConnDes'] || '';
+		if(geoSpecSectPortJourney==''){
+			if(!loc1IsNullFlag){
+				$.showTuiErrorDialog('【Sector/Portion/Journey】为空，【区域1】必须为空!');
+				return false;
 			}
-			return true;
-		};
-
-
-
-		//检查区域1字段是否为空
-		var checkLoc1IsNull = function  (formData) {
-			var geoSpecLoc1Type = formData['geoSpecLoc1Type'] || '' ;
-			var geoSpecLoc1 = formData['geoSpecLoc1'] ;
-			var list178Loc1 = formData['list178Loc1'] ;
-			if( (geoSpecLoc1Type==''||geoSpecLoc1=='')&&list178Loc1.length==0){
-				return true ;
+		}else if(geoSpecSectPortJourney=='P'){//loc1必须有值
+			var astr = '' ;
+			var flag2= (loc2IsNullFlag&&geoSpecFromToWithin!='W'&&geoSpecStopConnDes!='T') ;
+			if(loc1IsNullFlag&&flag2){
+				astr = '【sector/portion/journey】选择了portion，【区域1】必填，且：【区域2】有值，或者【区域限制】选择“区域1内部”，或者【经停类型】字段填“T”!' ;
+				$.showTuiErrorDialog(astr);
+				return false;
+			}else if (loc1IsNullFlag){
+				astr = '【Sector/Portion/Journey】选择了Portion，【区域1】必填!' ;
+				$.showTuiErrorDialog(astr);
+				return false;
+			}else if(flag2){
+				astr = '【Sector/Portion/Journey】选择了Portion，【区域2】必填，或者【区域限制】选择“区域1内部”，或者【经停类型】字段填“T”!' ;
+				$.showTuiErrorDialog(astr);
+				return false;
 			}
-			return false;
-		};
-		//检查区域1字段是否为空
-		var checkLoc2IsNull = function  (formData) {
-			var geoSpecLoc2Type = formData['geoSpecLoc2Type'] || '' ;
-			var geoSpecLoc2 = formData['geoSpecLoc2'] ;
-			var list178Loc2 = formData['list178Loc2'] ;
-			if( (geoSpecLoc2Type==''||geoSpecLoc2=='')&&list178Loc2.length==0){
-				return true ;
+		}else if (geoSpecSectPortJourney=='J'){
+			if(loc1IsNullFlag||loc2IsNullFlag){
+				$.showTuiErrorDialog('【Sector/Portion/Journey】选择了Journey，【区域1】和【区域2】必填!');
+				return false;
 			}
-			return false;
-		};
-
-		//检查区域1字段是否为空
-		var checkLoc3IsNull = function  (formData) {
-			var geoSpecLoc3Type = formData['geoSpecLoc3Type'] || '' ;
-			var geoSpecLoc3 = formData['geoSpecLoc3'] ;
-			var list178Loc3 = formData['list178Loc3'] ;
-			if( (geoSpecLoc3Type==''||geoSpecLoc3=='')&&list178Loc3.length==0){
-				return true ;
-			}
-			return false;
-		};
-
-
-
-		//校验交单数据是否可以提交
-		util.validFormData = function(formData ,orgFormData){
-			var serviceType = formData['serviceType'] ;
-			//第一个校验
-			//其他校验
-			//1.表格数据校验[删除表格中的非法数据:eg:第一个字段为空的假数据]
-			util.delInValidList(formData) ;
-			util.dealOtherData(formData) ;
-			//如果适用于为h，c，p
-			var hcpFlag = _.contains(['H','C','P'], formData['specifiedServiceFeeApp']) ;
-			//console.info("--------------------> " +hcpFlag + "   , " + formData['specifiedServiceFeeApp'] )  ;
-			/**1.当收费为收费时,如果适用于不为H,C,P时，金额字段必填，否则金额或则里程费两个不能同时为空*/
-			if(formData['noChargeNotAvailable']==''&&!hcpFlag){
-				var freeIsNullFlag = testFreeIsNull(formData) ;
-				if(formData['specSevFeeAndOrIndicator']=='A'){//或、和字段值为A时
-					if(freeIsNullFlag){
-						$.showTuiErrorDialog('您选择的支付方式为金额和里程，请填写金额!') ;
-						return false;
-					}	
-				}else{//
-					if(formData['specifiedServiceFeeMileage'].length==0&&freeIsNullFlag){//如果里程费为空
-						$.showTuiErrorDialog('请填写金额或里程费!') ;
-						return false;
-					}
-				}
-			}
-			
-			var loc1IsNullFlag = checkLoc1IsNull(formData) ;
-			var loc2IsNullFlag = checkLoc2IsNull(formData) ;
-			var loc3IsNullFlag = checkLoc3IsNull(formData) ;
-			if(formData['geoSpecFromToWithin']!=''){//如果不为不限区域则区域必填
-				if(loc1IsNullFlag){
-					$.showTuiErrorDialog('【区域限制】选择的不是“不限区域”，【区域1】必填！');
-					return false;
-				}
-			}
-			if (formData['geoSpecFromToWithin'] == 'W') {
-				if(!loc2IsNullFlag||!loc3IsNullFlag){
-					$.showTuiErrorDialog('【区域限制】选择了“区域1内部”，【区域2】和【经过区域】不能有值！');
-					return false;
-				}
-			}
-
-			//当‘区域/部分/全程’
-			var geoSpecSectPortJourney = formData['geoSpecSectPortJourney'] || '';
-			//区域限制
-			var geoSpecFromToWithin = formData['geoSpecFromToWithin'] || '';
-			//经停类型
-			var geoSpecStopConnDes = formData['geoSpecStopConnDes'] || '';
-			if(geoSpecSectPortJourney==''){
-				if(!loc1IsNullFlag){
-					$.showTuiErrorDialog('【Sector/Portion/Journey】为空，【区域1】必须为空!');
-					return false;
-				}
-			}else if(geoSpecSectPortJourney=='P'){//loc1必须有值
-				var astr = '' ;
-				var flag2= (loc2IsNullFlag&&geoSpecFromToWithin!='W'&&geoSpecStopConnDes!='T') ;
-				if(loc1IsNullFlag&&flag2){
-					astr = '【sector/portion/journey】选择了portion，【区域1】必填，且：【区域2】有值，或者【区域限制】选择“区域1内部”，或者【经停类型】字段填“T”!' ;
-					$.showTuiErrorDialog(astr);
-					return false;
-				}else if (loc1IsNullFlag){
-					astr = '【Sector/Portion/Journey】选择了Portion，【区域1】必填!' ;
-					$.showTuiErrorDialog(astr);
-					return false;
-				}else if(flag2){
-					astr = '【Sector/Portion/Journey】选择了Portion，【区域2】必填，或者【区域限制】选择“区域1内部”，或者【经停类型】字段填“T”!' ;
-					$.showTuiErrorDialog(astr);
-					return false;
-				}
-			}else if (geoSpecSectPortJourney=='J'){
-				if(loc1IsNullFlag||loc2IsNullFlag){
-					$.showTuiErrorDialog('【Sector/Portion/Journey】选择了Journey，【区域1】和【区域2】必填!');
-					return false;
-				}
-			}
-			//里程如果最大值没有填写则置为最大值5个9
-			if(formData.mileageMaximum==''){
-				formData.mileageMaximum = '99999' ;
-			}
-			return true ;
 		}
-		
-		//处理表单其他数据
-		util.dealOtherData = function(formData){
-			var serviceType = formData.serviceType ;
-			if(serviceType=='A'){
-				formData.firstExcessOccurrence = "" ;
-				formData.lastExcessOccurrence = "" ;
-			}
-			if(serviceType=='C'||serviceType=='P'){
-				if(formData.firstExcessOccurrence.length>0){
-					if(formData.lastExcessOccurrence == ""){//若后者不填写，则后者默认等于前者
-						formData.lastExcessOccurrence = formData.firstExcessOccurrence ;
-					}
+		//里程如果最大值没有填写则置为最大值5个9
+		if(formData.mileageMaximum==''){
+			formData.mileageMaximum = '99999' ;
+		}
+		return true ;
+	}
+
+	//处理表单其他数据
+	util.dealOtherData = function(formData){
+		var serviceType = formData.serviceType ;
+		if(serviceType=='A'){
+			formData.firstExcessOccurrence = "" ;
+			formData.lastExcessOccurrence = "" ;
+		}
+		if(serviceType=='C'||serviceType=='P'){
+			if(formData.firstExcessOccurrence.length>0){
+				if(formData.lastExcessOccurrence == ""){//若后者不填写，则后者默认等于前者
+					formData.lastExcessOccurrence = formData.firstExcessOccurrence ;
 				}
 			}
 		}
-		
-		util.strNotNull = function(str){
-			var tmp = str || "" ;
-			tmp = $.trim(tmp+"") ;
+	}
+
+	util.strNotNull = function(str){
+		var tmp = str || "" ;
+		tmp = $.trim(tmp+"") ;
+		var flag = false;
+		if(tmp.length>0){
+			flag = true ;
+		}
+		return flag ;
+	}
+
+
+	/**
+	 * <pre>
+	 * 	删除表格中无效数据
+	 * </pre>
+	 * @param {Object} formData
+	 */
+	util.delInValidList = function(formData){
+		//170表格
+		var t170 = [] ;
+		angular.forEach(formData.list170VO,function(m){
+			if(util.strNotNull(m.specFeeAmount)){//如果存在的话
+				t170.push(m) ;
+			}
+		}) ;
+		//list198VO
+		var t198 = [] ;
+		angular.forEach(formData.list198VO,function(m){
+			if(util.strNotNull(m.mktOp)){
+				t198.push(m) ;
+			}
+		}) ;
+		formData.list198VO = t198 ;
+		//list198UpgradeVO
+		var t198up = [] ;
+		angular.forEach(formData.list198UpgradeVO,function(m){
+			if(util.strNotNull(m.rbd1)){
+				t198up.push(m) ;
+			}
+		}) ;
+		formData.list198UpgradeVO = t198up ;
+		//list183VO
+		var t183 = [] ;
+		angular.forEach(formData.list183VO,function(m){
 			var flag = false;
-			if(tmp.length>0){
-				flag = true ;
-			}
-			return flag ;
-		}
-		
-		
-		/**
-		 * <pre>
-		 * 	删除表格中无效数据
-		 * </pre>
-		 * @param {Object} formData
-		 */
-		util.delInValidList = function(formData){
-			//170表格
-			var t170 = [] ;
-			angular.forEach(formData.list170VO,function(m){
-				if(util.strNotNull(m.specFeeAmount)){//如果存在的话
-					t170.push(m) ;
-				}
-			}) ;
-			//list198VO
-			var t198 = [] ;
-			angular.forEach(formData.list198VO,function(m){
-				if(util.strNotNull(m.mktOp)){
-					t198.push(m) ;
-				}
-			}) ;
-			formData.list198VO = t198 ;
-			//list198UpgradeVO
-			var t198up = [] ;
-			angular.forEach(formData.list198UpgradeVO,function(m){
-				if(util.strNotNull(m.rbd1)){
-					t198up.push(m) ;
-				}
-			}) ;
-			formData.list198UpgradeVO = t198up ;
-			//list183VO
-			var t183 = [] ;
-			angular.forEach(formData.list183VO,function(m){
-				var flag = false;
-				for(var p in m){
-					var v = m[p] ;
-					if(util.strNotNull(v)){
-						flag = true ;
-						break ;
-					}
-				}
-				if(flag){
-					t183.push(m) ;	
-				}
-			}) ;
-			formData.list183VO = t183 ;
-			//list186VO
-			var t186 = [] ;
-			angular.forEach(formData.list186VO,function(m){
-				if(util.strNotNull(m.fltNo1)){
-					t186.push(m) ;
-				}
-			}) ;
-			formData.list186VO = t186 ;
-			//list178Loc1
-			var tloc1 = [] ;
-			angular.forEach(formData.list178Loc1,function(m){
-				if(util.strNotNull(m.geoLocType)){
-					tloc1.push(m) ;
-				}
-			}) ;
-			formData.list178Loc1 = tloc1 ;
-			//list178Loc2
-			var tloc2 = [] ;
-			angular.forEach(formData.list178Loc2,function(m){
-				if(util.strNotNull(m.geoLocType)){
-					tloc2.push(m) ;
-				}
-			}) ;
-			formData.list178Loc2 = tloc2 ;
-			//list178Loc3
-			var tloc3 = [] ;
-			angular.forEach(formData.list178Loc3,function(m){
-				if(util.strNotNull(m.geoLocType.length)){
-					tloc3.push(m) ;
-				}
-			}) ;
-			formData.list178Loc3 = tloc3 ;
-			//行李件数表格处理
-			var t196 = [] ;
-			angular.forEach(formData.list196VO,function(m){
-				if(util.strNotNull(m.count)&&util.strNotNull(m.code)){
-					t196.push(m) ;
-				}
-			}) ;
-			formData.list196VO = t196 ;
-			//171表格无效数据删除
-			var t171 = [] ;
-			angular.forEach(formData.list171VO,function(m){
-				if(util.strNotNull(m.carrier)){
-					t171.push(m) ;
-				}
-			}) ;
-			formData.list171VO = t171 ;
-			//172表格删除无效数据
-			var t172 = [] ;
-			angular.forEach(formData.list172VO,function(m){
-				if(util.strNotNull(m.accountCode)){
-					t172.push(m) ;
-				}
-			}) ;
-			formData.list172VO = t172 ;
-			//173-1表格删除无效数据
-			var t173_1 = [] ;
-			angular.forEach(formData.list173TicketVO,function(m){
-				if(util.strNotNull(m.ticketDesignator)){
-					t173_1.push(m) ;
-				}
-			}) ;
-			formData.list173TicketVO = t173_1 ;
-			//173-2表格删除无效数据
-			var t173_2 = [] ;
-			angular.forEach(formData.list173TktVO,function(m){
-				if(m.ticketDesignator.length>0 ){
-					t173_2.push(m) ;
-				}
-			}) ;
-			formData.list173TktVO = t173_2 ;
-			//165
-			var t165 = [] ;
-			angular.forEach(formData.list165VO,function(m){
-				if(m.equipmentCode.length>0){//如果存在的话
-					t165.push(m) ;
-				}
-			}) ;
-			formData.list165VO = t165 ;
-		}
-		
-		util.getDate = function (str) {
-			var strs = str.split('-');
-			var year = strs[0];
-			var month = strs[1];
-			var day = strs[2];
-			return new Date(year, month-1, day);
-		};
-		
-		util.getDateArr = function (str) {
-			var arr = [] ;
-			var year = '' ;
-			var month = '' ;
-			var day  = '' ;
-			if(str.length>0){
-				var infos = str.split('-');
-				if(infos.length==3){
-					arr.push(infos[0]) ;
-					arr.push(infos[1]) ;
-					arr.push(infos[2]) ;
+			for(var p in m){
+				var v = m[p] ;
+				if(util.strNotNull(v)){
+					flag = true ;
+					break ;
 				}
 			}
-			return arr ;
-		};
-		
-		module.exports = util ;
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			if(flag){
+				t183.push(m) ;
+			}
+		}) ;
+		formData.list183VO = t183 ;
+		//list186VO
+		var t186 = [] ;
+		angular.forEach(formData.list186VO,function(m){
+			if(util.strNotNull(m.fltNo1)){
+				t186.push(m) ;
+			}
+		}) ;
+		formData.list186VO = t186 ;
+		//list178Loc1
+		var tloc1 = [] ;
+		angular.forEach(formData.list178Loc1,function(m){
+			if(util.strNotNull(m.geoLocType)){
+				tloc1.push(m) ;
+			}
+		}) ;
+		formData.list178Loc1 = tloc1 ;
+		//list178Loc2
+		var tloc2 = [] ;
+		angular.forEach(formData.list178Loc2,function(m){
+			if(util.strNotNull(m.geoLocType)){
+				tloc2.push(m) ;
+			}
+		}) ;
+		formData.list178Loc2 = tloc2 ;
+		//list178Loc3
+		var tloc3 = [] ;
+		angular.forEach(formData.list178Loc3,function(m){
+			if(util.strNotNull(m.geoLocType.length)){
+				tloc3.push(m) ;
+			}
+		}) ;
+		formData.list178Loc3 = tloc3 ;
+		//行李件数表格处理
+		var t196 = [] ;
+		angular.forEach(formData.list196VO,function(m){
+			if(util.strNotNull(m.count)&&util.strNotNull(m.code)){
+				t196.push(m) ;
+			}
+		}) ;
+		formData.list196VO = t196 ;
+		//171表格无效数据删除
+		var t171 = [] ;
+		angular.forEach(formData.list171VO,function(m){
+			if(util.strNotNull(m.carrier)){
+				t171.push(m) ;
+			}
+		}) ;
+		formData.list171VO = t171 ;
+		//172表格删除无效数据
+		var t172 = [] ;
+		angular.forEach(formData.list172VO,function(m){
+			if(util.strNotNull(m.accountCode)){
+				t172.push(m) ;
+			}
+		}) ;
+		formData.list172VO = t172 ;
+		//173-1表格删除无效数据
+		var t173_1 = [] ;
+		angular.forEach(formData.list173TicketVO,function(m){
+			if(util.strNotNull(m.ticketDesignator)){
+				t173_1.push(m) ;
+			}
+		}) ;
+		formData.list173TicketVO = t173_1 ;
+		//173-2表格删除无效数据
+		var t173_2 = [] ;
+		angular.forEach(formData.list173TktVO,function(m){
+			if(m.ticketDesignator.length>0 ){
+				t173_2.push(m) ;
+			}
+		}) ;
+		formData.list173TktVO = t173_2 ;
+		//165
+		var t165 = [] ;
+		angular.forEach(formData.list165VO,function(m){
+			if(m.equipmentCode.length>0){//如果存在的话
+				t165.push(m) ;
+			}
+		}) ;
+		formData.list165VO = t165 ;
+	}
+
+	util.getDate = function (str) {
+		var strs = str.split('-');
+		var year = strs[0];
+		var month = strs[1];
+		var day = strs[2];
+		return new Date(year, month-1, day);
+	};
+
+	util.getDateArr = function (str) {
+		var arr = [] ;
+		var year = '' ;
+		var month = '' ;
+		var day  = '' ;
+		if(str.length>0){
+			var infos = str.split('-');
+			if(infos.length==3){
+				arr.push(infos[0]) ;
+				arr.push(infos[1]) ;
+				arr.push(infos[2]) ;
+			}
+		}
+		return arr ;
+	};
+
+	module.exports = util ;
+
 
 /***/ },
 /* 43 */
@@ -11586,348 +11551,544 @@
 /* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
-		  var controllers = __webpack_require__(39) ;
-		  var util = __webpack_require__(42) ;
+	  var controllers = __webpack_require__(39) ;
+	  var util = __webpack_require__(42) ;
+	  var _ = __webpack_require__(21) ;
 
-		  //当提交的时候将页面上所有字段的$dirty全部置为true
-		  function changeInputStatus4Submit(data,myForm){
-		  		var keys1 = _.keys(data) ;
-		  		var keys2 = _.keys(myForm) ;
-		  		_.each(keys2,function(item){
-		  			if(_.contains(keys1,item)){
-		  				 myForm[item].$setDirty(true) ;
-		  			}
-		  		}) ;
-		  } ;
-		    //保存表格数据到后台
-	      //headerController
-		  controllers.controller('HeaderCtrl',['$scope','FormData','HttpOperService','$log',function($scope,FormData,HttpOperService,$log){
-		  	  $scope.contextPath = FormData.contextPath ;
-		  	  $scope.data = FormData ;
-		  	   //提交表单数据
-		  	  $scope.submitForm = function(saveOrSaveAndPublish){
-				   var action = $scope.data.action ;
-				    var sel3ShowStr =  $scope.data.sel3.showStr ;
-				    var flag = validator.form() ;
-				    var ngFlag = $scope.myForm.$valid ;
-				    //$log.info('flag : ' + flag) ;
-				    //$log.info('ngFlag : '  + ngFlag) ;
-				    if(action=='add'&&sel3ShowStr==''){
-				   		$.showTuiErrorDialog('请选择服务到最后一级！');
-				     }else{
-				     	changeInputStatus4Submit($scope.data,$scope.myForm) ;
-					    if(flag&&ngFlag){
-						   saveFormData(saveOrSaveAndPublish,$scope.data) ;
-					    }
-				     }
-			   }
-		  	    /**
-				 * <pre>
-				 * 	功能描述:保存表单数据
-				 * </pre>
-				 * @param {Object} operType  ['save','saveAndPublish']  点击‘保存’,‘保存并发布’
-				 */
-			      function saveFormData (operType,formData){
-						var tokenId = $("#tokenId").val() ;
-						var flag = false ;
-						var s7 = util.convertFormDataToS7(formData) ;
-						flag = util.validFormData(s7,formData) ;
-						//flag = false;//本地测试禁止表单提交
-						if(flag){//如果校验通过的话则提交表单数据到后台
-							$.showTuiConfirmDialog('保存?', function() {
-								var url = "" ;
-								if(operType=='save'){
-									if(formData.action == "add"||formData.action == "copy"){//新增数据的话
-										url = formData.contextPath + "/addS7"
-									}else if(formData.action=="update"){//更新数据的话
-										url = formData.contextPath + "/updateS7" ;
-									}
-								}else if (operType=='saveAndPublish'){
-									url = formData.contextPath + "/saveAndPublishS7" ;
-								}
-								var config = {"tokenId":tokenId} ;
-								var promise = HttpOperService.postDate(url,s7,config) ;
-								promise.then(function (data) {
-									if (data.flag == 'true' ) {
-										$.showTuiSuccessDialog('保存成功！', function() {
-											$.showTuiWaitingDialog('即将返回查询界面!', 200, 60);
-											window.location.href= formData.contextPath+'/oc/ocView' ;
-										});
-									} else {
-										$.showTuiErrorDialog('保存数据出错！');
-									}
-								},function(error){
-									$.showTuiErrorDialog('保存数据出错！');
-								}) ;
-							});
-						}
+	  //当提交的时候将页面上所有字段的$dirty全部置为true
+	  function changeInputStatus4Submit(data,myForm){
+			var keys1 = _.keys(data) ;
+			var keys2 = _.keys(myForm) ;
+			_.each(keys2,function(item){
+				if(_.contains(keys1,item)){
+					 myForm[item].$setDirty(true) ;
+				}
+			}) ;
+	  } ;
+		//保存表格数据到后台
+	  //headerController
+	  controllers.controller('HeaderCtrl',['$scope','FormData','HttpOperService','$log',function($scope,FormData,HttpOperService,$log){
+		  $scope.contextPath = FormData.contextPath ;
+		  $scope.data = FormData ;
+		   //提交表单数据
+		  $scope.submitForm = function(saveOrSaveAndPublish){
+			   var action = $scope.data.action ;
+				var sel3ShowStr =  $scope.data.sel3.showStr ;
+				var flag = validator.form() ;
+				var ngFlag = $scope.myForm.$valid ;
+				//$log.info('flag : ' + flag) ;
+				//$log.info('ngFlag : '  + ngFlag) ;
+				if(action=='add'&&sel3ShowStr==''){
+					$.showTuiErrorDialog('请选择服务到最后一级！');
+				 }else{
+					changeInputStatus4Submit($scope.data,$scope.myForm) ;
+					if(flag&&ngFlag){
+					   saveFormData(saveOrSaveAndPublish,$scope.data) ;
+					}
 				 }
-		  	  
-		  }])  ;
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+		   }
+			/**
+			 * <pre>
+			 * 	功能描述:保存表单数据
+			 * </pre>
+			 * @param {Object} operType  ['save','saveAndPublish']  点击‘保存’,‘保存并发布’
+			 */
+			  function saveFormData (operType,formData){
+					var tokenId = $("#tokenId").val() ;
+					var flag = false ;
+					var s7 = util.convertFormDataToS7(formData) ;
+					flag = util.validFormData(s7,formData) ;
+					//flag = false;//本地测试禁止表单提交
+					if(flag){//如果校验通过的话则提交表单数据到后台
+						$.showTuiConfirmDialog('保存?', function() {
+							var url = "" ;
+							if(operType=='save'){
+								if(formData.action == "add"||formData.action == "copy"){//新增数据的话
+									url = formData.contextPath + "/addS7"
+								}else if(formData.action=="update"){//更新数据的话
+									url = formData.contextPath + "/updateS7" ;
+								}
+							}else if (operType=='saveAndPublish'){
+								url = formData.contextPath + "/saveAndPublishS7" ;
+							}
+							var config = {"tokenId":tokenId} ;
+							var promise = HttpOperService.postDate(url,s7,config) ;
+							promise.then(function (data) {
+								if (data.flag == 'true' ) {
+									$.showTuiSuccessDialog('保存成功！', function() {
+										$.showTuiWaitingDialog('即将返回查询界面!', 200, 60);
+										window.location.href= formData.contextPath+'/oc/ocView' ;
+									});
+								} else {
+									$.showTuiErrorDialog('保存数据出错！');
+								}
+							},function(error){
+								$.showTuiErrorDialog('保存数据出错！');
+							}) ;
+						});
+					}
+			 }
+
+	  }])  ;
+
 
 /***/ },
 /* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
-		  var controllers = __webpack_require__(39) ;
-		  var jsonDataHelper = __webpack_require__(22) ;
-		  var commonUtil = __webpack_require__(23) ;
-		  var _ = __webpack_require__(21) ;
-		  var validateHelper = __webpack_require__(41) ;
-		  
-		  
-		  var clearAllReuseTbHistory = function(){
-		  	//201暂时不支持复用，所以不用清空历史
-		  	var namesArrs = ["reuseList172VO","reuseList173TicketVO","reuseList183VO","reuseList198VO","reuseList198UpgradeVO",
-		  	"reuseList171VO","reuseList173TktVO","reuseList186VO","reuseList170VO","reuseList196VO","reuseList165VO",
-		  	"reuseList178Loc1","reuseList178Loc2","reuseList178Loc3","reuseListTsk202VO"] ;
-		  	for(var i=0 ; i<namesArrs.length;  i++){
-		  		$(":input[name="+namesArrs[i]+"]").val("").attr("placeholder","") ;
-		  	}
-		  };
-		  
-		  var changeDefaultValueByServiceType = function(data){
-			  var serviceType = data.serviceType ;
-			  ////1.当为免费行李时，‘或/和’字段为空
-			  if(_.contains(['A','B','E'], serviceType)){
-				 data.specSevFeeAndOrIndicator= '' ;
-			  }
-			  //2.更新‘是否收费’的默认值
-			  if(serviceType=='A'){
-				 data.noChargeNotAvailable = 'F' ;//设置为免费
-			  }else if (serviceType=='B'){
-				 data.noChargeNotAvailable = 'F' ;//设置为免费
-			  }else if (serviceType=='C'||serviceType=='P'){
-				 data.noChargeNotAvailable = '' ;//设置为收费
-			  }else if (serviceType=='E'){
-				 data.noChargeNotAvailable = 'X' ;//设置为收费
-			  }
-			  //3.更新‘是否检查库存’
-			  if(_.contains(['A','B','E'],serviceType)){
-				 data.availability = 'N' ;
-			  }
-			  //4.更新‘区域/部分/全程’
-			  if(_.contains(['B','E'], serviceType)){
-				 data.geoSpecSectPortJourney = 'S' ;
-			  }else if(serviceType=='F'){
-				 data.geoSpecSectPortJourney = 'S' ;
-			  }else{
-				 data.geoSpecSectPortJourney = '' ;
-			  }
-			  
+	  var controllers = __webpack_require__(39) ;
+	  var jsonDataHelper = __webpack_require__(22) ;
+	  var commonUtil = __webpack_require__(23) ;
+	  var _ = __webpack_require__(21) ;
+	  var validateHelper = __webpack_require__(41) ;
+
+
+	  var clearAllReuseTbHistory = function(){
+		//201暂时不支持复用，所以不用清空历史
+		var namesArrs = ["reuseList172VO","reuseList173TicketVO","reuseList183VO","reuseList198VO","reuseList198UpgradeVO",
+		"reuseList171VO","reuseList173TktVO","reuseList186VO","reuseList170VO","reuseList196VO","reuseList165VO",
+		"reuseList178Loc1","reuseList178Loc2","reuseList178Loc3","reuseListTsk202VO"] ;
+		for(var i=0 ; i<namesArrs.length;  i++){
+			$(":input[name="+namesArrs[i]+"]").val("").attr("placeholder","") ;
+		}
+	  };
+
+	  var changeDefaultValueByServiceType = function(data){
+		  var serviceType = data.serviceType ;
+		  ////1.当为免费行李时，‘或/和’字段为空
+		  if(_.contains(['A','B','E'], serviceType)){
+			 data.specSevFeeAndOrIndicator= '' ;
 		  }
-		  
+		  //2.更新‘是否收费’的默认值
+		  if(serviceType=='A'){
+			 data.noChargeNotAvailable = 'F' ;//设置为免费
+		  }else if (serviceType=='B'){
+			 data.noChargeNotAvailable = 'F' ;//设置为免费
+		  }else if (serviceType=='C'||serviceType=='P'){
+			 data.noChargeNotAvailable = '' ;//设置为收费
+		  }else if (serviceType=='E'){
+			 data.noChargeNotAvailable = 'X' ;//设置为收费
+		  }
+		  //3.更新‘是否检查库存’
+		  if(_.contains(['A','B','E'],serviceType)){
+			 data.availability = 'N' ;
+		  }
+		  //4.更新‘区域/部分/全程’
+		  if(_.contains(['B','E'], serviceType)){
+			 data.geoSpecSectPortJourney = 'S' ;
+		  }else if(serviceType=='F'){
+			 data.geoSpecSectPortJourney = 'S' ;
+		  }else{
+			 data.geoSpecSectPortJourney = '' ;
+		  }
 
-	      var dealData4NewServiceType = function(data,orgData,l,FormEditStatusServcie,editScope){
-	      		//第一部分:主要为点击事件后的页面表单赋值工作
-				var serviceType = l.serviceType ;
-				var carrCode = l.carrCode ;
-				var serviceSubCode = l.serviceSubCode ;
-				var commercialName = l.commercialName ;
-				//第一步:重置表单数据
-				//当点击的饿时候把整个表单重置//除了serviceType外的其他字段
-				for(var pname in data){
-					if(!_.contains(['sel1','sel2','sel3','sel4','firstMaintenanceDate'], pname)){
-						data[pname] = angular.copy(orgData[pname]) ;
-					}
+	  }
+
+
+	  var dealData4NewServiceType = function(data,orgData,l,FormEditStatusServcie,editScope){
+			//第一部分:主要为点击事件后的页面表单赋值工作
+			var serviceType = l.serviceType ;
+			var carrCode = l.carrCode ;
+			var serviceSubCode = l.serviceSubCode ;
+			var commercialName = l.commercialName ;
+			//第一步:重置表单数据
+			//当点击的饿时候把整个表单重置//除了serviceType外的其他字段
+			for(var pname in data){
+				if(!_.contains(['sel1','sel2','sel3','sel4','firstMaintenanceDate'], pname)){
+					data[pname] = angular.copy(orgData[pname]) ;
 				}
-				//validator是绑定在window上的全局变量
-				validator.resetForm();
-				//第二步：填充当前选中的数据
-				data.carrCode = carrCode ;
-				data.serviceAndSubCode = serviceSubCode ;
-				data.serviceType = serviceType ;
-				//填充basicInfo信息start
-				data.basicInfoVo.serviceGroup= l.attributesGroup ;
-				data.basicInfoVo.subGroup= l.attributesSubgroup ;
-				data.basicInfoVo.subCode= l.serviceSubCode ;
-				//清除表格复用的信息
-				clearAllReuseTbHistory() ;
-				//填充basicInfo信息end
-				data.sel3.showStr = '['+serviceSubCode+']'+commercialName ;
-				data.sel3.value = serviceSubCode ;
-				data.sel3.serviceGroup = l.attributesGroup ;
-				//清空金额缓存数据(初始化为全额状态)
-				data.discountOrNot = '1' ;
-				data.list201VO = [] ;//数据初始化
-				//赋默认值部分
-				changeDefaultValueByServiceType(data) ;
-				//第二部分：主要做页面的显隐以及是否可编辑工作
-				validateHelper.changeServiceType(editScope,data,FormEditStatusServcie) ;
-				editScope.myForm.$setPristine() ;
-		  };
+			}
+			//validator是绑定在window上的全局变量
+			validator.resetForm();
+			//第二步：填充当前选中的数据
+			data.carrCode = carrCode ;
+			data.serviceAndSubCode = serviceSubCode ;
+			data.serviceType = serviceType ;
+			//填充basicInfo信息start
+			data.basicInfoVo.serviceGroup= l.attributesGroup ;
+			data.basicInfoVo.subGroup= l.attributesSubgroup ;
+			data.basicInfoVo.subCode= l.serviceSubCode ;
+			//清除表格复用的信息
+			clearAllReuseTbHistory() ;
+			//填充basicInfo信息end
+			data.sel3.showStr = '['+serviceSubCode+']'+commercialName ;
+			data.sel3.value = serviceSubCode ;
+			data.sel3.serviceGroup = l.attributesGroup ;
+			//清空金额缓存数据(初始化为全额状态)
+			data.discountOrNot = '1' ;
+			data.list201VO = [] ;//数据初始化
+			//赋默认值部分
+			changeDefaultValueByServiceType(data) ;
+			//第二部分：主要做页面的显隐以及是否可编辑工作
+			validateHelper.changeServiceType(editScope,data,FormEditStatusServcie) ;
+			editScope.myForm.$setPristine() ;
+	  };
 
 
 
-		  //页面第一个部分/////////选择附加服务部分/////////////////////////////////////////
-		  //select级联controller
-		   controllers.controller('BasicInfoCtrl',['$scope','HttpOperService','FormData','DEFAULT_SERVICETYPE','FormEditStatusServcie',function($scope,HttpOperService,FormData,DEFAULT_SERVICETYPE,FormEditStatusServcie){
-				//chooseInput的输入数据
-				$scope.chooseInputData = {
-					"choose1":"",
-					"choose2":"",
-					"choose3":""
-				} ;
-		   		$scope.data = FormData ;
-				$scope.showChooseFunc = function(){
-					var str = "" ;
-					var str1 = FormData.sel1.showStr || "" ;
-					var str2 = FormData.sel2.showStr || "" ;
-					var str3 = FormData.sel3.showStr || "" ;
-					if(str1.length>0){
-						str = str1 ;
+	  //页面第一个部分/////////选择附加服务部分/////////////////////////////////////////
+	  //select级联controller
+	   controllers.controller('BasicInfoCtrl',['$scope','HttpOperService','FormData','DEFAULT_SERVICETYPE','FormEditStatusServcie',function($scope,HttpOperService,FormData,DEFAULT_SERVICETYPE,FormEditStatusServcie){
+			//chooseInput的输入数据
+			$scope.chooseInputData = {
+				"choose1":"",
+				"choose2":"",
+				"choose3":""
+			} ;
+			$scope.data = FormData ;
+			$scope.showChooseFunc = function(){
+				var str = "" ;
+				var str1 = FormData.sel1.showStr || "" ;
+				var str2 = FormData.sel2.showStr || "" ;
+				var str3 = FormData.sel3.showStr || "" ;
+				if(str1.length>0){
+					str = str1 ;
+				}
+				if(str2.length>0){
+					str += " > "+str2 ;
+				}
+				if(str3.length>0){
+					str += " > "+str3 ;
+				}
+				return str ;
+			};
+
+			//choose第一个框中li点击事件
+			$scope.subGroupQuery = function(showStr,serviceGroup){
+				var contextPath = $scope.contextPath ;
+				FormData.sel1.showStr = showStr ;
+				FormData.sel1.value = serviceGroup ;
+				//把第二个选项框以前保留的信息清空
+				FormData.sel2.showStr = "" ;
+				FormData.sel2.value = "" ;
+				//把第三个选项框以前保留的信息清空
+				FormData.sel3.showStr = "" ;
+				FormData.sel3.value = "" ;
+				FormData.sel3.serviceGroup = "" ;
+				FormData.sel3.textTableNo163 = "" ;
+				$scope.lastGroupList = [] ;
+				$scope.lastGroupList2 = [] ;
+				//清空formData信息
+				FormData.serviceAndSubCode = "" ;
+				FormData.serviceType = DEFAULT_SERVICETYPE ;//
+				FormData.noChargeNotAvailable = "" ;//设置为默认
+				var url = contextPath+"/basicInfo/queryBasicInfoByGroup" ;
+				var carrier = $scope.data.carrCode  ;
+				var jqeryData = {} ;//post方式提交
+				var jueryParam = {carrier: carrier,serviceGroup:serviceGroup};//地址问号形式
+				var promise =HttpOperService.postDate(url,jqeryData,jueryParam) ;
+				promise.then(function(retData){
+					$scope.subGroupList = retData ;
+				},function(err){
+					alert("查询出错!") ;
+				}) ;
+				$scope.data.basicInfoVo.serviceGroup= "";
+				$scope.data.basicInfoVo.subGroup= "" ;
+				$scope.data.basicInfoVo.subCode= "" ;
+				$scope.data.sel4 = [];
+			};
+
+			//第二个li点击事件
+			$scope.s5Query = function(showStr,subGroup){
+				var contextPath = $scope.contextPath ;
+				FormData.sel2.showStr = showStr ;
+				FormData.sel2.value = subGroup ;
+				//清空第三个选项框
+				FormData.sel3.showStr = "" ;
+				FormData.sel3.value = "" ;
+				FormData.sel3.serviceGroup = "" ;
+				FormData.sel3.textTableNo163 = "" ;
+				$scope.lastGroupList = [] ;
+				FormData.serviceAndSubCode = "" ;
+				FormData.serviceType = DEFAULT_SERVICETYPE ;//
+				$scope.lastGroupList2 = [] ;
+
+				FormData.noChargeNotAvailable = "" ;//设置为默认
+				var url = contextPath+"/s5/queryS5BySubGroup" ;
+				var carrier = $scope.data.carrCode  ;
+				var serviceGroup = FormData.sel1.value ;
+				var jqeryData = {} ;//post方式提交
+				var jueryParam = {carrier: carrier,serviceGroup:serviceGroup,subGroup:subGroup};//地址问号形式
+				var promise =HttpOperService.postDate(url,jqeryData,jueryParam) ;
+				promise.then(function(retData){
+					$scope.lastGroupList = retData ;
+				},function(err){
+					alert("查询出错!") ;
+				}) ;
+				$scope.data.basicInfoVo.serviceGroup= "" ;
+				$scope.data.basicInfoVo.subGroup= "" ;
+				$scope.data.basicInfoVo.subCode= "" ;
+				$scope.data.sel4 = [];
+			};
+
+			//第三个li点击事件
+			$scope.lastChooseClick = function(l){
+				//l.attributesGroup与上面的serviceGroup一样
+				var serviceGroup = l.attributesGroup ;
+				var serviceType = l.serviceType ;
+				var pageNeedNewRunderFlag = true ;
+				//下面的这段暂时注释掉，以后可能需要根据点击要判断当前页面是否需要重置数据
+				//点击本次li前的数据
+				//var oldServiceGroup = $scope.data.sel3.serviceGroup ;
+				//var oldServiceType = FormData.serviceType ;
+				/*if(oldServiceGroup==serviceGroup){//表示之前点击过第三个li并且一直保持在第三个li上面
+					if(oldServiceType==serviceType){//表示serviceGroup和serviceType都没有变，则页面不需要重新渲染
+						pageNeedNewRunderFlag = false;
 					}
-					if(str2.length>0){
-						str += " > "+str2 ;
-					}
-					if(str3.length>0){
-						str += " > "+str3 ;
-					}
-					return str ;
-				};
+				}*/
+				//000000 这里暂时全都做页面重置(以后的重置方式最佳实践:1-->应该把force指令里面控制显隐的变量修改为只有serviceType一个。
+				//000000 2-->然后对于比较特殊的页面元素例如:升舱，则特殊处理，在页面上直接用ng-show=’serviceGroup‘来控制显隐),
+				//000000 这样后期才更利于需求的变化
+				//后期做这个功能
+				if(pageNeedNewRunderFlag){//只有当页面需要重新渲染时
+					//console.info('本次点击需要重新刷新页面....') ;
+					//处理点击后的数据
+					dealData4NewServiceType($scope.data,$scope.orgData,l,FormEditStatusServcie, $scope.$parent) ;
 
-				//choose第一个框中li点击事件
-				$scope.subGroupQuery = function(showStr,serviceGroup){
-					var contextPath = $scope.contextPath ;
-					FormData.sel1.showStr = showStr ;
-					FormData.sel1.value = serviceGroup ;
-					//把第二个选项框以前保留的信息清空
-					FormData.sel2.showStr = "" ;
-					FormData.sel2.value = "" ;
-					//把第三个选项框以前保留的信息清空
-					FormData.sel3.showStr = "" ;
-					FormData.sel3.value = "" ;
-					FormData.sel3.serviceGroup = "" ;
-					FormData.sel3.textTableNo163 = "" ;
-					$scope.lastGroupList = [] ;
-					$scope.lastGroupList2 = [] ;
-					//清空formData信息
-					FormData.serviceAndSubCode = "" ;
-					FormData.serviceType = DEFAULT_SERVICETYPE ;//
-					FormData.noChargeNotAvailable = "" ;//设置为默认
-					var url = contextPath+"/basicInfo/queryBasicInfoByGroup" ;
-					var carrier = $scope.data.carrCode  ;
-					var jqeryData = {} ;//post方式提交
-					var jueryParam = {carrier: carrier,serviceGroup:serviceGroup};//地址问号形式
-					var promise =HttpOperService.postDate(url,jqeryData,jueryParam) ;
+				}
+				//第四步:查询数据为后面显示准备
+				var textTableNo163 = l.subCodeTableNo163||'' ;
+				var oldTextTableNo163 = FormData.sel3.textTableNo163 ||'';
+				if(oldTextTableNo163!=textTableNo163){//如果上次和这次不相同才需要重新渲染第四列
+					textTableNo163 = textTableNo163*1 ;
+					var url = FormData.contextPath+"/s7/query4ClickService" ;
+					var queryParam = {"subCodeTableNo163":textTableNo163+"",
+									  "carrCode":l.carrCode,
+									  "serviceType":l.serviceType,
+									  "serviceAndSubCode":l.serviceSubCode} ;
+					var promise =HttpOperService.postDate(url,queryParam,{}) ;
 					promise.then(function(retData){
-						$scope.subGroupList = retData ;
+						$scope.lastGroupList2 = retData.tb163List ;
+						$scope.data.sel4 = retData.tb163List;
+						$scope.data.sequenceNumber = retData.maxSequenceNumber*1+10 ;
 					},function(err){
 						alert("查询出错!") ;
 					}) ;
-					$scope.data.basicInfoVo.serviceGroup= "";
-					$scope.data.basicInfoVo.subGroup= "" ;
-					$scope.data.basicInfoVo.subCode= "" ;
-					$scope.data.sel4 = [];
-				};
 
-				//第二个li点击事件
-				$scope.s5Query = function(showStr,subGroup){
-					var contextPath = $scope.contextPath ;
-					FormData.sel2.showStr = showStr ;
-					FormData.sel2.value = subGroup ;
-					//清空第三个选项框
-					FormData.sel3.showStr = "" ;
-					FormData.sel3.value = "" ;
-					FormData.sel3.serviceGroup = "" ;
-					FormData.sel3.textTableNo163 = "" ;
-					$scope.lastGroupList = [] ;
-					FormData.serviceAndSubCode = "" ;
-					FormData.serviceType = DEFAULT_SERVICETYPE ;//
-					$scope.lastGroupList2 = [] ;
+				}
+			};
+	   }]) ;
+	   // ng-show = "lastGroupList2.length>0"
 
-					FormData.noChargeNotAvailable = "" ;//设置为默认
-					var url = contextPath+"/s5/queryS5BySubGroup" ;
-					var carrier = $scope.data.carrCode  ;
-					var serviceGroup = FormData.sel1.value ;
-					var jqeryData = {} ;//post方式提交
-					var jueryParam = {carrier: carrier,serviceGroup:serviceGroup,subGroup:subGroup};//地址问号形式
-					var promise =HttpOperService.postDate(url,jqeryData,jueryParam) ;
-					promise.then(function(retData){
-						$scope.lastGroupList = retData ;
-					},function(err){
-						alert("查询出错!") ;
-					}) ;
-					$scope.data.basicInfoVo.serviceGroup= "" ;
-					$scope.data.basicInfoVo.subGroup= "" ;
-					$scope.data.basicInfoVo.subCode= "" ;
-					$scope.data.sel4 = [];
-				};
-
-				//第三个li点击事件
-				$scope.lastChooseClick = function(l){
-					//l.attributesGroup与上面的serviceGroup一样
-					var serviceGroup = l.attributesGroup ;	
-					var serviceType = l.serviceType ;
-					var pageNeedNewRunderFlag = true ;
-					//下面的这段暂时注释掉，以后可能需要根据点击要判断当前页面是否需要重置数据
-					//点击本次li前的数据
-					//var oldServiceGroup = $scope.data.sel3.serviceGroup ;
-					//var oldServiceType = FormData.serviceType ;
-					/*if(oldServiceGroup==serviceGroup){//表示之前点击过第三个li并且一直保持在第三个li上面
-						if(oldServiceType==serviceType){//表示serviceGroup和serviceType都没有变，则页面不需要重新渲染
-							pageNeedNewRunderFlag = false;
-						}
-					}*/
-					//000000 这里暂时全都做页面重置(以后的重置方式最佳实践:1-->应该把force指令里面控制显隐的变量修改为只有serviceType一个。
-					//000000 2-->然后对于比较特殊的页面元素例如:升舱，则特殊处理，在页面上直接用ng-show=’serviceGroup‘来控制显隐),
-					//000000 这样后期才更利于需求的变化
-					//后期做这个功能
-					if(pageNeedNewRunderFlag){//只有当页面需要重新渲染时
-						//console.info('本次点击需要重新刷新页面....') ;
-						//处理点击后的数据
-						dealData4NewServiceType($scope.data,$scope.orgData,l,FormEditStatusServcie, $scope.$parent) ;
-						
-					}
-					//第四步:查询数据为后面显示准备
-					var textTableNo163 = l.subCodeTableNo163||'' ;
-					var oldTextTableNo163 = FormData.sel3.textTableNo163 ||'';
-					if(oldTextTableNo163!=textTableNo163){//如果上次和这次不相同才需要重新渲染第四列
-						textTableNo163 = textTableNo163*1 ;
-						var url = FormData.contextPath+"/s7/query4ClickService" ;
-						var queryParam = {"subCodeTableNo163":textTableNo163+"",
-										  "carrCode":l.carrCode,
-										  "serviceType":l.serviceType,
-										  "serviceAndSubCode":l.serviceSubCode} ;
-						var promise =HttpOperService.postDate(url,queryParam,{}) ;
-						promise.then(function(retData){
-							$scope.lastGroupList2 = retData.tb163List ;
-						  	$scope.data.sel4 = retData.tb163List;
-						  	$scope.data.sequenceNumber = retData.maxSequenceNumber*1+10 ;
-						},function(err){
-							alert("查询出错!") ;
-						}) ;
-
-					}
-				};
-		   }]) ;
-		   // ng-show = "lastGroupList2.length>0"
-
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
 
 
 /***/ },
 /* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
+	var controllers = __webpack_require__(39) ;
+	var jsonDate = __webpack_require__(24) ;
+	var commonUtil = __webpack_require__(23) ;
+	var jsonDataHelper = __webpack_require__(22) ;
+	var _ = __webpack_require__(21) ;
+	var validHelper = __webpack_require__(41) ;
+
+	var _checkHaseErrorInfo = function  (inputEl) {
+		if(inputEl.hasClass('error')){
+			return true ;
+		}
+		return false;
+	};
+
+	var _delayValidateElement = function(inputEl){
+		if(_checkHaseErrorInfo(inputEl)){
+			setTimeout(function(){
+				validator.element(inputEl) ;
+			},100) ;
+		}
+	};
+
+	//页面第二个部分///////费用确定部分////////////////////////////////////////////////////////
+	controllers.controller('ChargeConfirmCtrl',['$scope','FormData','FormEditStatusServcie',function($scope,FormData,FormEditStatusServcie){
+			$scope.data  = FormData ;
+			//当选择免费或则收费时触发的事件
+			//行李重量单位集合
+			$scope.weightUnitList = jsonDate.weightUnitList ;
+			//SPEC_SERVICE_FEE_COL_SUB//包含/扣除
+			$scope.specServiceFeeColSubList = jsonDate.specServiceFeeColSubList ;
+			//净价/销售价
+			$scope.specServiceFeeNetSellList = jsonDate.specServiceFeeNetSellList ;
+			$scope.baggageTravelApplicationList = jsonDate.baggageTravelApplicationList ;
+
+			//当是否收费改变时触发的函数
+			$scope.changeNoChargeNotAvailable = function  () {
+				var editScope = $scope.$parent ;
+				var data = $scope.data;
+				var globalEditStatus = FormEditStatusServcie ;
+				var noChargeNotAvailable = data.noChargeNotAvailable ;
+				var serviceType = data.serviceType ;
+				//1.赋默认值
+				//1.1--‘行李适用范围组件’
+				if(noChargeNotAvailable=='D'){
+					data.baggageTravelApplication = '' ;
+				}
+				//1.2--‘是否可退组件’
+				if(noChargeNotAvailable==''){
+					data.indicatorReissueRefund='N';
+				}else if(_.contains(['X','F','E'],noChargeNotAvailable)){
+					data.indicatorReissueRefund='';
+				}
+				//当为免费的时候清空170的子表复用号
+				if(noChargeNotAvailable!=''){
+					data.reuseList170VO = '' ;
+					$(":input[name=reuseList170VO]").val('').attr('placeholder','') ;
+				}
+				//当为免费的时候‘里程兑换标识’隐藏
+				if(noChargeNotAvailable!=''){
+					data.mileageExchangeIndicator = '0' ;
+				}
+				//2.更新将被影响控件的编辑状态以及显隐
+				validHelper.changeNoChargeNotAvailable(editScope,data,globalEditStatus) ;
+			} ;
+
+			//适用于改变时
+			$scope.changeSpecifiedServiceFeeApp = function(){
+				var globalEditStatus = FormEditStatusServcie ;
+				var editScope = $scope.$parent ;
+				var data = $scope.data ;
+				var noChargeNotAvailable = data.noChargeNotAvailable || '';
+				var ssfa = data.specifiedServiceFeeApp || '' ;
+				//当hcp时 170和201都会被清空、否则不会改变170和201表的状态
+				if(ssfa=='H'||ssfa=='C'||ssfa=='P'){//则将会隐藏170以及201所以需要将可能存在的子表号清空
+					data.reuseList170VO = '' ;
+					$(":input[name=reuseList170VO]").val('').attr('placeholder','') ;
+					//里程积分兑换标识必须为空
+					data.mileageExchangeIndicator = '0' ;
+					//里程费为空
+					data.specifiedServiceFeeMileage = ''
+					//或/和字段为空
+					data.specSevFeeAndOrIndicator = '' ;
+
+				}
+				validHelper.changeSpecifiedServiceFeeApp(editScope,data,globalEditStatus) ;
+			};
+
+			//当改变使用时间限制类型的时候
+			$scope.changeUseDateLimitTye = function(type){
+				type = type || '' ;
+				var statusDes = $scope.data.statusDes ;
+				var canEditFlag = commonUtil.getEditFlagByStatus(statusDes) ;
+				if(canEditFlag){
+					var oldType = $scope.data.useDateLimitTye ;
+					if(oldType==type) return ;
+					if(type==''){//如果为时间段
+						$scope.data.useDateLimitTye = '' ;
+						//将期限数据清空
+						$scope.data.effectivePeriodType= '' ;
+						$scope.data.effectivePeriodNumber = '' ;
+						$scope.data.effectivePeriodUnit = '' ;
+					}else if(type=='1'){//如果为期限
+						$scope.data.useDateLimitTye = '1' ;
+						//将时间段数据清空
+						$scope.data.firstUseDate = '' ;
+						$scope.data.lastUseDate = '' ;
+					}
+				}
+			}
+
+			//-------------区域对应的表格显示隐藏结束--------//
+			$scope.changeEffectivePeriodType = function (){
+				var input1 = $(':input[name=effectivePeriodNumber]') ;
+				if($scope.data.effectivePeriodType==''){
+					$scope.data.effectivePeriodNumber='';
+					$scope.data.effectivePeriodUnit='';
+					_delayValidateElement(input1) ;
+				}else{
+					$scope.data.effectivePeriodUnit='D';
+				}
+			}
+
+			//table内部选择，全额或折扣
+			$scope.clickDiscount2 = function(l){
+				var type = l.discountType ;
+				if(type=='1'){//全额
+					l.discountNum = '' ;
+				}else{
+					l.onePriceNum = '' ;
+				}
+			};
+			//金额选择全额或则折扣时
+			$scope.clickDiscount = function(dt){
+				//整个编辑状态为3的时候是不能编辑的
+				var pageEditFlag = commonUtil.getEditFlagByStatus(FormData['statusDes']) ;
+				if(!pageEditFlag)return ;
+				//当点击时可以触发展开表格
+				$scope.data.discountOrNot = dt ;
+				if(dt=='1'){//全额
+					$scope.data.list201VO = [] ;
+				}else{//折扣
+					//第三列一定要已选中
+					$scope.data.list170VO = [] ;
+					//将复用170数据清空
+					$scope.data.reuseList170VO = '' ;
+					$(":input[name='reuseList170VO']").val('') ;
+					$scope.data.list201VO = [] ;//数据初始化
+					//1.判断套餐/非套餐
+					//2.套餐:显示每一条,非套餐的话总的显示一条
+					var serviceGroup = $scope.data.sel1.value;    //BD
+					if(serviceGroup!=null&&serviceGroup.length>2&&serviceGroup.indexOf('BD')===0){
+						//说明是套餐
+						var tmpArr = [] ;//[1]页面显示的字符串,[2]折扣类型,[3]一口价,[4]一口价单位,[5]折扣数
+						for(var i = 0 ; i < $scope.data.sel4.length;i++){
+							var l = $scope.data.sel4[i] ;
+							var obj = {"subCode":l.subCode,"commercialName":l.commercialName,"discountType":'1',"onePriceNum":'',"discountNum":''};
+							tmpArr.push(obj) ;
+						}
+						$scope.data.list201VO = tmpArr ;
+					}else{//说明是非套餐
+						$scope.data.list201VO = [] ;//数据初始化
+						//显示str $scope.data.sel3.showStr
+						var subCode = $scope.data.sel3.value ;
+						var index = 2+subCode.length ;//'['+subCode+']'
+						var sel3ShowStr = $scope.data.sel3.showStr ;
+						var commercialName = sel3ShowStr.substring(index);
+						//[1]页面显示的字符串,[2]折扣类型,[3]一口价,[4]一口价单位,[5]折扣数
+						var obj = {"subCode":subCode,"commercialName":commercialName,"discountType":'1',"onePriceNum":'',"discountNum":''};
+						$scope.data.list201VO = [obj] ;
+					}
+					//和/或--里程积分--里程兑换标识
+					//当选择折扣时要更新这三个字段都必须为空且不可改变
+					$scope.data.specSevFeeAndOrIndicator = "" ;
+					$scope.data.specifiedServiceFeeMileage = "" ;
+					$scope.data.mileageExchangeIndicator = "0" ;
+				}
+				//更新组件的状态
+				validHelper.changeDiscount($scope.$parent,$scope.data,FormEditStatusServcie) ;
+			};
+
+			//当点击‘或/和’时
+			$scope.clickSpecSevFeeAndOrIndicator = function(type){
+				if(type=='A'){//当本字段的值为A--1.里程兑换标识必须为空2.折扣表标识值必须为0
+					$scope.data.mileageExchangeIndicator ='0' ;
+				}else{
+
+				}
+				validHelper.changeSpecSevFeeAndOrIndicator($scope.$parent,$scope.data,FormEditStatusServcie) ;
+			}
+			//当点击‘里程兑换标识’
+			$scope.clickMileageExchangeIndicator = function(type){
+				if(type='1'||type=='2'){
+					$scope.data.specifiedServiceFeeMileage ='' ;
+				}
+				validHelper.changeMileageExchangeIndicator($scope.$parent,$scope.data,FormEditStatusServcie) ;
+			}
+
+	}]) ;
+
+
+/***/ },
+/* 47 */
+/***/ function(module, exports, __webpack_require__) {
+
 		var controllers = __webpack_require__(39) ;
 		var jsonDate = __webpack_require__(24) ;
-		var commonUtil = __webpack_require__(23) ;
-		var jsonDataHelper = __webpack_require__(22) ;
-		var _ = __webpack_require__(21) ;
 		var validHelper = __webpack_require__(41) ;
-		
 		var _checkHaseErrorInfo = function  (inputEl) {
 			if(inputEl.hasClass('error')){
 				return true ;
 			}
 			return false;
 		};
-		
 		var _delayValidateElement = function(inputEl){
 			if(_checkHaseErrorInfo(inputEl)){
 				setTimeout(function(){
@@ -11935,379 +12096,176 @@
 				},100) ;
 			}
 		};
+		//页面第三部分/////////规则详细部分/////////////////////////////////////////////////////////
+		controllers.controller('RuleDetailCtrl',['$scope','FormData','FormEditStatusServcie',function($scope,FormData,FormEditStatusServcie){
+			$scope.data = FormData ;
+			//$scope.NEW_ADD_STR = NEW_ADD_STR ;
+			$scope.noCharge_notAvailableList = jsonDate.noCharge_notAvailableList ;
+			//舱位list集合
+			$scope.cabinList = jsonDate.cabinList ;
+			//区域集合
+			$scope.geoLocTypeList = jsonDate.geoLocTypeList ;
+			//退/改
+			$scope.indicatorReissueRefundList = jsonDate.indicatorReissueRefundList ;
+			//退款形式
+			$scope.formOfRefundList = jsonDate.formOfRefundList ;
+			$scope.geoSpecExceptionStopUnitList = jsonDate.geoSpecExceptionStopUnitList ;
+			$scope.timeApplicationList = jsonDate.timeApplicationList ;
 
-	   //页面第二个部分///////费用确定部分////////////////////////////////////////////////////////
-	   controllers.controller('ChargeConfirmCtrl',['$scope','FormData','FormEditStatusServcie',function($scope,FormData,FormEditStatusServcie){
-	   			$scope.data  = FormData ;
-				//当选择免费或则收费时触发的事件
-				//行李重量单位集合
-				$scope.weightUnitList = jsonDate.weightUnitList ;
-				//SPEC_SERVICE_FEE_COL_SUB//包含/扣除
-				$scope.specServiceFeeColSubList = jsonDate.specServiceFeeColSubList ;
-				//净价/销售价
-				$scope.specServiceFeeNetSellList = jsonDate.specServiceFeeNetSellList ;
-				$scope.baggageTravelApplicationList = jsonDate.baggageTravelApplicationList ;
+			$scope.getUpGradeTableTile = function(){
+				var sel1Value = FormData.sel1.value ;
+				var tmpStr = "" ;
+				if(sel1Value=="SA"||sel1Value=="BDSA"){
+					tmpStr = "座位属性表" ;
+				}else if (sel1Value=="UP"||sel1Value=="BDUP"){
+					tmpStr = "升舱属性表" ;
+				}
+				return tmpStr ;
+			}
 
-				//当是否收费改变时触发的函数
-				$scope.changeNoChargeNotAvailable = function  () {
-					var editScope = $scope.$parent ;
-					var data = $scope.data;
-					var globalEditStatus = FormEditStatusServcie ;
-					var noChargeNotAvailable = data.noChargeNotAvailable ;
-					var serviceType = data.serviceType ;
-					//1.赋默认值
-					//1.1--‘行李适用范围组件’
-					if(noChargeNotAvailable=='D'){
-						data.baggageTravelApplication = '' ;
-					}
-					//1.2--‘是否可退组件’
-					if(noChargeNotAvailable==''){
-						data.indicatorReissueRefund='N'; 	
-					}else if(_.contains(['X','F','E'],noChargeNotAvailable)){
-						data.indicatorReissueRefund=''; 
-					}
-					//当为免费的时候清空170的子表复用号
-					if(noChargeNotAvailable!=''){
-						data.reuseList170VO = '' ;
-						$(":input[name=reuseList170VO]").val('').attr('placeholder','') ;
-					}
-					//当为免费的时候‘里程兑换标识’隐藏
-					if(noChargeNotAvailable!=''){
-						data.mileageExchangeIndicator = '0' ;
-					}
-					//2.更新将被影响控件的编辑状态以及显隐
-					validHelper.changeNoChargeNotAvailable(editScope,data,globalEditStatus) ;
-				} ;
-
-				//适用于改变时
-				$scope.changeSpecifiedServiceFeeApp = function(){
-					var globalEditStatus = FormEditStatusServcie ;
-					var editScope = $scope.$parent ;
-					var data = $scope.data ;
-					var noChargeNotAvailable = data.noChargeNotAvailable || '';
-					var ssfa = data.specifiedServiceFeeApp || '' ;
-					//当hcp时 170和201都会被清空、否则不会改变170和201表的状态
-					if(ssfa=='H'||ssfa=='C'||ssfa=='P'){//则将会隐藏170以及201所以需要将可能存在的子表号清空
-						data.reuseList170VO = '' ;
-						$(":input[name=reuseList170VO]").val('').attr('placeholder','') ;
-						//里程积分兑换标识必须为空
-						data.mileageExchangeIndicator = '0' ;
-						//里程费为空
-						data.specifiedServiceFeeMileage = ''
-						//或/和字段为空
-						data.specSevFeeAndOrIndicator = '' ;
-						
-					}
-					validHelper.changeSpecifiedServiceFeeApp(editScope,data,globalEditStatus) ;
-				};
-				
-				//当改变使用时间限制类型的时候
-				$scope.changeUseDateLimitTye = function(type){
-					type = type || '' ;
-					var statusDes = $scope.data.statusDes ;
-					var canEditFlag = commonUtil.getEditFlagByStatus(statusDes) ;
-					if(canEditFlag){
-						var oldType = $scope.data.useDateLimitTye ;
-						if(oldType==type) return ;
-						if(type==''){//如果为时间段
-							$scope.data.useDateLimitTye = '' ;
-							//将期限数据清空
-							$scope.data.effectivePeriodType= '' ;
-							$scope.data.effectivePeriodNumber = '' ;
-							$scope.data.effectivePeriodUnit = '' ;
-						}else if(type=='1'){//如果为期限
-							$scope.data.useDateLimitTye = '1' ;
-							//将时间段数据清空
-							$scope.data.firstUseDate = '' ;
-							$scope.data.lastUseDate = '' ;
-						}
-					}
+			var list = ["SA","BDSA","UP","BDUP"] ;
+			$scope.showUpGradeTableFlag = function(){
+				var flag = false;
+				var index = list.indexOf(FormData.sel1.value) ;
+				if(index!=-1){
+					flag = true ;
 				}
-				
-				//-------------区域对应的表格显示隐藏结束--------//
-				$scope.changeEffectivePeriodType = function (){
-					var input1 = $(':input[name=effectivePeriodNumber]') ;
-					if($scope.data.effectivePeriodType==''){
-						$scope.data.effectivePeriodNumber='';
-						$scope.data.effectivePeriodUnit='';
-						_delayValidateElement(input1) ;
-					}else{
-						$scope.data.effectivePeriodUnit='D';
-					}
-				}
-
-				//table内部选择，全额或折扣
-				$scope.clickDiscount2 = function(l){
-					var type = l.discountType ;
-					if(type=='1'){//全额
-						l.discountNum = '' ;
-					}else{
-						l.onePriceNum = '' ;
-					}
-				};
-				//金额选择全额或则折扣时
-				$scope.clickDiscount = function(dt){
-					//整个编辑状态为3的时候是不能编辑的
-					var pageEditFlag = commonUtil.getEditFlagByStatus(FormData['statusDes']) ;
-					if(!pageEditFlag)return ;
-					//当点击时可以触发展开表格
-					$scope.data.discountOrNot = dt ;
-					if(dt=='1'){//全额
-						$scope.data.list201VO = [] ;
-					}else{//折扣
-						//第三列一定要已选中
-						$scope.data.list170VO = [] ;
-						//将复用170数据清空
-						$scope.data.reuseList170VO = '' ;
-						$(":input[name='reuseList170VO']").val('') ;
-						$scope.data.list201VO = [] ;//数据初始化
-						//1.判断套餐/非套餐
-						//2.套餐:显示每一条,非套餐的话总的显示一条
-						var serviceGroup = $scope.data.sel1.value;    //BD
-						if(serviceGroup!=null&&serviceGroup.length>2&&serviceGroup.indexOf('BD')===0){
-							//说明是套餐
-							var tmpArr = [] ;//[1]页面显示的字符串,[2]折扣类型,[3]一口价,[4]一口价单位,[5]折扣数
-							for(var i = 0 ; i < $scope.data.sel4.length;i++){
-								var l = $scope.data.sel4[i] ;
-								var obj = {"subCode":l.subCode,"commercialName":l.commercialName,"discountType":'1',"onePriceNum":'',"discountNum":''};
-								tmpArr.push(obj) ;
-							}
-							$scope.data.list201VO = tmpArr ;
-						}else{//说明是非套餐
-							$scope.data.list201VO = [] ;//数据初始化
-							//显示str $scope.data.sel3.showStr
-							var subCode = $scope.data.sel3.value ;
-							var index = 2+subCode.length ;//'['+subCode+']'
-							var sel3ShowStr = $scope.data.sel3.showStr ;
-							var commercialName = sel3ShowStr.substring(index);
-							//[1]页面显示的字符串,[2]折扣类型,[3]一口价,[4]一口价单位,[5]折扣数
-							var obj = {"subCode":subCode,"commercialName":commercialName,"discountType":'1',"onePriceNum":'',"discountNum":''};
-							$scope.data.list201VO = [obj] ;
-						}
-						//和/或--里程积分--里程兑换标识
-						//当选择折扣时要更新这三个字段都必须为空且不可改变
-						$scope.data.specSevFeeAndOrIndicator = "" ;
-						$scope.data.specifiedServiceFeeMileage = "" ;
-						$scope.data.mileageExchangeIndicator = "0" ;
-					}
-					//更新组件的状态
-					validHelper.changeDiscount($scope.$parent,$scope.data,FormEditStatusServcie) ;
-				};
-				
-				//当点击‘或/和’时
-				$scope.clickSpecSevFeeAndOrIndicator = function(type){
-					if(type=='A'){//当本字段的值为A--1.里程兑换标识必须为空2.折扣表标识值必须为0
-						$scope.data.mileageExchangeIndicator ='0' ;
-					}else{
-						
-					}
-					validHelper.changeSpecSevFeeAndOrIndicator($scope.$parent,$scope.data,FormEditStatusServcie) ;
-				}
-				//当点击‘里程兑换标识’
-				$scope.clickMileageExchangeIndicator = function(type){
-					if(type='1'||type=='2'){
-						$scope.data.specifiedServiceFeeMileage ='' ;
-					}
-					validHelper.changeMileageExchangeIndicator($scope.$parent,$scope.data,FormEditStatusServcie) ;
-				}
-				
-	   }]) ;
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
-
-
-/***/ },
-/* 47 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, module) {
-		    var controllers = __webpack_require__(39) ;
-			var jsonDate = __webpack_require__(24) ;
-			var validHelper = __webpack_require__(41) ;
-			var _checkHaseErrorInfo = function  (inputEl) {
-				if(inputEl.hasClass('error')){
-					return true ;
-				}
-				return false;
-			};
-			var _delayValidateElement = function(inputEl){
-				if(_checkHaseErrorInfo(inputEl)){
-					setTimeout(function(){
-						validator.element(inputEl) ;
-					},100) ;
-				}
-			};
-		    //页面第三部分/////////规则详细部分/////////////////////////////////////////////////////////
-		    controllers.controller('RuleDetailCtrl',['$scope','FormData','FormEditStatusServcie',function($scope,FormData,FormEditStatusServcie){
-				$scope.data = FormData ;
-				//$scope.NEW_ADD_STR = NEW_ADD_STR ;
-				$scope.noCharge_notAvailableList = jsonDate.noCharge_notAvailableList ;
-				//舱位list集合
-				$scope.cabinList = jsonDate.cabinList ;
-				//区域集合
-			    $scope.geoLocTypeList = jsonDate.geoLocTypeList ;
-				//退/改
-				$scope.indicatorReissueRefundList = jsonDate.indicatorReissueRefundList ;
-				//退款形式
-				$scope.formOfRefundList = jsonDate.formOfRefundList ;
-				$scope.geoSpecExceptionStopUnitList = jsonDate.geoSpecExceptionStopUnitList ;
-				$scope.timeApplicationList = jsonDate.timeApplicationList ;
-				
-				$scope.getUpGradeTableTile = function(){
-					var sel1Value = FormData.sel1.value ;
-					var tmpStr = "" ;
-					if(sel1Value=="SA"||sel1Value=="BDSA"){
-						tmpStr = "座位属性表" ;
-					}else if (sel1Value=="UP"||sel1Value=="BDUP"){
-						tmpStr = "升舱属性表" ;
-					}
-					return tmpStr ;
-				}
-				
-				var list = ["SA","BDSA","UP","BDUP"] ;
-				$scope.showUpGradeTableFlag = function(){
-					var flag = false;
-					var index = list.indexOf(FormData.sel1.value) ;
-					if(index!=-1){
+				if(flag){//如果为true，并且serviceType为M，或F时显示
+					if($scope.data.serviceType=='M'||$scope.data.serviceType=='F'){
 						flag = true ;
+					}else{
+						flag = false;
 					}
-					if(flag){//如果为true，并且serviceType为M，或F时显示
-						if($scope.data.serviceType=='M'||$scope.data.serviceType=='F'){
-							flag = true ;
-						}else{
-							flag = false;
-						}
-					}
-					return flag ;
 				}
-				
-				var list2 = ['UP','BDUP'] ;
-				$scope.showUpGradeServiceFlag = function(){//升舱到的服务等级
-					var flag = false;
-					var index = list2.indexOf(FormData.sel1.value) ;
-					if(index!=-1){
-						flag = true ;
-					}
-					if(flag){//如果为true，并且serviceType为M，或F时显示
-						if($scope.data.serviceType=='M'||$scope.data.serviceType=='F'){
-							flag = true ;
-						}else{
-							flag = false;
-						}
-					}
-					return flag ;
-				}
-				
-				
-				//upGradeTable td input size //如果是座位属性表长度为10，订座属性表长度为3
-				$scope.getUpGradeInputSize = function(){
-					var sel1Value = FormData.sel1.value ;
-					var len = 5 ;
-					if(sel1Value=="SA"||sel1Value=="BDSA"){
-						len = 10 ;
-					}else if (sel1Value=="UP"||sel1Value=="BDUP"){
-						len = 5 ;
-					}
-					return len ;
-				}
-				//data.list178Loc1开始
-				//区域1 select改变
-				$scope.selectChangeGeoSpecLoc1 = function (){
-					$scope.data.geoSpecLoc1 = "" ;
-					var inputElement = $(":input[name='geoSpecLoc1']") ;
-					_delayValidateElement(inputElement) ;
-				}
-				//区域2 select改变
-				$scope.selectChangeGeoSpecLoc2 = function (){
-					$scope.data.geoSpecLoc2 = "" ;
-					var inputElement = $(":input[name='geoSpecLoc2']") ;
-					_delayValidateElement(inputElement) ;
-				}
-				//区域3 select改变
-				$scope.selectChangeGeoSpecLoc3 = function (){
-					$scope.data.geoSpecLoc3 = "" ;
-					var inputElement = $(":input[name='geoSpecLoc3']") ;
-					_delayValidateElement(inputElement) ;
-				}
-				
-				//当区域、部分、全程select发生变化的时候
-				$scope.changeGeoSpecSectPortJourney = function  () {
-					var editScope = $scope.$parent ;
-					var data = $scope.data;
-					var globalEditStatus = FormEditStatusServcie ;
-					validHelper.changeGeoSpecSectPortJourney(editScope,data,globalEditStatus) ;
-				}
+				return flag ;
+			}
 
-		  }]) ;
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+			var list2 = ['UP','BDUP'] ;
+			$scope.showUpGradeServiceFlag = function(){//升舱到的服务等级
+				var flag = false;
+				var index = list2.indexOf(FormData.sel1.value) ;
+				if(index!=-1){
+					flag = true ;
+				}
+				if(flag){//如果为true，并且serviceType为M，或F时显示
+					if($scope.data.serviceType=='M'||$scope.data.serviceType=='F'){
+						flag = true ;
+					}else{
+						flag = false;
+					}
+				}
+				return flag ;
+			}
+
+
+			//upGradeTable td input size //如果是座位属性表长度为10，订座属性表长度为3
+			$scope.getUpGradeInputSize = function(){
+				var sel1Value = FormData.sel1.value ;
+				var len = 5 ;
+				if(sel1Value=="SA"||sel1Value=="BDSA"){
+					len = 10 ;
+				}else if (sel1Value=="UP"||sel1Value=="BDUP"){
+					len = 5 ;
+				}
+				return len ;
+			}
+			//data.list178Loc1开始
+			//区域1 select改变
+			$scope.selectChangeGeoSpecLoc1 = function (){
+				$scope.data.geoSpecLoc1 = "" ;
+				var inputElement = $(":input[name='geoSpecLoc1']") ;
+				_delayValidateElement(inputElement) ;
+			}
+			//区域2 select改变
+			$scope.selectChangeGeoSpecLoc2 = function (){
+				$scope.data.geoSpecLoc2 = "" ;
+				var inputElement = $(":input[name='geoSpecLoc2']") ;
+				_delayValidateElement(inputElement) ;
+			}
+			//区域3 select改变
+			$scope.selectChangeGeoSpecLoc3 = function (){
+				$scope.data.geoSpecLoc3 = "" ;
+				var inputElement = $(":input[name='geoSpecLoc3']") ;
+				_delayValidateElement(inputElement) ;
+			}
+
+			//当区域、部分、全程select发生变化的时候
+			$scope.changeGeoSpecSectPortJourney = function  () {
+				var editScope = $scope.$parent ;
+				var data = $scope.data;
+				var globalEditStatus = FormEditStatusServcie ;
+				validHelper.changeGeoSpecSectPortJourney(editScope,data,globalEditStatus) ;
+			}
+
+	  }]) ;
 
 
 /***/ },
 /* 48 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function(require, exports, module){ 
-		var app = angular.module('app.filter',[]); 
-		//过滤choose1
-		app.filter("serviceGroupFilter", function() {
-		    var myFunc = function(data,inputStr){
-				inputStr = inputStr || "" ;
-		        var retData = [] ;
-		        if(inputStr.length>0){
-					inputStr = inputStr.toLowerCase() ;
-		            angular.forEach(data,function(e){
-		                if(e.serviceGroupDescription.toLowerCase().indexOf(inputStr)!=-1){
-		                    retData.push(e) ;
-		                }
-		            }) ;
-		        }else{
-		            retData = data ;
-		        }
-		        return retData ;
-		    }
-		    return myFunc ;
-		});
-		
-		//subGroupDescription
-		app.filter("subGroupFilter", function() {
-		    var myFunc = function(data,inputStr){
-				inputStr = inputStr || "" ;
-		        var retData = [] ;
-		        if(inputStr.length>0){
-					inputStr = inputStr.toLowerCase() ;
-		            angular.forEach(data,function(e){
-		                if(e.subGroupDescription.toLowerCase().indexOf(inputStr)!=-1){
-		                    retData.push(e) ;
-		                }
-		            }) ;
-		        }else{
-		            retData = data ;
-		        }
-		        return retData ;
-		    }
-		    return myFunc ;
-		});
-		//lastGroupList
-		app.filter("lastGroupFilter", function() {
-		    var myFunc = function(data,inputStr){
-				inputStr = inputStr || "" ;
-		        var retData = [] ;
-		        if(inputStr.length>0){
-					inputStr = inputStr.toLowerCase() ;
-		            angular.forEach(data,function(e){
-						var tmpStr = "["+e.serviceSubCode+"]"+e.commercialName ;
-		                if(tmpStr.toLowerCase().indexOf(inputStr)!=-1){
-		                    retData.push(e) ;
-		                }
-		            }) ;
-		        }else{
-		            retData = data ;
-		        }
-		        return retData ;
-		    }
-		    return myFunc ;
-		});
-		
-	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) ;
+	var app = angular.module('app.filter',[]);
+	//过滤choose1
+	app.filter("serviceGroupFilter", function() {
+		var myFunc = function(data,inputStr){
+			inputStr = inputStr || "" ;
+			var retData = [] ;
+			if(inputStr.length>0){
+				inputStr = inputStr.toLowerCase() ;
+				angular.forEach(data,function(e){
+					if(e.serviceGroupDescription.toLowerCase().indexOf(inputStr)!=-1){
+						retData.push(e) ;
+					}
+				}) ;
+			}else{
+				retData = data ;
+			}
+			return retData ;
+		}
+		return myFunc ;
+	});
+
+	//subGroupDescription
+	app.filter("subGroupFilter", function() {
+		var myFunc = function(data,inputStr){
+			inputStr = inputStr || "" ;
+			var retData = [] ;
+			if(inputStr.length>0){
+				inputStr = inputStr.toLowerCase() ;
+				angular.forEach(data,function(e){
+					if(e.subGroupDescription.toLowerCase().indexOf(inputStr)!=-1){
+						retData.push(e) ;
+					}
+				}) ;
+			}else{
+				retData = data ;
+			}
+			return retData ;
+		}
+		return myFunc ;
+	});
+	//lastGroupList
+	app.filter("lastGroupFilter", function() {
+		var myFunc = function(data,inputStr){
+			inputStr = inputStr || "" ;
+			var retData = [] ;
+			if(inputStr.length>0){
+				inputStr = inputStr.toLowerCase() ;
+				angular.forEach(data,function(e){
+					var tmpStr = "["+e.serviceSubCode+"]"+e.commercialName ;
+					if(tmpStr.toLowerCase().indexOf(inputStr)!=-1){
+						retData.push(e) ;
+					}
+				}) ;
+			}else{
+				retData = data ;
+			}
+			return retData ;
+		}
+		return myFunc ;
+	});
+
+
 
 /***/ },
 /* 49 */

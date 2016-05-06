@@ -1,5 +1,2 @@
-define(function (require, exports, module) {
-	
-	var controllers = angular.module("app.controllers",[]) ;
-	return controllers ;
-}) ;
+var controllers = angular.module("app.controllers",[]) ;
+module.exports= controllers ;

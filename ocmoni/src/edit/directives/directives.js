@@ -1,6 +1,4 @@
-define(function(require, exports, module){ 
-	 var directives = angular.module('app.directives',[]); 
-	 return directives ;
- }) ;
+ var directives = angular.module('app.directives',[]);
+ module.exports = directives ;
 
 

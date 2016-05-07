@@ -24,7 +24,8 @@ module.exports = {
         loaders: [
             { test: /\.css$/, loader: "style!css" },
             {test: /\.html$/, loader: 'html'},
-            {test: /\.(jpg|png|gif)$/, loader: "url?limit=8192"}
+            {test: /\.(jpg|png|gif)$/, loader: "url?limit=8192&name=./imgages/[hash:8].[name].[ext]"},
+            {test: /\.(eot|woff|ttf|svg)$/, loader: "file-loader?name=./file/[hash:8].[name].[ext]" }
         ]
     },
     //和loaders一样的语法，很简单,经过测试这个好像没啥用呢?

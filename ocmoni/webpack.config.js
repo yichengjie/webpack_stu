@@ -1,6 +1,7 @@
 var webpack = require('webpack') ;
 var path = require('path') ;
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var APP_PATH = "./src/script/" ;
 
 var ROOT_PATH = "../" ;
@@ -22,9 +23,10 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.css$/, loader: "style!css" },
+            /*{ test: /\.css$/, loader: "style!css" },*/
+            { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
             {test: /\.html$/, loader: 'html'},
-            {test: /\.(jpg|png|gif)$/, loader: "url?limit=8192&name=./imgages/[hash:8].[name].[ext]"},
+            {test: /\.(jpg|png|gif)$/, loader: "url?limit=8192&name=./images/[hash:8].[name].[ext]"},
             {test: /\.(eot|woff|ttf|svg)$/, loader: "file-loader?name=./file/[hash:8].[name].[ext]" }
         ]
     },
@@ -37,7 +39,7 @@ module.exports = {
      }
      ],*/
     plugins: [
-        new webpack.BannerPlugin('This file is created by yicj, email : 626659321@qq.com')
+        new webpack.BannerPlugin('{compony travelsky-dbky ,\n author: yicj,\n email : 626659321@qq.com,\ncreate-date:2016/05/05}')
         //压缩打包的文件
         /*,new webpack.optimize.UglifyJsPlugin({
             compress: {
@@ -45,7 +47,7 @@ module.exports = {
                 warnings: false
             }
         })*/
-        ,new HtmlWebpackPlugin({
+        /*,new HtmlWebpackPlugin({
             title: 'Hello World app',
             template: path.resolve(TEM_PATH, 'index.html'),
             filename: 'index.html',
@@ -53,6 +55,7 @@ module.exports = {
             chunks: ['edit'],
             //要把script插入到标签里
             inject: 'body'
-        })
+        })*/
+        ,new ExtractTextPlugin("style.[hash:16].css")
     ]
 };

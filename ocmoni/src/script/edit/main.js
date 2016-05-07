@@ -1,12 +1,7 @@
 //var pathStr = require.resolve('src/main') ;
 //console.info("path : " + pathStr) ;
-require('angular') ;
-require('moment') ;
-require('angular-messages') ;
-require('angular-bindonce') ;
-require('devbridge-autocomplete') ;
-require('tui-dialog') ;
-require('tui-datepicker') ;
+
+
 require("./router") ;
 require("../lib/modal") ;
 

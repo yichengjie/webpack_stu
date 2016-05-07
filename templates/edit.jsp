@@ -6,19 +6,24 @@
 <jsp:include page="/WEB-INF/pages/oc/oc_common.jsp"></jsp:include>
 <title>附加服务</title>
 <!-- 窗口内部样式-->
+<!--
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/tui/styles/tui_global.css"/>
-<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/tui/styles/tui_content.css" />
-<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/tui/components/tuiDialog/tui_dialog.css" />
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/tui/styles/tui_content.css" />-->
+<!-- <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/tui/components/tuiDialog/tui_dialog.css" /> -->
+<!--
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/tui/components/tuiValidate/tui_validator.css" />
-<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/tui/components/tuiDatepicker/jquery_ui.datepicker-modify.css" />
+-->
+<!-- <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/tui/components/tuiDatepicker/jquery_ui.datepicker-modify.css" />
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/oc/styles/jquery.ui.datepicker.css" />
-<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/oc/styles/jquery-ui-timepicker-addon.css" />
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/oc/styles/jquery-ui-timepicker-addon.css" /> -->
 <!-- 
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/oc/styles/oc_style.css" />
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/oc/styles/oc_row.css" />
  -->
+ <!--
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/oc/components/autocomplete/jquery.autocomplete.css"/>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/oc/components/iconfont/iconfont.css"/>
+-->
 <style type="text/css">
 	.queryReuseInput{width:130px}
 	/*开发版本

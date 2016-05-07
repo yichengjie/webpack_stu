@@ -57,5 +57,9 @@ module.exports = {
             inject: 'body'
         })*/
         ,new ExtractTextPlugin("style.[hash:8].css")
+        ,new webpack.optimize.CommonsChunkPlugin({
+            name: 'commons',
+            filename: "commons.[hash:8].js",
+        })
     ]
 };

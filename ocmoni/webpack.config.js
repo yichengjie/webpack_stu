@@ -26,8 +26,8 @@ module.exports = {
             /*{ test: /\.css$/, loader: "style!css" },*/
             { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
             {test: /\.html$/, loader: 'html'},
-            {test: /\.(jpg|png|gif)$/, loader: "url?limit=8192&name=./images/[hash:8].[name].[ext]"},
-            {test: /\.(eot|woff|ttf|svg)$/, loader: "file-loader?name=./file/[hash:8].[name].[ext]" }
+            {test: /\.(jpg|png|gif)$/, loader: "url?limit=8192&name=./images/[name].[hash:8].[ext]"},
+            {test: /\.(eot|woff|ttf|svg)$/, loader: "file-loader?name=./file/[name].[hash:8].[ext]" }
         ]
     },
     //和loaders一样的语法，很简单,经过测试这个好像没啥用呢?
@@ -56,6 +56,6 @@ module.exports = {
             //要把script插入到标签里
             inject: 'body'
         })*/
-        ,new ExtractTextPlugin("style.[hash:16].css")
+        ,new ExtractTextPlugin("style.[hash:8].css")
     ]
 };

@@ -2,6 +2,7 @@ define(function(require, exports, module) {
 	var dataFormatStr = "YYYY-MM-DD" ;
 	var dataTimeFormatStr = "YYYY-MM-DD HH:mm" ;
 	var util = {};
+	var moment = require('moment') ;
 	//获取也csrf信息
 	util.getCSRFInfo = function(){
 		var _csrf = $("meta[name=_csrf]").attr('content');

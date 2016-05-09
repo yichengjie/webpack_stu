@@ -1,4 +1,2 @@
-require('tui-core');
-require('tui-drag');
-require('./tui_dialog.js');
-
+var tui_dialog = require('./tui_dialog.js');
+module.exports = tui_dialog;

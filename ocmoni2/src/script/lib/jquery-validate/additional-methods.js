@@ -7,11 +7,12 @@
  * Released under the MIT license
  */
 (function( factory ) {
-	if ( typeof define === "function" && define.amd ) {
+	/*if ( typeof define === "function" && define.amd ) {
 		define( ["jquery", "./jquery.validate"], factory );
 	} else {
 		factory( jQuery );
-	}
+	}*/
+	factory( jQuery );
 }(function( $ ) {
 	(function() {
 		function stripHtml(value) {

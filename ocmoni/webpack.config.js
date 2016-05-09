@@ -41,12 +41,12 @@ module.exports = {
     plugins: [
         new webpack.BannerPlugin('{compony travelsky-dbky ,\n author: yicj,\n email : 626659321@qq.com,\ncreate-date:2016/05/05}')
         //压缩打包的文件
-        ,new webpack.optimize.UglifyJsPlugin({
+        /*,new webpack.optimize.UglifyJsPlugin({
             compress: {
                 //supresses warnings, usually from module minification
                 warnings: false
             }
-        })
+        })*/
         /*,new HtmlWebpackPlugin({
             title: 'Hello World app',
             template: path.resolve(TEM_PATH, 'index.html'),
@@ -57,9 +57,9 @@ module.exports = {
             inject: 'body'
         })*/
         ,new ExtractTextPlugin("style.[hash:8].css")
-        ,new webpack.optimize.CommonsChunkPlugin({
+        /*,new webpack.optimize.CommonsChunkPlugin({
             name: 'commons',
             filename: "commons.[hash:8].js",
-        })
+        })*/
     ]
 };

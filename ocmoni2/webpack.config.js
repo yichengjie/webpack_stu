@@ -2,19 +2,18 @@ var webpack = require('webpack') ;
 var path = require('path') ;
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var APP_PATH = "./src/" ;
 
-var ROOT_PATH = "../" ;
-
+//var LIB_PATH = __dirname+"/src/script/lib/" ;
+var LIB_PATH = path.resolve('./src/script/lib');
+var STYLE_PATH = path.resolve('./src/style');
 //Template的文件夹路径
-var TEM_PATH = path.resolve(ROOT_PATH, 'templates');
 
 module.exports = {
     /*entry: "./src/script/edit/entry.js",*/
     entry: {
         //三个入口文件，app, mobile和 vendors
-        edit: path.resolve(APP_PATH, './script/edit/entry.js'),
-        style: path.resolve(APP_PATH, './style/style.js')
+        edit: path.resolve('./src', './script/edit/entry.js')
+        /*,style: path.resolve('./src', './style/style.js')*/
     },
     /*devtool: 'eval-source-map',*/
     output: {
@@ -31,23 +30,31 @@ module.exports = {
             {test: /\.(eot|woff|ttf|svg)$/, loader: "file-loader?name=./file/[name].[hash:8].[ext]" }
         ]
     },
-    //和loaders一样的语法，很简单,经过测试这个好像没啥用呢?
-    /* perLoaders: [
-     {
-     test: /\.js?$/,
-     include: APP_PATH,
-     loader: 'jshint-loader'
-     }
-     ],*/
+    resolve: {
+        alias: {
+            autocomplete_lib: LIB_PATH+"/autocomplete/index.js",
+            datepicker_lib: LIB_PATH+"/datepicker/index.js",
+            jquery_validate_lib:LIB_PATH+"/jquery-validate/index.js",
+            timepicker_lib:LIB_PATH+"/timepicker/index.js",
+            tui_core_lib:LIB_PATH+"/tui-core/index.js",
+            tui_dialog_lib:LIB_PATH+"/tui-dialog/index.js",
+            tui_drag_lib:LIB_PATH+"/tui-drag/index.js",
+            ajaxfileupload_lib:LIB_PATH+"/ajaxfileupload.js",
+            modal_helper_lib:LIB_PATH+"/modal.helper.js",
+            modal_lib:LIB_PATH+"/modal.js",
+            /*------------style----------*/
+            edit_style:STYLE_PATH +"/edit_style.js"
+        }
+    },
     plugins: [
         new webpack.BannerPlugin('{compony travelsky-dbky ,\n author: yicj,\n email : 626659321@qq.com,\ncreate-date:2016/05/05}')
         //压缩打包的文件
-        /*,new webpack.optimize.UglifyJsPlugin({
+        /**/,new webpack.optimize.UglifyJsPlugin({
             compress: {
                 //supresses warnings, usually from module minification
                 warnings: false
             }
-        })*/
+        })
         /*,new HtmlWebpackPlugin({
             title: 'Hello World app',
             template: path.resolve(TEM_PATH, 'index.html'),

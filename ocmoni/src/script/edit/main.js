@@ -1,7 +1,5 @@
 //var pathStr = require.resolve('src/main') ;
 //console.info("path : " + pathStr) ;
-
-
 require("./router") ;
 require("../lib/modal") ;
 

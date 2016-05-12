@@ -1,7 +1,7 @@
 define(function(require, exports, module) {
-  	require('tuiValidator');
-	require('tuiDialog');
-	require('datepicker') ;
+  	require('jquery_validate_lib');
+	require('tui_dialog_lib');
+	require('datepicker_lib') ;
 	require('./services/services') ;
 	require('./controllers/controllers') ;
 	require('./directives/directives') ;

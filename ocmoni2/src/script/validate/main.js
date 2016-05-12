@@ -1,7 +1,7 @@
 define(function(require, exports, module) {
-	require('tuiDialog') ;
-	require('datepicker') ;
-	require('jqueryuitimepickeraddon') ;
+	require('tui_dialog_lib') ;
+	require('datepicker_lib') ;
+	require('timepicker_lib') ;
 	require('./services') ;
 	require('./HttpOperService') ;
 	require('./controllers') ;

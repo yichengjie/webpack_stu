@@ -1,6 +1,6 @@
 define(function(require, exports, module){ 
 	var app = angular.module('app.service') ;
-	var util = require('../util') ;
+	var util = require('util_lib') ;
 	// $q 是内置服务，所以可以直接使用  //HttpOperService//S7EditService
 	app.factory('HttpOperService', ['$http', '$q', function ($http, $q) {  
 	  return {  

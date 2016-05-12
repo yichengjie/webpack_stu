@@ -1,5 +1,5 @@
 define(function(require, exports, module) {
-	var util = require('../util') ;
+	var util = require('util_lib') ;
 	 var _ = require('underscore') ;
 	var app = angular.module("app.validator",[]) ;
 	

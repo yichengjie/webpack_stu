@@ -1,5 +1,5 @@
 define(function(require, exports, module) {
-    var util = require('../util') ;
+    var util = require('util_lib') ;
     var app = angular.module('app.directives',[]) ;
     //var listUpgradeInfoHtml = require('./tpls/listUpgradeInfo.html') ;
     //var listGeneralTicketInfoHtml = require('./tpls/listGeneralTicketInfo.html') ;

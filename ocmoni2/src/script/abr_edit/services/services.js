@@ -1,6 +1,6 @@
 define(function(require, exports, module) {
 	var app = angular.module("app.service",[]) ;
-	var util = require('../../util') ;
+	var util = require('util_lib') ;
 	app.factory('FormData', [ function(){
 		return {
 			id:'',

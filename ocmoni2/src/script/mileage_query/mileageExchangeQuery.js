@@ -1,10 +1,10 @@
 define(function(require, exports, module) {
-	var httpUtil = require("./HttpClientUtil") ;
+	var httpUtil = require("HttpClientUtil_lib") ;
 	var _ = require('underscore') ;
-	require('tuiDialog');
-	require('./lib/modal') ;
-	require('datepicker') ;
-	require('jqueryuitimepickeraddon') ;
+	require('tui_dialog_lib');
+	require('modal_lib') ;
+	require('datepicker_lib') ;
+	require('timepicker_lib') ;
 	var dateFormatStr ="YYYY-MM-DD" ;
 	var dateTimeFormatStr = "YYYY-MM-DD HH:mm" ;
 	

@@ -136,5 +136,5 @@
 		return defer.promise() ;
 	}
 	
-	return httpUtil ;
+	module.exports= httpUtil ;
 //}) ;

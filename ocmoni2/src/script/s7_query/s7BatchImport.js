@@ -1,7 +1,7 @@
 define(function(require, exports, module) {
-	var util = require('./util') ;
-	require('./lib/ajaxfileupload') ;
-	var modalHelper = new (require('./lib/modal.helper'))('batchImportTipInfo') ;
+	var util = require('util_lib') ;
+	require('ajaxfileupload_lib') ;
+	var modalHelper = new (require('modal_helper_lib'))('batchImportTipInfo') ;
 	
 	function s7BatchImport(){
 		

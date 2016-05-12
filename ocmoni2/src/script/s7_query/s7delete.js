@@ -1,10 +1,8 @@
 define(function(require, exports, module) {
-
 	// 通过require引入依赖
-	var $ = require('jquery');
-	var Common = require('./common');
+	var Common = require('common_lib');
 	var common = new Common();
-	var httpClient = require('./HttpClientUtil') ;
+	var httpClient = require('HttpClientUtil_lib') ;
 
 	function S7Delete() {
 
@@ -16,7 +14,7 @@ define(function(require, exports, module) {
 	 * 发布按钮绑定事件
 	 */
 	S7Delete.prototype.init = function() {
-		
+
 		$(document).delegate('.delete[name=s7delete]', 'click', function() {
 			//删除s7id
 			var s7id = $(this).parents('tr').find(':input[name=s7id]').attr('value');
@@ -43,7 +41,7 @@ define(function(require, exports, module) {
 					$.showTuiErrorDialog('系统异常，删除失败！');
 				}
 			};
-			//$.ajax(common.baseOptions);	
+			//$.ajax(common.baseOptions);
 			httpClient.dealAjax4BaseOptions(common.baseOptions)  ;
 		});
 	};

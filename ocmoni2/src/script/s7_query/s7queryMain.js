@@ -1,5 +1,5 @@
 define(function(require) {
-  var util = require('./util') ;
+  var util = require('util_lib') ;
   var S7Query = require('./s7query');
   new S7Query();
   

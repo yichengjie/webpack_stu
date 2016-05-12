@@ -16,8 +16,8 @@ module.exports = {
     /*entry: "./src/script/edit/entry.js",*/
     entry: {
         //三个入口文件，app, mobile和 vendors
-        s7_edit: PKG_ENTRY_PATH+"/s7_edit_entry.js"
-        /*,style: path.resolve('./src', './style/style.js')*/
+        s7_edit: PKG_ENTRY_PATH+"/s7_edit_entry.js",
+        s7_query: PKG_ENTRY_PATH+"/s7_query_entry.js"
     },
     /*devtool: 'eval-source-map',*/
     output: {

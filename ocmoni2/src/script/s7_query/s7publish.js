@@ -1,9 +1,7 @@
 define(function(require, exports, module) {
-
 	// 通过require引入依赖
-	var $ = require('jquery');
-	var Common = require('./common');
-	var httpClient = require('./HttpClientUtil') ;
+	var Common = require('common_lib');
+	var httpClient = require('HttpClientUtil_lib') ;
 
 	var common = new Common();
 

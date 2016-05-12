@@ -1,10 +1,10 @@
 define(function(require, exports, module) {
 	//var $ = require("jquery");
-	require('./lib/modal') ;
-	var Common = require("./common") ;
+	require('modal_lib') ;
+	var Common = require("common_lib") ;
 	var common = new Common() ;
-	var httpClient = require('./HttpClientUtil') ;
-	var ModalHelper = require('./lib/modal.helper') ;
+	var httpClient = require('HttpClientUtil_lib') ;
+	var ModalHelper = require('modal_helper_lib') ;
 	var modalHelper = null ;
 	
 	function S7Abort(){

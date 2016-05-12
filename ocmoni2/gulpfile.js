@@ -22,5 +22,8 @@ for(let key in entryMap){
 		});
 	}) ;
 }
-
-gulp.task('default',entryKeys) ;
+//执行webpack打包所有webpack任务
+gulp.task('webpack',entryKeys) ;
+//默认task
+var defaultTaskArr =["mileage_edit"] ;
+gulp.task('default',defaultTaskArr) ;

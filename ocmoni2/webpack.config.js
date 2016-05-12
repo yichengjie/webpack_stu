@@ -72,7 +72,7 @@ module.exports = {
             //要把script插入到标签里
             inject: 'body'
         })*/
-        ,new ExtractTextPlugin("style.[hash:8].css")
+        ,new ExtractTextPlugin("[name].[hash:20].css")
         /*,new webpack.optimize.CommonsChunkPlugin({
             name: 'commons',
             filename: "commons.[hash:8].js",

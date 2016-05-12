@@ -1,4 +1,5 @@
 require('style_path/tui_global.css') ;
+//require('style_path/tui_migrate.css') ;
 require('style_path/tui_content.css') ;
 require('style_path/tui_dialog.css') ;
 require('style_path/tui_validator.css') ;

@@ -7,12 +7,16 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var LIB_PATH = path.resolve('./src/script/lib');
 var STYLE_PATH = path.resolve('./src/style');
 //Template的文件夹路径
+var PKG_ENTRY_PATH= path.resolve('./src/pkg_entry');
+
+
+
 
 module.exports = {
     /*entry: "./src/script/edit/entry.js",*/
     entry: {
         //三个入口文件，app, mobile和 vendors
-        edit: path.resolve('./src', './script/s7_edit/entry.js')
+        s7_edit: PKG_ENTRY_PATH+"/s7_edit_entry.js"
         /*,style: path.resolve('./src', './style/style.js')*/
     },
     /*devtool: 'eval-source-map',*/

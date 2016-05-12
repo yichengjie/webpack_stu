@@ -7,25 +7,11 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var LIB_PATH = path.resolve('./src/script/lib');
 var STYLE_PATH = path.resolve('./src/style');
 //Template的文件夹路径
-var PKG_ENTRY_PATH= path.resolve('./src/pkg_entry');
-
-
-
+var entryMap = require('./entryMap') ;
 
 module.exports = {
     /*entry: "./src/script/edit/entry.js",*/
-    entry: {
-        //css文件
-        common_style:PKG_ENTRY_PATH+"/common_style_entry.js",
-        //下面是js文件
-        s7_edit: PKG_ENTRY_PATH+"/s7_edit_entry.js",
-        s7_query: PKG_ENTRY_PATH+"/s7_query_entry.js",
-        validate:PKG_ENTRY_PATH+"/validate_entry.js",
-        mileage_query:PKG_ENTRY_PATH+"/mileage_query_entry.js",
-        mileage_edit:PKG_ENTRY_PATH+"/mileage_edit_entry.js",
-        abr_query:PKG_ENTRY_PATH+"/abr_query_entry.js",
-        abr_edit:PKG_ENTRY_PATH+"/abr_edit_entry.js"
-    },
+    entry: entryMap,
     /*devtool: 'eval-source-map',*/
     output: {
         path: __dirname+"/dist/",

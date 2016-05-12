@@ -12,7 +12,7 @@ module.exports = {
     /*entry: "./src/script/edit/entry.js",*/
     entry: {
         //三个入口文件，app, mobile和 vendors
-        edit: path.resolve('./src', './script/edit/entry.js')
+        edit: path.resolve('./src', './script/s7_edit/entry.js')
         /*,style: path.resolve('./src', './style/style.js')*/
     },
     /*devtool: 'eval-source-map',*/
@@ -42,19 +42,27 @@ module.exports = {
             ajaxfileupload_lib:LIB_PATH+"/ajaxfileupload.js",
             modal_helper_lib:LIB_PATH+"/modal.helper.js",
             modal_lib:LIB_PATH+"/modal.js",
+            common_lib:LIB_PATH+"/common.js",
+            HttpClientUtil_lib:LIB_PATH+"/HttpClientUtil.js",
+            util_lib:LIB_PATH+"/util.js",
             /*------------style----------*/
-            edit_style:STYLE_PATH +"/edit_style.js"
+            style_path:STYLE_PATH
         }
     },
     plugins: [
         new webpack.BannerPlugin('{compony travelsky-dbky ,\n author: yicj,\n email : 626659321@qq.com,\ncreate-date:2016/05/05}')
         //压缩打包的文件
-        /**/,new webpack.optimize.UglifyJsPlugin({
+        /*,new webpack.optimize.UglifyJsPlugin({
             compress: {
                 //supresses warnings, usually from module minification
                 warnings: false
             }
-        })
+        })*/
+        //提供全局的变量，在模块中使用无需用require引入,这个暂时不好用，会报错，jquery还是先全局引入
+       /*,new webpack.ProvidePlugin({
+            jQuery: "jquery",
+            $: "jquery"
+        })*/
         /*,new HtmlWebpackPlugin({
             title: 'Hello World app',
             template: path.resolve(TEM_PATH, 'index.html'),

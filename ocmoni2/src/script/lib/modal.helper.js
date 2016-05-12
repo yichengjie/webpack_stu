@@ -10,7 +10,7 @@
  * js:'var ModalHelper = require('./lib/modal.helper') ; <br/>
  * 	   var modalHelper = new ModalHelper("tskCustomeTipInfo");'
  */
-define(function (require, exports, module) {
+//define(function (require, exports, module) {
 	function ModalHelper(tipId){
 		if(this==window){
 			throw new Error("please new an ModalHelper object to use it !");
@@ -30,6 +30,6 @@ define(function (require, exports, module) {
 		this.el.append("<li><span class =\"modal-successTip\">"+sucMsg+"</span></li>") ;
 	} ;
 	module.exports = ModalHelper;
-}) ;
+//}) ;
 
 

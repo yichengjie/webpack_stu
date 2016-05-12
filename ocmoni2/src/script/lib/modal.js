@@ -5,7 +5,7 @@
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-define(function(require, exports, module) {
+//define(function(require, exports, module) {
 +function ($) {
   'use strict';
   // MODAL CLASS DEFINITION
@@ -337,4 +337,4 @@ define(function(require, exports, module) {
 
 }(jQuery);
 
-}) ;
+//}) ;

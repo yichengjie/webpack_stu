@@ -96,7 +96,7 @@
 		var opt={
 			title:'错误',
 			width:width||300,
-			height:height||180,
+			height:height||150,
 			message:errorMsg,
 			mode:'no_title_window',
 			style:'error',
@@ -190,6 +190,27 @@
 		opt=$.extend(opt,option);
 		$.tui.tuiDialog(opt);
 	};
+
+	//确认框2（‘确认框’增加一个取消按钮的回调函数支持）
+	$.showTuiConfirmDialog2=function(message,sureCallback,cancelCallback,width,height,option){
+		var opt={
+			title:'确认',
+			width:width||300,
+			height:height||160,
+			message:message,
+			mode:'no_title_window',
+			style:'confirm',
+			onConfirm:sureCallback,
+			onCancel : cancelCallback,
+			cancelBtn:true,
+			confirmBtn:true
+		};
+		$.extend(opt,option);
+		opt=$.extend(opt,option);
+		$.tui.tuiDialog(opt);
+	};
+
+
 	//成功提示框
 	$.showTuiSuccessDialog=function(info,sureCallback,width,height,option){
 		var opt={

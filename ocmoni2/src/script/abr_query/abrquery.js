@@ -1,7 +1,6 @@
 define(function(require, exports, module) {
-  	require('jquery_validate_lib');
 	require('datepicker_lib');
-	require('tui_dialog_lib');
+	require('jquery_validate_lib');
   	var Common = require('common_lib');
   	var common = new Common();
   	var httpClient = require('HttpClientUtil_lib') ;

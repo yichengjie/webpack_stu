@@ -29,6 +29,8 @@ module.exports = {
     },
     resolve: {
         alias: {
+            angular_growl_lib: LIB_PATH+"/angular-growl/index.js",
+            jquery_growl_lib: LIB_PATH+"/jquery-growl/index.js",
             autocomplete_lib: LIB_PATH+"/autocomplete/index.js",
             datepicker_lib: LIB_PATH+"/datepicker/index.js",
             jquery_validate_lib:LIB_PATH+"/jquery-validate/index.js",
@@ -42,6 +44,8 @@ module.exports = {
             common_lib:LIB_PATH+"/common.js",
             HttpClientUtil_lib:LIB_PATH+"/HttpClientUtil.js",
             util_lib:LIB_PATH+"/util.js",
+            moment_lib:LIB_PATH+"/moment/index.js",
+            clipboard_lib:LIB_PATH+"/clipboard/index.js",
             /*------------style----------*/
             style_path:STYLE_PATH
         }

@@ -1,6 +1,10 @@
 define(function(require, exports, module) {
     var app = angular.module('app.controllers',[]) ;
     var _ = require('underscore') ;
+    var moment = require('moment_lib') ;
+
+    var Clipboard = require('clipboard_lib') ;
+
     //require('../lib/jquery.isloading') ;
     
    /* var loadingDefaults = {

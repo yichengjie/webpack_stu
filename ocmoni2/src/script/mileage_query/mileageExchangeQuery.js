@@ -1,5 +1,5 @@
 define(function(require, exports, module) {
-
+	var moment = require('moment_lib') ;
 	var Vue = require('vue') ;
 
 	var httpUtil = require("HttpClientUtil_lib") ;

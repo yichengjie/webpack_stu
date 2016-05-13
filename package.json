@@ -17,6 +17,7 @@
     "devbridge-autocomplete": "^1.2.24",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
+    "gulp": "^3.9.1",
     "gulp-util": "^3.0.7",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.16.1",
@@ -28,10 +29,9 @@
     "moment": "^2.13.0",
     "path": "^0.12.7",
     "style-loader": "^0.13.1",
-    "tui-core": "1.0.0",
-    "tui-drag": "1.0.0",
     "underscore": "^1.8.3",
     "url-loader": "^0.5.7",
+    "vue": "^1.0.24",
     "webpack": "^1.13.0"
   }
 }

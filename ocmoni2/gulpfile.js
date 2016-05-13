@@ -15,6 +15,7 @@ for(var key in entryMap){
 			myConfig.entry[taskName] =entryMap[taskName] ;
 			webpack(myConfig,
 				function(err,stats){
+					console.error('error : ' + err) ;
 					if(err){
 						throw new gutil.pluginError('webpack',err) ;
 						gutil.log('[webpack]',stats.toString({})) ;
@@ -27,5 +28,5 @@ for(var key in entryMap){
 //执行webpack打包所有webpack任务
 gulp.task('webpack',entryKeys) ;
 //默认task
-var defaultTaskArr =["mileage_edit"] ;
+var defaultTaskArr =["common_style"] ;
 gulp.task('default',defaultTaskArr) ;

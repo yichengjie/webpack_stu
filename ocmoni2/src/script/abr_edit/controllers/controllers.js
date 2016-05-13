@@ -1,6 +1,7 @@
 define(function(require, exports, module) {
 	var app = angular.module("app.controller",[]) ;
 	var FormDataUtil = require("../util/FormDataUtil") ;
+	var _ = require('underscore') ;
 	
 	function changeInputStatus4Submit(data,myForm){
         var keys1 = _.keys(data) ;

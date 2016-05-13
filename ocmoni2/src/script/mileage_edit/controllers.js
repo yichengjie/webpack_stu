@@ -1,6 +1,7 @@
 define(function(require, exports, module) {
 	var app = angular.module('app.controller',[]) ;
 	var _ = require('underscore') ;
+	var moment = require('moment_lib') ;
 	
 	var dateTimeFormatStr = 'YYYY-MM-DD HH:mm' ;
 	var dateFormatStr = "YYYY-MM-DD" ; 

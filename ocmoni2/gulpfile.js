@@ -7,20 +7,22 @@ var webpackConfig = require("./webpack.config.js");
 var entryMap = require('./entryMap') ;
 var entryKeys = Object.keys(entryMap) ;
 //var webpackCfg = Object.create(webpackConfig) ;
-for(let key in entryMap){
-	gulp.task(key,function(callback){
-		var myConfig = Object.create(webpackConfig) ;
-		myConfig.entry={} ;
-		myConfig.entry[key] =entryMap[key] ;
-		webpack(myConfig,
-			function(err,stats){
-			if(err){
-				throw new gutil.pluginError('webpack',err) ;
-				gutil.log('[webpack]',stats.toString({})) ;
-			}
-			callback() ;
-		});
-	}) ;
+for(var key in entryMap){
+	(function (taskName) {
+		gulp.task(taskName,function(callback){
+			var myConfig = Object.create(webpackConfig) ;
+			myConfig.entry={} ;
+			myConfig.entry[taskName] =entryMap[taskName] ;
+			webpack(myConfig,
+				function(err,stats){
+					if(err){
+						throw new gutil.pluginError('webpack',err) ;
+						gutil.log('[webpack]',stats.toString({})) ;
+					}
+					callback() ;
+				});
+		}) ;
+	})(key) ;
 }
 //执行webpack打包所有webpack任务
 gulp.task('webpack',entryKeys) ;

@@ -49,12 +49,12 @@ module.exports = {
     plugins: [
         new webpack.BannerPlugin('{compony travelsky-dbky ,\n author: yicj,\n email : 626659321@qq.com,\ncreate-date:2016/05/05}')
         //压缩打包的文件
-        ,new webpack.optimize.UglifyJsPlugin({
+        /*,new webpack.optimize.UglifyJsPlugin({
             compress: {
                 //supresses warnings, usually from module minification
                 warnings: false
             }
-        })
+        })*/
         //提供全局的变量，在模块中使用无需用require引入,这个暂时不好用，会报错，jquery还是先全局引入
        /*,new webpack.ProvidePlugin({
             jQuery: "jquery",

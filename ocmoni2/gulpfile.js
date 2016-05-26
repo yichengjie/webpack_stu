@@ -1,6 +1,5 @@
 'use strict'
 var gulp = require('gulp') ;
-var gutil = require("gulp-util");
 //var gulpWebpack = require('gulp-webpack');
 var webpack = require('webpack') ;
 var webpackConfig = require("./webpack.config.js");
@@ -15,11 +14,7 @@ for(var key in entryMap){
 			myConfig.entry[taskName] =entryMap[taskName] ;
 			webpack(myConfig,
 				function(err,stats){
-					console.error('error : ' + err) ;
-					if(err){
-						throw new gutil.pluginError('webpack',err) ;
-						gutil.log('[webpack]',stats.toString({})) ;
-					}
+					console.error('has an error with package '  + err) ;
 					callback() ;
 				});
 		}) ;

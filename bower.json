@@ -1,0 +1,22 @@
+{
+  "name": "webpack_stu",
+  "description": "webpack study",
+  "main": "index.js",
+  "authors": [
+    "yicj"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/yichengjie/webpack_stu",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.x",
+    "bootstrap": "^3.3.6",
+    "bootstrap-select": "^1.10.0"
+  }
+}

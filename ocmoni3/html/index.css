@@ -3,12 +3,13 @@ body{
     background-color: #F2F4F7;
 }
 .main_content{
-    margin-top: 50px;
+    margin-top: 10px;
     padding: 0 0;
     height: 100%;
     width: 100%;
 }
 .query_section{
+    margin-top: 50px;
     width: 100%;
     min-height: 42px;
     padding: 6px;

@@ -34,126 +34,127 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-<div class="container-fluid main_content" >
-    <div class ="query_section">
-        <form class="form-inline">
-            <!--query row1 start-->
+<!--query section start-->
+<div class ="query_section">
+    <form class="form-inline">
+        <!--query row1 start-->
+        <div class="row query_row">
+            <span class="query_title">基础信息</span>
+            <span class="col-sm-11">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <input id ="c1" type="checkbox"><label for="c1">未发布</label>
+                    </div>
+                    <div class="checkbox">
+                        <input id ="c2" type="checkbox"><label for="c2">已发布</label>
+                    </div>
+
+                    <div class="checkbox">
+                        <input  id ="c3" type="checkbox"><label for="c3"> 未生效</label>
+                    </div>
+                    <div class="checkbox">
+                        <input  id ="c4" type="checkbox"> <label for="c4">已生效</label>
+                    </div>
+                    <div class="checkbox">
+                        <input  id ="c5" type="checkbox"> <label for="c5">已过期</label>
+                    </div>
+                </div>
+                <span class="marginR15"></span>
+                <div class="form-group">
+                    <label  class="marginR5">服务</label>
+                    <select class="form-control">
+                        <option>商务名称</option>
+                        <option>子代码</option>
+                    </select>
+                    <input type="email" class="form-control input-sm" style="width: 100px">
+                </div>
+                <div class="form-group">
+                    <label class="marginR5">销售日期</label>
+                    <input type="text" class="form-control input-sm"  placeholder="起始日期" style="width: 80px">
+                    <input type="text" class="form-control input-sm"  placeholder="结束日期" style="width: 80px">
+                </div>
+
+                <div class="checkbox marginLR15">
+                    <input  id ="showHideMoreQuerySectionBtn" type="checkbox"> <label for="showHideMoreQuerySectionBtn">更多条件</label>
+                </div>
+                <button type="submit" class="btn btn-default btn-sm btn-primary">查询</button>
+            </span>
+        </div>
+        <!--query row1 end-->
+
+        <div id ="moreQuerySection" >
+            <!--query row2 start-->
             <div class="row query_row">
-                <span class="query_title">基础信息</span>
-                <span class="col-sm-11">
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <input id ="c1" type="checkbox"><label for="c1">未发布</label>
-                        </div>
-                        <div class="checkbox">
-                            <input id ="c2" type="checkbox"><label for="c2">已发布</label>
-                        </div>
-
-                        <div class="checkbox">
-                            <input  id ="c3" type="checkbox"><label for="c3"> 未生效</label>
-                        </div>
-                        <div class="checkbox">
-                            <input  id ="c4" type="checkbox"> <label for="c4">已生效</label>
-                        </div>
-                        <div class="checkbox">
-                            <input  id ="c5" type="checkbox"> <label for="c5">已过期</label>
-                        </div>
-                    </div>
-                    <span class="marginR15"></span>
-                    <div class="form-group">
-                        <label  class="marginR5">服务</label>
-                        <select class="form-control">
-                            <option>商务名称</option>
-                            <option>子代码</option>
-                        </select>
-                        <input type="email" class="form-control input-sm" style="width: 100px">
-                    </div>
-                    <div class="form-group">
-                        <label class="marginR5">销售日期</label>
-                        <input type="text" class="form-control input-sm"  placeholder="起始日期" style="width: 80px">
-                        <input type="text" class="form-control input-sm"  placeholder="结束日期" style="width: 80px">
-                    </div>
-
-                    <div class="checkbox marginLR15">
-                        <input  id ="showHideMoreQuerySectionBtn" type="checkbox"> <label for="showHideMoreQuerySectionBtn">更多条件</label>
-                    </div>
-                    <button type="submit" class="btn btn-default btn-sm btn-primary">查询</button>
-                </span>
-            </div>
-            <!--query row1 end-->
-
-            <div id ="moreQuerySection" >
-                <!--query row2 start-->
-                <div class="row query_row">
-                    <span class="query_title">服务等级&nbsp;|&nbsp;机型</span>
-                <span class="col-sm-10">
-                     <div class="form-group">
-                         <div class="checkbox">
-                             <input id ="a1" type="checkbox"><label for="a1">豪华头等舱</label>
-                         </div>
-                         <div class="checkbox">
-                             <input id ="a2" type="checkbox"><label for="a2">头等舱</label>
-                         </div>
-
-                         <div class="checkbox">
-                             <input  id ="a3" type="checkbox"><label for="a3"> 豪华商务舱</label>
-                         </div>
-                         <div class="checkbox">
-                             <input  id ="a4" type="checkbox"> <label for="a4">商务舱</label>
-                         </div>
-                         <div class="checkbox">
-                             <input  id ="a5" type="checkbox"> <label for="a5">豪华经济舱</label>
-                         </div>
-                         <div class="checkbox">
-                             <input  id ="a6" type="checkbox"> <label for="a6">经济舱</label>
-                         </div>
+                <span class="query_title">服务等级&nbsp;|&nbsp;机型</span>
+            <span class="col-sm-10">
+                 <div class="form-group">
+                     <div class="checkbox">
+                         <input id ="a1" type="checkbox"><label for="a1">豪华头等舱</label>
                      </div>
-                    <span class="marginR15"></span>
-                    <div class="form-group">
-                        <label   class="marginR5">机型</label>
-                        <select class="form-control">
-                            <option selected>选择</option>
-                            <option>747-B747-400CMB</option>
-                            <option>73G-B737-700</option>
-                            <option>733-B737-3z00</option>
-                            <option>340-A340-300</option>
-                            <option>319-A319-111</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="marginR5">优先级序号</label>
-                        <input type="text" class="form-control input-sm"  style="width: 80px">
-                    </div>
-                </span>
-                </div>
-                <!--query row2 end-->
-                <!--query row3 start-->
-                <div class="row query_row">
-                    <span class="query_title2">地理位置</span>
-                <span class="col-sm-10">
-                    <div class="form-group">
-                        <label   class="marginR5">区域1</label>
-                        <input type="text" class="form-control input-sm"  style="width: 100px">
-                    </div>
-                    <div class="form-group">
-                        <label class="marginR5">区域2</label>
-                        <input type="text" class="form-control input-sm"  style="width: 100px">
-                    </div>
-                     <div class="form-group">
-                         <label class="marginR5">经过区域</label>
-                         <input type="text" class="form-control input-sm"  style="width: 100px">
+                     <div class="checkbox">
+                         <input id ="a2" type="checkbox"><label for="a2">头等舱</label>
                      </div>
-                </span>
+
+                     <div class="checkbox">
+                         <input  id ="a3" type="checkbox"><label for="a3"> 豪华商务舱</label>
+                     </div>
+                     <div class="checkbox">
+                         <input  id ="a4" type="checkbox"> <label for="a4">商务舱</label>
+                     </div>
+                     <div class="checkbox">
+                         <input  id ="a5" type="checkbox"> <label for="a5">豪华经济舱</label>
+                     </div>
+                     <div class="checkbox">
+                         <input  id ="a6" type="checkbox"> <label for="a6">经济舱</label>
+                     </div>
+                 </div>
+                <span class="marginR15"></span>
+                <div class="form-group">
+                    <label   class="marginR5">机型</label>
+                    <select class="form-control">
+                        <option selected>选择</option>
+                        <option>747-B747-400CMB</option>
+                        <option>73G-B737-700</option>
+                        <option>733-B737-3z00</option>
+                        <option>340-A340-300</option>
+                        <option>319-A319-111</option>
+                    </select>
                 </div>
-                <!--query row3 end-->
+                <div class="form-group">
+                    <label class="marginR5">优先级序号</label>
+                    <input type="text" class="form-control input-sm"  style="width: 100px">
+                </div>
+            </span>
             </div>
+            <!--query row2 end-->
+            <!--query row3 start-->
+            <div class="row query_row">
+                <span class="query_title2">地理位置</span>
+            <span class="col-sm-10">
+                <div class="form-group">
+                    <label   class="marginR5">区域1</label>
+                    <input type="text" class="form-control input-sm"  style="width: 100px">
+                </div>
+                <div class="form-group">
+                    <label class="marginR5">区域2</label>
+                    <input type="text" class="form-control input-sm"  style="width: 100px">
+                </div>
+                 <div class="form-group">
+                     <label class="marginR5">经过区域</label>
+                     <input type="text" class="form-control input-sm"  style="width: 100px">
+                 </div>
+            </span>
+            </div>
+            <!--query row3 end-->
+        </div>
 
-        </form>
-    </div>
+    </form>
+</div>
+<!--query section end-->
 
+<div class="container-fluid main_content" >
 
-
-
+    hello world
 </div>
 
 

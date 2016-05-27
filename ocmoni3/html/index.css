@@ -11,14 +11,79 @@ body{
 .query_section{
     width: 100%;
     min-height: 42px;
-    padding: 3px 0;
+    padding: 6px;
     background-color: #00b3ee;
     background:#fff url(../images/tui_div4_bg.png) repeat-x left bottom;
     border-bottom:1px solid #9ea7ab;
     box-shadow:0 0 2px 0;
     font-size: 12px;
     font-weight: 100;
+    box-sizing: border-box;
 }
-.query_row{
-    line-height: 36px;
+.query_title{
+    margin-left: 20px;
+    display: inline-block;
+    float: left;
+    margin-top: 8px;
+    color: #017ebc;
 }
+
+.query_title2{
+    margin-left: 20px;
+    display: inline-block;
+    float: left;
+    margin-top: 4px;
+    color: #017ebc;
+}
+
+.query_section input,.query_section select{
+    height: 26px;
+    padding: 3px;
+}
+
+.query_section .btn{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.query_section label{
+    font-weight: 100;
+}
+
+
+
+.checkbox label{
+    float: right;
+    margin-top: 8px;
+    margin-left: 5px
+}
+
+.checkbox label:after{
+    clear: both;
+}
+
+
+.marginL5{
+    margin-left: 5px;
+}
+.marginR5{
+    margin-right: 5px;
+}
+
+.marginLR5{
+    margin :0 5px;
+}
+.marginL15{
+    margin-left: 15px;
+}
+.marginR15{
+    margin-right: 15px;
+}
+
+.marginLR15{
+    margin :0 15px;
+}
+
+
+
+

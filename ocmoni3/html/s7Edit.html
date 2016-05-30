@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>s7编译页面</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css"/>
+    <link rel="stylesheet" href="index2.css">
+</head>
+<body>
+
+<div class="navbar-fixed-top">
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                <span class="sr-only">导航菜单</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Brand</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">附加服务</a></li>
+                <li><a href="#">数据源配置</a></li>
+                <li><a href="#">里程积分兑换</a></li>
+                <li><a href="#">运价校验</a></li>
+                <li><a href="#">批量导入</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class ="query_section">
+    <form class="form-inline">
+        <!--query row1 start-->
+        <div class="query_row">
+            <span class="query_title">基础信息</span>
+            <div class="form-group">
+                <div class="checkbox">
+                    <input id ="c1" type="checkbox"><label for="c1">未发布</label>
+                </div>
+                <div class="checkbox">
+                    <input id ="c2" type="checkbox"><label for="c2">已发布</label>
+                </div>
+
+                <div class="checkbox">
+                    <input  id ="c3" type="checkbox"><label for="c3"> 未生效</label>
+                </div>
+                <div class="checkbox">
+                    <input  id ="c4" type="checkbox"> <label for="c4">已生效</label>
+                </div>
+                <div class="checkbox">
+                    <input  id ="c5" type="checkbox"> <label for="c5">已过期</label>
+                </div>
+            </div>
+            <span class="marginR15"></span>
+            <div class="form-group">
+                <label  class="marginR5">服务</label>
+                <select class="form-control">
+                    <option>商务名称</option>
+                    <option>子代码</option>
+                </select>
+                <input type="email" class="form-control input-sm" style="width: 100px">
+            </div>
+            <div class="form-group">
+                <label class="marginR5">销售日期</label>
+                <input type="text" class="form-control input-sm datepicker"  placeholder="起始日期" style="width: 80px">
+                <input type="text" class="form-control input-sm datepicker"  placeholder="结束日期" style="width: 80px">
+            </div>
+
+            <div class="checkbox marginLR15">
+                <input  id ="showHideMoreQuerySectionBtn" type="checkbox"> <label for="showHideMoreQuerySectionBtn">更多条件</label>
+            </div>
+            <button type="submit" class="btn btn-default btn-sm btn-primary">查询</button>
+        </div>
+        <!--query row1 end-->
+    </form>
+</div>
+<!--query section end-->
+</div>
+
+
+
+
+
+<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-CN.js"></script>
+<script type="text/javascript" src="s7Query.js"></script>
+</body>
+</html>

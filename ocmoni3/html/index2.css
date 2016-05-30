@@ -1,0 +1,123 @@
+/*主编辑区域**/
+body{
+    background-color: #F2F4F7;
+}
+.main_content{
+    margin-top: 10px;
+    height: 100%;
+}
+/*bootstrap 样式重置start*/
+.navbar{
+    margin-bottom: 0;
+}
+/*bootstrap 样式重置start*/
+
+/**查询条件相关 start*/
+.query_section{
+    padding: 0px 0 5px 0;
+    width: 100%;
+    min-height: 42px;
+    background-color: #00b3ee;
+    background:#fff url(../images/tui_div4_bg.png) repeat-x left bottom;
+    border-bottom:1px solid #9ea7ab;
+    box-shadow:0 0 2px 0;
+    font-size: 12px;
+    font-weight: 100;
+    box-sizing: border-box;
+}
+.query_title{
+    margin: 0px 20px 0 10px;
+    color: #017ebc;
+}
+.query_section input,.query_section select{
+    height: 26px;
+    padding: 3px;
+}
+.query_section .btn{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.query_section label{
+    font-weight: 100;
+}
+/**查询条件相关 end*/
+.checkbox label{
+    float: right;
+    margin-top: 8px;
+    margin-left: 5px
+}
+.checkbox label:after{
+    clear: both;
+}
+.marginL5{
+    margin-left: 5px;
+}
+.marginR5{
+    margin-right: 5px;
+}
+.marginLR5{
+    margin :0 5px;
+}
+
+.marginL10{
+    margin-left: 10px;
+}
+.marginR10{
+    margin-right: 10px;
+}
+.marginLR10{
+    margin :0 10px;
+}
+
+.marginL15{
+    margin-left: 15px;
+}
+.marginR15{
+    margin-right: 15px;
+}
+
+.marginLR15{
+    margin :0 15px;
+}
+
+.productsImg{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-image: url('../images/products/0B5.jpg');
+}
+
+
+/**s7查询页面特有的样式 start*/
+.s7_list_row:after{
+    clear: both;
+}
+
+.s7_list_row .s7_list_item{
+    display: inline-block;
+    height: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 50px;
+    box-sizing: border-box;
+}
+
+.s7_list_descr{
+    width: 25%;
+}
+.s7_list_checkbox{
+    width: 5%;
+    text-align: center;
+}
+.s7_list_price{
+    text-align: right;
+    width: 10%;
+}
+/**s7查询页面特有的样式 end*/
+.myhand{
+    cursor: pointer;
+}
+
+
+
+

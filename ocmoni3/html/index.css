@@ -20,20 +20,10 @@ body{
     box-sizing: border-box;
 }
 .query_title{
-    margin-left: 20px;
-    display: inline-block;
-    float: left;
-    margin-top: 8px;
+    margin: 0px 20px 0 10px;
     color: #017ebc;
 }
 
-.query_title2{
-    margin-left: 20px;
-    display: inline-block;
-    float: left;
-    margin-top: 4px;
-    color: #017ebc;
-}
 
 .query_section input,.query_section select{
     height: 26px;

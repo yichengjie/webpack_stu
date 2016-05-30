@@ -17,6 +17,7 @@
   "dependencies": {
     "jquery": "1.x",
     "bootstrap": "^3.3.6",
-    "bootstrap-select": "^1.10.0"
+    "bootstrap-select": "^1.10.0",
+    "bootstrap-datepicker": "^1.6.1"
   }
 }

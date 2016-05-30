@@ -6,13 +6,11 @@ body{
     margin-top: 10px;
     height: 100%;
 }
-
 /**查询条件相关 start*/
 .query_section{
-    margin-top: 50px;
+    padding: 50px 0 5px 0;
     width: 100%;
     min-height: 42px;
-    padding: 6px;
     background-color: #00b3ee;
     background:#fff url(../images/tui_div4_bg.png) repeat-x left bottom;
     border-bottom:1px solid #9ea7ab;

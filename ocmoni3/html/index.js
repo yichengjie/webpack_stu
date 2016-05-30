@@ -6,4 +6,9 @@ $(function(){
     $("#showHideMoreQuerySectionBtn").click(function(){
         $("#moreQuerySection").slideToggle() ;
     }) ;
+    $('.datepicker').datepicker({
+        language:'zh-CN',
+        format:'yyyy/mm/dd',
+        startDate:new Date()
+    });
 }) ;

@@ -108,6 +108,9 @@ body{
     width: 10%;
 }
 /**s7查询页面特有的样式 end*/
+.myhand{
+    cursor: pointer;
+}
 
 
 

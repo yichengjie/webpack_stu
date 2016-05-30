@@ -1,9 +1,13 @@
+
+.test{
+    height: 1000px;
+}
 /*主编辑区域**/
 body{
     background-color: #F2F4F7;
 }
 .main_content{
-    padding-top: 100px;
+    padding-top: 106px;
     height: 100%;
 }
 /*bootstrap 样式重置start*/
@@ -13,8 +17,9 @@ body{
 /*bootstrap 样式重置start*/
 
 /**查询条件相关 start*/
+
 .query_section{
-    padding: 0px 0 5px 0;
+    padding: 5px 0;
     width: 100%;
     min-height: 42px;
     background-color: #00b3ee;
@@ -25,8 +30,14 @@ body{
     font-weight: 100;
     box-sizing: border-box;
 }
+
+.query_row{
+
+}
+
 .query_title{
-    margin: 0px 20px 0 10px;
+    display: inline-block;
+    margin: 8px 20px 0 10px;
     color: #017ebc;
 }
 .query_section input,.query_section select{

@@ -5,6 +5,7 @@ body{
 .main_content{
     margin-top: 10px;
     height: 100%;
+    padding: 0 25px;
 }
 .query_section{
     margin-top: 50px;

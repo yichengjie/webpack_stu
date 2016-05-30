@@ -3,12 +3,18 @@ body{
     background-color: #F2F4F7;
 }
 .main_content{
-    margin-top: 10px;
+    padding-top: 100px;
     height: 100%;
 }
+/*bootstrap 样式重置start*/
+.navbar{
+    margin-bottom: 0;
+}
+/*bootstrap 样式重置start*/
+
 /**查询条件相关 start*/
 .query_section{
-    padding: 50px 0 5px 0;
+    padding: 0px 0 5px 0;
     width: 100%;
     min-height: 42px;
     background-color: #00b3ee;

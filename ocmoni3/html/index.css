@@ -191,18 +191,28 @@ body{
 .edit_input_label{
     box-sizing: border-box;
     display: inline-block;
-    width: 15%;
-    background-color: #0000ed;
+    width: 13%;
+    font-size: 12px;
+    font-weight: 100;
     float: left;
+}
+
+.edit_input_label:after{
+    clear: both;
 }
 .edit_input_content{
     box-sizing: border-box;
     display: inline-block;
-    width: 84%;
-    float: left;
+    font-size: 12px;
+    font-weight: 100;
+    width: 86%;
 }
 .edit_input_content:after{
     clear: both;
+}
+
+.from_row{
+    margin-bottom: 6px;
 }
 
 

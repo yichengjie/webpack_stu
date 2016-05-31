@@ -1,10 +1,10 @@
-
 .test{
     height: 1000px;
 }
 /*主编辑区域**/
 body{
     background-color: #F2F4F7;
+    min-width: 1000px;
 }
 .main_content{
     padding-top: 106px;
@@ -14,10 +14,15 @@ body{
 .navbar{
     margin-bottom: 0;
 }
+/*.form-group{
+    margin-bottom: 6px;
+}
+.well{
+    padding-top: 10px;
+    padding-bottom: 5px;
+}*/
 /*bootstrap 样式重置start*/
-
 /**查询条件相关 start*/
-
 .query_section{
     padding: 5px 0;
     width: 100%;
@@ -30,11 +35,9 @@ body{
     font-weight: 100;
     box-sizing: border-box;
 }
-
 .query_row{
 
 }
-
 .query_title{
     display: inline-block;
     margin: 8px 20px 0 10px;
@@ -69,7 +72,6 @@ body{
 .marginLR5{
     margin :0 5px;
 }
-
 .marginL10{
     margin-left: 10px;
 }
@@ -79,31 +81,25 @@ body{
 .marginLR10{
     margin :0 10px;
 }
-
 .marginL15{
     margin-left: 15px;
 }
 .marginR15{
     margin-right: 15px;
 }
-
 .marginLR15{
     margin :0 15px;
 }
-
 .productsImg{
     width: 50px;
     height: 50px;
     display: inline-block;
     background-image: url('../images/products/0B5.jpg');
 }
-
-
 /**s7查询页面特有的样式 start*/
 .s7_list_row:after{
     clear: both;
 }
-
 .s7_list_row .s7_list_item{
     display: inline-block;
     height: 50px;
@@ -112,7 +108,6 @@ body{
     line-height: 50px;
     box-sizing: border-box;
 }
-
 .s7_list_descr{
     width: 25%;
 }
@@ -128,6 +123,91 @@ body{
 .myhand{
     cursor: pointer;
 }
+.panel-body .header{
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    background-color: red;
+}
+.edit_panel{
+    box-sizing: border-box;
+    min-height: 360px;
+    width: 100%;
+    border-radius: 2px;
+    border: 1px solid #cbcccf;
+    box-shadow: 0 1px 1px;
+    background-color: #FFF;
+    margin-bottom: 10px;
+}
+.edit_panel_header{
+    display: inline-block;
+    box-sizing: border-box;
+    height: 66px;
+    width: 100%;
+    background-color: #F5F7FA;
+    border-radius: 2px;
+    padding: 18px 0px;
+    line-height: 30px;
+    font-size: 12px;
+}
+.edit_panel_header >span,.edit_panel_row >span{
+    float: left;
+}
+.edit_panel_header >span:after,.edit_panel_row >span:after{
+    clear: both;
+}
+.edit_panel_header .title{
+    font-weight: 600;
+    display: inline-block;
+    width: 11%;
+    padding-left: 15px;
+}
+.edit_panel_body .title{
+    display: inline-block;
+    padding-left: 15px;
+    margin: 0;
+    width: 11%;
+}
+.edit_panel_body .content{
+    display: inline-block;
+    width: 87%;
+}
+.edit_panel_body .content:after{
+    clear: both;
+}
+.serviceInputDiv{
+    display: inline-block;
+    box-sizing: border-box;
+    background-color:#FFF;
+    border:1px solid #A9A9A9;
+    height:30px;
+    line-height:30px;
+    width:500px;
+    padding:0 10px;
+}
+.serviceInputDiv:after{
+    clear: both;
+}
+.edit_input_label{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 15%;
+    background-color: #0000ed;
+    float: left;
+}
+.edit_input_content{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 84%;
+    float: left;
+}
+.edit_input_content:after{
+    clear: both;
+}
+
+
+
+
 
 
 

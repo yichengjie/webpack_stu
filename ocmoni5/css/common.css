@@ -40,26 +40,7 @@ body{
     margin: 8px 20px 0 10px;
     color: #017ebc;
 }
-.query_section input,.query_section select{
-    height: 26px;
-    padding: 3px;
-}
-.query_section .btn{
-    padding-top: 3px;
-    padding-bottom: 3px;
-}
-.query_section label{
-    font-weight: 100;
-}
 /**查询条件相关 end*/
-.checkbox label{
-    float: right;
-    margin-top: 8px;
-    margin-left: 5px
-}
-.checkbox label:after{
-    clear: both;
-}
 .marginL5{
     margin-left: 5px;
 }

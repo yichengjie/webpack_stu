@@ -1,9 +1,3 @@
-.panel-body .header{
-    display: inline-block;
-    width: 100%;
-    height: 30px;
-    background-color: red;
-}
 .edit_panel{
     box-sizing: border-box;
     min-height: 360px;

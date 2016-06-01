@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>s7编译页面</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css"/>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="s7Edit.css">
+</head>
+<body>
+<!--导航 start-->
+<div class="navbar-fixed-top">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                    <span class="sr-only">导航菜单</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">附加服务</a></li>
+                    <li><a href="#">数据源配置</a></li>
+                    <li><a href="#">里程积分兑换</a></li>
+                    <li><a href="#">运价校验</a></li>
+                    <li><a href="#">批量导入</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!--query section start-->
+    <div class ="query_section">
+        <span class="query_title">新建服务费用</span>
+        <span>服务类型&nbsp;|</span>
+        <span>费用&nbsp;|</span>
+        <span>规则</span>
+        <span class="pull-right marginR15" style="padding-top: 2px">
+            <button type="submit" class="btn btn-default btn-sm">保存</button>
+            <button type="submit" class="btn btn-default btn-sm btn-success">保存并发布</button>
+        </span>
+        <span class="clearfix"></span>
+    </div>
+    <!--query section end-->
+</div>
+<!--导航 end-->
+
+
+<!--主编辑区域 start-->
+<div class="container-fluid main_content">
+    <form class="form-horizontal">
+        <div class="edit_panel">
+            <div class="edit_panel_header">
+                <span class="title">1.选择附加服务</span>
+                <span class="serviceInputDiv">test</span><span class="text-info marginL15">必须选到最后一级</span>
+            </div>
+            <div class="edit_panel_body clearfix">
+                <div class="edit_panel_row">
+                    <span class="title">hello world</span>
+                    <span class="content">
+                        <div class="well">
+                            <div class="row from_row">
+                                <label for="inputEmail3" class="edit_input_label control-label">Sector/Portion/Journey</label>
+                                <div class="col-sm-4">
+                                    <input type="email" class="form-control input-sm" id="inputEmail3" placeholder="Email">
+                                </div>
+                            </div>
+
+                            <div class="row from_row">
+                                <label for="inputPassword3" class="edit_input_label control-label">Password</label>
+                                <div class="col-sm-4">
+                                    <input type="password" class="form-control input-sm" id="inputPassword3" placeholder="Password">
+                                </div>
+                            </div>
+
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="edit_panel">
+            <div class="edit_panel_header">
+                <span class="title">1.选择附加服务</span>
+                <span class="serviceInputDiv">test</span><span class="text-info marginL15">必须选到最后一级</span>
+            </div>
+            <div class="edit_panel_body clearfix">
+                <div class="edit_panel_row">
+                    <span class="title">hello world</span>
+                    <span class="content">
+                        <div class="well">
+                            <div class="row from_row">
+                                <label for="inputEmail3" class="edit_input_label control-label">Sector/Portion/Journey</label>
+                                <div class="col-sm-4">
+                                    <input type="email" class="form-control input-sm" id="inputEmail3" placeholder="Email">
+                                </div>
+                            </div>
+
+                            <div class="row from_row">
+                                <label for="inputPassword3" class="edit_input_label control-label">Password</label>
+                                <div class="col-sm-4">
+                                    <input type="password" class="form-control input-sm" id="inputPassword3" placeholder="Password">
+                                </div>
+                            </div>
+
+                        </div>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+</div>
+<!--主编辑区域 end-->
+
+
+
+<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-CN.js"></script>
+<script type="text/javascript" src="s7Edit.js"></script>
+</body>
+</html>

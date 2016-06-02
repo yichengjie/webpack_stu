@@ -1,0 +1,30 @@
+/**s7查询页面特有的样式 start*/
+.s7_list_row:after{
+    clear: both;
+}
+.s7_list_row .s7_list_item{
+    display: inline-block;
+    height: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 50px;
+    box-sizing: border-box;
+}
+.s7_list_descr{
+    width: 25%;
+}
+.s7_list_checkbox{
+    width: 5%;
+    text-align: center;
+}
+.s7_list_price{
+    text-align: right;
+    width: 10%;
+}
+/**s7查询页面特有的样式 end*/
+.productsImg{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-image: url('../images/products/0B5.jpg');
+}

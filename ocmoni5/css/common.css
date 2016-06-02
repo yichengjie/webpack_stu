@@ -1,0 +1,102 @@
+.test{
+    height: 1000px;
+}
+/*主编辑区域**/
+body{
+    background-color: #F2F4F7;
+    min-width: 1100px;
+    font-size: 12px;
+}
+.main_content{
+    padding-top: 106px;
+    height: 100%;
+}
+/*bootstrap 样式重置start*/
+.navbar{
+    margin-bottom: 0;
+}
+.input-sm{
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+/*.form-group{
+    margin-bottom: 6px;
+}
+.well{
+    padding-top: 10px;
+    padding-bottom: 5px;
+}*/
+/*bootstrap 样式重置start*/
+/**查询条件相关 start*/
+.query_section{
+    padding: 5px 0;
+    width: 100%;
+    min-height: 42px;
+    background-color: #00b3ee;
+    background:#fff url(../images/tui_div4_bg.png) repeat-x left bottom;
+    border-bottom:1px solid #9ea7ab;
+    box-shadow:0 0 2px 0;
+    font-size: 12px;
+    font-weight: 100;
+    box-sizing: border-box;
+}
+.query_title{
+    display: inline-block;
+    margin: 8px 20px 0 10px;
+    color: #017ebc;
+}
+.query_section input,.query_section select{
+    height: 26px;
+    padding: 3px;
+}
+.query_section .btn{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.query_section label{
+    font-weight: 100;
+}
+/**查询条件相关 end*/
+.checkbox label{
+    float: right;
+    margin-top: 8px;
+    margin-left: 5px
+}
+.checkbox label:after{
+    clear: both;
+}
+.marginL5{
+    margin-left: 5px;
+}
+.marginR5{
+    margin-right: 5px;
+}
+.marginLR5{
+    margin :0 5px;
+}
+.marginL10{
+    margin-left: 10px;
+}
+.marginR10{
+    margin-right: 10px;
+}
+.marginLR10{
+    margin :0 10px;
+}
+.marginL15{
+    margin-left: 15px;
+}
+.marginR15{
+    margin-right: 15px;
+}
+.marginLR15{
+    margin :0 15px;
+}
+.myhand{
+    cursor: pointer;
+}
+
+
+
+

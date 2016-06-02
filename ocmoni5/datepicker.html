@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css"/>-->
+
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../bower_components/pure/grids.css"/>
+    <link rel="stylesheet" href="../bower_components/pure/forms.css"/>
+    <link rel="stylesheet" href="../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css"/>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/s7Edit2.css">
+</head>
+<body style="padding-top: 300px">
+
+<div class="container" >
+    <form class="pure-form pure-form-aligned">
+        <input type="text" class="form-control datepicker"  placeholder="起始日期" >
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.datepicker').datepicker({
+            language:'zh-CN',
+            format:'yyyy/mm/dd',
+            startDate:new Date(),
+            orientation: "bottom"
+        });
+    }) ;
+</script>
+</body>
+</html>

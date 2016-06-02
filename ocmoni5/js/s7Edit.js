@@ -6,6 +6,7 @@ $(function(){
         language:'zh-CN',
         format:'yyyy/mm/dd',
         startDate:new Date(),
-        orientation: "bottom"
+        orientation: "bottom",
+        autoclose:true
     });
 }) ;

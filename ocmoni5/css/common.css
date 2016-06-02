@@ -97,6 +97,13 @@ body{
     cursor: pointer;
 }
 
+.red{
+    color: red;
+}
+.datebox{
+    margin-left: -25px;
+}
+
 
 
 

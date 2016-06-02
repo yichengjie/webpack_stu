@@ -9,6 +9,8 @@ $(function(){
     $('.datepicker').datepicker({
         language:'zh-CN',
         format:'yyyy/mm/dd',
-        startDate:new Date()
+        startDate:new Date(),
+        orientation: "bottom",
+        autoclose:true
     });
 }) ;

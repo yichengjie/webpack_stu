@@ -67,27 +67,112 @@
             </div>
         </div>
 
+
+        <!--第二部分‘确定费用’ start-->
         <div class="data_section ">
             <div class="title_layout">
                 <span class="left">2.确定费用</span>
                 <span class="right text-info"> 描述  | 费用 </span>
             </div>
+
+            <!--描述 strart-->
             <div class="content_layout">
                 <span class="left">描述</span>
                 <span class="right">
                    <div class="pure-control-group">
-                       <label><i class="glyphicon glyphicon-asterisk red"></i>销售生效日期</label>
-                       <input type="text" class="pure-u-1-4 input-sm datepicker"  placeholder="起始日期" >
+                       <label>销售生效日期</label>
+                       <input type="text" class="pure-u-1-4 datepicker"  placeholder="起始日期" >
                        <span class="glyphicon glyphicon-th datebox"></span>
+                       <i class="glyphicon glyphicon-asterisk red_star"></i>
                    </div>
                     <div class="pure-control-group">
                         <label>销售截止日期</label>
-                        <input type="text" class="pure-u-1-4 input-sm datepicker"  placeholder="起始日期" >
+                        <input type="text" class="pure-u-1-4 datepicker"  placeholder="起始日期" >
                         <span class="glyphicon glyphicon-th datebox"></span>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>服务套数</label>
+                        <input type="text" class="pure-u-1-8"  placeholder="起始套数" >
+                        <input type="text" class="pure-u-1-8"  placeholder="结束套数" >
+                    </div>
+                    <div class="pure-control-group">
+                        <label>描述</label>
+                        <textarea class="pure-u-1-2" rows="3"></textarea>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>产品代号</label>
+                        <input type="text" class="pure-u-1-4"  >
+                    </div>
+                    <div class="pure-control-group">
+                        <label>是否检查库存</label>
+                        <input type="radio" ><span class="radioLabel">是</span>
+                        <input type="radio" ><span class="radioLabel">否</span>
                     </div>
                 </span>
             </div>
+            <!--描述 end-->
+            <!--费用 strart-->
+            <div class="content_layout">
+                <span class="left">费用</span>
+                <span class="right">
+                   <div class="pure-control-group">
+                       <label>是否收费</label>
+                       <select class="pure-u-1-4">
+                           <option value="">1</option>
+                           <option value="">2</option>
+                           <option value="">3</option>
+                       </select>
+                   </div>
+
+                    <div class="pure-control-group">
+                        <label>金额</label>
+                        <div class="pure-u-1-2 table_layout" style ="width:560px">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>销售地类型</th>
+                                    <th>销售地代码</th>
+                                    <th>金额</th>
+                                    <th>货币类型</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><input type="radio">一口价</td>
+                                    <td><input type="text"></td>
+                                    <td>
+                                        <select name="" id="">
+                                            <option value="">1</option>
+                                            <option value="">2</option>
+                                            <option value="">3</option>
+                                        </select>
+                                    </td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </span>
+            </div>
+            <!--费用 end-->
+
+
         </div>
+        <!--第二部分‘确定费用’ end-->
 
     </form>
 

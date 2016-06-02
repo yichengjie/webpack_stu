@@ -6,10 +6,7 @@
     border-radius:2px;
     box-shadow:0 1px 1px;
     margin:10px 0 0 0;
-    padding:20px;
-}
-.block_edit{
-
+    padding:20px 10px 10px 10px;
 }
 .data_section:after{
     clear: both;
@@ -23,7 +20,7 @@
 .title_layout .left{
     float: left;
     font-weight:bold;
-    width:100px;
+    width:90px;
 }
 .title_layout .left:after{
     clear: both;
@@ -34,11 +31,16 @@
 }
 
 .content_layout .left{
-    display: inline-block;
     float: left;
-    width: 100px;
+    width: 90px;
 }
+
+.content_layout .left:after{
+    clear: both;
+}
+
 .content_layout .right{
+    position: relative;
     box-sizing: border-box;
     display: inline-block;
     background-color:#F2F4F7;
@@ -46,9 +48,8 @@
     border-radius:3px;
     width: 90%;
     padding:15px 0px 5px;
+    min-height: 300px;
 }
-
-
 
 /****用于checkbox和radio等input框的整合样式****/
 /******链接型按钮******/
@@ -62,7 +63,11 @@
     width:500px;
     padding:0 10px;
 }
-.serviceInputDiv:after{
+.serviceInputSpan:after{
     clear: both;
+}
+
+.pure-control-group label{
+    font-weight: 200;
 }
 

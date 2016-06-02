@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>s7编译页面</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../bower_components/pure/grids.css"/>
+    <link rel="stylesheet" href="../../bower_components/pure/forms.css"/>
+    <link rel="stylesheet" href="../../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css"/>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/s7Edit3.css">
+</head>
+<body>
+<!--导航 start-->
+<div class="navbar-fixed-top">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                    <span class="sr-only">导航菜单</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">附加服务</a></li>
+                    <li><a href="#">数据源配置</a></li>
+                    <li><a href="#">里程积分兑换</a></li>
+                    <li><a href="#">运价校验</a></li>
+                    <li><a href="#">批量导入</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!--query section start-->
+    <div class ="query_section">
+        <span class="query_title">新建服务费用</span>
+        <span>服务类型&nbsp;|</span>
+        <span>费用&nbsp;|</span>
+        <span>规则</span>
+        <span class="pull-right marginR15" style="padding-top: 2px">
+            <button type="submit" class="btn btn-default btn-sm">保存</button>
+            <button type="submit" class="btn btn-default btn-sm btn-success">保存并发布</button>
+        </span>
+    </div>
+    <!--query section end-->
+</div>
+<!--导航 end-->
+
+
+<!--主编辑区域 start-->
+<div class="container-fluid main_content">
+    <form class="pure-form pure-form-aligned">
+        <div class="data_section">
+            <div class="title_layout">
+                <span class="left">1.选择附加服务</span>
+                <span class="serviceInputSpan right"></span>
+            </div>
+            <div class="content_layout">
+
+            </div>
+        </div>
+
+
+        <!--第二部分‘确定费用’ start-->
+        <div class="data_section ">
+            <div class="title_layout">
+                <span class="left">2.确定费用</span>
+                <span class="right text-info"> 描述  | 费用 </span>
+            </div>
+
+            <!--描述 strart-->
+            <div class="content_layout">
+                <span class="left">描述</span>
+                <span class="right">
+                   <div class="pure-control-group">
+                       <label>销售生效日期</label>
+                       <input type="text" class="pure-u-1-4 datepicker"  placeholder="起始日期" >
+                       <span class="glyphicon glyphicon-th datebox"></span>
+                       <i class="glyphicon glyphicon-asterisk red_star"></i>
+                   </div>
+                    <div class="pure-control-group">
+                        <label>销售截止日期</label>
+                        <input type="text" class="pure-u-1-4 datepicker"  placeholder="起始日期" >
+                        <span class="glyphicon glyphicon-th datebox"></span>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>服务套数</label>
+                        <input type="text" class="pure-u-1-8"  placeholder="起始套数" >
+                        <input type="text" class="pure-u-1-8"  placeholder="结束套数" >
+                    </div>
+                    <div class="pure-control-group">
+                        <label>描述</label>
+                        <textarea class="pure-u-1-2" rows="3"></textarea>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>产品代号</label>
+                        <input type="text" class="pure-u-1-4"  >
+                    </div>
+                    <div class="pure-control-group">
+                        <label>是否检查库存</label>
+                        <input type="radio" ><span class="radioLabel">是</span>
+                        <input type="radio" ><span class="radioLabel">否</span>
+                    </div>
+                </span>
+            </div>
+            <!--描述 end-->
+            <!--费用 strart-->
+            <div class="content_layout">
+                <span class="left">费用</span>
+                <span class="right">
+                   <div class="pure-control-group">
+                       <label>是否收费</label>
+                       <select class="pure-u-1-4">
+                           <option value="">1</option>
+                           <option value="">2</option>
+                           <option value="">3</option>
+                       </select>
+                   </div>
+                    <div class="pure-control-group">
+                        <label>金额</label>
+                        <a href="">显示表格</a>
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="">&nbsp;</label>
+                        <div class="pure-u-1-2 table_layout" style ="width:560px">
+                            <table>
+                                <thead>
+                                    <tr> <th>销售地类型</th> <th>销售地代码</th><th>金额</th><th>货币类型</th></tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><select name="" ><option value="">选择</option><option value="">国家</option></select></td>
+                                    <td><input type="text"></td>
+                                    <td><input type="text"> </td>
+                                    <td> <input type="text"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                     <div class="pure-control-group">
+                         <label>或/和</label>
+                         <input type="radio" /><span class="radioLabel">或则</span>
+                         <input type="radio" /><span  class="radioLabel">和</span>
+                     </div>
+
+                     <div class="pure-control-group">
+                         <label>里程兑换标识</label>
+                         <input type="radio" /><span  class="radioLabel">不兑换</span>
+                         <input type="radio" /><span class="radioLabel">兑换，用里程支付</span>
+                         <input type="radio" /><span class="radioLabel">兑换，用里程或金额支付</span>
+                     </div>
+                     <div class="pure-control-group">
+                        <label>里程费</label>
+                        <input type="text" class="pure-u-1-4"  >
+                     </div>
+                     <div class="pure-control-group">
+                         <label>适用于</label>
+                         <select class="pure-u-1-4">
+                             <option value="">选择</option>
+                             <option value="">每用一次服务算一次服务费用</option>
+                             <option value="">3</option>
+                         </select>
+                     </div>
+                     <div class="pure-control-group">
+                          <label>包含/扣除</label>
+                          <select class="pure-u-1-4">
+                              <option value="">选择</option>
+                              <option value="">每用一次服务算一次服务费用</option>
+                              <option value="">3</option>
+                          </select>
+                     </div>
+                     <div class="pure-control-group">
+                        <label>净价/销售价</label>
+                        <select class="pure-u-1-4">
+                            <option value="">选择</option>
+                            <option value="">每用一次服务算一次服务费用</option>
+                            <option value="">3</option>
+                        </select>
+                     </div>
+                     <div class="pure-control-group">
+                         <label>有无代理费</label>
+                         <input type="radio" /><span  class="radioLabel">有</span>
+                         <input type="radio" /><span class="radioLabel">无</span>
+                     </div>
+                     <div class="pure-control-group">
+                         <label>有无税费</label>
+                         <input type="radio" /><span  class="radioLabel">有</span>
+                         <input type="radio" /><span class="radioLabel">无</span>
+                     </div>
+                </span>
+            </div>
+            <!--费用 end-->
+
+
+        </div>
+        <!--第二部分‘确定费用’ end-->
+        <!--第三部分‘规则详细’ start-->
+        <div class="data_section">
+            <div class="title_layout">
+                <span class="left">3.规则详细</span>
+                <span class="text-info">序号  | 旅客  | 发布  | 航程  | 航班  | 购买  | 票价  | 票证  | 退款</span>
+            </div>
+            <!--序号 strart-->
+            <div class="content_layout">
+                <span class="left">序号</span>
+                <span class="right">
+                    <div class="pure-control-group">
+                        <label>优先级序号</label>
+                        <input type="text" class="pure-u-1-4"  >
+                    </div>
+                </span>
+            </div>
+            <!--序号 end-->
+
+            <!--旅客 strart-->
+            <div class="content_layout">
+                <span class="left">旅客</span>
+                <span class="right">
+                    <div class="pure-control-group">
+                        <label>旅客范围</label>
+                        <select name=""  class="pure-u-1-4">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                        </select>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>年龄范围</label>
+                        <input type="text" class="pure-u-1-8"/>
+                        <input type="text" class="pure-u-1-8"/>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>服务适用人数范围</label>
+                        <input type="text" class="pure-u-1-8"/>
+                        <input type="text" class="pure-u-1-8"/>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>旅客序号范围</label>
+                        <input type="text" class="pure-u-1-8"/>
+                        <input type="text" class="pure-u-1-8"/>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>常旅客状态</label>
+                        <select name=""  class="pure-u-1-4">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                        </select>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>客户积分范围</label>
+                        <input type="text" class="pure-u-1-8"/>
+                        <input type="text" class="pure-u-1-8"/>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>大客户/特殊客户</label>
+                        <a href="">填写表格</a>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>&nbsp;</label>
+                        <div class="pure-u-1-2 table_layout" style ="width:160px">
+                            <table>
+                                <thead>
+                                <tr> <th>大客户编码</th></tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td> <input type="text"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <!--旅客 end-->
+
+            <!--发布 strart-->
+            <div class="content_layout">
+                <span class="left">发布</span>
+                <span class="right">
+                    <div class="pure-control-group">
+                        <label>发布对象</label>
+                        <a href="">填写表格</a>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>&nbsp;</label>
+                        <div class="pure-u-1-2 table_layout" style ="width:750px">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th width="62px">旅行社</th>
+                                    <th width="100px">航空公司/分销商</th>
+                                    <th width="76px">职责/功能码</th>
+                                    <th width ="80px">区域类型</th>
+                                    <th width ="65px">区域代码</th>
+                                    <th width ="150px">发布对象类型</th>
+                                    <th width ="87px">发布对象代码</th>
+                                    <th width ="110px">权限</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td> <input type="text" style="width:93%;"></td>
+                                    <td> <input type="text" style="width:93%;"></td>
+                                    <td> <input type="text" style="width:93%;"></td>
+                                    <td> <input type="text" style="width:93%;"></td>
+                                    <td> <input type="text" style="width:93%;"></td>
+                                    <td> <input type="text" style="width:93%;"></td>
+                                    <td> <input type="text" style="width:93%;"></td>
+                                    <td> <input type="text" style="width:93%;"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="pure-control-group">
+                        <label>公布私有</label>
+                        <input type="radio" /><span  class="radioLabel">公布</span>
+                        <input type="radio" /><span class="radioLabel">私有</span>
+                    </div>
+
+                </span>
+            </div>
+            <!--发布 end-->
+
+            <!--航程 strart-->
+            <div class="content_layout">
+                <span class="left">航程</span>
+                <span class="right">
+                    <div class="pure-control-group">
+                        <label>区域限制</label>
+                        <input type="radio"/><span class="radioLabel">不限区域</span>
+                        <input type="radio"/><span class="radioLabel">区域1→2</span>
+                        <input type="radio"/><span class="radioLabel">区域2→1</span>
+                        <input type="radio"/><span class="radioLabel">区域1内部</span>
+                    </div>
+
+                    <div class="pure-control-group">
+                        <label>Sector/Portion/Journey</label>
+                        <select name="" class="pure-u-1-4">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                        </select>
+                        <i class="glyphicon glyphicon-asterisk red_star"></i>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>指定区域</label>
+                        <input type="text" class="pure-u-1-4"/>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>经停时间</label>
+                        <input type="text" class="pure-u-1-8"/>
+                        <select name="" class="pure-u-1-8">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                        </select>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>经停类型</label>
+                        <input type="text" class="pure-u-1-4"/>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>区域1</label>
+                        <input type="text" class="pure-u-1-8"/>
+                        <select name="" class="pure-u-1-8">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                        </select>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>区域2</label>
+                        <input type="text" class="pure-u-1-8"/>
+                        <select name="" class="pure-u-1-8">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                        </select>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>经停区域</label>
+                        <input type="text" class="pure-u-1-8"/>
+                        <select name="" class="pure-u-1-8">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                        </select>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>里程范围</label>
+                        <input type="text" class="pure-u-1-8"/>
+                        <input type="text" class="pure-u-1-8"/>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>是否联程</label>
+                        <input type="radio"/><span class="radioLabel">是</span>
+                        <input type="radio"/><span class="radioLabel">否</span>
+                    </div>
+                </span>
+            </div>
+            <!--航程 end-->
+
+            <!--航班 strart-->
+            <div class="content_layout">
+                <span class="left">航班</span>
+                <span class="right">
+                    <div class="pure-control-group">
+                        <label>旅行开始日期</label>
+                        <input type="text" class="pure-u-1-4 datepicker"  >
+                        <span class="glyphicon glyphicon-th datebox"></span>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>旅行结束日期</label>
+                        <input type="text" class="pure-u-1-4 datepicker"  >
+                        <span class="glyphicon glyphicon-th datebox"></span>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>开始时刻</label>
+                        <input type="text" class="pure-u-1-4 datepicker"  >
+                        <span class="glyphicon glyphicon-th datebox"></span>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>结束时刻</label>
+                        <input type="text" class="pure-u-1-4 datepicker"  >
+                        <span class="glyphicon glyphicon-th datebox"></span>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>应用范围</label>
+                        <select name="" >
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                        </select>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>星期</label>
+                        <input type="checkbox"/><span class="radioLabel">星期一</span>
+                        <input type="checkbox"/><span class="radioLabel">星期二</span>
+                        <input type="checkbox"/><span class="radioLabel">星期三</span>
+                        <input type="checkbox"/><span class="radioLabel">星期四</span>
+                        <input type="checkbox"/><span class="radioLabel">星期五</span>
+                        <input type="checkbox"/><span class="radioLabel">星期六</span>
+                        <input type="checkbox"/><span class="radioLabel">星期日</span>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>机型</label>
+                        <select name="" >
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                        </select>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>航班号</label>
+                        <a href="">填写表格</a>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>&nbsp;</label>
+                        <div class="pure-u-1-2 table_layout" style ="width:160px">
+                            <table>
+                                <thead>
+                                <tr> <th>市场方</th><th>承运方</th><th>航班号</th></tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td> <input type="text"></td>
+                                    <td> <input type="text"></td>
+                                    <td> <input type="text"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="pure-control-group">
+                         <label>舱位等级</label>
+                         <select name="" class="pure-u-1-4">
+                             <option value="">选择</option>
+                             <option value="">1</option>
+                             <option value="">2</option>
+                         </select>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>定座属性表</label>
+                        <a href="">填写表格</a>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>升舱到的服务等级</label>
+                        <select name="" class="pure-u-1-4">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                        </select>
+                    </div>
+                </span>
+            </div>
+            <!--航班 end-->
+
+            <!--购买 strart-->
+            <div class="content_layout">
+                <span class="left">购买</span>
+                <span class="right">
+                    <div class="pure-control-group">
+                        <label>提前购票时间</label>
+                        <input type="text" class="pure-u-1-8"  >
+                        <select name="" class="pure-u-1-8">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                        </select>
+                    </div>
+                </span>
+            </div>
+            <!--购买 end-->
+
+            <!--兑换 strart-->
+            <div class="content_layout">
+                <span class="left">兑换</span>
+                <span class="right">
+                    <div class="pure-control-group">
+                        <label>允许兑换的服务</label>
+                        <span class="text-info">航班</span>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>兑换信息</label>
+                        <a href="">填写表格</a>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>&nbsp;</label>
+                        <div class="pure-u-21-24 table_layout"  >
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th colspan ="3">原始运价</th>
+                                        <th>&nbsp;</th>
+                                        <th colspan ="3">新票填开</th>
+                                    </tr>
+                                    <tr>
+                                        <th width ="127">兑换舱位</th>
+                                        <th width ="58">office</th>
+                                        <th width ="58">IATA_NO</th>
+                                        <th width ="103">DepartmentCode</th>
+                                        <th width ="162">farebasis</th>
+                                        <th width ="130">差价</th>
+                                        <th width ="143">TourCode</th>
+                                        <th width ="138">签注</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><input class ="required allowedRbd" type ="text" style="width:125px" placeholder="A/B/C/D" /></td>
+                                    <td><input type ="text" style="width:50px" /></td>
+                                    <td><input type ="text" style="width:50px"  /></td>
+                                    <td><input type ="text" style="width:80px" /></td>
+                                    <td style ="width:150px">
+                                        <span>原始运价&nbsp;</span><input type ="text" style="width:60px" /><br/>
+                                        新票面&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type ="text" style="width:60px" />
+                                    </td>
+                                    <td>
+                                        <select style ="width:130px">
+                                            <option value="0">免差价</option>
+                                            <option value ="1">收差价,ET计算差额</option>
+                                            <option value ="2">收差价,自定义差额</option>
+                                        </select><br/>
+                                        <span >
+                                            <input type ="text" style ="width:59px;"/>
+                                            <select style ="width:60px;">
+                                                <option value ="">选择</option>
+                                                <option value ="CNY">CNY</option>
+                                                <option value ="USD">USD</option>
+                                                <option value ="EUR">EUR</option>
+                                                <option value ="RUB">RUB</option>
+                                                <option value ="CAD">CAD</option>
+                                            </select>
+                                        </span>
+
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0)" >编辑TourCode文本</a><br>
+                                        附加规则&nbsp;<input type ="text" style ="width:38px"  placeholder ="如:123"/>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0)" >编辑备注文本</a><br>
+                                        附加规则&nbsp;<input type ="text" style="width:38px" placeholder ="如:123"/>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <!--兑换 end-->
+
+            <!--票价 strart-->
+            <div class="content_layout">
+                <span class="left">票价</span>
+                <span class="right">
+                    <div class="pure-control-group">
+                        <label>旅行编码</label>
+                        <input type="text" class="pure-u-1-4"  >
+                    </div>
+                    <div class="pure-control-group">
+                        <label>TICKET DESIGNATOR</label>
+                        <a href="">填写表格</a>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>TARIFF NO.</label>
+                        <input type="text" class="pure-u-1-4"  >
+                    </div>
+                    <div class="pure-control-group">
+                        <label>RULE NO.</label>
+                        <input type="text" class="pure-u-1-4"  >
+                    </div>
+                    <div class="pure-control-group">
+                        <label>RESULTING TICKET DESIGNATOR </label>
+                        <a href="">填写表格</a>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>客票舱位等级表 </label>
+                        <a href="">填写表格</a>
+                    </div>
+                </span>
+            </div>
+            <!--票价 end-->
+
+            <!--票证 strart-->
+            <div class="content_layout">
+                <span class="left">票证</span>
+                <span class="right">
+                    <div class="pure-control-group">
+                        <label>与机票同时出票</label>
+                        <input type="radio"/><span class="radioLabel">是</span>
+                        <input type="radio"/><span class="radioLabel">否</span>
+                    </div>
+                </span>
+            </div>
+            <!--票证 end-->
+
+            <!--退款 strart-->
+            <div class="content_layout">
+                <span class="left">退款</span>
+                <span class="right">
+                    <div class="pure-control-group">
+                        <label>是否可退</label>
+                        <select name="" class="pure-u-1-4">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                        </select>
+                    </div>
+                    <div class="pure-control-group">
+                        <label>退款形式</label>
+                        <select name="" class="pure-u-1-4">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                        </select>
+                    </div>
+                </span>
+            </div>
+            <!--退款 end-->
+
+        </div>
+        <!--第三部分‘规则详细’ end-->
+
+    </form>
+
+</div>
+<!--主编辑区域 end-->
+
+
+
+<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-CN.js"></script>
+<script type="text/javascript" src="../js/s7Edit.js"></script>
+</body>
+</html>

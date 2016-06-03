@@ -75,11 +75,14 @@
 td .form-control{
     padding-top: 3px;
     padding-bottom: 3px;
+    padding-left: 1px;
+    padding-right: 1px;
     height: 23px;
 }
 td input[type=text],td select{
     width: 100px;
 }
+
 /****用于checkbox和radio等input框的整合样式****/
 /******链接型按钮******/
 .serviceInputSpan{
@@ -116,8 +119,14 @@ td input[type=text],td select{
 .form-horizontal .form-group{
     margin-bottom: 5px;
 }
+.form-horizontal .control_right_content{
+    padding-top: 7px;
+}
 
 
+.table_layout .form-control{
+    display: inline-block;
+}
 
 
 /**服务选择相关css start*/

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>s7编译页面</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../bower_components/pure/grids.css"/>
+    <link rel="stylesheet" href="../../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css"/>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/s7Edit4.css">
+</head>
+<body>
+<!--导航 start-->
+<div class="navbar-fixed-top">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                    <span class="sr-only">导航菜单</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">附加服务</a></li>
+                    <li><a href="#">数据源配置</a></li>
+                    <li><a href="#">里程积分兑换</a></li>
+                    <li><a href="#">运价校验</a></li>
+                    <li><a href="#">批量导入</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!--query section start-->
+    <div class ="query_section">
+        <span class="query_title">新建服务费用</span>
+        <span>服务类型&nbsp;|</span>
+        <span>费用&nbsp;|</span>
+        <span>规则</span>
+        <span class="pull-right marginR15" style="padding-top: 2px">
+            <button type="submit" class="btn btn-default btn-sm">保存</button>
+            <button type="submit" class="btn btn-default btn-sm btn-success">保存并发布</button>
+        </span>
+    </div>
+    <!--query section end-->
+</div>
+<!--导航 end-->
+
+
+<!--主编辑区域 start-->
+<div class="container-fluid main_content">
+    <form class="form-horizontal">
+        <div class="data_section clearfix">
+            <div class="title_layout">
+                <span class="left">1.选择附加服务</span>
+                <span style="margin-right:40px;"></span><span class="serviceInputSpan right"></span>
+            </div>
+            <div class="content_layout">
+                <!-- 附加服务选择框-->
+                <div class="service_choose_layout">
+                    <s><i></i></s>
+                    <div class="service_choose">
+                        <div class="choose_box">
+                            <div class="choose_box_title">
+                                <input type="text" class="form-control input-sm"  placeholder="选择服务分组" />
+                            </div>
+                            <div class="service_list">
+                                <ul>
+                                    <li>优选座位组描述F</li>
+                                    <li>1</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="choose_box choose_box_right">
+                            <div class="choose_box_title">
+                                <input type="text" class="form-control input-sm"  placeholder="选择服务分组" />
+                            </div>
+                            <div class="service_list">
+                                <ul>
+                                    <li>优选座位组描述F</li>
+                                    <li>1</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="choose_box choose_box_right">
+                            <div class="choose_box_title">
+                                <input type="text" class="form-control input-sm"  placeholder="选择服务分组" />
+                            </div>
+                            <div class="service_list">
+                                <ul>
+                                    <li>优选座位组描述F</li>
+                                    <li>1</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="choose_box choose_box_right">
+                            <div class="choose_box_title">
+                                <span class="text-info">服务详细</span>
+                            </div>
+                            <div class="service_list">
+                                <ul>
+                                    <li>优选座位组描述F</li>
+                                    <li>1</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--第二部分‘确定费用’ start-->
+        <div class="data_section ">
+            <div class="title_layout">
+                <span class="left">2.确定费用</span>
+                <span class="right text-info"> 描述  | 费用 </span>
+            </div>
+
+            <!--描述 strart-->
+            <div class="content_layout">
+                <span class="left">描述</span>
+                <span class="right">
+                   <div class="form-group">
+                       <label for="inputEmail3" class="pure-u-1-8 control-label">起始日期</label>
+                       <div class="pure-u-1-4">
+                           <input type="email" class="form-control input-sm datepicker" id="inputEmail3" placeholder="Email">
+                       </div>
+                       <span class="glyphicon glyphicon-th datebox"></span>
+                   </div>
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">销售截止日期</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm datepicker"  placeholder="起始日期" >
+                        </div>
+                        <span class="glyphicon glyphicon-th datebox"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">服务套数</label>
+                        <div class="pure-u-1-8">
+                            <input type="text" class="form-control input-sm"  placeholder="起始套数" >
+                        </div>
+                        <div class="pure-u-1-8">
+                            <input type="text" class="form-control input-sm"  placeholder="结束套数" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">描述</label>
+                        <div class="pure-u-1-2">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">产品代号</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"  >
+                        </div>
+                        <span class="input_error_tip">这里是错误提示信息</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">是否检查库存</label>
+                        <div class="pure-u-1-4" >
+                            <div class="radio-inline">
+                                <input type="radio" ><label>是</label>
+                            </div>
+                            <div class="radio-inline">
+                                <input type="radio" ><label>否</label>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <!--描述 end-->
+            <!--费用 strart-->
+            <div class="content_layout">
+                <span class="left">费用</span>
+                <span class="right">
+                   <div class="form-group">
+                       <label class="pure-u-1-8 control-label">是否收费</label>
+                       <div class="pure-u-1-4">
+                           <select class="form-control input-sm">
+                               <option value="">1</option>
+                               <option value="">2</option>
+                               <option value="">3</option>
+                           </select>
+                       </div>
+                   </div>
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">金额</label>
+                        <div class="pure-u-1-2 table_layout" style ="width:560px">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>销售地类型</th>
+                                    <th>销售地代码</th>
+                                    <th>金额</th>
+                                    <th>货币类型</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <input class="radio-inline" type="radio" > <span>一口价</span>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control input-sm">
+                                    </td>
+                                    <td>
+                                        <select name="" id="" class="form-control input-sm">
+                                            <option value="">1</option>
+                                            <option value="">2</option>
+                                            <option value="">3</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input class="checkbox-inline" type="checkbox" > <span>一口价</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </span>
+            </div>
+            <!--费用 end-->
+
+
+        </div>
+        <!--第二部分‘确定费用’ end-->
+
+    </form>
+
+</div>
+<!--主编辑区域 end-->
+
+
+
+<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-CN.js"></script>
+<script type="text/javascript" src="../js/s7Edit.js"></script>
+</body>
+</html>

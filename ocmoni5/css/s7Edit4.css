@@ -29,16 +29,13 @@
     display: block;
     margin-top: 10px;
 }
-
 .content_layout .left{
     float: left;
     width: 90px;
 }
-
 .content_layout .left:after{
     clear: both;
 }
-
 .content_layout .right{
     position: relative;
     box-sizing: border-box;
@@ -75,8 +72,14 @@
     background-color:#F7F7F7;
 }
 /*td input{margin: 0px ;height:25px;}*/
-
-
+td .form-control{
+    padding-top: 3px;
+    padding-bottom: 3px;
+    height: 23px;
+}
+td input[type=text],td select{
+    width: 100px;
+}
 /****用于checkbox和radio等input框的整合样式****/
 /******链接型按钮******/
 .serviceInputSpan{
@@ -92,44 +95,28 @@
 .serviceInputSpan:after{
     clear: both;
 }
-
-.pure-control-group label{
-    font-weight: 200;
-}
-
-.radioLabel{
-    vertical-align: middle;
-    margin: 0 5px;
-}
-
-.form-horizontal .datebox{
-    padding-top: 7px;
-}
-
 .checkbox-inline label,.radio-inline label{
     font-size: 12px;
     font-weight: 100;
     padding-top: 2px;
 }
+
+.form-horizontal .datebox{
+    padding-top: 7px;
+}
 .form-horizontal .control-label{
     font-weight: 100;
     margin-right: 5px;
 }
-
 .form-horizontal .input_error_tip{
     display: inline-block;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0 0 0 5px;
     padding-top: 7px;
     color: red;
-    margin-left: 5px;
 }
 .form-horizontal .form-group{
     margin-bottom: 5px;
 }
-/*.input_error_tip{
-    vertical-align: middle;
-    padding-top: 7px;
-}*/
+
 
 

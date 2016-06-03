@@ -132,17 +132,19 @@
             <div class="content_layout">
                 <span class="left">费用</span>
                 <span class="right">
-                   <div class="pure-control-group">
-                       <label>是否收费</label>
-                       <select class="pure-u-1-4">
-                           <option value="">1</option>
-                           <option value="">2</option>
-                           <option value="">3</option>
-                       </select>
+                   <div class="form-group">
+                       <label class="pure-u-1-8 control-label">是否收费</label>
+                       <div class="pure-u-1-4">
+                           <select class="form-control input-sm">
+                               <option value="">1</option>
+                               <option value="">2</option>
+                               <option value="">3</option>
+                           </select>
+                       </div>
                    </div>
 
-                    <div class="pure-control-group">
-                        <label>金额</label>
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">金额</label>
                         <div class="pure-u-1-2 table_layout" style ="width:560px">
                             <table>
                                 <thead>
@@ -155,16 +157,22 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td><input type="radio">一口价</td>
-                                    <td><input type="text"></td>
                                     <td>
-                                        <select name="" id="">
+                                        <input class="radio-inline" type="radio" > <span>一口价</span>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control input-sm">
+                                    </td>
+                                    <td>
+                                        <select name="" id="" class="form-control input-sm">
                                             <option value="">1</option>
                                             <option value="">2</option>
                                             <option value="">3</option>
                                         </select>
                                     </td>
-                                    <td>@mdo</td>
+                                    <td>
+                                        <input class="checkbox-inline" type="checkbox" > <span>一口价</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Jacob</td>

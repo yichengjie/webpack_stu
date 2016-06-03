@@ -98,6 +98,7 @@ body{
 }
 .datebox{
     margin-left: -25px;
+    cursor: pointer;
 }
 .datebox:after{
     content: '';

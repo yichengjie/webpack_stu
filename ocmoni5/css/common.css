@@ -34,7 +34,6 @@ body{
     background:#fff url(../images/tui_div4_bg.png) repeat-x left bottom;
     border-bottom:1px solid #9ea7ab;
     box-shadow:0 0 2px 0;
-    font-size: 12px;
     font-weight: 100;
     box-sizing: border-box;
 }
@@ -105,13 +104,6 @@ body{
     display: inline-block;
     margin-left: 12px;
 }
-
-/*.input-sm{
-    height: 28px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-}*/
-
 
 
 

@@ -73,10 +73,7 @@
 }
 /*td input{margin: 0px ;height:25px;}*/
 td .form-control{
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 1px;
-    padding-right: 1px;
+    padding: 2px  1px ;
     height: 23px;
 }
 td input[type=text],td select{

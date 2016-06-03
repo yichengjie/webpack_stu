@@ -55,12 +55,12 @@ body{
     font-weight: 100;
 }
 /**查询条件相关 end*/
-.checkbox label{
+.query_section .checkbox label{
     float: right;
     margin-top: 8px;
     margin-left: 5px
 }
-.checkbox label:after{
+.query_section .checkbox label:after{
     clear: both;
 }
 .marginL5{
@@ -93,7 +93,6 @@ body{
 .myhand{
     cursor: pointer;
 }
-
 .red_star{
     color: red;
 }
@@ -106,53 +105,11 @@ body{
     margin-left: 12px;
 }
 
-
-
-
-
-
-/**重置purecss的样式start*/
-.pure-form input[type="text"],
-.pure-form input[type="password"],
-.pure-form input[type="email"],
-.pure-form input[type="url"],
-.pure-form input[type="date"],
-.pure-form input[type="month"],
-.pure-form input[type="time"],
-.pure-form input[type="datetime"],
-.pure-form input[type="datetime-local"],
-.pure-form input[type="week"],
-.pure-form input[type="number"],
-.pure-form input[type="search"],
-.pure-form input[type="tel"],
-.pure-form input[type="color"],
-.pure-form select,
-.pure-form textarea {
-    padding: 0.4em 0.6em;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-shadow: inset 0 1px 3px #ddd;
-    border-radius: 4px;
-    vertical-align: middle;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-/*
-Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
-since IE8 won't execute CSS that contains a CSS3 selector.
-*/
-.pure-form input:not([type]) {
-    padding: 0.4em 0.6em;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-shadow: inset 0 1px 3px #ddd;
-    border-radius: 4px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-}
-/**重置purecss的样式end*/
+/*.input-sm{
+    height: 28px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}*/
 
 
 

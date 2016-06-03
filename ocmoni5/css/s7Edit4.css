@@ -222,5 +222,7 @@ td input[type=text],td select{
 }
 /**服务选择相关css end*/
 
+.selected_td { background-color: #D9EDF7;}
+
 
 

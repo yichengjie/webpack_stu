@@ -451,7 +451,7 @@
                 <span class="right">
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">区域限制</label>
-                        <div class="pure-u-1-4">
+                        <div class="pure-u-1-2">
                             <div class="radio-inline">
                                 <input type="radio"/><label>不限区域</label>
                             </div>
@@ -486,8 +486,10 @@
                     </div>
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">经停时间</label>
-                        <input type="text" class="pure-u-1-8"/>
-                        <div class="pure-u-1-4">
+                        <div class="pure-u-1-8">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                        <div class="pure-u-1-8">
                             <select name="" class="form-control input-sm">
                                 <option value="">选择</option>
                                 <option value="">1</option>
@@ -630,7 +632,7 @@
                         <label class="pure-u-1-8 control-label">航班号</label>
                         <div class="pure-u-1-2 control_right_content">
                             <a href="">填写表格</a>
-                            <div class="table_layout" style ="width:160px">
+                            <div class="table_layout" style ="width:360px">
                                 <table>
                                     <thead>
                                     <tr> <th>市场方</th><th>承运方</th><th>航班号</th></tr>
@@ -719,35 +721,35 @@
                                         <th colspan ="3">新票填开</th>
                                     </tr>
                                     <tr>
-                                        <th width ="127">兑换舱位</th>
-                                        <th width ="58">office</th>
-                                        <th width ="58">IATA_NO</th>
-                                        <th width ="103">DepartmentCode</th>
-                                        <th width ="162">farebasis</th>
-                                        <th width ="130">差价</th>
-                                        <th width ="143">TourCode</th>
-                                        <th width ="138">签注</th>
+                                        <th width ="127px">兑换舱位</th>
+                                        <th width ="58px">office</th>
+                                        <th width ="58px">IATA_NO</th>
+                                        <th width ="103px">DepartmentCode</th>
+                                        <th width ="162px">farebasis</th>
+                                        <th width ="130px">差价</th>
+                                        <th width ="143px">TourCode</th>
+                                        <th width ="138px">签注</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td><input class ="form-control input-sm" type ="text" style="width:125px" placeholder="A/B/C/D" /></td>
-                                        <td><input type ="text" style="width:50px" class ="form-control input-sm" /></td>
-                                        <td><input type ="text" style="width:50px" class ="form-control input-sm" /></td>
-                                        <td><input type ="text" style="width:80px" class ="form-control input-sm" /></td>
-                                        <td style ="width:150px">
-                                            <span>原始运价&nbsp;</span><input type ="text" style="width:60px" class ="form-control input-sm"/><br/>
-                                            新票面&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type ="text" style="width:60px" class ="form-control input-sm"/>
+                                    <tr class="selected_td">
+                                        <td><input class ="form-control input-sm" type ="text" style="width:96%" placeholder="A/B/C/D" /></td>
+                                        <td><input type ="text" style="width: 96%" class ="form-control input-sm" /></td>
+                                        <td><input type ="text" style="width:96%" class ="form-control input-sm" /></td>
+                                        <td><input type ="text" style="width:96%" class ="form-control input-sm" /></td>
+                                        <td>
+                                            <span style="display:inline-block;width: 46%">原始运价&nbsp;</span><input type ="text" style="width:50%" class ="form-control input-sm"/><br/>
+                                            <span style="display:inline-block;width: 46%">新票面</span><input type ="text" style="width:50%" class ="form-control input-sm"/>
                                         </td>
                                         <td>
-                                            <select style ="width:130px" class ="form-control input-sm">
+                                            <select style ="width:96%" class ="form-control input-sm">
                                                 <option value="0">免差价</option>
                                                 <option value ="1">收差价,ET计算差额</option>
                                                 <option value ="2">收差价,自定义差额</option>
                                             </select><br/>
                                         <span >
-                                            <input type ="text" style ="width:59px;" class ="form-control input-sm"/>
-                                            <select style ="width:60px;" class ="">
+                                            <input type ="text" style ="width:48%" class ="form-control input-sm"/>
+                                            <select style ="width:48%;" class ="">
                                                 <option value ="">选择</option>
                                                 <option value ="CNY">CNY</option>
                                                 <option value ="USD">USD</option>
@@ -760,11 +762,13 @@
                                         </td>
                                         <td>
                                             <a href="javascript:void(0)" >编辑TourCode文本</a><br>
-                                            附加规则&nbsp;<input type ="text" style ="width:38px" class="form-control input-sm"  placeholder ="如:123"/>
+                                            <span style="display:inline-block;width: 48%">附加规则</span>
+                                            <input type ="text" style ="width:48%" class="form-control input-sm"  placeholder ="如:123"/>
                                         </td>
                                         <td>
                                             <a href="javascript:void(0)" >编辑备注文本</a><br>
-                                            附加规则&nbsp;<input type ="text" style="width:38px" class="form-control input-sm" placeholder ="如:123"/>
+                                            <span style="display:inline-block;width: 48%">附加规则</span>
+                                            <input type ="text" style="width:48%" class="form-control input-sm" placeholder ="如:123"/>
                                         </td>
                                     </tr>
                                     </tbody>

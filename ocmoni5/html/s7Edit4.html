@@ -738,27 +738,33 @@
                                         <td><input type ="text" style="width:96%" class ="form-control input-sm" /></td>
                                         <td><input type ="text" style="width:96%" class ="form-control input-sm" /></td>
                                         <td>
-                                            <span style="display:inline-block;width: 46%">原始运价&nbsp;</span><input type ="text" style="width:50%" class ="form-control input-sm"/><br/>
-                                            <span style="display:inline-block;width: 46%">新票面</span><input type ="text" style="width:50%" class ="form-control input-sm"/>
+                                            <span style="display:inline-block;width: 46%">原始运价&nbsp;</span>
+                                            <input type ="text" style="width:50%" class ="form-control input-sm"/>
+                                            <div style="padding-top: 2px">
+                                                <span style="display:inline-block;width: 46%">新票面</span>
+                                                <input type ="text" style="width:50%" class ="form-control input-sm"/>
+                                            </div>
                                         </td>
                                         <td>
                                             <select style ="width:96%" class ="form-control input-sm">
                                                 <option value="0">免差价</option>
                                                 <option value ="1">收差价,ET计算差额</option>
                                                 <option value ="2">收差价,自定义差额</option>
-                                            </select><br/>
-                                        <span >
-                                            <input type ="text" style ="width:48%" class ="form-control input-sm"/>
-                                            <select style ="width:48%;" class ="">
-                                                <option value ="">选择</option>
-                                                <option value ="CNY">CNY</option>
-                                                <option value ="USD">USD</option>
-                                                <option value ="EUR">EUR</option>
-                                                <option value ="RUB">RUB</option>
-                                                <option value ="CAD">CAD</option>
                                             </select>
-                                        </span>
-
+                                            <div style="margin-top: 2px">
+                                                <input type ="text" style="width: 48%" class ="form-control input-sm"/>
+                                                <span style="float: right;width:48%;margin-right: 4px;">
+                                                    <select  class="form-control input-sm">
+                                                        <option value ="">选择</option>
+                                                        <option value ="CNY">CNY</option>
+                                                        <option value ="USD">USD</option>
+                                                        <option value ="EUR">EUR</option>
+                                                        <option value ="RUB">RUB</option>
+                                                        <option value ="CAD">CAD</option>
+                                                    </select>
+                                                </span>
+                                                <span class="clearfix"></span>
+                                            </div>
                                         </td>
                                         <td>
                                             <a href="javascript:void(0)" >编辑TourCode文本</a><br>

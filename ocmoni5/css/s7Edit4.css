@@ -71,15 +71,16 @@
 .table_layout table tr:hover{
     background-color:#F7F7F7;
 }
-/*td input{margin: 0px ;height:25px;}*/
-td .form-control{
-    padding: 2px  1px ;
+
+
+td .common_input{
     height: 23px;
+    line-height: 23px;
+    padding: 1px 1px;
 }
 td input[type=text],td select{
     width: 100px;
 }
-
 /****用于checkbox和radio等input框的整合样式****/
 /******链接型按钮******/
 .serviceInputSpan{
@@ -237,8 +238,3 @@ td input[type=text],td select{
 .table_reuse{
     padding-left: 20px;
 }
-
-
-
-
-

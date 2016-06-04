@@ -110,7 +110,8 @@ body{
     height: 25px;
     padding: 3px 6px;
     font-size: 14px;
-    line-height: 1.42857143;;
+    line-height: 1.42857143;
+    width: 100%;
     /*line-height:1;*/
     /*line-height: 1.42857143;*/
     /*line-height: 25px;*/
@@ -131,9 +132,3 @@ body{
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
 }
-
-
-
-
-
-

@@ -100,7 +100,7 @@ td input[type=text],td select{
     font-weight: 100;
     padding-top: 2px;
 }
-.form-horizontal .datebox{
+.form-horizontal .iconfont_box{
     padding-top: 7px;
 }
 .form-horizontal .control-label{
@@ -113,6 +113,12 @@ td input[type=text],td select{
     padding-top: 7px;
     color: red;
 }
+.form-horizontal .input_tip{
+    display: inline-block;
+    margin: 0 0 0 5px;
+    padding-top: 7px;
+}
+
 .form-horizontal .form-group{
     margin-bottom: 5px;
 }
@@ -227,6 +233,11 @@ td input[type=text],td select{
     line-height: 30px;
     vertical-align: middle;
 }
+
+.table_reuse{
+    padding-left: 20px;
+}
+
 
 
 

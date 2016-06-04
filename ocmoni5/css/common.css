@@ -92,18 +92,8 @@ body{
 .myhand{
     cursor: pointer;
 }
-.red_star{
-    color: red;
-}
-.datebox{
-    margin-left: -25px;
-    cursor: pointer;
-}
-.datebox:after{
-    content: '';
-    display: inline-block;
-    margin-left: 12px;
-}
+.red{color: red;}
+.gray { color:#CCCCCC;}
 
 .iconfont_box{
     margin-left: -25px;

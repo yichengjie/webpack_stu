@@ -221,5 +221,13 @@ td input[type=text],td select{
 
 .selected_td { background-color: #D9EDF7;}
 
+.table_control{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+
 
 

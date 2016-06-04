@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="../../bower_components/pure/grids.css"/>
     <link rel="stylesheet" href="../../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css"/>
+    <link rel="stylesheet" href="../css/jquery.autocomplete.css"/>
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/s7Edit4.css">
+    <link rel="stylesheet" href="../lib/iconfont/iconfont.css"/>
 </head>
 <body>
 <!--导航 start-->
@@ -132,6 +134,7 @@
                            <input type="text" id ="id1"  class="form-control input-sm datepicker" id="inputEmail3" placeholder="销售生效日期">
                        </div>
                        <label for="id1" class="glyphicon glyphicon-th datebox"></label>
+                       <span class="input_error_tip">这里是错误提示信息</span>
                    </div>
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">销售截止日期</label>
@@ -193,8 +196,17 @@
 
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">金额</label>
-                        <div class="pure-u-1-2 control_right_content" >
-                            <a href="">填写表格</a>
+                        <div class="pure-u-1-2 " >
+                            <div class="table_control">
+                                <a href="" class="marginR15">填写表格</a>
+                                <label class ="text-info">复用表号:</label>
+                                <input type="text" class="common_input" id="autocomplete" style="width: 100px"/>
+                                <span class="iconfont_box">
+                                    <i class="glyphicon glyphicon-search gray "></i>
+                                </span>
+                                <span class ="text-danger">自定义表格</span>
+                            </div>
+
                             <div class="table_layout" style ="width:460px">
                                 <table>
                                     <thead>
@@ -889,6 +901,7 @@
 <script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script type="text/javascript" src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript" src="../../bower_components/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-CN.js"></script>
+<script type="application/javascript" src="../../bower_components/devbridge-autocomplete/dist/jquery.autocomplete.js"></script>
 <script type="text/javascript" src="../js/s7Edit.js"></script>
 </body>
 </html>

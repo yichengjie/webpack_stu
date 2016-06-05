@@ -52,6 +52,7 @@
     border:1px solid #EFEFEF;
     border-radius:3px;
     background-color:#FFF;
+    overflow: hidden;
 }
 .table_layout table{
     border-top:1px solid #DDD;
@@ -71,8 +72,6 @@
 .table_layout table tr:hover{
     background-color:#F7F7F7;
 }
-
-
 td .common_input{
     height: 23px;
     line-height: 23px;
@@ -238,19 +237,19 @@ td input[type=text],td select{
 .table_reuse{
     padding-left: 20px;
 }
-.table_layout:after{
+/*.table_layout:after{
     clear: both;
     display: table;
     content:  '';
-}
+}*/
 .table_footer{
     display: inline-block;
     margin-top: 3px;
     float: right;
 }
-.table_footer:after{
+/*.table_footer:after{
     clear: both;
-}
+}*/
 .table_footer .btn{
     height: 22px;
     padding: 2px 7px 2px 5px;

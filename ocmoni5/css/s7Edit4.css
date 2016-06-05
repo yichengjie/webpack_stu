@@ -238,3 +238,20 @@ td input[type=text],td select{
 .table_reuse{
     padding-left: 20px;
 }
+.table_layout:after{
+    clear: both;
+    display: table;
+    content:  '';
+}
+.table_footer{
+    display: inline-block;
+    margin-top: 3px;
+    float: right;
+}
+.table_footer:after{
+    clear: both;
+}
+.table_footer .btn{
+    height: 22px;
+    padding: 2px 7px 2px 5px;
+}

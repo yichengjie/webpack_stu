@@ -8,6 +8,42 @@
     <link rel="stylesheet" href="../src/styles/css/jquery-ui-timepicker-addon.css"/>
     <link rel="stylesheet" href="../src/styles/css/oc_common.css">
     <link rel="stylesheet" href="../src/styles/css/s7_query.css"/>
+
+    <script type="text/template" id="s7_panel_template">
+        <div class="panel panel-default s7list_panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                <span class="checkbox-inline">
+                    <input id="selectAllGroup" type="checkbox"><label for="selectAllGroup">全选</label>
+                </span>
+                    <span class="marginL15">升舱组描述>升舱子组描述>[0BJ]升舱</span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item s7_list_row">
+                        <span class="s7_list_item s7_list_checkbox ">
+                             <input  type="checkbox">
+                        </span>
+                        <span class="productsImg"></span>
+                        <span class="s7_list_item s7_list_descr text-info marginL15">
+                            这里是描述信息
+                        </span>
+                        <span class="s7_list_item s7_list_seq marginLR15">10356</span>
+                        <span class="s7_list_item text-primary">2016-05-24—2016-05-25</span>
+                        <span class="s7_list_item  text-danger marginLR15">未发布</span>
+                        <span class="s7_list_item s7_list_price text-success">230CNY</span>
+                        <span class="s7_list_item pull-right">
+                             <i class="glyphicon glyphicon-search myhand"></i>
+                            <i class="glyphicon glyphicon-pencil marginLR5 myhand"></i>
+                            <i class="glyphicon glyphicon-trash myhand"></i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </script>
+
 </head>
 <body>
 
@@ -186,114 +222,46 @@
     </div>
     <span class="clearfix"></span>
 
-    <div class="panel panel-default s7list_panel">
-        <div class="panel-heading">
-            <h3 class="panel-title">
+
+    <div id="s7list_container">
+
+
+        <div class="panel panel-default s7list_panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">
                 <span class="checkbox-inline">
-                    <input  type="checkbox"><label for="a7">全选</label>
+                    <input id="selectAllGroup" type="checkbox"><label for="selectAllGroup">全选</label>
                 </span>
-                <span class="marginL15">升舱组描述>升舱子组描述>[0BJ]升舱</span>
-            </h3>
-        </div>
-        <div class="panel-body">
-            <ul class="list-group">
-                <li class="list-group-item s7_list_row">
+                    <span class="marginL15">升舱组描述>升舱子组描述>[0BJ]升舱</span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item s7_list_row">
                         <span class="s7_list_item s7_list_checkbox ">
                              <input  type="checkbox">
                         </span>
-                    <span class="productsImg"></span>
+                        <span class="productsImg"></span>
                         <span class="s7_list_item s7_list_descr text-info marginL15">
                             这里是描述信息
                         </span>
-                    <span class="s7_list_item s7_list_seq marginLR15">10356</span>
-                    <span class="s7_list_item text-primary">2016-05-24—2016-05-25</span>
-                    <span class="s7_list_item  text-danger marginLR15">未发布</span>
-                    <span class="s7_list_item s7_list_price text-success">230CNY</span>
+                        <span class="s7_list_item s7_list_seq marginLR15">10356</span>
+                        <span class="s7_list_item text-primary">2016-05-24—2016-05-25</span>
+                        <span class="s7_list_item  text-danger marginLR15">未发布</span>
+                        <span class="s7_list_item s7_list_price text-success">230CNY</span>
                         <span class="s7_list_item pull-right">
                              <i class="glyphicon glyphicon-search myhand"></i>
                             <i class="glyphicon glyphicon-pencil marginLR5 myhand"></i>
                             <i class="glyphicon glyphicon-trash myhand"></i>
                         </span>
-                </li>
-
-                <li class="list-group-item s7_list_row">
-                        <span class="s7_list_item s7_list_checkbox ">
-                             <input  type="checkbox">
-                        </span>
-                    <span class="productsImg"></span>
-                        <span class="s7_list_item s7_list_descr text-info marginL15">
-                            这里是描述信息
-                        </span>
-                    <span class="s7_list_item s7_list_seq marginLR15">10356</span>
-                    <span class="s7_list_item text-primary">2016-05-24—2016-05-25</span>
-                    <span class="s7_list_item  text-danger marginLR15">未发布</span>
-                    <span class="s7_list_item s7_list_price text-success">99998CNY</span>
-                        <span class="s7_list_item pull-right">
-                            <i class="glyphicon glyphicon-search myhand"></i>
-                            <i class="glyphicon glyphicon-pencil marginLR5 myhand"></i>
-                            <i class="glyphicon glyphicon-trash myhand"></i>
-                        </span>
-                </li>
-
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
+
+
+
     </div>
-
-
-
-    <div class="panel panel-default s7list_panel">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                <span class="checkbox-inline">
-                    <input id="a7" type="checkbox"><label for="a7">全选</label>
-                </span>
-                <span class="marginL15">升舱组描述>升舱子组描述>[0BJ]升舱</span>
-            </h3>
-        </div>
-        <div class="panel-body">
-            <ul class="list-group">
-                <li class="list-group-item s7_list_row">
-                        <span class="s7_list_item s7_list_checkbox ">
-                             <input  type="checkbox">
-                        </span>
-                    <span class="productsImg"></span>
-                        <span class="s7_list_item s7_list_descr text-info marginL15">
-                            这里是描述信息
-                        </span>
-                    <span class="s7_list_item s7_list_seq marginLR15">10356</span>
-                    <span class="s7_list_item text-primary">2016-05-24—2016-05-25</span>
-                    <span class="s7_list_item  text-danger marginLR15">未发布</span>
-                    <span class="s7_list_item s7_list_price text-success">230CNY</span>
-                        <span class="s7_list_item pull-right">
-                             <i class="glyphicon glyphicon-search myhand"></i>
-                            <i class="glyphicon glyphicon-pencil marginLR5 myhand"></i>
-                            <i class="glyphicon glyphicon-trash myhand"></i>
-                        </span>
-                </li>
-
-                <li class="list-group-item s7_list_row">
-                        <span class="s7_list_item s7_list_checkbox ">
-                             <input  type="checkbox">
-                        </span>
-                    <span class="productsImg"></span>
-                        <span class="s7_list_item s7_list_descr text-info marginL15">
-                            这里是描述信息
-                        </span>
-                    <span class="s7_list_item s7_list_seq marginLR15">10356</span>
-                    <span class="s7_list_item text-primary">2016-05-24—2016-05-25</span>
-                    <span class="s7_list_item  text-danger marginLR15">未发布</span>
-                    <span class="s7_list_item s7_list_price text-success">99998CNY</span>
-                        <span class="s7_list_item pull-right">
-                            <i class="glyphicon glyphicon-search myhand"></i>
-                            <i class="glyphicon glyphicon-pencil marginLR5 myhand"></i>
-                            <i class="glyphicon glyphicon-trash myhand"></i>
-                        </span>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-</div>
 
 
 
@@ -369,11 +337,6 @@
 <form method="post"  enctype="multipart/form-data" id ="batchImportForm">
     <input type="file" name ="file" id ="batchImportFileInput" style="display: none"/>
 </form>
-
-
-
-
-
 
 
 <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>

@@ -2,7 +2,7 @@
  * Created by Administrator on 2016/5/30.
  */
 $(function(){
-    $('.datepicker').datepicker({
+   /* $('.datepicker').datepicker({
         language:'zh-CN',
         format:'yyyy/mm/dd',
         startDate:new Date(),
@@ -12,7 +12,7 @@ $(function(){
 
     $('.datetimepicker').datetimepicker({
         locale: 'zh-cn'
-    });
+    });*/
 
 
     $('#autocomplete').autocomplete({

@@ -2,6 +2,8 @@
  * Created by Administrator on 2016/5/30.
  */
 $(function(){
+
+
    /* $('.datepicker').datepicker({
         language:'zh-CN',
         format:'yyyy/mm/dd',
@@ -13,6 +15,29 @@ $(function(){
     $('.datetimepicker').datetimepicker({
         locale: 'zh-cn'
     });*/
+    var minDateStr = "2016-06-06" ;
+    var minDate = new Date(minDateStr) ;
+    //配置日期控件
+    var optionObj = {} ;
+    optionObj.dateFormat = "yy-mm-dd" ;
+    optionObj.timeFormat = 'HH:mm' ;
+    var updateModel = function(dateText){
+        console.info('dateText : ' + dateText) ;
+    }
+    optionObj.onSelect = function(dateText,picker){
+        updateModel(dateText) ;
+    }
+    optionObj.minDate = minDate ;
+    optionObj.timeText="&nbsp;&nbsp;时间" ;
+    optionObj.hourText ="&nbsp;&nbsp;时" ;
+    optionObj.minuteText ="&nbsp;&nbsp;分" ;
+    //optionObj.secondText = "&nbsp;&nbsp;秒" ;
+    optionObj.currentText = "当前" ;
+    optionObj.closeText = "关闭" ;
+    optionObj.showButtonPanel = true ;
+    //optionObj.showSecond = true ;
+    $('.datepicker').datepicker() ;
+    $('.datetimepicker').datetimepicker(optionObj) ;
 
 
     $('#autocomplete').autocomplete({

@@ -20,6 +20,7 @@
     "bootstrap-select": "^1.10.0",
     "bootstrap-datepicker": "^1.6.1",
     "pure": "^0.6.0",
-    "devbridge-autocomplete": "^1.2.24"
+    "devbridge-autocomplete": "^1.2.24",
+    "bootstrap3-dialog": "bootstrap-dialog#^1.35.1"
   }
 }

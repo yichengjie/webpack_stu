@@ -27,4 +27,10 @@ $(function(){
             alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
         }
     });
+
+
+    $('#saveBtn').click(function () {
+
+        BootstrapDialog.alert('I want banana!');
+    }) ;
 }) ;

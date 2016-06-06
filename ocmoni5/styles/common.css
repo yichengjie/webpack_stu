@@ -1,0 +1,134 @@
+.test{
+    height: 1000px;
+}
+/*主编辑区域**/
+body{
+    background-color: #F2F4F7;
+    min-width: 1100px;
+    font-size: 12px;
+    font-family: "lucida grande",Helvetica,Tahoma,Verdana,Arial,Microsoft YaHei,simsun,sans-serif;
+}
+.main_content{
+    padding-top: 106px;
+    padding-bottom: 30px;
+    height: 100%;
+}
+/*bootstrap 样式重置start*/
+.navbar{
+    margin-bottom: 0;
+}
+/*.form-group{
+    margin-bottom: 6px;
+}
+.well{
+    padding-top: 10px;
+    padding-bottom: 5px;
+}*/
+/*bootstrap 样式重置start*/
+/**查询条件相关 start*/
+.query_section{
+    padding: 5px 0;
+    width: 100%;
+    min-height: 42px;
+    background-color: #00b3ee;
+    background:#fff url(./images/tui_div4_bg.png) repeat-x left bottom;
+    border-bottom:1px solid #9ea7ab;
+    box-shadow:0 0 2px 0;
+    font-weight: 100;
+    box-sizing: border-box;
+}
+.query_title{
+    display: inline-block;
+    margin: 8px 20px 0 10px;
+    color: #017ebc;
+}
+.query_section input,.query_section select{
+    height: 26px;
+    padding: 3px;
+}
+.query_section .btn{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.query_section label{
+    font-weight: 100;
+}
+/**查询条件相关 end*/
+.query_section .checkbox label{
+    float: right;
+    margin-top: 8px;
+    margin-left: 5px
+}
+.query_section .checkbox label:after{
+    clear: both;
+}
+.marginL5{
+    margin-left: 5px;
+}
+.marginR5{
+    margin-right: 5px;
+}
+.marginLR5{
+    margin :0 5px;
+}
+.marginL10{
+    margin-left: 10px;
+}
+.marginR10{
+    margin-right: 10px;
+}
+.marginLR10{
+    margin :0 10px;
+}
+.marginL15{
+    margin-left: 15px;
+}
+.marginR15{
+    margin-right: 15px;
+}
+.marginLR15{
+    margin :0 15px;
+}
+.myhand{
+    cursor: pointer;
+}
+.red{color: red;}
+.gray { color:#CCCCCC;}
+
+.iconfont_box{
+    margin-left: -25px;
+    cursor: pointer;
+}
+.iconfont_box:after{
+    content: '';
+    display: inline-block;
+    margin-left: 12px;
+}
+
+.common_input{
+    display: inline-block;
+    height: 25px;
+    padding: 3px 6px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    width: 100%;
+    /*line-height:1;*/
+    /*line-height: 1.42857143;*/
+    /*line-height: 25px;*/
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.common_input:focus{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}

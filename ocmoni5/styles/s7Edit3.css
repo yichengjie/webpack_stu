@@ -1,7 +1,7 @@
 /****页面基本样式****/
 .data_section{
     display: block;
-    background:#FFF url(../images/tui_div2_bg.png) repeat-x top left;
+    background:#FFF url(./images/tui_div2_bg.png) repeat-x top left;
     border:1px solid #cbcccf;
     border-radius:2px;
     box-shadow:0 1px 1px;

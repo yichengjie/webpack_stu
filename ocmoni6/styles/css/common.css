@@ -17,13 +17,6 @@ body{
 .navbar{
     margin-bottom: 0;
 }
-/*.form-group{
-    margin-bottom: 6px;
-}
-.well{
-    padding-top: 10px;
-    padding-bottom: 5px;
-}*/
 /*bootstrap 样式重置start*/
 /**查询条件相关 start*/
 .query_section{
@@ -104,7 +97,6 @@ body{
     display: inline-block;
     margin-left: 12px;
 }
-
 .common_input{
     display: inline-block;
     height: 25px;
@@ -132,3 +124,20 @@ body{
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
 }
+/*s7 查询页面的 特殊样式 start*/
+.s7list_panel .panel-body{
+    padding: 0px;
+}
+.s7list_panel .list-group{
+    margin: 0px;
+    border-radius: 0;
+}
+.s7list_panel .panel-title{
+    font-size: 14px;
+    font-weight: 300;
+}
+.s7list_panel .checkbox-inline label{
+    margin-top: 3px;
+}
+/*s7 查询页面的 特殊样式 end*/
+

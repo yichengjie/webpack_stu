@@ -21,6 +21,7 @@
     "bootstrap-datepicker": "^1.6.1",
     "pure": "^0.6.0",
     "devbridge-autocomplete": "^1.2.24",
-    "bootstrap3-dialog": "bootstrap-dialog#^1.35.1"
+    "bootstrap3-dialog": "bootstrap-dialog#^1.35.1",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.37"
   }
 }

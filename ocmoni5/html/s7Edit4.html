@@ -5,7 +5,9 @@
     <title>s7编译页面</title>
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="../../bower_components/pure/grids.css"/>
+    <link rel="stylesheet" href="../../bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css"/>
     <link rel="stylesheet" href="../../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css"/>
+
     <link rel="stylesheet" href="../styles/css/jquery.autocomplete.css"/>
     <link rel="stylesheet" href="../styles/css/common.css">
     <link rel="stylesheet" href="../styles/css/s7Edit4.css">
@@ -132,7 +134,7 @@
                    <div class="form-group">
                        <label for="inputEmail3" class="pure-u-1-8 control-label">销售生效日期</label>
                        <div class="pure-u-1-4">
-                           <input type="text" id ="id1"  class="form-control input-sm datepicker" id="inputEmail3" placeholder="销售生效日期">
+                           <input type="text" id ="id1"  class="form-control input-sm datetimepicker" id="inputEmail3" placeholder="销售生效日期">
                        </div>
                        <label for="id1" class="glyphicon glyphicon-th iconfont_box"></label>
                        <span class="input_error_tip">这里是错误提示信息</span>
@@ -140,7 +142,7 @@
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">销售截止日期</label>
                         <div class="pure-u-1-4">
-                            <input type="text" id="id2" class="form-control input-sm datepicker"  placeholder="销售截止日期" >
+                            <input type="text" id="id2" class="form-control input-sm datetimepicker"  placeholder="销售截止日期" >
                         </div>
                         <label for="id2" class="glyphicon glyphicon-th iconfont_box"></label>
 
@@ -906,11 +908,14 @@
 
 
 <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../bower_components/moment/moment.js"></script>
+<script type="text/javascript" src="../../bower_components/moment/locale/zh-cn.js"></script>
 <script type="text/javascript" src="../lib/tui-core/tui_core.js"></script>
 <script type="text/javascript" src="../lib/tui-drag/tui_drag.js"></script>
 <script type="text/javascript" src="../lib/tui-dialog/tui_dialog.js"></script>
 <script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script type="text/javascript" src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../../bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="../../bower_components/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-CN.js"></script>
 <script type="application/javascript" src="../../bower_components/devbridge-autocomplete/dist/jquery.autocomplete.js"></script>
 <script type="text/javascript" src="../js/s7Edit.js"></script>

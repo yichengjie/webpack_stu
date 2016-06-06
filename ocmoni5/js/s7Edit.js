@@ -10,6 +10,10 @@ $(function(){
         autoclose:true
     });
 
+    $('.datetimepicker').datetimepicker({
+        locale: 'zh-cn'
+    });
+
 
     $('#autocomplete').autocomplete({
         minChars:0,

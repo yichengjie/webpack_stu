@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <title>s7编译页面</title>
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../styles/css/jquery_ui.datepicker-modify.css"/>
-    <link rel="stylesheet" href="../styles/css/jquery-ui-timepicker-addon.css"/>
-    <link rel="stylesheet" href="../styles/css/common.css">
-    <link rel="stylesheet" href="../styles/css/s7Query.css"/>
+    <link rel="stylesheet" href="../dist/commonStyle.css"/>
 </head>
 <body>
 
@@ -172,7 +169,7 @@
         <div class="panel-heading">
             <h3 class="panel-title">
                 <span class="checkbox-inline">
-                    <input  id ="a7" type="checkbox"><label for="a7">全选</label>
+                    <input  type="checkbox"><label for="a7">全选</label>
                 </span>
                 <span class="marginL15">升舱组描述>升舱子组描述>[0BJ]升舱</span>
             </h3>
@@ -227,7 +224,7 @@
         <div class="panel-heading">
             <h3 class="panel-title">
                 <span class="checkbox-inline">
-                    <input  id ="a7" type="checkbox"><label for="a7">全选</label>
+                    <input type="checkbox"><label for="a7">全选</label>
                 </span>
                 <span class="marginL15">升舱组描述>升舱子组描述>[0BJ]升舱</span>
             </h3>
@@ -280,10 +277,18 @@
 
 
 <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.js"></script>
-<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.datepicker-zh-CN.js"></script>
-<script type="text/javascript" src="../lib/jq-timepicker/jquery-timepicker-addon.js"></script>
+<script type="text/javascript" src="../src/scripts/lib/jq-datepicker/jquery_ui.js"></script>
+<script type="text/javascript" src="../src/scripts/lib/jq-datepicker/jquery_ui.datepicker-zh-CN.js"></script>
+<script type="text/javascript" src="../src/scripts/lib/jq-timepicker/jquery-timepicker-addon.js"></script>
 <script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script type="text/javascript" src="../js/s7Query.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#moreQuerySection").hide() ;
+        $("#showHideMoreQuerySectionBtn").click(function(){
+            $("#moreQuerySection").slideToggle() ;
+        }) ;
+        $('.datepicker').datepicker({minDate:new Date(), showButtonPanel:true});
+    }) ;
+</script>
 </body>
 </html>

@@ -30,7 +30,12 @@ $(function(){
 
 
     $('#saveBtn').click(function () {
+        $.showTuiErrorDialog('请选择服务到最后一级！');
+    }) ;
 
-        BootstrapDialog.alert('I want banana!');
+    $('#saveAndPublishBtn').click(function () {
+        $.showTuiConfirmDialog('保存?', function() {
+            alert('hello world') ;
+        }) ;
     }) ;
 }) ;

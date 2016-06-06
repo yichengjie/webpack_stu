@@ -1,7 +1,7 @@
 /****页面基本样式****/
 .data_section{
     display: block;
-    background:#FFF url(./images/tui_div2_bg.png) repeat-x top left;
+    background:#FFF url(../images/tui_div2_bg.png) repeat-x top left;
     border:1px solid #cbcccf;
     border-radius:2px;
     box-shadow:0 1px 1px;
@@ -207,7 +207,7 @@ td input[type=text],td select{
     cursor:default;
 }
 .service_list ul li {
-    background:url("./images/iconsprite.png") no-repeat scroll right -105px rgba(0, 0, 0, 0);
+    background:url("../images/iconsprite.png") no-repeat scroll right -105px rgba(0, 0, 0, 0);
 }
 .service_list ul li.bg_gray,
 .service_last_list ul li.bg_gray {

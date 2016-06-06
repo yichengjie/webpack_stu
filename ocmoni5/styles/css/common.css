@@ -31,7 +31,7 @@ body{
     width: 100%;
     min-height: 42px;
     background-color: #00b3ee;
-    background:#fff url(./images/tui_div4_bg.png) repeat-x left bottom;
+    background:#fff url(../images/tui_div4_bg.png) repeat-x left bottom;
     border-bottom:1px solid #9ea7ab;
     box-shadow:0 0 2px 0;
     font-weight: 100;

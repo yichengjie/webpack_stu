@@ -150,8 +150,6 @@
                 <!--query row3 end-->
             </div>
             <!--moreQuerySection end-->
-
-
         </form>
     </div>
     <!--query section end-->
@@ -165,6 +163,15 @@
         <button class="btn btn-default btn-sm">复制</button>
         <button class="btn btn-default btn-sm">发布</button>
         <button class="btn btn-default btn-sm">截止</button>
+        <div class ="dropdown-oc">
+            <div class="btn-group">
+                <button class="btn btn-default btn-sm">批量导入</button>
+                <button class="btn btn-default btn-sm dropdown-trigger"><i class="glyphicon glyphicon-triangle-bottom"></i></button>
+            </div>
+            <ul class ="dropdown-menu-oc">
+                <li onclick="location.href='${pageContext.request.contextPath}/ocimport/download.action'">下载模板</li>
+            </ul>
+        </div>
     </div>
     <span class="clearfix"></span>
 

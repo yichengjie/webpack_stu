@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>s7编译页面</title>
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../dist/commonStyle.css"/>
+    <link rel="stylesheet" href="../src/styles/css/jquery_ui.datepicker-modify.css"/>
+    <link rel="stylesheet" href="../src/styles/css/jquery-ui-timepicker-addon.css"/>
+    <link rel="stylesheet" href="../src/styles/css/oc_common.css">
+    <link rel="stylesheet" href="../src/styles/css/s7_query.css"/>
 </head>
 <body>
 
@@ -162,6 +165,15 @@
         <button class="btn btn-default btn-sm">复制</button>
         <button class="btn btn-default btn-sm">发布</button>
         <button class="btn btn-default btn-sm">截止</button>
+        <div class ="dropdown-oc">
+            <div class="btn-group">
+                <button class="btn btn-default btn-sm">批量导入</button>
+                <button class="btn btn-default btn-sm dropdown-trigger"><i class="glyphicon glyphicon-triangle-bottom"></i></button>
+            </div>
+            <ul class ="dropdown-menu-oc">
+                <li onclick="location.href='${pageContext.request.contextPath}/ocimport/download.action'">下载模板</li>
+            </ul>
+        </div>
     </div>
     <span class="clearfix"></span>
 
@@ -224,7 +236,7 @@
         <div class="panel-heading">
             <h3 class="panel-title">
                 <span class="checkbox-inline">
-                    <input type="checkbox"><label for="a7">全选</label>
+                    <input id="a7" type="checkbox"><label for="a7">全选</label>
                 </span>
                 <span class="marginL15">升舱组描述>升舱子组描述>[0BJ]升舱</span>
             </h3>
@@ -272,9 +284,7 @@
             </ul>
         </div>
     </div>
-
 </div>
-
 
 <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="../src/scripts/lib/jq-datepicker/jquery_ui.js"></script>
@@ -288,6 +298,17 @@
             $("#moreQuerySection").slideToggle() ;
         }) ;
         $('.datepicker').datepicker({minDate:new Date(), showButtonPanel:true});
+
+        $(".dropdown-oc").find(".dropdown-trigger").click(function (e) {
+            e.stopPropagation() ;
+            $(".dropdown-menu-oc").removeClass('open') ;
+            $(this).parents(".dropdown-oc").find(".dropdown-menu-oc").toggleClass('open') ;
+        }) ;
+
+        $(document).click(function(e){
+            e.stopPropagation() ;
+            $('.dropdown-menu-oc').removeClass('open') ;
+        }) ;
     }) ;
 </script>
 </body>

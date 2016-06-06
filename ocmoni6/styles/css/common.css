@@ -124,20 +124,76 @@ body{
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
 }
-/*s7 查询页面的 特殊样式 start*/
-.s7list_panel .panel-body{
-    padding: 0px;
-}
-.s7list_panel .list-group{
-    margin: 0px;
-    border-radius: 0;
-}
-.s7list_panel .panel-title{
-    font-size: 14px;
-    font-weight: 300;
-}
-.s7list_panel .checkbox-inline label{
-    margin-top: 3px;
-}
-/*s7 查询页面的 特殊样式 end*/
 
+
+/**old_oc-style css file start*/
+/*****************  xmlValidate *********************/
+.xmlResponseLayout{ position:fixed; width: 99.3%; bottom:0; background-color:#C8D2DD; border-top:1px solid #999;}
+.responseLayout{ margin:7px 0 7px 10px;}
+.responseLayout h1{ float:left; font-size:16px; font-weight:bold; margin-right:20px; margin-left:20px;}
+.multipleStat,.singleStat{ float:left; }
+.multipleStat span,.singleStat span{ line-height:24px; padding-right:5px; display:inline-block;}
+.responseLink{ padding:3px 18px 0 10px;}
+.responseLinkBottom{ background:url(../images/icon_bottom.png) no-repeat right 2px;}
+.responseLinkTop{ background:url(../images/icon_top.png) no-repeat right 2px;}
+.customedLayout{ margin:5px 0;}
+.customedBlock{ margin-right:10px;}
+.customedBlock span{ padding-right:5px;}
+.blockEditTips{ margin:0 0 10px 20px;}
+.moreStatInfoLayout{ margin:5px 30px; padding:5px 0; border-top:1px dotted #999; }
+.moreStatInfoLayout table{ width:40%; line-height:23px;}
+.moreStatInfoLayout table tr td{ border-bottom:1px dotted #BBB;}
+.moreStatInfoLayout table tr td span{ padding:0 5px 0 0;}
+.copyXML{float: right; margin-right: 50px;cursor: pointer;}
+/**loading start*/
+.wrapper{padding-bottom:50px;}
+.isloading-wrapper.isloading-right{margin-left:10px;}
+.isloading-overlay{position:relative;text-align:center;}
+.isloading-overlay .isloading-wrapper{background:#FFFFFF;-webkit-border-radius:7px;-webkit-background-clip:padding-box;-moz-border-radius:7px;-moz-background-clip:padding;border-radius:7px;background-clip:padding-box;display:inline-block;margin:0 auto;padding:10px 20px;top:10%;z-index:9000;}
+.icon-spin {display: inline-block;-moz-animation: spin 2s infinite linear;-o-animation: spin 2s infinite linear;-webkit-animation: spin 2s infinite linear;animation: spin 2s infinite linear}
+@-moz-keyframes spin {0% { -moz-transform: rotate(0deg)}100% {-moz-transform: rotate(359deg)}}
+@-webkit-keyframes spin {0% { -webkit-transform: rotate(0deg)}100% {-webkit-transform: rotate(359deg)}}
+@-o-keyframes spin {0% { -o-transform: rotate(0deg) }100% {-o-transform: rotate(359deg)}}
+@-ms-keyframes spin { 0% { -ms-transform: rotate(0deg) }100% {-ms-transform: rotate(359deg)}}
+@keyframes spin {0% {transform: rotate(0deg)}100% {transform: rotate(359deg)}}
+/*load end**/
+.dropdown-oc{
+    position: relative;
+    display: inline-block;
+}
+ul.dropdown-menu-oc{
+    position: absolute;
+    box-sizing:border-box;
+    background-color:#FFF;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    top: 30px;
+    left: 0;
+    z-index: 10;
+    display:none;
+    border-left: 1px solid #BEBEBE;
+    border-right: 1px solid #BEBEBE ;
+    border-bottom: 1px solid #BEBEBE ;
+    border-radius: 2px;
+    box-shadow: 2px 2px 3px #888888;
+    -moz-box-shadow: 2px 2px 3px #888888;
+    -webkit-box-shadow: 2px 2px 3px #888888;
+    -o-box-shadow: 2px 2px 3px #888888;
+}
+ul.dropdown-menu-oc> li{
+    padding: 0 14px;
+    margin: 0;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    list-style: none;
+}
+ul.dropdown-menu-oc> li:hover{
+    background-color: #808080;
+    color: #FFF;
+}
+ul.dropdown-menu-oc.open{
+    display: block;
+}
+/**old_oc-style css file start*/

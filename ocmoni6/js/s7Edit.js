@@ -36,7 +36,7 @@ $(function(){
     optionObj.closeText = "关闭" ;
     optionObj.showButtonPanel = true ;
     //optionObj.showSecond = true ;
-    $('.datepicker').datepicker() ;
+    $('.datepicker').datepicker({minDate:new Date(), showButtonPanel:true}) ;
     $('.datetimepicker').datetimepicker(optionObj) ;
 
 

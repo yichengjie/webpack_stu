@@ -6,5 +6,5 @@ $(function(){
     $("#showHideMoreQuerySectionBtn").click(function(){
         $("#moreQuerySection").slideToggle() ;
     }) ;
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({minDate:new Date(), showButtonPanel:true});
 }) ;

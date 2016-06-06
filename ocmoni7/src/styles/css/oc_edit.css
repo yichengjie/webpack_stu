@@ -1,0 +1,256 @@
+/****页面基本样式****/
+.data_section{
+    display: block;
+    background:#FFF url(../images/tui_div2_bg.png) repeat-x top left;
+    border:1px solid #cbcccf;
+    border-radius:2px;
+    box-shadow:0 1px 1px;
+    margin:10px 0 0 0;
+    padding:20px 10px 10px 10px;
+}
+.data_section:after{
+    clear: both;
+    display: table;
+    content: '';
+}
+.title_layout {
+    height: 30px;
+    line-height:30px;
+}
+.title_layout .left{
+    float: left;
+    font-weight:bold;
+    width:90px;
+}
+.title_layout:after{
+    clear: both;
+    display: table;
+    content: '';
+}
+.content_layout{
+    display: block;
+    margin-top: 10px;
+}
+.content_layout .left{
+    float: left;
+    width: 90px;
+}
+.content_layout .right{
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    background-color:#F2F4F7;
+    border:1px solid #C8D2DD;
+    border-radius:3px;
+    width: 90%;
+    padding:15px 0px 5px;
+}
+.content_layout:after{
+    clear: both;
+    display: table;
+    content: '';
+}
+
+.table_layout{
+    width:540px;
+    padding:5px;
+    border:1px solid #EFEFEF;
+    border-radius:3px;
+    background-color:#FFF;
+    overflow: hidden;
+}
+.table_layout table{
+    border-top:1px solid #DDD;
+    border-left:1px solid #DDD;
+    width:100%;
+}
+.table_layout table tr th,.table_layout table tr td{
+    border-right:1px solid #DDD;
+    border-bottom:1px solid #DDD;
+    padding:1px 5px;
+}
+.table_layout table tr th{
+    text-align:center;
+    font-weight:bold;
+    background-color:#EEE;
+}
+.table_layout table tr:hover{
+    background-color:#F7F7F7;
+}
+td .common_input{
+    height: 23px;
+    line-height: 23px;
+    padding: 1px 1px;
+}
+td input[type=text],td select{
+    width: 100px;
+}
+/****用于checkbox和radio等input框的整合样式****/
+/******链接型按钮******/
+.serviceInputSpan{
+    display: inline-block;
+    box-sizing: border-box;
+    background-color:#FFF;
+    border:1px solid #A9A9A9;
+    height:30px;
+    line-height:30px;
+    width:500px;
+    padding:0 10px;
+}
+
+.checkbox-inline label,.radio-inline label{
+    font-size: 12px;
+    font-weight: 100;
+    padding-top: 2px;
+}
+.form-horizontal .iconfont_box{
+    padding-top: 7px;
+}
+.form-horizontal .control-label{
+    font-weight: 100;
+    margin-right: 5px;
+}
+.form-horizontal .input_error_tip{
+    display: inline-block;
+    margin: 0 0 0 5px;
+    padding-top: 7px;
+    color: red;
+}
+.form-horizontal .input_tip{
+    display: inline-block;
+    margin: 0 0 0 5px;
+    padding-top: 7px;
+}
+
+.form-horizontal .form-group{
+    margin-bottom: 5px;
+}
+.form-horizontal .control_right_content{
+    padding-top: 7px;
+}
+
+/**服务选择相关css start*/
+.service_choose_layout {
+    background-color:#FCF5DA;
+    border:1px solid #FADC8D;
+    border-radius:3px;
+    float:left;
+    margin:13px 0 0 130px;
+}
+
+
+.service_choose_layout s {
+    border-color:rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #FADC8D;
+    border-style:solid;
+    border-width:10px;
+    height:0;
+    width:0;
+    margin-left:50px;
+    margin-top:-20px;
+    position:absolute;
+    z-index:1;
+}
+.service_choose_layout i {
+    border-color:rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #FCF5DA;
+    border-style:solid;
+    border-width:10px;
+    height:0;
+    margin-left:-10px;
+    margin-top:-9px;
+    position:absolute;
+    width:0;
+}
+.service_choose {
+    margin:10px;
+    overflow: hidden;
+}
+.choose_box {
+    background-color:#FFFFFF;
+    border:1px solid #D4DCE5;
+    border-radius:3px;
+    padding:1px;
+    width:190px;
+    height: 277px;
+    float: left;
+}
+.choose_box:after{
+    clear: both;
+}
+.choose_box_title {
+    background-color:#F2F4F7;
+    box-sizing: border-box;
+    padding:3px 4px;
+    height:32px;
+    line-height:32px;
+}
+.choose_box_title input[type=text]{
+    height: 25px;
+    width: 95%;
+}
+.service_list, .service_last_list {
+    height:230px;
+    overflow-y:auto;
+    padding:5px 0;
+}
+.service_list ul{
+    list-style: none;
+    padding-left: 2px;
+}
+.service_list ul li, .service_last_list ul li {
+    line-height:24px;
+    margin-top:1px;
+    padding:0 5px;
+    border-bottom:1px solid #F1F1F1;
+    cursor:pointer;
+}
+.service_last_list ul li {
+    cursor:default;
+}
+.service_list ul li {
+    background:url("../images/iconsprite.png") no-repeat scroll right -105px rgba(0, 0, 0, 0);
+}
+.service_list ul li.bg_gray,
+.service_last_list ul li.bg_gray {
+    background-color:#F7F7F7;
+}
+.service_list ul li:hover,
+.service_list ul li.selected,
+.service_last_list ul li:hover,
+.service_last_list ul li.selected {
+    background-color:#C9D1DC;
+}
+
+.choose_box_right {
+    border-left:0 none;
+}
+/**服务选择相关css end*/
+
+.selected_td { background-color: #D9EDF7;}
+
+.table_control{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+.table_reuse{
+    padding-left: 20px;
+}
+/*.table_layout:after{
+    clear: both;
+    display: table;
+    content:  '';
+}*/
+.table_footer{
+    display: inline-block;
+    margin-top: 3px;
+    float: right;
+}
+/*.table_footer:after{
+    clear: both;
+}*/
+.table_footer .btn{
+    height: 22px;
+    padding: 2px 7px 2px 5px;
+}

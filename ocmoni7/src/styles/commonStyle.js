@@ -1,0 +1,9 @@
+require('css_path/oc_common.css') ;
+require('css_path/oc_edit.css') ;
+require('css_path/s7_query.css') ;
+require('css_path/tui_dialog.css') ;
+require('css_path/tui_validator.css') ;
+require('css_path/jquery.autocomplete.css') ;
+require('css_path/jquery.growl.css') ;
+require('css_path/jquery-ui-timepicker-addon.css') ;
+require('css_path/jquery_ui.datepicker-modify.css') ;

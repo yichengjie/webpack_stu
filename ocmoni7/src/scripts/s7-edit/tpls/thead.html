@@ -1,0 +1,107 @@
+<%if("tb183.html"==value){%>
+<tr>
+	<th width="62px">旅行社</th>
+	<th width="100px">航空公司/分销商</th>
+	<th width="76px">职责/功能码</th>
+	<th width ="80px">区域类型</th>
+	<th width ="65px">区域代码</th>
+	<th width ="150px">发布对象类型</th>
+	<th width ="87px">发布对象代码</th>
+	<th width ="110px">权限</th>
+</tr>
+<%}else if("tb171.html"==value){%>
+<tr>
+	<th>航空公司</th>
+	<th>票价类别</th>
+	<th>运价类型</th>
+</tr>
+<%}else if ("tb172.html"==value){%>
+<tr>
+	<th>大客户编码</th>
+</tr>
+<%}else if ("tb173Ticket.html"==value){%>
+<tr>
+	<th>指定客票</th>
+</tr>
+<%}else if ("tb173Tkt.html"==value){%>
+<tr>
+	<th>指定客票</th>
+</tr>
+<%}else if ("tb165.html"==value){%>
+<tr>
+	<th>机型代码</th>
+</tr>
+<%}else if("tb186.html"==value){%>
+<tr>
+	<th>市场方</th>
+	<th>承运方</th>
+	<th>航班号</th>
+</tr>
+<%}else if ("tb196.html"==value){%>
+<tr>
+	<th>行李件数</th>
+	<th>行李子代码</th>
+</tr>
+<%}else if ("tb198.html"==value){%>
+<tr>
+	<th>市场方/承运方</th>
+	<th>航空公司</th>
+	<th>订座舱位1</th>
+	<th>订座舱位2</th>
+	<th>订座舱位3</th>
+	<th>订座舱位4</th>
+	<th>订座舱位5</th>
+</tr>
+<%}else if("tb198UpGrade.html"==value){%>
+<tr>
+	<th ng-if = "data.sel1.value=='UP'||data.sel1.value=='BDUP'">市场方/承运方</th>
+	<th ng-if = "data.sel1.value=='UP'||data.sel1.value=='BDUP'">航空公司</th>
+	<th>订座舱位1</th>
+	<th>订座舱位2</th>
+	<th>订座舱位3</th>
+	<th>订座舱位4</th>
+	<th>订座舱位5</th>
+</tr>
+<%}else if ("tb170.html"==value){%>
+<tr>
+	<th>销售地类型</th>
+	<th>销售地代码</th>
+	<th>金额</th>
+	<th>货币类型</th>
+</tr>
+<%}else if("tb178geo1.html"==value){%>
+<tr>
+	<th>类型</th>
+	<th>代码</th>
+	<th>是否适用</th>
+</tr>
+<%}else if("tb178geo2.html"==value){%>
+<tr>
+	<th>类型</th>
+	<th>代码</th>
+	<th>是否适用</th>
+</tr>
+<%}else if("tb178geo3.html"==value){%>
+<tr>
+	<th>类型</th>
+	<th>代码</th>
+	<th>是否适用</th>
+</tr>
+<%}else if("tbTSK202.html"==value){%>
+<tr>
+	<th>&nbsp;</th>
+	<th colspan ="3">原始运价</th>
+	<th>&nbsp;</th>
+	<th colspan ="3">新票填开</th>
+</tr>	
+<tr>
+	<th width ="127">兑换舱位</th>
+	<th width ="58">office</th>
+	<th width ="58">IATA_NO</th>
+	<th width ="103">DepartmentCode</th>
+	<th width ="162">farebasis</th>
+	<th width ="130">差价</th>
+	<th width ="143">TourCode</th>
+	<th width ="138">签注</th>
+</tr>	
+<%}%>

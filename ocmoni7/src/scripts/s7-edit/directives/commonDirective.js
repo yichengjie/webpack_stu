@@ -369,8 +369,48 @@ define(function(require, exports, module){
 	      };
       }]) ;
 
-	
-		
+	//日期时间插件
+	 directives.directive('datetimepicker', [function () {
+			return {
+				restrict: 'A',
+				scope:true,
+				require:'?ngModel',
+				link: function (scope, iElement, iAttrs,ctrl) {
+					if(!ctrl) return ;
+					var minDateStr = iAttrs['datetimepicker'] ;
+					var minDate = new Date(minDateStr) ;
+					//配置日期控件
+			        var optionObj = {} ;
+			        optionObj.dateFormat = "yy-mm-dd" ;
+					optionObj.timeFormat = 'HH:mm' ;
+			        var updateModel = function(dateText){
+			            scope.$apply(function  () {
+			                //调用angular内部的工具更新双向绑定关系
+			                ctrl.$setViewValue(dateText) ;
+			            }) ;
+			        }
+		            optionObj.onSelect = function(dateText,picker){
+		                updateModel(dateText) ;
+		                validator.element(iElement) ;
+		                if(scope.select){
+		                    scope.$apply(function  () {
+		                        scope.select({date:dateText}) ;
+		                    }) ;
+		                }
+		            }
+		            optionObj.timeText="&nbsp;&nbsp;时间" ; 
+				    optionObj.hourText ="&nbsp;&nbsp;时" ;
+				    optionObj.minuteText ="&nbsp;&nbsp;分" ;  
+				    //optionObj.secondText = "&nbsp;&nbsp;秒" ;
+				    optionObj.currentText = "当前" ;
+				    optionObj.closeText = "关闭" ;
+		            optionObj.minDate = minDate ;
+		            optionObj.showButtonPanel = true ;
+		            //optionObj.showSecond = true ;
+					iElement.datetimepicker(optionObj) ;
+				}
+			};
+		}]);
 	  //日期插件
 	 directives.directive('datepicker',function(){
 		return{

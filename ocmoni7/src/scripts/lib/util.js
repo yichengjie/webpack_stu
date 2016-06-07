@@ -82,6 +82,20 @@
 		return isLegalDate(datavalue,true);//可以超过20年 
 	};
 	
+	util.isDateTimeOC = function(datetimeValue){
+		var flag = false;
+   		datetimeValue = $.trim(datetimeValue) ; 
+   		if(datetimeValue&&datetimeValue.length>0){
+   			var infos = datetimeValue.split(' ') ;
+   			if(infos.length==2){
+   				if(isLegalDate(infos[0],true)&&isLegalTime(infos[1])){
+					flag = true ;
+   				}
+   			}
+   		}
+   		return flag ;
+	};
+	
     util.isBiggerDateThan = function(val1,val2){
     	var date1 = moment(val1,dataFormatStr) ;
     	var date2 = moment(val2,dataFormatStr) ;
@@ -248,6 +262,15 @@
    util.fadeInDiv = fadeInDiv ;
    util.fadeOutDiv = fadeOutDiv ;
    
-
+   var isLegalTime = function  (timvalues) {
+		var flag = false ;
+	  	if(timvalues&&timvalues.length!=0){    
+	   	var reg=/^((20|21|22|23|[0-1]\d)\:[0-5][0-9])(\:[0-5][0-9])?$/ ;    
+	       if(reg.test(timvalues)){    
+	           flag= true; 
+	       }  
+	   }   
+	   return flag; 
+  };
 	module.exports = util ;
 //});

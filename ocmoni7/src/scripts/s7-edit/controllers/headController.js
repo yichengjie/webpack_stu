@@ -49,6 +49,13 @@
 					//flag = false;//本地测试禁止表单提交
 					if(flag){//如果校验通过的话则提交表单数据到后台
 						$.showTuiConfirmDialog('保存?', function() {
+							//特殊出来日期，生效日期和结束日期
+							if(s7.firstMaintenanceDate.length>0){
+								s7.firstMaintenanceDate = s7.firstMaintenanceDate+":00" ;
+							}
+							if(s7.lastMaintenanceDate.length>0){
+								s7.lastMaintenanceDate = s7.lastMaintenanceDate+":59" ;
+							}
 							var url = "" ;
 							if(operType=='save'){
 								if(formData.action == "add"||formData.action == "copy"){//新增数据的话
@@ -67,6 +74,8 @@
 										$.showTuiWaitingDialog('即将返回查询界面!', 200, 60);
 										window.location.href= formData.contextPath+'/oc/toQueryS7UI.action' ;
 									});
+								} else if(data.timeMsg!='undefined'&&data.timeMsg!=''){
+									$.showTuiErrorDialog(data.timeMsg);
 								} else {
 									$.showTuiErrorDialog('保存数据出错！');
 								}

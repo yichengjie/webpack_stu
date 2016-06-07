@@ -5,6 +5,7 @@
 	var commonUtil = require('../util/commonUtil') ;
 	var util = require('../../lib/util') ;
 	var ModalHelper = require('../../lib/modal.helper') ;
+	var moment = require('moment_lib') ;
 	
 	
 	function cleanTipInfo() {
@@ -61,6 +62,11 @@
 			url = $scope.contextPath+'/s7/initPage4Add.action';
 			promise = HttpOperService.getDataByUrl(url) ;
 			EditUtil.initData.dealResultData4Add(promise,$scope) ;
+			var nowStr = moment().add(1,"hours").format('YYYY-MM-DD HH');
+			//moment().format('MMMM Do YYYY, h:mm:ss a'//起始日期会被设置默认值
+			FormData.firstMaintenanceDate = nowStr+":00" ;
+			var dateStr = moment().format('YYYY-MM-DD');
+			FormData.lastMaintenanceDate = dateStr+" 23:59";
 		}else if (FormData.action=="update"){
 			url = $scope.contextPath+'/s7/initPage4Upate.action?s7Id='+$scope.data.id;
 			promise = HttpOperService.getDataByUrl(url) ;

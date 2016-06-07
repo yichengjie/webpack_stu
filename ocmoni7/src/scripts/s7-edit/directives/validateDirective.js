@@ -262,7 +262,68 @@
             }
         }
     });
+    //biggerThanCurrent(disabled的控件不做校验)
+    app.directive('biggerDateTimeCurrent',function(){
+        return {
+            restrict:"A",
+            scope:true,
+            require:"ngModel",
+            link:function(scope,ele,attrs,ctrl){
+            	if (!ctrl) return;
+                ctrl.$validators.biggerDateTimeCurrent = function(modelValue, viewValue) {
+                	//注意这里判断当前控件是否是不可编辑状态，
+                	//如果属于不可编辑状态，则不判断大于当前日期
+                	var statusDes = scope.data.statusDes ;
+	                 if(viewValue!=''&&!util.checkStatusIsDisabled(statusDes)){
+	                      return util.isBiggerDateTimeThanCurrent(viewValue) ;
+	                }
+	                 return true ;
+                };
+            }
+        }
+    });
     
+    
+    //biggerThanCurrent(disabled的控件也做校验)
+    app.directive('biggerDateTimeCurrent2',function(){
+        return {
+            restrict:"A",
+            scope:true,
+            require:"ngModel",
+            link:function(scope,ele,attrs,ctrl){
+            	if (!ctrl) return;
+                ctrl.$validators.biggerDateTimeCurrent2 = function(modelValue, viewValue) {
+                	//注意这里判断当前控件是否是不可编辑状态，
+                	//如果属于不可编辑状态，则不判断大于当前日期
+                     var status = scope.data.status ;
+	                 if(viewValue!=''){
+	                      return util.isBiggerDateTimeThanCurrent(viewValue) ;
+	                }
+	                 return true ;
+                };
+            }
+        }
+    });
+    app.directive('biggerDateTime',function(){
+        return {
+            restrict:"A",
+            scope:true,
+            require:"ngModel",
+            link:function(scope,ele,attrs,ctrl){
+                if (!ctrl) return;
+                ctrl.$validators.biggerDateTime = function(modelValue, viewValue) {
+                    var compareVal = attrs['biggerDateTime'] ;
+                    if(viewValue!=''&&compareVal!=''){
+                        return util.isBiggerDateTimeThan(viewValue,compareVal) ;
+                    }
+                    return true;
+                };
+                attrs.$observe('biggerDateTime', function() {
+                    ctrl.$validate();
+                });
+            }
+        }
+    });
     app.directive('dateoc',function(){
         return {
             restrict:"A",
@@ -280,6 +341,22 @@
         }
     });
     
+    app.directive('datetimeoc',function(){
+        return {
+            restrict:"A",
+            scope:true,
+            require:"ngModel",
+            link:function(scope,ele,attrs,ctrl){
+                if (!ctrl) return;
+                ctrl.$validators.datetimeoc = function(modelValue, viewValue) {
+		                if(viewValue!=''){
+	                        return util.isDateTimeOC(viewValue);
+	                    }
+	                    return true ;
+                };
+            }
+        }
+    });
   //自定义校验(三字码)
     app.directive('threecode',function(){
         return {
@@ -345,4 +422,7 @@
             }
         }
     });
+    
+    
+    
 //}) ;

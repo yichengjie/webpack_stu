@@ -8,6 +8,7 @@
 	var util = require('../lib/util') ;
 	var _ = require('underscore_lib') ;
 	var httpClient = require('../lib/HttpClientUtil') ;
+	var s7listTemplateStr = require('./tpls/s7list.html') ;
 	
 	
  	function S7Query() {
@@ -159,10 +160,20 @@
 		var sequenceNumber = $.trim($("#sequenceNumber").val());
 		return sequenceNumber ;
 	}
-	
-	
+
 	//将后台返回结果放到前台显示
 	S7Query.prototype._resultData = function(datas) {
+		var that = this ;
+		var s7list_container = $('#s7list_container') ;
+		s7list_container.empty() ;
+		var template = _.template(s7listTemplateStr);
+		var retStr = template({lists: datas});
+		s7list_container.html(retStr) ;
+	} ;
+
+	
+	//将后台返回结果放到前台显示
+	S7Query.prototype._resultData2 = function(datas) {
 		var tag_ctx = $('#tag_ctx').val();
 		$('#s7content').empty();
 		var s7Content = $('#s7content');
@@ -174,6 +185,7 @@
 			var contentContainer = $('<div name="contentContainer" class="data_section markDiv"></div>');
 			var s5Container = $('<div class="helper_float_left route_layout"></div>');
 			var s7Container = $('<div class="helper_float_right ocprice"></div>');
+
 			var service = $('<div class="typelist"><span>' + s5.basicInfoVo.serviceGroupDescription + '</span>&nbsp;&gt;&nbsp;<span>' + s5.basicInfoVo.subGroupDescription + '</span>&nbsp;&gt;&nbsp;</div>' +
 					'<div class="commo_name"><label for="chooseAll"><input name="s5check" type="checkbox"/><span class="gray">[</span>&nbsp;<span class="txt_subcode bold">' + s5.serviceSubCode + '</span>&nbsp;<span class="gray">]</span>' +
 							'&nbsp;<span class="bold">' + s5.commercialName + '</span>' +

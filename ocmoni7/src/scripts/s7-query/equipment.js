@@ -21,7 +21,7 @@
 			common.baseOptions['url'] = url;
 			common.baseOptions['data'] = param;
 			common.baseOptions['success'] = function(datas) {
-				$('#s7_F_equipment').append('<option/>');
+				//$('#s7_F_equipment').append('<option/>');
 				for(var i = 0; i < datas.length; i++) {
 					var equipment = '<option>'  + datas[i].code + '-' + datas[i].description +'</option>';
 					$('#s7_F_equipment').append(equipment);
@@ -38,7 +38,7 @@
 			common.baseOptions['url'] = url;
 			common.baseOptions['data'] = param;
 			common.baseOptions['success'] = function(datas) {
-				$('#s7_M_equipment').append('<option/>');
+				//$('#s7_M_equipment').append('<option/>');
 				for(var i = 0; i < datas.length; i++) {
 					var equipment = '<option>'  + datas[i].code + '-' + datas[i].description +'</option>';
 					$('#s7_M_equipment').append(equipment);

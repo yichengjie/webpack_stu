@@ -8,8 +8,9 @@
 	var util = require('../lib/util') ;
 	var _ = require('underscore_lib') ;
 	var httpClient = require('../lib/HttpClientUtil') ;
-	var s7listTemplateStr = require('./tpls/s7list.html') ;
-	
+	var s7list_panel_tpl = require('./tpls/s7list_panel.html') ;
+	var s7list_item_tpl = require('./tpls/s7list_item.html') ;
+
 	
  	function S7Query() {
  		this._init();
@@ -32,7 +33,8 @@
 			});
 			//查询机型列表
 			equipment.query('F');
-			$('#s7QueryBtn').click(function() {
+			$('#s7QueryBtn').click(function(e) {
+				e.preventDefault() ;
 				that.query();
 			});
 		});
@@ -166,9 +168,39 @@
 		var that = this ;
 		var s7list_container = $('#s7list_container') ;
 		s7list_container.empty() ;
-		var template = _.template(s7listTemplateStr);
-		var retStr = template({lists: datas});
-		s7list_container.html(retStr) ;
+		//var template = _.template(s7listTemplateStr);
+		//var retStr = template({lists: datas});
+		var panel_template = _.template(s7list_panel_tpl) ;
+		var item_template = _.template(s7list_item_tpl) ;
+
+		for	(var i = 0; i < datas.length; i++) {
+			var s5 = datas[i];
+			var s7list = s5.s7VoList;
+			var panelStr = panel_template({s5:s5}) ;
+			var $panel = $(panelStr) ;
+			for (var j = 0; j < s7list.length; j++) {
+				var s7 = s7list[j];
+				var flystatus=' ';
+				var freqFlyStatus=s7.frequentFlyerStatus;
+				if(freqFlyStatus!==null&&freqFlyStatus!=undefined){
+					flystatus=freqFlyStatus;
+				}
+				var s7Id = s7.id;
+				var sequenceNumber=s7.sequenceNumber;
+				var availability = (s7.noChargeNotAvailable === '') ? (that._getMoney(s7)) : that._getFeeAvailability(s7.noChargeNotAvailable);
+				var firstMaintenanceDate = s7.firstMaintenanceDate || '';
+				var lastMaintenanceDate = s7.lastMaintenanceDate || '';
+				var statusDes = s7.statusDes || '' ;
+				var description = _formatDescription(s7.description) ;
+
+				var s7Obj = {s7Id:s7Id,firstMaintenanceDate:firstMaintenanceDate,
+					lastMaintenanceDate:lastMaintenanceDate,statusDes:statusDes,
+					description:description,sequenceNumber:sequenceNumber} ;
+				$panel.find('.list-group').append(item_template(s7Obj))  ;
+			}
+			s7list_container.append($panel);
+		}
+
 	} ;
 
 	
@@ -200,10 +232,10 @@
 				if(freqFlyStatus!==null&&freqFlyStatus!=undefined){
 					flystatus=freqFlyStatus;
 				}
-				
 				var s7Id = s7.id;
 				var sequenceNumber=s7.sequenceNumber;
 				var availability = (s7.noChargeNotAvailable === '') ? (that._getMoney(s7)) : that._getFeeAvailability(s7.noChargeNotAvailable);
+
 				var tr_head = '<tr class="border_bottom">';
 				var td1 = '<td><input name="s7check" type="checkbox"/><input name="s7id" value="'+ s7Id +'"type="hidden"/>' +
 						  '<input name ="firstMaintenanceDate" value ="'+s7.firstMaintenanceDate+'" type ="hidden"/>' +

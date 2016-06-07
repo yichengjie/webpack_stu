@@ -1,46 +1,11 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page import="java.lang.Exception;"%>
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
     <title>s7编译页面</title>
-    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../dist/commonStyle.css"/>
-
-    <script type="text/template" id="s7_panel_template">
-        <div class="panel panel-default s7list_panel">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    <span class="checkbox-inline">
-                        <input id="selectAllGroup" type="checkbox"><label for="selectAllGroup">全选</label>
-                    </span>
-                    <span class="marginL15">升舱组描述>升舱子组描述>[0BJ]升舱</span>
-                </h3>
-            </div>
-            <div class="panel-body">
-                <ul class="list-group">
-                    <li class="list-group-item s7_list_row">
-                        <span class="s7_list_item s7_list_checkbox ">
-                             <input  type="checkbox">
-                        </span>
-                        <span class="productsImg"></span>
-                        <span class="s7_list_item s7_list_descr text-info marginL15">
-                            这里是描述信息
-                        </span>
-                        <span class="s7_list_item s7_list_seq marginLR15">10356</span>
-                        <span class="s7_list_item text-primary">2016-05-24—2016-05-25</span>
-                        <span class="s7_list_item  text-danger marginLR15">未发布</span>
-                        <span class="s7_list_item s7_list_price text-success">230CNY</span>
-                        <span class="s7_list_item pull-right">
-                             <i class="glyphicon glyphicon-search myhand"></i>
-                            <i class="glyphicon glyphicon-pencil marginLR5 myhand"></i>
-                            <i class="glyphicon glyphicon-trash myhand"></i>
-                        </span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </script>
-
+    <jsp:include page="/WEB-INF/pages/oc/oc_common.jsp"></jsp:include>
 </head>
 <body>
 
@@ -156,7 +121,7 @@
                     <span class="marginR15"></span>
                     <div class="form-group">
                         <label   class="marginR5">机型</label>
-                        <select id="s7_F_equipment" class="form-control" url="${pageContext.request.contextPath}/equipment/query.action" style="width: 160px">
+                        <select id="s7_F_equipment" class="form-control" url="${pageContext.request.contextPath}/equipment/query.action" style="width: 100px">
                             <option value="">选择</option>
                         </select>
                     </div>
@@ -291,40 +256,7 @@
 <form method="post"  enctype="multipart/form-data" id ="batchImportForm">
     <input type="file" name ="file" id ="batchImportFileInput" style="display: none"/>
 </form>
-
-<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="../dist/s7Query.js"></script>
-<!--<script type="text/javascript" src="../src/scripts/lib/jq-datepicker/jquery_ui.js"></script>
-<script type="text/javascript" src="../src/scripts/lib/jq-datepicker/jquery_ui.datepicker-zh-CN.js"></script>
-<script type="text/javascript" src="../src/scripts/lib/jq-timepicker/jquery-timepicker-addon.js"></script>
-<script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script type="text/javascript">
-    $(function(){
-
-        //$("#moreQuerySection").hide() ;
-        $("#showHideMoreQuerySectionBtn").click(function(){
-            $("#moreQuerySection").slideToggle() ;
-        }) ;
-        $('.datepicker').datepicker({minDate:new Date(), showButtonPanel:true});
-        $(".dropdown-oc").find(".dropdown-trigger").click(function (e) {
-            e.stopPropagation() ;
-            $(".dropdown-menu-oc").removeClass('open') ;
-            $(this).parents(".dropdown-oc").find(".dropdown-menu-oc").toggleClass('open') ;
-        }) ;
-        $(document).click(function(e){
-            e.stopPropagation() ;
-            $('.dropdown-menu-oc').removeClass('open') ;
-        }) ;
-
-        $('#s7QueryBtn').click(function(e){
-            e.preventDefault() ;
-            var template1 =  $('#s7_panel_template').html() ;
-            console.info(template1) ;
-
-            $('#s7list_container').append(template1) ;
-        }) ;
-
-    }) ;
-</script>-->
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/components/jquery/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/dist/s7Query.js"></script>
 </body>
 </html>

@@ -160,10 +160,10 @@
 <!--main content start-->
 <div class="container-fluid main_content" >
     <div class="pull-right clearfix" style="margin-bottom: 8px">
-        <button class="btn btn-success btn-sm">新建</button>
-        <button class="btn btn-default btn-sm">复制</button>
-        <button class="btn btn-default btn-sm">发布</button>
-        <button class="btn btn-default btn-sm">截止</button>
+        <button class="btn btn-success btn-sm" onclick="location.href='${pageContext.request.contextPath}/oc/toAddS7UI.action'">新建</button>
+        <button class="btn btn-default btn-sm" id="copyRecord7Btn">复制</button>
+        <button class="btn btn-default btn-sm" id="s7_publish" url="${pageContext.request.contextPath}/s7/s7publish.action">发布</button>
+        <button class="btn btn-default btn-sm" id = "abortBtn">截止</button>
         <div class ="dropdown-oc">
             <div class="btn-group">
                 <button class="btn btn-default btn-sm">批量导入</button>

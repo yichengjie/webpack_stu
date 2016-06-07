@@ -21,12 +21,49 @@
     text-align: right;
     width: 10%;
 }
+.s7_list_level{
+    display: inline-block;
+    width: 110px;
+    text-align: right;
+}
+.s7_list_geo{
+    display: inline-block;
+    width: 115px;
+    text-align: right;
+}
 /**s7查询页面特有的样式 end*/
 .productsImg{
     width: 50px;
     height: 50px;
     display: inline-block;
-    background-image: url('../images/products/0B5.jpg');
+}
+
+.productsImg_0B3{
+    background-image: url(../images/products/0B3.jpg);
+}
+.productsImg_0B5{
+    background-image: url(../images/products/0B5.jpg);
+}
+.productsImg_0BO{
+    background-image: url(../images/products/0BO.jpg);
+}
+.productsImg_0DG{
+    background-image: url(../images/products/0DG.jpg);
+}
+.productsImg_0LO{
+    background-image: url(../images/products/0LO.jpg);
+}
+.productsImg_0LP{
+    background-image: url(../images/products/0LP.jpg);
+}
+.productsImg_0LQ{
+    background-image: url(../images/products/0LQ.jpg);
+}
+.productsImg_0LT{
+    background-image: url(../images/products/0LT.jpg);
+}
+.productsImg_1E{
+    background-image: url(../images/products/1E.jpg);
 }
 
 /*s7 查询页面的 特殊样式 start*/

@@ -21,6 +21,16 @@
     text-align: right;
     width: 10%;
 }
+.s7_list_level{
+    display: inline-block;
+    width: 110px;
+    text-align: right;
+}
+.s7_list_geo{
+    display: inline-block;
+    width: 115px;
+    text-align: right;
+}
 /**s7查询页面特有的样式 end*/
 .productsImg{
     width: 50px;

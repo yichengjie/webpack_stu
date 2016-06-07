@@ -119,7 +119,7 @@
                 </div>
 
                 <div class="checkbox marginLR15">
-                    <input  id ="showHideMoreQuerySectionBtn" type="checkbox"> <label for="showHideMoreQuerySectionBtn">更多条件</label>
+                    <input  id ="moreInputBtn" type="checkbox"> <label for="moreInputBtn">更多条件</label>
                 </div>
                 <button type="submit" id="s7QueryBtn" url="${pageContext.request.contextPath}/s7/s7Query.action"
                         class="btn btn-default btn-sm btn-primary">查询</button>
@@ -127,7 +127,7 @@
             <!--query row1 end-->
 
             <!--moreQuerySection start-->
-            <div id ="moreQuerySection" >
+            <div id ="srchInfoMore" style="display: none;" >
                 <!--query row2 start-->
                 <div class="query_row">
                     <span class="query_title">服务等级&nbsp;|&nbsp;机型</span>
@@ -286,17 +286,16 @@
     <input type="file" name ="file" id ="batchImportFileInput" style="display: none"/>
 </form>
 
-
-
 <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="../src/scripts/lib/jq-datepicker/jquery_ui.js"></script>
+<script type="text/javascript" src="../dist/s7Query.js"></script>
+<!--<script type="text/javascript" src="../src/scripts/lib/jq-datepicker/jquery_ui.js"></script>
 <script type="text/javascript" src="../src/scripts/lib/jq-datepicker/jquery_ui.datepicker-zh-CN.js"></script>
 <script type="text/javascript" src="../src/scripts/lib/jq-timepicker/jquery-timepicker-addon.js"></script>
 <script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script type="text/javascript">
     $(function(){
 
-        $("#moreQuerySection").hide() ;
+        //$("#moreQuerySection").hide() ;
         $("#showHideMoreQuerySectionBtn").click(function(){
             $("#moreQuerySection").slideToggle() ;
         }) ;
@@ -320,6 +319,6 @@
         }) ;
 
     }) ;
-</script>
+</script>-->
 </body>
 </html>

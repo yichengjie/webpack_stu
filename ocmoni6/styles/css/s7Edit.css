@@ -236,6 +236,7 @@ td input[type=text],td select{
 
 .table_reuse{
     padding-left: 20px;
+
 }
 /*.table_layout:after{
     clear: both;
@@ -253,4 +254,16 @@ td input[type=text],td select{
 .table_footer .btn{
     height: 22px;
     padding: 2px 7px 2px 5px;
+}
+.fpdaterange .table_layout{
+    float:left;
+}
+.fpdaterange .errorInfo_validate{
+    padding-top: 12px;
+    float:left;
+}
+.fpdaterange:after{
+    clear:both;
+    display: table;
+    content:'';
 }

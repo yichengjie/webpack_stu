@@ -200,18 +200,35 @@
 
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">金额</label>
-                        <div class="pure-u-1-2 " >
+                        <div class="pure-u-1-2">
                             <div class="table_control">
                                 <a href="#">填写表格</a>
                                 <span class="table_reuse">
                                     <label class ="text-info">复用表号:</label>
-                                    <input type="text" class="common_input" id="autocomplete" style="width: 100px"/>
+                                    <span style="position: relative;">
+                                        <input type="text" class="common_input" id="autocomplete" style="width: 100px"/>
+                                        <i class="glyphicon glyphicon-search gray" style="position: absolute;right: 10px"></i>
+                                    </span>
+
+                                    <span class ="text-danger myhand ng-hide">自定义表格</span>
+                                </span>
+                            </div>
+
+                            <!--<div class="table_control">
+                                <a href="javascript:void(0)" tname="list196VO" class="ng-isolate-scope">
+                                    <span ng-show="tableStatus.list196VO" class="ng-hide">收起表格</span>
+                                    <span ng-show="!tableStatus.list196VO">填写表格</span>
+                                </a>
+                                <span class="table_reuse ng-scope" tbname="list196VO" ng-hide="data.statusDes=='3'">
+                                    <label class="text-info">复用表号:</label>
+                                    <input type="text" name="reuseList196VO" ng-disable="data.statusDes=='3'" class="autocomplete common_input" style="width: 100px" autocomplete="off">
                                     <span class="iconfont_box">
                                         <i class="glyphicon glyphicon-search gray"></i>
                                     </span>
-                                    <span class ="text-danger myhand">自定义表格</span>
+                                    &lt;!&ndash; ngIf: customeEditStatus.list196VO &ndash;&gt;
                                 </span>
                             </div>
+                            -->
 
                             <div class="table_layout" style ="width:460px">
                                 <table>

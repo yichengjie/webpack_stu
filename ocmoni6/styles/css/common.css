@@ -96,11 +96,7 @@ body{
     margin-left: -25px;
     cursor: pointer;
 }
-.iconfont_box:after{
-    content: '';
-    display: inline-block;
-    margin-left: 12px;
-}
+
 .common_input{
     display: inline-block;
     height: 25px;

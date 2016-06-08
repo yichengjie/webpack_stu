@@ -4,7 +4,7 @@
 /*主编辑区域**/
 body{
     background-color: #F2F4F7;
-    min-width: 1100px;
+    min-width: 1200px;
     font-size: 12px;
     font-family: "lucida grande",Helvetica,Tahoma,Verdana,Arial,Microsoft YaHei,simsun,sans-serif;
 }
@@ -18,6 +18,8 @@ body{
     margin-bottom: 0;
 }
 /*bootstrap 样式重置start*/
+.helper_float_left{float:left;}
+.helper_float_right{ float:right;}
 /**查询条件相关 start*/
 .query_section{
     padding: 5px 0;
@@ -85,8 +87,10 @@ body{
 .myhand{
     cursor: pointer;
 }
-.red{color: red;}
 .gray { color:#CCCCCC;}
+.red { color:#FF0000;}
+.orange { color:#FF9900;}
+.blue { color:#006699;}
 
 .iconfont_box{
     margin-left: -25px;

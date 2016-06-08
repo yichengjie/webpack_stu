@@ -1,5 +1,5 @@
 .test{
-    height: 1200px;
+    height: 1000px;
 }
 /*主编辑区域**/
 body{
@@ -18,6 +18,8 @@ body{
     margin-bottom: 0;
 }
 /*bootstrap 样式重置start*/
+.helper_float_left{float:left;}
+.helper_float_right{ float:right;}
 /**查询条件相关 start*/
 .query_section{
     padding: 5px 0;
@@ -82,41 +84,13 @@ body{
 .marginLR15{
     margin :0 15px;
 }
-.marginL20{
-    margin-left: 20px;
-}
-.marginR20{
-    margin-right: 20px;
-}
-.marginLR20{
-    margin :0 20px;
-}
-
-.marginL25{
-    margin-left: 25px;
-}
-.marginR25{
-    margin-right: 25px;
-}
-.marginLR25{
-    margin :0 25px;
-}
-
-.marginL30{
-    margin-left: 30px;
-}
-.marginR30{
-    margin-right: 30px;
-}
-.marginLR30{
-    margin :0 30px;
-}
-
 .myhand{
     cursor: pointer;
 }
-.red{color: red;}
 .gray { color:#CCCCCC;}
+.red { color:#FF0000;}
+.orange { color:#FF9900;}
+.blue { color:#006699;}
 
 .iconfont_box{
     margin-left: -25px;

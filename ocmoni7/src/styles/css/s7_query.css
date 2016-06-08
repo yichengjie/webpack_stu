@@ -10,6 +10,11 @@
     line-height: 50px;
     box-sizing: border-box;
 }
+.s7_list_row:after{
+    clear: both;
+    display: table;
+    content: '';
+}
 .s7_list_descr{
     width: 25%;
 }

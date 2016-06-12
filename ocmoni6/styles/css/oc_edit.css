@@ -32,13 +32,13 @@
     margin-top: 10px;
 }
 .content_layout .left{
-    float: left;
-    width: 90px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 9%;
 }
 .content_layout .right{
-    position: relative;
-    box-sizing: border-box;
     display: inline-block;
+    box-sizing: border-box;
     background-color:#F2F4F7;
     border:1px solid #C8D2DD;
     border-radius:3px;

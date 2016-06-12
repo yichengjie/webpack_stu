@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数据源编辑页面</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../bower_components/pure/grids.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery.autocomplete.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery_ui.datepicker-modify.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery-ui-timepicker-addon.css"/>
+    <link rel="stylesheet" href="../styles/css/oc_common.css">
+    <link rel="stylesheet" href="../styles/css/oc_edit.css">
+    <link rel="stylesheet" href="../styles/css/tui_dialog.css"/>
+    <link rel="stylesheet" href="../lib/iconfont/iconfont.css"/>
+</head>
+<body>
+<!--导航 start-->
+<div class="navbar-fixed-top">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                    <span class="sr-only">导航菜单</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                <ul class="nav navbar-nav">
+                    <li ><a href="#">附加服务</a></li>
+                    <li class="active"><a href="#">数据源配置</a></li>
+                    <li><a href="#">里程积分兑换</a></li>
+                    <li><a href="#">运价校验</a></li>
+                    <li><a href="#">批量导入</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!--query section start-->
+    <div class ="query_section">
+        <span class="query_title">新建数据源配置</span>
+        <span> 配置项</span>
+        <span class="pull-right marginR15" style="padding-top: 2px">
+            <button type="submit" id ="back" class="btn btn-sm btn-default">返回</button>
+            <button type="submit" id ="saveBtn" class="btn btn-success btn-sm">保存</button>
+        </span>
+    </div>
+    <!--query section end-->
+</div>
+<!--导航 end-->
+
+
+<!--主编辑区域 start-->
+<div class="container-fluid main_content">
+    <form class="form-horizontal">
+    <div class="data_section ">
+        <div class="title_layout">
+            <span class="left">1.配置项</span>
+        </div>
+        <div class="content_layout">
+            <span class="right" style="width: 98%">
+                <div class="form-group">
+                    <label  class="pure-u-1-8 control-label">生效日期</label>
+                    <div class="pure-u-1-4">
+                        <input type="text" id ="id1" class="form-control datepicker"  placeholder="生效日期">
+                    </div>
+                    <label for="id1" class="glyphicon glyphicon-th iconfont_box"></label>
+                </div>
+
+                <div class="form-group">
+                    <label  class="pure-u-1-8 control-label">截止日期</label>
+                    <div class="pure-u-1-4">
+                        <input type="text" id="id2" class="form-control datepicker"  placeholder="截止日期">
+                    </div>
+                    <label for="id2" class="glyphicon glyphicon-th iconfont_box"></label>
+                </div>
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">服务类型</label>
+                    <div class="pure-u-1-4">
+                        <input type="text" class="form-control"  placeholder="服务类型">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">序列号</label>
+                    <div class="pure-u-1-4">
+                        <input type="text" class="form-control"  placeholder="序列号">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">子代码</label>
+                    <div class="pure-u-1-4">
+                        <input type="text" class="form-control"  placeholder="子代码">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">行程种类</label>
+                    <div class="pure-u-1-4">
+                        <input type="text" class="form-control"  placeholder="行程种类">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">数据来源</label>
+                    <div class="pure-u-1-4">
+                        <input type="text" class="form-control"  placeholder="数据来源">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">部门代码</label>
+                    <div class="pure-u-1-2">
+                        <span class="table_control">
+                            <a href="">填写表格</a>
+                        </span>
+                        <div class="table_layout" style="width: 300px">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>发布对象类型</th>
+                                        <th>部门代码</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <select name="" id="" class="common_input">
+                                                <option value="">选择</option>
+                                                <option value="">1</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="common_input"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </span>
+        </div>
+    </div>
+    </form>
+
+</div>
+
+<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.js"></script>
+<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.datepicker-zh-CN.js"></script>
+<script type="text/javascript" src="../lib/jq-timepicker/jquery-timepicker-addon.js"></script>
+<script>
+    $(function(){
+        $('.datepicker').datepicker({minDate:new Date(), showButtonPanel:true}) ;
+    }) ;
+</script>
+</body>
+</html>

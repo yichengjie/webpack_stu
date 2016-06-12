@@ -1,0 +1,25 @@
+@charset "utf-8";
+/************下面的这部分引入jquery validate后自定义的css**************/
+/* input.error { border: 1px solid red; } */
+label.error {
+     font-size: 12px;
+     font-weight: 400;
+     font-style: normal;
+     line-height: 20px;
+     padding-left: 8px;
+     padding-right: 8px;
+     padding-bottom: 2px;
+     margin-left: 5px;
+     color: #EA5200;
+     border: 1px solid #eaabab;
+     vertical-align: middle;
+     direction: ltr;
+     background-color: #ffe8e8;
+     white-space:nowrap;
+}
+.errorIcon{/*错误图标*/
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+/**********************下面这部分input的样式**********************************/

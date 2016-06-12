@@ -36,7 +36,6 @@
 		//对表单注册校验
 		var validator = $("#s7_form").validate({meta : ""});
 		window.validator = validator ;
-		
 		//页面上所有控件的状态数据
 		$scope.editStatus = FormEditStatusServcie ;
 		$scope.showStatus = FormStatusService ;

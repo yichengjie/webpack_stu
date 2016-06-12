@@ -172,6 +172,7 @@
 		//var retStr = template({lists: datas});
 		var panel_template = _.template(s7list_panel_tpl) ;
 		var item_template = _.template(s7list_item_tpl) ;
+		var tag_ctx = $.trim($('#tag_ctx').val())||'';
 
 		for	(var i = 0; i < datas.length; i++) {
 			var s5 = datas[i];
@@ -191,21 +192,31 @@
 				var firstMaintenanceDate = s7.firstMaintenanceDate || '';
 				var lastMaintenanceDate = s7.lastMaintenanceDate || '';
 				var statusDes = s7.statusDes || '' ;
-				var description = _formatDescription(s7.description) ;
-
+				var description = _formatDescription(s7.description) || '' ;
+				var geoDescr = s7.geoSpecLoc1 + _showGeoSpecLocType(s7.geoSpecLoc1Type)+"-" +s7.geoSpecLoc2 + _showGeoSpecLocType(s7.geoSpecLoc2Type) ;
+				var showStatus = that._generateStatus(s7) || '';
+				var passengerType = (that._getPassengerTypeCode(s7) + flystatus) || '' ;
+				var itemImgClass = that._getPicture(s7.serviceAndSubCode) ;
+				//生效状态字体颜色
+				var showStatusColor = that._getColor(s7) || '' ;
+				
+				
 				var s7Obj = {s7Id:s7Id,firstMaintenanceDate:firstMaintenanceDate,
 					lastMaintenanceDate:lastMaintenanceDate,statusDes:statusDes,
-					description:description,sequenceNumber:sequenceNumber} ;
+					description:description,sequenceNumber:sequenceNumber,
+					geoDescr:geoDescr,showStatus:showStatus,
+					passengerType:passengerType,availability:availability,
+					itemImgClass:itemImgClass,showStatusColor:showStatusColor,
+					tag_ctx:tag_ctx} ;
 				$panel.find('.list-group').append(item_template(s7Obj))  ;
 			}
 			s7list_container.append($panel);
 		}
-
 	} ;
 
 	
 	//将后台返回结果放到前台显示
-	S7Query.prototype._resultData2 = function(datas) {
+	/*S7Query.prototype._resultData2 = function(datas) {
 		var tag_ctx = $('#tag_ctx').val();
 		$('#s7content').empty();
 		var s7Content = $('#s7content');
@@ -266,39 +277,41 @@
 			$('<div class="clearfix"></div>').appendTo(contentContainer);
 		}
 		// 根据发布状态和生效状态控制编辑和删除按钮
-   	    _editDeleteControl();
+   	    _editDeleteControl2();
    	    
-	};
+	};*/
 	
-	_showS7Detail = function(id) {
+	/*_showS7Detail = function(id) {
 		var tag_ctx = $('#tag_ctx').val();
 		//var editDiv = '<a href="' + tag_ctx + '/oc/showS7Detail?id=' + id
 		//		+ '" title="修改编辑" class="modify"></a>';
 		var editDiv = '<a href="' + tag_ctx + '/oc/toUpdateS7UI.action?s7Id=' + id
 			+ '" title="修改编辑" class="modify"></a>';		
 		return editDiv;
-	};
+	};*/
 	
 	/**
 	 * 根据发布状态和生效状态控制编辑和删除按钮
 	 */
-	_editDeleteControl = function() {
+	/*var _editDeleteControl2 = function() {
 		$('table tbody tr').each(function() {
 			var trText = $(this).text();
-			
+			//状态为  1,2,3这可以修改，其他的状态不能修改
 			// 未发布、已发布未生效、已发布已生效三种状态的可以编辑
 			if(trText.indexOf('未发布') < 0 && trText.indexOf('未生效') < 0 && trText.indexOf('已生效') < 0) {
 				$(this).find('[title=修改编辑]').removeAttr('href');
 				$(this).find('[title=修改编辑]').removeClass('modify');
 				$(this).find('[title=修改编辑]').addClass('modifyOK');
 			}
+			//状态为1的可以删除
 			// 未发布的可以删除
 			if(trText.indexOf('未发布') < 0) {
 				$(this).find('[title=删除]').removeClass('delete');
 				$(this).find('[title=删除]').addClass('deleteOK');
 			}
 		});
-	};
+	};*/
+	
 	
 	//格式化显示可用状态
 	S7Query.prototype._getFeeAvailability = function(noChargeNotAvailable) {
@@ -386,26 +399,13 @@
 	
 	//图片显示
 	S7Query.prototype._getPicture = function(subCode) {
-		/*var tag_ctx = $('#tag_ctx').val();
-		var picName = '1E.jpg';
-		var url =tag_ctx+ '/s7/isExitPic';
-		var param = {};
-		param['subCode'] = subCode;
-		common.baseOptions['url'] = url;
-		common.baseOptions['dataType'] ='json';
-		common.baseOptions['data'] = param;
-		common.baseOptions['success'] = function(datas){
-			picName = datas;
-		};
-		$.ajax(common.baseOptions);
-		return picName;*/
-		var  picName = "1E.jpg";
+		var  picName = "1E";
 		var imgArr = util.getCommonImgArr() ;
 		var flag = _.contains(imgArr, subCode);
         if(flag) {
-            picName = subCode + ".jpg";
+            picName = subCode;
         }
-		return picName ;
+		return "productsImg_"+picName ;
 	};
 	
 	

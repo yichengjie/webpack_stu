@@ -24,10 +24,10 @@
 	} ;
 	
 	ModalHelper.prototype.addErrorTip = function(errMsg){
-		this.el.append("<li><span class ='modal-errorTip'>"+errMsg+"</span></li>") ;
+		this.el.append("<li><span class ='text-danger'>"+errMsg+"</span></li>") ;
 	} ;
 	ModalHelper.prototype.addSuccessTip = function(sucMsg){
-		this.el.append("<li><span class =\"modal-successTip\">"+sucMsg+"</span></li>") ;
+		this.el.append("<li><span class =\"text-success\">"+sucMsg+"</span></li>") ;
 	} ;
 	module.exports = ModalHelper;
 //}) ;

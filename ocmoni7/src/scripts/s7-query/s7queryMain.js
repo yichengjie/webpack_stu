@@ -36,11 +36,10 @@
   		var checkedR7s = $(":checkbox[name=s7check]:checked") ;
   		var len = checkedR7s.length ;
   		if(len==1){
-  			var td = checkedR7s.parent('td') ;
-  			var s7Id = td.find(":input[name=s7id]").val() ;
+  			var list_item = checkedR7s.parents('li') ;
+  			var s7Id = list_item.find(":input[name=s7id]").val() ;
   			var appName = util.getAppName() ;
   			var toUrl = "/"+appName+"/oc/toCopyS7UI.action?s7Id="+ s7Id;
-  			console.info(" s7Id : " + s7Id) ;
   			window.location.href = toUrl ;
   		}else if(len==0){
         $.showTuiErrorDialog('请选择一条需要复制的记录!');

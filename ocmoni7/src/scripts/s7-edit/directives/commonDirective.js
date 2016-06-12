@@ -80,14 +80,14 @@ define(function(require, exports, module){
 	 			var tbnoName = ListVo2tbNoMap[tbname] ;
 	 			//var botext = "data."+tbnoName ;
 	 			var sotext = "customeEditStatus."+tbname;
-	 			str ='<span class ="marginRL15">' + 
-						'<label class ="text-info">复用表号: </label>' +
-						'<span style="position:relative;">'+
-							'<input type="text"  name="'+reuseTablePropName+'" ng-disable ="data.statusDes==\'3\'" class="autocomplete reusetbnoinput" placeholder=""  >'+
-							'<i class="icon iconfont icon-sousuo searchinput gray"></i>'+
-						'</span>'+
-						'<span class ="text-danger pointer marginRL15" name="customeEdit" ng-show ="'+sotext+'">自定义表格</span>'+
-					 '</span>' ;
+	 			str = '<span class="table_reuse">' + 
+		                '<label class ="text-info">复用表号:</label>'+ 
+		                '<span style="position: relative;">'+
+			                '<input type="text" name="'+reuseTablePropName+'" ng-disable ="data.statusDes==\'3\'" class="autocomplete common_input"  style="width: 100px"/>'+ 
+			                '<i class="glyphicon glyphicon-search gray" style="position: absolute;right: 10px;"></i>'+
+		                '</span>'+
+		                '<span class ="text-danger myhand marginL10" name="customeEdit"  ng-show="'+sotext+'" >自定义表格</span>'+ 
+	 				  '</span>';
 				return str ;
 	 		},
 	 		link: function (scope, elem, attrs) {

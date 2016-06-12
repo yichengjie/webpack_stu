@@ -3,6 +3,22 @@
 	var dataTimeFormatStr = "YYYY-MM-DD HH:mm" ;
 	var moment = require('moment_lib') ;
 	var util = {};
+	
+	
+	util.getContextPath = function (){
+		var context = $("#contextPath").val() ;
+		return context || '';
+	};
+	
+	util.getAppName = function(){
+		//-/ocGui/oc/ocView
+		var pathname = window.location.pathname ;
+		var t1 = pathname.substr(1) ;
+		var index = t1.indexOf("/") ;
+		var t2 = t1.substr(0,index) ;
+		return t2 ;
+	};
+	
 	//获取也csrf信息
 	util.getCSRFInfo = function(){
 		var _csrf = $("meta[name=_csrf]").attr('content');
@@ -47,14 +63,7 @@
 		var arr = ['0B5', '0DG', '0B3', '0LO', '0LQ', '0LT', '0BO']  ;
 		return arr ;
 	};
-	util.getAppName = function(){
-		//-/ocGui/oc/ocView
-		var pathname = window.location.pathname ;
-		var t1 = pathname.substr(1) ;
-		var index = t1.indexOf("/") ;
-		var t2 = t1.substr(0,index) ;
-		return t2 ;
-	};
+	
 
 	util.isNonNegativeInteger =  function(value){
 		return /^[0-9]{0,}$/.test(value);

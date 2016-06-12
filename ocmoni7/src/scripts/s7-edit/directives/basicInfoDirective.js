@@ -1,10 +1,10 @@
 define(function(require, exports, module){
 	 var _ = require("underscore_lib") ;
 	 var directives = require("./directives") ;
-	 var headerHtml = require("../tpls/header.html") ;
-	 var chooseDivHtml = require("../tpls/choose_div.html") ;
-	 var chooseUlHtml = require("../tpls/choose-ul.html") ;
-	 directives.directive('headerNav', function() {
+	 //var headerHtml = require("../tpls/header.html") ;
+	 //var chooseDivHtml = require("../tpls/choose_div.html") ;
+	 //var chooseUlHtml = require("../tpls/choose-ul.html") ;
+	 /*directives.directive('headerNav', function() {
 	    return {
 	        restrict: 'E',
 	        replace: true,
@@ -28,9 +28,9 @@ define(function(require, exports, module){
 	    		  }
 	        }
 	    };
-	 });
+	 });*/
 
-	 directives.directive('chooseDiv', function() {
+	 /*directives.directive('chooseDiv', function() {
 	    return {
 	        restrict: 'AE',
 	        replace: true,
@@ -45,6 +45,6 @@ define(function(require, exports, module){
 				tmpDiv.append(htmlStr) ;
 			}
 	    };
-	 });
+	 });*/
 
  }) ;

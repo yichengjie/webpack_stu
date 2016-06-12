@@ -82,7 +82,7 @@
 			//更新页面上的数据
 			var checkedR7s = $(":checkbox[name=s7check]:checked") ;
 			checkedR7s.each(function(){
-				$(this).parents("tr").find("span[name=lastMaintenanceDate]").html(lastMaintenanceDate) ;
+				$(this).parents("li").find("span[data-name=lastMaintenanceDate2]").html(lastMaintenanceDate) ;
 			}) ;
 			//将所有勾选的checkbox取消勾选
 			checkedR7s.prop("checked",false);

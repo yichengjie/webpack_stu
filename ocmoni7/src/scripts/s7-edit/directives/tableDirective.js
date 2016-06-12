@@ -161,7 +161,7 @@
 				return {
 					post: function(scope, element, attrs,ctrl){
 						var tbname = attrs['tbname'] ;
-						element.find("div.delete_line").bind('click',function(){
+						element.find(".delete_line").bind('click',function(){
 							if (scope.editStatus[tbname]) {//当当前表格可以编辑时
 								scope.$apply(function  () {
 									ctrl.tbDelLine() ;
@@ -170,7 +170,7 @@
 								//console.info('表格['+tbname+']当前的状态为：不可编辑') ;
 							}
 						}) ;
-						element.find("div.add_line").bind('click',function(){
+						element.find(".add_line").bind('click',function(){
 							if (scope.editStatus[tbname]) {//当当前表格可以编辑时
 								scope.$apply(function  () {
 									ctrl.tbAddLine() ;

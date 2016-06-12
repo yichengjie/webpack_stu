@@ -22,7 +22,7 @@
 			// 数组存放符合条件的s7id
 			var idArray = [];
 			// 勾选的所有s7
-			var checkedS7 = $('table').find(':checkbox[name=s7check][checked=checked]');
+			var checkedS7 = $(':checkbox[name=s7check]:checked');
 			if(checkedS7.length === 0) {
 				$.showTuiErrorDialog('请至少选择一条记录！');
 				return;

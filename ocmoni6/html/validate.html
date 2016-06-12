@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数据源编辑页面</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../bower_components/pure/grids.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery.autocomplete.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery_ui.datepicker-modify.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery-ui-timepicker-addon.css"/>
+    <link rel="stylesheet" href="../styles/css/oc_common.css">
+    <link rel="stylesheet" href="../styles/css/oc_edit.css">
+    <link rel="stylesheet" href="../styles/css/tui_dialog.css"/>
+    <link rel="stylesheet" href="../lib/iconfont/iconfont.css"/>
+</head>
+<body>
+<!--导航 start-->
+<div class="navbar-fixed-top">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                    <span class="sr-only">导航菜单</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                <ul class="nav navbar-nav">
+                    <li ><a href="#">附加服务</a></li>
+                    <li class="active"><a href="#">数据源配置</a></li>
+                    <li><a href="#">里程积分兑换</a></li>
+                    <li><a href="#">运价校验</a></li>
+                    <li><a href="#">批量导入</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!--query section start-->
+    <div class ="query_section">
+        <span class="query_title">已发布运价验证</span>
+        <span class="pull-right marginR15" style="padding-top: 2px">
+            <button type="submit" id ="backBtn" class="btn btn-sm btn-default">返回</button>
+            <button type="submit" id ="cleanBtn" class="btn btn-warning btn-sm">清空</button>
+            <button type="submit" id ="vaildateBtn" class="btn btn-success btn-sm">验证请求</button>
+        </span>
+    </div>
+    <!--query section end-->
+</div>
+<!--导航 end-->
+
+
+<!--主编辑区域 start-->
+<div class="container-fluid main_content">
+    <form class="form-horizontal">
+        <div class="data_section ">
+            <div class="title_layout">
+                <span class="left">验证请求</span>
+                <span class="right text-info"> 基础信息  | 请求条件  | 服务信息  | 运价信息 </span>
+            </div>
+            <!--基础信息 start-->
+            <div class="content_layout">
+                <span class="left">基础信息</span>
+                <div class="right">
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">请求类型</label>
+                        <div class="pure-u-1-4">
+                            <select name="" class="form-control input-sm">
+                                <option value="">选择</option>
+                                <option value="">1</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">销售日期</label>
+                        <div class="pure-u-1-4">
+                            <input id="date1" type="text" class="form-control input-sm datepicker"/>
+                        </div>
+                        <label for="date1" class="glyphicon glyphicon-th iconfont_box"></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">销售地</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">发布对象</label>
+                        <div class="pure-u-1-4">
+                            <select name=""  class="form-control input-sm">
+                                <option value="">选择</option>
+                                <option value="">1</option>
+                            </select>
+                        </div>
+                        <div class="pure-u-1-8">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--基础信息 end-->
+
+            <!-- 请求条件 start -->
+            <div class="content_layout">
+                <span class="left">请求条件</span>
+                <div class="right">
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">始发地代码</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">目的地代码</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">起飞时间</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" id="date2" class="form-control input-sm"/>
+                        </div>
+                        <label for="date2" class="glyphicon glyphicon-th iconfont_box"></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">到达时间</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" id="date3" class="form-control input-sm"/>
+                        </div>
+                        <label for="date3" class="glyphicon glyphicon-th iconfont_box"></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">市场方航空公司</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">承运方航空公司</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">市场方RBD</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">承运方RBD</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">市场方航班号</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">承运方航班号</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">机型</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">舱位等级</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">常旅客积分所在航司</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">常旅客等级</label>
+                        <div class="pure-u-1-4">
+                            <select name="" class="form-control input-sm" >
+                                <option value="">选择</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">旅客类型</label>
+                        <div class="pure-u-1-4">
+                            <select name="" class="form-control input-sm" >
+                                <option value="">选择</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- 请求条件 end -->
+
+            <!-- 服务信息(tskoc服务) start -->
+            <div class="content_layout">
+                <span class="left">服务信息</span>
+                <div class="right">
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">服务子代码</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">货币种类</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">提前订座</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">升舱到</label>
+                        <div class="pure-u-1-2">
+                            <div class="table_control">
+                                <a href="">填写表格</a>
+                            </div>
+                            <div class="table_layout"  style="width:500px;">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>市场方RBD</th>
+                                        <th>承运方RBD</th>
+                                        <th>市场方服务等级</th>
+                                        <th>承运方服务等级</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <td><input type="text" class="common_input"/></td>
+                                        <td><input type="text" class="common_input"/></td>
+                                        <td><input type="text" class="common_input"/></td>
+                                        <td><input type="text" class="common_input"/></td>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">通用券</label>
+                        <div class="pure-u-1-4">
+                            <div class="table_control">
+                                <a href="">填写表格</a>
+                            </div>
+                            <div class="table_layout"  style="width:250px;">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>套数</th>
+                                        <th>使用人数</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <td><input type="text" class="common_input"/></td>
+                                    <td><input type="text" class="common_input"/></td>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- 服务信息(tskoc服务) end -->
+
+            <!-- 服务信息(收费行李) start -->
+            <div class="content_layout">
+                <span class="left">服务信息</span>
+                <div class="right">
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">货币种类</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">CRS/ICS</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">渠道</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">免费行李</label>
+                        <div class="pure-u-1-2">
+                            <div class="table_control">
+                                <a href="">自定义</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">收费行李</label>
+                        <div class="pure-u-1-4">
+                            <div class="table_control">
+                                <a href="">填写表格</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  服务信息(收费行李) end -->
+
+
+            <!-- 运价信息 start -->
+            <div class="content_layout">
+                <span class="left">运价信息</span>
+                <div class="right">
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">运价基础</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">运价报备所在航司</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">始发地</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">目的地</label>
+                        <div class="pure-u-1-4">
+                            <input type="text" class="form-control input-sm"/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- 运价信息 end -->
+
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.js"></script>
+<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.datepicker-zh-CN.js"></script>
+<script type="text/javascript" src="../lib/jq-timepicker/jquery-timepicker-addon.js"></script>
+<script>
+    $(function(){
+        $('.datepicker').datepicker({minDate:new Date(), showButtonPanel:true}) ;
+    }) ;
+</script>
+</body>
+</html>

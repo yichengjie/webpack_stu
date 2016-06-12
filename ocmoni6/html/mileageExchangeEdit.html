@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>数据源编辑页面</title>
+    <title>里程兑换编辑页面</title>
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="../../bower_components/pure/grids.css"/>
     <link rel="stylesheet" href="../styles/css/jquery.autocomplete.css"/>
@@ -43,7 +43,7 @@
     </nav>
     <!--query section start-->
     <div class ="query_section">
-        <span class="query_title">新建数据源配置</span>
+        <span class="query_title">新增里程积分兑换</span>
         <span> 配置项</span>
         <span class="pull-right marginR15" style="padding-top: 2px">
             <button type="submit" id ="back" class="btn btn-sm btn-default">返回</button>
@@ -58,100 +58,118 @@
 <!--主编辑区域 start-->
 <div class="container-fluid main_content">
     <form class="form-horizontal">
-    <div class="data_section ">
-        <div class="title_layout">
-            <span class="left">1.配置项</span>
-        </div>
-        <div class="content_layout">
+        <div class="data_section ">
+            <div class="title_layout">
+                <span class="left">1.配置项</span>
+            </div>
+            <div class="content_layout">
             <div class="right" style="width: 98%">
                 <div class="form-group">
-                    <label  class="pure-u-1-8 control-label">生效日期</label>
+                    <label  class="pure-u-1-8 control-label">序列号</label>
                     <div class="pure-u-1-4">
-                        <input type="text" id ="id1" class="form-control datepicker"  placeholder="生效日期">
+                        <input type="text" id ="id1" class="form-control"  placeholder="序列号">
                     </div>
-                    <label for="id1" class="glyphicon glyphicon-th iconfont_box"></label>
                 </div>
 
                 <div class="form-group">
-                    <label  class="pure-u-1-8 control-label">截止日期</label>
+                    <label  class="pure-u-1-8 control-label">生效日期</label>
                     <div class="pure-u-1-4">
-                        <input type="text" id="id2" class="form-control datepicker"  placeholder="截止日期">
+                        <input type="text" id="id2" class="form-control datepicker"  placeholder="生效日期">
                     </div>
                     <label for="id2" class="glyphicon glyphicon-th iconfont_box"></label>
                 </div>
 
                 <div class="form-group">
+                    <label class="pure-u-1-8 control-label">截止日期</label>
+                    <div class="pure-u-1-4">
+                        <input type="text" class="form-control datepicker"  placeholder="截止日期">
+                    </div>
+                    <label for="id1" class="glyphicon glyphicon-th iconfont_box"></label>
+                </div>
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">基准货币类型</label>
+                    <div class="pure-u-1-4">
+                        <input type="text" class="form-control"  placeholder="基准货币类型">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">兑换系数</label>
+                    <div class="pure-u-1-4">
+                        <input type="text" class="form-control"  placeholder="兑换系数">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
                     <label class="pure-u-1-8 control-label">服务类型</label>
                     <div class="pure-u-1-4">
-                        <input type="text" class="form-control"  placeholder="服务类型">
+                        <select name="" class="form-control" >
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="pure-u-1-8 control-label">序列号</label>
+                    <label class="pure-u-1-8 control-label">服务子代码</label>
                     <div class="pure-u-1-4">
-                        <input type="text" class="form-control"  placeholder="序列号">
+                        <input type="text" class="form-control"  placeholder="服务子代码">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="pure-u-1-8 control-label">子代码</label>
+                    <label class="pure-u-1-8 control-label">服务所在组</label>
                     <div class="pure-u-1-4">
-                        <input type="text" class="form-control"  placeholder="子代码">
+                        <select name="" class="form-control">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                        </select>
                     </div>
                 </div>
 
-
                 <div class="form-group">
-                    <label class="pure-u-1-8 control-label">行程种类</label>
+                    <label class="pure-u-1-8 control-label">常旅客等级</label>
                     <div class="pure-u-1-4">
-                        <input type="text" class="form-control"  placeholder="行程种类">
+                        <select name=""  class="form-control">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">区域1</label>
+                    <div class="pure-u-1-8">
+                        <select name=""  class="form-control">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                        </select>
+                    </div>
+                    <div class="pure-u-1-8">
+                        <input type="text" class="form-control"  placeholder="区域代码">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="pure-u-1-8 control-label">数据来源</label>
-                    <div class="pure-u-1-4">
-                        <input type="text" class="form-control"  placeholder="数据来源">
+                    <label class="pure-u-1-8 control-label">区域2</label>
+                    <div class="pure-u-1-8">
+                        <select name="" class="form-control">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                        </select>
+                    </div>
+                    <div class="pure-u-1-8">
+                        <input type="text" class="form-control"  placeholder="区域代码">
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="pure-u-1-8 control-label">部门代码</label>
-                    <div class="pure-u-1-2">
-                        <span class="table_control">
-                            <a href="">填写表格</a>
-                        </span>
-                        <div class="table_layout" style="width: 300px">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>发布对象类型</th>
-                                        <th>部门代码</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <select name="" id="" class="common_input">
-                                                <option value="">选择</option>
-                                                <option value="">1</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="common_input"/>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                </div>
 
             </div>
+            </div>
         </div>
-    </div>
     </form>
 
 </div>

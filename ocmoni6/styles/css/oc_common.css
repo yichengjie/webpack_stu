@@ -34,12 +34,16 @@ body{
 }
 .query_title{
     display: inline-block;
-    margin: 8px 20px 0 10px;
+    /*margin: 8px 20px 0 10px;*/
+    margin: 0 20px 0 10px;
     color: #017ebc;
+}
+.query_section .query_row:not(:last-child){
+    margin-bottom: 5px;
 }
 .query_section input,.query_section select{
     height: 26px;
-    padding: 3px;
+    padding: 2px;
 }
 .query_section .btn{
     padding-top: 3px;

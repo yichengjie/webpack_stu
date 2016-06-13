@@ -96,6 +96,9 @@ body{
 .red { color:#FF0000;}
 .orange { color:#FF9900;}
 .blue { color:#006699;}
+.bold { font-weight:bold;}
+.font14{ font-size:14px;}
+.font16{ font-size:16px;}
 
 .iconfont_box{
     margin-left: -25px;
@@ -137,36 +140,6 @@ body{
 	width:48%;
 }
 /**old_oc-style css file start*/
-/*****************  xmlValidate *********************/
-.xmlResponseLayout{ position:fixed; width: 99.3%; bottom:0; background-color:#C8D2DD; border-top:1px solid #999;}
-.responseLayout{ margin:7px 0 7px 10px;}
-.responseLayout h1{ float:left; font-size:16px; font-weight:bold; margin-right:20px; margin-left:20px;}
-.multipleStat,.singleStat{ float:left; }
-.multipleStat span,.singleStat span{ line-height:24px; padding-right:5px; display:inline-block;}
-.responseLink{ padding:3px 18px 0 10px;}
-.responseLinkBottom{ background:url(../images/icon_bottom.png) no-repeat right 2px;}
-.responseLinkTop{ background:url(../images/icon_top.png) no-repeat right 2px;}
-.customedLayout{ margin:5px 0;}
-.customedBlock{ margin-right:10px;}
-.customedBlock span{ padding-right:5px;}
-.blockEditTips{ margin:0 0 10px 20px;}
-.moreStatInfoLayout{ margin:5px 30px; padding:5px 0; border-top:1px dotted #999; }
-.moreStatInfoLayout table{ width:40%; line-height:23px;}
-.moreStatInfoLayout table tr td{ border-bottom:1px dotted #BBB;}
-.moreStatInfoLayout table tr td span{ padding:0 5px 0 0;}
-.copyXML{float: right; margin-right: 50px;cursor: pointer;}
-/**loading start*/
-.wrapper{padding-bottom:50px;}
-.isloading-wrapper.isloading-right{margin-left:10px;}
-.isloading-overlay{position:relative;text-align:center;}
-.isloading-overlay .isloading-wrapper{background:#FFFFFF;-webkit-border-radius:7px;-webkit-background-clip:padding-box;-moz-border-radius:7px;-moz-background-clip:padding;border-radius:7px;background-clip:padding-box;display:inline-block;margin:0 auto;padding:10px 20px;top:10%;z-index:9000;}
-.icon-spin {display: inline-block;-moz-animation: spin 2s infinite linear;-o-animation: spin 2s infinite linear;-webkit-animation: spin 2s infinite linear;animation: spin 2s infinite linear}
-@-moz-keyframes spin {0% { -moz-transform: rotate(0deg)}100% {-moz-transform: rotate(359deg)}}
-@-webkit-keyframes spin {0% { -webkit-transform: rotate(0deg)}100% {-webkit-transform: rotate(359deg)}}
-@-o-keyframes spin {0% { -o-transform: rotate(0deg) }100% {-o-transform: rotate(359deg)}}
-@-ms-keyframes spin { 0% { -ms-transform: rotate(0deg) }100% {-ms-transform: rotate(359deg)}}
-@keyframes spin {0% {transform: rotate(0deg)}100% {transform: rotate(359deg)}}
-/*load end**/
 .dropdown-oc{
     position: relative;
     display: inline-block;
@@ -207,7 +180,82 @@ ul.dropdown-menu-oc> li:hover{
 ul.dropdown-menu-oc.open{
     display: block;
 }
-/**old_oc-style css file start*/
+
+/*****************  xmlValidate start *********************/
+.xmlResponseLayout{
+    position:fixed;
+    width: 99.3%;
+    bottom:0;
+    background-color:#C8D2DD;
+    border-top:1px solid #999;
+}
+
+.xmlResponseLayout .header{
+    display: block;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 15px;
+}
+.xmlResponseLayout .header:after{
+    clear: both;
+    content: '';
+    display: table;
+}
+
+.xmlResponseLayout .header .title{
+    display: inline-block;
+    width: 100px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.xmlResponseLayout .body{
+    padding: 0 15px;
+}
+.responseLink{
+    display: inline-block;
+    padding:3px 18px 0 10px;
+}
+.responseLinkBottom{
+    display: inline-block;
+    background:url(../images/icon_bottom.png) no-repeat right center;
+
+}
+.responseLinkTop{ background:url(../images/icon_top.png) no-repeat right 2px;}
+
+
+/*.responseLayout{
+    margin:7px 0 7px 10px;
+}
+.responseLayout h1{ float:left; font-size:16px; font-weight:bold; margin-right:20px; margin-left:20px;}
+.multipleStat,.singleStat{ float:left; }
+.multipleStat span,.singleStat span{ line-height:24px; padding-right:5px; display:inline-block;}
+.responseLink{ padding:3px 18px 0 10px;}
+.responseLinkBottom{ background:url(../images/icon_bottom.png) no-repeat right 2px;}
+.responseLinkTop{ background:url(../images/icon_top.png) no-repeat right 2px;}
+.customedLayout{ margin:5px 0;}
+.customedBlock{ margin-right:10px;}
+.customedBlock span{ padding-right:5px;}
+.blockEditTips{ margin:0 0 10px 20px;}
+.moreStatInfoLayout{ margin:5px 30px; padding:5px 0; border-top:1px dotted #999; }
+.moreStatInfoLayout table{ width:40%; line-height:23px;}
+.moreStatInfoLayout table tr td{ border-bottom:1px dotted #BBB;}
+.moreStatInfoLayout table tr td span{ padding:0 5px 0 0;}
+.copyXML{float: right; margin-right: 50px;cursor: pointer;}*/
+/**loading start*/
+.wrapper{padding-bottom:50px;}
+.isloading-wrapper.isloading-right{margin-left:10px;}
+.isloading-overlay{position:relative;text-align:center;}
+.isloading-overlay .isloading-wrapper{background:#FFFFFF;-webkit-border-radius:7px;-webkit-background-clip:padding-box;-moz-border-radius:7px;-moz-background-clip:padding;border-radius:7px;background-clip:padding-box;display:inline-block;margin:0 auto;padding:10px 20px;top:10%;z-index:9000;}
+.icon-spin {display: inline-block;-moz-animation: spin 2s infinite linear;-o-animation: spin 2s infinite linear;-webkit-animation: spin 2s infinite linear;animation: spin 2s infinite linear}
+@-moz-keyframes spin {0% { -moz-transform: rotate(0deg)}100% {-moz-transform: rotate(359deg)}}
+@-webkit-keyframes spin {0% { -webkit-transform: rotate(0deg)}100% {-webkit-transform: rotate(359deg)}}
+@-o-keyframes spin {0% { -o-transform: rotate(0deg) }100% {-o-transform: rotate(359deg)}}
+@-ms-keyframes spin { 0% { -ms-transform: rotate(0deg) }100% {-ms-transform: rotate(359deg)}}
+@keyframes spin {0% {transform: rotate(0deg)}100% {transform: rotate(359deg)}}
+/**loading end*/
+/*****************  xmlValidate end *********************/
+/**old_oc-style css file end*/
 label.error{
 	color:#FF0000;
 }

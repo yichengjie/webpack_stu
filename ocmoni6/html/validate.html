@@ -88,7 +88,7 @@
                     <div class="form-group">
                         <label  class="pure-u-1-8 control-label">销售地</label>
                         <div class="pure-u-1-4">
-                            <input type="text" class="form-control input-sm"/>
+                            <input type="text" class="form-control input-sm" placeholder="城市三字码" />
                         </div>
                     </div>
 
@@ -115,14 +115,14 @@
                     <div class="form-group">
                         <label  class="pure-u-1-8 control-label">始发地代码</label>
                         <div class="pure-u-1-4">
-                            <input type="text" class="form-control input-sm"/>
+                            <input type="text" class="form-control input-sm"  placeholder="机场三字码"/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label  class="pure-u-1-8 control-label">目的地代码</label>
                         <div class="pure-u-1-4">
-                            <input type="text" class="form-control input-sm"/>
+                            <input type="text" class="form-control input-sm" placeholder="机场三字码"/>
                         </div>
                     </div>
 
@@ -235,21 +235,21 @@
                     <div class="form-group">
                         <label  class="pure-u-1-8 control-label">服务子代码</label>
                         <div class="pure-u-1-4">
-                            <input type="text" class="form-control input-sm"/>
+                            <input type="text" class="form-control input-sm" placeholder="三字码"/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label  class="pure-u-1-8 control-label">货币种类</label>
                         <div class="pure-u-1-4">
-                            <input type="text" class="form-control input-sm"/>
+                            <input type="text" class="form-control input-sm" placeholder="eg:CNY" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label  class="pure-u-1-8 control-label">提前订座</label>
                         <div class="pure-u-1-4">
-                            <input type="text" class="form-control input-sm"/>
+                            <input type="text" class="form-control input-sm"  placeholder="多个座位属性请用/分割"/>
                         </div>
                     </div>
 
@@ -336,7 +336,7 @@
                         <label  class="pure-u-1-8 control-label">免费行李</label>
                         <div class="pure-u-1-4">
                             <div class="table_control">
-                                <a href="">自定义</a> <span class="gray">将覆盖原免费行李额配置</span>
+                                <a href="">自定义</a> <span class="text-warning">将覆盖原免费行李额配置</span>
                             </div>
                             <div class = "table_layout" style="width: 100%;">
                                 <input type="text" class="common_input two_input" style="float: left;"/>
@@ -401,6 +401,10 @@
                 <span class="left">运价信息</span>
                 <div class="right">
                     <div class="form-group">
+                        <label class="pure-u-1-8"></label>
+                        <div class="pure-u-1-2"><span class="text-warning">注：若是美加航线，请务必填写下方字段信息！</span></div>
+                    </div>
+                    <div class="form-group">
                         <label  class="pure-u-1-8 control-label">运价基础</label>
                         <div class="pure-u-1-4">
                             <input type="text" class="form-control input-sm"/>
@@ -433,7 +437,44 @@
             <!-- 运价信息 end -->
         </div>
     </form>
+
 </div>
+<div  class="xmlResponseLayout" >
+    <div class="header">
+        <span class="title">验证结果</span>
+        <i class="text-success glyphicon glyphicon-refresh icon-spin marginR10"></i>
+        <span class="hidden">
+            <span class="red bold font14 marginR10">1000</span> <span class="bold marginR15">CNY</span>
+            序列号 <span class="marginL10 bold font14">1000</span>
+        </span>
+        <span>
+            <span>总额</span>
+            <span class="red bold font14 marginLR10">1000</span>
+            <span class="bold marginR15">CNY</span>
+            <span class="responseLink responseLinkBottom myhand">明细</span>
+        </span>
+        <span class="pull-right myhand text-info"><i class="glyphicon glyphicon-copy"></i>点击复制XML</span>
+    </div>
+    <div class="body">
+        <table class="table table-condensed">
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 
 <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.js"></script>

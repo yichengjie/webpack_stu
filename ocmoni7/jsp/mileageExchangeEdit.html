@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>里程兑换编辑页面</title>
+    <jsp:include page="/WEB-INF/pages/oc/oc_common.jsp"></jsp:include>
+    <style type="text/css">
+        [ng-cloak]{display:none !important;}
+        .ng-pristine{}
+        select.ng-dirty.ng-invalid,input.ng-dirty.ng-invalid{border:1px solid Red;}
+        .ng-dirty.ng-valid ~ span.ok{color:green; display:inline;}
+        .ng-dirty.ng-invalid ~ span.ko{color:red; display:inline;}
+    </style>
+</head>
+<body  ng-controller = "EditController" ng-cloak="">
+<input type= "hidden" id="carrCode"   value='${sessionScope.carrCode}'/>
+<input type= "hidden" id = "action" name = "action" value = "${action}">
+<input type= "hidden" id = "id" name = "id" value = "${id}">
+<input type= "hidden" id = "contextPath" name = "id" value = "${pageContext.request.contextPath}">
+<!--导航 start-->
+<div class="navbar-fixed-top">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                    <span class="sr-only">导航菜单</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                <ul class="nav navbar-nav">
+                    <li ><a href="${pageContext.request.contextPath}/oc/toQueryS7UI.action">附加服务</a></li>
+                    <li><a href="${pageContext.request.contextPath}/abr/toCfgAbrDatasource.action">数据源配置</a></li>
+                    <li  class="active"><a href="${pageContext.request.contextPath}/mileage/toMileageExchangeUI.action">里程积分兑换</a></li>
+                    <li><a href="${pageContext.request.contextPath}/validate/toValidateRecords7.action">运价校验</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!--query section start-->
+    <div class ="query_section">
+        <span class="query_title">新增里程积分兑换</span>
+        <span> 配置项</span>
+        <span class="pull-right marginR15" style="padding-top: 2px">
+            <button type="button" id ="back" class="btn btn-sm btn-default"  ng-click = "backPage()">返回</button>
+            <button type="button" id ="saveBtn" class="btn btn-success btn-sm" ng-click ="submitPage()">保存</button>
+        </span>
+    </div>
+    <!--query section end-->
+</div>
+<!--导航 end-->
+
+
+<!--主编辑区域 start-->
+<div class="container-fluid main_content">
+    <form class="form-horizontal" id = "myForm" name ="myForm">
+        <div class="data_section ">
+            <div class="title_layout">
+                <span class="left">1.配置项</span>
+            </div>
+            <div class="content_layout">
+                <div class="right" style="width: 98%">
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">序列号</label>
+                        <div class="pure-u-1-4">
+                            <input type = "text" ng-model = "data.sequenceNumber"  ng-required="true" pint =""
+                                   remote-validate ="" name ="sequenceNumber" ng-disabled ="disabledEditFlag"
+                                   maxLength = "7" class = "form-control" placeholder = "号越小，优先级越高">
+                        </div>
+                        <i class="glyphicon glyphicon-asterisk red table_control"></i>
+                        <span ng-messages="myForm.sequenceNumber.$error" ng-if="myForm.sequenceNumber.$dirty">
+                            <span class="errorInfo_validate" ng-message="required">必填字段。</span>
+                             <span class="errorInfo_validate" ng-message="pint">请输入正整数。</span>
+                             <span class="errorInfo_validate" ng-message="remoteValidate">序列号已存在,或验证出错。</span>
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">生效日期</label>
+                        <div class="pure-u-1-4">
+                            <input ng-model="data.firstMaintenanceDate"  name ="firstMaintenanceDate"  id ="firstMaintenanceDate"
+                                   datetimepicker="{{currentDateStr}}"  ng-required="true"   bigger-date-time-current=""
+                                   type="text" class="form-control" ng-disabled ="disabledEditFlag" placeholder="生效日期" />
+                        </div>
+                        <label for="firstMaintenanceDate" class="glyphicon glyphicon-th iconfont_box"></label>
+                        <i class="glyphicon glyphicon-asterisk red table_control"></i>
+                        <span ng-messages="myForm.firstMaintenanceDate.$error"  ng-if="myForm.firstMaintenanceDate.$dirty">
+                            <span class="errorInfo_validate" ng-message="required">必填字段。</span>
+                             <span class="errorInfo_validate" ng-message="biggerDateTimeCurrent">必须大于当前时间。</span>
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">截止日期</label>
+                        <div class="pure-u-1-4">
+                            <input ng-model="data.lastMaintenanceDate"  name ="lastMaintenanceDate" id ="lastMaintenanceDate"
+                                   datetimepicker="{{currentDateStr}}"  bigger-date-time ="{{data.firstMaintenanceDate}}"
+                                   type="text" class="form-control " bigger-date-time-current2="" placeholder="截止日期" />
+                        </div>
+                        <label for="lastMaintenanceDate" class="glyphicon glyphicon-th iconfont_box"></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">基准货币类型</label>
+                        <div class="pure-u-1-4">
+                            <input type = "text" name="basicCurrencyUnit" ng-model = "data.basicCurrencyUnit"   upper-input =""
+                                   maxLength = "3"  ng-required ="true"  class = "form-control"   placeholder="基准货币类型"
+                                   ng-disabled ="disabledEditFlag" threecode2 =""/>
+                        </div>
+                        <i class="glyphicon glyphicon-asterisk red table_control"></i>
+                        <span ng-messages="myForm.basicCurrencyUnit.$error"  ng-if="myForm.basicCurrencyUnit.$dirty">
+                            <span class="errorInfo_validate" ng-message="required">必填字段。</span>
+                            <span class="errorInfo_validate" ng-message="threecode2">请输入三字码。</span>
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">兑换系数</label>
+                        <div class="pure-u-1-4">
+                            <input type = "text" name="exchangeFactor" ng-model = "data.exchangeFactor"
+                                   ng-required ="true" pint=""  maxLength = "7" class = "form-control" ng-disabled ="disabledEditFlag"  placeholder="兑换系数" />
+                        </div>
+                        <i class="glyphicon glyphicon-asterisk red table_control"></i>
+                        <span ng-messages="myForm.exchangeFactor.$error"  ng-if="myForm.exchangeFactor.$dirty">
+                            <span class="errorInfo_validate" ng-message="required">必填字段。</span>
+                            <span class="errorInfo_validate" ng-message="pint">请输入正整数。</span>
+                        </span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">服务类型</label>
+                        <div class="pure-u-1-4">
+                            <select ng-model = "data.serviceType"   name="serviceType" class ="form-control"
+                                    ng-options="o.value as o.name for o in selectList.serviceTypeList" ng-disabled ="disabledEditFlag" >
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">服务子代码</label>
+                        <div class="pure-u-1-4">
+                            <input type = "text" ng-model = "data.subCode" name="subCode"   maxLength = "3"  ng-disabled ="disabledEditFlag"
+                                   ng-required ="true" threecode2 =""  upper-input = "" class = "form-control" placeholder ="三字码">
+                        </div>
+                        <i class="glyphicon glyphicon-asterisk red table_control"></i>
+                        <span ng-messages="myForm.subCode.$error"  ng-if="myForm.subCode.$dirty">
+                            <span class="errorInfo_validate" ng-message="required">必填字段。</span>
+                             <span class="errorInfo_validate" ng-message="threecode2">请输入三字码。</span>
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">服务所在组</label>
+                        <div class="pure-u-1-4">
+                            <select ng-model = "data.groupCode" name="groupCode"  class ="form-control"
+                                    ng-options="o.value as o.name for o in groupCodeList" ng-disabled ="disabledEditFlag" >
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">常旅客等级</label>
+                        <div class="pure-u-1-4">
+                            <select ng-model = "data.frequentFlyerStatus"  name="frequentFlyerStatus" ng-disabled ="disabledEditFlag"
+                                    class ="form-control" ng-options="o.value as o.name for o in frequentFlyerStatusList">
+                                <option value ="">请选择</option>
+                                <option ng-repeat="l in frequentFlyerStatusList" value="{{l.value}}"
+                                        ng-selected="data.frequentFlyerStatus == l.code" >{{l.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">区域1</label>
+                        <div class="pure-u-1-8">
+                            <select ng-model = "data.geoSpecLoc1Type"  name="geoSpecLoc1Type"  class ="form-control"
+                                    ng-options="o.value as o.name for o in selectList.geoLocTypeList"
+                                    ng-disabled ="disabledEditFlag" ng-change ="changeGeoSpecLoc1Type()" >
+                            </select>
+                        </div>
+                        <div class="pure-u-1-8">
+                            <input type = "text" ng-model = "data.geoSpecLoc1"  name="geoSpecLoc1"  upper-input =""
+                                   geo-max-length="data.geoSpecLoc1Type"  class = "form-control" geo="{{data.geoSpecLoc1Type}}"
+                                   ng-disabled ="disabledEditFlag" ng-required ="data.geoSpecLoc1Type!=''"  placeholder="区域代码"/>
+                        </div>
+                        <span ng-messages="myForm.geoSpecLoc1.$error">
+                            <span class="errorInfo_validate" ng-message="required">区域不能为空!</span>
+                            <span class="errorInfo_validate" ng-message="areacode">请输入正确的大区代码!</span>
+                            <span class="errorInfo_validate" ng-message="citycode">请输入正确的城市三字码!</span>
+                            <span class="errorInfo_validate" ng-message="countrycode">请输入正确的国家二字码!</span>
+                            <span class="errorInfo_validate" ng-message="airportcode">请输入正确的机场三字码!</span>
+                            <span class="errorInfo_validate" ng-message="statecode">请输入正确的州二字码!</span>
+                            <span class="errorInfo_validate" ng-message="zonecode">请输入正确的区域代码!</span>
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">区域2</label>
+                        <div class="pure-u-1-8">
+                            <select ng-model = "data.geoSpecLoc2Type" name="geoSpecLoc2Type"   class ="form-control"
+                                    ng-options="o.value as o.name for o in selectList.geoLocTypeList"
+                                    ng-disabled ="disabledEditFlag"  ng-change ="changeGeoSpecLoc2Type()"  >
+                            </select>
+                        </div>
+                        <div class="pure-u-1-8">
+                            <input type = "text" ng-model = "data.geoSpecLoc2" name="geoSpecLoc2"  upper-input =""
+                                   geo-max-length="data.geoSpecLoc2Type"  class = "form-control" geo="{{data.geoSpecLoc2Type}}"
+                                   ng-disabled ="disabledEditFlag" ng-required ="data.geoSpecLoc2Type!=''" placeholder="区域代码" />
+                        </div>
+                        <span ng-messages="myForm.geoSpecLoc2.$error">
+                            <span class="errorInfo_validate" ng-message="required">区域不能为空!</span>
+                            <span class="errorInfo_validate" ng-message="areacode">请输入正确的大区代码!</span>
+                            <span class="errorInfo_validate" ng-message="citycode">请输入正确的城市三字码!</span>
+                            <span class="errorInfo_validate" ng-message="countrycode">请输入正确的国家二字码!</span>
+                            <span class="errorInfo_validate" ng-message="airportcode">请输入正确的机场三字码!</span>
+                            <span class="errorInfo_validate" ng-message="statecode">请输入正确的州二字码!</span>
+                            <span class="errorInfo_validate" ng-message="zonecode">请输入正确的区域代码!</span>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/components/jquery/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/components/angular/angular.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/dist/mileageEdit.js"></script>
+</body>
+</html>

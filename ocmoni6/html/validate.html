@@ -332,20 +332,62 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group fpdaterange">
                         <label  class="pure-u-1-8 control-label">免费行李</label>
-                        <div class="pure-u-1-2">
+                        <div class="pure-u-1-4">
                             <div class="table_control">
-                                <a href="">自定义</a>
+                                <a href="">自定义</a> <span class="gray">将覆盖原免费行李额配置</span>
+                            </div>
+                            <div class = "table_layout" style="width: 100%;">
+                                <input type="text" class="common_input two_input" style="float: left;"/>
+                                <select name="" class="common_input two_input" style="float: left;" >
+                                    <option value="" >选择</option>
+                                    <option value="" >1</option>
+                                </select>
                             </div>
                         </div>
+                        <span class="errorInfo_validate">起始日期必须大于当前！</span>
                     </div>
 
                     <div class="form-group">
                         <label  class="pure-u-1-8 control-label">收费行李</label>
-                        <div class="pure-u-1-4">
+                        <div class="pure-u-20-24">
                             <div class="table_control">
                                 <a href="">填写表格</a>
+                            </div>
+                            <div class = "table_layout" style="width:480px;" >
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th width="100">行李重量</th>
+                                        <th width="100">重量单位</th>
+                                        <th width="100">行李尺寸</th>
+                                        <th width="120">尺寸单位</th>
+                                        <th width="100">行李子代码</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" class="common_input" style="width: 96%"/></td>
+                                            <td>
+                                                <select name="" class="common_input" style="width: 96%">
+                                                    <option value="">请选择</option>
+                                                    <option value="KG">KG 公斤</option>
+                                                    <option value="LB">LB 磅</option>
+                                                </select>
+                                            </td>
+                                            <td><input type="text" class="common_input" style="width: 96%"/></td>
+                                            <td>
+                                                <select name="" class="common_input" style="width: 96%">
+                                                    <option value="">请选择</option>
+                                                    <option value="LCM">LCM 厘米</option>
+                                                    <option value="LI">LI 英寸</option>
+                                                </select>
+                                            </td>
+                                            <td><input type="text" class="common_input" style="width: 96%"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -389,7 +431,6 @@
                 </div>
             </div>
             <!-- 运价信息 end -->
-
         </div>
     </form>
 </div>

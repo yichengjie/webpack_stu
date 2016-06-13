@@ -270,15 +270,6 @@ span.service_type_F,span.service_type_M,span.delete_service{ height:20px; width:
 .discountBtn {  color:#EEE; padding: 3px 10px; margin:0 0 5px 3px; border-radius: 15px; cursor: pointer;background-color: #AAA;}
 .discountCheck{ background-color: #F20;color: white;}
 .inputDisabled{cursor: not-allowed;background-color: #999999;opacity: 0.3;}
-.fpdaterange .table_layout{
-	float:left;
-}
 .fpdaterange .errorInfo_validate{
-	padding-top: 12px;
-	float:left;
-}
-.fpdaterange:after{
-	clear:both;
-	display: table;
-	content:'';
+    padding-top: 42px;
 }

@@ -246,15 +246,11 @@ span.service_type_F,span.service_type_M,span.delete_service{ height:20px; width:
     height: 30px;
     line-height: 30px;
     vertical-align: middle;
+    overflow: hidden;
 }
 .table_reuse{
     padding-left: 20px;
 }
-/*.table_layout:after{
-    clear: both;
-    display: table;
-    content:  '';
-}*/
 .table_footer{
     display: inline-block;
     margin-top: 3px;

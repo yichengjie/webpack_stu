@@ -1,16 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
     <title>里程兑换查询页面</title>
-    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../styles/css/jquery_ui.datepicker-modify.css"/>
-    <link rel="stylesheet" href="../styles/css/jquery-ui-timepicker-addon.css"/>
-    <link rel="stylesheet" href="../styles/css/oc_common.css">
-    <link rel="stylesheet" href="../styles/css/oc_query.css"/>
+    <jsp:include page="/WEB-INF/pages/oc/oc_common.jsp"></jsp:include>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
-<body>
-
+<body   id ="app"   v-cloak>
+<input id="contextPath"  type="hidden" value='${pageContext.request.contextPath}' />
 <div class="navbar-fixed-top">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -28,11 +30,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">附加服务</a></li>
-                    <li ><a href="#">数据源配置</a></li>
-                    <li class="active"><a href="#">里程积分兑换</a></li>
-                    <li><a href="#">运价校验</a></li>
-                    <li><a href="#">批量导入</a></li>
+                    <li ><a href="${pageContext.request.contextPath}/oc/toQueryS7UI.action">附加服务</a></li>
+                    <li><a href="${pageContext.request.contextPath}/abr/toCfgAbrDatasource.action">数据源配置</a></li>
+                    <li  class="active"><a href="${pageContext.request.contextPath}/mileage/toMileageExchangeUI.action">里程积分兑换</a></li>
+                    <li><a href="${pageContext.request.contextPath}/validate/toValidateRecords7.action">运价校验</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -47,10 +48,10 @@
                 <span class="marginL10"></span>
 
                 <span class="pull-right marginR15">
-                    <button type="submit" class="btn btn-sm btn-default">返回</button>
-                    <button type="submit" class="btn btn-sm btn-warning">截止</button>
-                    <button type="submit" class="btn btn-sm btn-success">新建</button>
-                    <button type="submit" class="btn btn-sm bg-primary">查询</button>
+                    <button type="submit" class="btn btn-sm btn-default" v-on:click="backPage">返回</button>
+                    <button type="submit" class="btn btn-sm btn-warning" v-on:click="abort">截止</button>
+                    <button type="submit" class="btn btn-sm btn-success" v-on:click="toAddPage">新建</button>
+                    <button type="submit" class="btn btn-sm bg-primary" v-on:click="query">查询</button>
                 </span>
             </div>
             <!--query row1 end-->
@@ -61,7 +62,7 @@
 </div>
 
 <div class="container-fluid main_content" >
-    <div class="panel panel-default s7list_panel">
+    <div class="panel panel-default s7list_panel" v-if="list.length>0">
         <div class="panel-body">
             <table class="table">
                 <thead>
@@ -83,80 +84,68 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">
-                        <input type="checkbox" />
-                    </th>
-                    <td>10009</td>
-                    <td>2016-05-26 14:00:00</td>
-                    <td>2016-05-27 08:00:59</td>
-                    <td>678</td>
-                    <td>5</td>
-                    <td>F</td>
-                    <td>OUJ</td>
-                    <td>FL</td>
-                    <td>1</td>
-                    <td>CA</td>
-                    <td>2</td>
-                    <td>CAB</td>
+                <tr v-for="item in list">
                     <td>
-                        <i class="glyphicon glyphicon-pencil myhand"></i>
-                        <i class="glyphicon glyphicon-trash myhand marginL5"></i>
+                        <span v-if="item.status=='1'||item.status=='2'">
+                            <input type="checkbox"  v-on:click="checkItem(item)"  >
+                        </span>
+                    </td>
+                    <td>{{item.sequenceNumber}}</td>
+                    <td>{{item.firstMaintenanceDate}}</td>
+                    <td>{{item.lastMaintenanceDate}}</td>
+                    <td>{{item.basicCurrencyUnit}}</td>
+                    <td>{{item.exchangeFactor}}</td>
+                    <td>{{item.serviceType}}</td>
+                    <td>{{item.subCode}}</td>
+                    <td>{{item.groupCode}}</td>
+                    <td>{{item.frequentFlyerStatus}}</td>
+                    <td>{{item.carrCode}}</td>
+                    <td>{{item.geoSpecLoc1}}</td>
+                    <td>{{item.geoSpecLoc2}}</td>
+                    <td>
+                        <div class="helper_float_left operate_btn">
+                            <a  v-if="item.status=='1'||item.status=='2'" title="编辑" href="${pageContext.request.contextPath}/mileage/toMileageExchangeUpdateUI.action?id={{item.id}}"  class="modify helper_float_left"></a>
+                            <a v-else  href="javascript:void(0)" class="modifyOK helper_float_left"></a>
+                            <div v-if="item.status=='1'"  title="删除" class="delete helper_float_left marginLeft5"  v-on:click="deleteItem(item.id)" ></div>
+                            <div v-else title="删除" class="deleteOK helper_float_left marginLeft5"></div>
+                        </div>
                     </td>
                 </tr>
-
-                <tr>
-                    <th scope="row"><input type="checkbox" /></th>
-                    <td>10009</td>
-                    <td>2016-05-26 14:00:00</td>
-                    <td>2016-05-27 08:00:59</td>
-                    <td>678</td>
-                    <td>5</td>
-                    <td>F</td>
-                    <td>OUJ</td>
-                    <td>FL</td>
-                    <td>1</td>
-                    <td>CA</td>
-                    <td>2</td>
-                    <td>CAB</td>
-                    <td>
-                        <i class="glyphicon glyphicon-pencil myhand"></i>
-                        <i class="glyphicon glyphicon-trash myhand marginL5"></i>
-                    </td>
-                </tr>
-
                 </tbody>
             </table>
         </div>
     </div>
 
-    <nav class="pull-right">
+    <!-- spilt page bar star -->
+    <nav class ="pull-right" v-if="list.length>0">
         <ul class="pagination">
+            <li>  <a href="javascript:void(0)" v-on:click ="toPage(1)">首页</a></li>
             <li>
-                <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
+                <a href="javascript:void(0)" aria-label="Previous" v-on:click ="toPerviousPage">上一页</a>
             </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
+            <li v-for="l in pageBar.pgArr"    v-bind:class="{ 'active': pageBar.curPage==l}" >
+                <a href="javascript:void(0)"  v-on:click="toPage(l)">{{l}}</a>
+            </li>
+            <li v-if ="pageBar.pageCount>5&&(pageBar.curPage+3) <=pageBar.pageCount"><span>...</span></li>
             <li>
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
+                <a href="javascript:void(0)" aria-label="Next" v-on:click ="toNextPage">下一页</a>
             </li>
+            <li> <a href="javascript:void(0)" v-on:click ="toPage(pageBar.pageCount)">末页</a></li>
         </ul>
         <div class="page-desc">
-            <span class="marginRight10">共<span class ="marginRL2">3</span>页</span>
+            <span class="marginRight10">共<span class ="marginRL2">{{pageBar.pageCount}}</span>页</span>
             <span class ="">当前第</span>
-            <input type="text"  id ="pageOkInput" class ="common_input"  value ="2" style="width: 30px" >
+            <input type="text"  id ="pageOkInput" class ="marginRL2" style="width: 25px; height: 12px;" value ="{{pageBar.curPage}}" >
             <span class="marginRight5 ">页</span>
             <span class="page-ok" v-on:click ="pageConfirm">确定</span>
         </div>
     </nav>
+    <!-- spilt page bar star -->
+
+
 </div>
+
+
 
 <!-- 模态框start -->
 <div class="modal fade" id="myModal" data-backdrop="static"   role="dialog" aria-labelledby="exampleModalLabel">
@@ -167,17 +156,7 @@
                 <h4 class="modal-title">批量截止里程积分兑换</h4>
             </div>
             <div class="modal-body">
-
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-4 control-label">批量截止日期</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control input-sm" tabindex="3"  id="lastMaintenanceDate"
-                                   readonly="readonly"  v-model ="lastMaintenanceDate"/>
-                        </div>
-                    </div>
-                </form>
-               <!-- <div class ="row">
+                <div class ="row">
                     <span class ="col-sm-11">
                         <span style="display: inline-block;	width:30px;"></span>
                         <span class ="marginRight15">批量截止日期</span>
@@ -185,7 +164,7 @@
                                readonly="readonly"  v-model ="lastMaintenanceDate"/>
                         <label class="icon iconfont icon-riqi datebox"  for="lastMaintenanceDate"></label>
                     </span>
-                </div>-->
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -196,9 +175,8 @@
 </div><!-- /.modal -->
 <!-- 模态框end -->
 
-<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.js"></script>
-<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.datepicker-zh-CN.js"></script>
-<script type="text/javascript" src="../lib/jq-timepicker/jquery-timepicker-addon.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/components/jquery/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/components/vue/vue.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/dist/mileageQuery.js"></script>
 </body>
 </html>

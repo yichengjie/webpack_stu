@@ -1,13 +1,10 @@
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
     <title>数据源查询页面</title>
-    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../styles/css/jquery_ui.datepicker-modify.css"/>
-    <link rel="stylesheet" href="../styles/css/jquery-ui-timepicker-addon.css"/>
-    <link rel="stylesheet" href="../styles/css/oc_common.css">
-    <link rel="stylesheet" href="../styles/css/oc_query.css"/>
+    <jsp:include page="/WEB-INF/pages/oc/oc_common.jsp"></jsp:include>
     <style>
         .main_content{
             padding-top: 150px;
@@ -15,6 +12,10 @@
     </style>
 </head>
 <body>
+
+<input id="tag_ctx" type="hidden" value="${pageContext.request.contextPath}" name="tag_ctx"/>
+<input id="carrCode" name="carrCode" type="hidden" value='${sessionScope.carrCode}'/>
+<input id="tokenId"  type="hidden" value="${tokenId}"/>
 
 <div class="navbar-fixed-top">
     <nav class="navbar navbar-inverse">
@@ -33,11 +34,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">附加服务</a></li>
-                    <li class="active"><a href="#">数据源配置</a></li>
-                    <li><a href="#">里程积分兑换</a></li>
-                    <li><a href="#">运价校验</a></li>
-                    <li><a href="#">批量导入</a></li>
+                    <li ><a href="${pageContext.request.contextPath}/oc/toQueryS7UI.action">附加服务</a></li>
+                    <li class="active"><a href="${pageContext.request.contextPath}/abr/toCfgAbrDatasource.action">数据源配置</a></li>
+                    <li><a href="${pageContext.request.contextPath}/mileage/toMileageExchangeUI.action">里程积分兑换</a></li>
+                    <li><a href="${pageContext.request.contextPath}/validate/toValidateRecords7.action">运价校验</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -51,41 +51,46 @@
                 <span class="marginL10"></span>
                 <div class="form-group">
                     <label  class="marginR5">航空公司</label>
-                    <input type="text" class="form-control input-sm" style="width: 120px" value="CA"  readonly="readonly" placeholder="CA" />
+                    <input type="text" id="carrier" name="carrier" class="form-control input-sm" readonly="readonly"
+                           style="width: 120px" placeholder="CA" value="${sessionScope.carrCode}" />
                 </div>
                 <span class="marginR15"></span>
                 <div class="form-group">
                     <label  class="marginR5">子代码</label>
-                    <input type="text" class="form-control" style="width: 120px" placeholder="CA" />
+                    <input type="text" id="subCode" name="subCode" class="form-control" style="width: 120px" placeholder="CA" />
                 </div>
                 <div class="form-group">
                     <label class="marginR5">生效日期</label>
-                    <input type="text" class="form-control input-sm datepicker"  placeholder="范围" style="width: 100px">
-                    <label class="glyphicon glyphicon-calendar iconfont_box"></label>
+                    <input type="text" id="effectMinDate" name="effectMinDate" class="form-control input-sm datepicker"  placeholder="范围" style="width: 100px">
+                    <label for="effectMinDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
                     <span>——</span>
-                    <input type="text" class="form-control input-sm datepicker"  placeholder="范围" style="width: 100px">
-                    <label class="glyphicon glyphicon-calendar iconfont_box"></label>
+                    <input type="text" id="effectMaxDate" name="effectMaxDate" class="form-control input-sm datepicker"  placeholder="范围" style="width: 100px">
+                    <label for="effectMaxDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
                 </div>
 
                 <div class="form-group">
                     <label class="marginR5">数据源</label>
-                    <select class="form-control" style="width: 100px;">
+                    <select id="dataSource" name="dataSource" class="form-control" style="width: 100px;">
                         <option value="">选择</option>
-                        <option value="">1</option>
+                        <option value="OPTSVC">ATPCO数据</option>
+                        <option value="TSKOC">航信数据</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label class="marginR5">行程种类</label>
-                    <select class="form-control" style="width: 100px;">
+                    <select  id="internationalTag" name="internationalTag" class="form-control" style="width: 100px;">
                         <option value="">选择</option>
-                        <option value="">1</option>
+                        <option value="I">国际</option>
+                        <option value="D">国内</option>
                     </select>
                 </div>
 
                 <span class="pull-right marginR15">
-                    <button type="submit" class="btn btn-sm btn-primary">查询</button>
-                    <button type="submit" class="btn btn-sm btn-success">新建</button>
+                    <button type="submit" class="btn btn-sm btn-primary" id="abrQueryBtn"
+                            url="${pageContext.request.contextPath}/abr/queryAbrDatasourceList.action">查询</button>
+                    <button type="submit" class="btn btn-sm btn-success"
+                            onclick="location.href='${pageContext.request.contextPath}/abr/toAbrDatasourceAdd.action'">新建</button>
                 </span>
             </div>
             <!--query row1 end-->
@@ -100,19 +105,19 @@
                 <div class="form-group">
                     <label  class="marginR5">服务类型</label>
                     <div class="checkbox">
-                        <input  id ="c1" type="checkbox"><label for="c1">免费行李</label>
+                        <input  id ="serviceType1" name="serviceType" type="checkbox" value="A"><label for="serviceType1">免费行李</label>
                     </div>
                     <div class="checkbox">
-                        <input  id ="c2" type="checkbox"><label for="c2">随携行李</label>
+                        <input  id ="serviceType2" name="serviceType" type="checkbox" value="B"><label for="serviceType2">随携行李</label>
                     </div>
                     <div class="checkbox">
-                        <input  id ="c3" type="checkbox"><label for="c3">付费行李</label>
+                        <input  id ="serviceType3" name="serviceType" type="checkbox" value="C"><label for="serviceType3">付费行李</label>
                     </div>
                     <div class="checkbox">
-                        <input  id ="c4" type="checkbox"><label for="c4">预付费行李</label>
+                        <input  id ="serviceType4" name="serviceType" type="checkbox" value="P"><label for="serviceType4">预付费行李</label>
                     </div>
                     <div class="checkbox">
-                        <input  id ="c5" type="checkbox"><label for="c5">禁运行李</label>
+                        <input  id ="serviceType5" name="serviceType" type="checkbox" value="E"><label for="serviceType5">禁运行李</label>
                     </div>
                 </div>
             </div>
@@ -154,34 +159,8 @@
                         <i class="glyphicon glyphicon-trash myhand marginL5"></i>
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">103003</th>
-                    <td>*</td>
-                    <td>*</td>
-                    <td>*</td>
-                    <td>国际</td>
-                    <td>2015-11-13</td>
-                    <td>2015-11-28</td>
-                    <td>ATPCO数据</td>
-                    <td>
-                        <i class="glyphicon glyphicon-pencil myhand"></i>
-                        <i class="glyphicon glyphicon-trash myhand marginL5"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">103003</th>
-                    <td>*</td>
-                    <td>*</td>
-                    <td>*</td>
-                    <td>国际</td>
-                    <td>2015-11-13</td>
-                    <td>2015-11-28</td>
-                    <td>ATPCO数据</td>
-                    <td>
-                        <i class="glyphicon glyphicon-pencil myhand "></i>
-                        <i class="glyphicon glyphicon-trash myhand marginL5"></i>
-                    </td>
-                </tr>
+
+
 
                 <tr>
                     <th scope="row">103003</th>
@@ -217,10 +196,12 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/components/jquery/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/dist/datasourceQuery.js"></script>
+<script>
 
-<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.js"></script>
-<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.datepicker-zh-CN.js"></script>
-<script type="text/javascript" src="../lib/jq-timepicker/jquery-timepicker-addon.js"></script>
+    function a(e){
+    }
+</script>
 </body>
 </html>

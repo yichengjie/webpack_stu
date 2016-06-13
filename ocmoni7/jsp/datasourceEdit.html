@@ -44,11 +44,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
                 <ul class="nav navbar-nav">
-                    <li ><a href="#">附加服务</a></li>
-                    <li class="active"><a href="#">数据源配置</a></li>
-                    <li><a href="#">里程积分兑换</a></li>
-                    <li><a href="#">运价校验</a></li>
-                    <li><a href="#">批量导入</a></li>
+                    <li ><a href="${pageContext.request.contextPath}/oc/toQueryS7UI.action">附加服务</a></li>
+                    <li class="active"><a href="${pageContext.request.contextPath}/abr/toCfgAbrDatasource.action">数据源配置</a></li>
+                    <li><a href="${pageContext.request.contextPath}/mileage/toMileageExchangeUI.action">里程积分兑换</a></li>
+                    <li><a href="${pageContext.request.contextPath}/validate/toValidateRecords7.action">运价校验</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -70,126 +69,126 @@
 <!--主编辑区域 start-->
 <div class="container-fluid main_content" >
     <form class="form-horizontal" id = "myForm" name ="myForm">
-    <div class="data_section ">
-        <div class="title_layout">
-            <span class="left">配置项</span>
-        </div>
-        <div class="content_layout">
-            <div class="right" style="width: 98%">
-                <div class="form-group">
-                    <label  class="pure-u-1-8 control-label">生效日期</label>
-                    <div class="pure-u-1-4">
-                        <input ng-model="data.effDate"  ng-disabled="data.status!='1'"  id ="effDate" name ="effDate"
-                            datepicker=""    ng-required="true"  dateoc =""  btc=""  class="form-control"   type="text" placeholder="生效日期"  />
-                    </div>
-                    <label for="effDate" class="glyphicon glyphicon-th iconfont_box"></label>
+        <div class="data_section ">
+            <div class="title_layout">
+                <span class="left">配置项</span>
+            </div>
+            <div class="content_layout">
+                <div class="right" style="width: 98%">
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">生效日期</label>
+                        <div class="pure-u-1-4">
+                            <input ng-model="data.effDate"  ng-disabled="data.status!='1'"  id ="effDate" name ="effDate"
+                                   datepicker=""    ng-required="true"  dateoc =""  btc=""  class="form-control"   type="text" placeholder="生效日期"  />
+                        </div>
+                        <label for="effDate" class="glyphicon glyphicon-th iconfont_box"></label>
                     <span ng-messages="myForm.effDate.$error" ng-if="myForm.effDate.$dirty">
                         <span class="errorInfo_validate" ng-message="required">必填字段。</span>
                         <span class="errorInfo_validate" ng-message="dateoc">请输入合法的日期yyyy-mm-dd。</span>
                         <span class="errorInfo_validate" ng-message="btc">必须大于当前日期。</span>
                     </span>
-                </div>
-
-                <div class="form-group">
-                    <label  class="pure-u-1-8 control-label">截止日期</label>
-                    <div class="pure-u-1-4">
-                        <input ng-model="data.discDate" ng-disabled = "data.status=='3'" datepicker=""  type="text"
-                            dateoc=""  btc2=""  bd ="{{data.effDate}}" class="form-control" id ="discDate"  name ="discDate" placeholder="截止日期"/>
                     </div>
-                    <label for="discDate" class="glyphicon glyphicon-th iconfont_box"></label>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">截止日期</label>
+                        <div class="pure-u-1-4">
+                            <input ng-model="data.discDate" ng-disabled = "data.status=='3'" datepicker=""  type="text"
+                                   dateoc=""  btc2=""  bd ="{{data.effDate}}" class="form-control" id ="discDate"  name ="discDate" placeholder="截止日期"/>
+                        </div>
+                        <label for="discDate" class="glyphicon glyphicon-th iconfont_box"></label>
                     <span ng-messages="myForm.discDate.$error" ng-if="myForm.discDate.$dirty">
                         <span class="errorInfo_validate" ng-message="dateoc">请输入合法的日期yyyy-mm-dd。</span>
                         <span class="errorInfo_validate" ng-message="btc2">必须大于当前日期。</span>
                         <span class="errorInfo_validate" ng-message="bd">结束日期必须大于起始日期。</span>
                     </span>
-                </div>
-
-                <div class="form-group">
-                    <label class="pure-u-1-8 control-label">服务类型</label>
-                    <div class="pure-u-1-4">
-                        <select ng-model = "data.serviceType"  ng-disabled = "data.status!='1'"   class ="form-control"
-                                ng-options="o.value as o.name for o in selectList.serviceTypeList" >
-                        </select>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="pure-u-1-8 control-label">序列号</label>
-                    <div class="pure-u-1-4">
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">服务类型</label>
+                        <div class="pure-u-1-4">
+                            <select ng-model = "data.serviceType"  ng-disabled = "data.status!='1'"   class ="form-control"
+                                    ng-options="o.value as o.name for o in selectList.serviceTypeList" >
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">序列号</label>
+                        <div class="pure-u-1-4">
                             <input type = "text" ng-model = "data.sequcenceNumber"  ng-disabled = "data.status=='3'"
-                                maxLength = "7"  pint ="" remote-validate ="" class = "form-control"
-                                name ="sequcenceNumber" placeholder = "号越小，优先级越高">
-                    </div>
+                                   maxLength = "7"  pint ="" remote-validate ="" class = "form-control"
+                                   name ="sequcenceNumber" placeholder = "号越小，优先级越高">
+                        </div>
                     <span ng-messages="myForm.sequcenceNumber.$error" ng-if="myForm.sequcenceNumber.$dirty">
                         <span class="errorInfo_validate" ng-message="pint">请输入正整数。</span>
                         <span class="errorInfo_validate" ng-message="remoteValidate">序列号已存在,或验证出错。</span>
                     </span>
-                </div>
-
-                <div class="form-group">
-                    <label class="pure-u-1-8 control-label">子代码</label>
-                    <div class="pure-u-1-4">
-                        <input type = "text" ng-model = "data.subCode" ng-disabled = "data.status!='1'"
-                            maxLength = "3"  upper-input=""  alphanumeric-start="" class = "form-control"
-                            name ="subCode" placeholder ="输入*表示不做限制">
                     </div>
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">子代码</label>
+                        <div class="pure-u-1-4">
+                            <input type = "text" ng-model = "data.subCode" ng-disabled = "data.status!='1'"
+                                   maxLength = "3"  upper-input=""  alphanumeric-start="" class = "form-control"
+                                   name ="subCode" placeholder ="输入*表示不做限制">
+                        </div>
                     <span ng-messages="myForm.subCode.$error" ng-if="myForm.subCode.$dirty">
                         <span class="errorInfo_validate" ng-message="alphanumericStart">请输入字母和数字的组合(半角)或仅输入*。</span>
                     </span>
-                </div>
+                    </div>
 
-                <div class="form-group">
-                    <label class="pure-u-1-8 control-label">行程种类</label>
-                    <div class="pure-u-1-4">
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">行程种类</label>
+                        <div class="pure-u-1-4">
                         <span class="radio-inline">
                             <input ng-model="data.internationalTag"  id="internationalTag1" ng-disabled = "data.status!='1'"
-                                name ="internationalTag" type="radio" value="D"   /> <label for="internationalTag1">国内</label>
+                                   name ="internationalTag" type="radio" value="D"   /> <label for="internationalTag1">国内</label>
                         </span>
                         <span class="radio-inline">
                             <input ng-model="data.internationalTag" ng-disabled = "data.status!='1'" id ="internationalTag2"
-                                name ="internationalTag" type="radio" value="I"  radio-required =""  /><label for="internationalTag2">国际</label>
+                                   name ="internationalTag" type="radio" value="I"  radio-required =""  /><label for="internationalTag2">国际</label>
                         </span>
-                    </div>
+                        </div>
                     <span ng-messages="myForm.internationalTag.$error" ng-if="myForm.internationalTag.$dirty" >
                          <span class="errorInfo_validate" ng-message="radioRequired">必填字段。</span>
                     </span>
-                </div>
+                    </div>
 
-                <div class="form-group">
-                    <label class="pure-u-1-8 control-label">数据来源</label>
-                    <div class="pure-u-1-4">
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">数据来源</label>
+                        <div class="pure-u-1-4">
                         <span class="radio-inline">
                             <input ng-model="data.dataSource" ng-disabled = "data.status!='1'" ng-click ="validDataSource()"
-                                name ="dataSource" type="radio" value="OPTSVC" id ="dataSource1" />
+                                   name ="dataSource" type="radio" value="OPTSVC" id ="dataSource1" />
                             <label for="dataSource1">ATPCO数据</label>
                         </span>
                         <span class="radio-inline">
                             <input ng-model="data.dataSource" ng-disabled = "data.status!='1'" ng-click ="validDataSource()"
-                                name ="dataSource" type="radio" value="TSKOC"  radio-required ="" id ="dataSource2" />
+                                   name ="dataSource" type="radio" value="TSKOC"  radio-required ="" id ="dataSource2" />
                             <label for="dataSource2">航信数据</label>
                         </span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="pure-u-1-8 control-label">部门代码</label>
-                    <div class="pure-u-1-2">
-                        <show-hide-table tb-info = "tbFlagData.publishObject">
-                            <table-info table-width ="300"
-                                status = "data.status"
-                                action = "data.action"
-                                hidden-input-id="publishObjectHiddenInputId"
-                                title-list = "tbTitleList.pbObj"
-                                row-html="publishObject.html"
-                                list = "data.publishObjectList">
-                            </table-info>
-                        </show-hide-table>
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">部门代码</label>
+                        <div class="pure-u-1-2">
+                            <show-hide-table tb-info = "tbFlagData.publishObject">
+                                <table-info table-width ="300"
+                                            status = "data.status"
+                                            action = "data.action"
+                                            hidden-input-id="publishObjectHiddenInputId"
+                                            title-list = "tbTitleList.pbObj"
+                                            row-html="publishObject.html"
+                                            list = "data.publishObjectList">
+                                </table-info>
+                            </show-hide-table>
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
     </form>
 </div>
 

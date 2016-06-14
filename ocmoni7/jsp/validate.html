@@ -63,6 +63,7 @@
 
 <!--主编辑区域 start-->
 <div class="container-fluid main_content">
+	<div growl=""></div>
     <form class="form-horizontal" name="myForm" novalidate="novalidate" ng-submit="submitPage()" id ="myForm">
         <div class="data_section ">
             <div class="title_layout">
@@ -84,6 +85,7 @@
                                 <option value="C">逾重行李</option>
                             </select>
                         </div>
+                        <span class ="table_control"><i class ="glyphicon glyphicon-asterisk red"></i></span>
                         <span ng-messages="myForm.requestType.$error" ng-if="myForm.requestType.$dirty">
                            <span class="errorInfo_validate" ng-message="required">必填字段。</span>
                         </span>
@@ -104,6 +106,7 @@
                             <input name="pointOfSaleLocation" ng-model="data.pointOfSaleLocation" ng-required="true"
                                    threecode="" upper-input="" type="text"  placeholder="城市三字码" class="form-control input-sm" />
                         </div>
+                        <span class ="table_control"><i class ="glyphicon glyphicon-asterisk red"></i></span>
                         <span ng-messages="myForm.pointOfSaleLocation.$error" ng-if="myForm.pointOfSaleLocation.$dirty">
                             <span class="errorInfo_validate" ng-message="required">必填字段。</span>
                             <span class="errorInfo_validate" ng-message="threecode">请输入正确的城市三字码。</span>
@@ -150,6 +153,7 @@
                             <input name="departureAirportCode"  ng-model="data.departureAirportCode" ng-required="true"
                                    threecode="" upper-input="" class="form-control input-sm" type="text" placeholder="机场三字码" />
                         </div>
+                        <span class ="table_control"><i class ="glyphicon glyphicon-asterisk red"></i></span>
                         <span ng-messages="myForm.departureAirportCode.$error" ng-if="myForm.departureAirportCode.$dirty">
                            <span class="errorInfo_validate" ng-message="required">必填字段。</span>
                            <span class="errorInfo_validate" ng-message="threecode">请输入正确的机场三字码。</span>
@@ -162,6 +166,7 @@
                             <input name="arrivalAirportCode" ng-model="data.arrivalAirportCode" ng-required="true"
                                    threecode="" upper-input="" class="form-control input-sm" type="text" placeholder="机场三字码"  />
                         </div>
+                        <span class ="table_control"><i class ="glyphicon glyphicon-asterisk red"></i></span>
                         <span ng-messages="myForm.arrivalAirportCode.$error" ng-if="myForm.arrivalAirportCode.$dirty">
                            <span class="errorInfo_validate" ng-message="required">必填字段。</span>
                            <span class="errorInfo_validate" ng-message="threecode">请输入正确的三字码。</span>
@@ -192,6 +197,7 @@
                             <input name="marketingAirlineCode" ng-model="data.marketingAirlineCode" ng-required="true"
                                    air="" upper-input="" class="form-control input-sm"  type="text" readonly="readonly" />
                         </div>
+                        <span class ="table_control"><i class ="glyphicon glyphicon-asterisk red"></i></span>
                         <span ng-messages="myForm.marketingAirlineCode.$error"  ng-if="myForm.marketingAirlineCode.$dirty">
                            <span class="errorInfo_validate" ng-message="required">必填字段。</span>
                            <span class="errorInfo_validate" ng-message="air">请输入正确的航空公司二字码</span>
@@ -302,6 +308,7 @@
                             <input name="subCode" ng-model="data.subCode" type="text" ng-required="true"
                                    ng-maxlength="3" upper-input=""  class="form-control input-sm"  placeholder="三字码" />
                         </div>
+                        <span class ="table_control"><i class ="glyphicon glyphicon-asterisk red"></i></span>
                         <span ng-messages="myForm.subCode.$error" ng-if="myForm.subCode.$dirty">
                            <span class="errorInfo_validate" ng-message="required">必填字段。</span>
                            <span class="errorInfo_validate" ng-message="maxlength">最多输入如3位</span>

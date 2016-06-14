@@ -25,8 +25,8 @@ module.exports = {
             /*{ test: /\.css$/, loader: "style!css" },*/
             { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
             {test: /\.html$/, loader: 'html'},
-            {test: /\.(jpg|png|gif)$/, loader: "url?limit=8192&name=./images/[name].[hash:8].[ext]"},
-            {test: /\.(eot|woff|ttf|svg)$/, loader: "file-loader?name=./file/[name].[hash:8].[ext]" }
+            {test: /\.(jpg|png|gif)$/, loader: "url?limit=8192&name=images/[name].[hash:8].[ext]"},
+            {test: /\.(eot|woff|ttf|svg)$/, loader: "file-loader?name=file/[name].[hash:8].[ext]" }
         ]
     },
     resolve: {

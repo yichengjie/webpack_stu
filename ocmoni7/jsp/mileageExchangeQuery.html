@@ -48,10 +48,10 @@
                 <span class="marginL10"></span>
 
                 <span class="pull-right marginR15">
-                    <button type="submit" class="btn btn-sm btn-default" v-on:click="backPage">返回</button>
-                    <button type="submit" class="btn btn-sm btn-warning" v-on:click="abort">截止</button>
-                    <button type="submit" class="btn btn-sm btn-success" v-on:click="toAddPage">新建</button>
-                    <button type="submit" class="btn btn-sm bg-primary" v-on:click="query">查询</button>
+                    <button type="button" class="btn btn-sm btn-default" v-on:click="backPage">返回</button>
+                    <button type="button" class="btn btn-sm btn-warning" v-on:click="abort">截止</button>
+                    <button type="button" class="btn btn-sm btn-success" v-on:click="toAddPage">新建</button>
+                    <button type="button" class="btn btn-sm bg-primary" id ="mileageExchangeQueryBtn" v-on:click="query">查询</button>
                 </span>
             </div>
             <!--query row1 end-->
@@ -104,10 +104,12 @@
                     <td>{{item.geoSpecLoc2}}</td>
                     <td>
                         <div class="helper_float_left operate_btn">
-                            <a  v-if="item.status=='1'||item.status=='2'" title="编辑" href="${pageContext.request.contextPath}/mileage/toMileageExchangeUpdateUI.action?id={{item.id}}"  class="modify helper_float_left"></a>
-                            <a v-else  href="javascript:void(0)" class="modifyOK helper_float_left"></a>
-                            <div v-if="item.status=='1'"  title="删除" class="delete helper_float_left marginLeft5"  v-on:click="deleteItem(item.id)" ></div>
-                            <div v-else title="删除" class="deleteOK helper_float_left marginLeft5"></div>
+                            <a  v-if="item.status=='1'||item.status=='2'" title="编辑" href="${pageContext.request.contextPath}/mileage/toMileageExchangeUpdateUI.action?id={{item.id}}">
+                            	<i class="glyphicon glyphicon-pencil myhand"></i>
+                            </a>
+                            <i v-else class="glyphicon glyphicon-pencil myhand gray""></i>
+                            <div v-if="item.status=='1'"  title="删除" class="marginLeft5 glyphicon glyphicon-trash myhand"  v-on:click="deleteItem(item.id)" ></div>
+                            <div v-else title="删除" class="marginLeft5 glyphicon glyphicon-trash myhand gray"></div>
                         </div>
                     </td>
                 </tr>
@@ -135,7 +137,7 @@
         <div class="page-desc">
             <span class="marginRight10">共<span class ="marginRL2">{{pageBar.pageCount}}</span>页</span>
             <span class ="">当前第</span>
-            <input type="text"  id ="pageOkInput" class ="marginRL2" style="width: 25px; height: 12px;" value ="{{pageBar.curPage}}" >
+            <input type="text"  id ="pageOkInput" class ="common_input"  style="width: 30px"  value ="{{pageBar.curPage}}" >
             <span class="marginRight5 ">页</span>
             <span class="page-ok" v-on:click ="pageConfirm">确定</span>
         </div>
@@ -156,15 +158,15 @@
                 <h4 class="modal-title">批量截止里程积分兑换</h4>
             </div>
             <div class="modal-body">
-                <div class ="row">
-                    <span class ="col-sm-11">
-                        <span style="display: inline-block;	width:30px;"></span>
-                        <span class ="marginRight15">批量截止日期</span>
-                        <input type="text" class="" tabindex="3"  id="lastMaintenanceDate"
-                               readonly="readonly"  v-model ="lastMaintenanceDate"/>
-                        <label class="icon iconfont icon-riqi datebox"  for="lastMaintenanceDate"></label>
-                    </span>
-                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">批量截止日期</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control input-sm" tabindex="3"  id="lastMaintenanceDate"
+                                    v-model ="lastMaintenanceDate"/>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -176,7 +178,7 @@
 <!-- 模态框end -->
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/components/jquery/jquery.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/components/vue/vue.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/components/vue/vue.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/dist/mileageQuery.js"></script>
 </body>
 </html>

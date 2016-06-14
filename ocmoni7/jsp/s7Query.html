@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<input id="contextPath"  type="hidden" value='${pageContext.request.contextPath}' />
+
 <div class="navbar-fixed-top">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -25,11 +27,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">附加服务</a></li>
-                    <li><a href="#">数据源配置</a></li>
-                    <li><a href="#">里程积分兑换</a></li>
-                    <li><a href="#">运价校验</a></li>
-                    <li><a href="#">批量导入</a></li>
+                    <li class="active"><a href="${pageContext.request.contextPath}/oc/toQueryS7UI.action">附加服务</a></li>
+                    <li ><a href="${pageContext.request.contextPath}/abr/toCfgAbrDatasource.action">数据源配置</a></li>
+                    <li><a href="${pageContext.request.contextPath}/mileage/toMileageExchangeUI.action">里程积分兑换</a></li>
+                    <li><a href="${pageContext.request.contextPath}/validate/toValidateRecords7.action">运价校验</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -76,18 +77,18 @@
                     <label class="marginR5">销售日期</label>
                     <input type="text" id="effectMinDate" name="effectMinDate"
                            class="form-control input-sm datepicker"  placeholder="起始日期" style="width: 100px">
-                    <label for="effectMinDate" class="glyphicon glyphicon-th iconfont_box"></label>
+                    <label for="effectMinDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
                     <span class="marginL15"></span>
                     <input type="text" id="effectMaxDate" name="effectMaxDate"
                            class="form-control input-sm datepicker"  placeholder="结束日期" style="width: 100px">
-                    <label for="effectMaxDate" class="glyphicon glyphicon-th iconfont_box"></label>
+                    <label for="effectMaxDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
                 </div>
 
                 <div class="checkbox marginLR15">
                     <input  id ="moreInputBtn" type="checkbox"> <label for="moreInputBtn">更多条件</label>
                 </div>
-                <button type="submit" id="s7QueryBtn" url="${pageContext.request.contextPath}/s7/s7Query.action"
-                        class="btn btn-default btn-sm btn-primary">查询</button>
+                <button type="button" id="s7QueryBtn" url="${pageContext.request.contextPath}/s7/s7Query.action"
+                        class="btn btn-sm btn-primary">查询</button>
             </div>
             <!--query row1 end-->
 
@@ -120,7 +121,7 @@
                     <span class="marginR15"></span>
                     <div class="form-group">
                         <label   class="marginR5">机型</label>
-                        <select id="s7_F_equipment" class="form-control" url="${pageContext.request.contextPath}/equipment/query.action" style="width: 100px">
+                        <select id="s7_F_equipment" class="form-control" url="${pageContext.request.contextPath}/equipment/query.action" style="width: 150px">
                             <option value="">选择</option>
                         </select>
                     </div>
@@ -195,11 +196,11 @@
             </div>
             <div class="modal-body">
                 <div class ="row">
-                    <label class="col-sm-2"><span class="marginRight15"></span>截止日期</label>
+                    <label class="col-sm-3"><span class="marginRight15"></span>截止日期</label>
                     <div class="col-sm-6">
-                        <input type="text" class="input_normal" tabindex="3"  id="lastMaintenanceDate"
-                               name="lastMaintenanceDate"  readonly="readonly"/>
-                        <label class="datebox icon iconfont icon-riqi"  for="lastMaintenanceDate"></label>
+                        <input type="text" class="common_input" tabindex="3"  id="lastMaintenanceDate"
+                               name="lastMaintenanceDate" style ="width:96%"/>
+                        <span for="lastMaintenanceDate" class="glyphicon glyphicon-th iconfont_box"></span>      
                     </div>
                 </div>
                 <br />

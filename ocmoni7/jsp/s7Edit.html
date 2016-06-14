@@ -5,10 +5,21 @@
     <meta charset="UTF-8">
     <title>s7编译页面</title>
     <jsp:include page="/WEB-INF/pages/oc/oc_common.jsp"></jsp:include>
+    <style type="text/css">
+    	[ng-cloak]{display:none !important;}
+		/*开发版本
+	    input.ng-invalid {border: 1px solid red;}
+	    input.ng-valid{border: 1px solid green;}*/
+		/*上线版本*/
+		.ng-pristine{}
+	    select.ng-dirty.ng-invalid,input.ng-dirty.ng-invalid{border:1px solid Red;}
+	    .ng-dirty.ng-valid ~ span.ok{color:green; display:inline;}
+	    .ng-dirty.ng-invalid ~ span.ko{color:red; display:inline;}
+	</style>
 </head>
-<body>
+<body ng-controller="EditController" ng-cloak="">
 <!--导航 start-->
-<div class="navbar-fixed-top">
+<div class="navbar-fixed-top" ng-controller ="HeaderCtrl">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -25,43 +36,47 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">附加服务</a></li>
-                    <li><a href="#">数据源配置</a></li>
-                    <li><a href="#">里程积分兑换</a></li>
-                    <li><a href="#">运价校验</a></li>
-                    <li><a href="#">批量导入</a></li>
+                    <li class="active"><a href="${pageContext.request.contextPath}/oc/toQueryS7UI.action">附加服务</a></li>
+                    <li ><a href="${pageContext.request.contextPath}/abr/toCfgAbrDatasource.action">数据源配置</a></li>
+                    <li><a href="${pageContext.request.contextPath}/mileage/toMileageExchangeUI.action">里程积分兑换</a></li>
+                    <li><a href="${pageContext.request.contextPath}/validate/toValidateRecords7.action">运价校验</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
     <!--query section start-->
-    <div class ="query_section">
+    <div class ="query_section" >
         <span class="query_title">新建服务费用</span>
         <span>服务类型&nbsp;|</span>
         <span>费用&nbsp;|</span>
         <span>规则</span>
         <span class="pull-right marginR15" style="padding-top: 2px">
-            <button type="submit" id ="saveBtn" class="btn btn-default btn-sm">保存</button>
-            <button type="submit" id ="saveAndPublishBtn" class="btn btn-default btn-sm btn-success">保存并发布</button>
+            <button type="button" id="s7_save" ng-click ="submitForm('save')" class="btn btn-default btn-sm">保存</button>
+            <button type="button" id="s7_saveAndPublish" ng-click="submitForm('saveAndPublish')"  class="btn btn-default btn-sm btn-success">保存并发布</button>
         </span>
     </div>
     <!--query section end-->
 </div>
 <!--导航 end-->
 
-
+<form class="form-horizontal" id="s7_form"  novalidate="novalidate"  name ="myForm">
 <!--主编辑区域 start-->
-<div class="container-fluid main_content">
-    <form class="form-horizontal">
-        <div class="data_section">
+<div class="container-fluid main_content" force=""  org-data="orgData">
+	<input id="carrCode"  type="hidden" value='${sessionScope.carrCode}' />
+	<input id="contextPath"  type="hidden" value='${pageContext.request.contextPath}' />
+	<input id="action"  type="hidden" value="${action}" />
+	<input id="s7Id"  type="hidden" value="${s7Id}"/>
+	<input id="tokenId"  type="hidden" value="${tokenId}"/>
+    
+        <div class="data_section"  ng-controller="BasicInfoCtrl">
             <div class="title_layout">
                 <span class="left">1.选择附加服务</span>
                 <span style="margin-right:40px;"></span>
-                <span class="serviceInputSpan right"></span>
+                <span class="serviceInputSpan right"  ng-bind = "showChooseFunc()"></span>
             </div>
             <div class="content_layout">
                 <!-- 附加服务选择框-->
-                <div class="service_choose_layout">
+                <div class="service_choose_layout" ng-if="data.action=='add'" >
                     <s><i></i></s>
                     <div class="service_choose">
                         <div class="choose_box">
@@ -95,26 +110,29 @@
                             <div class="service_list">
                                 <ul>
                                     <li bindonce ng-repeat="l in lastGroupList"
-                                        ng-click="lastChooseClick(l)">
-                                        <div class="service_name">
-                                            <span class="serviceTypeSpan" bo-bind = "l.serviceType"></span>
-                                        </div>
-                                    </li>
+									    ng-click="lastChooseClick(l)" class="choose4li">
+										<div class="service_name">
+											<p class="helper_float_left" bo-bind="'['+l.serviceSubCode+']'+l.commercialName"></p>
+											<span class="helper_float_left serviceTypeSpan" bo-bind = "l.serviceType"></span>
+											<div class="clearfix"></div>
+										</div>
+									</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="choose_box choose_box_right">
+                        <div class="choose_box choose_box_right" ng-show = "lastGroupList2.length>0">
                             <div class="choose_box_title">
                                 <span class="text-info">服务详细</span>
                             </div>
-                            <div class="service_list">
+                            <div class="service_list" >
                                 <ul>
                                     <li bindonce ng-repeat="l in lastGroupList2" class="choose4li">
-                                        <div class="service_name">
-                                            <p bo-bind="'['+l.subCode+']'+l.commercialName"></p>
-                                            <span bo-bind="'x'+l.subCodeOccurence"></span>
-                                        </div>
-                                    </li>
+										<div class="service_name">
+											<p class="helper_float_left" bo-bind="'['+l.subCode+']'+l.commercialName"></p>
+											<span class = "helper_float_left serviceTypeSpan" ng-bind = "l.serviceType"></span>
+											<span bo-bind="'x'+l.subCodeOccurence"></span>
+										</div>
+									</li>
                                 </ul>
                             </div>
                         </div>
@@ -123,9 +141,9 @@
             </div>
         </div>
 
-
+		
         <!--第二部分‘确定费用’ start-->
-        <div class="data_section ">
+        <div class="data_section " ng-controller="ChargeConfirmCtrl">
             <div class="title_layout">
                 <span class="left">2.确定费用</span>
                 <span class="right text-info"> 描述  | 费用 </span>
@@ -133,188 +151,456 @@
             <!--描述 strart-->
             <div class="content_layout">
                 <span class="left">描述</span>
-                <span class="right">
-                   <div class="form-group">
+                <div class="right">
+                   <div class="form-group" ng-show= "showStatus.firstMaintenanceDate.showFlag">
                        <label for="inputEmail3" class="pure-u-1-8 control-label">销售生效日期</label>
                        <div class="pure-u-1-4">
-                           <input type="text" id ="id1"  class="form-control input-sm datetimepicker" id="inputEmail3" placeholder="销售生效日期">
+                     		<input ng-model="data.firstMaintenanceDate" name="firstMaintenanceDate" datetimepicker="{{currentDateStr}}"
+				    		ng-disabled="!editStatus.firstMaintenanceDate" type="text" id ="firstMaintenanceDate"
+							ng-required="true" datetimeoc="" bigger-date-time-current="" class="form-control input-sm datetimepicker" />
                        </div>
-                       <label for="id1" class="glyphicon glyphicon-th iconfont_box"></label>
-                       <span class="input_error_tip">这里是错误提示信息</span>
+                       <label for="firstMaintenanceDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
+                       <span ng-messages="myForm.firstMaintenanceDate.$error" ng-if="myForm.firstMaintenanceDate.$dirty">
+                           	<span class="errorInfo_validate" ng-message="required">必填字段。</span>
+                           	<span class="errorInfo_validate" ng-message="datetimeoc">请输入合法的时间格式。</span>
+                           	<span class="errorInfo_validate" ng-message="biggerDateTimeCurrent">必须大于当前时间。</span>
+                        </span>
                    </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.lastMaintenanceDate.showFlag">
                         <label class="pure-u-1-8 control-label">销售截止日期</label>
                         <div class="pure-u-1-4">
-                            <input type="text" id="id2" class="form-control input-sm datetimepicker"  placeholder="销售截止日期" >
+                        	<input ng-model="data.lastMaintenanceDate" name ="lastMaintenanceDate" datetimepicker="{{currentDateStr}}" 
+								type="text"  datetimeoc=""  bigger-date-time-current2=""  bigger-date-time="{{data.firstMaintenanceDate}}" 
+								 id ="lastMaintenanceDate" class="form-control input-sm"/>
                         </div>
-                        <label for="id2" class="glyphicon glyphicon-th iconfont_box"></label>
-
+                        <label for="lastMaintenanceDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
+						<span ng-messages="myForm.lastMaintenanceDate.$error" ng-if="myForm.lastMaintenanceDate.$dirty">
+                           	<span class="errorInfo_validate" ng-message="datetimeoc">请输入合法的时间格式。</span>
+                           	<span class="errorInfo_validate" ng-message="biggerDateTimeCurrent2">必须大于当前时间。</span>
+                           	<span class="errorInfo_validate" ng-message="biggerDateTime">截止日期必须大于生效日期。</span>
+                        </span>
                     </div>
-                    <div class="form-group">
+                    <!-- 当为通用券兑换的时候-->
+                    <div class="form-group fpdaterange" ng-if="data.basicInfoVo.subGroup=='FP'">
+                    	<label class="pure-u-1-8 control-label">使用时间限制</label>
+                    	<div class="pure-u-1-4">
+                    		<div class ="table_control">
+	                    		<span class ="discountBtn" ng-class ="{'discountCheck':data.useDateLimitTye==''}"
+						  		 	ng-click ="changeUseDateLimitTye('')">时间段</span>
+								<span class ="discountBtn" ng-class ="{'discountCheck':data.useDateLimitTye=='1'}" 
+									ng-click ="changeUseDateLimitTye('1')">期限</span>
+                    		</div>
+                    		<div class = "table_layout" style="width: 100%;">
+						  		<div ng-show ="data.useDateLimitTye==''">
+									<input ng-model="data.firstUseDate" name="firstUseDate" ng-disabled="!editStatus.firstUseDate"
+										datepicker="{{currentDateStr}}" readonly="readonly" type="text" id ="firstUseDate" btc="" 
+										class ="common_input two_input"  placeholder ="起始时间段"/>
+									<label for="firstUseDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
+									<input ng-model="data.lastUseDate" name ="lastUseDate" ng-disabled="!editStatus.firstUseDate"
+										datepicker="{{currentDateStr}}" type="text"  id ="lastUseDate" readonly="readonly" 
+										btc ="" bd="{{data.firstUseDate}}"  class ="common_input two_input" 
+										placeholder ="结束时间段"/>
+									<label for="lastUseDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
+								</div>
+								<div ng-show ="data.useDateLimitTye=='1'">
+									<select name="effectivePeriodType" ng-model="data.effectivePeriodType" 
+										ng-disabled="!editStatus.effectivePeriodType" class="common_input two_input"
+										ng-options="d.value as d.name for d in effectivePeriodTypeList.list"   
+										ng-change="changeEffectivePeriodType()" style="float:left;">
+									</select>
+							    	<input  name="effectivePeriodNumber"  ng-model="data.effectivePeriodNumber" class="common_input" 
+							    			maxLength = "3" nnint ="" ng-required="data.effectivePeriodType!=''" style ="float:left;width:24%;">
+									<select name="effectivePeriodUnit" ng-model="data.effectivePeriodUnit"  style ="float:left;width:24%;"
+										ng-disabled="!editStatus.effectivePeriodUnit || data.effectivePeriodType==''" 
+										ng-options="d.value as d.name for d in effectivePeriodUnitList" class="common_input" 
+										ng-required="data.effectivePeriodNumber!=''">
+									</select>
+								</div>
+					  		</div>
+                    	</div>
+                    	<span ng-messages="myForm.firstUseDate.$error" >
+	                        <span class="errorInfo_validate" ng-message="btc">起始日期必须大于当前！</span>
+	                    </span>
+						<span ng-messages="myForm.lastUseDate.$error" >
+                           	<span class="errorInfo_validate" ng-message="btc">结束日期必须大于当前！</span>
+                           	<span class="errorInfo_validate" ng-message="bd">结束日期必须大于起始日期！</span>
+                        </span>
+				  		<span ng-messages="myForm.effectivePeriodNumber.$error" >
+                           	<span class="errorInfo_validate" ng-message="required">期限不能为空！</span>
+                           	<span class="errorInfo_validate" ng-message="nnint">请输入数字!</span>
+                        </span>
+                    </div> 
+                    <!-- 当为farelock时  -->
+                    <div class="form-group fpdaterange" ng-if="data.basicInfoVo.subGroup=='FL'">
+                     	<label class="pure-u-1-8 control-label">使用时间限制</label>
+                    	<div class="pure-u-1-4">
+                    		<div class ="table_control">
+                            	<span class ="discountBtn discountCheck">期限</span><br/>
+                            </div>
+                            <div class = "table_layout" style="width: 100%;">
+                            	<select name="effectivePeriodType" ng-model="data.effectivePeriodType" 
+									ng-disabled="!editStatus.effectivePeriodType" class="common_input two_input"
+									ng-options="d.value as d.name for d in effectivePeriodTypeList.list"   
+									ng-change="changeEffectivePeriodType()" style="float:left;">
+								</select>
+						    	<input  name="effectivePeriodNumber"  ng-model="data.effectivePeriodNumber" class="common_input" 
+						    			maxLength = "3" nnint ="" ng-required="data.effectivePeriodType!=''" style ="float:left;width:24%;">
+								<select name="effectivePeriodUnit" ng-model="data.effectivePeriodUnit"  style ="float:left;width:24%;"
+									ng-disabled="!editStatus.effectivePeriodUnit || data.effectivePeriodType==''" 
+									ng-options="d.value as d.name for d in effectivePeriodUnitList" class="common_input" 
+									ng-required="data.effectivePeriodNumber!=''">
+								</select>
+							</div>
+                        </div>
+                        <span ng-messages="myForm.effectivePeriodNumber.$error" >
+                           	<span class="errorInfo_validate" ng-message="required">期限不能为空！</span>
+                           	<span class="errorInfo_validate" ng-message="nnint">请输入数字!</span>
+                         </span>
+                    </div>
+                    
+                    <div class="form-group" ng-show= "showStatus.serviceNumberMinAndMaximum.showFlag">
                         <label class="pure-u-1-8 control-label">服务套数</label>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"  placeholder="起始套数" >
+                        	<input type = "text" ng-model = "data.serviceNumberMinimum"  maxLength = "3"  
+					    		ng-disabled="!editStatus.serviceNumberMinimum" name ="serviceNumberMinimum" 
+								class = "form-control input-sm" id="serviceNumberMinimum" nnint="" 
+								smaller="{{data.serviceNumberMaximum}}" placeholder="起始套数"  />
                         </div>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"  placeholder="结束套数" >
+                        	<input type = "text" ng-model = "data.serviceNumberMaximum" maxLength = "3" name="serviceNumberMaximum"
+							   ng-disabled="!editStatus.serviceNumberMaximum" nnint="" bigger="{{data.serviceNumberMinimum}}" 
+							   id = "serviceNumberMaximum" class = "form-control input-sm" placeholder="结束套数" />
                         </div>
+                        <span ng-messages="myForm.serviceNumberMinimum.$error" ng-if="myForm.serviceNumberMinimum.$dirty">
+                          	<span class="errorInfo_validate" ng-message="nnint">最小值请输入非负数</span>
+                          	<span class="errorInfo_validate" ng-message="smaller">最大值不能小于最小值</span>
+                        </span>
+					    <span ng-messages="myForm.serviceNumberMaximum.$error" ng-if="myForm.serviceNumberMaximum.$dirty">
+                           	<span class="errorInfo_validate" ng-message="nnint">最大值请输入非负整数</span>
+                           	<span class="errorInfo_validate" ng-message="bigger">最大值不能小于最小值</span>
+                        </span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.description.showFlag">
                         <label class="pure-u-1-8 control-label">描述</label>
                         <div class="pure-u-1-2">
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea  ng-model="data.description" rows="3" ng-disabled="!editStatus.description"
+								placeholder="描述信息" class="form-control" ></textarea>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.fareBasis.showFlag" >
                         <label class="pure-u-1-8 control-label">产品代号</label>
                         <div class="pure-u-1-4">
-                            <input type="text" class="form-control input-sm"  >
+                        	<input ng-model="data.fareBasis" name ="fareBasis" upper-input="" ng-disabled="!editStatus.fareBasis"
+								 lorn ="" maxlength="20" type="text" class="form-control input-sm" />
                         </div>
-                        <span class="input_error_tip">这里是错误提示信息</span>
+                        <span ng-messages="myForm.fareBasis.$error" ng-if="myForm.fareBasis.$dirty">
+                           	<span class="errorInfo_validate" ng-message="lorn">请输入字母或数字!</span>
+                        </span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.availability.showFlag" >
                         <label class="pure-u-1-8 control-label">是否检查库存</label>
                         <div class="pure-u-1-4" >
                             <div class="radio-inline">
-                                <input type="radio" ><label>是</label>
+                               <input  type="radio" ng-model="data.availability" value="N" name="availability" 
+							      ng-disabled="!editStatus.availability" /><label>是</label>
                             </div>
                             <div class="radio-inline">
-                                <input type="radio" ><label>否</label>
+                                <input  type="radio" ng-model="data.availability" value="Y" name="availability" 
+					 				ng-disabled="!editStatus.availability"/><label>否</label>
                             </div>
                         </div>
                     </div>
-                </span>
+                </div>
             </div>
             <!--描述 end-->
+            <!--行李start-->
+            <div class="content_layout"  ng-if ="data.serviceType=='A'||data.serviceType=='C'||data.serviceType=='P'">
+                <span class="left">行李</span>
+                <div class="right">
+                	<div class="form-group" ng-show="showStatus.freeBaggageAllowancePieces.showFlag">
+                		<label class="pure-u-1-8 control-label">免费行李件数</label>
+                		<div class="pure-u-1-8">
+                			<input ng-model="data.freeBaggageAllowancePieces" name="freeBaggageAllowancePieces" 
+					    		ng-disabled="!editStatus.freeBaggageAllowancePieces" 
+						 		pint="" class="form-control input-sm" maxlength="2" type="text" />
+                		</div>
+                		<span class ="table_control">&nbsp;件</span>
+                		<span ng-messages="myForm.freeBaggageAllowancePieces.$error" 
+							ng-if="myForm.freeBaggageAllowancePieces.$dirty">
+                           	<span class="errorInfo_validate" ng-message="pint">请输入正整数!</span>
+                        </span>
+                	</div>
+                	<div class="form-group" ng-show="showStatus.firstAndLastExcessOccurrence.showFlag" >
+					    <label class="pure-u-1-8 control-label">收费行李件数</label>
+					    <div class="pure-u-1-8">
+					    	<input ng-model="data.firstExcessOccurrence" ng-disabled="!editStatus.firstExcessOccurrence" 
+					    		pint ="" smaller="{{data.lastExcessOccurrence}}" class="form-control input-sm" 
+					    		name ="firstExcessOccurrence" id="firstExcessOccurrence" maxlength="2" type="text"
+					    		placeholder ="起始件数" />
+					    </div>
+					    <div class="pure-u-1-8">
+					    	<input ng-model="data.lastExcessOccurrence" ng-disabled="!editStatus.lastExcessOccurrence" 
+							 	 class="form-control input-sm"  maxlength="2" pint ="" bigger ="{{data.firstExcessOccurrence}}"
+								 name ="lastExcessOccurrence" id="lastExcessOccurrence" type="text"
+								 placeholder ="结束件数"  />
+					    </div>
+					    <span class ="table_control">&nbsp;件</span>
+					    <span ng-messages="myForm.firstExcessOccurrence.$error" ng-if="myForm.firstExcessOccurrence.$dirty">
+                           	<span class="errorInfo_validate" ng-message="pint">起始值必须为正整数!</span>
+                           	<span class="errorInfo_validate" ng-message="smaller">最小值要小于最大值!</span>
+                         </span>
+                         <span ng-messages="myForm.lastExcessOccurrence.$error" ng-if="myForm.lastExcessOccurrence.$dirty">
+                           	<span class="errorInfo_validate" ng-message="pint">结束值必须为正整数!</span>
+                           	<span class="errorInfo_validate" ng-message="bigger">最大值要大于最小值!</span>
+                         </span>
+					</div>
+					
+					<div class="form-group" ng-show= "showStatus.freeBaggageAllowanceWeight.showFlag" >
+					    <label class="pure-u-1-8 control-label">行李重量</label>
+					    <div class="pure-u-1-8">
+					     	<input ng-model="data.freeBaggageAllowanceWeight" ng-disabled="!editStatus.freeBaggageAllowanceWeight" 
+					    	    pint ="" class="form-control input-sm" name="freeBaggageAllowanceWeight" maxlength="4" type="text" 
+					    	   	placeholder ="行李重量"/>
+					    </div>
+					    <div class="pure-u-1-8">
+							 <select ng-model = "data.freeBaggageAllowanceUnit" ng-disabled="!editStatus.freeBaggageAllowanceUnit"
+								 ng-options="o.value as o.name for o in weightUnitList" class="form-control input-sm" 
+								 name ="freeBaggageAllowanceUnit" ng-required ="data.freeBaggageAllowanceWeight!=''">
+							 </select>
+					    </div>
+					    <span ng-messages="myForm.freeBaggageAllowanceWeight.$error" ng-if="myForm.freeBaggageAllowanceWeight.$dirty">
+                          	<span class="errorInfo_validate" ng-message="pint">请输入正整数!</span>
+                        </span>
+                        <span ng-messages="myForm.freeBaggageAllowanceUnit.$error">
+                          	<span class="errorInfo_validate" ng-message="required">重量单位不能为空!</span>
+                        </span>
+					</div>
+					<div class="form-group" ng-show= "showStatus.baggageTravelApplication.showFlag" >
+					    <label class="pure-u-1-8 control-label">行李适用范围</label>
+					    <div class="pure-u-1-4">
+					    	<select ng-model = "data.baggageTravelApplication" class ="form-control input-sm" 
+						    	ng-disabled="!editStatus.baggageTravelApplication"
+								ng-options="o.value as o.name for o in baggageTravelApplicationList" >
+							</select>
+					    </div>
+					</div>
+                	<div class="form-group" ng-show= "showStatus.list196VO.showFlag">
+					    <label class="pure-u-1-8 control-label">备注例外行李</label>
+					    <div class="pure-u-1-2">
+					    	<div class="table_control">
+                                <show-hide-table tname="list196VO"></show-hide-table>
+                                <oc-complete  tbname="list196VO" ng-hide ="data.statusDes=='3'"></oc-complete>
+                            </div>
+					    	<div class = "table_layout" style ="width:275px" ng-show="tableStatus.list196VO">
+								<table-info  table-data="tableData.list196VO"  
+									list = "data.list196VO"  html-url="tb196.html" tbname="list196VO" >
+								</table-info>
+							</div>
+					    </div>
+					</div>
+            	</div>
+            </div>
+            <!--行李end-->
             <!--费用 strart-->
             <div class="content_layout">
                 <span class="left">费用</span>
-                <span class="right">
-                   <div class="form-group">
+                <div class="right">
+                   <div class="form-group" ng-show= "showStatus.noChargeNotAvailable.showFlag">
                        <label class="pure-u-1-8 control-label">是否收费</label>
                        <div class="pure-u-1-4">
-                           <select class="form-control input-sm">
-                               <option value="">1</option>
-                               <option value="">2</option>
-                               <option value="">3</option>
-                           </select>
+                       		<select ng-model="data.noChargeNotAvailable" class ="form-control input-sm" 
+					    		 ng-options="a.value as a.name for a in noChargeNotAvailableList.list"
+								 ng-change="changeNoChargeNotAvailable()" ng-disabled="!editStatus.noChargeNotAvailable">
+							</select>
                        </div>
                    </div>
-
-                    <div class="form-group">
-                        <label class="pure-u-1-8 control-label">金额</label>
-                        <div class="pure-u-1-2 " >
-                            <div class="table_control">
-                                <a href="#">填写表格</a>
-                                <span class="table_reuse">
-                                    <label class ="text-info">复用表号:</label>
-                                    <input type="text" class="common_input" id="autocomplete" style="width: 100px"/>
-                                    <span class="iconfont_box">
-                                        <i class="glyphicon glyphicon-search gray"></i>
-                                    </span>
-                                    <span class ="text-danger myhand">自定义表格</span>
-                                </span>
-                            </div>
-
-                            <div class="table_layout" style ="width:460px">
-                                <table>
-                                    <thead>
-                                    <tr> <th>销售地类型</th> <th>销售地代码</th><th>金额</th><th>货币类型</th></tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><select name="" class="common_input" ><option value="">选择</option><option value="">国家</option></select></td>
-                                        <td><input type="text" class="common_input"></td>
-                                        <td><input type="text" class="common_input"> </td>
-                                        <td><input type="text" class="common_input"></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <div class="table_footer">
-                                    <button class="btn btn-success btn-sm">增加一行</button>
-                                    <button class="btn btn-default btn-sm">删除一行</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
+				   <!-- 金额 行李服务时  start -->
+				   <section ng-if="data.serviceType=='A'||data.serviceType=='C'||data.serviceType=='P'||data.serviceType=='B'||data.serviceType=='E'">
+					  <div class="form-group" ng-show= "showStatus.list170VOAndlist201VO.showFlag">
+	                      <label class="pure-u-1-8 control-label">金额</label>
+	                      <div class="pure-u-1-2 " >
+	                          <div class="table_control">
+	                              <span class="discountBtn discountCheck marginR15">全额</span>
+	                              <show-hide-table tname = "list170VO"></show-hide-table> 
+								  <oc-complete tbname="list170VO" ng-hide ="data.statusDes=='3'"></oc-complete>
+	                          </div>
+	                          <div class = "table_layout" style ="width:560px" ng-if="tableStatus.list170VO">
+								 <table-info  table-data="tableData.list170VO"  tbname="list170VO" 
+									list="data.list170VO" html-url="tb170.html">
+								 </table-info>
+						      </div>
+	                      </div>
+	                   </div>
+					</section>
+                    <!-- 金额 金额 行李服务时  end -->
+                    <!-- 金额普通服务时  start -->
+					<section ng-if="data.serviceType=='M'||data.serviceType=='F'||data.serviceType=='R'||data.serviceType=='T'" >
+						<div class="form-group" ng-show= "showStatus.list170VOAndlist201VO.showFlag">
+	                      <label class="pure-u-1-8 control-label">金额</label>
+	                      <div class="pure-u-1-2 " >
+	                      	<div class="table_control">
+	                      		<span ng-click="clickDiscount('1')"  class ="discountBtn"
+									ng-class ="{true:'discountCheck',false:''}[data.discountOrNot=='1']" >全额
+								</span>
+								<span ng-click="clickDiscount('0')" class ="discountBtn marginR15" ng-show = "data.sel3.value.length>0"
+									ng-class ="{true:'discountCheck',false:''}[data.discountOrNot=='0']">折扣 
+								</span>
+								<span class ="marginR10">&nbsp;</span>
+								<show-hide-table tname = "list170VO"></show-hide-table> 
+								<!--折扣的时候不支持表格复用-->
+								<oc-complete tbname="list170VO" ng-hide ="data.discountOrNot=='0'||data.statusDes=='3'" ></oc-complete>
+	                      	</div>
+	                      	<div class = "table_layout" style ="width:560px" ng-if="tableStatus.list170VO&&data.discountOrNot=='1'">
+								<table-info  table-data="tableData.list170VO"  tbname="list170VO" 
+									list="data.list170VO" html-url="tb170.html">
+								</table-info>
+							</div>
+							<div class = "table_layout" style="width: 600px;" ng-if="tableStatus.list170VO&&data.discountOrNot=='0'">
+								<table>
+									<tbody>
+									<tr bindonce ng-repeat="l in data.list201VO">
+										<td bo-bind="'['+l.subCode+']'+l.commercialName"></td>
+										<td>
+											<div class="radio-inline"> 
+												<input type ="radio"  ng-model ="l.discountType" ng-click = "clickDiscount2(l)" 
+												 ng-disabled="!editStatus.list201VO" value= "1"  /><label>一口价</label>
+											</div>
+											<input  name="{{'t20102'+$index}}" ng-model = "l.onePriceNum" 
+												ng-class="{true:'required',false:'inputDisabled'}[l.discountType=='1']"
+											    ng-disabled="!editStatus.list201VO||l.discountType!='1'" class ="common_input"
+											    type ="text" maxLength = "8" class ="digits" style ="width:50px;" />CNY
+										</td>
+										<td>
+											<div class="radio-inline"> 
+												<input type ="radio" ng-model ="l.discountType" ng-click = "clickDiscount2(l)" 
+												ng-disabled="!editStatus.list201VO" value= "0"  /><label>折扣</label>
+											</div>
+											<input  name="{{'t20104'+$index}}" type="text" ng-model = "l.discountNum"  maxLength="3"
+											  class ="{number:true,min:0,max:100} common_input"  style ="width:50px;"
+											  ng-class ="{true:'required',false:'inputDisabled'}[l.discountType=='0']"
+											  ng-disabled="!editStatus.list201VO||l.discountType!='0'" />&nbsp;%
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+	                      	
+	                      </div>
+	                    </div>
+					</section>
+					<!-- 金额普通服务时  end -->
+					
+                    <div class="form-group" ng-show= "showStatus.specSevFeeAndOrIndicator.showFlag">
                         <label class="pure-u-1-8 control-label">或/和</label>
                         <div class="pure-u-1-4">
                             <div class="radio-inline">
-                                <input type="radio" /><label class="radioLabel">或则</label>
+                            	<input ng-model="data.specSevFeeAndOrIndicator" name ="specSevFeeAndOrIndicator" type="radio" 
+							    	 	value="" ng-disabled="!editStatus.specSevFeeAndOrIndicator" ng-change ="clickSpecSevFeeAndOrIndicator('')" />
+                                	<label class="radioLabel">或则</label>
                             </div>
                             <div class="radio-inline">
-                                <input type="radio" /><label  class="radioLabel">和</label>
+                                <input ng-model="data.specSevFeeAndOrIndicator" name ="specSevFeeAndOrIndicator" type="radio" 
+									 	value="A" ng-disabled="!editStatus.specSevFeeAndOrIndicator" ng-change ="clickSpecSevFeeAndOrIndicator('A')" />
+									 	<label  class="radioLabel">和</label>
                             </div>
                         </div>
                     </div>
 
-                     <div class="form-group">
+                     <div class="form-group"  ng-show= "showStatus.mileageExchangeIndicator.showFlag">
                          <label  class="pure-u-1-8 control-label">里程兑换标识</label>
                          <div class="pure-u-1-2">
-                            <div class="radio-inline"><input type="radio" /><span>不兑换</span></div>
-                            <div class="radio-inline"><input type="radio" /><span>兑换，用里程支付</span></div>
-                            <div class="radio-inline"><input type="radio" /><span>兑换，用里程或金额支付</span></div>
+                            <div class="radio-inline">
+                            	<input type ="radio"  ng-model ="data.mileageExchangeIndicator"  value ="0" 
+							    		name ="mileageExchangeIndicator" ng-disabled="!editStatus.mileageExchangeIndicator" 
+							    		ng-change="clickMileageExchangeIndicator('')"/><label>不兑换</label>
+							</div>
+                            <div class="radio-inline">
+                            	<input type ="radio"  ng-model ="data.mileageExchangeIndicator"  value ="1" 
+							    		name ="mileageExchangeIndicator" ng-disabled="!editStatus.mileageExchangeIndicator" 
+							    		ng-change="clickMileageExchangeIndicator('1')"/><label>兑换，用里程支付</label>
+                            </div>
+                            <div class="radio-inline">
+                            	<input type ="radio"  ng-model ="data.mileageExchangeIndicator" value ="2" 
+							    		name ="mileageExchangeIndicator" ng-disabled="!editStatus.mileageExchangeIndicator" 
+							    		ng-change="clickMileageExchangeIndicator('2')"/><label>兑换，用里程或金额支付</label>
+                            </div>
                          </div>
                      </div>
-                     <div class="form-group">
+                     <div class="form-group" ng-show ="showStatus.specifiedServiceFeeMileage.showFlag">
                          <label  class="pure-u-1-8 control-label">里程费</label>
                          <div class="pure-u-1-4">
-                            <input type="text" class="form-control input-sm"  >
+                         	<input ng-model="data.specifiedServiceFeeMileage" ng-disabled="!editStatus.specifiedServiceFeeMileage" 
+									  maxLength = "8" type="text"  class="form-control input-sm" name="specifiedServiceFeeMileage" nnint =""
+									  ng-required ="data.specSevFeeAndOrIndicator=='A'" />
                          </div>
+                         <span ng-messages="myForm.specifiedServiceFeeMileage.$error" >
+					 		<span class="errorInfo_validate" ng-message="required">必填！选择的计费方式为金额和里程费</span>
+                            <span class="errorInfo_validate" ng-message="nnint">请输入非负整数!</span>
+                         </span>
                      </div>
-                     <div class="form-group">
+                     <div class="form-group" ng-show= "showStatus.specifiedServiceFeeApp.showFlag">
                          <label  class="pure-u-1-8 control-label">适用于</label>
                          <div class="pure-u-1-4">
-                             <select class="form-control input-sm">
-                                 <option value="">选择</option>
-                                 <option value="">每用一次服务算一次服务费用</option>
-                                 <option value="">3</option>
-                             </select>
+                         	<select ng-model="data.specifiedServiceFeeApp" ng-disabled="!editStatus.specifiedServiceFeeApp" 
+								class="form-control input-sm" name="specifiedServiceFeeApp"  ng-change="changeSpecifiedServiceFeeApp()"
+								ng-options="a.value as a.name for a in specifiedServiceFeeAppList.list">
+								<option value="">选择</option>
+						    </select>
                          </div>
                      </div>
-                     <div class="form-group">
+                     <div class="form-group" ng-show= "showStatus.specServiceFeeColSub.showFlag" >
                          <label  class="pure-u-1-8 control-label">包含/扣除</label>
                          <div class="pure-u-1-4">
-                             <select class="form-control input-sm">
-                                 <option value="">选择</option>
-                                 <option value="">每用一次服务算一次服务费用</option>
-                                 <option value="">3</option>
-                             </select>
+                         	  <select ng-model="data.specServiceFeeColSub" ng-disabled="!editStatus.specServiceFeeColSub"  
+							      class="form-control input-sm" ng-options="a.value as a.name for a in specServiceFeeColSubList">
+							  </select>
                          </div>
                      </div>
-                     <div class="form-group">
+                     <div class="form-group" ng-show= "showStatus.specServiceFeeNetSell.showFlag">
                          <label  class="pure-u-1-8 control-label">净价/销售价</label>
                          <div class="pure-u-1-4">
-                             <select class="form-control input-sm">
-                                 <option value="">选择</option>
-                                 <option value="">每用一次服务算一次服务费用</option>
-                                 <option value="">3</option>
-                             </select>
+                         	 <select ng-model="data.specServiceFeeNetSell"  ng-disabled="!editStatus.specServiceFeeNetSell"  
+							      class="form-control input-sm" ng-options="a.value as a.name for a in specServiceFeeNetSellList">
+							 </select>
                          </div>
                      </div>
-                     <div class="form-group">
+                     <div class="form-group" ng-show= "showStatus.indicatorComission.showFlag">
                          <label  class="pure-u-1-8 control-label">有无代理费</label>
                          <div class="pure-u-1-4">
-                             <span class="radio-inline"><input type="radio" /><label >有</label></span>
-                             <span class="radio-inline"><input type="radio" /><label>无</label></span>
+                             <span class="radio-inline">
+                             	<input ng-model="data.indicatorComission"  name ="indicatorComission"  
+							    		ng-disabled="!editStatus.indicatorComission"  type="radio" value="Y" />
+							    <label >有</label>
+                             </span>
+                             <span class="radio-inline">
+                             	<input ng-model="data.indicatorComission" name ="indicatorComission" 
+										ng-disabled="!editStatus.indicatorComission" type="radio" value="N" />
+								<label>无</label>
+                             </span>
                          </div>
                      </div>
-                     <div class="form-group">
+                     <div class="form-group" ng-show= "showStatus.taxApplication.showFlag">
                          <label  class="pure-u-1-8 control-label">有无税费</label>
                          <div class="pure-u-1-4">
-                            <span class="radio-inline"> <input type="radio" /><label  class="radioLabel">有</label></span>
-                            <span class="radio-inline"> <input type="radio" /><label class="radioLabel">无</label></span>
+                            <span class="radio-inline"> 
+                            	<input ng-model="data.taxApplication" name ="taxApplication"  
+							    		ng-disabled="!editStatus.taxApplication" type="radio" value="Y" />
+							    <label  class="radioLabel">有</label>
+                            </span>
+                            <span class="radio-inline"> 
+                            	<input ng-model="data.taxApplication" name ="taxApplication"  
+										ng-disabled="!editStatus.taxApplication" type="radio"  value="" />
+								<label class="radioLabel">无</label>
+                            </span>
                          </div>
                      </div>
-                </span>
+                </div>
             </div>
             <!--费用 end-->
         </div>
         <!--第二部分‘确定费用’ end-->
         <!--第三部分‘规则详细’ start-->
-        <div class="data_section">
+        <div class="data_section" ng-controller="RuleDetailCtrl">
             <div class="title_layout">
                 <span class="left">3.规则详细</span>
                 <span class="text-info">序号  | 旅客  | 发布  | 航程  | 航班  | 购买  | 票价  | 票证  | 退款</span>
@@ -322,412 +608,629 @@
             <!--序号 strart-->
             <div class="content_layout">
                 <span class="left">序号</span>
-                <span class="right">
-                    <div class="form-group">
+                <div class="right">
+                    <div class="form-group" ng-show= "showStatus.sequenceNumber.showFlag">
                         <label class="pure-u-1-8 control-label">优先级序号</label>
                         <div class="pure-u-1-4">
-                            <input type="text" class="form-control input-sm"  >
+                        	<input ng-model="data.sequenceNumber" ng-disabled="!editStatus.sequenceNumber" type="text"  
+								class="form-control input-sm" placeholder="序号越小，优先级越高" maxlength ="7" name="sequenceNumber" 
+								ng-required ="data.action==UPDATE_STR" pint =""/>
                         </div>
+                        <span ng-messages="myForm.sequenceNumber.$error" ng-if="myForm.sequenceNumber.$dirty">
+                            <span class="errorInfo_validate" ng-message="required">必填字段!</span>
+                            <span class="errorInfo_validate" ng-message="pint">请输入正整数！</span>
+                        </span>
                     </div>
-                </span>
+                </div>
             </div>
             <!--序号 end-->
 
             <!--旅客 strart-->
             <div class="content_layout">
                 <span class="left">旅客</span>
-                <span class="right">
-                    <div class="form-group">
-                        <label class="pure-u-1-8 control-label">旅客范围</label>
+                <div class="right">
+                    <div class="form-group" ng-show= "showStatus.passengerTypeCode.showFlag">
+                        <label class="pure-u-1-8 control-label">旅客类型</label>
                         <div class="pure-u-1-4">
-                            <select name=""  class="form-control input-sm">
-                                <option value="">选择</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                            </select>
+                        	<select ng-model="data.passengerTypeCode"  ng-disabled="!editStatus.passengerTypeCode" class="form-control input-sm"
+								ng-options="a.psgrTypeCode as a.psgrTypeDesc for a in passengerTypeCodeList">
+								<option value="">请选择</option>
+							</select>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.minAndMaxPassengerAge.showFlag">
                         <label class="pure-u-1-8 control-label">年龄范围</label>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"/>
+                        	<input type = "text" ng-model = "data.minPassengerAge"  maxLength = "2"  ng-disabled="!editStatus.minPassengerAge"
+								class = "form-control input-sm" pint ="" smaller ="{{data.maxPassengerAge}}" name ="minPassengerAge" id="minPassengerAge" />
                         </div>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"/>
+                            <input type = "text" ng-model = "data.maxPassengerAge" maxLength = "2"   ng-disabled="!editStatus.maxPassengerAge"
+								class ="form-control input-sm" pint =""  bigger ="{{data.minPassengerAge}}" name="maxPassengerAge" id ="maxPassengerAge"/>
                         </div>
+                        <span ng-messages="myForm.minPassengerAge.$error">
+                            <span class="errorInfo_validate" ng-message="pint">请输入正整数！</span>
+                             <span class="errorInfo_validate" ng-message="smaller">年龄最小值不能大于最大值！</span>
+                        </span>
+                        <span ng-messages="myForm.maxPassengerAge.$error" >
+                            <span class="errorInfo_validate" ng-message="pint">请输入正整数！</span>
+                             <span class="errorInfo_validate" ng-message="bigger">年龄最大值不能小于最小值！</span>
+                        </span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"  ng-show= "showStatus.allowancePeopleMinAndMaximum.showFlag">
                         <label class="pure-u-1-8 control-label">服务适用人数范围</label>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"/>
+                        	<input type = "text" ng-model = "data.allowancePeopleMinimum"  maxLength = "3"  
+					    		ng-disabled="!editStatus.allowancePeopleMinimum" pint ="" smaller ="{{data.allowancePeopleMaximum}}"
+								class = "form-control input-sm" name ="allowancePeopleMinimum" id="allowancePeopleMinimum" />
                         </div>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"/>
+                            <input type = "text" ng-model = "data.allowancePeopleMaximum" maxLength = "3"   
+								ng-disabled="!editStatus.allowancePeopleMaximum" pint ="" bigger ="{{data.allowancePeopleMinimum}}"
+								class = "form-control input-sm" name="allowancePeopleMaximum" id ="allowancePeopleMaximum"/>
                         </div>
+                        <span ng-messages="myForm.allowancePeopleMinimum.$error">
+                            <span class="errorInfo_validate" ng-message="pint">请输入正整数！</span>
+                             <span class="errorInfo_validate" ng-message="smaller">人数最小值不能大于最大值！</span>
+                        </span>
+                        <span ng-messages="myForm.allowancePeopleMaximum.$error" >
+                            <span class="errorInfo_validate" ng-message="pint">请输入正整数！</span>
+                             <span class="errorInfo_validate" ng-message="bigger">人数最大值不能小于最小值！</span>
+                        </span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.firstAndLastPassengerOccurrence.showFlag">
                         <label class="pure-u-1-8 control-label">旅客序号范围</label>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"/>
+                        	<input type = "text" ng-model = "data.firstPassengerOccurrence" maxLength = "3" 
+							     ng-disabled="!editStatus.firstPassengerOccurrence" class = "form-control input-sm" 
+							     id="firstPassengerOccurrence" name="firstPassengerOccurrence" pint ="" smaller ="{{data.lastPassengerOccurrence}}"/>
                         </div>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"/>
+                        	<input type = "text" ng-model = "data.lastPassengerOccurrence"  maxLength = "3"  class="form-control input-sm"
+									 ng-disabled="!editStatus.lastPassengerOccurrence" pint ="" bigger ="{{data.firstPassengerOccurrence}}"
+									 name ="lastPassengerOccurrence" id ="lastPassengerOccurrence"/>
                         </div>
+                        <span ng-messages="myForm.firstPassengerOccurrence.$error">
+                          <span class="errorInfo_validate" ng-message="pint">请输入正整数！</span>
+                           <span class="errorInfo_validate" ng-message="smaller">序号最小数不能大于最大值！</span>
+                       </span>
+                       <span ng-messages="myForm.lastPassengerOccurrence.$error" >
+                          <span class="errorInfo_validate" ng-message="pint">请输入正整数！</span>
+                           <span class="errorInfo_validate" ng-message="bigger">序号最大值不能小于最小值！</span>
+                       </span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.frequentFlyerStatus.showFlag">
                         <label class="pure-u-1-8 control-label">常旅客状态</label>
                         <div class="pure-u-1-4">
-                            <select name=""  class="form-control input-sm">
-                                <option value="">选择</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                            </select>
+                        	<select ng-model="data.frequentFlyerStatus" ng-disabled="!editStatus.frequentFlyerStatus" 
+					    		class="form-control input-sm" ng-options="b.ffpStatus as b.description for b in frequentFlyerStatusList">
+					    		<option value="">选择</option>
+							</select>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.customerIndexScoreMinAndMaximum.showFlag">
                         <label class="pure-u-1-8 control-label">客户积分范围</label>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"/>
+                        	<input type="text" ng-model="data.customerIndexScoreMinimum" maxLength="6" pint =""
+					    		ng-disabled="!editStatus.customerIndexScoreMinimum" smaller ="{{data.customerIndexScoreMaxmum}}"
+					    		class = "form-control input-sm" name="customerIndexScoreMinimum" id="customerIndexScoreMinimum" />
                         </div>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"/>
+                            <input type = "text" ng-model = "data.customerIndexScoreMaxmum"  maxLength = "6"  pint =""
+								ng-disabled="!editStatus.customerIndexScoreMaxmum" id="customerIndexScoreMaxmum" 
+								bigger ="{{data.customerIndexScoreMinimum}}" class = "form-control input-sm" name="customerIndexScoreMaxmum"  />
                         </div>
+                        <span ng-messages="myForm.customerIndexScoreMinimum.$error">
+                            <span class="errorInfo_validate" ng-message="pint">请输入正整数！</span>
+                             <span class="errorInfo_validate" ng-message="smaller">积分最小数不能大于最大值！</span>
+                        </span>
+                        <span ng-messages="myForm.customerIndexScoreMaxmum.$error" >
+                            <span class="errorInfo_validate" ng-message="pint">请输入正整数！</span>
+                             <span class="errorInfo_validate" ng-message="bigger">积分最大值不能小于最小值！</span>
+                        </span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.list172VO.showFlag" >
                         <label class="pure-u-1-8 control-label">大客户/特殊客户</label>
-                        <div class="pure-u-1-2 control_right_content">
-                            <a href="">填写表格</a>
-                            <div class="table_layout" style ="width:160px">
-                                <table>
-                                    <thead>
-                                    <tr> <th>大客户编码</th></tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td> <input type="text" class="common_input"></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                        <div class="pure-u-1-2">
+                        	<div class="table_control">
+                            	<show-hide-table tname="list172VO"></show-hide-table>
+						    	<oc-complete  tbname="list172VO" ng-hide ="data.statusDes=='3'"></oc-complete>
                             </div>
+                            <div class = "table_layout" style ="width:150px" ng-show="tableStatus.list172VO">
+								<table-info table-data = "tableData.list172VO" tbname="list172VO"
+									 list = "data.list172VO" html-url = "tb172.html" >
+								</table-info>
+							</div>
                         </div>
                     </div>
-                </span>
+                </div>
             </div>
             <!--旅客 end-->
 
             <!--发布 strart-->
             <div class="content_layout">
                 <span class="left">发布</span>
-                <span class="right">
-                    <div class="form-group">
+                <div class="right">
+                    <div class="form-group" ng-show= "showStatus.list183VO.showFlag" >
                         <label class="pure-u-1-8 control-label">发布对象</label>
-                        <div class="pure-u-1-2 control_right_content">
-                            <a href="">填写表格</a>
-                            <div class="table_layout" style ="width:750px">
-                                <table>
-                                    <thead>
-                                    <tr>
-                                        <th width="62px">旅行社</th>
-                                        <th width="100px">航空公司/分销商</th>
-                                        <th width="76px">职责/功能码</th>
-                                        <th width ="80px">区域类型</th>
-                                        <th width ="65px">区域代码</th>
-                                        <th width ="150px">发布对象类型</th>
-                                        <th width ="87px">发布对象代码</th>
-                                        <th width ="110px">权限</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td> <input type="text" class="common_input" style="width:93%;"></td>
-                                        <td> <input type="text" class="common_input" style="width:93%;"></td>
-                                        <td> <input type="text" class="common_input" style="width:93%;"></td>
-                                        <td> <input type="text" class="common_input" style="width:93%;"></td>
-                                        <td> <input type="text" class="common_input" style="width:93%;"></td>
-                                        <td> <input type="text" class="common_input" style="width:93%;"></td>
-                                        <td> <input type="text" class="common_input" style="width:93%;"></td>
-                                        <td> <input type="text" class="common_input" style="width:93%;"></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="pure-u-1-2">
+                        	<div class="table_control">
+                        		<show-hide-table tname="list183VO"></show-hide-table>
+						    	<oc-complete tbname="list183VO" ng-hide ="data.statusDes=='3'"></oc-complete>
+                        	</div>
+                            <div class = "table_layout" style ="width:750px" ng-show="tableStatus.list183VO" >
+								<table-info table-data = "tableData.list183VO" list = "data.list183VO" 
+									tbname="list183VO"  html-url = "tb183.html">
+								</table-info>
+							</div>
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.publicPrivateIndicator.showFlag">
                         <label class="pure-u-1-8 control-label">公布私有</label>
                         <div class="pure-u-1-4">
                             <div class="radio-inline">
-                                <input type="radio" /><label>公布</label>
+                                <input ng-model="data.publicPrivateIndicator" name = "publicPrivateIndicator" 
+									ng-disabled="!editStatus.publicPrivateIndicator" type="radio" value="" />
+								<label>公布</label>
                             </div>
                             <div class="radio-inline">
-                                <input type="radio" /><label>私有</label>
+                                <input ng-model="data.publicPrivateIndicator" name ="publicPrivateIndicator"  
+									ng-disabled="!editStatus.publicPrivateIndicator" type="radio" value="P" />
+								<label>私有</label>
                             </div>
                         </div>
                     </div>
 
-                </span>
+                </div>
             </div>
             <!--发布 end-->
 
             <!--航程 strart-->
             <div class="content_layout">
                 <span class="left">航程</span>
-                <span class="right">
-                    <div class="form-group">
+                <div class="right">
+                    <div class="form-group" ng-show= "showStatus.geoSpecFromToWithin.showFlag">
                         <label class="pure-u-1-8 control-label">区域限制</label>
                         <div class="pure-u-1-2">
                             <div class="radio-inline">
-                                <input type="radio"/><label>不限区域</label>
+                                <input ng-model = "data.geoSpecFromToWithin" ng-disabled="!editStatus.geoSpecFromToWithin" 
+									value=""  name="geoSpecFromToWithin" checked="checked" type="radio"/>
+								<label>不限区域</label>
                             </div>
                             <div class="radio-inline">
-                                <input type="radio"/><label>区域1→2</label>
+                                <input ng-model = "data.geoSpecFromToWithin" ng-disabled="!editStatus.geoSpecFromToWithin" 
+									value="1" name="geoSpecFromToWithin" type="radio" />
+								<label>区域1→2</label>
                             </div>
                             <div class="radio-inline">
-                                <input type="radio"/><label>区域2→1</label>
+                                <input  ng-model = "data.geoSpecFromToWithin" ng-disabled="!editStatus.geoSpecFromToWithin"  
+									value="2" name="geoSpecFromToWithin" type="radio"  />
+								<label>区域2→1</label>
                             </div>
                             <div class="radio-inline">
-                                <input type="radio"/><label>区域1内部</label>
+                                <input  ng-model = "data.geoSpecFromToWithin" ng-disabled="!editStatus.geoSpecFromToWithin" 
+									value="W" name="geoSpecFromToWithin" type="radio"  />
+								<label>区域1内部</label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.geoSpecSectPortJourney.showFlag" >
                         <label class="pure-u-1-8 control-label">Sector/Portion/Journey</label>
                         <div class="pure-u-1-4">
-                            <select name="" class="form-control input-sm">
-                                <option value="">选择</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                            </select>
+                        	<select ng-model="data.geoSpecSectPortJourney"  ng-disabled="!editStatus.geoSpecSectPortJourney" 
+								class = "form-control input-sm" name="geoSpecSectPortJourney" ng-change="changeGeoSpecSectPortJourney()"
+								ng-options="d.value as d.name for d in geoSpecSectPortJourneyList.list" >
+							</select>
                         </div>
-                        <i class="glyphicon glyphicon-asterisk red input_tip"></i>
+                        <i class="glyphicon glyphicon-asterisk red input_tip"  ng-show="data.serviceType=='F'"></i>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.geoSpecTravelIndicator.showFlag" >
                         <label class="pure-u-1-8 control-label">指定区域</label>
                         <div class="pure-u-1-4">
-                            <input type="text" class="form-control input-sm"/>
+                        	<input ng-model="data.geoSpecTravelIndicator"  ng-disabled="!editStatus.geoSpecTravelIndicator"
+						    	maxLength = "2" type="text" placeholder="" class="form-control input-sm" />
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.geoSpecExceptionStopTimeAndUnit.showFlag">
                         <label class="pure-u-1-8 control-label">经停时间</label>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"/>
+                        	<input ng-model="data.geoSpecExceptionStopTime" name="geoSpecExceptionStopTime" 
+					    		ng-disabled="!editStatus.geoSpecExceptionStopTime" type="text" 
+					    		class="form-control input-sm"  nnint ="" ng-required ="data.geoSpecExceptionStopUnit!=''" />
                         </div>
                         <div class="pure-u-1-8">
-                            <select name="" class="form-control input-sm">
-                                <option value="">选择</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                            </select>
+                            <select name ="geoSpecExceptionStopUnit" ng-model="data.geoSpecExceptionStopUnit" class ="form-control input-sm"
+								ng-required ="data.geoSpecExceptionStopTime!=''" ng-disabled="!editStatus.geoSpecExceptionStopUnit"  >
+								<option bindonce ng-repeat ="l in geoSpecExceptionStopUnitList" value="{{l.value}}" bo-text="l.name"></option>
+							</select>
                         </div>
+                        <span ng-messages="myForm.geoSpecExceptionStopTime.$error" >
+                            <span class="errorInfo_validate" ng-message="required">经停时间不能为空！</span>
+                            <span class="errorInfo_validate" ng-message="bigger">请输入非负整数！</span>
+                        </span>
+                        <span ng-messages="myForm.geoSpecExceptionStopUnit.$error" >
+                            <span class="errorInfo_validate" ng-message="required">经停单位不能为空！</span>
+                        </span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.geoSpecStopConnDes.showFlag">
                         <label class="pure-u-1-8 control-label">经停类型</label>
                         <div class="pure-u-1-4">
-                            <input type="text" class="form-control input-sm"/>
+                        	<input ng-model="data.geoSpecStopConnDes" ng-disabled="!editStatus.geoSpecStopConnDes"
+								maxLength = "1" upper-input="" type="text" class="form-control input-sm" letter =""  name ="geoSpecStopConnDes"/>
                         </div>
+                        <span ng-messages="myForm.geoSpecStopConnDes.$error" >
+                            <span class="errorInfo_validate" ng-message="letter">请输入字母!</span>
+                        </span>
                     </div>
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">区域1</label>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"/>
+                        	<select name="geoSpecLoc1Type" ng-model="data.geoSpecLoc1Type" ng-options="b.value as b.name for b in geoLocTypeList"
+								 ng-disabled="data.list178Loc1.length>0||tableStatus.list178Loc1||!editStatus.geoSpecLoc1Type"
+								 ng-change="selectChangeGeoSpecLoc1()" class="form-control input-sm">
+							</select>
                         </div>
                         <div class="pure-u-1-8">
-                            <select name="" class="form-control input-sm">
-                                <option value="">选择</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                            </select>
+                        	<input name = "geoSpecLoc1" ng-model = "data.geoSpecLoc1" upper-input  type="text" class="form-control input-sm"
+							 geo-max-length = "data.geoSpecLoc1Type"  ng-disabled="!editStatus.geoSpecLoc1" 
+							 ng-required ="data.geoSpecLoc1Type!=''" geo="{{data.geoSpecLoc1Type}}" placeholder="代码"/>
+                        </div>
+                        <div class ="pure-u-14-24">
+                        	<div class="table_control">
+                        		<link-table ng-if="data.geoSpecLoc1Type==''" tbname="list178Loc1" list="data.list178Loc1" strtip="自定义区域"></link-table>
+								<oc-complete ng-hide="data.geoSpecLoc1Type!=''||data.statusDes=='3'" tbname="list178Loc1"></oc-complete>
+                        	</div>
+                        	<span ng-messages="myForm.geoSpecLoc1.$error" >
+                                <span class="errorInfo_validate" ng-message="required">区域不能为空!</span>
+                                <span class="errorInfo_validate" ng-message="areacode">请输入正确的大区代码!</span>
+                                <span class="errorInfo_validate" ng-message="citycode">请输入正确的城市三字码!</span>
+                                <span class="errorInfo_validate" ng-message="countrycode">请输入正确的国家二字码!</span>
+                                <span class="errorInfo_validate" ng-message="airportcode">请输入正确的机场三字码!</span>
+                                <span class="errorInfo_validate" ng-message="statecode">请输入正确的州二字码!</span>
+                                <span class="errorInfo_validate" ng-message="zonecode">请输入正确的区域代码!</span>
+                            </span>
+                        </div>
+                        <div class ="pure-u-1-8" ng-show="tableStatus.list178Loc1"></div>
+                        <div class ="pure-u-20-24" ng-show="tableStatus.list178Loc1">
+                        	<div class = "table_layout" style ="width:460px" >
+						    	<table-info   html-url = "tb178geo1.html" tbname="list178Loc1" 
+						    		table-data="tableData.list178Loc1"  list="data.list178Loc1" >
+								</table-info>
+							</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">区域2</label>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"/>
+                        	<select name="geoSpecLoc2Type"  ng-model="data.geoSpecLoc2Type" ng-change="selectChangeGeoSpecLoc2()"
+								ng-options="b.value as b.name for b in geoLocTypeList" class="form-control input-sm"
+								ng-disabled="data.list178Loc2.length>0||tableStatus.list178Loc2||!editStatus.geoSpecLoc2Type">
+							</select>
                         </div>
                         <div class="pure-u-1-8">
-                            <select name="" class="form-control input-sm">
-                                <option value="">选择</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                            </select>
+                            <input name ="geoSpecLoc2" ng-model = "data.geoSpecLoc2" upper-input ng-disabled="!editStatus.geoSpecLoc2" 
+								type="text" geo-max-length = "data.geoSpecLoc2Type"  class="form-control input-sm" placeholder="代码"
+								 geo="{{data.geoSpecLoc2Type}}" ng-required ="data.geoSpecLoc2Type!=''"/>
+                        </div>
+                        <div class ="pure-u-14-24">
+                        	<div class="table_control">
+                        		<link-table ng-if = "data.geoSpecLoc2Type==''" tbname = "list178Loc2" list = "data.list178Loc2" strtip="自定义区域"></link-table>
+								<oc-complete ng-hide="data.geoSpecLoc2Type!=''||data.statusDes=='3'" tbname="list178Loc2"></oc-complete>
+                        	</div>
+                        	<span ng-messages="myForm.geoSpecLoc2.$error" >
+                                <span class="errorInfo_validate" ng-message="required">区域不能为空!</span>
+                                <span class="errorInfo_validate" ng-message="areacode">请输入正确的大区代码!</span>
+                                <span class="errorInfo_validate" ng-message="citycode">请输入正确的城市三字码!</span>
+                                <span class="errorInfo_validate" ng-message="countrycode">请输入正确的国家二字码!</span>
+                                <span class="errorInfo_validate" ng-message="airportcode">请输入正确的机场三字码!</span>
+                                <span class="errorInfo_validate" ng-message="statecode">请输入正确的州二字码!</span>
+                                <span class="errorInfo_validate" ng-message="zonecode">请输入正确的区域代码!</span>
+                            </span>
+                        </div>
+                        <div class="pure-u-1-8" ng-show="tableStatus.list178Loc2"></div>
+                        <div class ="pure-u-20-24" ng-show="tableStatus.list178Loc2" >
+                        	<div class = "table_layout" style ="width:460px" >
+						    	<table-info html-url="tb178geo2.html" tbname="list178Loc2" 
+						    		table-data="tableData.list178Loc2" list="data.list178Loc2">
+								</table-info>
+							</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">经停区域</label>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"/>
+                        	<select name="geoSpecLoc3Type" ng-model="data.geoSpecLoc3Type" ng-change="selectChangeGeoSpecLoc3()"
+								ng-options="b.value as b.name for b in geoLocTypeList"  class="form-control input-sm"
+								ng-disabled="data.list178Loc3.length>0||tableStatus.list178Loc3||!editStatus.geoSpecLoc3Type">
+							</select>
                         </div>
                         <div class="pure-u-1-8">
-                            <select name="" class="form-control input-sm">
-                                <option value="">选择</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                            </select>
+                            <input name="geoSpecLoc3" ng-model = "data.geoSpecLoc3" upper-input="" ng-disabled="!editStatus.geoSpecLoc3"
+								 class="form-control input-sm" geo-max-length="data.geoSpecLoc3Type" placeholder="代码"  type="text"
+								 geo="{{data.geoSpecLoc3Type}}" ng-required ="data.geoSpecLoc3Type!=''"/>
+                        </div>
+                        <div class ="pure-u-14-24">
+                        	<div class ="table_control">
+                        		<link-table ng-if="data.geoSpecLoc3Type==''" tbname="list178Loc3" list="data.list178Loc3" strtip="自定义区域"></link-table>
+								<oc-complete ng-hide="data.geoSpecLoc3Type!=''||data.statusDes=='3'" tbname="list178Loc3"></oc-complete>
+                        	</div>
+                        	<span ng-messages="myForm.geoSpecLoc3.$error" >
+                                <span class="errorInfo_validate" ng-message="required">区域不能为空!</span>
+                                <span class="errorInfo_validate" ng-message="areacode">请输入正确的大区代码!</span>
+                                <span class="errorInfo_validate" ng-message="citycode">请输入正确的城市三字码!</span>
+                                <span class="errorInfo_validate" ng-message="countrycode">请输入正确的国家二字码!</span>
+                                <span class="errorInfo_validate" ng-message="airportcode">请输入正确的机场三字码!</span>
+                                <span class="errorInfo_validate" ng-message="statecode">请输入正确的州二字码!</span>
+                                <span class="errorInfo_validate" ng-message="zonecode">请输入正确的区域代码!</span>
+                            </span>
+                        </div>
+                        <div class="pure-u-1-8" ng-show="tableStatus.list178Loc3"></div>
+                        <div class="pure-u-20-24" ng-show="tableStatus.list178Loc3">
+                        	<div class = "table_layout" style ="width:460px" >
+						    	<table-info   html-url="tb178geo3.html" tbname="list178Loc3" 
+						    		table-data="tableData.list178Loc3"  list="data.list178Loc3" >
+								</table-info>
+							</div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.mileageMinAndMaximum.showFlag">
                         <label class="pure-u-1-8 control-label">里程范围</label>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"/>
+                        	<input type = "text" ng-model = "data.mileageMinimum" maxLength = "6" ng-disabled="!editStatus.mileageMinimum"
+								class ="form-control input-sm"  name="mileageMinimum"  nnint ="" smaller ="{{data.mileageMaximum}}" id="mileageMinimum"/>
                         </div>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"/>
+                            <input type = "text" ng-model = "data.mileageMaximum" maxLength = "6" ng-disabled="!editStatus.mileageMaximum"
+								class ="form-control input-sm" name="mileageMaximum" nnint ="" bigger ="{{data.mileageMinimum}}" id ="mileageMaximum"/>
                         </div>
+                        <span ng-messages="myForm.mileageMinimum.$error">
+                            <span class="errorInfo_validate" ng-message="nnint">请输入非负整数！</span>
+                             <span class="errorInfo_validate" ng-message="smaller">里程最小数不能大于最大值！</span>
+                        </span>
+                        <span ng-messages="myForm.mileageMaximum.$error" >
+                            <span class="errorInfo_validate" ng-message="nnint">请输入非负整数！</span>
+                             <span class="errorInfo_validate" ng-message="bigger">里程最大值不能小于最小值！</span>
+                        </span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.indicatorInterline.showFlag" >
                         <label class="pure-u-1-8 control-label">是否联程</label>
                         <div class="pure-u-1-4">
                             <div class="radio-inline">
-                                <input type="radio"/><label>是</label>
+                                <input ng-model="data.indicatorInterline" name ="indicatorInterline"  
+									ng-disabled="!editStatus.indicatorInterline" type="radio" value="Y" />
+								<label>是</label>
                             </div>
                             <div class="radio-inline">
-                                <input type="radio"/><label>否</label>
+                               <input ng-model="data.indicatorInterline" name ="indicatorInterline"  
+									ng-disabled="!editStatus.indicatorInterline" type="radio" value="N" />
+								<label>否</label>
                             </div>
                         </div>
                     </div>
-                </span>
+                </div>
             </div>
             <!--航程 end-->
 
             <!--航班 strart-->
             <div class="content_layout">
                 <span class="left">航班</span>
-                <span class="right">
-                    <div class="form-group">
+                <div class="right">
+                    <div class="form-group" ng-show= "showStatus.travelStartDate.showFlag" >
                         <label class="pure-u-1-8 control-label">旅行开始日期</label>
                         <div class="pure-u-1-4">
-                            <input type="text" id="date3" class="form-control input-sm datepicker"  >
+                        	<input ng-model="data.travelStartDate" ng-disabled="!editStatus.travelStartDate"
+						    		name="travelStartDate" id ="travelStartDate" dateoc="" sd ="{{data.travelEndDate}}" 
+									datepicker="{{nextDateStr}}"  type="text" class="form-control input-sm"  />
                         </div>
-                        <label for="date3" class="glyphicon glyphicon-th iconfont_box"></label>
+                        <label for="travelStartDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
+                        <span ng-messages="myForm.travelStartDate.$error">
+                            <span class="errorInfo_validate" ng-message="sd">旅行开始日期必须小于截止日期!</span>
+                        </span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"  ng-show= "showStatus.travelEndDate.showFlag">
                         <label class="pure-u-1-8 control-label">旅行结束日期</label>
                         <div class="pure-u-1-4">
-                            <input id="date4" type="text" class="form-control input-sm datepicker"  >
+                        	<input ng-model="data.travelEndDate" name="travelEndDate" id="travelEndDate" type="text" datepicker="{{nextDateStr}}" 
+						    	 ng-disabled="!editStatus.travelEndDate" bd="{{data.travelStartDate}}" class="form-control input-sm" />
                         </div>
-                        <label for="date4" class="glyphicon glyphicon-th iconfont_box"></label>
+                        <label for="travelEndDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
+                       	<span ng-messages="myForm.travelEndDate.$error">
+                            <span class="errorInfo_validate" ng-message="bd">旅行结束日期必须大于开始日期!</span>
+                        </span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.startTime.showFlag">
                         <label class="pure-u-1-8 control-label">开始时刻</label>
                         <div class="pure-u-1-4">
-                            <input type="text" class="form-control input-sm datepicker"  >
+                        	<input timepicker ="" name="startTime" id ="startTime" ng-required ="data.stopTime.length>0" 
+					    		ng-disabled="!editStatus.startTime"  ng-model = "data.startTime" 
+					    		type="text"  class="form-control input-sm" />
                         </div>
-                        <span class="glyphicon glyphicon-th iconfont_box"></span>
+                        <label for ="startTime" class="glyphicon glyphicon-time iconfont_box"></label>
+                        <span ng-messages="myForm.startTime.$error">
+                             <span class="errorInfo_validate" ng-message="required">本字段不能为空!</span>
+                        </span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"  ng-show= "showStatus.stopTime.showFlag" >
                         <label class="pure-u-1-8 control-label">结束时刻</label>
                         <div class="pure-u-1-4">
-                            <input type="text" class="form-control input-sm datepicker"  >
+                           <input timepicker ="" name="startTime" id ="startTime" ng-required ="data.stopTime.length>0" 
+					    		ng-disabled="!editStatus.startTime"  ng-model = "data.startTime" 
+					    		type="text"  class="form-control input-sm" />
                         </div>
-                        <span class="glyphicon glyphicon-th iconfont_box"></span>
+                        <label for ="startTime" class="glyphicon glyphicon-time iconfont_box"></label>
+                        <span ng-messages="myForm.stopTime.$error">
+                            <span class="errorInfo_validate" ng-message="required">本字段不能为空!</span>
+                        </span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.timeApplication.showFlag" >
                         <label class="pure-u-1-8 control-label">应用范围</label>
                         <div class="pure-u-1-4">
-                            <select name="" class="form-control input-sm" >
-                                <option value="">选择</option>
-                                <option value="">1</option>
-                            </select>
+                        	<select ng-model="data.timeApplication"  ng-disabled="!editStatus.timeApplication" 
+								ng-options="d.value as d.name for d in timeApplicationList" class = "form-control input-sm" >
+							</select>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.dayOfWeek.showFlag">
                         <label class="pure-u-1-8 control-label">星期</label>
                         <div class="pure-u-1-2">
-                            <div class="checkbox-inline"> <input type="checkbox"/><label>星期一</label></div>
-                            <div class="checkbox-inline"><input type="checkbox"/><label>星期二</label></div>
-                            <div class="checkbox-inline"><input type="checkbox"/><label>星期三</label></div>
-                            <div class="checkbox-inline"><input type="checkbox"/><label>星期四</label></div>
-                            <div class="checkbox-inline"><input type="checkbox"/><label>星期五</label></div>
-                            <div class="checkbox-inline"><input type="checkbox"/><label>星期六</label></div>
-                            <div class="checkbox-inline"><input type="checkbox"/><label>星期日</label></div>
+                            <div class="checkbox-inline"> 
+                            	<input name = "dayOfWeek" ng-model = "data.dayOfWeekShow.w1"  ng-disabled="!editStatus.dayOfWeek" type="checkbox" />
+                            	<label>星期一</label>
+                            </div>
+                            <div class="checkbox-inline">
+                            	<input name = "dayOfWeek"  ng-model = "data.dayOfWeekShow.w2" ng-disabled="!editStatus.dayOfWeek" type="checkbox"/>
+                            	<label>星期二</label>
+                            </div>
+                            <div class="checkbox-inline">
+                            	<input name = "dayOfWeek"  ng-model = "data.dayOfWeekShow.w3" ng-disabled="!editStatus.dayOfWeek" type="checkbox"/>
+                            	<label>星期三</label>
+                            </div>
+                            <div class="checkbox-inline">
+                            	<input name = "dayOfWeek"  ng-model = "data.dayOfWeekShow.w4" ng-disabled="!editStatus.dayOfWeek" type="checkbox"/>
+                            	<label>星期四</label>
+                            </div>
+                            <div class="checkbox-inline">
+                            	<input name = "dayOfWeek" ng-model = "data.dayOfWeekShow.w5"  ng-disabled="!editStatus.dayOfWeek" type="checkbox"/>
+                            	<label>星期五</label>
+                            </div>
+                            <div class="checkbox-inline">
+                            	<input name = "dayOfWeek" ng-model = "data.dayOfWeekShow.w6"  ng-disabled="!editStatus.dayOfWeek" type="checkbox" />
+                            	<label>星期六</label>
+                            </div>
+                            <div class="checkbox-inline">
+                            	<input name = "dayOfWeek"  ng-model = "data.dayOfWeekShow.w7" ng-disabled="!editStatus.dayOfWeek" type="checkbox"/>
+                            	<label>星期日</label>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.equipmentAndlist165.showFlag">
                         <label class="pure-u-1-8 control-label">机型</label>
                         <div class="pure-u-1-4">
-                            <select name="" class="form-control input-sm">
-                                <option value="">选择</option>
-                                <option value="">1</option>
-                            </select>
+                        	<select ng-model="data.equipment"  class = "form-control input-sm" 
+						    	    ng-disabled="data.list165VO>0||tableStatus.list165VO||!editStatus.equipment"
+									ng-options="d.code as d.description for d in equipmentList">
+							</select>
+                        </div>
+                        <div class ="pure-u-14-24">
+                        	<div class="table_control">
+                                <link-table list="data.list165VO" tbname="list165VO" strtip="自定义机型" 
+								ng-hide="data.equipment!=''||data.statusDes=='3'" ></link-table>
+								<oc-complete ng-hide="data.equipment!=''||data.statusDes=='3'" tbname="list165VO"></oc-complete>
+                            </div>
+                        </div>
+                        <span class ="pure-u-1-8" ng-show="tableStatus.list165VO"></span>
+                        <div class ="pure-u-20-24" ng-show="tableStatus.list165VO">
+                        	<div class = "table_layout" style ="width:150px" >
+								<table-info list="data.list165VO" table-data="tableData.list165VO" 
+									html-url="tb165.html" tbname="list165VO">
+								</table-info>
+							</div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.list186VO.showFlag" >
                         <label class="pure-u-1-8 control-label">航班号</label>
-                        <div class="pure-u-1-2 control_right_content">
-                            <a href="">填写表格</a>
-                            <div class="table_layout" style ="width:360px">
-                                <table>
-                                    <thead>
-                                    <tr> <th>市场方</th><th>承运方</th><th>航班号</th></tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td> <input type="text" class="common_input"></td>
-                                        <td> <input type="text" class="common_input"></td>
-                                        <td> <input type="text" class="common_input"></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="pure-u-1-2">
+                        	<div class="table_control">
+                        		<show-hide-table tname="list186VO"></show-hide-table>
+						    	<oc-complete ng-hide="data.statusDes=='3'" tbname="list186VO"></oc-complete>
+                        	</div>
+                            <div class = "table_layout" style ="width:450px" ng-show="tableStatus.list186VO">
+								<table-info table-data="tableData.list186VO"  
+									list="data.list186VO" html-url="tb186.html" tbname="list186VO">
+								</table-info>
+							</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">舱位等级</label>
                         <div class="pure-u-1-4">
-                            <select name="" class="form-control input-sm">
-                                <option value="">选择</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                            </select>
+                        	<select ng-model="data.cabin" class="form-control input-sm" ng-disabled="!editStatus.cabin"
+								ng-options="o.value as o.name for o in cabinList">
+							</select>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.list198VO.showFlag" >
                         <label class="pure-u-1-8 control-label">定座属性表</label>
-                        <div class="pure-u-1-4 control_right_content">
-                            <a href="">填写表格</a>
+                        <div class="pure-u-20-24">
+                        	<div class="table_control">
+                        		<show-hide-table tname="list198VO"></show-hide-table>
+						    	<oc-complete  tbname="list198VO" ng-hide ="data.statusDes=='3'"></oc-complete>
+                        	</div>
+                        	<div class = "table_layout" style ="width:600px" ng-show="tableStatus.list198VO">
+								<table-info  table-data = "tableData.list198VO"  
+										list = "data.list198VO" html-url = "tb198.html" tbname="list198VO">
+								</table-info>
+							</div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.upgradeToCabin.showFlag">
                         <label class="pure-u-1-8 control-label">升舱到的服务等级</label>
-                        <div class="pure-u-1-4">
-                            <select name="" class="form-control input-sm">
-                                <option value="">选择</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                            </select>
+                        <div class="pure-u-20-24">
+                        	<select name ="upgradeToCabin" ng-model="data.upgradeToCabin" class="form-control input-sm" 
+								ng-disabled="!editStatus.upgradeToCabin" >
+								 <option value="">选择</option>
+								 <option bindonce ng-repeat="l in cabinList" ng-selected="data.upgradeToCabin==l.value" 
+								 	     bo-value="l.value" bo-bind="l.name">
+								</option>  
+							</select>
                         </div>
                     </div>
-                </span>
+                    <div class="form-group" ng-show= "showStatus.list198UpgradeVO.showFlag&&data.sel3.value!=''" >
+                        <label class="pure-u-1-8 control-label">
+                        	<span ng-show="data.sel1.value=='SA'||data.sel1.value=='BDSA'">座位属性表</span>
+						    <span ng-show="data.sel1.value=='UP'||data.sel1.value=='BDUP'">升舱属性表</span>
+                        </label>
+                        <div class="pure-u-20-24">
+                        	<div class ="table_control">
+                        		<show-hide-table tname="list198UpgradeVO"></show-hide-table>
+						    	<oc-complete  tbname="list198UpgradeVO" ng-hide ="data.statusDes=='3'"></oc-complete>
+                        	</div>
+                        	<div class = "table_layout" style ="width:660px" ng-show="tableStatus.list198UpgradeVO">
+								<table-info tbname="list198UpgradeVO" table-data = "tableData.list198UpgradeVO" 
+									 list = "data.list198UpgradeVO" html-url="tb198UpGrade.html">
+								</table-info>
+							</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!--航班 end-->
 
             <!--购买 strart-->
-            <div class="content_layout">
+            <div class="content_layout" ng-show="data.serviceType!='A'&&data.serviceType!='B'&&data.serviceType!='E'">
                 <span class="left">购买</span>
-                <span class="right">
-                    <div class="form-group">
+                <div class="right">
+                    <div class="form-group" ng-show= "showStatus.advancedPurchasePeriodAndUnit.showFlag">
                         <label class="pure-u-1-8 control-label">提前购票时间</label>
                         <div class="pure-u-1-8">
-                            <input type="text" class="form-control input-sm"  >
+                        	<input name = "advancedPurchasePeriod" ng-model="data.advancedPurchasePeriod" 
+					    		ng-disabled="!editStatus.advancedPurchasePeriod" nnint =""
+					    		class="form-control input-sm" maxLength = "3" type="text"/>
                         </div>
                         <div class="pure-u-1-8">
-                            <select name="" class="form-control input-sm">
-                                <option value="">选择</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                            </select>
+                            <select name="advancedPurchaseUnit" ng-model="data.advancedPurchaseUnit" ng-disabled="!editStatus.advancedPurchaseUnit" 
+									ng-options="d.value as d.name for d in advancedPurchasePeriodList" class="form-control input-sm" 
+									ng-required ="data.advancedPurchasePeriod!=''" >
+									<option value="">选择</option>
+							</select>
                         </div>
+                        <span ng-messages="myForm.advancedPurchasePeriod.$error">
+                            <span class="errorInfo_validate" ng-message="nnint">请输入非负整数。</span>
+                        </span>
+                        <span ng-messages="myForm.advancedPurchaseUnit.$error">
+                            <span class="errorInfo_validate" ng-message="required">单位不能为空。</span>
+                        </span>
                     </div>
-                </span>
+                </div>
             </div>
             <!--购买 end-->
 
             <!--兑换 strart-->
-            <div class="content_layout">
+            <div class="content_layout" ng-show="data.basicInfoVo.subGroup=='FP'">
                 <span class="left">兑换</span>
-                <span class="right">
+                <div class="right">
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">允许兑换的服务</label>
                         <div class="pure-u-1-4 control_right_content">
@@ -737,180 +1240,165 @@
                     </div>
                     <div class="form-group">
                         <label class="pure-u-1-12 control-label">兑换信息</label>
-                        <div class="pure-u-1-4 control_right_content">
-                            <a href="">填写表格</a>
-                            <div class="table_layout" style="width: 870px">
-                                <table>
-                                    <thead>
-                                    <tr>
-                                        <th>&nbsp;</th>
-                                        <th colspan ="3">原始运价</th>
-                                        <th>&nbsp;</th>
-                                        <th colspan ="3">新票填开</th>
-                                    </tr>
-                                    <tr>
-                                        <th width ="127">兑换舱位</th>
-                                        <th width ="58">office</th>
-                                        <th width ="58">IATA_NO</th>
-                                        <th width ="103">DepartmentCode</th>
-                                        <th width ="152">farebasis</th>
-                                        <th width ="150">差价</th>
-                                        <th width ="143">TourCode</th>
-                                        <th width ="138">签注</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr class="selected_td">
-                                        <td><input class ="common_input" type ="text" style="width:96%" placeholder="A/B/C/D" /></td>
-                                        <td><input type ="text" style="width: 98%" class ="common_input" /></td>
-                                        <td><input type ="text" style="width:98%" class ="common_input" /></td>
-                                        <td><input type ="text" style="width:98%" class ="common_input" /></td>
-                                        <td>
-                                            <span style="display:inline-block;width: 46%">原始运价&nbsp;</span>
-                                            <input type ="text" style="width:50%" class ="common_input"/>
-                                            <div style="padding-top: 2px">
-                                                <span style="display:inline-block;width: 46%">新票面</span>
-                                                <input type ="text" style="width:50%" class ="common_input"/>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <select style ="width:98%" class ="common_input">
-                                                <option value="0">免差价</option>
-                                                <option value ="1">收差价,ET计算差额</option>
-                                                <option value ="2">收差价,自定义差额</option>
-                                            </select>
-                                            <div style="margin-top: 2px">
-                                                <input type ="text" style="width: 47%" class ="common_input"/>
-                                                <span style="float: right;width:49%;margin-right: 2px;">
-                                                    <select  class="common_input">
-                                                        <option value ="">选择</option>
-                                                        <option value ="CNY">CNY</option>
-                                                        <option value ="USD">USD</option>
-                                                        <option value ="EUR">EUR</option>
-                                                        <option value ="RUB">RUB</option>
-                                                        <option value ="CAD">CAD</option>
-                                                    </select>
-                                                </span>
-                                                <span class="clearfix"></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)" >编辑TourCode文本</a><br>
-                                            <span style="display:inline-block;width: 48%">附加规则</span>
-                                            <input type ="text" style ="width:48%" class="common_input"  placeholder ="如:123"/>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)" >编辑备注文本</a><br>
-                                            <span style="display:inline-block;width: 48%">附加规则</span>
-                                            <input type ="text" style="width:48%" class="common_input" placeholder ="如:123"/>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="pure-u-21-24">
+                        	<div class ="table_control">
+                        		<show-hide-table tname="listTsk202VO"></show-hide-table>
+						    	<oc-complete  tbname="listTsk202VO" ng-hide ="data.statusDes=='3'"></oc-complete>
+                        	</div>
+                        	<div class = "table_layout" style="width:900px;" ng-show="tableStatus.listTsk202VO">
+					    	   <div class ="pull-right"><strong>TourCode/签注附加规则 :</strong>&nbsp;0:无附加后缀信息;1:附加EMD票号;2:附加旅客人数;3:附加套票套数;4:附加ITY（I=主航段舱位;T=T;Y=套票套数）</div>
+					    	   <div class="clearfix"></div>
+					    	   <table-info table-data="tableData.listTsk202VO" tbname="listTsk202VO" 
+								   list = "data.listTsk202VO" html-url="tbTSK202.html" >
+							   </table-info>
+							</div>
                         </div>
                     </div>
-                </span>
+                </div>
             </div>
             <!--兑换 end-->
 
             <!--票价 strart-->
             <div class="content_layout">
                 <span class="left">票价</span>
-                <span class="right">
-                    <div class="form-group">
+                <div class="right">
+                    <div class="form-group" ng-show= "showStatus.tourCode.showFlag">
                         <label class="pure-u-1-8 control-label">旅行编码</label>
                         <div class="pure-u-1-4">
-                            <input type="text" class="form-control input-sm"  >
+                        	<input type = "text" ng-model = "data.tourCode" name ="tourCode" ng-disabled="!editStatus.tourCode" 
+								 class = "form-control input-sm" lorn ="" placeholder="" maxLength = "15" />
                         </div>
+                        <span ng-messages="myForm.tourCode.$error">
+                            <span class="errorInfo_validate" ng-message="lorn">请输入字母、数字。</span>
+                        </span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.list173TicketVO.showFlag">
                         <label class="pure-u-1-8 control-label">TICKET DESIGNATOR</label>
-                        <div class="pure-u-1-4 control_right_content">
-                            <a href="">填写表格</a>
+                        <div class="pure-u-1-2">
+                        	<div class ="table_control">
+                        		<show-hide-table tname="list173TicketVO"></show-hide-table>
+						    	<oc-complete  tbname="list173TicketVO" ng-hide ="data.statusDes=='3'"></oc-complete>
+                        	</div>
+                            <div class = "table_layout" style="width:150px;"  ng-show="tableStatus.list173TicketVO">
+								<table-info table-data="tableData.list173TicketVO" tbname="list173TicketVO"
+									 list = "data.list173TicketVO" html-url="tb173Ticket.html" >
+								</table-info>
+							</div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-show= "showStatus.tariff.showFlag">
                         <label class="pure-u-1-8 control-label">TARIFF NO.</label>
                         <div class="pure-u-1-4">
-                            <input type="text" class="form-control input-sm"  >
+                        	<input type = "text" ng-model = "data.tariff" maxLength = "3"  ng-disabled="!editStatus.tariff" 
+						    	class = "form-control input-sm" lorn ="" name ="tariff"/>
                         </div>
+                        <span ng-messages="myForm.tariff.$error">
+                            <span class="errorInfo_validate" ng-message="lorn">请输入字母、数字。</span>
+                        </span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"  ng-show= "showStatus.rule.showFlag">
                         <label class="pure-u-1-8 control-label">RULE NO.</label>
                         <div class="pure-u-1-4">
-                            <input type="text" class="form-control input-sm"  >
+                        	<input type = "text" ng-model = "data.rule" maxLength = "4"  ng-disabled="!editStatus.rule"
+						     class = "form-control input-sm" name ="rule" />
                         </div>
+                        <span ng-messages="myForm.rule.$error">
+                            <span class="errorInfo_validate" ng-message="lorn">请输入字母、数字。</span>
+                        </span>
                     </div>
-                    <div class="form-group">
+                    
+                    <div class="form-group" ng-show= "showStatus.list173TktVO.showFlag">
                         <label class="pure-u-1-8 control-label">RESULTING TICKET DESIGNATOR </label>
-                        <div class="pure-u-1-4 control_right_content">
-                            <a href="">填写表格</a>
+                        <div class="pure-u-20-24">
+                        	<div class ="table_control">
+                        		<show-hide-table tname="list173TktVO"></show-hide-table>
+						    	<oc-complete  tbname="list173TktVO" ng-hide ="data.statusDes=='3'"></oc-complete>
+                        	</div>
+                        	<div class = "table_layout" style ="width:150px" ng-show="tableStatus.list173TktVO">
+								<table-info  table-data = "tableData.list173TktVO" tbname="list173TktVO"
+									list = "data.list173TktVO" html-url = "tb173Tkt.html" >
+								</table-info>
+					    	</div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    
+                    <div class="form-group"ng-show= "showStatus.list171VO.showFlag">
                         <label class="pure-u-1-8 control-label">客票舱位等级表 </label>
-                        <div class="pure-u-1-4 control_right_content">
-                            <a href="">填写表格</a>
+                        <div class="pure-u-20-24">
+                        	<div class ="table_control">
+                        		<show-hide-table tname="list171VO"></show-hide-table>
+						    	<oc-complete  tbname="list171VO" ng-hide ="data.statusDes=='3'"></oc-complete>
+                        	</div>
+                        	<div class = "table_layout" style ="width:450px" ng-show="tableStatus.list171VO">
+								<table-info  table-data="tableData.list171VO" tbname="list171VO" 
+									 list = "data.list171VO" html-url = "tb171.html">
+								</table-info>
+							</div>
                         </div>
                     </div>
-                </span>
+                </div>
             </div>
             <!--票价 end-->
 
             <!--票证 strart-->
-            <div class="content_layout">
+            <div class="content_layout" ng-show = "data.serviceType=='F'||data.serviceType=='R'||data.serviceType=='T'||data.serviceType=='P'">
                 <span class="left">票证</span>
-                <span class="right">
-                    <div class="form-group">
+                <div class="right">
+                    <div class="form-group" ng-show= "showStatus.advancedPurchaseTktIssue.showFlag" >
                         <label class="pure-u-1-8 control-label">与机票同时出票</label>
                         <div class="pure-u-1-4">
-                            <div class="radio-inline"><input type="radio"/><label>是</label></div>
-                            <div class="radio-inline"><input type="radio"/><label>否</label></div>
+                            <div class="radio-inline">
+                            	<input ng-model="data.advancedPurchaseTktIssue" name ="advancedPurchaseTktIssue" 
+									ng-disabled="!editStatus.advancedPurchaseTktIssue"  type="radio" value="" />
+                            	<label>是</label>
+                            </div>
+                            <div class="radio-inline">
+                            	<input ng-model="data.advancedPurchaseTktIssue" name ="advancedPurchaseTktIssue"  
+									ng-disabled="!editStatus.advancedPurchaseTktIssue"  type="radio" value="X" />
+                            	<label>否</label>
+                            </div>
                         </div>
                     </div>
-                </span>
+                </div>
             </div>
             <!--票证 end-->
 
             <!--退款 strart-->
             <div class="content_layout">
                 <span class="left">退款</span>
-                <span class="right">
-                    <div class="form-group">
+                <div class="right">
+                    <div class="form-group" ng-show= "showStatus.indicatorReissueRefund.showFlag">
                         <label class="pure-u-1-8 control-label">是否可退</label>
                         <div class="pure-u-1-4">
-                            <select name="" class="form-control input-sm">
-                                <option value="">选择</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                            </select>
+                        	<select ng-model="data.indicatorReissueRefund"  class = "form-control input-sm" 
+					    		ng-disabled="!editStatus.indicatorReissueRefund" name="indicatorReissueRefund"
+								ng-options="d.value as d.name for d in indicatorReissueRefundList" >
+								<option value="">选择</option>
+							</select>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"  ng-show= "showStatus.formOfRefund.showFlag">
                         <label class="pure-u-1-8 control-label">退款形式</label>
                         <div class="pure-u-1-4">
-                            <select name="" class="form-control input-sm">
-                                <option value="">选择</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                            </select>
+                        	<select ng-model="data.formOfRefund"  class = "form-control input-sm" 
+                        		ng-disabled="!editStatus.formOfRefund"
+								ng-options="d.value as d.name for d in formOfRefundList" >
+							</select>
                         </div>
                     </div>
-                </span>
+                </div>
             </div>
             <!--退款 end-->
 
         </div>
         <!--第三部分‘规则详细’ end-->
-
-    </form>
 </div>
+</form>
 <!--主编辑区域 end-->
 
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/components/jquery/jquery.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/components/angular/angular.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/components/angular/angular.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/dist/s7Edit.js"></script>
 </body>
 </html>

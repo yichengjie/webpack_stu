@@ -89,7 +89,7 @@
                                    datetimepicker="{{currentDateStr}}"  ng-required="true"   bigger-date-time-current=""
                                    type="text" class="form-control" ng-disabled ="disabledEditFlag" placeholder="生效日期" />
                         </div>
-                        <label for="firstMaintenanceDate" class="glyphicon glyphicon-th iconfont_box"></label>
+                        <label for="firstMaintenanceDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
                         <i class="glyphicon glyphicon-asterisk red table_control"></i>
                         <span ng-messages="myForm.firstMaintenanceDate.$error"  ng-if="myForm.firstMaintenanceDate.$dirty">
                             <span class="errorInfo_validate" ng-message="required">必填字段。</span>
@@ -104,7 +104,7 @@
                                    datetimepicker="{{currentDateStr}}"  bigger-date-time ="{{data.firstMaintenanceDate}}"
                                    type="text" class="form-control " bigger-date-time-current2="" placeholder="截止日期" />
                         </div>
-                        <label for="lastMaintenanceDate" class="glyphicon glyphicon-th iconfont_box"></label>
+                        <label for="lastMaintenanceDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
                     </div>
 
                     <div class="form-group">
@@ -235,7 +235,7 @@
 </div>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/components/jquery/jquery.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/components/angular/angular.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/components/angular/angular.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/dist/mileageEdit.js"></script>
 </body>
 </html>

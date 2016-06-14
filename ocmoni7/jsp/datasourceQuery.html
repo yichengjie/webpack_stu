@@ -87,9 +87,9 @@
                 </div>
 
                 <span class="pull-right marginR15">
-                    <button type="submit" class="btn btn-sm btn-primary" id="abrQueryBtn"
+                    <button type="button" class="btn btn-sm btn-primary" id="abrQueryBtn"
                             url="${pageContext.request.contextPath}/abr/queryAbrDatasourceList.action">查询</button>
-                    <button type="submit" class="btn btn-sm btn-success"
+                    <button type="button" class="btn btn-sm btn-success"
                             onclick="location.href='${pageContext.request.contextPath}/abr/toAbrDatasourceAdd.action'">新建</button>
                 </span>
             </div>
@@ -127,81 +127,10 @@
     <!--query section end-->
 </div>
 
-<div class="container-fluid main_content" >
-    <div class="panel panel-default s7list_panel">
-        <div class="panel-body">
-            <table class="table">
-                <thead>
-                <tr class="active">
-                    <th>序列号</th>
-                    <th>服务类型</th>
-                    <th>子代码</th>
-                    <th>部门代码</th>
-                    <th>行程种类</th>
-                    <th>生效日期</th>
-                    <th>截止日期</th>
-                    <th>数据源</th>
-                    <th>操作</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">103003</th>
-                    <td>*</td>
-                    <td>*</td>
-                    <td>*</td>
-                    <td>国际</td>
-                    <td>2015-11-13</td>
-                    <td>2015-11-28</td>
-                    <td>ATPCO数据</td>
-                    <td>
-                        <i class="glyphicon glyphicon-pencil myhand"></i>
-                        <i class="glyphicon glyphicon-trash myhand marginL5"></i>
-                    </td>
-                </tr>
+<div class="container-fluid main_content" id ="abrcontent"></div>
+    
 
-
-
-                <tr>
-                    <th scope="row">103003</th>
-                    <td>*</td>
-                    <td>*</td>
-                    <td>*</td>
-                    <td>国际</td>
-                    <td>2015-11-13</td>
-                    <td>2015-11-28</td>
-                    <td>ATPCO数据</td>
-                    <td>
-                        <i class="glyphicon glyphicon-pencil myhand "></i>
-                        <i class="glyphicon glyphicon-trash myhand marginL5"></i>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th scope="row">103003</th>
-                    <td>*</td>
-                    <td>*</td>
-                    <td>*</td>
-                    <td>国际</td>
-                    <td>2015-11-13</td>
-                    <td>2015-11-28</td>
-                    <td>ATPCO数据</td>
-                    <td>
-                        <i class="glyphicon glyphicon-pencil myhand "></i>
-                        <i class="glyphicon glyphicon-trash myhand marginL5"></i>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/components/jquery/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/oc/dist/datasourceQuery.js"></script>
-<script>
-
-    function a(e){
-    }
-</script>
 </body>
 </html>

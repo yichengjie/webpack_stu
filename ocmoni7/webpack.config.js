@@ -6,6 +6,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var LIB_PATH = path.resolve('./src/scripts/lib');
 var CSS_PATH = path.resolve('./src/styles/css');
 var SCRIPTS_PATH = path.resolve('./src/scripts');
+var TEM_JSP_PATH = path.resolve('./jsp') ;
 
 //Template的文件夹路径
 var entryMap = require('./entryMap') ;
@@ -17,8 +18,8 @@ module.exports = {
     output: {
         path: __dirname+"/dist/",
         /*filename: "edit.js"*/
-        /*filename: '[name].[hash].js'*/
-        filename: '[name].js'
+        filename: '[name].[hash].js'
+        /*filename: '[name].js'*/
     },
     module: {
         loaders: [
@@ -68,6 +69,62 @@ module.exports = {
         })*/
         /*,new ExtractTextPlugin("[name].[hash:20].css")*/
         ,new ExtractTextPlugin("[name].css")
+        ,new HtmlWebpackPlugin({
+            template: path.resolve(TEM_JSP_PATH, 's7Query.html'),
+            filename: 's7Query.jsp',
+            //chunks这个参数告诉插件要引用entry里面的哪几个入口
+            chunks: ['s7Query'],
+            //要把script插入到标签里
+            inject: 'body'
+        })//
+        ,new HtmlWebpackPlugin({
+            template: path.resolve(TEM_JSP_PATH, 's7Edit.html'),
+            filename: 's7Edit.jsp',
+            //chunks这个参数告诉插件要引用entry里面的哪几个入口
+            chunks: ['s7Edit'],
+            //要把script插入到标签里
+            inject: 'body'
+        })
+        ,new HtmlWebpackPlugin({
+            template: path.resolve(TEM_JSP_PATH, 'datasourceQuery.html'),
+            filename: 'datasourceQuery.jsp',
+            //chunks这个参数告诉插件要引用entry里面的哪几个入口
+            chunks: ['datasourceQuery'],
+            //要把script插入到标签里
+            inject: 'body'
+        })
+        ,new HtmlWebpackPlugin({
+            template: path.resolve(TEM_JSP_PATH, 'datasourceEdit.html'),
+            filename: 'datasourceEdit.jsp',
+            //chunks这个参数告诉插件要引用entry里面的哪几个入口
+            chunks: ['datasourceEdit'],
+            //要把script插入到标签里
+            inject: 'body'
+        })
+        ,new HtmlWebpackPlugin({
+            template: path.resolve(TEM_JSP_PATH, 'mileageExchangeQuery.html'),
+            filename: 'mileageExchangeQuery.jsp',
+            //chunks这个参数告诉插件要引用entry里面的哪几个入口
+            chunks: ['mileageQuery'],
+            //要把script插入到标签里
+            inject: 'body'
+        })
+        ,new HtmlWebpackPlugin({
+            template: path.resolve(TEM_JSP_PATH, 'mileageExchangeEdit.html'),
+            filename: 'mileageExchangeEdit.jsp',
+            //chunks这个参数告诉插件要引用entry里面的哪几个入口
+            chunks: ['mileageEdit'],
+            //要把script插入到标签里
+            inject: 'body'
+        })
+        ,new HtmlWebpackPlugin({
+            template: path.resolve(TEM_JSP_PATH, 'validate.html'),
+            filename: 'validate.jsp',
+            //chunks这个参数告诉插件要引用entry里面的哪几个入口
+            chunks: ['validate'],
+            //要把script插入到标签里
+            inject: 'body'
+        })
         //把指定文件夹xia的文件复制到指定的目录
         /*,new TransferWebpackPlugin([{from: 'www'}],
           path.resolve(__dirname,"src"))*/

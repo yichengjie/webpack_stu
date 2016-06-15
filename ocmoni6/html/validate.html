@@ -56,9 +56,9 @@
 
 
 <!--主编辑区域 start-->
-<div class="container-fluid main_content">
+<div class="container-fluid main_content" id="main_content">
     <form class="form-horizontal">
-        <div class="data_section ">
+        <div class="data_section">
             <div class="title_layout">
                 <span class="left">验证请求</span>
                 <span class="right text-info"> 基础信息  | 请求条件  | 服务信息  | 运价信息 </span>
@@ -486,12 +486,32 @@
 
 
 <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="../lib/bs-growl/jquery.bootstrap-growl.js"></script>
 <script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.js"></script>
 <script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.datepicker-zh-CN.js"></script>
 <script type="text/javascript" src="../lib/jq-timepicker/jquery-timepicker-addon.js"></script>
 <script>
     $(function(){
         $('.datepicker').datepicker({minDate:new Date(), showButtonPanel:true}) ;
+        $('#vaildateBtn').click(function(){
+            $.bootstrapGrowl("another message, yay!", {
+                ele: 'body', // which element to append to
+                type: 'danger', // (null, 'info', 'danger', 'success')
+                offset: {from: 'top', amount: 100}, // 'top', or 'bottom'
+                align: 'right', // ('left', 'right', or 'center')
+                width: 250, // (integer, or 'auto')
+                delay: 4000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!
+                allow_dismiss: true, // If true then will display a cross to close the popup.
+                stackup_spacing: 10 // spacing between consecutively stacked growls.
+            });
+            /*$.bootstrapGrowl("This is a test.",{
+                ele: '#main_content', // which element to append to
+                type: 'info', // (null, 'info', 'danger', 'success')
+                offset: {from: 'top', amount: 20} ,// 'top', or 'bottom'
+                stackup_spacing: 30
+            });*/
+        }) ;
     }) ;
 </script>
 </body>

@@ -16,6 +16,7 @@ body{
 /*bootstrap 样式重置start*/
 .navbar{
     margin-bottom: 0;
+    border-radius: 1px;
 }
 /*bootstrap 样式重置start*/
 .helper_float_left{float:left;}
@@ -259,3 +260,9 @@ ul.dropdown-menu-oc.open{
 label.error{
 	color:#FF0000;
 }
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+

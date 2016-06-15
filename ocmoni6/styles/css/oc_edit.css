@@ -254,7 +254,7 @@ span.service_type_F,span.service_type_M,span.delete_service{ height:20px; width:
 .table_footer{
     display: inline-block;
     margin-top: 3px;
-    float: right;
+   /* float: right;*/
 }
 /*.table_footer:after{
     clear: both;

@@ -83,12 +83,12 @@
                 <div class="checkbox marginLR15">
                     <input  id ="showHideMoreQuerySectionBtn" type="checkbox"> <label for="showHideMoreQuerySectionBtn">更多条件</label>
                 </div>
-                <button type="submit" class="btn btn-sm btn-primary">查询</button>
+                <button type="button" class="btn btn-sm btn-primary" id="queryBtn">查询</button>
             </div>
             <!--query row1 end-->
 
             <!--moreQuerySection start-->
-            <div id ="moreQuerySection" >
+            <div id ="moreQuerySection" style="display: none" >
                 <!--query row2 start-->
                 <div class="query_row">
                     <span class="query_title">服务等级&nbsp;|&nbsp;机型</span>
@@ -179,7 +179,7 @@
         <div class="panel-heading">
             <h3 class="panel-title">
                 <span class="checkbox-inline">
-                    <input  id ="a7" type="checkbox"><label for="a7">全选</label>
+                    <input  id ="ax1" type="checkbox"><label for="ax1">全选</label>
                 </span>
                 <span class="marginL15">升舱组描述>升舱子组描述>[0BJ]升舱</span>
             </h3>
@@ -290,8 +290,11 @@
 
 </div>
 
+<i class="text-success glyphicon glyphicon-refresh icon-spin marginR10"></i>
+<div id="loading" class="" ></div>
 
 <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src ="../../bower_components/is-loading/jquery.isloading.js"></script>
 <script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.js"></script>
 <script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.datepicker-zh-CN.js"></script>
 <script type="text/javascript" src="../lib/jq-timepicker/jquery-timepicker-addon.js"></script>

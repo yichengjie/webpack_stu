@@ -2,7 +2,7 @@
  * Created by Administrator on 2016/5/27.
  */
 $(function(){
-    $("#moreQuerySection").hide() ;
+    //$("#moreQuerySection").hide() ;
     $("#showHideMoreQuerySectionBtn").click(function(){
         $("#moreQuerySection").slideToggle() ;
     }) ;
@@ -18,4 +18,20 @@ $(function(){
         e.stopPropagation() ;
         $('.dropdown-menu-oc').removeClass('open') ;
     }) ;
+
+    function loading(){
+        $.isLoading({
+            'text': "加载中..." ,
+            'class': "text-success glyphicon glyphicon-refresh",    // loader CSS class
+            'tpl': '<span class="isloading-wrapper %wrapper%">%text%<i class="%class% icon-spin marginL5"></i></span>'
+        });
+    }
+    function hide(){
+        $.isLoading( "hide" );
+    }
+    $('#queryBtn').click(function () {
+        loading() ;
+        setTimeout(hide,1500) ;
+    }) ;
+
 }) ;

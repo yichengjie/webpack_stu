@@ -34,4 +34,16 @@ $(function(){
         setTimeout(hide,1500) ;
     }) ;
 
+    //初始化headroom插件
+    $('#myheader').headroom();
+
+    initQueryPage() ;
 }) ;
+
+
+function initQueryPage(){
+    var htmlStr = $("#mytemplate").html() ;
+    for(var i = 0 ;i < 5 ; i++){
+        $('#main_content').append(htmlStr) ;
+    }
+}

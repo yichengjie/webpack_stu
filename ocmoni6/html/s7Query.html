@@ -8,10 +8,78 @@
     <link rel="stylesheet" href="../styles/css/jquery-ui-timepicker-addon.css"/>
     <link rel="stylesheet" href="../styles/css/oc_common.css">
     <link rel="stylesheet" href="../styles/css/oc_query.css"/>
+    <style type="text/css">
+        .headroom {
+            will-change: transform;
+            transition: transform 500ms linear;
+        }
+        .headroom--pinned {
+            transform: translateY(0%);
+        }
+        .headroom--unpinned {
+            transform: translateY(-100%);
+        }
+    </style>
+
+    <script type="text/template"  id ="mytemplate">
+        <div class="panel panel-default s7list_panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                <span class="checkbox-inline">
+                    <input  id ="a7" type="checkbox"><label for="a7">全选</label>
+                </span>
+                    <span class="marginL15">升舱组描述>升舱子组描述>[0BJ]升舱</span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item s7_list_row">
+                        <span class="s7_list_item s7_list_checkbox ">
+                             <input  type="checkbox">
+                        </span>
+                        <span class="productsImg"></span>
+                        <span class="s7_list_item s7_list_descr text-info marginL15">
+                            这里是描述信息
+                        </span>
+                        <span class="s7_list_item s7_list_seq marginLR15">10356</span>
+                        <span class="s7_list_item text-primary">2016-05-24—2016-05-25</span>
+                        <span class="s7_list_item  text-danger marginLR15">未发布</span>
+                        <span class="s7_list_item s7_list_price text-success">230CNY</span>
+                        <span class="s7_list_item pull-right">
+                             <i class="glyphicon glyphicon-search myhand"></i>
+                            <i class="glyphicon glyphicon-pencil marginLR5 myhand"></i>
+                            <i class="glyphicon glyphicon-trash myhand"></i>
+                        </span>
+                    </li>
+
+                    <li class="list-group-item s7_list_row">
+                        <span class="s7_list_item s7_list_checkbox ">
+                             <input  type="checkbox">
+                        </span>
+                        <span class="productsImg"></span>
+                        <span class="s7_list_item s7_list_descr text-info marginL15">
+                            这里是描述信息
+                        </span>
+                        <span class="s7_list_item s7_list_seq marginLR15">10356</span>
+                        <span class="s7_list_item text-primary">2016-05-24—2016-05-25</span>
+                        <span class="s7_list_item  text-danger marginLR15">未发布</span>
+                        <span class="s7_list_item s7_list_price text-success">99998CNY</span>
+                        <span class="s7_list_item pull-right">
+                            <i class="glyphicon glyphicon-search myhand"></i>
+                            <i class="glyphicon glyphicon-pencil marginLR5 myhand"></i>
+                            <i class="glyphicon glyphicon-trash myhand"></i>
+                        </span>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </script>
+
 </head>
 <body>
 
-<div class="navbar-fixed-top">
+<div class="navbar-fixed-top" id = "myheader">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -157,7 +225,11 @@
 
 
 
-<div class="container-fluid main_content" >
+
+
+
+
+<div class="container-fluid main_content" id="main_content" >
     <div class="pull-right clearfix" style="margin-bottom: 8px">
         <button class="btn btn-success btn-sm">新建</button>
         <button class="btn btn-default btn-sm">复制</button>
@@ -233,72 +305,17 @@
         </div>
     </div>
 
-
-
-    <div class="panel panel-default s7list_panel">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                <span class="checkbox-inline">
-                    <input  id ="a7" type="checkbox"><label for="a7">全选</label>
-                </span>
-                <span class="marginL15">升舱组描述>升舱子组描述>[0BJ]升舱</span>
-            </h3>
-        </div>
-        <div class="panel-body">
-            <ul class="list-group">
-                <li class="list-group-item s7_list_row">
-                        <span class="s7_list_item s7_list_checkbox ">
-                             <input  type="checkbox">
-                        </span>
-                    <span class="productsImg"></span>
-                        <span class="s7_list_item s7_list_descr text-info marginL15">
-                            这里是描述信息
-                        </span>
-                    <span class="s7_list_item s7_list_seq marginLR15">10356</span>
-                    <span class="s7_list_item text-primary">2016-05-24—2016-05-25</span>
-                    <span class="s7_list_item  text-danger marginLR15">未发布</span>
-                    <span class="s7_list_item s7_list_price text-success">230CNY</span>
-                        <span class="s7_list_item pull-right">
-                             <i class="glyphicon glyphicon-search myhand"></i>
-                            <i class="glyphicon glyphicon-pencil marginLR5 myhand"></i>
-                            <i class="glyphicon glyphicon-trash myhand"></i>
-                        </span>
-                </li>
-
-                <li class="list-group-item s7_list_row">
-                        <span class="s7_list_item s7_list_checkbox ">
-                             <input  type="checkbox">
-                        </span>
-                    <span class="productsImg"></span>
-                        <span class="s7_list_item s7_list_descr text-info marginL15">
-                            这里是描述信息
-                        </span>
-                    <span class="s7_list_item s7_list_seq marginLR15">10356</span>
-                    <span class="s7_list_item text-primary">2016-05-24—2016-05-25</span>
-                    <span class="s7_list_item  text-danger marginLR15">未发布</span>
-                    <span class="s7_list_item s7_list_price text-success">99998CNY</span>
-                        <span class="s7_list_item pull-right">
-                            <i class="glyphicon glyphicon-search myhand"></i>
-                            <i class="glyphicon glyphicon-pencil marginLR5 myhand"></i>
-                            <i class="glyphicon glyphicon-trash myhand"></i>
-                        </span>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-
 </div>
-
-<i class="text-success glyphicon glyphicon-refresh icon-spin marginR10"></i>
-<div id="loading" class="" ></div>
 
 <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src ="../../bower_components/is-loading/jquery.isloading.js"></script>
+<script type="text/javascript" src="../../bower_components/headroom.js/dist/headroom.js"></script>
+<script type="text/javascript" src="../../bower_components/headroom.js/dist/jQuery.headroom.js"></script>
 <script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.js"></script>
 <script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.datepicker-zh-CN.js"></script>
 <script type="text/javascript" src="../lib/jq-timepicker/jquery-timepicker-addon.js"></script>
 <script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../bower_components/underscore/underscore.js"></script>
 <script type="text/javascript" src="../js/s7Query.js"></script>
 </body>
 </html>

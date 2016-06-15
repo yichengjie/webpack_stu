@@ -43,7 +43,7 @@ $(function(){
 
 function initQueryPage(){
     var htmlStr = $("#mytemplate").html() ;
-    for(var i = 0 ;i < 5 ; i++){
+    for(var i = 0 ;i < 8 ; i++){
         $('#main_content').append(htmlStr) ;
     }
 }

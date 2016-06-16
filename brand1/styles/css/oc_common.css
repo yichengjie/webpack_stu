@@ -224,25 +224,6 @@ ul.dropdown-menu-oc.open{
 }
 .responseLinkTop{ background:url(../images/icon_top.png) no-repeat right 2px;}
 
-
-/*.responseLayout{
-    margin:7px 0 7px 10px;
-}
-.responseLayout h1{ float:left; font-size:16px; font-weight:bold; margin-right:20px; margin-left:20px;}
-.multipleStat,.singleStat{ float:left; }
-.multipleStat span,.singleStat span{ line-height:24px; padding-right:5px; display:inline-block;}
-.responseLink{ padding:3px 18px 0 10px;}
-.responseLinkBottom{ background:url(../images/icon_bottom.png) no-repeat right 2px;}
-.responseLinkTop{ background:url(../images/icon_top.png) no-repeat right 2px;}
-.customedLayout{ margin:5px 0;}
-.customedBlock{ margin-right:10px;}
-.customedBlock span{ padding-right:5px;}
-.blockEditTips{ margin:0 0 10px 20px;}
-.moreStatInfoLayout{ margin:5px 30px; padding:5px 0; border-top:1px dotted #999; }
-.moreStatInfoLayout table{ width:40%; line-height:23px;}
-.moreStatInfoLayout table tr td{ border-bottom:1px dotted #BBB;}
-.moreStatInfoLayout table tr td span{ padding:0 5px 0 0;}
-.copyXML{float: right; margin-right: 50px;cursor: pointer;}*/
 /**loading start*/
 .wrapper{padding-bottom:50px;}
 .isloading-wrapper.isloading-right{margin-left:10px;}

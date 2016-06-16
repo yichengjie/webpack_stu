@@ -21,6 +21,7 @@
     height: 50px;
     background-image: url('../images/products/0B5.jpg');
 }
+
 .s7_list_descr{
     display: inline-block;
     width: 25%;
@@ -91,6 +92,8 @@
     background-image: url(../images/products/1E.jpg);
 }
 /**s7查询页面特有的样式 end*/
+
+
 /*s7 查询页面的 特殊样式 start*/
 .s7list_panel .panel-body{
     padding: 0px;
@@ -108,6 +111,22 @@
 }
 /*s7 查询页面的 特殊样式 end*/
 
+.page-desc{
+    float: right;
+    padding: 23px 0px 21px 15px;
+    line-height: 1.42857143;
+}
+.page-ok{
+    display: inline-block;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    padding: 2px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.page-ok:hover{
+    border-color: dodgerblue;
+}
 
 
 

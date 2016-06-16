@@ -1,0 +1,375 @@
+.test{
+    height: 1000px;
+}
+/*主编辑区域**/
+body{
+    background-color: #F2F4F7;
+    min-width: 1200px;
+    font-size: 12px;
+    font-family: "lucida grande",Helvetica,Tahoma,Verdana,Arial,Microsoft YaHei,simsun,sans-serif;
+}
+.main_content{
+    padding-top: 106px;
+    padding-bottom: 30px;
+    height: 100%;
+}
+/*bootstrap 样式重置start*/
+.navbar{
+    margin-bottom: 0;
+    border-radius: 1px;
+}
+/*bootstrap 样式重置start*/
+.helper_float_left{float:left;}
+.helper_float_right{ float:right;}
+/**查询条件相关 start*/
+.query_section{
+    padding: 5px 0;
+    width: 100%;
+    min-height: 42px;
+    background-color: #00b3ee;
+    background:#fff url(../images/tui_div4_bg.png) repeat-x left bottom;
+    border-bottom:1px solid #9ea7ab;
+    box-shadow:0 0 2px 0;
+    font-weight: 100;
+    box-sizing: border-box;
+}
+.query_title{
+    display: inline-block;
+    /*margin: 8px 20px 0 10px;*/
+    margin: 8px 20px 0 10px;
+    color: #017ebc;
+}
+.query_section .query_row:not(:last-child){
+    margin-bottom: 5px;
+}
+.query_section input,.query_section select{
+    height: 26px;
+    padding: 2px;
+}
+.query_section .btn{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.query_section label{
+    font-weight: 100;
+}
+/**查询条件相关 end*/
+.query_section .checkbox label{
+    float: right;
+    margin-top: 8px;
+    margin-left: 5px
+}
+.query_section .checkbox label:after{
+    clear: both;
+}
+.marginL5{
+    margin-left: 5px;
+}
+.marginR5{
+    margin-right: 5px;
+}
+.marginLR5{
+    margin :0 5px;
+}
+.marginL10{
+    margin-left: 10px;
+}
+.marginR10{
+    margin-right: 10px;
+}
+.marginLR10{
+    margin :0 10px;
+}
+.marginL15{
+    margin-left: 15px;
+}
+.marginR15{
+    margin-right: 15px;
+}
+.marginLR15{
+    margin :0 15px;
+}
+.myhand{
+    cursor: pointer;
+}
+.gray { color:#CCCCCC;}
+.red { color:#FF0000;}
+.orange { color:#FF9900;}
+.blue { color:#006699;}
+.bold { font-weight:bold;}
+.font14{ font-size:14px;}
+.font16{ font-size:16px;}
+.iconfont_box{
+    margin-left: -25px;
+    cursor: pointer;
+}
+.iconfont_box:after{
+    content: '';
+    display: inline-block;
+    margin-left: 12px;
+}
+.common_input{
+    display: inline-block;
+    height: 25px;
+    padding: 3px 6px;
+    font-size: 14px;
+    line-height: 1;
+    width: 100%;
+    /*line-height:1;*/
+    /*line-height: 1.42857143;*/
+    /*line-height: 25px;*/
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.common_input:focus{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.two_input{
+    width:48%;
+}
+/**old_oc-style css file start*/
+.dropdown-oc{
+    position: relative;
+    display: inline-block;
+
+}
+ul.dropdown-menu-oc{
+    position: absolute;
+    box-sizing:border-box;
+    background-color:#FFF;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    top: 30px;
+    left: 0;
+    z-index: 10;
+    display:none;
+    border-left: 1px solid #BEBEBE;
+    border-right: 1px solid #BEBEBE ;
+    border-bottom: 1px solid #BEBEBE ;
+    border-radius: 2px;
+    box-shadow: 2px 2px 3px #888888;
+    -moz-box-shadow: 2px 2px 3px #888888;
+    -webkit-box-shadow: 2px 2px 3px #888888;
+    -o-box-shadow: 2px 2px 3px #888888;
+}
+ul.dropdown-menu-oc> li{
+    padding: 0 14px;
+    margin: 0;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    list-style: none;
+}
+ul.dropdown-menu-oc> li:hover{
+    background-color: #808080;
+    color: #FFF;
+}
+ul.dropdown-menu-oc.open{
+    display: block;
+}
+/**old_oc-style css file end*/
+label.error{
+    color:#FF0000;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/****页面基本样式****/
+.data_section{
+    display: block;
+    background:#FFF url(../images/tui_div2_bg.png) repeat-x top left;
+    border:1px solid #cbcccf;
+    border-radius:2px;
+    box-shadow:0 1px 1px;
+    margin:10px 0 0 0;
+    padding:20px 10px 10px 10px;
+}
+.data_section:after{
+    clear: both;
+    display: table;
+    content: '';
+}
+.title_layout {
+    height: 30px;
+    line-height:30px;
+}
+.title_layout .left{
+    float: left;
+    font-weight:bold;
+    width:90px;
+}
+.title_layout:after{
+    clear: both;
+    display: table;
+    content: '';
+}
+.content_layout{
+    display: block;
+    margin-top: 10px;
+}
+.content_layout .left{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 9%;
+    float: left;
+}
+.content_layout .right{
+    display: inline-block;
+    box-sizing: border-box;
+    background-color:#F2F4F7;
+    border:1px solid #C8D2DD;
+    border-radius:3px;
+    width: 90%;
+    padding:15px 0px 5px;
+}
+.content_layout:after{
+    clear: both;
+    display: table;
+    content: '';
+}
+
+.table_layout{
+    width:540px;
+    padding:5px;
+    border:1px solid #EFEFEF;
+    border-radius:3px;
+    background-color:#FFF;
+    overflow: hidden;
+}
+.table_layout table{
+    border-top:1px solid #DDD;
+    border-left:1px solid #DDD;
+    width:100%;
+}
+.table_layout table tr th,.table_layout table tr td{
+    border-right:1px solid #DDD;
+    border-bottom:1px solid #DDD;
+    padding:1px 5px;
+}
+.table_layout table tr th{
+    box-sizing: border-box;
+    text-align:center;
+    font-weight:bold;
+    background-color:#EEE;
+    height:26px;
+    line-height:26px;
+}
+.table_layout table tr:hover{
+    background-color:#F7F7F7;
+}
+td .common_input{
+    height: 23px;
+    line-height: 23px;
+    padding: 1px 1px;
+}
+td input[type=text],td select{
+    width: 100px;
+}
+/****用于checkbox和radio等input框的整合样式****/
+
+.checkbox-inline label,.radio-inline label{
+    font-size: 12px;
+    font-weight: 100;
+    padding-top: 2px;
+}
+.form-horizontal .iconfont_box{
+    padding-top: 7px;
+}
+.form-horizontal .control-label{
+    font-weight: 100;
+    /* margin-right: 5px; */
+    padding-right:5px;
+}
+.form-horizontal .errorInfo_validate{
+    display: inline-block;
+    margin: 0 0 0 5px;
+    padding-top: 7px;
+    color: red;
+}
+
+.form-horizontal .input_tip{
+    display: inline-block;
+    margin: 0 0 0 5px;
+    padding-top: 7px;
+}
+
+.form-horizontal .form-group{
+    margin-bottom: 5px;
+}
+.form-horizontal .control_right_content{
+    padding-top: 7px;
+}
+.selected_td { background-color: #D9EDF7;}
+.table_control{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    overflow: hidden;
+}
+.table_reuse{
+    padding-left: 20px;
+}
+.table_footer{
+    display: inline-block;
+    margin-top: 3px;
+    /* float: right;*/
+}
+/*.table_footer:after{
+    clear: both;
+}*/
+.table_footer .btn{
+    height: 22px;
+    padding: 2px 7px 2px 5px;
+}
+/*一个特殊的css样式*/
+.fpdaterange .errorInfo_validate{
+    padding-top: 42px;
+}
+/**is loading plugin start*/
+.wrapper{padding-bottom:50px;}
+.isloading-wrapper.isloading-right{margin-left:10px;}
+.isloading-overlay{position:relative;text-align:center;}
+.isloading-overlay .isloading-wrapper{background:#FFFFFF;-webkit-border-radius:7px;-webkit-background-clip:padding-box;-moz-border-radius:7px;-moz-background-clip:padding;border-radius:7px;background-clip:padding-box;display:inline-block;margin:0 auto;padding:10px 20px;top:10%;z-index:9000;}
+.icon-spin {display: inline-block;-moz-animation: spin 2s infinite linear;-o-animation: spin 2s infinite linear;-webkit-animation: spin 2s infinite linear;animation: spin 2s infinite linear}
+@-moz-keyframes spin {0% { -moz-transform: rotate(0deg)}100% {-moz-transform: rotate(359deg)}}
+@-webkit-keyframes spin {0% { -webkit-transform: rotate(0deg)}100% {-webkit-transform: rotate(359deg)}}
+@-o-keyframes spin {0% { -o-transform: rotate(0deg) }100% {-o-transform: rotate(359deg)}}
+@-ms-keyframes spin { 0% { -ms-transform: rotate(0deg) }100% {-ms-transform: rotate(359deg)}}
+@keyframes spin {0% {transform: rotate(0deg)}100% {transform: rotate(359deg)}}
+/**is loading plugin end*/
+/*分页相关的样式 start*/
+.page-desc{
+    float: right;
+    padding: 23px 0px 21px 15px;
+    line-height: 1.42857143;
+}
+.page-ok{
+    display: inline-block;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    padding: 2px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.page-ok:hover{
+    border-color: dodgerblue;
+}
+/*分页相关的样式 end*/
+

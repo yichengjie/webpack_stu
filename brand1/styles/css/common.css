@@ -39,7 +39,6 @@ body{
     margin: 8px 20px 0 10px;
     color: #017ebc;
 }
-
 .query_section .query_row:not(:last-child){
     margin-bottom: 5px;
 }
@@ -100,7 +99,6 @@ body{
 .bold { font-weight:bold;}
 .font14{ font-size:14px;}
 .font16{ font-size:16px;}
-
 .iconfont_box{
     margin-left: -25px;
     cursor: pointer;
@@ -138,7 +136,7 @@ body{
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
 }
 .two_input{
-	width:48%;
+    width:48%;
 }
 /**old_oc-style css file start*/
 .dropdown-oc{
@@ -181,50 +179,170 @@ ul.dropdown-menu-oc> li:hover{
 ul.dropdown-menu-oc.open{
     display: block;
 }
-
-/*****************  xmlValidate start *********************/
-.xmlResponseLayout{
-    position:fixed;
-    width: 99.3%;
-    bottom:0;
-    background-color:#C8D2DD;
-    border-top:1px solid #999;
+/**old_oc-style css file end*/
+label.error{
+    color:#FF0000;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.xmlResponseLayout .header{
+
+/****页面基本样式****/
+.data_section{
     display: block;
-    width: 100%;
-    height: 35px;
-    line-height: 35px;
-    padding: 0 15px;
+    background:#FFF url(../images/tui_div2_bg.png) repeat-x top left;
+    border:1px solid #cbcccf;
+    border-radius:2px;
+    box-shadow:0 1px 1px;
+    margin:10px 0 0 0;
+    padding:20px 10px 10px 10px;
 }
-.xmlResponseLayout .header:after{
+.data_section:after{
     clear: both;
-    content: '';
     display: table;
+    content: '';
+}
+.title_layout {
+    height: 30px;
+    line-height:30px;
+}
+.title_layout .left{
+    float: left;
+    font-weight:bold;
+    width:90px;
+}
+.title_layout:after{
+    clear: both;
+    display: table;
+    content: '';
+}
+.content_layout{
+    display: block;
+    margin-top: 10px;
+}
+.content_layout .left{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 9%;
+    float: left;
+}
+.content_layout .right{
+    display: inline-block;
+    box-sizing: border-box;
+    background-color:#F2F4F7;
+    border:1px solid #C8D2DD;
+    border-radius:3px;
+    width: 90%;
+    padding:15px 0px 5px;
+}
+.content_layout:after{
+    clear: both;
+    display: table;
+    content: '';
 }
 
-.xmlResponseLayout .header .title{
-    display: inline-block;
+.table_layout{
+    width:540px;
+    padding:5px;
+    border:1px solid #EFEFEF;
+    border-radius:3px;
+    background-color:#FFF;
+    overflow: hidden;
+}
+.table_layout table{
+    border-top:1px solid #DDD;
+    border-left:1px solid #DDD;
+    width:100%;
+}
+.table_layout table tr th,.table_layout table tr td{
+    border-right:1px solid #DDD;
+    border-bottom:1px solid #DDD;
+    padding:1px 5px;
+}
+.table_layout table tr th{
+    box-sizing: border-box;
+    text-align:center;
+    font-weight:bold;
+    background-color:#EEE;
+    height:26px;
+    line-height:26px;
+}
+.table_layout table tr:hover{
+    background-color:#F7F7F7;
+}
+td .common_input{
+    height: 23px;
+    line-height: 23px;
+    padding: 1px 1px;
+}
+td input[type=text],td select{
     width: 100px;
-    font-size: 16px;
-    font-weight: 700;
 }
-.xmlResponseLayout .body{
-    padding: 0 15px;
-}
-.responseLink{
-    display: inline-block;
-    padding:3px 18px 0 10px;
-}
-.responseLinkBottom{
-    display: inline-block;
-    background:url(../images/icon_bottom.png) no-repeat right center;
+/****用于checkbox和radio等input框的整合样式****/
 
+.checkbox-inline label,.radio-inline label{
+    font-size: 12px;
+    font-weight: 100;
+    padding-top: 2px;
 }
-.responseLinkTop{ background:url(../images/icon_top.png) no-repeat right 2px;}
+.form-horizontal .iconfont_box{
+    padding-top: 7px;
+}
+.form-horizontal .control-label{
+    font-weight: 100;
+    /* margin-right: 5px; */
+    padding-right:5px;
+}
+.form-horizontal .errorInfo_validate{
+    display: inline-block;
+    margin: 0 0 0 5px;
+    padding-top: 7px;
+    color: red;
+}
 
-/**loading start*/
+.form-horizontal .input_tip{
+    display: inline-block;
+    margin: 0 0 0 5px;
+    padding-top: 7px;
+}
+
+.form-horizontal .form-group{
+    margin-bottom: 5px;
+}
+.form-horizontal .control_right_content{
+    padding-top: 7px;
+}
+.selected_td { background-color: #D9EDF7;}
+.table_control{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    overflow: hidden;
+}
+.table_reuse{
+    padding-left: 20px;
+}
+.table_footer{
+    display: inline-block;
+    margin-top: 3px;
+    /* float: right;*/
+}
+/*.table_footer:after{
+    clear: both;
+}*/
+.table_footer .btn{
+    height: 22px;
+    padding: 2px 7px 2px 5px;
+}
+/*一个特殊的css样式*/
+.fpdaterange .errorInfo_validate{
+    padding-top: 42px;
+}
+/**is loading plugin start*/
 .wrapper{padding-bottom:50px;}
 .isloading-wrapper.isloading-right{margin-left:10px;}
 .isloading-overlay{position:relative;text-align:center;}
@@ -235,15 +353,23 @@ ul.dropdown-menu-oc.open{
 @-o-keyframes spin {0% { -o-transform: rotate(0deg) }100% {-o-transform: rotate(359deg)}}
 @-ms-keyframes spin { 0% { -ms-transform: rotate(0deg) }100% {-ms-transform: rotate(359deg)}}
 @keyframes spin {0% {transform: rotate(0deg)}100% {transform: rotate(359deg)}}
-/**loading end*/
-/*****************  xmlValidate end *********************/
-/**old_oc-style css file end*/
-label.error{
-	color:#FF0000;
+/**is loading plugin end*/
+/*分页相关的样式 start*/
+.page-desc{
+    float: right;
+    padding: 23px 0px 21px 15px;
+    line-height: 1.42857143;
 }
-ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.page-ok{
+    display: inline-block;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    padding: 2px;
+    border-radius: 2px;
+    cursor: pointer;
 }
+.page-ok:hover{
+    border-color: dodgerblue;
+}
+/*分页相关的样式 end*/
 

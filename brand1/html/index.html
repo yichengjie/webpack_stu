@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>品牌查询页面</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery_ui.datepicker-modify.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery-ui-timepicker-addon.css"/>
+    <link rel="stylesheet" href="../styles/css/common.css">
+    <link rel="stylesheet" href="../styles/css/brand_query.css"/>
+    <style>
+        .main_content{
+            padding-top: 150px;
+        }
+        .query_row{
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar-fixed-top" id = "myheader">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                    <span class="sr-only">导航菜单</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">附加服务</a></li>
+                    <li role="presentation" class="dropdown">
+                        <a id="drop4" href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            基础数据<span class="caret"></span>
+                        </a>
+                        <ul id="menu1" class="dropdown-menu" aria-labelledby="drop4">
+                            <li><a href="#">数据源</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">里程积分兑换</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">运价校验</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!--query section start-->
+    <div class ="query_section">
+        <form >
+            <!--query row1 start-->
+            <div class="query_row">
+                <span class="query_title query_item">发布状态 | 生效状态</span>
+                <div class="checkbox query_item">
+                    <input id ="c1" type="checkbox" ><label for="c1">未发布</label>
+                </div>
+
+
+
+                <!--<div class="checkbox">
+
+                </div>
+                <div class="checkbox">
+                    <input id ="c2" type="checkbox"><label for="c2">已发布</label>
+                </div>
+
+                <div class="checkbox">
+                    <input  id ="c3" type="checkbox"><label for="c3"> 未生效</label>
+                </div>
+                <div class="checkbox">
+                    <input  id ="c4" type="checkbox"> <label for="c4">已生效</label>
+                </div>
+                <div class="checkbox">
+                    <input  id ="c5" type="checkbox"> <label for="c5">已过期</label>
+                </div>-->
+                <!--<div class="form-group">
+                    <label for="" class="marginLR10">品牌集名称</label>
+                    <input type="text" class="form-control" style="width: 120px" placeholder="CA" />
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="marginLR10">品牌集名称</label>
+                    <input type="text" class="form-control" style="width: 120px" placeholder="CA" />
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="marginLR10">发布对象</label>
+                    <input type="text" class="form-control" style="width: 120px" placeholder="CA" />
+                </div>
+-->
+
+                <span class="pull-right marginR15 form-group">
+                    <button type="button" class="btn btn-sm btn-primary">查询</button>
+                    <button type="button" class="btn btn-sm btn-success">新建</button>
+                </span>
+            </div>
+            <!--query row1 end-->
+
+        </form>
+    </div>
+    <!--query section end-->
+</div>
+
+
+
+
+<script type="text/javascript" src="../js/index.js"></script>
+</body>
+</html>

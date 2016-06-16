@@ -25,7 +25,6 @@ body{
 .query_section{
     padding: 5px 0;
     width: 100%;
-    min-height: 42px;
     background-color: #00b3ee;
     background:#fff url(../images/tui_div4_bg.png) repeat-x left bottom;
     border-bottom:1px solid #9ea7ab;
@@ -36,12 +35,21 @@ body{
 .query_title{
     display: inline-block;
     /*margin: 8px 20px 0 10px;*/
-    margin: 8px 20px 0 10px;
+    /*margin: 8px 20px 0 10px;*/
     color: #017ebc;
 }
-.query_section .query_row:not(:last-child){
-    margin-bottom: 5px;
+.query_row{
+    display: block;
+    height: 30px;
+    width: 100%;
+    line-height: 30px;
 }
+.query_row .query_item{
+    float: left;
+}
+/*.query_section .query_row:not(:last-child){
+    margin-bottom: 5px;
+}*/
 .query_section input,.query_section select{
     height: 26px;
     padding: 2px;

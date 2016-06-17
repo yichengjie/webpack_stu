@@ -1,10 +1,12 @@
-.test{
+#test{
     height: 1000px;
+    width: 100%;
+    background-color: #1d5987;
 }
 /*主编辑区域**/
 body{
     background-color: #F2F4F7;
-    min-width: 1200px;
+    min-width: 1000px;
     font-size: 12px;
     font-family: "lucida grande",Helvetica,Tahoma,Verdana,Arial,Microsoft YaHei,simsun,sans-serif;
 }
@@ -33,43 +35,42 @@ body{
     box-sizing: border-box;
 }
 .query_title{
-    display: inline-block;
-    /*margin: 8px 20px 0 10px;*/
-    /*margin: 8px 20px 0 10px;*/
+    margin: 0 10px;
     color: #017ebc;
 }
 .query_row{
     display: block;
-    height: 30px;
-    width: 100%;
-    line-height: 30px;
+    height: 28px;
+    line-height: 28px;
+    vertical-align: middle;
+    overflow: hidden;
+    box-sizing: border-box;
 }
-.query_row .query_item{
-    float: left;
+.query_row:after{
+    clear: both;
+    display: table;
+    content: '';
 }
-/*.query_section .query_row:not(:last-child){
-    margin-bottom: 5px;
-}*/
-.query_section input,.query_section select{
-    height: 26px;
-    padding: 2px;
+.query_row:not(:last-child){
+    margin-bottom: 3px;
 }
-.query_section .btn{
-    padding-top: 3px;
-    padding-bottom: 3px;
+.query_row input[type=checkbox]{
+    margin-top: 0px;
+    vertical-align: middle;
 }
-.query_section label{
+.query_row label{
+    margin: 0 5px;
     font-weight: 100;
 }
+.query_row .btn{
+    vertical-align: middle;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    height: 26px;
+    margin-bottom: 2px;
+}
+
 /**查询条件相关 end*/
-.query_section .checkbox label{
-    float: right;
-    margin-top: 8px;
-    margin-left: 5px
-}
-.query_section .checkbox label:after{
-    clear: both;
-}
 .marginL5{
     margin-left: 5px;
 }
@@ -123,9 +124,6 @@ body{
     font-size: 14px;
     line-height: 1;
     width: 100%;
-    /*line-height:1;*/
-    /*line-height: 1.42857143;*/
-    /*line-height: 25px;*/
     color: #555;
     background-color: #fff;
     background-image: none;

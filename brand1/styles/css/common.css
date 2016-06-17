@@ -54,10 +54,19 @@ body{
 .query_row:not(:last-child){
     margin-bottom: 3px;
 }
+.query_row input[type=text],.query_row select{
+    margin-top: 0px;
+    vertical-align: middle;
+    width: 120px;
+}
 .query_row input[type=checkbox]{
     margin-top: 0px;
     vertical-align: middle;
 }
+.query_row select{
+    padding-top: 1px;
+}
+
 .query_row label{
     margin: 0 5px;
     font-weight: 100;

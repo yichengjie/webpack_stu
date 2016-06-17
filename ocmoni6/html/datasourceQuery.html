@@ -45,43 +45,36 @@
 
     <!--query section start-->
     <div class ="query_section">
-        <form class="form-inline">
             <!--query row1 start-->
             <div class="query_row">
                 <span class="marginL10"></span>
-                <div class="form-group">
-                    <label  class="marginR5">航空公司</label>
-                    <input type="text" class="form-control input-sm" style="width: 120px" value="CA"  readonly="readonly" placeholder="CA" />
-                </div>
-                <span class="marginR15"></span>
-                <div class="form-group">
-                    <label  class="marginR5">子代码</label>
-                    <input type="text" class="form-control" style="width: 120px" placeholder="CA" />
-                </div>
-                <div class="form-group">
-                    <label class="marginR5">生效日期</label>
-                    <input type="text" class="form-control input-sm datepicker"  placeholder="范围" style="width: 100px">
-                    <label class="glyphicon glyphicon-calendar iconfont_box"></label>
-                    <span>——</span>
-                    <input type="text" class="form-control input-sm datepicker"  placeholder="范围" style="width: 100px">
-                    <label class="glyphicon glyphicon-calendar iconfont_box"></label>
-                </div>
+                <label  class="marginR5">航空公司</label>
+                <input type="text" class="common_input"  value="CA"  readonly="readonly" placeholder="CA" />
 
-                <div class="form-group">
-                    <label class="marginR5">数据源</label>
-                    <select class="form-control" style="width: 100px;">
-                        <option value="">选择</option>
-                        <option value="">1</option>
-                    </select>
-                </div>
+                <label  class="marginR5">子代码</label>
+                <input type="text" class="common_input" placeholder="CA" />
 
-                <div class="form-group">
-                    <label class="marginR5">行程种类</label>
-                    <select class="form-control" style="width: 100px;">
-                        <option value="">选择</option>
-                        <option value="">1</option>
-                    </select>
-                </div>
+
+                <label class="marginR5">生效日期</label>
+                <input type="text" class="common_input datepicker"  placeholder="范围" style="width: 100px">
+                <span class="glyphicon glyphicon-calendar iconfont_box"></span>
+                <span>—</span>
+                <input type="text" class="common_input datepicker"  placeholder="范围" style="width: 100px">
+                <span class="glyphicon glyphicon-th iconfont_box"></span>
+
+
+                <label class="marginR5">数据源</label>
+                <select class="common_input" style="width: 100px;">
+                    <option value="">选择</option>
+                    <option value="">1</option>
+                </select>
+
+
+                <label class="marginR5">行程种类</label>
+                <select class="common_input" style="width: 100px;">
+                    <option value="">选择</option>
+                    <option value="">1</option>
+                </select>
 
                 <span class="pull-right marginR15">
                     <button type="button" class="btn btn-sm btn-primary">查询</button>
@@ -92,32 +85,17 @@
 
             <div class="query_row">
                 <span class="marginL10"></span>
-                <div class="form-group">
-                    <label  class="marginR5">部门代码</label>
-                    <input type="text" class="form-control input-sm" style="width: 120px" placeholder="CA" />
-                </div>
+                <label  class="marginR5">部门代码</label>
+                <input type="text" class="common_input" placeholder="CA" />
                 <span class="marginL10"></span>
-                <div class="form-group">
-                    <label  class="marginR5">服务类型</label>
-                    <div class="checkbox">
-                        <input  id ="c1" type="checkbox"><label for="c1">免费行李</label>
-                    </div>
-                    <div class="checkbox">
-                        <input  id ="c2" type="checkbox"><label for="c2">随携行李</label>
-                    </div>
-                    <div class="checkbox">
-                        <input  id ="c3" type="checkbox"><label for="c3">付费行李</label>
-                    </div>
-                    <div class="checkbox">
-                        <input  id ="c4" type="checkbox"><label for="c4">预付费行李</label>
-                    </div>
-                    <div class="checkbox">
-                        <input  id ="c5" type="checkbox"><label for="c5">禁运行李</label>
-                    </div>
-                </div>
-            </div>
 
-        </form>
+                <label  class="marginR5">服务类型</label>
+                <input  id ="c1" type="checkbox"><label for="c1">免费行李</label>
+                <input  id ="c2" type="checkbox"><label for="c2">随携行李</label>
+                <input  id ="c3" type="checkbox"><label for="c3">付费行李</label>
+                <input  id ="c4" type="checkbox"><label for="c4">预付费行李</label>
+                <input  id ="c5" type="checkbox"><label for="c5">禁运行李</label>
+            </div>
     </div>
     <!--query section end-->
 </div>

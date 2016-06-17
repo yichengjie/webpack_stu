@@ -387,4 +387,8 @@ td input[type=text],td select{
     border-color: dodgerblue;
 }
 /*分页相关的样式 end*/
+/*分页相关的样式 end*/
+.oper_item a,a.oper_item{
+    color:#333;
+}
 

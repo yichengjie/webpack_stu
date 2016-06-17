@@ -79,17 +79,39 @@
     <!--query section end-->
 </div>
 
+<div class="container-fluid main_content" id="main_content" >
+    <div class="pull-right clearfix" style="margin-bottom: 8px">
+        <button class="btn btn-success btn-sm">新建</button>
+        <button class="btn btn-default btn-sm">复制</button>
+        <button class="btn btn-default btn-sm">发布</button>
+        <button class="btn btn-default btn-sm">截止</button>
+        <div class ="dropdown-oc">
+            <div class="btn-group">
+                <button class="btn btn-default btn-sm" id="batchImportBtn" for="batchImportFileInput">批量导入</button>
+                <button class="btn btn-default btn-sm dropdown-trigger"><i class="glyphicon glyphicon-triangle-bottom"></i></button>
+            </div>
+            <ul class ="dropdown-menu-oc">
+                <li onclick="location.href='${pageContext.request.contextPath}/ocimport/download.action'">下载模板</li>
+            </ul>
+        </div>
+    </div>
+    <span class="clearfix"></span>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <input name ="checkAll" type="checkbox">
+                <span class="brand_title">
+                    <i class="glyphicon glyphicon-download"></i>
+                    升舱组描述
+                    <i class="glyphicon glyphicon-info-sign pull-right"></i>
+                </span>
+            </h3>
+        </div>
+        <div class="panel-body">
 
-<div class="container-fluid main_content">
-
-    hello world
-
+        </div>
+    </div>
 </div>
-
-
-
-
-
 
 <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>

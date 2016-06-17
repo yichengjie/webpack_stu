@@ -1,5 +1,5 @@
 #test{
-    height: 1000px;
+    height: 3000px;
     width: 100%;
     background-color: #1d5987;
 }
@@ -9,10 +9,11 @@ body{
     min-width: 1000px;
     font-size: 12px;
     font-family: "lucida grande",Helvetica,Tahoma,Verdana,Arial,Microsoft YaHei,simsun,sans-serif;
+    padding-bottom: 30px;
+    padding-top: 100px;
 }
 .main_content{
-    padding-top: 106px;
-    padding-bottom: 30px;
+    display: block;
     height: 100%;
 }
 /*bootstrap 样式重置start*/
@@ -387,6 +388,7 @@ td input[type=text],td select{
     border-color: dodgerblue;
 }
 /*分页相关的样式 end*/
+/*分页相关的样式 end*/
 .oper_item a,a.oper_item{
     color:#333;
 }
@@ -402,3 +404,4 @@ td input[type=text],td select{
     transform: translateY(-100%);
 }
 /*headroom插件 end*/
+

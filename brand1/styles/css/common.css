@@ -9,10 +9,12 @@ body{
     min-width: 1000px;
     font-size: 12px;
     font-family: "lucida grande",Helvetica,Tahoma,Verdana,Arial,Microsoft YaHei,simsun,sans-serif;
+    padding-bottom: 30px;
+    padding-top: 106px;
 }
 .main_content{
-    padding-top: 106px;
-    padding-bottom: 30px;
+   /* padding-top: 106px;*/
+    display: block;
     height: 100%;
 }
 /*bootstrap 样式重置start*/

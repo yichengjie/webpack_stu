@@ -1,6 +1,11 @@
 .brand_title{
     font-size: 12px;
 }
+.brand_title:after{
+    display: table;
+    content: '';
+    clear: both;
+}
 .brand_title .left {
     display: block;
     float: left;
@@ -8,6 +13,12 @@
     cursor: pointer;
     padding-right: 10px;
 }
+.brand_title .left:after{
+    display: table;
+    content: '';
+    clear: both;
+}
+
 .brand_title .right {
     display: block;
     float: right;
@@ -36,3 +47,51 @@
 .brand_title .left .descr{
     margin-top: 1px;
 }
+
+.brand_img{
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    margin: 15px 40px 15px 10px;
+    vertical-align: middle;
+}
+
+.brand_img_ca{
+    background: url("../images/products/CA.jpg");
+}
+.brand_img_cz{
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    background: url("../images/products/CZ.jpg");
+}
+.brand_group{
+    padding: 0;
+}
+.brand_list{
+    height: 80px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    margin: 10px 10px 10px 150px;
+    /*margin: 10px 0px;*/
+}
+.brand_list:not(:last-child){
+    border-bottom: 1px dotted #336699;
+}
+.brand_list_item{
+    float: left;
+}
+.brand_list .item1{
+    display: inline-block;
+    width: 30px;
+    height: 80px;
+    line-height: 80px;
+    font-weight: 700;
+}
+.brand_list .brand_name{
+    font-weight: 700;
+    color: #990000;
+    font-size: 14px;
+}
+
+

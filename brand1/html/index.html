@@ -11,6 +11,7 @@
     <style>
         body{
             padding-top: 140px;
+            min-width: 1200px;
         }
     </style>
 </head>
@@ -55,7 +56,7 @@
                 <input type="text" class="common_input" style="width: 120px"/>
                 <span class="pull-right marginR15">
                     <button type="button" class="btn btn-sm btn-primary">查询</button>
-                    <button type="button" class="btn btn-sm btn-success">新建品牌集</button>
+
                 </span>
             </div>
             <div class="query_row">
@@ -81,31 +82,32 @@
 
 <div class="container-fluid main_content" id="main_content" >
     <div class="pull-right clearfix" style="margin-bottom: 8px">
-        <button class="btn btn-success btn-sm">新建</button>
-        <button class="btn btn-default btn-sm">复制</button>
-        <button class="btn btn-default btn-sm">发布</button>
-        <button class="btn btn-default btn-sm">截止</button>
-        <div class ="dropdown-oc">
-            <div class="btn-group">
-                <button class="btn btn-default btn-sm" id="batchImportBtn" for="batchImportFileInput">批量导入</button>
-                <button class="btn btn-default btn-sm dropdown-trigger"><i class="glyphicon glyphicon-triangle-bottom"></i></button>
-            </div>
-            <ul class ="dropdown-menu-oc">
-                <li onclick="location.href='${pageContext.request.contextPath}/ocimport/download.action'">下载模板</li>
-            </ul>
-        </div>
+        <button type="button" class="btn btn-sm btn-success">新建品牌集</button>
+        <button class="btn btn-info btn-sm">发布</button>
+        <button class="btn btn-warning btn-sm">截止</button>
+        <button class="btn btn-danger btn-sm">删除</button>
     </div>
     <span class="clearfix"></span>
-    <div class="panel panel-default">
+    <div class="panel panel-default brand_list">
         <div class="panel-heading">
-            <h3 class="panel-title">
-                <input name ="checkAll" type="checkbox">
-                <span class="brand_title">
-                    <i class="glyphicon glyphicon-download"></i>
-                    升舱组描述
-                    <i class="glyphicon glyphicon-info-sign pull-right"></i>
-                </span>
-            </h3>
+            <div class="panel-title">
+                <div class="brand_title">
+                    <span class="title_left text-info">
+                        <input name ="checkAll" type="checkbox">
+                        <i class="glyphicon glyphicon-download marginL10"></i>
+                        asgui_ca test
+                        <i class="glyphicon glyphicon-info-sign text-info pull-right"></i>
+                    </span>
+                    <span class="title_content">
+                       <span>序列号：8776559</span>
+                       <span class="marginL10">城市对：<span class="bold">1 → 2</span></span>
+                       <span class="marginL10">生效日期对：<span class="bold">2016-06-30 — 9999-12-31</span></span>
+                       <span class="marginL10">旅行日期对：<span class="bold">2016-06-30 — 9999-12-31</span></span>
+                       <span class="marginL10">发布对象：状态：<span class="text-danger">未发布</span></span>
+                    </span>
+                    <span class="title_right"><i class="glyphicon glyphicon-pencil marginR10"></i><i class="glyphicon glyphicon-plus"></i></span>
+                </div>
+            </div>
         </div>
         <div class="panel-body">
 

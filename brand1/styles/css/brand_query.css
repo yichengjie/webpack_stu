@@ -1,8 +1,40 @@
-.brand_title{
+/*.brand_title{
+    display: block;
+    box-sizing: border-box;
+    padding: 0;
+    width: 100%;
+}*/
+.brand_list .title_left{
     display: inline-block;
-    width: 200px;
     box-sizing: border-box;
     padding: 0 10px;
+    margin: 0;
+    width: 210px;
     font-size: 14px;
     cursor: pointer;
+    /*outline: 1px solid red;*/
+    vertical-align: top;
 }
+
+.brand_list .title_content{
+    display: inline-block;
+    box-sizing: border-box;
+    width: auto;
+    font-size: 14px;
+    border-left: 1px solid #E7E7E7;
+   /* padding-left: 10px;*/
+    margin: 0;
+    /*outline: 1px solid red;*/
+}
+
+.brand_list .title_right{
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin: 0;
+    width: 100px;
+    text-align: right;
+    vertical-align: top;
+
+}
+

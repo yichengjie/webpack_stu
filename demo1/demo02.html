@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>DIV+CSS实现两边固定宽度,中间自适应宽度-天魅设计博客</title>
+    <style>
+        body{ margin:0; padding:10px;}
+        #head{ margin-bottom:10px; height:50px; background-color:#999999}
+        #main{}
+
+        #left{ width:200px; float:left;margin-right:-200px; background-color:#FF9900}
+        #mid{ width:auto;background:#00FF00;margin:0 220px;border:1px solid #000;}
+        #right{ width:200px;margin-left:-200px; float:right; background-color:#CCCC00}
+
+        #foot{ margin-top:10px; clear:both; height:50px; background-color:#CCCCCC}
+
+    </style>
+</head>
+
+<body>
+<div id="head">我是头部</div>
+<div id="left">我是左边,宽:200px</div>
+<div id="right">我是右边,宽:200px</div>
+<div id="mid">我是中间,宽自适应</div>
+<div id="foot">我是底部</div>
+</body>
+</html>

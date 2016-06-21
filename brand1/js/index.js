@@ -18,7 +18,13 @@ $(function(){
         }else{
             showHideBtn.addClass('glyphicon-upload') ;
         }
-        console.info(flag) ;
     }) ;
-
+    //onmouseout
+    /*$(document).delegate('.brand_title .descrImg','mouseover',function(){
+        $(this).parents('.brand_title').find('.descrInfo').removeClass('hidden') ;
+    }) ;
+    $(document).delegate('.brand_title .descrImg','mouseout',function(){
+        $(this).parents('.brand_title').find('.descrInfo').addClass('hidden') ;
+    }) ;*/
+    $('[data-toggle="tooltip"]').tooltip()
 }) ;

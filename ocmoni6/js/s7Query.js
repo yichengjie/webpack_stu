@@ -8,6 +8,8 @@ $(function(){
     }) ;
     $('.datepicker').datepicker({minDate:new Date(), showButtonPanel:true});
 
+
+
     $(".dropdown-oc").find(".dropdown-trigger").click(function (e) {
         e.stopPropagation() ;
         $(".dropdown-menu-oc").removeClass('open') ;
@@ -18,6 +20,8 @@ $(function(){
         e.stopPropagation() ;
         $('.dropdown-menu-oc').removeClass('open') ;
     }) ;
+
+
 
     function loading(){
         $.isLoading({
@@ -73,4 +77,9 @@ function initQueryPage(){
     for(var i = 0 ;i < 8 ; i++){
         $('#main_content').append(htmlStr) ;
     }
+}
+
+
+function toAddUI(){
+    window.location.href = "s7Edit.html" ;
 }

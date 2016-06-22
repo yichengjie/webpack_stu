@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>品牌查询页面</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../bower_components/pure/pure-min.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery_ui.datepicker-modify.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery-ui-timepicker-addon.css"/>
+    <link rel="stylesheet" href="../styles/css/common.css">
+    <link rel="stylesheet" href="../styles/css/brand_edit.css"/>
+</head>
+<body>
+
+<div class="navbar-fixed-top" id = "myheader">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                    <span class="sr-only">导航菜单</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">品牌服务</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!--query section start-->
+    <div class ="query_section">
+        <div class="query_row">
+            <span class="query_title">新建品牌集</span>
+            <span class="marginLR5">品牌集</span>
+            <span class="pull-right marginR15">
+                <button type="button" class="btn btn-sm btn-default">返回</button>
+                <button type="button" class="btn btn-sm btn-success">保存</button>
+            </span>
+        </div>
+    </div>
+    <!--query section end-->
+</div>
+
+<div class="container-fluid main_content" id="main_content" >
+    <form class="form-horizontal">
+        <div class="data_section ">
+            <div class="title_layout">
+                <span class="left">品牌集</span>
+            </div>
+            <!--必填项 strart-->
+            <div class="content_layout">
+                <span class="left text-danger">必填项</span>
+                <div class="right">
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">序列号</label>
+                        <div class="pure-u-1-4">
+                            <input type="text"  class="form-control"  placeholder="数字">
+                        </div>
+                        <span class="errorInfo_validate">这里是错误提示信息</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">品牌集名称</label>
+                        <div class="pure-u-1-4">
+                            <input type="text"  class="form-control"  placeholder="数字">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">销售日期</label>
+                        <div class="pure-u-1-8">
+                            <input type="text"  class="form-control"  placeholder="范围">
+                        </div>
+                        <div class="pure-u-1-8">
+                            <input type="text"  class="form-control"  placeholder="范围">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">区域1</label>
+                        <div class="pure-u-1-8">
+                            <select name="" class="form-control" >
+                                <option value="">选择</option>
+                                <option value="">1</option>
+                            </select>
+                        </div>
+                        <div class="pure-u-1-8">
+                            <input type="text"  class="form-control"  placeholder="范围">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">区域限制</label>
+                        <div class="pure-u-1-2">
+                            <div class="radio-inline">
+                                <input type="radio" id="r1"/><label for="r1" class="myhand">区域1→区域2</label>
+                            </div>
+                            <div class="radio-inline">
+                                <input type="radio" id="r2"/><label for="r2" class="myhand">区域2→区域1</label>
+                            </div>
+                            <div class="radio-inline">
+                                <input type="radio" id="r3"/><label for="r3" class="myhand">双向</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--必填项 end-->
+
+            <!--必填项 strart-->
+            <div class="content_layout">
+                <span class="left text-danger">选填项</span>
+                <div class="right">
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">旅行日期</label>
+                        <div class="pure-u-1-8">
+                            <input type="text"  class="form-control"  placeholder="范围">
+                        </div>
+                        <div class="pure-u-1-8">
+                            <input type="text"  class="form-control"  placeholder="范围">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="pure-u-1-8 control-label">发布</label>
+                        <div class="pure-u-1-2">
+                            <div class="table_layout"  style="width:260px;">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th width="130">发布类型</th>
+                                        <th  width="130">发布对象</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <td>
+                                        <select name="" class="common_input" style="width: 98%">
+                                            <option value="">选择</option>
+                                            <option value="">1</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text" class="common_input" style="width: 98%"/></td>
+                                    </tbody>
+                                </table>
+                                <div class="table_footer">
+                                    <button class="btn btn-success btn-sm">增加一行</button>
+                                    <button class="btn btn-default btn-sm">删除一行</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">描述</label>
+                        <div class="pure-u-1-2">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+
+                    </div>
+
+                </div>
+               <!-- <div class="form-group">
+                    <label  class="pure-u-1-8 control-label">描述</label>
+                    <div class="pure-u-1-2">
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                </div>-->
+            </div>
+            <!--必填项 end-->
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../bower_components/headroom.js/dist/headroom.js"></script>
+<script type="text/javascript" src="../../bower_components/headroom.js/dist/jQuery.headroom.js"></script>
+<script type="text/javascript" src="../js/index.js"></script>
+</body>
+</html>

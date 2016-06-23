@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>品牌管理</title>
+    <%@ include  file="/WEB-INF/pages/common/brand_common.jsp"%>
+    <style>
+        body{padding-top: 140px;}
+    </style>
+</head>
+<body>
+<input type="hidden" name="tag_ctx" value="${pageContext.request.contextPath}" id="tag_ctx"/>
+<input type="hidden" name="saleChannel" id="saleChannel"/>
+<input type="hidden" name="status" id="status"/>
+<input type="hidden" name="effStatus" id="effStatus"/>
+
+<div class="navbar-fixed-top" id = "myheader">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                    <span class="sr-only">导航菜单</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">品牌服务</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!--query section start-->
+    <form id="queryBrandGroupForm" action="${pageContext.request.contextPath}/brandGroup/queryBrandGroup.action">
+    <div class ="query_section">
+            <div class="query_row">
+                <span class="query_title">发布状态 | 生效状态</span>
+                <input id ="status0" name="status0" type="checkbox"  > <label for="status0">未发布</label>
+                <input id="status1" name="status1" type="checkbox"><label for="status1">已发布</label>
+                <span class="marginLR5">|</span>
+                <input  id="effStatus0" name="effStatus0" type="checkbox"><label for="effStatus0"> 未生效</label>
+                <input  id="effStatus1" name="effStatus1" type="checkbox"> <label for="effStatus1">已生效</label>
+                <input  id="effStatus2" name="effStatus2" type="checkbox"> <label for="effStatus2">已过期</label>
+                <span class="marginL10 marginR5">品牌集名称</span>
+                <input type="text" id="brandGroupName" name="brandGroupName" class="common_input" style="width: 120px"/>
+                <span class="marginL10 marginR5">品牌名称</span>
+                <input type="text" id="brandName" name="brandName"  class="common_input" style="width: 120px"/>
+                <span class="pull-right marginR15">
+                    <button type="button" class="btn btn-sm btn-primary" id="queryBrandGroupBtn">查询</button>
+                </span>
+            </div>
+            <div class="query_row">
+                <span class="marginL10 marginR5">城市对</span>
+                <input type="text" id="loc1" mode="upper" maxlength="3"  class="common_input" style="width: 60px"/>
+                <span style="margin: 0 2px;">-</span>
+                <input type="text" id="loc2" mode="upper" maxlength="3"  class="common_input" style="width: 60px"/>
+                <span class="marginL10 marginR5">发布对象</span>
+                <input type="text" id="releaseObject" name="releaseObject" mode="upper" class="common_input" style="width: 120px" placeholder="office号/IATA号" />
+                <span class="marginL10 marginR5">销售日期</span>
+                <input type="text" id="oriDate" name="oriDate" class="common_input" style="width: 100px" placeholder="范围" />
+                <span style="margin: 0 2px;">-</span>
+                <input type="text" id="endDate" name="endDate" class="common_input" style="width: 100px" placeholder="范围" />
+            </div>
+    </div>
+    </form>
+    <!--query section end-->
+</div>
+
+<div class="container-fluid main_content" id="main_content" >
+    <div class="pull-right clearfix" style="margin-bottom: 8px">
+        <button type="button" class="btn btn-sm btn-success" onclick="location.href='${pageContext.request.contextPath}/brandGroup/forwardEditBrandGroupMain.action'">新建品牌集</button>
+        <button type="button" class="btn btn-info btn-sm">发布</button>
+        <button type="button" class="btn btn-warning btn-sm">截止</button>
+        <button type="button" class="btn btn-danger btn-sm">删除</button>
+    </div>
+    <span class="clearfix"></span>
+
+
+
+
+    <div class="panel panel-default brand_group">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <div class="panel-title">
+                    <div class="brand_title">
+                        <span class="left text-info">
+                            <input name ="checkAll" type="checkbox">
+                            <i class="glyphicon glyphicon-upload marginL10" data-name="showHideBody"></i>
+                            asgui_ca test
+                            <i class="glyphicon glyphicon-info-sign pull-right descrImg" data-toggle="tooltip"
+                               data-placement="top"  title="Tooltip on top  hello world  这里是描述信息"></i>
+                        </span>
+                        <span class="right">
+                            <i class="glyphicon glyphicon-pencil marginR10 myhand"></i>
+                            <i class="glyphicon glyphicon-plus text-success myhand" onclick="window.location.href='editBrand.html'"></i>
+                        </span>
+                        <span class="center">
+                           <span>序列号：8776559</span>
+                           <span class="marginL10">城市对：<span class="bold">1 → 2</span></span>
+                           <span class="marginL10">生效日期对：<span class="bold">2016-06-30 — 9999-12-31</span></span>
+                           <span class="marginL10">旅行日期对：<span class="bold">2016-06-30 — 9999-12-31</span></span>
+                           <span class="marginL10">发布对象：状态：<span class="text-danger">未发布</span></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li class="brand_list">
+                    <div class="brand_list_item item1">
+                        1
+                    </div>
+                    <div class="brand_list_item">
+                       <span class="brand_img brand_img_ca"></span>
+                    </div>
+                    <div class="brand_list_item">
+                        <p class="brand_name">xx001</p>
+                        <p>层级序号：10011</p>
+                        <p>测试一下啊这里的描述信息</p>
+                    </div>
+                    <div class="brand_list_item pull-right">
+                        <p><i class="glyphicon glyphicon-search myhand"></i></p>
+                        <p><i class="glyphicon glyphicon-pencil myhand"></i></p>
+                        <p><i class="glyphicon glyphicon-trash myhand"></i></p>
+                    </div>
+                </li>
+                <li class="brand_list">
+                    <div class="brand_list_item item1">
+                        2
+                    </div>
+                    <div class="brand_list_item">
+                        <span class="brand_img brand_img_ca"></span>
+                    </div>
+                    <div class="brand_list_item">
+                        <p class="brand_name">xx001</p>
+                        <p>层级序号：10011</p>
+                        <p>测试一下啊这里的描述信息</p>
+                    </div>
+                    <div class="brand_list_item pull-right">
+                        <p><i class="glyphicon glyphicon-search myhand"></i></p>
+                        <p><i class="glyphicon glyphicon-pencil myhand"></i></p>
+                        <p><i class="glyphicon glyphicon-trash myhand"></i></p>
+                    </div>
+                </li>
+                <li class="brand_list">
+                    <div class="brand_list_item item1">
+                        3
+                    </div>
+                    <div class="brand_list_item">
+                        <span class="brand_img brand_img_ca"></span>
+                    </div>
+                    <div class="brand_list_item">
+                        <p class="brand_name">xx001</p>
+                        <p>层级序号：10011</p>
+                        <p>测试一下啊这里的描述信息</p>
+                    </div>
+                    <div class="brand_list_item pull-right">
+                        <p><i class="glyphicon glyphicon-search myhand"></i></p>
+                        <p><i class="glyphicon glyphicon-pencil myhand"></i></p>
+                        <p><i class="glyphicon glyphicon-trash myhand"></i></p>
+                    </div>
+                </li>
+                <li class="brand_list">
+                    <div class="brand_list_item item1">
+                        4
+                    </div>
+                    <div class="brand_list_item">
+                        <span class="brand_img brand_img_ca"></span>
+                    </div>
+                    <div class="brand_list_item">
+                        <p class="brand_name">xx001</p>
+                        <p>层级序号：10011</p>
+                        <p>测试一下啊这里的描述信息</p>
+                    </div>
+                    <div class="brand_list_item pull-right">
+                        <p><i class="glyphicon glyphicon-search myhand"></i></p>
+                        <p><i class="glyphicon glyphicon-pencil myhand"></i></p>
+                        <p><i class="glyphicon glyphicon-trash myhand"></i></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel panel-default brand_group">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <div class="panel-title">
+                    <div class="brand_title">
+                        <span class="left text-info">
+                            <input name ="checkAll" type="checkbox">
+                            <i class="glyphicon glyphicon-upload marginL10" data-name="showHideBody"></i>
+                            asgui_ca test
+                            <i class="glyphicon glyphicon-info-sign pull-right descrImg" data-toggle="tooltip"
+                               data-placement="top"  title="描述信息为空"></i>
+                        </span>
+                        <span class="right">
+                            <i class="glyphicon glyphicon-pencil marginR10 myhand"></i>
+                            <i class="glyphicon glyphicon-plus text-success myhand" onclick="window.location.href='editBrand.html'"></i>
+                        </span>
+                        <span class="center">
+                           <span>序列号：8776559</span>
+                           <span class="marginL10">城市对：<span class="bold">1 → 2</span></span>
+                           <span class="marginL10">生效日期对：<span class="bold">2016-06-30 — 9999-12-31</span></span>
+                           <span class="marginL10">旅行日期对：<span class="bold">2016-06-30 — 9999-12-31</span></span>
+                           <span class="marginL10">发布对象：状态：<span class="text-danger">未发布</span></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <ul></ul>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript" src="${pageContext.request.contextPath}/public/brand/queryBrandGroup.<%=hashId %>.js"></script>
+</body>
+</html>

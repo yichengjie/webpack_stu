@@ -405,3 +405,107 @@ td input[type=text],td select{
 }
 /*headroom插件 end*/
 
+/**服务选择相关css start*/
+.service_choose_layout {
+    background-color:#FCF5DA;
+    border:1px solid #FADC8D;
+    border-radius:3px;
+    float:left;
+    margin:13px 0 0 130px;
+}
+.service_choose_layout s {
+    border-color:rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #FADC8D;
+    border-style:solid;
+    border-width:10px;
+    height:0;
+    width:0;
+    margin-left:50px;
+    margin-top:-20px;
+    position:absolute;
+    z-index:1;
+}
+.service_choose_layout i {
+    border-color:rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #FCF5DA;
+    border-style:solid;
+    border-width:10px;
+    height:0;
+    margin-left:-10px;
+    margin-top:-9px;
+    position:absolute;
+    width:0;
+}
+.service_choose {
+    margin:10px;
+    overflow: hidden;
+}
+.choose_box {
+    background-color:#FFFFFF;
+    border:1px solid #D4DCE5;
+    border-radius:3px;
+    padding:1px;
+    width:200px;
+    height: 277px;
+    float: left;
+}
+.choose_box:after{
+    clear: both;
+}
+.choose_box_title {
+    background-color:#F2F4F7;
+    box-sizing: border-box;
+    padding:3px 4px;
+    height:32px;
+    line-height:32px;
+}
+.choose_box_title input[type=text]{
+    height: 25px;
+    width: 95%;
+}
+.service_list, .service_last_list {
+    height:230px;
+    overflow-y:auto;
+    padding:5px 0;
+}
+.service_list ul{
+    list-style: none;
+    padding-left: 2px;
+}
+.service_list ul li, .service_last_list ul li {
+    line-height:24px;
+    margin-top:1px;
+    padding:0 5px;
+    border-bottom:1px solid #F1F1F1;
+    cursor:pointer;
+}
+.service_last_list ul li {
+    cursor:default;
+}
+.service_list ul li {
+    background:url("../images/iconsprite.png") no-repeat scroll right -105px rgba(0, 0, 0, 0);
+}
+.service_list ul li.bg_gray,
+.service_last_list ul li.bg_gray {
+    background-color:#F7F7F7;
+}
+.service_list ul li:hover,
+.service_list ul li.selected,
+.service_last_list ul li:hover,
+.service_last_list ul li.selected {
+    background-color:#C9D1DC;
+}
+.service_name{ padding-left:5px; width:190px;}
+.service_name:after{
+    clear:both;
+}
+.service_name p,.chose_service_name{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.service_name p{ max-width:150px;margin-bottom:0;}
+.chose_service_name{ max-width:156px;}
+span.service_type_F,span.service_type_M,span.delete_service{ height:20px; width:15px; background-image:url("../images/iconsprite.png"); background-repeat:no-repeat;}
+.serviceTypeSpan{ background-color: #FBC; width: 13px; height: 13px; font-size: 10px; line-height: 13px; text-align: center; margin: 5px 0 0 5px; border-radius: 20px;}
+.service_list ul li.choose4li{ background-image:none;}
+
+.choose_box_right {
+    border-left:0 none;
+}
+/**服务选择相关css end*/
+

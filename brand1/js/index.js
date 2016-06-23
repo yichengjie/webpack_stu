@@ -5,7 +5,7 @@ $(function(){
     //初始化headroom插件
     //$('#myheader').headroom();
     //.collapse('toggle')
-    $(document).delegate('.brand_title>.left','click',function(){
+    $(document).delegate('.brand_title .changeDownUpArrow','click',function(){
         //$(this).parents('.panel').find('.panel-body').collapse('toggle');
         //$(this).parents('.panel').find('.panel-body').toggle(300) ;
         $(this).parents('.panel').find('.panel-body').toggleClass('hidden') ;
@@ -28,3 +28,4 @@ $(function(){
     }) ;*/
     $('[data-toggle="tooltip"]').tooltip()
 }) ;
+

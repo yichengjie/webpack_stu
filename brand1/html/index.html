@@ -34,7 +34,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">品牌服务</a></li>
+                    <li class="active"><a href="index.html">品牌服务</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -69,11 +69,6 @@
                 <input type="text" class="common_input" style="width: 100px" placeholder="范围" />
                 <span style="margin: 0 2px;">-</span>
                 <input type="text" class="common_input" style="width: 100px" placeholder="范围" />
-                <span>select测试</span>
-                <select class="common_input" style="width: 120px">
-                    <option>商务名称</option>
-                    <option>子代码</option>
-                </select>
             </div>
     </div>
     <!--query section end-->
@@ -88,15 +83,19 @@
     </div>
     <span class="clearfix"></span>
 
-    <div class="panel panel-default brand_group">
-        <div class="panel-heading">
-            <div class="panel-title">
+
+    <div id="brand_group_list">
+        <div class="panel panel-default brand_group">
+            <div class="panel-heading">
                 <div class="panel-title">
-                    <div class="brand_title">
+                    <div class="panel-title">
+                        <div class="brand_title">
                         <span class="left text-info">
                             <input name ="checkAll" type="checkbox">
-                            <i class="glyphicon glyphicon-upload marginL10" data-name="showHideBody"></i>
-                            asgui_ca test
+                            <span class="changeDownUpArrow">
+                                <i class="glyphicon glyphicon-upload marginL10" data-name="showHideBody"></i>
+                                asgui_catestssssssssssssssssssssssssss
+                            </span>
                             <i class="glyphicon glyphicon-info-sign pull-right descrImg" data-toggle="tooltip"
                                data-placement="top"  title="Tooltip on top  hello world  这里是描述信息"></i>
                         </span>
@@ -111,95 +110,93 @@
                            <span class="marginL10">旅行日期对：<span class="bold">2016-06-30 — 9999-12-31</span></span>
                            <span class="marginL10">发布对象：状态：<span class="text-danger">未发布</span></span>
                         </span>
-                        <span class="descrInfo hidden">
-                        </span>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="panel-body hidden">
+                <ul>
+                    <li class="brand_list">
+                        <div class="brand_list_item item1">
+                            1
+                        </div>
+                        <div class="brand_list_item">
+                            <span class="brand_img brand_img_ca"></span>
+                        </div>
+                        <div class="brand_list_item">
+                            <p class="brand_name">xx001</p>
+                            <p>层级序号：10011</p>
+                            <p>测试一下啊这里的描述信息</p>
+                        </div>
+                        <div class="brand_list_item pull-right">
+                            <p><i class="glyphicon glyphicon-search myhand"></i></p>
+                            <p><i class="glyphicon glyphicon-pencil myhand"></i></p>
+                            <p><i class="glyphicon glyphicon-trash myhand"></i></p>
+                        </div>
+                    </li>
+                    <li class="brand_list">
+                        <div class="brand_list_item item1">
+                            2
+                        </div>
+                        <div class="brand_list_item">
+                            <span class="brand_img brand_img_ca"></span>
+                        </div>
+                        <div class="brand_list_item">
+                            <p class="brand_name">xx001</p>
+                            <p>层级序号：10011</p>
+                            <p>测试一下啊这里的描述信息</p>
+                        </div>
+                        <div class="brand_list_item pull-right">
+                            <p><i class="glyphicon glyphicon-search myhand"></i></p>
+                            <p><i class="glyphicon glyphicon-pencil myhand"></i></p>
+                            <p><i class="glyphicon glyphicon-trash myhand"></i></p>
+                        </div>
+                    </li>
+                    <li class="brand_list">
+                        <div class="brand_list_item item1">
+                            3
+                        </div>
+                        <div class="brand_list_item">
+                            <span class="brand_img brand_img_ca"></span>
+                        </div>
+                        <div class="brand_list_item">
+                            <p class="brand_name">xx001</p>
+                            <p>层级序号：10011</p>
+                            <p>测试一下啊这里的描述信息</p>
+                        </div>
+                        <div class="brand_list_item pull-right">
+                            <p><i class="glyphicon glyphicon-search myhand"></i></p>
+                            <p><i class="glyphicon glyphicon-pencil myhand"></i></p>
+                            <p><i class="glyphicon glyphicon-trash myhand"></i></p>
+                        </div>
+                    </li>
+                    <li class="brand_list">
+                        <div class="brand_list_item item1">
+                            4
+                        </div>
+                        <div class="brand_list_item">
+                            <span class="brand_img brand_img_ca"></span>
+                        </div>
+                        <div class="brand_list_item">
+                            <p class="brand_name">xx001</p>
+                            <p>层级序号：10011</p>
+                            <p>测试一下啊这里的描述信息</p>
+                        </div>
+                        <div class="brand_list_item pull-right">
+                            <p><i class="glyphicon glyphicon-search myhand"></i></p>
+                            <p><i class="glyphicon glyphicon-pencil myhand"></i></p>
+                            <p><i class="glyphicon glyphicon-trash myhand"></i></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="panel-body">
-            <ul>
-                <li class="brand_list">
-                    <div class="brand_list_item item1">
-                        1
-                    </div>
-                    <div class="brand_list_item">
-                       <span class="brand_img brand_img_ca"></span>
-                    </div>
-                    <div class="brand_list_item">
-                        <p class="brand_name">xx001</p>
-                        <p>层级序号：10011</p>
-                        <p>测试一下啊这里的描述信息</p>
-                    </div>
-                    <div class="brand_list_item pull-right">
-                        <p><i class="glyphicon glyphicon-search myhand"></i></p>
-                        <p><i class="glyphicon glyphicon-pencil myhand"></i></p>
-                        <p><i class="glyphicon glyphicon-trash myhand"></i></p>
-                    </div>
-                </li>
-                <li class="brand_list">
-                    <div class="brand_list_item item1">
-                        2
-                    </div>
-                    <div class="brand_list_item">
-                        <span class="brand_img brand_img_ca"></span>
-                    </div>
-                    <div class="brand_list_item">
-                        <p class="brand_name">xx001</p>
-                        <p>层级序号：10011</p>
-                        <p>测试一下啊这里的描述信息</p>
-                    </div>
-                    <div class="brand_list_item pull-right">
-                        <p><i class="glyphicon glyphicon-search myhand"></i></p>
-                        <p><i class="glyphicon glyphicon-pencil myhand"></i></p>
-                        <p><i class="glyphicon glyphicon-trash myhand"></i></p>
-                    </div>
-                </li>
-                <li class="brand_list">
-                    <div class="brand_list_item item1">
-                        3
-                    </div>
-                    <div class="brand_list_item">
-                        <span class="brand_img brand_img_ca"></span>
-                    </div>
-                    <div class="brand_list_item">
-                        <p class="brand_name">xx001</p>
-                        <p>层级序号：10011</p>
-                        <p>测试一下啊这里的描述信息</p>
-                    </div>
-                    <div class="brand_list_item pull-right">
-                        <p><i class="glyphicon glyphicon-search myhand"></i></p>
-                        <p><i class="glyphicon glyphicon-pencil myhand"></i></p>
-                        <p><i class="glyphicon glyphicon-trash myhand"></i></p>
-                    </div>
-                </li>
-                <li class="brand_list">
-                    <div class="brand_list_item item1">
-                        4
-                    </div>
-                    <div class="brand_list_item">
-                        <span class="brand_img brand_img_ca"></span>
-                    </div>
-                    <div class="brand_list_item">
-                        <p class="brand_name">xx001</p>
-                        <p>层级序号：10011</p>
-                        <p>测试一下啊这里的描述信息</p>
-                    </div>
-                    <div class="brand_list_item pull-right">
-                        <p><i class="glyphicon glyphicon-search myhand"></i></p>
-                        <p><i class="glyphicon glyphicon-pencil myhand"></i></p>
-                        <p><i class="glyphicon glyphicon-trash myhand"></i></p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
 
-    <div class="panel panel-default brand_group">
-        <div class="panel-heading">
-            <div class="panel-title">
+        <div class="panel panel-default brand_group">
+            <div class="panel-heading">
                 <div class="panel-title">
-                    <div class="brand_title">
+                    <div class="panel-title">
+                        <div class="brand_title">
                         <span class="left text-info">
                             <input name ="checkAll" type="checkbox">
                             <i class="glyphicon glyphicon-upload marginL10" data-name="showHideBody"></i>
@@ -218,19 +215,15 @@
                            <span class="marginL10">旅行日期对：<span class="bold">2016-06-30 — 9999-12-31</span></span>
                            <span class="marginL10">发布对象：状态：<span class="text-danger">未发布</span></span>
                         </span>
-                        <span class="descrInfo hidden">
-                        </span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="panel-body">
-            <ul></ul>
+            <div class="panel-body">
+                <ul></ul>
+            </div>
         </div>
     </div>
-
-
-
 
 
 </div>

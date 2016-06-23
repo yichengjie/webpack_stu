@@ -14,29 +14,29 @@
     clear: both;
 }
 /**/
-.brand_title .descrInfo{
-    display: inline-block;
-    position: absolute;
-    width: 300px;
-    height: 90px;
-    top: -95px;
-    left: 50px;
-    z-index: 9999;
-    border: 1px solid black;
-}
-
-
 .brand_title .left {
     display: block;
     float: left;
     width: 210px;
-    cursor: pointer;
     padding-right: 10px;
 }
+
+
 .brand_title .left:after{
     display: table;
     content: '';
     clear: both;
+}
+
+
+.brand_title .changeDownUpArrow{
+    display: inline-block;
+    width: 160px;
+    cursor: pointer;
+    overflow: hidden;
+    vertical-align: middle;
+    white-space:nowrap;
+    text-overflow:ellipsis;
 }
 
 .brand_title .right {

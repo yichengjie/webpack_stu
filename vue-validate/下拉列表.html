@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <style>
+        .errors{
+            color: red;
+        }
+        .errors span{
+            display: inline-block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body style="margin-top: 50px">
+
+<div id="app" class="container">
+    <validator name="validation1">
+        <form class="form-horizontal" novalidate>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">lang:</label>
+                <div class="col-sm-6">
+                    <select v-validate:lang="{ required: true }" class="form-control">
+                        <option value="">----- select your favorite programming language -----</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="ruby">Ruby</option>
+                        <option value="python">Python</option>
+                        <option value="perl">Perl</option>
+                        <option value="lua">Lua</option>
+                        <option value="go">Go</option>
+                        <option value="rust">Rust</option>
+                        <option value="elixir">Elixir</option>
+                        <option value="c">C</option>
+                        <option value="none">Not a nothing here</option>
+                    </select>
+                </div>
+                <div class="errors">
+                    <span v-if="$validation1.lang.required">Required your lang.</span>
+                </div>
+            </div>
+        </form>
+    </validator>
+
+</div>
+
+
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../bower_components/vue/dist/vue.js"></script>
+<script type="text/javascript" src="../bower_components/vue-validator/dist/vue-validator.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        computed: {
+            requiredErrorMsg: function () {
+                return 'Required fruit !!'
+            }
+        }
+    })
+</script>
+</body>
+</html>

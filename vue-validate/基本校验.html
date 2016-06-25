@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <style>
+        .errors{
+            color: red;
+        }
+        .errors p{
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body style="margin-top: 50px">
+
+<div id="app" class="container">
+    <validator name="validation1">
+        <form  class="form-horizontal" novalidate>
+            <div class="form-group">
+                <label for="username" class="col-sm-2 control-label">username:</label>
+                <div class="col-sm-6">
+                    <input id="username" type="text" class="form-control" v-validate:username="['required']">
+                </div>
+                <div class="errors" v-if="$validation1.username.dirty">
+                    <span v-if="$validation1.username.required">Required your name.</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="comment" class="col-sm-2 control-label">comment:</label>
+                <div class="col-sm-6">
+                    <input id="comment" type="text" class="form-control" v-validate:comment="{ maxlength: 10 }">
+                </div>
+                <div class="errors">
+                    <span v-if="$validation1.comment.maxlength">Your comment is too long.</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="col-sm-2 control-label">comment:</label>
+                <div class="col-sm-6">
+                    <input id="password" type="text" class="form-control" v-validate:password="{ minlength: 10 , maxlength: 128}">
+                </div>
+                <div class="errors">
+                    <span v-show="$validation1.password.minlength">Your comment is too short.</span>
+                    <span v-if="$validation1.password.maxlength">Your comment is too long.</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-offset-2">
+                    <button type="button" class="btn btn-success" v-on:click="submitPage">提交</button>
+                </div>
+            </div>
+
+        </form>
+        <pre>{{$validation1 | json}}</pre>
+    </validator>
+
+</div>
+
+
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../bower_components/vue/dist/vue.js"></script>
+<script type="text/javascript" src="../bower_components/vue-validator/dist/vue-validator.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        methods:{
+            submitPage:function(){
+                console.info('xxxxxxxxxxxxxxx') ;
+            }
+        }
+    })
+</script>
+</body>
+</html>

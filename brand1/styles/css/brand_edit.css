@@ -18,4 +18,8 @@
     line-height: 30px;
     padding-left: 10px;
 }
+.form-group>div>label.error{
+    margin-top: 5px;
+}
+
 

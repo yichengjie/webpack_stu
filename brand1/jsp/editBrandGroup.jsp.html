@@ -1,14 +1,10 @@
 <!DOCTYPE html>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>品牌集新建页面</title>
-    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../../bower_components/pure/pure-min.css"/>
-    <link rel="stylesheet" href="../styles/css/jquery_ui.datepicker-modify.css"/>
-    <link rel="stylesheet" href="../styles/css/jquery-ui-timepicker-addon.css"/>
-    <link rel="stylesheet" href="../styles/css/common.css">
-    <link rel="stylesheet" href="../styles/css/brand_edit.css"/>
+    <title>品牌集管理</title>
+    <%@ include  file="/WEB-INF/pages/common/brand_common.jsp"%>
 </head>
 <body>
 
@@ -41,8 +37,8 @@
             <span class="query_title">新建品牌集</span>
             <span class="marginLR5">品牌集</span>
             <span class="pull-right marginR15">
-                <button type="button" class="btn btn-sm btn-default" onclick="window.location.href='index.html'">返回</button>
-                <button type="button" class="btn btn-sm btn-success">保存</button>
+                <button type="button" class="btn btn-sm btn-default" onclick="location.href='${pageContext.request.contextPath}/brandGroup/forwardBrandGroupMain.action'">返回</button>
+                <button type="button" class="btn btn-sm btn-success" id="saveBrandGroup">保存</button>
             </span>
         </div>
     </div>
@@ -50,7 +46,11 @@
 </div>
 
 <div class="container-fluid main_content" id="main_content" >
-    <form class="form-horizontal">
+    <form class="form-horizontal" id="insertBrandGroupForm">
+        <input type="hidden" id="isInsertOrUpdate" name="isInsertOrUpdate" value="${isInsertOrUpdate }"/>
+        <input type="hidden" name="tag_ctx" value="${pageContext.request.contextPath}" id="tag_ctx"/>
+        <input type="hidden" name="id" id="id" value="${rs8.id }"/>
+        <input type="hidden" name="source" id="source" value="TSK"/>
         <div class="data_section ">
             <div class="title_layout">
                 <span class="left">品牌集</span>
@@ -62,38 +62,68 @@
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">序列号</label>
                         <div class="pure-u-1-4">
-                            <input type="text"  class="form-control"  placeholder="数字">
+                            <input type="text"  id="sequenceNumber" name="sequenceNumber" maxlength="10"
+                                   value="${rs8.sequenceNumber}" class="form-control"  placeholder="数字"/>
                         </div>
-                        <span class="errorInfo_validate">这里是错误提示信息</span>
                     </div>
 
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">品牌集名称</label>
                         <div class="pure-u-1-4">
-                            <input type="text"  class="form-control"  placeholder="数字">
+                            <input type="text" name="nameCn" maxlength="20" value="${rs8.nameCn }"
+                                   class="form-control tuiRequired"  placeholder="数字"/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">销售日期</label>
                         <div class="pure-u-1-8">
-                            <input type="text"  class="form-control"  placeholder="范围">
+                            <input type="text" id="saleDateStr"  name="saleDateStr" value="${rs8.saleDateStr }"
+                                   class="form-control tuiRequired"  placeholder="范围"/>
+                        </div>
+                        <label for="saleDateStr" class="glyphicon glyphicon-th iconfont_box"></label>
+                        <div class="pure-u-1-8">
+                            <input type="text" id="discDateStr" name="discDateStr" value="${rs8.discDateStr }"
+                                   class="form-control"  placeholder="范围"/>
+                        </div>
+                        <label for="discDateStr" class="glyphicon glyphicon-th iconfont_box"></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="pure-u-1-8 control-label">区域1</label>
+                        <div class="pure-u-1-8">
+                            <select name="loc1Type" id="loc1Type" class="form-control" >
+                                <option value="">选择</option>
+                                <option value="A">A-大区</option>
+                                <option value="C" selected="selected">C-城市</option>
+                                <option value="N">N-国家</option>
+                                <option value="P">P-机场</option>
+                                <option value="S">S-州</option>
+                                <option value="Z">Z-区域</option>
+                            </select>
                         </div>
                         <div class="pure-u-1-8">
-                            <input type="text"  class="form-control"  placeholder="范围">
+                            <input type="text"  id="loc1" name="loc1" value="${rs8.loc1 }" maxlength="3"
+                                   class="form-control tuiRequired tuiUpper tuiAlphanumeric"  placeholder="代码">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">区域1</label>
                         <div class="pure-u-1-8">
-                            <select name="" class="form-control" >
+                            <select name="loc2Type" id="loc2Type" class="form-control" >
                                 <option value="">选择</option>
-                                <option value="">1</option>
+                                <option value="A">A-大区</option>
+                                <option value="C" selected="selected">C-城市</option>
+                                <option value="N">N-国家</option>
+                                <option value="P">P-机场</option>
+                                <option value="S">S-州</option>
+                                <option value="Z">Z-区域</option>
                             </select>
                         </div>
                         <div class="pure-u-1-8">
-                            <input type="text"  class="form-control"  placeholder="范围">
+                            <input type="text"  id="loc2" name="loc2" value="${rs8.loc2 }" maxlength="3"
+                                   class="form-control tuiRequired tuiUpper tuiAlphanumeric"  placeholder="代码">
                         </div>
                     </div>
 
@@ -101,13 +131,13 @@
                         <label class="pure-u-1-8 control-label">区域限制</label>
                         <div class="pure-u-1-2">
                             <div class="radio-inline">
-                                <input type="radio" id="r1"/><label for="r1" class="myhand">区域1→区域2</label>
+                                <input type="radio"  id="location01" name="geoSpecGi"  value="1"/><label for="location01" class="myhand">区域1→区域2</label>
                             </div>
                             <div class="radio-inline">
-                                <input type="radio" id="r2"/><label for="r2" class="myhand">区域2→区域1</label>
+                                <input type="radio" id="location02" name="geoSpecGi" value="2" /><label for="location02" class="myhand">区域2→区域1</label>
                             </div>
                             <div class="radio-inline">
-                                <input type="radio" id="r3"/><label for="r3" class="myhand">双向</label>
+                                <input type="radio" id="location03" name="geoSpecGi" value="0" /><label for="location03" class="myhand">双向</label>
                             </div>
                         </div>
 
@@ -116,24 +146,26 @@
             </div>
             <!--必填项 end-->
 
-            <!--必填项 strart-->
+            <!--选填项 strart-->
             <div class="content_layout">
                 <span class="left">选填项</span>
                 <div class="right">
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">旅行日期</label>
                         <div class="pure-u-1-8">
-                            <input type="text"  class="form-control"  placeholder="范围">
+                            <input type="text" id="firstTravelDateStr" name="firstTravelDateStr" class="form-control"  placeholder="范围"/>
                         </div>
+                        <label for="firstTravelDateStr" class="glyphicon glyphicon-th iconfont_box"></label>
                         <div class="pure-u-1-8">
-                            <input type="text"  class="form-control"  placeholder="范围">
+                            <input type="text" id="lastTravelDateStr" name="lastTravelDateStr"  class="form-control"  placeholder="范围"/>
                         </div>
+                        <label for="lastTravelDateStr" class="glyphicon glyphicon-th iconfont_box"></label>
                     </div>
 
                     <div class="form-group">
                         <label  class="pure-u-1-8 control-label">发布</label>
-                        <div class="pure-u-1-2">
-                            <div class="table_layout"  style="width:260px;">
+                        <div class="pure-u-1-4">
+                            <div class="table_layout"  style="width:100%;">
                                 <table>
                                     <thead>
                                     <tr>
@@ -144,16 +176,18 @@
                                     <tbody>
                                     <td>
                                         <select name="" class="common_input" style="width: 98%">
-                                            <option value="">选择</option>
-                                            <option value="">1</option>
+                                            <option value="" selected="selected">选择</option>
+                                            <option value="T">Travel Agency code</option>
+                                            <option value="I">IATA number</option>
+                                            <option value="V">Department Code</option>
                                         </select>
                                     </td>
                                     <td><input type="text" class="common_input" style="width: 98%"/></td>
                                     </tbody>
                                 </table>
                                 <div class="table_footer">
-                                    <button class="btn btn-success btn-sm">增加一行</button>
-                                    <button class="btn btn-default btn-sm">删除一行</button>
+                                    <button type="button" class="btn btn-success btn-sm">增加一行</button>
+                                    <button type="button" class="btn btn-default btn-sm">删除一行</button>
                                 </div>
                             </div>
                         </div>
@@ -161,29 +195,19 @@
 
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">描述</label>
-                        <div class="pure-u-1-3">
-                            <textarea class="form-control" rows="3"></textarea>
+                        <div class="pure-u-1-2">
+                            <textarea class="form-control" name="descCn" maxlength="200" rows="3">${rs8.descCn}</textarea>
                         </div>
 
                     </div>
-
                 </div>
-               <!-- <div class="form-group">
-                    <label  class="pure-u-1-8 control-label">描述</label>
-                    <div class="pure-u-1-2">
-                        <textarea class="form-control" rows="3"></textarea>
-                    </div>
-                </div>-->
+
             </div>
-            <!--必填项 end-->
+            <!--选填项 end-->
         </div>
     </form>
 </div>
 
-<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script type="text/javascript" src="../../bower_components/headroom.js/dist/headroom.js"></script>
-<script type="text/javascript" src="../../bower_components/headroom.js/dist/jQuery.headroom.js"></script>
-<script type="text/javascript" src="../js/index.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/public/brand/editBrandGroup.<%=hashId %>.js"></script>
 </body>
 </html>

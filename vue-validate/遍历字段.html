@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <style>
+        .errors{
+            color: red;
+        }
+        .errors p{
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body style="margin-top: 50px">
+
+<div id="app" class="container">
+    <validator name="validation">
+        <form  class="form-horizontal" novalidate>
+
+            <div class="form-group"  v-for="field in fields">
+                <label :for="field.id" class="col-sm-2 control-label">{{field.label}}</label>
+                <div class="col-sm-6">
+                    <input :id="field.id" :placeholder="field.placeholder" :field="field.name"
+                           type="text" class="form-control" v-validate="field.validate">
+                </div>
+            </div>
+            <pre>
+                hello world
+            </pre>
+            <pre>{{ $validation | json }}</pre>
+        </form>
+    </validator>
+</div>
+
+
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../bower_components/vue/dist/vue.js"></script>
+<script type="text/javascript" src="../bower_components/vue-validator/dist/vue-validator.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            fields: [{
+                id: 'username',
+                label: 'username',
+                name: 'username',
+                placeholder: 'input your username',
+                validate: { required: true, maxlength: 16 }
+            }, {
+                id: 'message',
+                label: 'message',
+                name: 'message',
+                placeholder: 'input your message',
+                validate: { required: true, minlength: 8 }
+            }]
+        }
+    });
+</script>
+</body>
+</html>

@@ -15,17 +15,26 @@
     new Vue({
         el: '#app',
         ready: function() {
-            /*this.$http.get('book.json', function(data) {
-                this.$set('books', data);
-            }).error(function(data, status, request) {
-                console.log('fail' + status + "," + request);
-            })*/
             var resource = this.$resource('book.json');
-            resource.get().then(function(data){
+            /*resource.get().then(function(data){
                 //console.info(data) ;
                 this.$set('books',data) ;
-            });
+            });*/
 
+            /*this.$http.get('/someUrl').then((response) => {
+                // success callback
+            }, (response) => {
+                // error callback
+            });*/
+            console.info('hello world') ;
+            this.$http.get('book.json').then(function(data){
+                console.info('****************') ;
+                console.info(data) ;
+                console.info('****************') ;
+                this.$set('books',data) ;
+            },function(err){
+                console.info(err) ;
+            }) ;
         },
         data: {
             books:[]

@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <head lang="en">
     <meta charset="UTF-8">
     <title>品牌新建页面</title>
-    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../../bower_components/pure/pure-min.css"/>
-    <link rel="stylesheet" href="../styles/css/jquery_ui.datepicker-modify.css"/>
-    <link rel="stylesheet" href="../styles/css/jquery-ui-timepicker-addon.css"/>
-    <link rel="stylesheet" href="../styles/css/common.css">
-    <link rel="stylesheet" href="../styles/css/brand_edit.css"/>
+    <%@ include  file="/WEB-INF/pages/common/brand_common.jsp"%>
 </head>
 <body>
+
+<input type="hidden" name="tag_ctx" value="${pageContext.request.contextPath}" id="tag_ctx"/>
+<input type="hidden" id="s8id" name="s8id" value="${rs8Detail.s8id}"/>
+<input type="hidden" id="passengerType" value="${rs8Detail.ptc }"/>
+<input type="hidden" id="serviceType" value="${rs8Detail.cabin }"/>
+<input type="hidden" id="isNewOrUpdate" value="${isNewOrUpdate }"/>
+<input type="hidden" id="id" name="id" value="${rs8Detail.id }"/>
+<input type="hidden" id="selectedS5Size" name="selectedS5Size" value="${selectedS5Size }"/>
+<input type="hidden" id="editOrDetailFlag" name="editOrDetailFlag" value="${editOrDetailFlag}"/>
 
 <div class="navbar-fixed-top" id = "myheader">
     <nav class="navbar navbar-inverse">
@@ -29,7 +34,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">品牌服务</a></li>
+                    <li class="active"><a href="${pageContext.request.contextPath}/brandGroup/toBrandGroupUI.action">品牌服务</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -41,8 +46,8 @@
             <span class="query_title">新建品牌集</span>
             <span class="marginLR5">品牌 | 运价 | 附加服务</span>
             <span class="pull-right marginR15">
-                <button type="button" class="btn btn-sm btn-default" onclick="window.location.href='index.html'">返回</button>
-                <button type="button" class="btn btn-sm btn-success">保存</button>
+                <button type="button" class="btn btn-sm btn-default" onclick="window.location.href='${pageContext.request.contextPath}/brandGroup/toBrandGroupUI.action'">返回</button>
+                <button type="button" class="btn btn-sm btn-success" id="saveBrand">保存</button>
             </span>
         </div>
     </div>
@@ -63,7 +68,8 @@
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">层级序号</label>
                         <div class="pure-u-1-4">
-                            <input type="text"  class="form-control"  placeholder="数字">
+                            <input type="text" id="tier" name="tier" maxlength="10"
+                                   class="form-control"  value="${rs8Detail.tier }" placeholder="数字">
                         </div>
                         <span class="errorInfo_validate">这里是错误提示信息</span>
                     </div>
@@ -71,7 +77,8 @@
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">品牌名称</label>
                         <div class="pure-u-1-4">
-                            <input type="text"  class="form-control"  placeholder="数字">
+                            <input type="text" name="brandnameCn" id="brandnameCn" maxlength="20" class="form-control required"
+                                   value="${rs8Detail.brandnameCn}"   placeholder="数字">
                         </div>
                     </div>
 
@@ -79,16 +86,16 @@
                         <label class="pure-u-1-8 control-label">旅客类型</label>
                         <div class="pure-u-1-2">
                             <div class="radio-inline">
-                                <input type="radio" id="r1"/><label for="r1" class="myhand">不限</label>
+                                <input type="radio" name="ptc" id="serviceType01" value=""/><label for="serviceType01" class="myhand">不限</label>
                             </div>
                             <div class="radio-inline">
-                                <input type="radio" id="r2"/><label for="r2" class="myhand">成人</label>
+                                <input type="radio" name="ptc" id="serviceType02" value="ADT"/><label for="serviceType02" class="myhand">成人</label>
                             </div>
                             <div class="radio-inline">
-                                <input type="radio" id="r3"/><label for="r3" class="myhand">儿童</label>
+                                <input type="radio" name="ptc" id="serviceType03" value="CHD"/><label for="serviceType03" class="myhand">儿童</label>
                             </div>
                             <div class="radio-inline">
-                                <input type="radio" id="r4"/><label for="r4" class="myhand">婴儿</label>
+                                <input type="radio" name="ptc" id="serviceType04" value="INF"/><label for="serviceType04" class="myhand">婴儿</label>
                             </div>
                         </div>
                     </div>
@@ -96,7 +103,7 @@
                     <div class="form-group">
                         <label class="pure-u-1-8 control-label">描述</label>
                         <div class="pure-u-1-3">
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea name="brandDescCn" maxlength="200" class="form-control" rows="3">${rs8Detail.brandDescCn }</textarea>
                         </div>
                     </div>
                 </div>
@@ -235,10 +242,6 @@
     </form>
 </div>
 
-<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script type="text/javascript" src="../../bower_components/headroom.js/dist/headroom.js"></script>
-<script type="text/javascript" src="../../bower_components/headroom.js/dist/jQuery.headroom.js"></script>
-<script type="text/javascript" src="../js/index.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/public/brand/editBrand.<%=hashId %>.js"></script>
 </body>
 </html>

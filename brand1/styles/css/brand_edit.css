@@ -21,5 +21,31 @@
 .form-group>div>label.error{
     margin-top: 5px;
 }
+.service_list .commercialName{
+    display:inline-block ;
+    width: 160px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    vertical-align: middle;
+}
+.service_list .serviceType{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    font-size: 10px;
+    line-height: 13px;
+    vertical-align: middle;
+    background-color: #FBC;
+    border-radius: 25%;
+    text-align: center;
+}
+.service_list .ssrCode{
+    display: inline-block;
+    width: 30px;
+    white-space:nowrap;
+    overflow:hidden;
+    vertical-align: middle;
+}
 
 

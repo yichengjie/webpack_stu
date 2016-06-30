@@ -11,6 +11,11 @@
         .errors p{
             margin-top: 5px;
         }
+        /*开发版本
+         input.invalid {border: 1px solid red;}
+         input.valid{border: 1px solid green;} */
+        /*上线版本*/
+        select.dirty.invalid,input.dirty.invalid{border:1px solid red;}
     </style>
 </head>
 <body style="margin-top: 50px">
@@ -68,10 +73,26 @@
         el: '#app',
         methods:{
             submitPage:function(){
-                console.info('xxxxxxxxxxxxxxx') ;
+                var $username = this.$validation1.username ;
+                console.info($username) ;
+                //$username.$set('dirty',true) ;
+                console.info($username.dirty) ;
+                //$username.reactiveSetter(true) ;
+                //this.$validation1.username.$setDirty(true) ;
+                //this.$validation1.username.dirty = true ;
+                var nameArr = ['username','comment','password'] ;
+                changeValidation2Dirty(this.$validation1,nameArr) ;
             }
         }
     })
+
+    function changeValidation2Dirty(validation1,nameArr){
+
+       // console.info(validation1)  ;
+        for(var i = 0 ; i < nameArr.length; i ++){
+            validation1[nameArr[i]].dirty = true ;
+        }
+    }
 </script>
 </body>
 </html>

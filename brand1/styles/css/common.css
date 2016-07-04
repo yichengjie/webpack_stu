@@ -120,7 +120,7 @@ body{
 .font14{ font-size:14px;}
 .font16{ font-size:16px;}
 .iconfont_box{
-    margin-left: -25px;
+    margin-left: -25px !important;
     cursor: pointer;
 }
 .iconfont_box:after{
@@ -507,6 +507,10 @@ span.service_type_F,span.service_type_M,span.delete_service{ height:20px; width:
 
 .choose_box_right {
     border-left:0 none;
+
 }
 /**服务选择相关css end*/
+.position_relative{
+    position: relative;
+}
 

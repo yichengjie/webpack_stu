@@ -267,7 +267,11 @@ ul{
     border:1px solid #EFEFEF;
     border-radius:3px;
     background-color:#FFF;
-    overflow: hidden;
+}
+.table_layout:after{
+    clear: both;
+    display: table;
+    content: '';
 }
 .table_layout table{
     border-top:1px solid #DDD;
@@ -510,7 +514,4 @@ span.service_type_F,span.service_type_M,span.delete_service{ height:20px; width:
 
 }
 /**服务选择相关css end*/
-.position_relative{
-    position: relative;
-}
 

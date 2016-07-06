@@ -514,4 +514,11 @@ span.service_type_F,span.service_type_M,span.delete_service{ height:20px; width:
 
 }
 /**服务选择相关css end*/
+/*bootstrap错误提示信息颜色不是一般的红色，这里定制为与bootstrap一致*/
+.form-horizontal .bs_errors{
+    display: inline-block;
+    margin: 0 0 0 5px;
+    padding-top: 7px;
+    color:#a94442;
+}
 

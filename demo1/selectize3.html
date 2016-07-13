@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../bower_components/selectize/dist/css/selectize.bootstrap3.css"/>
+    <link rel="stylesheet" href="../bower_components/selectize/dist/css/selectize.css"/>
+</head>
+<body>
+    <div class="container">
+        <div style="width: 100%;height: 50px;">
+            <select id="select-links">
+            </select>
+        </div>
+        <button type="button" id="setValueBtn" class="btn btn-info">setValueBtn</button>
+        <button type="button" id="getValueBtn" class="btn btn-info">getValueBtn</button>
+        <button type="button" id="disabledBtn" class="btn btn-info">disabledBtn</button>
+    </div>
+
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../bower_components/selectize/dist/js/standalone/selectize.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var options = [] ;
+        for(var i = 0 ;i < 10 ; i ++ ){
+            var id = i ;
+            var text = '测试name :' +i ;
+            options.push({id:id,text:text}) ;
+        }
+        var $select = $('#select-links').selectize({
+            valueField: 'id',
+            labelField: 'text',
+            searchField: ['text'],
+            sortField: [
+                {field: 'text', direction: 'asc'}
+            ],
+            options: options
+        });
+        var selectize = $select[0].selectize;
+        $('#setValueBtn').click(function(){
+            selectize.setValue('6', true);
+        }) ;
+        $('#getValueBtn').click(function(){
+            var value = $('#select-links').val() ;
+            console.info('value : ' + value) ;
+        }) ;
+
+        $('#disabledBtn').click(function(){
+            selectize.disable();
+        }) ;
+
+    }) ;
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../bower_components/selectize/dist/css/selectize.bootstrap3.css"/>
+    <link rel="stylesheet" href="../bower_components/selectize/dist/css/selectize.css"/>
+</head>
+<body>
+    <div style="width: 100%;height: 50px;">
+        <select id="select-links">
+            <option value="0">测试name : 0</option>
+            <option value="1">测试name : 1</option>
+            <option value="2">测试name : 2</option>
+            <option value="3">测试name : 3</option>
+            <option value="4">测试name : 4</option>
+            <option value="5">测试name : 5</option>
+            <option value="6">测试name : 6</option>
+            <option value="7">测试name : 7</option>
+            <option value="8">测试name : 8</option>
+            <option value="9">测试name : 9</option>
+        </select>
+    </div>
+    <button type="button" id="setValueBtn">setValueBtn</button>
+    <button type="button" id="getValueBtn">getValueBtn</button>
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../bower_components/selectize/dist/js/standalone/selectize.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+        var $select = $('#select-links').selectize();
+        console.info($select) ;
+        var selectize = $select[0].selectize;
+        $('#setValueBtn').click(function(){
+            selectize.setValue('6', true);
+           // $select.setValue('6', true);
+        }) ;
+
+        $('#getValueBtn').click(function(){
+            var value = $('#select-links').val() ;
+            console.info('value : ' + value) ;
+        }) ;
+    }) ;
+
+</script>
+</body>
+</html>

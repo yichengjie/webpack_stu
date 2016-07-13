@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../bower_components/selectize/dist/css/selectize.bootstrap3.css"/>
+    <link rel="stylesheet" href="../bower_components/selectize/dist/css/selectize.css"/>
+</head>
+<body>
+    <div style="width: 100%;height: 50px;">
+        <select id="select-links" style="display: none"> </select>
+    </div>
+    <button type="button" id="btn">test</button>
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../bower_components/selectize/dist/js/standalone/selectize.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+        $('#btn').click(function(){
+            var tmpstr = '' ;
+            for(var i = 0 ;i < 10 ; i ++ ){
+                if(i==5){
+                    tmpstr += '<option value="'+i+'" selected="selected" >测试name : '+i+'</option>' ;
+                }else{
+                    tmpstr += '<option value="'+i+'">测试name : '+i+'</option>' ;
+                }
+            }
+            $('#select-links').append(tmpstr) ;
+            $('#select-links').selectize();
+        }) ;
+    }) ;
+
+</script>
+</body>
+</html>

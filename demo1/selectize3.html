@@ -23,7 +23,7 @@
 <script type="text/javascript">
     $(function(){
         var options = [] ;
-        for(var i = 0 ;i < 10 ; i ++ ){
+        for(var i = 0 ;i < 300 ; i ++ ){
             var id = i ;
             var text = '测试name :' +i ;
             options.push({id:id,text:text}) ;
@@ -33,7 +33,7 @@
             labelField: 'text',
             searchField: ['text'],
             sortField: [
-                {field: 'text', direction: 'asc'}
+                {field: 'text', direction: 'desc'}
             ],
             options: options
         });
@@ -42,7 +42,8 @@
             selectize.setValue('6', true);
         }) ;
         $('#getValueBtn').click(function(){
-            var value = $('#select-links').val() ;
+            //var value = $('#select-links').val() ;
+            var value = selectize.getValue() ;
             console.info('value : ' + value) ;
         }) ;
 

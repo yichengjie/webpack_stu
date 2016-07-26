@@ -9,10 +9,21 @@
 </head>
 <body>
     <div class="container" style="padding-top: 50px;">
-        <div style="width: 100%;height: 50px;">
-            <select id="select-links">
-            </select>
+
+        <div class="row">
+            <div style="width: 100%;height: 50px;line-height: 50px;">
+                <span class="left">1.选择附加服务</span>
+                <span style="margin-right:25px;"></span>
+                <div style="width: 600px;height: 36px; display: inline-block;vertical-align: middle;">
+                    <select id="select-links">
+                    </select>
+                </div>
+                <i class ="glyphicon glyphicon-asterisk red"></i>
+                <span class ="gray">必须选择到最后一级</span>
+            </div>
         </div>
+
+
         <button type="button" id="setValueBtn" class="btn btn-info">setValueBtn</button>
         <button type="button" id="getValueBtn" class="btn btn-info">getValueBtn</button>
         <button type="button" id="disabledBtn" class="btn btn-info">disabledBtn</button>
@@ -22,6 +33,9 @@
 <script type="text/javascript" src="../bower_components/selectize/dist/js/standalone/selectize.js"></script>
 <script type="text/javascript">
     $(function(){
+        var handleChangeSelect = function(val) {
+            console.log("val : " + val);
+        };
         var options = [] ;
         for(var i = 0 ;i < 300 ; i ++ ){
             var id = i ;
@@ -35,6 +49,7 @@
             sortField: [
                 {field: 'text', direction: 'desc'}
             ],
+            onChange: handleChangeSelect,
             options: options
         });
         var selectize = $select[0].selectize;
@@ -46,11 +61,9 @@
             var value = selectize.getValue() ;
             console.info('value : ' + value) ;
         }) ;
-
         $('#disabledBtn').click(function(){
             selectize.disable();
         }) ;
-
     }) ;
 </script>
 </body>

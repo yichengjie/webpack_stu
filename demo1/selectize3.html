@@ -6,6 +6,19 @@
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="../bower_components/selectize/dist/css/selectize.bootstrap3.css"/>
     <link rel="stylesheet" href="../bower_components/selectize/dist/css/selectize.css"/>
+    <style type="text/css">
+        .serviceTypeSpan{
+            display: inline-block;
+            background-color: #FBC;
+            width: 13px;
+            height: 13px;
+            font-size: 10px;
+            line-height: 13px;
+            text-align: center;
+            margin: 5px 0 0 5px;
+            border-radius: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="container" style="padding-top: 50px;">
@@ -41,7 +54,7 @@
         for(var i = 0 ;i < 300 ; i ++ ){
             var id = i ;
             var text = '测试name :' +i ;
-            options.push({id:id,text:text}) ;
+            options.push({id:id,text:text,serviceType:"F"}) ;
         }
         var $select = $('#select-links').selectize({
             valueField: 'id',
@@ -51,7 +64,17 @@
                 {field: 'text', direction: 'desc'}
             ],
             onChange: handleChangeSelect,
-            options: options
+            options: options,
+            render: {
+                option: function(item, escape) {
+                    var label = item.text;
+                    var caption = item.serviceType;
+                    return '<div>' +
+                            '<span>' + escape(label) + '</span>' +
+                            '<span class="serviceTypeSpan">' + escape(caption) + '</span>'+
+                            '</div>';
+                }
+            },
         });
         var selectize = $select[0].selectize;
         $('#setValueBtn').click(function(){

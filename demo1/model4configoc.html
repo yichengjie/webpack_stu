@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../ocmoni6/styles/css/common.css">
+    <link rel="stylesheet" href="../ocmoni6/styles/css/oc_query.css">
+    <link rel="stylesheet" href="../ocmoni6/styles/css/oc_edit.css">
+</head>
+<body>
+
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog" style="width: 800px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">SUBCODE</label>
+                        <div class="col-sm-6">
+                            <input type = "text" ng-model = "data.subCode" name="subCode"   maxLength = "3" ng-keyup="initBySubCode()" ng-disabled="showHideTableFlag"
+                                   ng-required ="true" threecode =""  upper-input = "" class = "form-control input-sm" placeholder ="三字码">
+                        </div>
+                        <div class="table_control col-sm-2">
+                            <a href = "javascript:void(0)"  ng-bind = "hrefTitle">自定义</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-offset-2 col-sm-6" style="padding-left: 15px;color: red;font-size: 10px;"> 错误提示信息</div>
+                    </div>
+
+
+                    <div class="row" >
+                        <div class="col-sm-offset-2 col-sm-6" >
+                            <div style="background-color:#F7F7F7;padding-left: 15px;">
+                                <p>组信息：sfdsafdasdf s&nbsp;&nbsp;&gt;&nbsp;&nbsp;sfsafsfa</p>
+                                <p>CommercialName:sdfasfdsadf</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-offset-2 col-sm-6">
+                            <div style="background-color:#F7F7F7;padding-left: 15px;padding-top: 5px;">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">SUBCODE</label>
+                                    <div class="col-sm-9">
+                                        <input  type = "text" ng-model = "data.selfSubCode"  name="selfSubCode" maxLength = "3" ng-required="true" threecode =""  upper-input = "" sub-code-remote-validate ="" class = "form-control input-sm" placeholder ="三字码"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-offset-3 col-sm-6" style="padding-left: 15px;color: red;font-size: 10px;"> 错误提示信息</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">SUBCODE</label>
+                        <div class="col-sm-6">
+                            <select ng-model = "m.subCodeOccurence" name="subCodeOccurence" class ="form-control input-sm">
+                                <option >1 </option>
+                                <option >2 </option>
+                                <option >3 </option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<button type="button" id="showBtn" class="btn btn-success" >showBtn</button>
+
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+        $("#showBtn").click(function(){
+            $("#myModal").modal('show') ;
+        }) ;
+    }) ;
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text" name="dataInput"/><br/>
+<input type="text" name="dataInput"/><br/>
+<input type="text" name="dataInput"/><br/>
+<input type="text" name="dataInput"/><br/>
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $(':input[name=dataInput]').bind('keypress',function(event){
+            if(event.keyCode == "13"){
+                alert('你输入的内容为：' + $(this).val());
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<%if("publishObjectList.html"==value){%>
+	<tr ng-repeat = "l in list" ng-click = "clickTr(l);" ng-class = "{true:'selected_td',false:''}[l.selected]">
+     <td>
+		<select ng-model="l.type" class ="common_input"
+			style="width:97%;"
+			ng-disabled = "data.status!='1'"
+			ng-options="c.value as c.name for c in selectList.publishObjectList">
+		</select>
+	 </td>
+     <td>
+   		<input   name ="{{'publishObject12'+$index}}"  type = "text" upper-input="" set-focus="" ng-disabled = "data.status!='1'" 
+    		ng-model = "l.code" maxLength ="10" class = "common_input  required alphanumericOrStart" style ="width:97%"  
+    		placeholder = "输入*表示不做限制">
+     </td>
+</tr> 
+<%}%>

@@ -1,0 +1,23 @@
+<tr>
+    <th>
+    	<input name="abrid" value="<%=id%>"type="hidden"/><%=sequcenceNumber%>
+    </th>
+    <td><%=serviceType%></td>
+    <td><%=subCode%></td>
+    <td><%=departmentCode%></td>
+    <td><%=internationalTag%></td>
+    <td><%=effDate%></td>
+    <td><%=discDate%></td>
+    <td><%=dataSource%></td>
+    <td class ="oper_item">
+        <a title="修改编辑" href ="<%=tag_ctx%>/abr/toAbrDatasourceUpdate.action?id=<%=id%>">
+        	<i class="glyphicon glyphicon-pencil myhand"></i>
+        </a>
+        <%if(deleteFlag==true){%>
+        	<span title="删除" name="abrdelete" class="delete"><i class="glyphicon glyphicon-trash myhand marginL5"></i></span>
+        <%}else{%>
+        	<i class="glyphicon glyphicon-trash myhand marginL5 gray"></i>
+        <%}%>
+       
+    </td>
+</tr>

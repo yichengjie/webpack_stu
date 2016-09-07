@@ -1,0 +1,35 @@
+<li class="list-group-item s7_list_row">
+    <span class="s7_list_item s7_list_checkbox ">
+        <input name="s7check" type="checkbox"/>
+        <input name="s7id" value="<%=s7Id%>"type="hidden"/>
+        <input name ="firstMaintenanceDate" value ="<%=firstMaintenanceDate%>" type ="hidden"/>
+        <input name = "lastMaintenanceDate" value ="<%=lastMaintenanceDate%>" type ="hidden"/>
+        <input type ="hidden" name ="statusDes" value ="<%=statusDes%>"/>
+    </span>
+    <span class="productsImg <%=itemImgClass%>"></span>
+    <span class="s7_list_item s7_list_descr text-info"><%=description%></span>
+    <span class="s7_list_item s7_list_seq"><%=sequenceNumber%></span>
+    <span class="s7_list_item s7_list_date text-primary">
+    	<span><%=firstMaintenanceDateShort%></span>—<span data-name ="lastMaintenanceDate2"><%=lastMaintenanceDateShort%></span>
+    </span>
+    <span class="s7_list_item s7_list_status <%=showStatusColor%>"><%=showStatus%></span>
+    <span class="s7_list_item s7_list_price text-success"><%=availability%></span>
+    <span class="s7_list_item s7_list_level text-info"><%=passengerType%></span>
+    <span class="s7_list_item s7_list_geo"><%=geoDescr%></span>
+    <span class="s7_list_item s7_list_oper pull-right">
+        <i title ="详细" class="glyphicon glyphicon-search myhand"></i>
+        <%if(statusDes=='1'||statusDes=='2'||statusDes=='3'){%>
+         <a title ="修改" class ="marginLR5" href ="<%=tag_ctx%>/oc/toUpdateS7UI.action?s7Id=<%=s7Id%>">
+        	<i class="glyphicon glyphicon-pencil"></i>
+          </a>
+        <%}else{%>
+        	<i title ="修改" class="glyphicon glyphicon-pencil gray"></i>
+        <%}%>
+        
+        <%if(statusDes=='1'){%>
+        	<i title ="删除" name="s7delete" class="glyphicon glyphicon-trash myhand delete"></i>
+        <%}else{%>
+        	<i title ="删除" class="glyphicon glyphicon-trash  gray"></i>
+        <%}%>
+    </span>
+</li>

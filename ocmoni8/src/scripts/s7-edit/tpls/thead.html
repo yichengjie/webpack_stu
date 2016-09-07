@@ -1,0 +1,108 @@
+<%if("tb183.html"==value){%>
+<tr>
+	<th width="62">旅行社</th>
+	<th width="98">航空公司/分销商</th>
+	<th width="74">职责/功能码</th>
+	<th width ="78">区域类型</th>
+	<th width ="63">区域代码</th>
+	<th width ="160">发布对象类型</th>
+	<th width ="90">发布对象代码</th>
+	<th width ="127">权限</th>
+</tr>
+<%}else if("tb171.html"==value){%>
+<tr>
+	<th width ="100">航空公司</th>
+	<th width ="100">票价类别</th>
+	<th width ="100">运价类型</th>
+</tr>
+<%}else if ("tb172.html"==value){%>
+<tr>
+	<th width ="100">大客户编码</th>
+</tr>
+<%}else if ("tb173Ticket.html"==value){%>
+<tr>
+	<th width ="100">指定客票</th>
+</tr>
+<%}else if ("tb173Tkt.html"==value){%>
+<tr>
+	<th width ="100">指定客票</th>
+</tr>
+<%}else if ("tb165.html"==value){%>
+<tr>
+	<th width ="100">机型代码</th>
+</tr>
+<%}else if("tb186.html"==value){%>
+<tr>
+	<th width ="100">市场方</th>
+	<th width ="100">承运方</th>
+	<th width ="150">航班号</th>
+</tr>
+<%}else if ("tb196.html"==value){%>
+<tr>
+	<th>行李件数</th>
+	<th>行李子代码</th>
+</tr>
+<%}else if ("tb198.html"==value){%>
+<tr>
+	<th width="120">市场方/承运方</th>
+	<th width ="80">航空公司</th>
+	<th width ="80">订座舱位1</th>
+	<th width ="80">订座舱位2</th>
+	<th width ="80">订座舱位3</th>
+	<th width ="80">订座舱位4</th>
+	<th width ="80">订座舱位5</th>
+</tr>
+<%}else if("tb198UpGrade.html"==value){%>
+<tr>
+	<th width="120" ng-if = "data.sel1.value=='UP'||data.sel1.value=='BDUP'">市场方/承运方</th>
+	<th width ="80" ng-if = "data.sel1.value=='UP'||data.sel1.value=='BDUP'">航空公司</th>
+	<th width ="80">订座舱位1</th>
+	<th width ="80">订座舱位2</th>
+	<th width ="80">订座舱位3</th>
+	<th width ="80">订座舱位4</th>
+	<th width ="80">订座舱位5</th>
+</tr>
+<%}else if ("tb170.html"==value){%>
+<tr>
+	<th width ="110">销售地类型</th>
+	<th width ="110">销售地代码</th>
+	<th width ="110">金额</th>
+	<th width ="110">货币类型</th>
+</tr>
+<%}else if("tb178geo1.html"==value){%>
+<tr>
+	<th width ="100">类型</th>
+	<th width ="100">代码</th>
+	<th width ="150">是否适用</th>
+</tr>
+<%}else if("tb178geo2.html"==value){%>
+<tr>
+	<th width ="100">类型</th>
+	<th width ="100">代码</th>
+	<th width ="150">是否适用</th>
+</tr>
+<%}else if("tb178geo3.html"==value){%>
+<tr>
+	<th width ="100">类型</th>
+	<th width ="100">代码</th>
+	<th width ="150">是否适用</th>
+</tr>
+<%}else if("tbTSK202.html"==value){%>
+<tr>
+	<th>&nbsp;</th>
+	<th colspan ="4">原始运价</th>
+	<th>&nbsp;</th>
+	<th colspan ="3">新票填开</th>
+</tr>	
+<tr>
+	<th width ="127">兑换舱位</th>
+	<th width ="58">office</th>
+	<th width ="58">IATA_NO</th>
+	<th width ="68">ERSP_NO</th>
+	<th width ="83">Dep_Code</th>
+	<th width ="162">farebasis</th>
+	<th width ="130">差价</th>
+	<th width ="143">TourCode</th>
+	<th width ="138">签注</th>
+</tr>	
+<%}%>

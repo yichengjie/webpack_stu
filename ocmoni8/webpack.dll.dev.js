@@ -6,11 +6,7 @@
  */
 let path = require('path');
 let webpack = require('webpack');
-//var LIB_PATH = path.resolve('./src/scripts/lib');
-//var CSS_PATH = path.resolve('./src/styles/css');
-//var SCRIPTS_PATH = path.resolve('./src/scripts');
 var alias = require('./alias.js') ;
-//var DIST_PATH = path.resolve('../../public/dist/oc/');
 var DIST_PATH = path.resolve('./dist/');
 var vendors = require('./vendors.js') ;
 
@@ -27,7 +23,7 @@ module.exports = {
       alias: alias
   },
   plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
+      new webpack.optimize.OccurrenceOrderPlugin(),
 //    new webpack.DefinePlugin({
 //      'process.env': {
 //        'NODE_ENV': JSON.stringify('production')

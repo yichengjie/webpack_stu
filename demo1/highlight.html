@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../node_modules/highlight.js/styles/default.css"/>
+</head>
+<body>
+
+<pre>
+    <code class="html">...</code>
+</pre>
+
+<pre>
+    <code class="html">...</code>
+</pre>
+
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../node_modules/highlight.js/lib/highlight.js"></script>
+<script> type="text/javascript">
+    $(function(){
+        //hljs.initHighlightingOnLoad();
+
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
+
+//        hljs.configure({useBR: true});
+//
+//        $('div.code').each(function(i, block) {
+//            hljs.highlightBlock(block);
+//        });
+    })
+</script>
+</body>
+</html>

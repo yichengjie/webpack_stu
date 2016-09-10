@@ -3,7 +3,7 @@ var path = require('path') ;
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-var LIB_PATH = path.resolve('./src/scripts/lib');
+var LIB_PATH = 
 var CSS_PATH = path.resolve('./src/styles/css');
 var SCRIPTS_PATH = path.resolve('./src/scripts');
 var TEM_JSP_PATH = path.resolve('./jsp') ;

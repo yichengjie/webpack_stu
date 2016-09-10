@@ -26,6 +26,7 @@
     "jshint-loader": "^0.8.3",
     "less": "^2.6.1",
     "less-loader": "^2.2.3",
+    "marked": "^0.3.6",
     "moment": "^2.13.0",
     "path": "^0.12.7",
     "style-loader": "^0.13.1",

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+    <div id="content"></div>
+
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../node_modules/marked/lib/marked.js"></script>
+<script type="text/javascript">
+    $(function(){
+        document.getElementById('content').innerHTML =
+                marked('# Marked in browser\n\nRendered by **marked**.');
+    }) ;
+</script>
+</body>
+</html>

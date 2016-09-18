@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="../bower_components/nprogress/nprogress.css" />
+</head>
+<body>
+
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../bower_components/nprogress/nprogress.js"></script>
+<script type="text/javascript">
+    NProgress.start();
+    $(function(){
+        setTimeout(function(){
+            NProgress.done();
+        },3000) ;
+
+    }) ;
+</script>
+
+</body>
+</html>

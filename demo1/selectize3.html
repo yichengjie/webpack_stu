@@ -18,6 +18,9 @@
             margin: 5px 0 0 5px;
             border-radius: 20px;
         }
+        .marginR5{
+            margin-left: 5px;
+        }
     </style>
 </head>
 <body>
@@ -58,7 +61,7 @@
         }
         var $select = $('#select-links').selectize({
             valueField: 'id',
-            labelField: 'text',
+            labelField: 'label',
             searchField: ['text'],
             sortField: [
                 {field: 'text', direction: 'desc'}
@@ -66,12 +69,20 @@
             onChange: handleChangeSelect,
             options: options,
             render: {
+                item: function(item, escape) {
+                    var label = item.text;
+                    var caption = item.serviceType;
+                    return '<div>' +
+                            (label ? '<span>' + escape(label) + '</span>' : '') +
+                            (caption ? '<span class="marginR5 serviceTypeSpan">' + escape(caption) + '</span>' : '') +
+                            '</div>';
+                },
                 option: function(item, escape) {
                     var label = item.text;
                     var caption = item.serviceType;
                     return '<div>' +
-                            '<span>' + escape(label) + '</span>' +
-                            '<span class="serviceTypeSpan">' + escape(caption) + '</span>'+
+                                '<span>' + escape(label) + '</span>' +
+                                '<span class="serviceTypeSpan">' + escape(caption) + '</span>'+
                             '</div>';
                 }
             },

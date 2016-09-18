@@ -119,6 +119,7 @@
     white-space:nowrap;
 }
 .serviceTypeSpan{
+    display: inline-block;
     background-color: #FBC;
     width: 16px;
     height: 16px;

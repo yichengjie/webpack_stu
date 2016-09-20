@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数据源查询页面</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery_ui.datepicker-modify.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery-ui-timepicker-addon.css"/>
+    <link rel="stylesheet" href="../styles/css/common.css">
+    <link rel="stylesheet" href="../styles/css/oc_query.css"/>
+    <style>
+        body{
+            padding-top: 140px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar-fixed-top">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                    <span class="sr-only">导航菜单</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                <ul class="nav navbar-nav">
+                    <li><a href="s7Query.html">附加服务</a></li>
+                    <li role="presentation" class="dropdown active">
+                        <a id="drop4" href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            基础数据<span class="caret"></span>
+                        </a>
+                        <ul id="menu1" class="dropdown-menu" aria-labelledby="drop4">
+                            <li><a href="datasourceQuery.html">数据源</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="mileageExchangeQuery.html">里程积分兑换</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="validate.html">运价校验</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!--query section start-->
+    <div class ="query_section">
+            <!--query row1 start-->
+            <div class="query_row">
+                <span class="marginL10"></span>
+                <label  class="marginR5">航空公司</label>
+                <input type="text" class="common_input"  value="CA"  readonly="readonly" placeholder="CA" />
+
+                <label  class="marginR5">子代码</label>
+                <input type="text" class="common_input" placeholder="CA" />
+
+
+                <label class="marginR5">生效日期</label>
+                <input type="text" class="common_input datepicker"  placeholder="范围" style="width: 100px">
+                <label class="glyphicon glyphicon-calendar iconfont_box"></label>
+                <span>—</span>
+                <input type="text" class="common_input datepicker"  placeholder="范围" style="width: 100px">
+                <label class="glyphicon glyphicon-th iconfont_box"></label>
+
+
+                <label class="marginR5">数据源</label>
+                <select class="common_input" style="width: 100px;">
+                    <option value="">选择</option>
+                    <option value="">1</option>
+                </select>
+
+
+                <label class="marginR5">行程种类</label>
+                <select class="common_input" style="width: 100px;">
+                    <option value="">选择</option>
+                    <option value="">1</option>
+                </select>
+
+                <span class="pull-right marginR15">
+                    <button type="button" class="btn btn-sm btn-primary">查询</button>
+                    <button type="button" class="btn btn-sm btn-success" onclick="window.location.href='datasourceEdit.html'">新建</button>
+                </span>
+            </div>
+            <!--query row1 end-->
+
+            <div class="query_row">
+                <span class="marginL10"></span>
+                <label  class="marginR5">部门代码</label>
+                <input type="text" class="common_input" placeholder="CA" />
+                <span class="marginL10"></span>
+
+                <label  class="marginR5">服务类型</label>
+                <input  id ="c1" type="checkbox"><label for="c1">免费行李</label>
+                <input  id ="c2" type="checkbox"><label for="c2">随携行李</label>
+                <input  id ="c3" type="checkbox"><label for="c3">付费行李</label>
+                <input  id ="c4" type="checkbox"><label for="c4">预付费行李</label>
+                <input  id ="c5" type="checkbox"><label for="c5">禁运行李</label>
+            </div>
+    </div>
+    <!--query section end-->
+</div>
+
+<div class="container-fluid main_content" >
+    <div class="panel panel-default s7list_panel">
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                <tr class="active">
+                    <th>序列号</th>
+                    <th>服务类型</th>
+                    <th>子代码</th>
+                    <th>部门代码</th>
+                    <th>行程种类</th>
+                    <th>生效日期</th>
+                    <th>截止日期</th>
+                    <th>数据源</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">103003</th>
+                    <td>*</td>
+                    <td>*</td>
+                    <td>*</td>
+                    <td>国际</td>
+                    <td>2015-11-13</td>
+                    <td>2015-11-28</td>
+                    <td>ATPCO数据</td>
+                    <td>
+                        <i class="glyphicon glyphicon-pencil myhand"></i>
+                        <i class="glyphicon glyphicon-trash myhand marginL5"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">103003</th>
+                    <td>*</td>
+                    <td>*</td>
+                    <td>*</td>
+                    <td>国际</td>
+                    <td>2015-11-13</td>
+                    <td>2015-11-28</td>
+                    <td>ATPCO数据</td>
+                    <td>
+                        <i class="glyphicon glyphicon-pencil myhand"></i>
+                        <i class="glyphicon glyphicon-trash myhand marginL5"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">103003</th>
+                    <td>*</td>
+                    <td>*</td>
+                    <td>*</td>
+                    <td>国际</td>
+                    <td>2015-11-13</td>
+                    <td>2015-11-28</td>
+                    <td>ATPCO数据</td>
+                    <td>
+                        <i class="glyphicon glyphicon-pencil myhand "></i>
+                        <i class="glyphicon glyphicon-trash myhand marginL5"></i>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">103003</th>
+                    <td>*</td>
+                    <td>*</td>
+                    <td>*</td>
+                    <td>国际</td>
+                    <td>2015-11-13</td>
+                    <td>2015-11-28</td>
+                    <td>ATPCO数据</td>
+                    <td>
+                        <i class="glyphicon glyphicon-pencil myhand "></i>
+                        <i class="glyphicon glyphicon-trash myhand marginL5"></i>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">103003</th>
+                    <td>*</td>
+                    <td>*</td>
+                    <td>*</td>
+                    <td>国际</td>
+                    <td>2015-11-13</td>
+                    <td>2015-11-28</td>
+                    <td>ATPCO数据</td>
+                    <td class="oper_item">
+                        <a title="修改编辑" href ="<%=tag_ctx%>/abr/toAbrDatasourceUpdate.action?id=1234567>">
+                            <i class="glyphicon glyphicon-pencil myhand "></i>
+                        </a>
+                        <i class="glyphicon glyphicon-trash myhand marginL5"></i>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.js"></script>
+<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.datepicker-zh-CN.js"></script>
+<script type="text/javascript" src="../lib/jq-timepicker/jquery-timepicker-addon.js"></script>
+</body>
+</html>

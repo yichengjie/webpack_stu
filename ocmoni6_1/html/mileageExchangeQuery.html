@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>里程兑换查询页面</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery_ui.datepicker-modify.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery-ui-timepicker-addon.css"/>
+    <link rel="stylesheet" href="../styles/css/common.css">
+    <link rel="stylesheet" href="../styles/css/oc_query.css"/>
+</head>
+<body>
+
+<div class="navbar-fixed-top">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                    <span class="sr-only">导航菜单</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                <ul class="nav navbar-nav">
+                    <li><a href="s7Query.html">附加服务</a></li>
+                    <li role="presentation" class="dropdown active">
+                        <a id="drop4" href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            基础数据<span class="caret"></span>
+                        </a>
+                        <ul id="menu1" class="dropdown-menu" aria-labelledby="drop4">
+                            <li><a href="datasourceQuery.html">数据源</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="mileageExchangeQuery.html">里程积分兑换</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="validate.html">运价校验</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!--query section start-->
+    <div class ="query_section">
+            <!--query row1 start-->
+            <div class="query_row">
+                <span class="query_title">里程兑换查询</span>
+                <span class="marginL10"></span>
+                <span class="pull-right marginR15">
+                    <button type="button" class="btn btn-sm btn-default">返回</button>
+                    <button type="button" class="btn btn-sm btn-warning">截止</button>
+                    <button type="button" class="btn btn-sm btn-success" onclick="window.location.href='mileageExchangeEdit.html'">新建</button>
+                    <button type="button" class="btn btn-sm bg-primary">查询</button>
+                </span>
+            </div>
+            <!--query row1 end-->
+    </div>
+    <!--query section end-->
+</div>
+
+<div class="container-fluid main_content" >
+    <div class="panel panel-default s7list_panel">
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                <tr class="active">
+                    <th>选择</th>
+                    <th>序列号</th>
+                    <th>生效日期</th>
+                    <th>截止日期</th>
+                    <th>基准货币类型</th>
+                    <th>兑换系数</th>
+                    <th>服务类型</th>
+                    <th>服务子代码</th>
+                    <th>服务所在组</th>
+                    <th>常旅客等级</th>
+                    <th>航空公司</th>
+                    <th>区域1</th>
+                    <th>区域2</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">
+                        <input type="checkbox" />
+                    </th>
+                    <td>10009</td>
+                    <td>2016-05-26 14:00:00</td>
+                    <td>2016-05-27 08:00:59</td>
+                    <td>678</td>
+                    <td>5</td>
+                    <td>F</td>
+                    <td>OUJ</td>
+                    <td>FL</td>
+                    <td>1</td>
+                    <td>CA</td>
+                    <td>2</td>
+                    <td>CAB</td>
+                    <td>
+                        <i class="glyphicon glyphicon-pencil myhand"></i>
+                        <i class="glyphicon glyphicon-trash myhand marginL5"></i>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row"><input type="checkbox" /></th>
+                    <td>10009</td>
+                    <td>2016-05-26 14:00:00</td>
+                    <td>2016-05-27 08:00:59</td>
+                    <td>678</td>
+                    <td>5</td>
+                    <td>F</td>
+                    <td>OUJ</td>
+                    <td>FL</td>
+                    <td>1</td>
+                    <td>CA</td>
+                    <td>2</td>
+                    <td>CAB</td>
+                    <td>
+                        <i class="glyphicon glyphicon-pencil myhand"></i>
+                        <i class="glyphicon glyphicon-trash myhand marginL5"></i>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <nav class="pull-right">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+        <div class="page-desc">
+            <span class="marginRight10">共<span class ="marginRL2">3</span>页</span>
+            <span class ="">当前第</span>
+            <input type="text"  id ="pageOkInput" class ="common_input"  value ="2" style="width: 30px" >
+            <span class="marginRight5 ">页</span>
+            <span class="page-ok" v-on:click ="pageConfirm">确定</span>
+        </div>
+    </nav>
+</div>
+
+<!-- 模态框start -->
+<div class="modal fade" id="myModal" data-backdrop="static"   role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" style = "width:400px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">批量截止里程积分兑换</h4>
+            </div>
+            <div class="modal-body">
+
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">批量截止日期</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control input-sm" tabindex="3"  id="lastMaintenanceDate"
+                                   readonly="readonly"  v-model ="lastMaintenanceDate"/>
+                        </div>
+                    </div>
+                </form>
+               <!-- <div class ="row">
+                    <span class ="col-sm-11">
+                        <span style="display: inline-block;	width:30px;"></span>
+                        <span class ="marginRight15">批量截止日期</span>
+                        <input type="text" class="" tabindex="3"  id="lastMaintenanceDate"
+                               readonly="readonly"  v-model ="lastMaintenanceDate"/>
+                        <label class="icon iconfont icon-riqi datebox"  for="lastMaintenanceDate"></label>
+                    </span>
+                </div>-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" v-on:click="submitAbort">提交</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- 模态框end -->
+
+<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.js"></script>
+<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.datepicker-zh-CN.js"></script>
+<script type="text/javascript" src="../lib/jq-timepicker/jquery-timepicker-addon.js"></script>
+</body>
+</html>

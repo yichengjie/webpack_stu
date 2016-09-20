@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>里程兑换编辑页面</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../bower_components/pure/grids.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery.autocomplete.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery_ui.datepicker-modify.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery-ui-timepicker-addon.css"/>
+    <link rel="stylesheet" href="../styles/css/common.css">
+    <link rel="stylesheet" href="../styles/css/oc_edit.css">
+    <link rel="stylesheet" href="../styles/css/tui_dialog.css"/>
+    <link rel="stylesheet" href="../lib/iconfont/iconfont.css"/>
+</head>
+<body>
+<!--导航 start-->
+<div class="navbar-fixed-top">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                    <span class="sr-only">导航菜单</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                <ul class="nav navbar-nav">
+                    <li><a href="s7Query.html">附加服务</a></li>
+                    <li role="presentation" class="dropdown active">
+                        <a id="drop4" href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            基础数据<span class="caret"></span>
+                        </a>
+                        <ul id="menu1" class="dropdown-menu" aria-labelledby="drop4">
+                            <li><a href="datasourceQuery.html">数据源</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="mileageExchangeQuery.html">里程积分兑换</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="validate.html">运价校验</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!--query section start-->
+    <div class ="query_section">
+        <div class="query_row">
+            <span class="query_title">新增里程积分兑换</span>
+            <span> 配置项</span>
+            <span class="pull-right marginR15" style="padding-top: 2px">
+                <button type="button" id ="back" class="btn btn-sm btn-default">返回</button>
+                <button type="button" id ="saveBtn" class="btn btn-success btn-sm">保存</button>
+            </span>
+        </div>
+    </div>
+    <!--query section end-->
+</div>
+<!--导航 end-->
+
+
+<!--主编辑区域 start-->
+<div class="container-fluid main_content">
+    <form class="form-horizontal">
+        <div class="data_section ">
+            <div class="title_layout">
+                <span class="left">1.配置项</span>
+            </div>
+            <div class="content_layout">
+            <div class="right" style="width: 98%">
+                <div class="form-group">
+                    <label  class="pure-u-1-8 control-label">序列号</label>
+                    <div class="pure-u-1-4">
+                        <input type="text" id ="id1" class="form-control"  placeholder="序列号">
+                    </div>
+                    <i class="glyphicon glyphicon-asterisk red table_control"></i>
+                </div>
+
+                <div class="form-group">
+                    <label  class="pure-u-1-8 control-label">生效日期</label>
+                    <div class="pure-u-1-4">
+                        <input type="text" id="id2" class="form-control datepicker"  placeholder="生效日期">
+                    </div>
+                    <label for="id2" class="glyphicon glyphicon-th iconfont_box"></label>
+                    <i class="glyphicon glyphicon-asterisk red table_control"></i>
+                </div>
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">截止日期</label>
+                    <div class="pure-u-1-4">
+                        <input type="text" class="form-control datepicker"  placeholder="截止日期">
+                    </div>
+                    <label for="id1" class="glyphicon glyphicon-th iconfont_box"></label>
+                </div>
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">基准货币类型</label>
+                    <div class="pure-u-1-4">
+                        <input type="text" class="form-control"  placeholder="基准货币类型">
+                    </div>
+                    <i class="glyphicon glyphicon-asterisk red table_control"></i>
+                </div>
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">兑换系数</label>
+                    <div class="pure-u-1-4">
+                        <input type="text" class="form-control"  placeholder="兑换系数">
+                    </div>
+                    <i class="glyphicon glyphicon-asterisk red table_control"></i>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">服务类型</label>
+                    <div class="pure-u-1-4">
+                        <select name="" class="form-control" >
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">服务子代码</label>
+                    <div class="pure-u-1-4">
+                        <input type="text" class="form-control"  placeholder="服务子代码">
+                    </div>
+                    <i class="glyphicon glyphicon-asterisk red table_control"></i>
+                </div>
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">服务所在组</label>
+                    <div class="pure-u-1-4">
+                        <select name="" class="form-control">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">常旅客等级</label>
+                    <div class="pure-u-1-4">
+                        <select name=""  class="form-control">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">区域1</label>
+                    <div class="pure-u-1-8">
+                        <select name=""  class="form-control">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                        </select>
+                    </div>
+                    <div class="pure-u-1-8">
+                        <input type="text" class="form-control"  placeholder="区域代码">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pure-u-1-8 control-label">区域2</label>
+                    <div class="pure-u-1-8">
+                        <select name="" class="form-control">
+                            <option value="">选择</option>
+                            <option value="">1</option>
+                        </select>
+                    </div>
+                    <div class="pure-u-1-8">
+                        <input type="text" class="form-control"  placeholder="区域代码">
+                    </div>
+                </div>
+
+
+            </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.js"></script>
+<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.datepicker-zh-CN.js"></script>
+<script type="text/javascript" src="../lib/jq-timepicker/jquery-timepicker-addon.js"></script>
+<script>
+    $(function(){
+        $('.datepicker').datepicker({minDate:new Date(), showButtonPanel:true}) ;
+    }) ;
+</script>
+</body>
+</html>

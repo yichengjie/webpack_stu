@@ -25,9 +25,7 @@ table.table_records7 tr th{
 }
 table.table_records7 tr td{
     padding: 4px 2px;
-}
-table.table_records7 tr td{
-    padding-bottom: 0px;
+     padding-bottom: 0px;
 }
 table.table_records7 input[type="checkbox"]{
     vertical-align: middle;
@@ -50,4 +48,27 @@ table.table_records7 tr th .glyphicon{
 }
 table.table_records7 tr th:hover .glyphicon{
     display: block;
+}
+table.table_records7 tr label{
+    margin: 0;
+    padding: 0;
+    cursor: pointer
+}
+.allInfo_descr{
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.allInfo_descr label{
+    margin: 0;
+    padding: 0;
+    vertical-align: middle; 
+    margin-left: 5px;
+    cursor: pointer;
+}
+.allInfo_descr input[type="checkbox"]{
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
 }

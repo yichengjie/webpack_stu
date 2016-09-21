@@ -33,13 +33,17 @@
         </div>
     </div>
     <span class="clearfix"></span>
+
+    <div class="allInfo_descr">
+       <input type="checkbox" id ="queryDBFlag" /><label for="queryDBFlag">共查询出<span class="red">100</span>条记录，针对全部记录排序</label>
+    </div>
     <div class="table-responsive">
         <table class="table table-bordered table_records7">
             <thead>
                 <tr>
                     <th width="4%">
-                        <span class="tbtitle">全选 </span>
-                        <input type="checkbox">
+                        <label class="tbtitle" for="checkAll">全选 </label>
+                        <input type="checkbox" id ="checkAll">
                     </th>
                     <th width="6%" class="relative" 
                         v-on:click="clickTableTitle('subcode')"
@@ -47,7 +51,7 @@
                         >
                         <span class="tbtitle">sub</span>code
                             <i v-bind:class="{ 
-                            'glyphicon tb_order': true, 
+                            'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.subcode,
                             'glyphicon-chevron-up': !tableTitleOrder.subcode }" 
                             ></i>
@@ -55,14 +59,14 @@
                     <th width="6%" class="relative" v-on:click="clickTableTitle('serviceType')">
                         <span class="tbtitle">服务</span>类型 
                             <i v-bind:class="{ 
-                            'glyphicon tb_order': true, 
+                            'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.serviceType,
                             'glyphicon-chevron-up': !tableTitleOrder.serviceType }" 
                         ></i>
                     </th>
                     <th width="5%" class="relative" v-on:click="clickTableTitle('status')">
                         状态  <i v-bind:class="{ 
-                            'glyphicon tb_order': true, 
+                            'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.status,
                             'glyphicon-chevron-up': !tableTitleOrder.status }" 
                             ></i>
@@ -70,7 +74,7 @@
                     <th width="7%" class="relative" v-on:click="clickTableTitle('saleStartDate')">
                        <span class="tbtitle">销售起</span>始日期
                         <i v-bind:class="{ 
-                            'glyphicon tb_order': true, 
+                            'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.saleStartDate,
                             'glyphicon-chevron-up': !tableTitleOrder.saleStartDate }" 
                             ></i>
@@ -78,7 +82,7 @@
                     <th width="7%" class="relative" v-on:click="clickTableTitle('saleEndDate')">
                         <span class="tbtitle">销售截</span>止日期
                          <i v-bind:class="{ 
-                            'glyphicon tb_order': true, 
+                            'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.saleEndDate,
                             'glyphicon-chevron-up': !tableTitleOrder.saleEndDate }" 
                             ></i>
@@ -86,7 +90,7 @@
                     <th width="7%" class="relative" v-on:click="clickTableTitle('travelStartDate')">
                         <span class="tbtitle">旅行开</span>始日期
                          <i v-bind:class="{ 
-                            'glyphicon tb_order': true, 
+                            'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.travelStartDate,
                             'glyphicon-chevron-up': !tableTitleOrder.travelStartDate }" 
                             ></i>
@@ -94,7 +98,7 @@
                     <th width="7%" class="relative" v-on:click="clickTableTitle('travelEndDate')">
                         <span class="tbtitle">旅行结</span>束日期
                          <i v-bind:class="{ 
-                            'glyphicon tb_order': true, 
+                            'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.travelEndDate,
                             'glyphicon-chevron-up': !tableTitleOrder.travelEndDate }" 
                             ></i>
@@ -102,7 +106,7 @@
                     <th width="5%" class="relative" v-on:click="clickTableTitle('loc1')">
                         区域1 
                          <i v-bind:class="{ 
-                            'glyphicon tb_order': true, 
+                            'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.loc1,
                             'glyphicon-chevron-up': !tableTitleOrder.loc1 }" 
                             ></i>
@@ -110,7 +114,7 @@
                     <th width="5%" class="relative" v-on:click="clickTableTitle('loc2')">
                         区域2 
                          <i v-bind:class="{ 
-                            'glyphicon tb_order': true, 
+                            'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.loc2,
                             'glyphicon-chevron-up': !tableTitleOrder.loc2 }" 
                             ></i>
@@ -118,21 +122,21 @@
                     <th width="6%" class="relative" v-on:click="clickTableTitle('flyerStatus')">
                         <span class="tbtitle">常客</span>等级 
                          <i v-bind:class="{ 
-                            'glyphicon tb_order': true, 
+                            'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.flyerStatus,
                             'glyphicon-chevron-up': !tableTitleOrder.flyerStatus }" 
                             ></i>
                     </th>
                     <th width="6%" class="relative" v-on:click="clickTableTitle('money')">
                         金额  <i v-bind:class="{ 
-                            'glyphicon tb_order': true, 
+                            'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.money,
                             'glyphicon-chevron-up': !tableTitleOrder.money }" 
                             ></i>
                     </th>
                     <th width="9%" class="relative" v-on:click="clickTableTitle('descr')">
                         描述  <i v-bind:class="{ 
-                            'glyphicon tb_order': true, 
+                            'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.descr,
                             'glyphicon-chevron-up': !tableTitleOrder.descr }" 
                             ></i>
@@ -140,14 +144,14 @@
                     <th width="6%" class="relative" v-on:click="clickTableTitle('lastUpdateUser')">
                         <span class="tbtitle">最后</span>更新人 
                          <i v-bind:class="{ 
-                            'glyphicon tb_order': true, 
+                            'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.lastUpdateUser,
                             'glyphicon-chevron-up': !tableTitleOrder.lastUpdateUser }" 
                             ></i>
                     </th>
                     <th width="10%" class="relative" v-on:click="clickTableTitle('lastUpdateDate')">
                         最后更新日期  <i v-bind:class="{ 
-                            'glyphicon tb_order': true, 
+                            'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.lastUpdateDate,
                             'glyphicon-chevron-up': !tableTitleOrder.lastUpdateDate }" 
                             ></i>
@@ -174,9 +178,9 @@
                     </td>
                     <td>yicj</td>
                     <td>2016/01/01 14:00</td>
-                    <td>
-                        <i class="glyphicon glyphicon-pencil"></i>
-                        <i class="glyphicon glyphicon-trash"></i>
+                    <td class="oper_item">
+                        <i class="glyphicon glyphicon-pencil myhand"></i>
+                        <i class="glyphicon glyphicon-trash myhand"></i>
                     </td>
                  </tr>
             </tbody>

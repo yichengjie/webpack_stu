@@ -32,7 +32,7 @@
 
     <div class="pull-right clearfix" style="margin-bottom: 8px">
         <button class="btn btn-success btn-sm" onclick="toAddUI()">新建</button>
-        <button class="btn btn-default btn-sm">复制</button>
+        <button class="btn btn-default btn-sm">删除</button>
         <button class="btn btn-default btn-sm">发布</button>
         <button class="btn btn-default btn-sm">截止</button>
         <div class ="dropdown-oc">
@@ -54,11 +54,10 @@
                 <tr>
                     <th width="4%">
                         <label class="tbtitle" for="checkAll">全选 </label>
-                        <input type="checkbox" id ="checkAll">
+                        <input type="checkbox" id ="checkAll" v-on:click="checkAllRecords7($event)">
                     </th>
                     <th width="6%" class="relative" 
                         v-on:click="clickTableTitle('subcode')"
-                        
                         >
                         <span class="tbtitle">sub</span>code
                             <i v-bind:class="{ 
@@ -172,7 +171,7 @@
             </thead>
             <tbody>
                  <tr v-for="item in records7List">
-                    <td><input type="checkbox" /></td>
+                    <td><input type="checkbox" name="records7_checkbox" /></td>
                     <td>OB5</td>
                     <td>F</td>
                     <td>未发布</td>

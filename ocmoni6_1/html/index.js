@@ -40,7 +40,7 @@ function queryDbApi ({toPageNum,pageSize}){
         curPage:toPageNum,
         pageSize:pageSize,
         pageNumList:[1,2,3,4,5],
-        pageCount:10,
+        pageCount:5,
         recordList:[1,2,3,4,5,6,7,8],
         recordCount:100
     } ;
@@ -49,7 +49,7 @@ function queryDbApi ({toPageNum,pageSize}){
         setTimeout(function(){
             hiding() ;
             resolve(pageBean) ;
-        },1000) ;
+        },300) ;
     }) ;
 }
 
@@ -144,6 +144,14 @@ function initVue(s7){
                 }else{
                     $("#pageOkInput").val(this.pageBar.curPage) ;
                 }
+            },
+            checkAllRecords7:function(e){
+                let flag = e.target.checked ;
+                $(":checkbox[name='records7_checkbox']").prop('checked',flag) ;
+            },
+            checkRecords7Item:function(e){
+                let flag = e.target.checked ;
+                
             }
         }
     }) ;

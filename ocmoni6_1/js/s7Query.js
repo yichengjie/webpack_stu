@@ -39,7 +39,7 @@ $(function(){
     }) ;
 
     //初始化headroom插件
-    $('#myheader').headroom();
+    //$('#myheader').headroom();
 
     initQueryPage() ;
 

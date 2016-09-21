@@ -4,6 +4,51 @@ class Records7Query{
         initQueryPage() ;
         initVue(this) ;
     }
+    query4Page({toPageNum,vmList,vmPageBar} ){
+        console.info('hello world') ;
+        //let {toPageNum,vmList,vmPageBar} = config ;
+		var pageSize =   vmPageBar.pageSize ;
+		var serverURL = this.contextPath+"/mileage/query4Page.action" ;
+		var simpleJsonData = {"toPageNum":toPageNum,"pageSize":pageSize} ;
+		//清空历史数据
+		vmList.splice(0,vmList.length);  
+		vmPageBar.curPage =0 ;
+		vmPageBar.pageCount = 0 ;
+		vmPageBar.pgArr.splice(0,vmPageBar.pgArr.length) ;
+
+        let ajaxing = queryDbApi(simpleJsonData) ;
+        ajaxing.then(function(pageBean){
+            let list = pageBean.recordList ;
+            vmPageBar.curPage = pageBean.curPage ;
+            vmPageBar.pageSize= pageBean.pageSize;
+            pageBean.pageNumList.forEach(function(item){
+                vmPageBar.pgArr.push(item) ;
+            }) ;
+            vmPageBar.pageCount = pageBean.pageCount;
+            list.forEach(function(item){
+                vmList.push(item) ;
+            }) ;
+        });
+    }
+}
+
+
+
+function queryDbApi ({toPageNum,pageSize}){
+    var pageBean = {
+        curPage:toPageNum+"",
+        pageSize:pageSize+"",
+        pageNumList:[1,2,3,4,5],
+        pageCount:"10",
+        recordList:[1,2,3,4,5,6,7,8]
+    } ;
+    loading() ;
+    return new Promise(function(resolve,reject){
+        setTimeout(function(){
+            hiding() ;
+            resolve(pageBean) ;
+        },1000) ;
+    }) ;
 }
 
 
@@ -15,7 +60,14 @@ function initVue(s7){
             tableTitleOrder:{"subcode":true,"serviceType":true,"status":true,"saleStartDate":true,
                 "saleEndDate":true,"travelStartDate":true,"travelEndDate":true,"loc1":true,
                 "loc2":true,"flyerStatus":true,"money":true,"descr":true,"lastUpdateUser":true,
-                "lastUpdateDate":true},
+                "lastUpdateDate":true
+            },
+            pageBar:{
+			    "curPage":0,
+			    "pageSize":0,
+			    "pgArr":[],
+			    "pageCount":0
+		    }
         },
         ready:function(){
             console.info('vue app is ready ...') ;
@@ -28,6 +80,66 @@ function initVue(s7){
                    this.tableTitleOrder[key] = true ;
                }
                this.tableTitleOrder[titleName] = !oldFlag ;
+            },
+            queryS7:function(){
+               var config = {
+                    toPageNum:1,
+                    vmList:this.records7List ,
+                    vmPageBar:this.pageBar
+                } ;
+               s7.query4Page(config) ;
+            },
+            toPage:function(pnum){
+                //触发查询操作
+                //当前页数据更新
+                //this.pageBar.curPage = pnum ;
+                if(pnum!=this.pageBar.curPage){
+                    var config = {
+                        toPageNum:pnum,
+                        vmList:this.records7List ,
+                        vmPageBar:this.pageBar
+                    } ;
+                    s7.query4Page(config) ;
+                }
+            },
+            toPerviousPage:function(){
+                if(this.pageBar.curPage*1>1){
+                    //触发查询操作
+                    //this.pageBar.curPage = this.pageBar.curPage*1 -1 ;
+                    var config = {
+                        toPageNum:this.pageBar.curPage*1 -1,
+                        vmList:this.records7List ,
+                        vmPageBar:this.pageBar
+                    } ;
+                    s7.query4Page(config) ;
+                }
+            },
+            toNextPage:function(){
+                if(this.pageBar.curPage*1<this.pageBar.pageCount*1){
+                    //触发查询操作
+                    //this.pageBar.curPage = this.pageBar.curPage*1 +1 ;
+                    var config = {
+                        toPageNum:this.pageBar.curPage*1 +1,
+                        vmList:this.records7List ,
+                        vmPageBar:this.pageBar
+                    } ;
+                    s7.query4Page(config) ;
+                }
+            },
+            pageConfirm:function(){
+                var pageOkInput =  $("#pageOkInput").val() ;
+                //将当前页数据更新
+                var pageOkInputNum = pageOkInput*1 ;
+                if(pageOkInputNum>0&&pageOkInputNum<=this.pageBar.pageCount*1){
+                    var config = {
+                        toPageNum:pageOkInput*1,
+                        vmList:this.list ,
+                        vmPageBar:this.pageBar
+                    } ;
+                    s7.query4Page(config) ;
+                }else{
+                    $("#pageOkInput").val(this.pageBar.curPage) ;
+                }
             }
         }
     }) ;
@@ -41,6 +153,35 @@ function initQueryPage(){
     //myheader
     var htmlStr2 = $("#mytemplate").html();
     $("#myheader").html(htmlStr2) ;
+
+    $("#showHideMoreQuerySectionBtn").click(function(){
+        $("#moreQuerySection").slideToggle() ;
+    }) ;
+    $('.datepicker').datepicker({minDate:new Date(), showButtonPanel:true});
+
+
+    $(".dropdown-oc").find(".dropdown-trigger").click(function (e) {
+        e.stopPropagation() ;
+        $(".dropdown-menu-oc").removeClass('open') ;
+        $(this).parents(".dropdown-oc").find(".dropdown-menu-oc").toggleClass('open') ;
+    }) ;
+
+    $(document).click(function(e){
+        e.stopPropagation() ;
+        $('.dropdown-menu-oc').removeClass('open') ;
+    }) ;
+}
+
+
+function loading(){
+    $.isLoading({
+        'text': "加载中..." ,
+        'class': "text-success glyphicon glyphicon-refresh",    // loader CSS class
+        'tpl': '<span class="isloading-wrapper %wrapper%">%text%<i class="%class% icon-spin marginL5"></i></span>'
+    });
+}
+function hiding(){
+    $.isLoading( "hide" );
 }
 
 $(function(){

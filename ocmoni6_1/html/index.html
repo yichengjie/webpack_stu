@@ -17,6 +17,10 @@
 
 
 <div class="container-fluid main_content" id="main_content" >
+    <div class="allInfo_descr">
+       <input type="checkbox" id ="queryDBFlag" />
+       <label for="queryDBFlag">共查询出<span class="red">100</span>条记录，针对全部记录排序</label>
+    </div>
     <div class="pull-right clearfix" style="margin-bottom: 8px">
         <button class="btn btn-success btn-sm" onclick="toAddUI()">新建</button>
         <button class="btn btn-default btn-sm">复制</button>
@@ -34,9 +38,7 @@
     </div>
     <span class="clearfix"></span>
 
-    <div class="allInfo_descr">
-       <input type="checkbox" id ="queryDBFlag" /><label for="queryDBFlag">共查询出<span class="red">100</span>条记录，针对全部记录排序</label>
-    </div>
+   
     <div class="table-responsive">
         <table class="table table-bordered table_records7">
             <thead>
@@ -186,6 +188,33 @@
             </tbody>
         </table>
     </div>
+
+     <!-- spilt page bar star -->
+    <nav class ="pull-right" v-if="records7List.length>0">
+        <ul class="pagination">
+            <li>  <a href="javascript:void(0)" v-on:click ="toPage(1)">首页</a></li>
+            <li>
+                <a href="javascript:void(0)" aria-label="Previous" v-on:click ="toPerviousPage">上一页</a>
+            </li>
+            <li v-for="l in pageBar.pgArr"    v-bind:class="{ 'active': pageBar.curPage==l}" >
+                <a href="javascript:void(0)"  v-on:click="toPage(l)">{{l}}</a>
+            </li>
+            <li v-if ="pageBar.pageCount>5&&(pageBar.curPage+3) <=pageBar.pageCount"><span>...</span></li>
+            <li>
+                <a href="javascript:void(0)" aria-label="Next" v-on:click ="toNextPage">下一页</a>
+            </li>
+            <li> <a href="javascript:void(0)" v-on:click ="toPage(pageBar.pageCount)">末页</a></li>
+        </ul>
+        <div class="page-desc">
+            <span class="marginRight10">共<span class ="marginRL2">{{pageBar.pageCount}}</span>页</span>
+            <span class ="">当前第</span>
+            <input type="text"  id ="pageOkInput" class ="common_input"  style="width: 30px"  value ="{{pageBar.curPage}}" >
+            <span class="marginRight5 ">页</span>
+            <span class="page-ok" v-on:click ="pageConfirm">确定</span>
+        </div>
+    </nav>
+    <!-- spilt page bar star -->
+
 </div>
 
 
@@ -249,7 +278,7 @@
                 <span class="marginLR15">
                 </span>
             <input  id ="showHideMoreQuerySectionBtn" type="checkbox"> <label for="showHideMoreQuerySectionBtn">更多条件</label>
-            <button type="button" class="btn btn-sm btn-primary" id="queryBtn">查询</button>
+            <button type="button" class="btn btn-sm btn-primary" v-on:click="queryS7">查询</button>
         </div>
         <!--query row1 end-->
 

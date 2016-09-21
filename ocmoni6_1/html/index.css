@@ -55,7 +55,7 @@ table.table_records7 tr label{
     cursor: pointer
 }
 .allInfo_descr{
-    display: block;
+    display: inline-block;
     height: 30px;
     line-height: 30px;
     font-size: 14px;

@@ -77,8 +77,8 @@ function initQueryPage(){
     for(var i = 0 ;i < 30 ; i++){
         $('#list_s7_container').append(htmlStr) ;
     }
-    //var htmlStr2 = $("#mytemplate2").html();
-    //$("#myheader").html(htmlStr2) ;
+    var htmlStr2 = $("#mytemplate2").html();
+    $("#myheader").html(htmlStr2) ;
 }
 
 

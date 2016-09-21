@@ -73,10 +73,15 @@ $(function(){
 
 
 function initQueryPage(){
+    var htmlStr2 = $("#mytemplate2").html();
+    $("#myheader").html(htmlStr2) ;
+    //myheader
     var htmlStr = $("#mytemplate").html() ;
     for(var i = 0 ;i < 30 ; i++){
         $('#list_s7_container').append(htmlStr) ;
     }
+
+
 }
 
 

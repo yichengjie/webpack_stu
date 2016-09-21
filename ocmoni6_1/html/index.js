@@ -5,7 +5,6 @@ class Records7Query{
         initVue(this) ;
     }
     query4Page({toPageNum,vmList,vmPageBar} ){
-        console.info('hello world') ;
         //let {toPageNum,vmList,vmPageBar} = config ;
 		var pageSize =   vmPageBar.pageSize ;
 		var serverURL = this.contextPath+"/mileage/query4Page.action" ;
@@ -25,6 +24,8 @@ class Records7Query{
                 vmPageBar.pgArr.push(item) ;
             }) ;
             vmPageBar.pageCount = pageBean.pageCount;
+            vmPageBar.recordCount = pageBean.recordCount ;
+            vmPageBar.isQueryDB = true ;
             list.forEach(function(item){
                 vmList.push(item) ;
             }) ;
@@ -36,11 +37,12 @@ class Records7Query{
 
 function queryDbApi ({toPageNum,pageSize}){
     var pageBean = {
-        curPage:toPageNum+"",
-        pageSize:pageSize+"",
+        curPage:toPageNum,
+        pageSize:pageSize,
         pageNumList:[1,2,3,4,5],
-        pageCount:"10",
-        recordList:[1,2,3,4,5,6,7,8]
+        pageCount:10,
+        recordList:[1,2,3,4,5,6,7,8],
+        recordCount:100
     } ;
     loading() ;
     return new Promise(function(resolve,reject){
@@ -56,7 +58,7 @@ function initVue(s7){
     new Vue({
         el: '#app',
         data: {
-            records7List:[1,2,3],
+            records7List:[],
             tableTitleOrder:{"subcode":true,"serviceType":true,"status":true,"saleStartDate":true,
                 "saleEndDate":true,"travelStartDate":true,"travelEndDate":true,"loc1":true,
                 "loc2":true,"flyerStatus":true,"money":true,"descr":true,"lastUpdateUser":true,
@@ -66,7 +68,9 @@ function initVue(s7){
 			    "curPage":0,
 			    "pageSize":0,
 			    "pgArr":[],
-			    "pageCount":0
+			    "pageCount":0,
+                "recordCount":0,
+                "isQueryDB":false
 		    }
         },
         ready:function(){

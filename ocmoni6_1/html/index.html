@@ -9,18 +9,27 @@
     <link rel="stylesheet" href="../styles/css/common.css">
     <link rel="stylesheet" href="../styles/css/oc_query.css"/>
     <link rel="stylesheet" href="./index.css"/>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
-<body id ="app">
+<body id ="app" v-cloak>
 
 <div class="navbar-fixed-top" id = "myheader">
 </div>
 
 
 <div class="container-fluid main_content" id="main_content" >
-    <div class="allInfo_descr">
+
+
+    <div class="allInfo_descr" v-show ="pageBar.isQueryDB">
        <input type="checkbox" id ="queryDBFlag" />
-       <label for="queryDBFlag">共查询出<span class="red">100</span>条记录，针对全部记录排序</label>
+       <label for="queryDBFlag">共查询出<span class="red">{{pageBar.recordCount}}</span>条记录，针对全部记录排序</label>
     </div>
+
+
     <div class="pull-right clearfix" style="margin-bottom: 8px">
         <button class="btn btn-success btn-sm" onclick="toAddUI()">新建</button>
         <button class="btn btn-default btn-sm">复制</button>
@@ -39,7 +48,7 @@
     <span class="clearfix"></span>
 
    
-    <div class="table-responsive">
+    <div class="table-responsive" v-show ="pageBar.isQueryDB">
         <table class="table table-bordered table_records7">
             <thead>
                 <tr>

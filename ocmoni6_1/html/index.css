@@ -25,7 +25,8 @@ table.table_records7 tr th{
 }
 table.table_records7 tr td{
     padding: 4px 2px;
-     padding-bottom: 0px;
+    padding-bottom: 0px;
+    text-align: center;
 }
 table.table_records7 input[type="checkbox"]{
     vertical-align: middle;

@@ -2,6 +2,11 @@
  * Created by Administrator on 2016/5/27.
  */
 $(function(){
+
+    //初始化headroom插件
+    //$('#myheader').headroom();
+    initQueryPage() ;
+
     //$("#moreQuerySection").hide() ;
     $("#showHideMoreQuerySectionBtn").click(function(){
         $("#moreQuerySection").slideToggle() ;
@@ -20,9 +25,6 @@ $(function(){
         e.stopPropagation() ;
         $('.dropdown-menu-oc').removeClass('open') ;
     }) ;
-
-
-
     function loading(){
         $.isLoading({
             'text': "加载中..." ,
@@ -38,10 +40,7 @@ $(function(){
         setTimeout(hide,1500) ;
     }) ;
 
-    //初始化headroom插件
-    //$('#myheader').headroom();
 
-    initQueryPage() ;
 
     //checkAll
     $(document).delegate(':checkbox[name=checkAll]','click',function(e){
@@ -80,8 +79,6 @@ function initQueryPage(){
     for(var i = 0 ;i < 30 ; i++){
         $('#list_s7_container').append(htmlStr) ;
     }
-
-
 }
 
 

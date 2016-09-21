@@ -16,19 +16,12 @@
 .table_records7 .tbtitle{
     display: block;
 }
-@media screen and (min-width: 1250px) {
-    .table_records7 .tbtitle{
-        display: inline-block;
-    }
-    .table_records7 .tb_order{
-        top: 30%;
-    }
-}
 
 table.table_records7 tr th{
     padding: 8px 2px;
     background-color: #8AD0EE;
     vertical-align: middle;
+    cursor: pointer;
 }
 table.table_records7 tr td{
     padding: 4px 2px;
@@ -42,4 +35,19 @@ table.table_records7 input[type="checkbox"]{
 }
 .table_records7 tbody tr:hover{
     background-color:#ECF1EF ;
+}
+
+@media screen and (min-width: 1250px) {
+    .table_records7 .tbtitle{
+        display: inline-block;
+    }
+    .table_records7 .tb_order{
+        top: 30%;
+    }
+}
+table.table_records7 tr th .glyphicon{
+    display: none;
+}
+table.table_records7 tr th:hover .glyphicon{
+    display: block;
 }

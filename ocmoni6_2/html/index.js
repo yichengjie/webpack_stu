@@ -97,12 +97,16 @@ function initVue(s7){
                 "recordCount":0,
                 "isQueryDB":false
 		    },
-            queryDBFlag:false
+            queryDBFlag:false,
+            showMoreQuerySectionFlag:false
         },
         ready:function(){
             console.info('vue app is ready ...') ;
         },
         methods:{
+            showMoreQuerySection:function(e){
+                
+            },
             clickTableTitle:function(titleName){
                //1.更新当前排序呢的列名称
                this.orderTitleName = titleName ;
@@ -211,12 +215,10 @@ function initVue(s7){
 
 function initQueryPage(){
     //myheader
-    var htmlStr2 = $("#mytemplate").html();
-    $("#myheader").html(htmlStr2) ;
+    // $("#showHideMoreQuerySectionBtn").click(function(){
+    //     $("#moreQuerySection").slideToggle() ;
+    // }) ;
 
-    $("#showHideMoreQuerySectionBtn").click(function(){
-        $("#moreQuerySection").slideToggle() ;
-    }) ;
     $('.datepicker').datepicker({minDate:new Date(), showButtonPanel:true});
 
 
@@ -230,6 +232,18 @@ function initQueryPage(){
         e.stopPropagation() ;
         $('.dropdown-menu-oc').removeClass('open') ;
     }) ;
+
+    //
+    // $(window).resize(function(){
+    //     alert("Stop it!");
+    // });
+    // $('#myheader').resize(function(){
+    //     console.info('resize : ....') ;
+    // }) ;
+    // $("#myheader").resize(function(e){
+    //     // do something when #unicorns element resizes
+    //     console.info('resize : ....') ;
+    // });
 }
 
 

@@ -13,16 +13,123 @@
         [v-cloak] {
             display: none;
         }
+        .hasMoreQuerySection{
+            padding-top: 166px;
+        }
     </style>
 </head>
 <body id ="app" v-cloak>
 
 <div class="navbar-fixed-top" id = "myheader">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                    <span class="sr-only">导航菜单</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">OCGUI</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="s7Query.html">附加服务</a></li>
+                    <li role="presentation" class="dropdown">
+                        <a id="drop4" href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            基础数据<span class="caret"></span>
+                        </a>
+                        <ul id="menu1" class="dropdown-menu" aria-labelledby="drop4">
+                            <li><a href="datasourceQuery.html">数据源</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="mileageExchangeQuery.html">里程积分兑换</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="validate.html">运价校验</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!--query section start-->
+    <div class ="query_section">
+        <!--query row1 start-->
+        <div class="query_row">
+            <span class="query_title">基础信息</span>
+            <input id ="c1" type="checkbox"><label for="c1">未发布</label>
+            <input id ="c2" type="checkbox"><label for="c2">已发布</label>
+            <input  id ="c3" type="checkbox"><label for="c3"> 未生效</label>
+            <input  id ="c4" type="checkbox"> <label for="c4">已生效</label>
+            <input  id ="c5" type="checkbox"> <label for="c5">已过期</label>
+
+            <label  class="marginR5">服务</label>
+            <select class="common_input" style="width: 120px">
+                <option>商务名称</option>
+                <option>子代码</option>
+            </select>
+            <input type="email" class="common_input" style="width: 100px">
+            <label class="marginR5">销售日期</label>
+            <input type="text" class="common_input datepicker"  placeholder="起始日期" style="width: 100px">
+            <span class="glyphicon glyphicon-th iconfont_box"></span>
+            <span class="marginL15"></span>
+            <input type="text" class="common_input datepicker"  placeholder="结束日期" style="width: 100px">
+            <span class="glyphicon glyphicon-th iconfont_box"></span>
+                <span class="marginLR15">
+                </span>
+            <input  id ="showHideMoreQuerySectionBtn" type="checkbox" v-model ="showMoreQuerySectionFlag"> <label for="showHideMoreQuerySectionBtn">更多条件</label>
+            <button type="button" class="btn btn-sm btn-primary" v-on:click="queryS7">查询</button>
+        </div>
+        <!--query row1 end-->
+
+        <!--moreQuerySection start-->
+        <div  v-show ="showMoreQuerySectionFlag">
+            <!--query row2 start-->
+            <div class="query_row">
+                <span class="query_title">服务等级&nbsp;|&nbsp;机型</span>
+                <input id ="a1" type="checkbox"><label for="a1">豪华头等舱</label>
+                <input id ="a2" type="checkbox"><label for="a2">头等舱</label>
+                <input  id ="a3" type="checkbox"><label for="a3"> 豪华商务舱</label>
+                <input  id ="a4" type="checkbox"> <label for="a4">商务舱</label>
+                <input  id ="a5" type="checkbox"> <label for="a5">豪华经济舱</label>
+                <input  id ="a6" type="checkbox"> <label for="a6">经济舱</label>
+                <span class="marginR15"></span>
+
+                <label   class="marginR5">机型</label>
+                <select class="common_input">
+                    <option selected>选择</option>
+                    <option>747-B747-400CMB</option>
+                    <option>73G-B737-700</option>
+                    <option>733-B737-3z00</option>
+                    <option>340-A340-300</option>
+                    <option>319-A319-111</option>
+                </select>
+
+                <label class="marginR5">优先级序号</label>
+                <input type="text" class="common_input"  style="width: 100px">
+            </div>
+            <!--query row2 end-->
+            <!--query row3 start-->
+            <div class="query_row">
+                <span class="query_title">地理位置</span>
+                <label   class="marginR5">区域1</label>
+                <input type="text" class="common_input"  style="width: 100px">
+                <label class="marginR5">区域2</label>
+                <input type="text" class="common_input"  style="width: 100px">
+                <label class="marginR5">经过区域</label>
+                <input type="text" class="common_input"  style="width: 100px">
+            </div>
+            <!--query row3 end-->
+        </div>
+        <!--moreQuerySection end-->
+    </div>
+    <!--query section end-->
 </div>
 
 
-<div class="container-fluid main_content" id="main_content" >
-
+<div class="container-fluid main_content" id="main_content" v-bind:class="{ 'hasMoreQuerySection':showMoreQuerySectionFlag }" >
 
     <div class="allInfo_descr" v-show ="pageBar.isQueryDB">
        <input type="checkbox" id ="queryDBFlag" v-model="queryDBFlag" />
@@ -258,111 +365,7 @@
 
 
 <script type="text/template"  id ="mytemplate">
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
-                    <span class="sr-only">导航菜单</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">OCGUI</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="s7Query.html">附加服务</a></li>
-                    <li role="presentation" class="dropdown">
-                        <a id="drop4" href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            基础数据<span class="caret"></span>
-                        </a>
-                        <ul id="menu1" class="dropdown-menu" aria-labelledby="drop4">
-                            <li><a href="datasourceQuery.html">数据源</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="mileageExchangeQuery.html">里程积分兑换</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="validate.html">运价校验</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-
-    <!--query section start-->
-    <div class ="query_section">
-        <!--query row1 start-->
-        <div class="query_row">
-            <span class="query_title">基础信息</span>
-            <input id ="c1" type="checkbox"><label for="c1">未发布</label>
-            <input id ="c2" type="checkbox"><label for="c2">已发布</label>
-            <input  id ="c3" type="checkbox"><label for="c3"> 未生效</label>
-            <input  id ="c4" type="checkbox"> <label for="c4">已生效</label>
-            <input  id ="c5" type="checkbox"> <label for="c5">已过期</label>
-
-            <label  class="marginR5">服务</label>
-            <select class="common_input" style="width: 120px">
-                <option>商务名称</option>
-                <option>子代码</option>
-            </select>
-            <input type="email" class="common_input" style="width: 100px">
-            <label class="marginR5">销售日期</label>
-            <input type="text" class="common_input datepicker"  placeholder="起始日期" style="width: 100px">
-            <span class="glyphicon glyphicon-th iconfont_box"></span>
-            <span class="marginL15"></span>
-            <input type="text" class="common_input datepicker"  placeholder="结束日期" style="width: 100px">
-            <span class="glyphicon glyphicon-th iconfont_box"></span>
-                <span class="marginLR15">
-                </span>
-            <input  id ="showHideMoreQuerySectionBtn" type="checkbox"> <label for="showHideMoreQuerySectionBtn">更多条件</label>
-            <button type="button" class="btn btn-sm btn-primary" v-on:click="queryS7">查询</button>
-        </div>
-        <!--query row1 end-->
-
-        <!--moreQuerySection start-->
-        <div id ="moreQuerySection" style="display: none" >
-            <!--query row2 start-->
-            <div class="query_row">
-                <span class="query_title">服务等级&nbsp;|&nbsp;机型</span>
-                <input id ="a1" type="checkbox"><label for="a1">豪华头等舱</label>
-                <input id ="a2" type="checkbox"><label for="a2">头等舱</label>
-                <input  id ="a3" type="checkbox"><label for="a3"> 豪华商务舱</label>
-                <input  id ="a4" type="checkbox"> <label for="a4">商务舱</label>
-                <input  id ="a5" type="checkbox"> <label for="a5">豪华经济舱</label>
-                <input  id ="a6" type="checkbox"> <label for="a6">经济舱</label>
-                <span class="marginR15"></span>
-
-                <label   class="marginR5">机型</label>
-                <select class="common_input">
-                    <option selected>选择</option>
-                    <option>747-B747-400CMB</option>
-                    <option>73G-B737-700</option>
-                    <option>733-B737-3z00</option>
-                    <option>340-A340-300</option>
-                    <option>319-A319-111</option>
-                </select>
-
-                <label class="marginR5">优先级序号</label>
-                <input type="text" class="common_input"  style="width: 100px">
-            </div>
-            <!--query row2 end-->
-            <!--query row3 start-->
-            <div class="query_row">
-                <span class="query_title">地理位置</span>
-                <label   class="marginR5">区域1</label>
-                <input type="text" class="common_input"  style="width: 100px">
-                <label class="marginR5">区域2</label>
-                <input type="text" class="common_input"  style="width: 100px">
-                <label class="marginR5">经过区域</label>
-                <input type="text" class="common_input"  style="width: 100px">
-            </div>
-            <!--query row3 end-->
-        </div>
-        <!--moreQuerySection end-->
-    </div>
-    <!--query section end-->
+    
 </script>
 <!--<script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.16.1/lodash.min.js"></script>-->
 <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>

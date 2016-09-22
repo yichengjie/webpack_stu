@@ -34,7 +34,7 @@ class Records7Query{
 }
 
 
-
+//查询数据库的api
 function queryDbApi ({toPageNum,pageSize}){
     var pageBean = {
         curPage:toPageNum,
@@ -151,13 +151,18 @@ function initVue(s7){
             },
             checkRecords7Item:function(e){
                 let flag = e.target.checked ;
-                
+                let checkAll = $("#checkAllRecords7") ; 
+                let len1 = $(":checkbox[name='records7_checkbox']:checked").length ;
+                let len2 =  $(":checkbox[name='records7_checkbox']").length ;
+                if(len1<len2){
+                    checkAll.prop('checked',false) ;
+                }else{
+                    checkAll.prop('checked',true) ;
+                }
             }
         }
     }) ;
 }
-
-
 
 
 

@@ -53,8 +53,8 @@
             <thead>
                 <tr>
                     <th width="4%">
-                        <label class="tbtitle" for="checkAll">全选 </label>
-                        <input type="checkbox" id ="checkAll" v-on:click="checkAllRecords7($event)">
+                        <label class="tbtitle" for="checkAllRecords7">全选 </label>
+                        <input type="checkbox" id ="checkAllRecords7" v-on:click="checkAllRecords7($event)">
                     </th>
                     <th width="6%" class="relative" 
                         v-on:click="clickTableTitle('subcode')"
@@ -171,7 +171,7 @@
             </thead>
             <tbody>
                  <tr v-for="item in records7List">
-                    <td><input type="checkbox" name="records7_checkbox" /></td>
+                    <td><input type="checkbox" name="records7_checkbox" v-on:click="checkRecords7Item" /></td>
                     <td>OB5</td>
                     <td>F</td>
                     <td>未发布</td>

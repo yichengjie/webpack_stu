@@ -31,17 +31,41 @@ class Records7Query{
             }) ;
         });
     }
+    orderRecords7({titleName,ascFlag,vmList}){
+        let orderTypeStr = ascFlag ? 'asc' : 'desc' ;
+        let retArr = _.orderBy(vmList, [titleName], [orderTypeStr]);
+        vmList.splice(0,vmList.length) ;
+        retArr.forEach(item => vmList.push(item) ) ;
+    }
 }
 
+//生成一个随机数
+function random (min,max){
+    return function(){
+        return _.random(min,max);
+    }
+}
 
 //查询数据库的api
 function queryDbApi ({toPageNum,pageSize}){
+    let records7List = [] ;
+    //生成0-5的随机数
+    let r = random(1,5) ;
+    for(let i = 0 ; i < 10 ; i ++){
+        //let cur = _.random(0, 5);
+        let obj = {"subcode":"OB"+ r(),"serviceType":"F"+ r(),"status": r(),"saleStartDate":"2016/01/0"+ r(),
+                "saleEndDate":"2016/12/2"+ r(),"travelStartDate":"2016/01/0"+ r(),"travelEndDate":"2016/12/2"+ r(),
+                "loc1":"11"+ r(),"loc2":"1234567"+ r(),"flyerStatus":""+ r(),"money":"99"+ r()+"CNY","descr":"描述" + r(),
+                "lastUpdateUser":"yicj"+ r(),"lastUpdateDate":"2016/01/01 14:0"+ r()
+        } ;
+        records7List.push(obj) ;
+    }
     var pageBean = {
         curPage:toPageNum,
         pageSize:pageSize,
         pageNumList:[1,2,3,4,5],
         pageCount:5,
-        recordList:[1,2,3,4,5,6,7,8],
+        recordList:records7List,
         recordCount:100
     } ;
     loading() ;
@@ -79,13 +103,18 @@ function initVue(s7){
         },
         methods:{
             clickTableTitle:function(titleName){
+               //1.更新当前排序呢的列名称
                this.orderTitleName = titleName ;
+               //2.更新当前排序的状态(升序/倒序)
                let oldFlag = this.tableTitleOrder[titleName] ;
                let keys = Object.keys(this.tableTitleOrder) ;
                for(let key of keys){
                    this.tableTitleOrder[key] = true ;
                }
                this.tableTitleOrder[titleName] = !oldFlag ;
+               //2.执行排序操作
+               s7.orderRecords7({titleName,ascFlag:!oldFlag,vmList:this.records7List}) ;
+
             },
             queryS7:function(){
                var config = {

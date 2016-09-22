@@ -31,6 +31,7 @@
     "vue-resource": "^0.9.1",
     "select2": "^4.0.3",
     "selectize": "^0.12.1",
-    "nprogress": "^0.2.0"
+    "nprogress": "^0.2.0",
+    "lodash": "^4.16.1"
   }
 }

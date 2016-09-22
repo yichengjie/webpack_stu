@@ -193,22 +193,22 @@
             <tbody>
                  <tr v-for="item in records7List">
                     <td><input type="checkbox" name="records7_checkbox" v-on:click="checkRecords7Item" /></td>
-                    <td>OB5</td>
-                    <td>F</td>
-                    <td>未发布</td>
-                    <td>2016/01/01</td>
-                    <td>2016/12/31</td>
-                    <td>2016/01/01</td>
-                    <td>2016/12/31</td>
-                    <td>12345678</td>
-                    <td>111</td>
-                    <td>白金卡</td>
-                    <td>9999CNY</td>
+                    <td>{{item.subcode}}</td>
+                    <td>{{item.serviceType}}</td>
+                    <td>{{item.status}}</td>
+                    <td>{{item.saleStartDate}}</td>
+                    <td>{{item.saleEndDate}}</td>
+                    <td>{{item.travelStartDate}}</td>
+                    <td>{{item.travelEndDate}}</td>
+                    <td>{{item.loc1}}</td>
+                    <td>{{item.loc2}}</td>
+                    <td>{{item.flyerStatus}}</td>
+                    <td>{{item.money}}</td>
                     <td>
-                    <span class="descr" title="描述测试测试的的测试测试测试描述测试测试的的测试测试测试">描述测试测试的的测试测试测试</span>
+                    <span class="descr" title="描述试">{{item.descr}}</span>
                     </td>
-                    <td>yicj</td>
-                    <td>2016/01/01 14:00</td>
+                    <td>{{item.lastUpdateUser}}</td>
+                    <td>{{item.lastUpdateDate}}</td>
                     <td class="oper_item">
                         <i class="glyphicon glyphicon-pencil myhand"></i>
                         <i class="glyphicon glyphicon-trash myhand"></i>
@@ -354,7 +354,7 @@
     </div>
     <!--query section end-->
 </script>
-
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.16.1/lodash.min.js"></script>-->
 <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src ="../../bower_components/is-loading/jquery.isloading.js"></script>
 <script type="text/javascript" src="../../bower_components/headroom.js/dist/jQuery.headroom.js"></script>
@@ -362,7 +362,8 @@
 <script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.datepicker-zh-CN.js"></script>
 <script type="text/javascript" src="../lib/jq-timepicker/jquery-timepicker-addon.js"></script>
 <script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script type="text/javascript" src="../../bower_components/underscore/underscore.js"></script>
+<!--<script type="text/javascript" src="../../bower_components/underscore/underscore.js"></script>-->
+<script type="text/javascript" src="../../bower_components/lodash/lodash.js"></script>
 <script type="text/javascript" src="../../bower_components/vue/dist/vue.js"></script>
 <script type="text/javascript" src="index.js"></script>
 </body>

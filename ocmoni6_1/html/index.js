@@ -6,7 +6,7 @@ class Records7Query{
     }
     query4Page({toPageNum,vmList,vmPageBar,orderName="default",isAsc=true} ){
         //let {toPageNum,vmList,vmPageBar} = config ;
-		var pageSize =   vmPageBar.pageSize || 10 ;
+		var pageSize =   vmPageBar.pageSize || 20 ;
 		var serverURL = this.contextPath+"/mileage/query4Page.action" ;
 		var simpleJsonData = {"toPageNum":toPageNum,"pageSize":pageSize} ;
 		//清空历史数据

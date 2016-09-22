@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>s7查询页面</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery_ui.datepicker-modify.css"/>
+    <link rel="stylesheet" href="../styles/css/jquery-ui-timepicker-addon.css"/>
+    <link rel="stylesheet" href="../styles/css/common.css">
+    <link rel="stylesheet" href="../styles/css/oc_query.css"/>
+    <link rel="stylesheet" href="./index.css"/>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body id ="app" v-cloak>
+
+<div class="navbar-fixed-top" id = "myheader">
+</div>
+
+
+<div class="container-fluid main_content" id="main_content" >
+
+
+    <div class="allInfo_descr" v-show ="pageBar.isQueryDB">
+       <input type="checkbox" id ="queryDBFlag" v-model="queryDBFlag" />
+       <label for="queryDBFlag">共查询出<span class="red">{{pageBar.recordCount}}</span>条记录，针对全部记录排序</label>
+    </div>
+
+
+    <div class="pull-right clearfix" style="margin-bottom: 8px">
+        <button class="btn btn-success btn-sm" onclick="toAddUI()">新建</button>
+        <button class="btn btn-default btn-sm">删除</button>
+        <button class="btn btn-default btn-sm">发布</button>
+        <button class="btn btn-default btn-sm">截止</button>
+        <div class ="dropdown-oc">
+            <div class="btn-group">
+                <button class="btn btn-default btn-sm" id="batchImportBtn" for="batchImportFileInput">批量导入</button>
+                <button class="btn btn-default btn-sm dropdown-trigger"><i class="glyphicon glyphicon-triangle-bottom"></i></button>
+            </div>
+            <ul class ="dropdown-menu-oc">
+                <li onclick="location.href='${pageContext.request.contextPath}/ocimport/download.action'">下载模板</li>
+            </ul>
+        </div>
+    </div>
+    <span class="clearfix"></span>
+
+   
+    <div class="table-responsive" v-show ="pageBar.isQueryDB">
+        <table class="table table-bordered table_records7">
+            <thead>
+                <tr>
+                    <th width="4%">
+                        <label class="tbtitle" for="checkAllRecords7">全选 </label>
+                        <input type="checkbox" id ="checkAllRecords7" v-on:click="checkAllRecords7($event)">
+                    </th>
+                    <th width="6%" class="relative" 
+                        v-on:click="clickTableTitle('subcode')"
+                        >
+                        <span class="tbtitle">sub</span>code
+                            <i v-bind:class="{ 
+                            'glyphicon tb_order text-danger': true, 
+                            'glyphicon-chevron-down': tableTitleOrder.subcode,
+                            'glyphicon-chevron-up': !tableTitleOrder.subcode,
+                            'active':orderTitleName=='subcode'
+                             }" 
+                            ></i>
+                    </th>
+                    <th width="6%" class="relative" v-on:click="clickTableTitle('serviceType')">
+                        <span class="tbtitle">服务</span>类型 
+                            <i v-bind:class="{ 
+                            'glyphicon tb_order text-danger': true, 
+                            'glyphicon-chevron-down': tableTitleOrder.serviceType,
+                            'glyphicon-chevron-up': !tableTitleOrder.serviceType ,
+                            'active':orderTitleName=='serviceType'}" 
+                        ></i>
+                    </th>
+                    <th width="5%" class="relative" v-on:click="clickTableTitle('status')">
+                        状态  <i v-bind:class="{ 
+                            'glyphicon tb_order text-danger': true, 
+                            'glyphicon-chevron-down': tableTitleOrder.status,
+                            'glyphicon-chevron-up': !tableTitleOrder.status ,
+                            'active':orderTitleName=='status'
+                            }" 
+                            ></i>
+                    </th>
+                    <th width="7%" class="relative" v-on:click="clickTableTitle('saleStartDate')">
+                       <span class="tbtitle">销售起</span>始日期
+                        <i v-bind:class="{ 
+                            'glyphicon tb_order text-danger': true, 
+                            'glyphicon-chevron-down': tableTitleOrder.saleStartDate,
+                            'glyphicon-chevron-up': !tableTitleOrder.saleStartDate ,
+                            'active':orderTitleName=='saleStartDate'
+                            }" 
+                            ></i>
+                    </th>
+                    <th width="7%" class="relative" v-on:click="clickTableTitle('saleEndDate')">
+                        <span class="tbtitle">销售截</span>止日期
+                         <i v-bind:class="{ 
+                            'glyphicon tb_order text-danger': true, 
+                            'glyphicon-chevron-down': tableTitleOrder.saleEndDate,
+                            'glyphicon-chevron-up': !tableTitleOrder.saleEndDate ,
+                            'active':orderTitleName=='saleEndDate'
+                            }" 
+                            ></i>
+                    </th>
+                    <th width="7%" class="relative" v-on:click="clickTableTitle('travelStartDate')">
+                        <span class="tbtitle">旅行开</span>始日期
+                         <i v-bind:class="{ 
+                            'glyphicon tb_order text-danger': true, 
+                            'glyphicon-chevron-down': tableTitleOrder.travelStartDate,
+                            'glyphicon-chevron-up': !tableTitleOrder.travelStartDate,
+                            'active':orderTitleName=='travelStartDate'
+                             }" 
+                            ></i>
+                    </th>
+                    <th width="7%" class="relative" v-on:click="clickTableTitle('travelEndDate')">
+                        <span class="tbtitle">旅行结</span>束日期
+                         <i v-bind:class="{ 
+                            'glyphicon tb_order text-danger': true, 
+                            'glyphicon-chevron-down': tableTitleOrder.travelEndDate,
+                            'glyphicon-chevron-up': !tableTitleOrder.travelEndDate ,
+                            'active':orderTitleName=='travelEndDate'
+                            }" 
+                            ></i>
+                    </th>
+                    <th width="5%" class="relative" v-on:click="clickTableTitle('loc1')">
+                        区域1 
+                         <i v-bind:class="{ 
+                            'glyphicon tb_order text-danger': true, 
+                            'glyphicon-chevron-down': tableTitleOrder.loc1,
+                            'glyphicon-chevron-up': !tableTitleOrder.loc1 ,
+                            'active':orderTitleName=='loc1'
+                            }" 
+                            ></i>
+                    </th>
+                    <th width="5%" class="relative" v-on:click="clickTableTitle('loc2')">
+                        区域2 
+                         <i v-bind:class="{ 
+                            'glyphicon tb_order text-danger': true, 
+                            'glyphicon-chevron-down': tableTitleOrder.loc2,
+                            'glyphicon-chevron-up': !tableTitleOrder.loc2 ,
+                            'active':orderTitleName=='loc2'}" 
+                            ></i>
+                    </th>
+                    <th width="6%" class="relative" v-on:click="clickTableTitle('flyerStatus')">
+                        <span class="tbtitle">常客</span>等级 
+                         <i v-bind:class="{ 
+                            'glyphicon tb_order text-danger': true, 
+                            'glyphicon-chevron-down': tableTitleOrder.flyerStatus,
+                            'glyphicon-chevron-up': !tableTitleOrder.flyerStatus ,
+                            'active':orderTitleName=='flyerStatus'}" 
+                            ></i>
+                    </th>
+                    <th width="6%" class="relative" v-on:click="clickTableTitle('money')">
+                        金额  <i v-bind:class="{ 
+                            'glyphicon tb_order text-danger': true, 
+                            'glyphicon-chevron-down': tableTitleOrder.money,
+                            'glyphicon-chevron-up': !tableTitleOrder.money ,
+                            'active':orderTitleName=='money'}" 
+                            ></i>
+                    </th>
+                    <th width="9%" class="relative" v-on:click="clickTableTitle('descr')">
+                        描述  <i v-bind:class="{ 
+                            'glyphicon tb_order text-danger': true, 
+                            'glyphicon-chevron-down': tableTitleOrder.descr,
+                            'glyphicon-chevron-up': !tableTitleOrder.descr ,
+                            'active':orderTitleName=='descr'}" 
+                            ></i>
+                    </th>
+                    <th width="6%" class="relative" v-on:click="clickTableTitle('lastUpdateUser')">
+                        <span class="tbtitle">最后</span>更新人 
+                         <i v-bind:class="{ 
+                            'glyphicon tb_order text-danger': true, 
+                            'glyphicon-chevron-down': tableTitleOrder.lastUpdateUser,
+                            'glyphicon-chevron-up': !tableTitleOrder.lastUpdateUser ,
+                            'active':orderTitleName=='lastUpdateUser'}" 
+                            ></i>
+                    </th>
+                    <th width="10%" class="relative" v-on:click="clickTableTitle('lastUpdateDate')">
+                        最后更新日期  <i v-bind:class="{ 
+                            'glyphicon tb_order text-danger': true, 
+                            'glyphicon-chevron-down': tableTitleOrder.lastUpdateDate,
+                            'glyphicon-chevron-up': !tableTitleOrder.lastUpdateDate,
+                            'active':orderTitleName=='lastUpdateDate' }" 
+                            ></i>
+                    </th>
+                    <th width="4%" >操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                 <tr v-for="item in records7List">
+                    <td><input type="checkbox" name="records7_checkbox" v-on:click="checkRecords7Item" /></td>
+                    <td>{{item.subcode}}</td>
+                    <td>{{item.serviceType}}</td>
+                    <td>{{item.status}}</td>
+                    <td>{{item.saleStartDate}}</td>
+                    <td>{{item.saleEndDate}}</td>
+                    <td>{{item.travelStartDate}}</td>
+                    <td>{{item.travelEndDate}}</td>
+                    <td>{{item.loc1}}</td>
+                    <td>{{item.loc2}}</td>
+                    <td>{{item.flyerStatus}}</td>
+                    <td>{{item.money}}</td>
+                    <td>
+                    <span class="descr" title="描述试">{{item.descr}}</span>
+                    </td>
+                    <td>{{item.lastUpdateUser}}</td>
+                    <td>{{item.lastUpdateDate}}</td>
+                    <td class="oper_item">
+                        <i class="glyphicon glyphicon-pencil myhand"></i>
+                        <i class="glyphicon glyphicon-trash myhand"></i>
+                    </td>
+                 </tr>
+            </tbody>
+        </table>
+    </div>
+
+     <!-- spilt page bar star -->
+    <nav class ="pull-right" v-if="records7List.length>0">
+        <ul class="pagination">
+            <li>  <a href="javascript:void(0)" v-on:click ="toPage(1)">首页</a></li>
+            <li>
+                <a href="javascript:void(0)" aria-label="Previous" v-on:click ="toPerviousPage">上一页</a>
+            </li>
+            <li v-for="l in pageBar.pgArr"    v-bind:class="{ 'active': pageBar.curPage==l}" >
+                <a href="javascript:void(0)"  v-on:click="toPage(l)">{{l}}</a>
+            </li>
+            <li v-if ="pageBar.pageCount>5&&(pageBar.curPage+3) <=pageBar.pageCount"><span>...</span></li>
+            <li>
+                <a href="javascript:void(0)" aria-label="Next" v-on:click ="toNextPage">下一页</a>
+            </li>
+            <li> <a href="javascript:void(0)" v-on:click ="toPage(pageBar.pageCount)">末页</a></li>
+        </ul>
+        <div class="page-desc">
+            <span class="marginRight10">共<span class ="marginRL2">{{pageBar.pageCount}}</span>页</span>
+            <span class ="">当前第</span>
+            <input type="text"  id ="pageOkInput" class ="common_input"  style="width: 30px"  value ="{{pageBar.curPage}}" >
+            <span class="marginRight5 ">页</span>
+            <span>显示
+                <select v-model ="pageBar.pageSize" style="width: 50px"> 
+                    <option value="5">5条</option>
+                    <option value="10">10条</option>
+                    <option value="10">15条</option>
+                    <option value="20">20条</option>
+                    <option value="30">30条</option>
+                    <option value="50">50条</option>
+                </select>
+            </span>
+            <span class="page-ok" v-on:click ="pageConfirm">确定</span>
+        </div>
+    </nav>
+    <!-- spilt page bar star -->
+
+</div>
+
+
+<script type="text/template"  id ="mytemplate">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                    <span class="sr-only">导航菜单</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">OCGUI</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="s7Query.html">附加服务</a></li>
+                    <li role="presentation" class="dropdown">
+                        <a id="drop4" href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            基础数据<span class="caret"></span>
+                        </a>
+                        <ul id="menu1" class="dropdown-menu" aria-labelledby="drop4">
+                            <li><a href="datasourceQuery.html">数据源</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="mileageExchangeQuery.html">里程积分兑换</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="validate.html">运价校验</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!--query section start-->
+    <div class ="query_section">
+        <!--query row1 start-->
+        <div class="query_row">
+            <span class="query_title">基础信息</span>
+            <input id ="c1" type="checkbox"><label for="c1">未发布</label>
+            <input id ="c2" type="checkbox"><label for="c2">已发布</label>
+            <input  id ="c3" type="checkbox"><label for="c3"> 未生效</label>
+            <input  id ="c4" type="checkbox"> <label for="c4">已生效</label>
+            <input  id ="c5" type="checkbox"> <label for="c5">已过期</label>
+
+            <label  class="marginR5">服务</label>
+            <select class="common_input" style="width: 120px">
+                <option>商务名称</option>
+                <option>子代码</option>
+            </select>
+            <input type="email" class="common_input" style="width: 100px">
+            <label class="marginR5">销售日期</label>
+            <input type="text" class="common_input datepicker"  placeholder="起始日期" style="width: 100px">
+            <span class="glyphicon glyphicon-th iconfont_box"></span>
+            <span class="marginL15"></span>
+            <input type="text" class="common_input datepicker"  placeholder="结束日期" style="width: 100px">
+            <span class="glyphicon glyphicon-th iconfont_box"></span>
+                <span class="marginLR15">
+                </span>
+            <input  id ="showHideMoreQuerySectionBtn" type="checkbox"> <label for="showHideMoreQuerySectionBtn">更多条件</label>
+            <button type="button" class="btn btn-sm btn-primary" v-on:click="queryS7">查询</button>
+        </div>
+        <!--query row1 end-->
+
+        <!--moreQuerySection start-->
+        <div id ="moreQuerySection" style="display: none" >
+            <!--query row2 start-->
+            <div class="query_row">
+                <span class="query_title">服务等级&nbsp;|&nbsp;机型</span>
+                <input id ="a1" type="checkbox"><label for="a1">豪华头等舱</label>
+                <input id ="a2" type="checkbox"><label for="a2">头等舱</label>
+                <input  id ="a3" type="checkbox"><label for="a3"> 豪华商务舱</label>
+                <input  id ="a4" type="checkbox"> <label for="a4">商务舱</label>
+                <input  id ="a5" type="checkbox"> <label for="a5">豪华经济舱</label>
+                <input  id ="a6" type="checkbox"> <label for="a6">经济舱</label>
+                <span class="marginR15"></span>
+
+                <label   class="marginR5">机型</label>
+                <select class="common_input">
+                    <option selected>选择</option>
+                    <option>747-B747-400CMB</option>
+                    <option>73G-B737-700</option>
+                    <option>733-B737-3z00</option>
+                    <option>340-A340-300</option>
+                    <option>319-A319-111</option>
+                </select>
+
+                <label class="marginR5">优先级序号</label>
+                <input type="text" class="common_input"  style="width: 100px">
+            </div>
+            <!--query row2 end-->
+            <!--query row3 start-->
+            <div class="query_row">
+                <span class="query_title">地理位置</span>
+                <label   class="marginR5">区域1</label>
+                <input type="text" class="common_input"  style="width: 100px">
+                <label class="marginR5">区域2</label>
+                <input type="text" class="common_input"  style="width: 100px">
+                <label class="marginR5">经过区域</label>
+                <input type="text" class="common_input"  style="width: 100px">
+            </div>
+            <!--query row3 end-->
+        </div>
+        <!--moreQuerySection end-->
+    </div>
+    <!--query section end-->
+</script>
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.16.1/lodash.min.js"></script>-->
+<script type="text/javascript" src="../../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src ="../../bower_components/is-loading/jquery.isloading.js"></script>
+<script type="text/javascript" src="../../bower_components/headroom.js/dist/jQuery.headroom.js"></script>
+<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.js"></script>
+<script type="text/javascript" src="../lib/jq-datepicker/jquery_ui.datepicker-zh-CN.js"></script>
+<script type="text/javascript" src="../lib/jq-timepicker/jquery-timepicker-addon.js"></script>
+<script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<!--<script type="text/javascript" src="../../bower_components/underscore/underscore.js"></script>-->
+<script type="text/javascript" src="../../bower_components/lodash/lodash.js"></script>
+<script type="text/javascript" src="../../bower_components/vue/dist/vue.js"></script>
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>

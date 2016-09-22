@@ -4,7 +4,7 @@ class Records7Query{
         initQueryPage() ;
         initVue(this) ;
     }
-    query4Page({toPageNum,vmList,vmPageBar} ){
+    query4Page({toPageNum,vmList,vmPageBar,orderName="default",isAsc=true} ){
         //let {toPageNum,vmList,vmPageBar} = config ;
 		var pageSize =   vmPageBar.pageSize ;
 		var serverURL = this.contextPath+"/mileage/query4Page.action" ;
@@ -96,7 +96,8 @@ function initVue(s7){
 			    "pageCount":0,
                 "recordCount":0,
                 "isQueryDB":false
-		    }
+		    },
+            queryDBFlag:false
         },
         ready:function(){
             console.info('vue app is ready ...') ;
@@ -113,8 +114,19 @@ function initVue(s7){
                }
                this.tableTitleOrder[titleName] = !oldFlag ;
                //2.执行排序操作
-               s7.orderRecords7({titleName,ascFlag:!oldFlag,vmList:this.records7List}) ;
-
+               //let queryDBFlag = $("")
+               if(this.queryDBFlag){//查询数据库
+                   var config = {
+                        toPageNum:1,
+                        vmList:this.records7List ,
+                        vmPageBar:this.pageBar,
+                        orderName:this.orderTitleName,
+                        isAsc:this.tableTitleOrder[this.orderTitleName]
+                    } ;
+                    s7.query4Page(config) ;
+               }else{
+                  s7.orderRecords7({titleName,ascFlag:!oldFlag,vmList:this.records7List}) ;
+               }
             },
             queryS7:function(){
                var config = {

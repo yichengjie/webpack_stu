@@ -64,6 +64,7 @@ function initVue(s7){
                 "loc2":true,"flyerStatus":true,"money":true,"descr":true,"lastUpdateUser":true,
                 "lastUpdateDate":true
             },
+            orderTitleName:"",
             pageBar:{
 			    "curPage":0,
 			    "pageSize":0,
@@ -78,6 +79,7 @@ function initVue(s7){
         },
         methods:{
             clickTableTitle:function(titleName){
+               this.orderTitleName = titleName ;
                let oldFlag = this.tableTitleOrder[titleName] ;
                let keys = Object.keys(this.tableTitleOrder) ;
                for(let key of keys){

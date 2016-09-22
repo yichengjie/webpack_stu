@@ -63,7 +63,9 @@
                             <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.subcode,
-                            'glyphicon-chevron-up': !tableTitleOrder.subcode }" 
+                            'glyphicon-chevron-up': !tableTitleOrder.subcode,
+                            'active':orderTitleName=='subcode'
+                             }" 
                             ></i>
                     </th>
                     <th width="6%" class="relative" v-on:click="clickTableTitle('serviceType')">
@@ -71,14 +73,17 @@
                             <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.serviceType,
-                            'glyphicon-chevron-up': !tableTitleOrder.serviceType }" 
+                            'glyphicon-chevron-up': !tableTitleOrder.serviceType ,
+                            'active':orderTitleName=='serviceType'}" 
                         ></i>
                     </th>
                     <th width="5%" class="relative" v-on:click="clickTableTitle('status')">
                         状态  <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.status,
-                            'glyphicon-chevron-up': !tableTitleOrder.status }" 
+                            'glyphicon-chevron-up': !tableTitleOrder.status ,
+                            'active':orderTitleName=='status'
+                            }" 
                             ></i>
                     </th>
                     <th width="7%" class="relative" v-on:click="clickTableTitle('saleStartDate')">
@@ -86,7 +91,9 @@
                         <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.saleStartDate,
-                            'glyphicon-chevron-up': !tableTitleOrder.saleStartDate }" 
+                            'glyphicon-chevron-up': !tableTitleOrder.saleStartDate ,
+                            'active':orderTitleName=='saleStartDate'
+                            }" 
                             ></i>
                     </th>
                     <th width="7%" class="relative" v-on:click="clickTableTitle('saleEndDate')">
@@ -94,7 +101,9 @@
                          <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.saleEndDate,
-                            'glyphicon-chevron-up': !tableTitleOrder.saleEndDate }" 
+                            'glyphicon-chevron-up': !tableTitleOrder.saleEndDate ,
+                            'active':orderTitleName=='saleEndDate'
+                            }" 
                             ></i>
                     </th>
                     <th width="7%" class="relative" v-on:click="clickTableTitle('travelStartDate')">
@@ -102,7 +111,9 @@
                          <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.travelStartDate,
-                            'glyphicon-chevron-up': !tableTitleOrder.travelStartDate }" 
+                            'glyphicon-chevron-up': !tableTitleOrder.travelStartDate,
+                            'active':orderTitleName=='travelStartDate'
+                             }" 
                             ></i>
                     </th>
                     <th width="7%" class="relative" v-on:click="clickTableTitle('travelEndDate')">
@@ -110,7 +121,9 @@
                          <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.travelEndDate,
-                            'glyphicon-chevron-up': !tableTitleOrder.travelEndDate }" 
+                            'glyphicon-chevron-up': !tableTitleOrder.travelEndDate ,
+                            'active':orderTitleName=='travelEndDate'
+                            }" 
                             ></i>
                     </th>
                     <th width="5%" class="relative" v-on:click="clickTableTitle('loc1')">
@@ -118,7 +131,9 @@
                          <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.loc1,
-                            'glyphicon-chevron-up': !tableTitleOrder.loc1 }" 
+                            'glyphicon-chevron-up': !tableTitleOrder.loc1 ,
+                            'active':orderTitleName=='loc1'
+                            }" 
                             ></i>
                     </th>
                     <th width="5%" class="relative" v-on:click="clickTableTitle('loc2')">
@@ -126,7 +141,8 @@
                          <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.loc2,
-                            'glyphicon-chevron-up': !tableTitleOrder.loc2 }" 
+                            'glyphicon-chevron-up': !tableTitleOrder.loc2 ,
+                            'active':orderTitleName=='loc2'}" 
                             ></i>
                     </th>
                     <th width="6%" class="relative" v-on:click="clickTableTitle('flyerStatus')">
@@ -134,21 +150,24 @@
                          <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.flyerStatus,
-                            'glyphicon-chevron-up': !tableTitleOrder.flyerStatus }" 
+                            'glyphicon-chevron-up': !tableTitleOrder.flyerStatus ,
+                            'active':orderTitleName=='flyerStatus'}" 
                             ></i>
                     </th>
                     <th width="6%" class="relative" v-on:click="clickTableTitle('money')">
                         金额  <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.money,
-                            'glyphicon-chevron-up': !tableTitleOrder.money }" 
+                            'glyphicon-chevron-up': !tableTitleOrder.money ,
+                            'active':orderTitleName=='money'}" 
                             ></i>
                     </th>
                     <th width="9%" class="relative" v-on:click="clickTableTitle('descr')">
                         描述  <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.descr,
-                            'glyphicon-chevron-up': !tableTitleOrder.descr }" 
+                            'glyphicon-chevron-up': !tableTitleOrder.descr ,
+                            'active':orderTitleName=='descr'}" 
                             ></i>
                     </th>
                     <th width="6%" class="relative" v-on:click="clickTableTitle('lastUpdateUser')">
@@ -156,14 +175,16 @@
                          <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.lastUpdateUser,
-                            'glyphicon-chevron-up': !tableTitleOrder.lastUpdateUser }" 
+                            'glyphicon-chevron-up': !tableTitleOrder.lastUpdateUser ,
+                            'active':orderTitleName=='lastUpdateUser'}" 
                             ></i>
                     </th>
                     <th width="10%" class="relative" v-on:click="clickTableTitle('lastUpdateDate')">
                         最后更新日期  <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.lastUpdateDate,
-                            'glyphicon-chevron-up': !tableTitleOrder.lastUpdateDate }" 
+                            'glyphicon-chevron-up': !tableTitleOrder.lastUpdateDate,
+                            'active':orderTitleName=='lastUpdateDate' }" 
                             ></i>
                     </th>
                     <th width="4%" >操作</th>

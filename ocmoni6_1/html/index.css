@@ -44,12 +44,16 @@ table.table_records7 input[type="checkbox"]{
         top: 30%;
     }
 }
-table.table_records7 tr th .glyphicon{
+table.table_records7 tr th i{
     display: none;
 }
-table.table_records7 tr th:hover .glyphicon{
+table.table_records7 tr th:hover i{
     display: block;
 }
+table.table_records7 tr th i.active{
+    display: block;
+}
+
 table.table_records7 tr label{
     margin: 0;
     padding: 0;

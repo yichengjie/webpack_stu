@@ -6,7 +6,7 @@ class Records7Query{
     }
     query4Page({toPageNum,vmList,vmPageBar,orderName="default",isAsc=true} ){
         //let {toPageNum,vmList,vmPageBar} = config ;
-		var pageSize =   vmPageBar.pageSize ;
+		var pageSize =   vmPageBar.pageSize || 10 ;
 		var serverURL = this.contextPath+"/mileage/query4Page.action" ;
 		var simpleJsonData = {"toPageNum":toPageNum,"pageSize":pageSize} ;
 		//清空历史数据
@@ -47,11 +47,11 @@ function random (min,max){
 }
 
 //查询数据库的api
-function queryDbApi ({toPageNum,pageSize}){
+function queryDbApi ({toPageNum,pageSize=10}){
     let records7List = [] ;
     //生成0-5的随机数
-    let r = random(1,5) ;
-    for(let i = 0 ; i < 10 ; i ++){
+    let r = random(1,9) ;
+    for(let i = 0 ; i < pageSize ; i ++){
         //let cur = _.random(0, 5);
         let obj = {"subcode":"OB"+ r(),"serviceType":"F"+ r(),"status": r(),"saleStartDate":"2016/01/0"+ r(),
                 "saleEndDate":"2016/12/2"+ r(),"travelStartDate":"2016/01/0"+ r(),"travelEndDate":"2016/12/2"+ r(),
@@ -180,7 +180,7 @@ function initVue(s7){
                 if(pageOkInputNum>0&&pageOkInputNum<=this.pageBar.pageCount*1){
                     var config = {
                         toPageNum:pageOkInput*1,
-                        vmList:this.list ,
+                        vmList:this.records7List ,
                         vmPageBar:this.pageBar
                     } ;
                     s7.query4Page(config) ;

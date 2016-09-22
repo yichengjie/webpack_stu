@@ -239,6 +239,15 @@
             <span class ="">当前第</span>
             <input type="text"  id ="pageOkInput" class ="common_input"  style="width: 30px"  value ="{{pageBar.curPage}}" >
             <span class="marginRight5 ">页</span>
+            <span>显示
+                <select v-model ="pageBar.pageSize" style="width: 50px"> 
+                    <option value="5">5条</option>
+                    <option value="10">10条</option>
+                    <option value="20">20条</option>
+                    <option value="30">30条</option>
+                    <option value="50">50条</option>
+                </select>
+            </span>
             <span class="page-ok" v-on:click ="pageConfirm">确定</span>
         </div>
     </nav>

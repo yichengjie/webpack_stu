@@ -98,14 +98,35 @@ function initVue(s7){
                 "isQueryDB":false
 		    },
             queryDBFlag:false,
-            showMoreQuerySectionFlag:false
+            showMoreQuerySectionFlag:false,
+            formData:{
+                status:[],
+                effStatus:[],
+                subcode:"",
+                startSequenceNumber:"",
+                endSequenceNumber:"",
+                serviceType:[],
+                effectMinDate:"",
+                effectMaxDate:"",
+                travelStartDate:"",
+                travelEndDate:"",
+                passengerTypeCode:[],
+                geoSpecLoc1:"",
+                geoSpecLoc2:"",
+                updateUser:"",
+                updateStartDate:"",
+                updateEndDate:""
+            }
         },
         ready:function(){
             console.info('vue app is ready ...') ;
         },
         methods:{
-            showMoreQuerySection:function(e){
-                
+            switchGeoLocValue:function(){
+                let loc1 = this.formData.geoSpecLoc1 ;
+                let loc2 = this.formData.geoSpecLoc2 ;
+                this.formData.geoSpecLoc1 = loc2 ;
+                this.formData.geoSpecLoc2 = loc1 ;
             },
             clickTableTitle:function(titleName){
                //1.更新当前排序呢的列名称

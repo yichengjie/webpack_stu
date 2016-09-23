@@ -14,8 +14,7 @@
             display: none;
         }
         .hasMoreQuerySection{
-            /*transition:  padding-top 2s;*/
-            padding-top: 166px;
+            padding-top: 194px;
         }
     </style>
 </head>
@@ -60,23 +59,26 @@
         <!--query row1 start-->
         <div class="query_row">
             <span class="query_title">基础信息</span>
-            <input id ="releaseStatus01" name ="status" type="checkbox"><label for="releaseStatus01">未发布</label>
-            <input id ="releaseStatus02" name ="status" type="checkbox"><label for="releaseStatus02">已发布</label>
-            <input  id ="effectStatus01" name="effStatus" type="checkbox"><label for="effectStatus01"> 未生效</label>
-            <input  id ="effectStatus02" name="effStatus" type="checkbox"> <label for="effectStatus02">已生效</label>
-            <input  id ="effectStatus03" name="effStatus" type="checkbox"> <label for="effectStatus03">已过期</label>
-            <label  class="marginR5">服务</label>
+            <input id ="releaseStatus01" name ="status" type="checkbox" value ="1" v-model ="formData.status" />
+            <label for="releaseStatus01">未发布</label>
+            <input id ="releaseStatus02" name ="status" type="checkbox" value ="2" v-model ="formData.status" />
+            <label for="releaseStatus02">已发布</label>
+            <input  id ="effectStatus01" name="effStatus" type="checkbox" value ="1" v-model ="formData.effStatus" /><label for="effectStatus01"> 未生效</label>
+            <input  id ="effectStatus02" name="effStatus" type="checkbox" value ="2" v-model ="formData.effStatus" /> <label for="effectStatus02">已生效</label>
+            <input  id ="effectStatus03" name="effStatus" type="checkbox" value ="3" v-model ="formData.effStatus" /> <label for="effectStatus03">已过期</label>
+            <label  class="marginR5 title">SUBCODE</label>
+            <input type="text" class="common_input" v-model ="formData.subcode" placeholder="多个用/分割"/>
+            <label  class="marginR5 title">优先级序号</label>
+            <input type="text" class="common_input" v-model ="formData.startSequenceNumber" style="width:80px;" />
+            <span class="marginRL2">—</span>
+            <input type="text" class="common_input" v-model ="formData.endSequenceNumber" style="width:80px;" />
+
+            <!--<label  class="marginR5">服务</label>
             <select class="common_input" id="server" style="width: 120px">
                 <option value="001">商务名称</option>
                 <option value="002">子代码</option>
             </select>
-            <input type="text" id="service" name="service" mode="upper" class="common_input" style="width: 100px" />
-            <label class="marginR5">销售日期</label>
-            <input type="text" id="effectMinDate" name="effectMinDate" class="common_input datepicker"  placeholder="起始日期" style="width: 100px" />
-            <label for="effectMinDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
-            <span class="marginRL5">—</span>
-            <input type="text" id="effectMaxDate" name="effectMaxDate" class="common_input datepicker"  placeholder="" style="width: 110px">
-            <label for="effectMaxDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
+            <input type="text" id="service" name="service" mode="upper" class="common_input" style="width: 100px" />-->
             <span class="marginLR15"></span>
             <input  id ="moreInputBtn" type="checkbox" v-model ="showMoreQuerySectionFlag"> 
             <label for="moreInputBtn">更多条件</label>
@@ -89,40 +91,63 @@
         <div  v-show ="showMoreQuerySectionFlag">
             <!--query row2 start-->
             <div class="query_row">
-                <span class="query_title">服务等级&nbsp;|&nbsp;机型</span>
-                <input id ="cabinType04" value="R" name="name" type="checkbox"><label for="cabinType04">豪华头等舱</label>
-                <input id ="cabinType01" value="F" name="name" type="checkbox"><label for="cabinType01">头等舱</label>
-                <input  id ="cabinType05" value="J" name="name" type="checkbox"><label for="cabinType05"> 豪华商务舱</label>
-                <input  id ="cabinType02" value="C" name="name" type="checkbox"> <label for="cabinType02">商务舱</label>
-                <input  id ="cabinType06" value="P" name="name" type="checkbox"> <label for="cabinType06">豪华经济舱</label>
-                <input  id ="cabinType03" value="Y" name="name" type="checkbox"> <label for="cabinType03">经济舱</label>
+                <span class="query_title">服务等级&nbsp;|&nbsp;日期</span>
+                <input id ="serviceType01" value="F" name="serviceType"  v-model ="formData.serviceType" type="checkbox"><label for="serviceType01">F-航班服务</label>
+                <input id ="serviceType02" value="A" name="serviceType"  v-model ="formData.serviceType" type="checkbox"><label for="serviceType02">A-免费行李</label>
+                <input  id ="serviceType03" value="C" name="serviceType" v-model ="formData.serviceType" type="checkbox"><label for="serviceType03">C-逾重行李</label>
+                <input  id ="serviceType04" value="P" name="serviceType" v-model ="formData.serviceType" type="checkbox"> <label for="serviceType04">P-预付费行李</label>
                 <span class="marginR15"></span>
-                <label   class="marginR5">机型</label>
-                <select id="s7_F_equipment" class="common_input" 
-                    	url="${pageContext.request.contextPath}/equipment/query.action" style="width: 150px">
-                    <option selected>选择</option>
-                    <option>747-B747-400CMB</option>
-                    <option>73G-B737-700</option>
-                    <option>733-B737-3z00</option>
-                    <option>340-A340-300</option>
-                    <option>319-A319-111</option>
-                </select>
-                <label class="marginR5">优先级序号</label>
-                 <input type="text" id="sequenceNumber" name="sequenceNumber" 
-                    maxlength="7" class="common_input"  style="width: 100px">
+                <label class="marginR5 title">销售日期</label>
+                <input type="text" id="effectMinDate" v-model ="formData.effectMinDate" class="common_input datepicker" style="width: 110px" />
+                <label for="effectMinDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
+                <span style="margin-right:4px;">—</span>
+                <input type="text" id="effectMaxDate"  v-model ="formData.effectMaxDate" class="common_input datepicker" style="width: 110px">
+                <label for="effectMaxDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
+                <span class="marginR15"></span>
+                <label class="marginR5 title">旅行日期</label>
+                <input type="text" id="travelStartDate"  v-model ="formData.travelStartDate" class="common_input datepicker" style="width: 110px" />
+                <label for="travelStartDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
+                <span style="margin-right:4px;">—</span>
+                <input type="text" id="travelEndDate"  v-model ="formData.travelEndDate" class="common_input datepicker" style="width: 110px">
+                <label for="travelEndDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
+
             </div>
             <!--query row2 end-->
             <!--query row3 start-->
             <div class="query_row">
-                <span class="query_title">地理位置</span>
-                <label class="marginR5">区域1</label>
-                <input type="text" id="geoSpecLoc1" name="geoSpecLoc1" mode="upper" maxlength="3"  class="common_input" style="width: 100px">
-                <label class="marginR5">区域2</label>
-                <input type="text" id="geoSpecLoc2" name="geoSpecLoc2" mode="upper" maxlength="3"  class="common_input" style="width: 100px">
-                <label class="marginR5">经过区域</label>
-                <input type="text" id="geoSpecLoc3" name="geoSpecLoc3" mode="upper" maxlength="3"  class="common_input" style="width: 100px">
+                <span class="query_title">常客等级|区域</span>
+                <input id ="passengerTypeCode01" value="1" name="passengerTypeCode"  v-model ="formData.passengerTypeCode" 
+                    type="checkbox"><label for="serviceType01">白金卡</label>
+                <input id ="passengerTypeCode02" value="2" name="passengerTypeCode"  v-model ="formData.passengerTypeCode" 
+                    type="checkbox"><label for="serviceType02">金卡</label>
+                <input  id ="passengerTypeCode03" value="3" name="passengerTypeCode" v-model ="formData.passengerTypeCode" 
+                    type="checkbox"><label for="serviceType03">银卡</label>
+                <input  id ="passengerTypeCode04" value="4" name="passengerTypeCode" v-model ="formData.passengerTypeCode" 
+                    type="checkbox"> <label for="serviceType04">普卡</label>
+                <input  id ="passengerTypeCode05" value="5" name="passengerTypeCode" v-model ="formData.passengerTypeCode" 
+                    type="checkbox"><label for="passengerTypeCode05">非会员</label>
+                <input  id ="passengerTypeCode06" value="6" name="passengerTypeCode" v-model ="formData.passengerTypeCode" 
+                    type="checkbox"> <label for="passengerTypeCode06">飞行卡</label>
+                <label class="marginR5 title">区域</label>
+                <input type="text" id="geoSpecLoc1" v-model ="formData.geoSpecLoc1" mode="upper" maxlength="3"  class="common_input" style="width: 100px">
+                <span class="marginLR5"> <i class="glyphicon glyphicon-sort ts90 myhand" title="切换区域" v-on:click="switchGeoLocValue"></i> </span>
+                <input type="text" id="geoSpecLoc2" v-model ="formData.geoSpecLoc2" mode="upper" maxlength="3"  class="common_input" style="width: 100px">
             </div>
             <!--query row3 end-->
+
+             <!--query row4 start-->
+            <div class="query_row">
+                <span class="query_title">更新人|更新日期</span>
+                <label class="title">最后更新人</label>
+                <input  type="text" v-model ="formData.updateUser" class="common_input" style="width:100px" />
+                <label class="marginR5 title">最后时间</label>
+                <input type="text" id="updateStartDate"  v-model ="formData.updateStartDate" class="common_input datepicker" style="width: 110px" />
+                <label for="updateStartDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
+                <span style="margin-right:4px;">—</span>
+                <input type="text" id="updateEndDate"  v-model ="formData.updateEndDate" class="common_input datepicker" style="width: 110px">
+                <label for="updateEndDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
+            </div>
+            <!--query row4 end-->
         </div>
         <!--moreQuerySection end-->
     </div>

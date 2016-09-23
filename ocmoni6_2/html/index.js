@@ -153,49 +153,44 @@ function initVue(s7){
                   s7.orderRecords7({titleName,ascFlag:!oldFlag,vmList:this.records7List}) ;
                }
             },
-            queryS7:function(){
-               var config = {
+            query:function(toPageNum){
+                var config = {
                     toPageNum:1,
                     vmList:this.records7List ,
                     vmPageBar:this.pageBar
                 } ;
+                if(toPageNum&&toPageNum>0){
+                  config.toPageNum = toPageNum ; 
+                }
                s7.query4Page(config) ;
+            },
+            handleClickQuery:function(){
+               let toPageNum = 1 ;
+               this.query(toPageNum) ;
             },
             toPage:function(pnum){
                 //触发查询操作
                 //当前页数据更新
                 //this.pageBar.curPage = pnum ;
                 if(pnum!=this.pageBar.curPage){
-                    var config = {
-                        toPageNum:pnum,
-                        vmList:this.records7List ,
-                        vmPageBar:this.pageBar
-                    } ;
-                    s7.query4Page(config) ;
+                    let toPageNum = pnum ;
+                    this.query(toPageNum) ;
                 }
             },
             toPerviousPage:function(){
                 if(this.pageBar.curPage*1>1){
                     //触发查询操作
                     //this.pageBar.curPage = this.pageBar.curPage*1 -1 ;
-                    var config = {
-                        toPageNum:this.pageBar.curPage*1 -1,
-                        vmList:this.records7List ,
-                        vmPageBar:this.pageBar
-                    } ;
-                    s7.query4Page(config) ;
+                    let toPageNum = this.pageBar.curPage*1 -1 ;
+                    this.query(toPageNum) ;
                 }
             },
             toNextPage:function(){
                 if(this.pageBar.curPage*1<this.pageBar.pageCount*1){
                     //触发查询操作
                     //this.pageBar.curPage = this.pageBar.curPage*1 +1 ;
-                    var config = {
-                        toPageNum:this.pageBar.curPage*1 +1,
-                        vmList:this.records7List ,
-                        vmPageBar:this.pageBar
-                    } ;
-                    s7.query4Page(config) ;
+                    let toPageNum = this.pageBar.curPage*1 +1;
+                    this.query(toPageNum) ;
                 }
             },
             pageConfirm:function(){
@@ -203,12 +198,8 @@ function initVue(s7){
                 //将当前页数据更新
                 var pageOkInputNum = pageOkInput*1 ;
                 if(pageOkInputNum>0&&pageOkInputNum<=this.pageBar.pageCount*1){
-                    var config = {
-                        toPageNum:pageOkInput*1,
-                        vmList:this.records7List ,
-                        vmPageBar:this.pageBar
-                    } ;
-                    s7.query4Page(config) ;
+                    let toPageNum = pageOkInput*1;
+                    this.query(toPageNum) ;
                 }else{
                     $("#pageOkInput").val(this.pageBar.curPage) ;
                 }

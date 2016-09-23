@@ -160,6 +160,7 @@ function initVue(s7){
             queryDB:function(toPageNum){
                 //当没有选中对所有记录进行排序是，如果是查询数据库操作，
                 //都应该对之前的排序状态进行清空操作
+                $("#checkAllRecords7").prop('checked',false) ;
                 if(!this.queryDBFlag){
                     this._clearOrderStatusOnPage() ;
                 }

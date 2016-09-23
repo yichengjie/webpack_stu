@@ -31,12 +31,6 @@ class Records7Query{
             }) ;
         });
     }
-    // orderRecords7({titleName,ascFlag,vmList}){
-    //     let orderTypeStr = ascFlag ? 'asc' : 'desc' ;
-    //     let retArr = _.orderBy(vmList, [titleName], [orderTypeStr]);
-    //     vmList.splice(0,vmList.length) ;
-    //     retArr.forEach(item => vmList.push(item) ) ;
-    // }
 }
 
 //排序数据
@@ -250,17 +244,6 @@ function initQueryPage(){
         e.stopPropagation() ;
         $('.dropdown-menu-oc').removeClass('open') ;
     }) ;
-    //
-    // $(window).resize(function(){
-    //     alert("Stop it!");
-    // });
-    // $('#myheader').resize(function(){
-    //     console.info('resize : ....') ;
-    // }) ;
-    // $("#myheader").resize(function(e){
-    //     // do something when #unicorns element resizes
-    //     console.info('resize : ....') ;
-    // });
 }
 
 

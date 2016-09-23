@@ -158,6 +158,11 @@ function initVue(s7){
                }
             },
             queryDB:function(toPageNum){
+                //当没有选中对所有记录进行排序是，如果是查询数据库操作，
+                //都应该对之前的排序状态进行清空操作
+                if(!this.queryDBFlag){
+                    this._clearOrderStatusOnPage() ;
+                }
                 this.dealPageOrderFlag = false;
                 var config = {
                     toPageNum:1,
@@ -171,13 +176,23 @@ function initVue(s7){
                 }
                s7.query4Page(config) ;
             },
-            handleClickQuery:function(){
+            _clearOrderStatusOnPage:function(){/**清楚页面上排序状态 */
+                let keys = Object.keys(this.tableTitleOrder) ;
+                keys.forEach(key=>{
+                    this.tableTitleOrder[key] = true ;
+                }) ;
+                this.orderTitleName = "" ;
+                this.dealPageOrderFlag = false;
+            },
+            handleClickQuery:function(){/**点击查询按钮时 */
+               //当点击查询按钮的时候清楚页面上的所有的排序状态
+               this._clearOrderStatusOnPage() ;
+               //清楚所有的排序状态，保持默认排序
                let toPageNum = 1 ;
                this.queryDB(toPageNum) ;
             },
             toPage:function(pnum){
                 //触发查询操作
-                //当前页数据更新
                 //this.pageBar.curPage = pnum ;
                 if(pnum!=this.pageBar.curPage){
                     let toPageNum = pnum ;

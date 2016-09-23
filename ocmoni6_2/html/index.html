@@ -79,11 +79,13 @@
                 <option value="002">子代码</option>
             </select>
             <input type="text" id="service" name="service" mode="upper" class="common_input" style="width: 100px" />-->
-            <span class="marginLR15"></span>
-            <input  id ="moreInputBtn" type="checkbox" v-model ="showMoreQuerySectionFlag"> 
-            <label for="moreInputBtn">更多条件</label>
-            <button type="button" id="s7QueryBtn" url="${pageContext.request.contextPath}/s7/s7Query.action"
-                 class="btn btn-sm btn-primary" v-on:click="queryS7">查询</button>
+            <span class="pull-right marginR15">
+                <input  id ="moreInputBtn" type="checkbox" v-model ="showMoreQuerySectionFlag"> 
+                <label for="moreInputBtn">更多条件</label>
+                <button type="button" id="s7QueryBtn" url="${pageContext.request.contextPath}/s7/s7Query.action"
+                    class="btn btn-sm btn-primary" v-on:click="queryS7">查询</button>
+            </span>
+            
         </div>
         <!--query row1 end-->
 

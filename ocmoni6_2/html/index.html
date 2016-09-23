@@ -14,7 +14,19 @@
             display: none;
         }
         .hasMoreQuerySection{
+            transition: padding-top .3s ease;
             padding-top: 194px;
+        }
+        /* 必需 */
+        .expand-transition {
+            transition: all .3s ease;
+            height: 90px;
+        }
+        /* .expand-enter 定义进入的开始状态 */
+        /* .expand-leave 定义离开的结束状态 */
+        .expand-enter, .expand-leave {
+            height: 0;
+            opacity: 0;
         }
     </style>
 </head>
@@ -84,7 +96,7 @@
         <!--query row1 end-->
 
         <!--moreQuerySection start-->
-        <div  v-show ="showMoreQuerySectionFlag">
+        <div  v-show ="showMoreQuerySectionFlag" transition="expand">
             <!--query row2 start-->
             <div class="query_row">
                 <span class="query_title">服务等级&nbsp;|&nbsp;日期</span>

@@ -4,11 +4,11 @@ class Records7Query{
         initQueryPage() ;
         initVue(this) ;
     }
-    query4Page({toPageNum,vmList,vmPageBar,orderName="default",isAsc=true} ){
+    query4Page({toPageNum=1,vmList,vmPageBar,orderName="default",isAsc=true} ){
         //let {toPageNum,vmList,vmPageBar} = config ;
 		var pageSize =   vmPageBar.pageSize || 20 ;
 		var serverURL = this.contextPath+"/mileage/query4Page.action" ;
-		var simpleJsonData = {"toPageNum":toPageNum,"pageSize":pageSize} ;
+		var simpleJsonData = {toPageNum,pageSize,orderName,isAsc} ;
 		//清空历史数据
 		vmList.splice(0,vmList.length);  
 		vmPageBar.curPage =0 ;
@@ -31,13 +31,24 @@ class Records7Query{
             }) ;
         });
     }
-    orderRecords7({titleName,ascFlag,vmList}){
+    // orderRecords7({titleName,ascFlag,vmList}){
+    //     let orderTypeStr = ascFlag ? 'asc' : 'desc' ;
+    //     let retArr = _.orderBy(vmList, [titleName], [orderTypeStr]);
+    //     vmList.splice(0,vmList.length) ;
+    //     retArr.forEach(item => vmList.push(item) ) ;
+    // }
+}
+
+//排序数据
+function orderListData(list,titleName,ascFlag){
+    if(titleName&&titleName.length>0&&titleName!=='default'){
         let orderTypeStr = ascFlag ? 'asc' : 'desc' ;
-        let retArr = _.orderBy(vmList, [titleName], [orderTypeStr]);
-        vmList.splice(0,vmList.length) ;
-        retArr.forEach(item => vmList.push(item) ) ;
+        let retArr = _.orderBy(list, [titleName], [orderTypeStr]);
+        list.splice(0,list.length) ;
+        retArr.forEach(item => list.push(item) ) ;
     }
 }
+
 
 //生成一个随机数
 function random (min,max){
@@ -47,7 +58,7 @@ function random (min,max){
 }
 
 //查询数据库的api
-function queryDbApi ({toPageNum,pageSize=10}){
+function queryDbApi ({toPageNum,pageSize=10,orderName="default",isAsc=true}){
     let records7List = [] ;
     //生成0-5的随机数
     let r = random(1,9) ;
@@ -60,6 +71,7 @@ function queryDbApi ({toPageNum,pageSize=10}){
         } ;
         records7List.push(obj) ;
     }
+    orderListData(records7List,orderName,isAsc) ;
     var pageBean = {
         curPage:toPageNum,
         pageSize:pageSize,
@@ -141,23 +153,20 @@ function initVue(s7){
                //2.执行排序操作
                //let queryDBFlag = $("")
                if(this.queryDBFlag){//查询数据库
-                   var config = {
-                        toPageNum:1,
-                        vmList:this.records7List ,
-                        vmPageBar:this.pageBar,
-                        orderName:this.orderTitleName,
-                        isAsc:this.tableTitleOrder[this.orderTitleName]
-                    } ;
-                    s7.query4Page(config) ;
+                  this.queryDB() ;
                }else{
-                  s7.orderRecords7({titleName,ascFlag:!oldFlag,vmList:this.records7List}) ;
+                  let list = this.records7List ;
+                  let ascFlag = !oldFlag ;
+                  orderListData(list,titleName,ascFlag) ;
                }
             },
-            query:function(toPageNum){
+            queryDB:function(toPageNum){
                 var config = {
                     toPageNum:1,
                     vmList:this.records7List ,
-                    vmPageBar:this.pageBar
+                    vmPageBar:this.pageBar,
+                    orderName:this.orderTitleName,
+                    isAsc:this.tableTitleOrder[this.orderTitleName]
                 } ;
                 if(toPageNum&&toPageNum>0){
                   config.toPageNum = toPageNum ; 
@@ -166,7 +175,7 @@ function initVue(s7){
             },
             handleClickQuery:function(){
                let toPageNum = 1 ;
-               this.query(toPageNum) ;
+               this.queryDB(toPageNum) ;
             },
             toPage:function(pnum){
                 //触发查询操作
@@ -174,7 +183,7 @@ function initVue(s7){
                 //this.pageBar.curPage = pnum ;
                 if(pnum!=this.pageBar.curPage){
                     let toPageNum = pnum ;
-                    this.query(toPageNum) ;
+                    this.queryDB(toPageNum) ;
                 }
             },
             toPerviousPage:function(){
@@ -182,7 +191,7 @@ function initVue(s7){
                     //触发查询操作
                     //this.pageBar.curPage = this.pageBar.curPage*1 -1 ;
                     let toPageNum = this.pageBar.curPage*1 -1 ;
-                    this.query(toPageNum) ;
+                    this.queryDB(toPageNum) ;
                 }
             },
             toNextPage:function(){
@@ -190,7 +199,7 @@ function initVue(s7){
                     //触发查询操作
                     //this.pageBar.curPage = this.pageBar.curPage*1 +1 ;
                     let toPageNum = this.pageBar.curPage*1 +1;
-                    this.query(toPageNum) ;
+                    this.queryDB(toPageNum) ;
                 }
             },
             pageConfirm:function(){
@@ -199,7 +208,7 @@ function initVue(s7){
                 var pageOkInputNum = pageOkInput*1 ;
                 if(pageOkInputNum>0&&pageOkInputNum<=this.pageBar.pageCount*1){
                     let toPageNum = pageOkInput*1;
-                    this.query(toPageNum) ;
+                    this.queryDB(toPageNum) ;
                 }else{
                     $("#pageOkInput").val(this.pageBar.curPage) ;
                 }
@@ -230,21 +239,16 @@ function initQueryPage(){
     // $("#showHideMoreQuerySectionBtn").click(function(){
     //     $("#moreQuerySection").slideToggle() ;
     // }) ;
-
     $('.datepicker').datepicker({minDate:new Date(), showButtonPanel:true});
-
-
     $(".dropdown-oc").find(".dropdown-trigger").click(function (e) {
         e.stopPropagation() ;
         $(".dropdown-menu-oc").removeClass('open') ;
         $(this).parents(".dropdown-oc").find(".dropdown-menu-oc").toggleClass('open') ;
     }) ;
-
     $(document).click(function(e){
         e.stopPropagation() ;
         $('.dropdown-menu-oc').removeClass('open') ;
     }) ;
-
     //
     // $(window).resize(function(){
     //     alert("Stop it!");

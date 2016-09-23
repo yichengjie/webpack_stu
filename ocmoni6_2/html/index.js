@@ -4,7 +4,8 @@ class Records7Query{
         initQueryPage() ;
         initVue(this) ;
     }
-    query4Page({toPageNum=1,vmList,vmPageBar,orderName="default",isAsc=true} ){
+    query4Page({toPageNum=1,vmList,vmPageBar,orderName="lastUpdateDate",isAsc=true} ){
+        orderName = orderName==''?'lastUpdateDate':orderName ;
         //let {toPageNum,vmList,vmPageBar} = config ;
 		var pageSize =   vmPageBar.pageSize || 10 ;
 		var serverURL = this.contextPath+"/mileage/query4Page.action" ;
@@ -14,7 +15,6 @@ class Records7Query{
 		vmPageBar.curPage =0 ;
 		vmPageBar.pageCount = 0 ;
 		vmPageBar.pgArr.splice(0,vmPageBar.pgArr.length) ;
-
         let ajaxing = queryDbApi(simpleJsonData) ;
         ajaxing.then(function(pageBean){
             let list = pageBean.recordList ;
@@ -52,7 +52,8 @@ function random (min,max){
 }
 
 //查询数据库的api
-function queryDbApi ({toPageNum,pageSize=10,orderName="default",isAsc=true}){
+function queryDbApi ({toPageNum,pageSize,orderName,isAsc}){
+    
     let records7List = [] ;
     //生成0-5的随机数
     let r = random(1,9) ;
@@ -67,6 +68,8 @@ function queryDbApi ({toPageNum,pageSize=10,orderName="default",isAsc=true}){
         } ;
         records7List.push(obj) ;
     }
+
+
     orderListData(records7List,orderName,isAsc) ;
     var pageBean = {
         curPage:toPageNum,
@@ -177,7 +180,11 @@ function initVue(s7){
                 if(toPageNum&&toPageNum>0){
                   config.toPageNum = toPageNum ; 
                 }
-               s7.query4Page(config) ;
+                //如果为空的话表示是默认排序
+                if(this.orderTitleName==''){
+                    this.orderTitleName = "lastUpdateDate" ;
+                }
+                s7.query4Page(config) ;
             },
             _clearOrderStatusOnPage:function(){/**清楚页面上排序状态 */
                 let keys = Object.keys(this.tableTitleOrder) ;

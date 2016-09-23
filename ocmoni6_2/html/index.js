@@ -6,7 +6,7 @@ class Records7Query{
     }
     query4Page({toPageNum=1,vmList,vmPageBar,orderName="default",isAsc=true} ){
         //let {toPageNum,vmList,vmPageBar} = config ;
-		var pageSize =   vmPageBar.pageSize || 20 ;
+		var pageSize =   vmPageBar.pageSize || 10 ;
 		var serverURL = this.contextPath+"/mileage/query4Page.action" ;
 		var simpleJsonData = {toPageNum,pageSize,orderName,isAsc} ;
 		//清空历史数据
@@ -56,9 +56,11 @@ function queryDbApi ({toPageNum,pageSize=10,orderName="default",isAsc=true}){
     let records7List = [] ;
     //生成0-5的随机数
     let r = random(1,9) ;
+    let min = toPageNum *10 ;
+    let r2 = random(min ,min +pageSize) ;
     for(let i = 0 ; i < pageSize ; i ++){
         //let cur = _.random(0, 5);
-        let obj = {"subcode":"OB"+ r(),"serviceType":"F"+ r(),"status": r(),"saleStartDate":"2016/01/0"+ r(),
+        let obj = {"subcode":"OB"+ r(),"serviceType":"F"+ r(),"status": r2(),"saleStartDate":"2016/01/0"+ r(),
                 "saleEndDate":"2016/12/2"+ r(),"travelStartDate":"2016/01/0"+ r(),"travelEndDate":"2016/12/2"+ r(),
                 "loc1":"11"+ r(),"loc2":"1234567"+ r(),"flyerStatus":""+ r(),"money":"99"+ r()+"CNY","descr":"描述" + r(),
                 "lastUpdateUser":"yicj"+ r(),"lastUpdateDate":"2016/01/01 14:0"+ r()

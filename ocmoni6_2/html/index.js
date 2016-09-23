@@ -153,7 +153,8 @@ function initVue(s7){
                //2.执行排序操作
                //let queryDBFlag = $("")
                if(this.queryDBFlag){//查询数据库
-                  this.queryDB() ;
+                  let toPageNum = this.pageBar.curPage*1 ;
+                  this.queryDB(toPageNum) ;
                }else{
                   let list = this.records7List ;
                   let ascFlag = !oldFlag ;

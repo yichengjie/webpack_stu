@@ -181,9 +181,9 @@ function initVue(s7){
                   config.toPageNum = toPageNum ; 
                 }
                 //如果为空的话表示是默认排序
-                if(this.orderTitleName==''){
-                    this.orderTitleName = "lastUpdateDate" ;
-                }
+                // if(this.orderTitleName==''){
+                //     this.orderTitleName = "lastUpdateDate" ;
+                // }
                 s7.query4Page(config) ;
             },
             _clearOrderStatusOnPage:function(){/**清楚页面上排序状态 */

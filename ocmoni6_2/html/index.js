@@ -93,8 +93,11 @@ function initVue(s7){
                 "saleEndDate":true,"travelStartDate":true,"travelEndDate":true,"loc1":true,
                 "loc2":true,"flyerStatus":true,"money":true,"descr":true,"lastUpdateUser":true,
                 "lastUpdateDate":true
-            },
-            orderTitleName:"",
+            },/**所有列的排序状态 */
+            orderTitleName:"",/**当前排序的列名称 */
+            queryDBFlag:false,/**是否针对所有记录进行排序 */
+            showMoreQuerySectionFlag:false,/**显示更多查询条件 */
+            dealPageOrderFlag:false,/**是否进行过页面静态排序 */
             pageBar:{
 			    "curPage":0,
 			    "pageSize":0,
@@ -103,8 +106,6 @@ function initVue(s7){
                 "recordCount":0,
                 "isQueryDB":false
 		    },
-            queryDBFlag:false,
-            showMoreQuerySectionFlag:false,
             formData:{
                 status:[],
                 effStatus:[],
@@ -150,12 +151,14 @@ function initVue(s7){
                   let toPageNum = this.pageBar.curPage*1 ;
                   this.queryDB(toPageNum) ;
                }else{
+                  this.dealPageOrderFlag = true;
                   let list = this.records7List ;
                   let ascFlag = !oldFlag ;
                   orderListData(list,titleName,ascFlag) ;
                }
             },
             queryDB:function(toPageNum){
+                this.dealPageOrderFlag = false;
                 var config = {
                     toPageNum:1,
                     vmList:this.records7List ,

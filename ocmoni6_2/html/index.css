@@ -21,6 +21,7 @@ table.table_records7 tr th{
     padding: 8px 2px;
     background-color: #8AD0EE;
     vertical-align: middle;
+    text-align: center;
     cursor: pointer;
 }
 table.table_records7 tr td{

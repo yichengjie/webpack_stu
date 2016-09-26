@@ -71,13 +71,13 @@
         <!--query row1 start-->
         <div class="query_row">
             <span class="query_title">基础信息</span>
-            <input id ="releaseStatus01" name ="status" type="checkbox" value ="1" v-model ="formData.status" />
+            <input id ="releaseStatus01" name ="statusArr" type="checkbox" value ="1" v-model ="formData.statusArr" />
             <label for="releaseStatus01">未发布</label>
-            <input id ="releaseStatus02" name ="status" type="checkbox" value ="2" v-model ="formData.status" />
+            <input id ="releaseStatus02" name ="statusArr" type="checkbox" value ="2" v-model ="formData.status" />
             <label for="releaseStatus02">已发布</label>
-            <input  id ="effectStatus01" name="effStatus" type="checkbox" value ="1" v-model ="formData.effStatus" /><label for="effectStatus01"> 未生效</label>
-            <input  id ="effectStatus02" name="effStatus" type="checkbox" value ="2" v-model ="formData.effStatus" /> <label for="effectStatus02">已生效</label>
-            <input  id ="effectStatus03" name="effStatus" type="checkbox" value ="3" v-model ="formData.effStatus" /> <label for="effectStatus03">已过期</label>
+            <input  id ="effectStatus01" name="effStatusArr" type="checkbox" value ="1" v-model ="formData.effStatusArr" /><label for="effectStatus01"> 未生效</label>
+            <input  id ="effectStatus02" name="effStatusArr" type="checkbox" value ="2" v-model ="formData.effStatusArr" /> <label for="effectStatus02">已生效</label>
+            <input  id ="effectStatus03" name="effStatusArr" type="checkbox" value ="3" v-model ="formData.effStatusArr" /> <label for="effectStatus03">已过期</label>
             <label  class="marginR5 title">SUBCODE</label>
             <input type="text" class="common_input" v-model ="formData.subcode" mode="upper" style="width:150px;" placeholder="多个用/分割"/>
             <label  class="marginR5 title">优先级序号</label>
@@ -100,10 +100,10 @@
             <!--query row2 start-->
             <div class="query_row">
                 <span class="query_title">服务等级&nbsp;|&nbsp;日期</span>
-                <input id ="serviceType01" value="F" name="serviceType"  v-model ="formData.serviceType" type="checkbox"><label for="serviceType01">F-航班服务</label>
-                <input id ="serviceType02" value="A" name="serviceType"  v-model ="formData.serviceType" type="checkbox"><label for="serviceType02">A-免费行李</label>
-                <input  id ="serviceType03" value="C" name="serviceType" v-model ="formData.serviceType" type="checkbox"><label for="serviceType03">C-逾重行李</label>
-                <input  id ="serviceType04" value="P" name="serviceType" v-model ="formData.serviceType" type="checkbox"> <label for="serviceType04">P-预付费行李</label>
+                <input id ="serviceType01" value="F" name="serviceTypeArr"  v-model ="formData.serviceTypeArr" type="checkbox"><label for="serviceType01">F-航班服务</label>
+                <input id ="serviceType02" value="A" name="serviceTypeArr"  v-model ="formData.serviceTypeArr" type="checkbox"><label for="serviceType02">A-免费行李</label>
+                <input  id ="serviceType03" value="C" name="serviceTypeArr" v-model ="formData.serviceTypeArr" type="checkbox"><label for="serviceType03">C-逾重行李</label>
+                <input  id ="serviceType04" value="P" name="serviceTypeArr" v-model ="formData.serviceTypeArr" type="checkbox"> <label for="serviceType04">P-预付费行李</label>
                 <span class="marginR15"></span>
                 <label class="marginR5 title">销售日期</label>
                 <input type="text" id="effectMinDate" v-model ="formData.effectMinDate" class="common_input datepicker" style="width: 110px" />
@@ -124,17 +124,17 @@
             <!--query row3 start-->
             <div class="query_row">
                 <span class="query_title">常客等级|区域</span>
-                <input id ="passengerTypeCode01" value="1" name="passengerTypeCode"  v-model ="formData.passengerTypeCode" 
+                <input id ="passengerTypeCode01" value="1" name="passengerTypeCodeArr"  v-model ="formData.passengerTypeCodeArr" 
                     type="checkbox"><label for="serviceType01">白金卡</label>
-                <input id ="passengerTypeCode02" value="2" name="passengerTypeCode"  v-model ="formData.passengerTypeCode" 
+                <input id ="passengerTypeCode02" value="2" name="passengerTypeCodeArr"  v-model ="formData.passengerTypeCodeArr" 
                     type="checkbox"><label for="serviceType02">金卡</label>
-                <input  id ="passengerTypeCode03" value="3" name="passengerTypeCode" v-model ="formData.passengerTypeCode" 
+                <input  id ="passengerTypeCode03" value="3" name="passengerTypeCodeArr" v-model ="formData.passengerTypeCodeArr" 
                     type="checkbox"><label for="serviceType03">银卡</label>
-                <input  id ="passengerTypeCode04" value="4" name="passengerTypeCode" v-model ="formData.passengerTypeCode" 
+                <input  id ="passengerTypeCode04" value="4" name="passengerTypeCodeArr" v-model ="formData.passengerTypeCodeArr" 
                     type="checkbox"> <label for="serviceType04">普卡</label>
-                <input  id ="passengerTypeCode05" value="5" name="passengerTypeCode" v-model ="formData.passengerTypeCode" 
+                <input  id ="passengerTypeCode05" value="5" name="passengerTypeCodeArr" v-model ="formData.passengerTypeCodeArr" 
                     type="checkbox"><label for="passengerTypeCode05">非会员</label>
-                <input  id ="passengerTypeCode06" value="6" name="passengerTypeCode" v-model ="formData.passengerTypeCode" 
+                <input  id ="passengerTypeCode06" value="6" name="passengerTypeCodeArr" v-model ="formData.passengerTypeCodeArr" 
                     type="checkbox"> <label for="passengerTypeCode06">飞行卡</label>
                 <label class="marginR5 title">区域</label>
                 <input type="text" id="geoSpecLoc1" v-model ="formData.geoSpecLoc1" mode="upper" maxlength="3"  class="common_input" style="width: 100px">

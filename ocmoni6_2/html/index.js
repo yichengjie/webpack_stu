@@ -112,17 +112,17 @@ function initVue(s7){
                 "isQueryDB":false
 		    },
             formData:{
-                status:[],
-                effStatus:[],
+                statusArr:[],/**发布状态 */
+                effStatusArr:[],/**生效状态 */
                 subcode:"",
-                startSequenceNumber:"",
+                startSequenceNumber:"", 
                 endSequenceNumber:"",
-                serviceType:[],
+                serviceTypeArr:[],/**服务等级(服务类型) */
                 effectMinDate:"",
                 effectMaxDate:"",
                 travelStartDate:"",
                 travelEndDate:"",
-                passengerTypeCode:[],
+                passengerTypeCodeArr:[],/**常旅客等级 */
                 geoSpecLoc1:"",
                 geoSpecLoc2:"",
                 updateUser:"",

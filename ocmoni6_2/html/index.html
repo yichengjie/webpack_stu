@@ -79,7 +79,7 @@
             <input  id ="effectStatus02" name="effStatus" type="checkbox" value ="2" v-model ="formData.effStatus" /> <label for="effectStatus02">已生效</label>
             <input  id ="effectStatus03" name="effStatus" type="checkbox" value ="3" v-model ="formData.effStatus" /> <label for="effectStatus03">已过期</label>
             <label  class="marginR5 title">SUBCODE</label>
-            <input type="text" class="common_input" v-model ="formData.subcode" placeholder="多个用/分割"/>
+            <input type="text" class="common_input" v-model ="formData.subcode" mode="upper" style="width:150px;" placeholder="多个用/分割"/>
             <label  class="marginR5 title">优先级序号</label>
             <input type="text" class="common_input" v-model ="formData.startSequenceNumber" style="width:80px;" />
             <span class="marginRL2">—</span>
@@ -393,14 +393,18 @@
             <span class="page-ok" v-on:click ="pageConfirm">确定</span>
         </div>
     </nav>
-    <!-- spilt page bar star -->
+    <!-- spilt page bar end -->
+
+
+    <pre>
+        {{formData | json}}
+    </pre>
+    
+
 
 </div>
 
 
-<script type="text/template"  id ="mytemplate">
-    
-</script>
 <!--<script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.16.1/lodash.min.js"></script>-->
 <script type="text/javascript" src="../lib/jquery.js"></script>
 <script type="text/javascript" src ="../lib/jquery.isloading.js"></script>

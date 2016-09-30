@@ -60,20 +60,20 @@ table.table_records7 tr label{
     padding: 0;
     cursor: pointer
 }
-.allInfo_descr{
+.pageSum_desc{
     display: inline-block;
     height: 30px;
     line-height: 30px;
     font-size: 14px;
 }
-.allInfo_descr label{
+.pageSum_desc label{
     margin: 0;
     padding: 0;
     vertical-align: middle; 
     margin-left: 5px;
     cursor: pointer;
 }
-.allInfo_descr input[type="checkbox"]{
+.pageSum_desc input[type="checkbox"]{
     margin: 0;
     padding: 0;
     vertical-align: middle;

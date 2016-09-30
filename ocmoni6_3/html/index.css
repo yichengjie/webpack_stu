@@ -1,67 +1,65 @@
 /**records7 relevant start*/
-.table_records7 .descr{
+table.table_records7 .descr{
     display: inline-block;
     width: 100px;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
 }
-.table_records7 .relative{
+table.table_records7 .relative{
     position: relative;
 }
-.table_records7 .tb_order{
+table.table_records7 .tb_order{
     position: absolute;
     right: 2px;
     top: 36%;
 }
-.table_records7 .tbtitle{
+table.table_records7 .tbtitle{
     display: block;
 }
-.table_records7 tr th{
+table.table_records7 tr th{
     padding: 8px 2px;
     background-color: #8AD0EE;
     vertical-align: middle;
     text-align: center;
     cursor: pointer;
 }
-.table_records7 tr td{
+table.table_records7 tr td{
     padding: 4px 2px;
     padding-bottom: 0px;
     text-align: center;
 }
-.table_records7 input[type="checkbox"]{
+table.table_records7 input[type="checkbox"]{
     vertical-align: middle;
     margin: 0px;
 }
-.table_records7 tbody tr:hover{
+table.table_records7 tbody tr:hover{
     background-color:#ECF1EF ;
 }
 @media screen and (min-width: 1250px) {
-    .table_records7 .tbtitle{
+    table.table_records7 .tbtitle{
         display: inline-block;
     }
-    .table_records7 .tb_order{
+    table.table_records7 .tb_order{
         top: 30%;
     }
 }
-.table_records7 tr th i{
+table.table_records7 tr th i{
     display: none;
 }
-.table_records7 tr th:hover i{
+table.table_records7 tr th:hover i{
     display: block;
 }
-.table_records7 tr th i.active{
+table.table_records7 tr th i.active{
     display: block;
 }
 
-.table_records7 tr label{
+table.table_records7 tr label{
     margin: 0;
     padding: 0;
     cursor: pointer
 }
 /**records7 relevant end*/
-
-
 
 /**common relevant start*/
 .marginRL2{

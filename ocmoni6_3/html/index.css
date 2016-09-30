@@ -100,3 +100,8 @@ table.table_records7 tr label{
     height: 105px;
     overflow: hidden;
 }
+.page-desc .pagesize{
+    display: inline-block;
+    height: 23px;
+    width: 50px;
+}

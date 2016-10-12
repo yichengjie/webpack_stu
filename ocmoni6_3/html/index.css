@@ -116,13 +116,13 @@ table.table_records7 .s5descr{
     cursor: pointer;
 }
 /**page relevant end*/
-.copy_icon{
-    display: inline-block;
-    height: 14px;
-    width: 14px;
-    background-image: url(../styles/images/copy.png);
-    background-size:100%;
-}
+/*.copy_icon{*/
+    /*display: inline-block;*/
+    /*height: 14px;*/
+    /*width: 14px;*/
+    /*background-image: url(../styles/images/copy.png);*/
+    /*background-size:100%;*/
+/*}*/
 
 .ttt{
     display: inline-block;

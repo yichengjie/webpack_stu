@@ -1,4 +1,11 @@
 "use strict"
+
+function initTooltip(){
+    setTimeout(function(){
+        $("[data-toggle='tooltip']").tooltip();
+    },300)
+}
+
 class Records7Query{
     constructor(){
         initQueryPage() ;
@@ -29,6 +36,7 @@ class Records7Query{
             list.forEach(function(item){
                 vmList.push(item) ;
             }) ;
+            initTooltip() ;
         });
     }
 }
@@ -79,10 +87,10 @@ function queryDbApi ({toPageNum,pageSize,orderName,isAsc}){
         recordList:records7List,
         recordCount:100
     } ;
-    loading() ;
+    showLoading() ;
     return new Promise(function(resolve,reject){
         setTimeout(function(){
-            hiding() ;
+            hideHideing() ;
             resolve(pageBean) ;
         },300) ;
     }) ;
@@ -275,14 +283,14 @@ function initQueryPage(){
 }
 
 
-function loading(){
+function showLoading(){
     $.isLoading({
         'text': "加载中..." ,
         'class': "text-success glyphicon glyphicon-refresh",    // loader CSS class
         'tpl': '<span class="isloading-wrapper %wrapper%">%text%<i class="%class% icon-spin marginL5"></i></span>'
     });
 }
-function hiding(){
+function hideHideing(){
     $.isLoading( "hide" );
 }
 

@@ -1,0 +1,24 @@
+/**设为Flex布局以后，子元素的float、
+clear和vertical-align属性将失效。*/
+.box{
+    display: flex;
+    background-color: #0000ed;
+    height: 100px;
+    width: 100px;
+}
+
+.box2{
+    display: inline-flex;
+    background: blanchedalmond;
+    height: 100px;
+    width: 100px;
+}
+
+.box3 {/* flex-direction: row | row-reverse | column | column-reverse;*/
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    flex-direction: column ;
+    background-color: yellow;
+    height: 100px;
+    width: 100px;
+}

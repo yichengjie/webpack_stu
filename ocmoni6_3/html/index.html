@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../styles/css/common.css">
     <link rel="stylesheet" href="../styles/css/oc_query.css"/>
     <link rel="stylesheet" href="./index.css"/>
+    <link rel="stylesheet" href="../styles/iconfont/iconfont.css"/>
     <style>
         [v-cloak] {
             display: none;
@@ -202,9 +203,9 @@
                         >
                         <span class="tbtitle">sub</span>code
                             <i v-bind:class="{ 
-                                'glyphicon tb_order text-danger': true, 
-                                'glyphicon-chevron-down': tableTitleOrder.subcode,
-                                'glyphicon-chevron-up': !tableTitleOrder.subcode,
+                                'iconfont tb_order text-danger': true,
+                                'icon-paixu2': tableTitleOrder.subcode,
+                                'icon-paixu1': !tableTitleOrder.subcode,
                                 'active':orderTitleName=='subcode'
                              }" 
                             ></i>
@@ -334,7 +335,12 @@
             <tbody>
                  <tr v-for="item in records7List">
                     <td><input type="checkbox" name="records7_checkbox" v-on:click="checkRecords7Item" /></td>
-                    <td>{{item.subcode}}</td>
+                    <td>
+                        <span class="myhand" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                            {{item.subcode}}<i class="glyphicon glyphicon-info-sign s5descr" >
+                            </i>
+                        </span>
+                    </td>
                     <td>{{item.serviceType}}</td>
                     <td>{{item.status}}</td>
                     <td>{{item.saleStartDate}}</td>
@@ -352,7 +358,8 @@
                     <td>{{item.lastUpdateDate}}</td>
                     <td class="oper_item">
                         <i class="glyphicon glyphicon-pencil myhand"></i>
-                        <i class="glyphicon glyphicon-trash myhand"></i>
+                        <!--<span><img width="12" height="12" src="../styles/images/copy.png" alt=""/></span>-->
+                        <i class="iconfont icon-copy" title="复制"></i>
                     </td>
                  </tr>
             </tbody>

@@ -26,6 +26,9 @@
             height: 0;
             opacity: 0;
         }
+        body{
+            min-width: 1310px;
+        }
     </style>
 </head>
 <body id ="app" v-cloak>
@@ -198,19 +201,19 @@
                         <label class="tbtitle" for="checkAllRecords7">全选 </label>
                         <input type="checkbox" id ="checkAllRecords7" v-on:click="checkAllRecords7($event)">
                     </th>
-                    <th width="6%" class="relative" 
+                    <th width="5%" class="relative"
                         v-on:click="clickTableTitle('subcode')"
                         >
                         <span class="tbtitle">sub</span>code
                             <i v-bind:class="{ 
-                                'iconfont tb_order text-danger': true,
+                                'iconfont tb_order': true,
                                 'icon-paixu2': tableTitleOrder.subcode,
                                 'icon-paixu1': !tableTitleOrder.subcode,
                                 'active':orderTitleName=='subcode'
                              }" 
                             ></i>
                     </th>
-                    <th width="6%" class="relative" v-on:click="clickTableTitle('serviceType')">
+                    <th width="5%" class="relative" v-on:click="clickTableTitle('serviceType')">
                         <span class="tbtitle">服务</span>类型 
                             <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
@@ -219,7 +222,10 @@
                             'active':orderTitleName=='serviceType'}" 
                         ></i>
                     </th>
-                    <th width="5%" class="relative" v-on:click="clickTableTitle('status')">
+                    <th width="6%" class="relative">
+                        <span class="tbtitle"> 优先级</span>序号
+                    </th>
+                    <th width="4%" class="relative" v-on:click="clickTableTitle('status')">
                         状态  <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.status,
@@ -304,7 +310,7 @@
                             'active':orderTitleName=='money'}" 
                             ></i>
                     </th>
-                    <th width="9%" class="relative" v-on:click="clickTableTitle('descr')">
+                    <th width="8%" class="relative" v-on:click="clickTableTitle('descr')">
                         描述  <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.descr,
@@ -321,7 +327,7 @@
                             'active':orderTitleName=='lastUpdateUser'}" 
                             ></i>
                     </th>
-                    <th width="10%" class="relative" v-on:click="clickTableTitle('lastUpdateDate')">
+                    <th width="8%" class="relative" v-on:click="clickTableTitle('lastUpdateDate')">
                         最后更新日期  <i v-bind:class="{ 
                             'glyphicon tb_order text-danger': true, 
                             'glyphicon-chevron-down': tableTitleOrder.lastUpdateDate,
@@ -342,6 +348,7 @@
                         </span>
                     </td>
                     <td>{{item.serviceType}}</td>
+                    <td>1000011</td>
                     <td>{{item.status}}</td>
                     <td>{{item.saleStartDate}}</td>
                     <td>{{item.saleEndDate}}</td>

@@ -36,7 +36,7 @@ table.table_records7 input[type="checkbox"]{
 table.table_records7 tbody tr:hover{
     background-color:#ECF1EF ;
 }
-@media screen and (min-width: 1250px) {
+@media screen and (min-width: 1320px) {
     table.table_records7 .tbtitle{
         display: inline-block;
     }

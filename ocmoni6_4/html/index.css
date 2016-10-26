@@ -1,0 +1,134 @@
+/**records7 relevant start*/
+table.table_records7 .descr{
+    display: inline-block;
+    width: 100px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+table.table_records7 .relative{
+    position: relative;
+}
+table.table_records7 .tb_order{
+    position: absolute;
+    right: 2px;
+    top: 26%;
+}
+table.table_records7 .tbtitle{
+    display: block;
+}
+table.table_records7 tr th{
+    padding: 8px 2px;
+    background-color: #8AD0EE;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+}
+table.table_records7 tr td{
+    padding: 4px 2px;
+    padding-bottom: 0px;
+    text-align: center;
+}
+table.table_records7 input[type="checkbox"]{
+    vertical-align: middle;
+    margin: 0px;
+}
+table.table_records7 tbody tr:hover{
+    background-color:#ECF1EF ;
+}
+@media screen and (min-width: 1320px) {
+    table.table_records7 .tbtitle{
+        display: inline-block;
+    }
+    table.table_records7 .tb_order{
+        top: 16%;
+    }
+}
+table.table_records7 tr th i{
+    display: none;
+}
+table.table_records7 tr th:hover i{
+    display: block;
+}
+table.table_records7 tr th i.active{
+    display: block;
+}
+
+table.table_records7 tr label{
+    margin: 0;
+    padding: 0;
+    cursor: pointer
+}
+table.table_records7 .s5descr{
+    padding-left: 2px;
+    opacity:0.7;
+}
+
+
+/**records7 relevant end*/
+
+/**common relevant start*/
+.marginRL2{
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.ts90{
+    transform:rotate(90deg);
+}
+/**common relevant end*/
+
+/**head relevant start*/
+.query_row .title{
+    font-weight: 700;
+}
+.query_row .glyphicon-calendar{
+    opacity:0.7;
+}
+.header-container{
+    width: 100%;
+    height: 105px;
+    overflow: hidden;
+}
+/**head relevant end*/
+
+/**page relevant start*/
+.pageSum_desc input[type="checkbox"]{
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+.page-desc .pagesize{
+    display: inline-block;
+    height: 23px;
+    width: 50px;
+}
+.pageSum_desc{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.pageSum_desc label{
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    margin-left: 5px;
+    cursor: pointer;
+}
+/**page relevant end*/
+/*.copy_icon{*/
+    /*display: inline-block;*/
+    /*height: 14px;*/
+    /*width: 14px;*/
+    /*background-image: url(../styles/images/copy.png);*/
+    /*background-size:100%;*/
+/*}*/
+
+.ttt{
+    display: inline-block;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    width: 100%;
+}
+

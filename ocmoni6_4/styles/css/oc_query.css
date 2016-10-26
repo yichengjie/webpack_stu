@@ -1,0 +1,118 @@
+/**s7查询页面特有的样式 start*/
+.s7_list_row:after{
+    clear: both;
+}
+.s7_list_row .s7_list_item{
+    display: inline-block;
+    height: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 50px;
+    box-sizing: border-box;
+}
+.s7_list_checkbox{
+    display: inline-block;
+    width: 5%;
+    text-align: center;
+}
+.productsImg{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-image: url('../images/products/0B5.jpg');
+}
+.s7_list_descr{
+    display: inline-block;
+    width: 25%;
+    padding-left:15px;
+}
+.s7_list_seq{
+    display: inline-block;
+    width: 5%;
+}
+.s7_list_date{
+    display: inline-block;
+    width: 15%;
+}
+.s7_list_status{
+    display: inline-block;
+    text-align: right;
+    width: 5%;
+}
+.s7_list_price{
+    display: inline-block;
+    width: 8%;
+    text-align: right;
+}
+.s7_list_level{
+    display: inline-block;
+    width: 10%;
+    text-align: right;
+}
+.s7_list_geo{
+    display: inline-block;
+    width: 10%;
+    text-align: right;
+}
+.s7_list_oper{
+    display: inline-block;
+    text-align: right;
+    width: 10%;
+    float: right;
+}
+.s7_list_oper a{
+    color:#000 ;
+}
+.productsImg_0B3{
+    background-image: url(../images/products/0B3.jpg);
+}
+.productsImg_0B5{
+    background-image: url(../images/products/0B5.jpg);
+}
+.productsImg_0BO{
+    background-image: url(../images/products/0BO.jpg);
+}
+.productsImg_0DG{
+    background-image: url(../images/products/0DG.jpg);
+}
+.productsImg_0LO{
+    background-image: url(../images/products/0LO.jpg);
+}
+.productsImg_0LP{
+    background-image: url(../images/products/0LP.jpg);
+}
+.productsImg_0LQ{
+    background-image: url(../images/products/0LQ.jpg);
+}
+.productsImg_0LT{
+    background-image: url(../images/products/0LT.jpg);
+}
+.productsImg_1E{
+    background-image: url(../images/products/1E.jpg);
+}
+/**s7查询页面特有的样式 end*/
+/*s7 查询页面的 特殊样式 start*/
+.s7list_panel .panel-body{
+    padding: 0px;
+}
+.s7list_panel .list-group{
+    margin: 0px;
+    border-radius: 0;
+}
+.s7list_panel .panel-title{
+    font-size: 14px;
+    font-weight: 300;
+}
+.s7list_panel .checkbox-inline label{
+    margin-top: 3px;
+}
+/*s7 查询页面的 特殊样式 end*/
+
+
+
+
+
+
+
+
+

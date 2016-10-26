@@ -3,8 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <style type="text/css">
+        table{
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
 
+
+<table>
+    <thead>
+        <tr>
+            <th>列1</th>
+            <th>列2</th>
+            <th>列3</th>
+            <th>列4</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1 <button type="button" onclick="test(this)">测试</button> </td>
+            <td>2</td>
+            <td name="test">3</td>
+            <td>4</td>
+        </tr>
+    </tbody>
+</table>
+
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+    function test(event){
+        var $tr = $(event).parents('tr');
+        var test = $tr.find('td[name=test]') ;
+        var t = test.text() ;
+        console.info(t) ;
+    }
+</script>
 </body>
 </html>

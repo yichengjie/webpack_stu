@@ -1,15 +1,21 @@
 {
-  "name": "webpack_stu",
+  "name": "ocmoni6_4",
   "version": "1.0.0",
-  "description": "webpack study",
-  "main": "index.js",
+  "description": "A Vue.js project",
+  "author": "yichengjie <626659321@qq.com>",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node build/dev-server.js",
+    "build": "node build/build.js",
+    "unit": "karma start test/unit/karma.conf.js --single-run",
+    "e2e": "node test/e2e/runner.js",
+    "test": "npm run unit && npm run e2e",
+    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
-  "author": "yicj",
-  "license": "ISC",
-  "devDependencies": {},
   "dependencies": {
+    "vue": "^2.0.1"
+  },
+  "devDependencies": {
     "autoprefixer": "^6.4.0",
     "babel-core": "^6.0.0",
     "babel-eslint": "^7.0.0",
@@ -67,5 +73,9 @@
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",
     "webpack-merge": "^0.14.1"
+  },
+  "engines": {
+    "node": ">= 4.0.0",
+    "npm": ">= 3.0.0"
   }
 }

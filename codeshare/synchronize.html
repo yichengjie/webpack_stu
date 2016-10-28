@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>synchronize(同步页)</title>
+    <link rel="stylesheet" href="./public/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+     <div class="container">
+        <!--******************查询条件start********************-->
+        <div class="query_section">
+            <form class="form-inline" role="form">
+                <div class="query_row">
+                    <div class="form-group">
+                        <label class="control-label" for="exampleInputEmail2">市场方</label>
+                        <input type="text" class="form-control input-sm"  placeholder="市场方"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="exampleInputPassword2">承运方</label>
+                        <input type="text" class="form-control input-sm"  placeholder="承运方"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="exampleInputPassword2">始发地</label>
+                        <input type="text" class="form-control input-sm"  placeholder="始发地"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="exampleInputPassword2">目的地</label>
+                        <input type="text" class="form-control input-sm"  placeholder="目的地"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="exampleInputPassword2">执行情况</label>
+                       <select name="" id="" class="form-control input-sm">
+                            <option value="">选择</option>
+                            <option value="1">1</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="exampleInputPassword2">执行日期</label>
+                        <input type="text" class="form-control input-sm" style="width:130px;"  placeholder="范围"/>
+                        <label for="effectMinDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
+                        &nbsp;—&nbsp;
+                        <input type="text" class="form-control input-sm" style="width:130px;"  placeholder="范围"/>
+                        <label for="effectMinDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
+                    </div>
+                  
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-primary btn-sm" >查询</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+        <!--******************查询条件end********************-->
+
+        <!--******************操作区域start********************-->
+        <div class="oper_section">
+            <button type="button" class="btn btn-sm btn-default">执行同步</button>
+            <button type="button" class="btn btn-sm btn-default">取消同步</button>
+        </div>
+        <!--******************操作区域end********************-->
+
+        <!--******************列表start********************-->
+        <div class="query_list">
+            <table class="table table-bordered  table-condensed table-hover" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th class="td_checkbox" width="5%"><input type="checkbox" />全选</th>
+                        <th width="10%">市场方</th>
+                        <th width="10%">承运方</th>
+                        <th width="10%">始发地</th>
+                        <th width="10%">目的地</th>
+                        <th width="10%">同步策略</th>
+                        <th width="10%">执行情况</th>
+                        <th width="10%">执行日期</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td_checkbox"><input type="checkbox" /></td>
+                        <td>CA</td>
+                        <td>SC</td>
+                        <td>PEK</td>
+                        <td>SHA</td>
+                        <td>自动</td>
+                        <td>已同步</td>
+                        <td>2016-01-01</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+
+            <nav class="pull-right page_custome">
+                <ul class="pagination">
+                    <li><a href="#">上一页</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">...</a></li>
+                    <li><a href="#">10</a></li>
+                    <li><a href="#">下一页</a></li>
+                </ul>
+                共10页&nbsp;&nbsp;
+                到第&nbsp;&nbsp;<input type="text" />&nbsp;&nbsp;页
+                <button type="button" class="btn btn-default btn-sm">确定</button>
+            </nav> 
+
+        </div>
+        <!--******************列表end********************-->
+    </div>
+    
+    <script type="text/javascript" src="./public/jquery/jquery.js"></script>
+    <script type="text/javascript" src="./public/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

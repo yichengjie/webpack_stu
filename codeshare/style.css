@@ -1,0 +1,91 @@
+*{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    min-width: 1150px;
+    font-size: 12px;
+}
+.container{
+    margin: 10px auto;
+    padding: 0px;
+    width: 98%;
+}
+.query_section{
+    display: block;
+    background-color: #F7F7F7;
+    padding: 10px;
+}
+.query_section .query_row{
+    display: block;
+    padding: 2px 0px;
+    min-width: 1071px;
+}
+.query_section .control-label{
+   font-weight: 100;
+}
+.query_section .form-group{
+    margin: 0 6px ;
+}
+.query_section .form-control{
+    width: 85px;
+}
+.oper_section{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    padding-right: 10px;
+}
+.query_list{
+    display: block;
+    padding: 0 20px;
+    padding-right: 0px;
+}
+.query_list thead{
+    background-color: #EEE;
+}
+.pagination{
+    margin: 0px;
+    vertical-align: middle;
+}
+.page_custome{
+    display: inline-block ;
+    height: 35px;
+    line-height: 35px;
+}
+.page_custome input{
+    display: inline-block;
+    width: 50px;
+    height: 23px;
+    border-radius: 4px;
+}
+.iconfont_box{
+    margin-left: -25px ;
+    cursor: pointer;
+}
+.iconfont_box:after{
+    content: '';
+    display: inline-block;
+    margin-left: 12px;
+}
+.td_checkbox{
+    text-align: center;
+}
+.td_checkbox input{
+    margin: 0px;
+    padding: 0px;
+    vertical-align: middle;
+}
+.edit_content{
+    display: block;
+    padding: 0 20px;
+    padding-right: 0px;
+}
+.form-horizontal .iconfont_box{
+    padding-top: 7px;
+    margin-left: -35px ;
+}

@@ -101,16 +101,24 @@ body{
     height: 25px;
     padding: 2px 10px;
 }
-.icon {
-    width: 2em; height: 2em;
-    vertical-align: -0.5em;
-    fill: currentColor;
-    overflow: hidden;
-}
+/*.icon {*/
+    /*width: 2em; height: 2em;*/
+    /*vertical-align: -0.5em;*/
+    /*fill: currentColor;*/
+    /*overflow: hidden;*/
+/*}*/
 .navbar{
     margin-bottom: 0px;
 }
 .pagebar_btn{
     height: 25px;
     padding: 1px 5px;
+}
+.red{
+    color: red;
+}
+.err_tip{
+    display: inline-block;
+    color: red;
+    padding-top: 7px;
 }

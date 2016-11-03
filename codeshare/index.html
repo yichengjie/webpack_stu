@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>authorizelist（授权列表页）</title>
     <link rel="stylesheet" href="./public/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="./public/bs-switch/css/bootstrap-switch.css"/>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -33,265 +34,270 @@
     </nav>
 
     <div class="container">
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#home" role="tab" data-toggle="tab">市场方</a></li>
-            <li role="presentation"><a href="#profile" role="tab" data-toggle="tab">承运方</a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
+        <!--******************查询条件start********************-->
+        <div class="query_section">
+            <form class="form-inline" role="form">
 
-
-            <!--市场方 start-->
-            <div role="tabpanel" class="tab-pane active" id="home">
-
-                <!--******************查询条件start********************-->
-                <div class="query_section">
-                    <form class="form-inline" role="form">
-                        <div class="query_row">
-                            <div class="form-group">
-                                <label class="control-label" for="exampleInputEmail2">市场方</label>
-                                <input type="text" class="form-control input-sm"  placeholder="市场方"/>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label" for="exampleInputPassword2">承运方</label>
-                                <input type="text" class="form-control input-sm"  placeholder="承运方"/>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label" for="exampleInputPassword2">始发地</label>
-                                <input type="text" class="form-control input-sm"  placeholder="始发地"/>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label" for="exampleInputPassword2">目的地</label>
-                                <input type="text" class="form-control input-sm"  placeholder="目的地"/>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label" for="exampleInputPassword2">状态</label>
-                                <select name=""  class="form-control input-sm">
-                                    <option value="">选择</option>
-                                    <option value="1">未申请</option>
-                                    <option value="2">待授权</option>
-                                    <option value="3">已授权</option>
-                                    <option value="4">已拒绝</option>
-                                    <option value="5">已终止</option>
-                                </select>
-                            </div>
-
-                             <div class="form-group">
-                                <label class="control-label" for="exampleInputPassword2">同步策略</label>
-                                <select name=""  class="form-control input-sm" >
-                                    <option value="">选择</option>
-                                    <option value="1">自动</option>
-                                    <option value="2">手工</option>
-                                    <option value="3">不同步</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label" for="exampleInputPassword2">舱位代码</label>
-                                <input type="text" class="form-control input-sm" style="width:150px;" placeholder="多个用/分隔" maxlength="30"/>
-                            </div>
-
-                            <div class="pull-right">
-                                <button type="button" class="btn btn-primary btn-sm" >查询</button>
-                            </div>
-                        </div>
-                       
-                    </form>
+                <div class="query_row">
+                    <div class="switch" data-on="primary" data-off="info">
+                        <input type="checkbox" id = "mySwitch" checked
+                               data-on-text="市场方" data-off-text="承运方"
+                               data-on-color="primary" data-off-color="info"
+                               data-label-text="我是"
+                               data-handle-width="100"/>
+                    </div>
                 </div>
-                <!--******************查询条件end********************-->
 
-                <!--******************操作区域start********************-->
-                <div class="oper_section">
-                    <button type="button" class="btn btn-sm btn-default">申请</button>
-                    <button type="button" class="btn btn-sm btn-default">终止</button>
-                    <button type="button" class="btn btn-sm btn-default">编辑</button>
-                    <button type="button" class="btn btn-sm btn-default">删除</button>
-                    <button type="button" class="btn btn-sm btn-success" onclick="window.location.href='newAuthorize.html'">新建</button>
+                <div class="query_row mtop3">
+                    <div class="form-group">
+                        <label class="control-label" for="a0001">市场方</label>
+                        <input id ="a0001" type="text" class="form-control input-sm"  />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="a0002">承运方</label>
+                        <input id ="a0002" type="text" class="form-control input-sm"  />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="a0003">始发地</label>
+                        <input id ="a0003" type="text" class="form-control input-sm"  />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="a0004">目的地</label>
+                        <input id ="a0004" type="text" class="form-control input-sm"  />
+                    </div>
+
+                    <div class="form-group" id="a0005_ca_div">
+                        <label class="control-label" for="a0005_ca">状态</label>
+                        <select id ="a0005_ca" name=""  class="form-control input-sm">
+                            <option value="">选择</option>
+                            <option value="1">未申请</option>
+                            <option value="2">待授权</option>
+                            <option value="3">已授权</option>
+                            <option value="4">已拒绝</option>
+                            <option value="5">已终止</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="a0005_mu_div">
+                        <label class="control-label" for="a0005_mu">状态</label>
+                        <select id ="a0005_mu" name=""  class="form-control input-sm">
+                            <option value="">选择</option>
+                            <option value="1">待授权</option>
+                            <option value="1">已授权</option>
+                            <option value="1">已拒绝</option>
+                            <option value="1">已终止</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="a0006_ca_div">
+                        <label class="control-label" for="a0006">同步策略</label>
+                        <select id ="a0006"  name=""  class="form-control input-sm" >
+                            <option value="">选择</option>
+                            <option value="1">自动</option>
+                            <option value="2">手工</option>
+                            <option value="3">不同步</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="a0007">舱位代码</label>
+                        <input id = "a0007" type="text" class="form-control input-sm" style="width:150px;" placeholder="多个用/分隔" maxlength="30"/>
+                    </div>
+
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="queryDB()">查询</button>
+                    </div>
                 </div>
-                <!--******************操作区域end********************-->
 
-                <!--******************列表start********************-->
-                <div class="query_list">
-                    <table class="table table-bordered  table-condensed table-hover" style="width:100%;">
-                        <thead>
-                            <tr>
-                                <th class="td_checkbox" width="5%"><input type="checkbox" />全选</th>
-                                <th width="10%">市场方</th>
-                                <th width="10%">承运方</th>
-                                <th width="10%">始发地</th>
-                                <th width="10%">目的地</th>
-                                <th width="20%">舱位代码</th>
-                                <th width="10%">状态</th>
-                                <th width="10%">同步策略</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="td_checkbox"><input type="checkbox" /></td>
-                                <td>CA</td>
-                                <td>SC</td>
-                                <td>PEK</td>
-                                <td>SHA</td>
-                                <td>Y/B/H/K/L/M</td>
-                                <td>未申报</td>
-                                <td>自动</td>
-                            </tr>
-                           
-                        </tbody>
-                    </table>
-
-                    <nav class="pull-right page_custome">
-                        <ul class="pagination">
-                            <li><a href="#">上一页</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">...</a></li>
-                            <li><a href="#">10</a></li>
-                            <li><a href="#">下一页</a></li>
-                        </ul>
-                        共10页&nbsp;&nbsp;
-                        到第&nbsp;&nbsp;<input type="text" />&nbsp;&nbsp;页
-                        <button type="button" class="btn btn-default btn-sm pagebar_btn">确定</button>
-                    </nav> 
-
-                </div>
-                <!--******************列表end********************-->
-            </div>
-            <!--市场方 end-->
-
-
-            <!--承运方 start-->
-            <div role="tabpanel" class="tab-pane" id="profile">
-                
-                <!--******************查询条件start********************-->
-                <div class="query_section">
-                    <form class="form-inline" role="form">
-                        <div class="query_row">
-                            <div class="form-group">
-                                <label class="control-label"  for="exampleInputEmail2">市场方</label>
-                                <input type="text" class="form-control input-sm"  placeholder="市场方"/>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label" for="exampleInputPassword2">承运方</label>
-                                <input type="text" class="form-control input-sm"  placeholder="承运方"/>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label" for="exampleInputPassword2">始发地</label>
-                                <input type="text" class="form-control input-sm"  placeholder="始发地"/>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label" for="exampleInputPassword2">目的地</label>
-                                <input type="text" class="form-control input-sm"  placeholder="目的地"/>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label" for="exampleInputPassword2">状态</label>
-                                <select name="" id="" class="form-control input-sm">
-                                    <option value="">选择</option>
-                                    <option value="1">待授权</option>
-                                    <option value="1">已授权</option>
-                                    <option value="1">已拒绝</option>
-                                    <option value="1">已终止</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label" for="exampleInputPassword2">舱位代码</label>
-                                <input type="text" class="form-control input-sm" style="width:150px;" placeholder="多个用/分隔" maxlength="30"/>
-                            </div>
-
-                            <div class="pull-right">
-                                <button type="button" class="btn btn-primary btn-sm" >查询</button>
-                            </div>
-                        </div>
-                       
-                    </form>
-                </div>
-                <!--******************查询条件end********************-->
-
-                <!--******************操作区域start********************-->
-                <div class="oper_section">
-                    <button type="button" class="btn btn-sm btn-default">授权</button>
-                    <button type="button" class="btn btn-sm btn-default">拒绝</button>
-                    <button type="button" class="btn btn-sm btn-default">终止</button>
-                    <button type="button" class="btn btn-sm btn-default">编辑</button>
-                    <button type="button" class="btn btn-sm btn-default">删除</button>
-                </div>
-                <!--******************操作区域end********************-->
-
-                <!--******************列表start********************-->
-                <div class="query_list">
-                    <table class="table table-bordered  table-condensed table-hover" style="width:100%;">
-                        <thead>
-                            <tr>
-                                <th class="td_checkbox" width="5%"><input type="checkbox" />全选</th>
-                                <th width="10%">市场方</th>
-                                <th width="10%">承运方</th>
-                                <th width="10%">始发地</th>
-                                <th width="10%">目的地</th>
-                                <th width="20%">舱位代码</th>
-                                <th width="10%">状态</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="td_checkbox"><input type="checkbox" /></td>
-                                <td>CA</td>
-                                <td>SC</td>
-                                <td>PEK</td>
-                                <td>SHA</td>
-                                <td>Y/B/H/K/L/M</td>
-                                <td>未申报</td>
-                            </tr>
-
-                            <tr>
-                                <td class="td_checkbox"><input type="checkbox" /></td>
-                                <td>CA</td>
-                                <td>SC</td>
-                                <td>PEK</td>
-                                <td>SHA</td>
-                                <td>Y/B/H/K/L/M</td>
-                                <td>未申报</td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-                    <nav class="pull-right page_custome">
-                        <ul class="pagination">
-                            <li><a href="#">上一页</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">...</a></li>
-                            <li><a href="#">10</a></li>
-                            <li><a href="#">下一页</a></li>
-                        </ul>
-                        共10页&nbsp;&nbsp;
-                        到第&nbsp;&nbsp;<input type="text" />&nbsp;&nbsp;页
-                        <button type="button" class="btn btn-default pagebar_btn">确定</button>
-                    </nav> 
-
-                </div>
-                <!--******************列表end********************-->
-            </div>
-            <!--承运方 end-->
+            </form>
         </div>
+        <!--******************查询条件end********************-->
+
+        <!--******************操作区域start********************-->
+        <div class="oper_section">
+            <button type="button" class="btn btn-sm btn-default">申请</button>
+            <button type="button" class="btn btn-sm btn-default">终止</button>
+            <button type="button" class="btn btn-sm btn-default">编辑</button>
+            <button type="button" class="btn btn-sm btn-default">删除</button>
+            <button type="button" class="btn btn-sm btn-success" onclick="window.location.href='newAuthorize.html'">新建</button>
+        </div>
+        <!--******************操作区域end********************-->
+
+        <!--******************列表start********************-->
+        <div class="query_list" >
+
+            <table id="CA_ListTable" class="table table-bordered  table-condensed table-hover" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th class="td_checkbox" width="5%">
+                            <input type="checkbox" />全选
+                        </th>
+                        <th width="10%">市场方</th>
+                        <th width="10%">承运方</th>
+                        <th width="10%">始发地</th>
+                        <th width="10%">目的地</th>
+                        <th width="20%">舱位代码</th>
+                        <th width="10%">状态</th>
+                        <th width="10%">同步策略</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <table id="MU_ListTable" class="table table-bordered  table-condensed table-hover hidden" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th class="td_checkbox" width="5%"><input type="checkbox" />全选</th>
+                        <th width="10%">市场方</th>
+                        <th width="10%">承运方</th>
+                        <th width="10%">始发地</th>
+                        <th width="10%">目的地</th>
+                        <th width="20%">舱位代码</th>
+                        <th width="10%">状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+
+            <nav class="pull-right page_custome">
+                <ul class="pagination">
+                    <li><a href="#">上一页</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">...</a></li>
+                    <li><a href="#">10</a></li>
+                    <li><a href="#">下一页</a></li>
+                </ul>
+                共10页&nbsp;&nbsp;
+                到第&nbsp;&nbsp;<input type="text" />&nbsp;&nbsp;页
+                <button type="button" class="btn btn-default btn-sm pagebar_btn">确定</button>
+            </nav>
+
+        </div>
+        <!--******************列表end********************-->
     </div>
+
+
+    <script type="text/template" id="ca_table_tr_template">
+        <tr>
+            <td class="td_checkbox"><input type="checkbox" /></td>
+            <td>{{a001}}</td>
+            <td>{{a002}}</td>
+            <td>{{a003}}</td>
+            <td>{{a004}}</td>
+            <td>{{a005}}</td>
+            <td>{{a006}}</td>
+            <td>{{a007}}</td>
+        </tr>
+    </script>
+    <script type="text/template" id="mu_table_tr_template">
+        <tr>
+            <td class="td_checkbox"><input type="checkbox" /></td>
+            <td>{{a001}}</td>
+            <td>{{a002}}</td>
+            <td>{{a003}}</td>
+            <td>{{a004}}</td>
+            <td>{{a005}}</td>
+            <td>{{a006}}</td>
+        </tr>
+    </script>
 
     <script type="text/javascript" src="./public/jquery/jquery.js"></script>
     <script type="text/javascript" src="./public/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="./public/bs-switch/js/bootstrap-switch.js"></script>
+    <script type="text/javascript" src="./public/underscore/underscore.js"></script>
     <script type="text/javascript">
+        //这一句一定要注意，需要这一句
+        _.templateSettings = {
+            interpolate: /\{\{(.+?)\}\}/g
+        };
 
+        $("#mySwitch").bootstrapSwitch({
+            onSwitchChange:function(event, state){
+                //true:市场方//false:承运方
+                if(state){
+                    init_CA_UI() ;
+                }else{
+                    init_MU_UI() ;
+                }
+            }
+        });
+
+        //点击查询按钮
+        function queryDB(){
+            console.info('点击了查询按钮 。。。。') ;
+            var isCaFlag =  $('#mySwitch').prop('checked') ;
+            if(isCaFlag){
+                var listCA = [
+                    {"a001":"CA","a002":"SC","a003":"PEK","a004":"SHA","a005":"Y/B/H/K/L/M","a006":"未申报","a007":"自动"},
+                    {"a001":"CA","a002":"SC","a003":"PEK","a004":"SHA","a005":"Y/B/H/K/L/M","a006":"未申报","a007":"自动"},
+                    {"a001":"CA","a002":"SC","a003":"PEK","a004":"SHA","a005":"Y/B/H/K/L/M","a006":"未申报","a007":"自动"},
+                    {"a001":"CA","a002":"SC","a003":"PEK","a004":"SHA","a005":"Y/B/H/K/L/M","a006":"未申报","a007":"自动"},
+                    {"a001":"CA","a002":"SC","a003":"PEK","a004":"SHA","a005":"Y/B/H/K/L/M","a006":"未申报","a007":"自动"}
+                ] ;
+                show_CA_Table($("#CA_ListTable"),listCA) ;
+            }else{
+                var listMU = [
+                    {"a001":"CA","a002":"SC","a003":"PEK","a004":"SHA","a005":"Y/B/H/K/L/M","a006":"未申报"},
+                    {"a001":"CA","a002":"SC","a003":"PEK","a004":"SHA","a005":"Y/B/H/K/L/M","a006":"未申报"},
+                    {"a001":"CA","a002":"SC","a003":"PEK","a004":"SHA","a005":"Y/B/H/K/L/M","a006":"未申报"}
+                ] ;
+                show_MU_Table($("#MU_ListTable"),listMU) ;
+            }
+        }
+
+        function init_CA_UI(){
+            $('#CA_ListTable').removeClass('hidden') ;
+            $('#MU_ListTable').addClass('hidden') ;
+            //显示同步策略
+            $('#a0006_ca_div').removeClass('hidden') ;
+            //显示状态查询条件
+            $('#a0005_ca_div').removeClass('hidden') ;
+            $('#a0005_mu_div').addClass('hidden') ;
+        }
+        function init_MU_UI(){
+            $("#CA_ListTable").addClass('hidden') ;
+            $("#MU_ListTable").removeClass('hidden') ;
+            //隐藏同步策略
+            $('#a0006_ca_div').addClass("hidden") ;
+            //显示状态查询条件
+            $('#a0005_mu_div').removeClass('hidden') ;
+            $('#a0005_ca_div').addClass('hidden') ;
+        }
+        function show_CA_Table($myListTable,list){
+            //清空表格内容
+            cleanTableContent($myListTable) ;
+            var caTableTrTemplate = $('#ca_table_tr_template').html() ;
+            var template = _.template(caTableTrTemplate);
+            for(var i = 0 ; i < list.length ; i ++){
+                var trHtmlStr = template(list[i]);
+                $myListTable.find('tbody').append(trHtmlStr) ;
+            }
+        }
+
+        function show_MU_Table($myListTable,list){
+            //清空表格内容
+            cleanTableContent($myListTable,list) ;
+            var muTableTrTemplate = $('#mu_table_tr_template').html() ;
+            var template = _.template(muTableTrTemplate);
+            for(var i = 0 ; i < list.length ; i ++){
+                var trHtmlStr = template(list[i]);
+                $myListTable.find('tbody').append(trHtmlStr) ;
+            }
+        }
+
+        function cleanTableContent($myListTable){
+            $myListTable.find('tbody').empty() ;
+        }
     </script>
+
+
 </body>
 </html>

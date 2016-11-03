@@ -7,16 +7,40 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">CodeShare</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+            <ul class="nav navbar-nav">
+                <li ><a href="index.html">申请授权</a></li>
+                <li  class="active"><a href="rbdConfig.html">参数设置</a></li>
+                <li ><a href="synchronize.html">数据同步</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
     
      <div class="container">
 
         <!--******************操作区域start********************-->
         <div class="oper_section">
             <div class="col-sm-offset-2">
-                <button type="button" class="btn btn-sm btn-default">返回</button>
-                <button type="button" class="btn btn-sm btn-default">保存</button>
-                <button type="button" class="btn btn-sm btn-default">清空</button>
-                <button type="button" class="btn btn-sm btn-default">取消</button>
+                <button type="button" class="btn  btn-default" onclick="window.location.href='rbdConfig.html'">返回</button>
+                <button type="button" class="btn  btn-primary">保存</button>
+                <button type="button" class="btn  btn-default">清空</button>
             </div>
         </div>
         <!--******************操作区域end********************-->
@@ -25,53 +49,91 @@
             <form class="form-horizontal" role="form">
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">市场方</label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" id="inputEmail3" placeholder="市场方">
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="inputEmail3" value="CA" readonly="readonly" placeholder="市场方">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">承运方</label>
-                    <div class="col-sm-6">
+                    <label for="inputPassword3" class="col-sm-2 control-label">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-bitian"></use>
+                        </svg>
+                        承运方
+                    </label>
+                    <div class="col-sm-3">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="承运方">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">市场方舱位</label>
-                    <div class="col-sm-6">
+                    <label for="inputPassword3" class="col-sm-2 control-label">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-bitian"></use>
+                        </svg>
+                        市场方舱位
+                    </label>
+                    <div class="col-sm-3">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="市场方舱位">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">承运方舱位</label>
-                    <div class="col-sm-6">
+                    <label for="inputPassword3" class="col-sm-2 control-label">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-bitian"></use>
+                        </svg>
+                        承运方舱位
+                    </label>
+                    <div class="col-sm-3">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="承运方舱位">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">市场方运价基础</label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="市场方运价基础">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">市场方规则</label>
-                    <div class="col-sm-6">
+                    <label for="inputPassword3" class="col-sm-2 control-label">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-bitian"></use>
+                        </svg>
+                        市场方规则
+                    </label>
+                    <div class="col-sm-3">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="市场方规则">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">销售生效日期</label>
-                    <div class="col-sm-6">
+                    <label for="inputPassword3" class="col-sm-2 control-label">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-bitian"></use>
+                        </svg>
+                        承运方规则
+                    </label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="inputPassword3" placeholder="市场方规则">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-bitian"></use>
+                        </svg>
+                        销售生效日期
+                    </label>
+                    <div class="col-sm-3">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="销售生效日期">
                     </div>
                     <label  class="glyphicon glyphicon-calendar iconfont_box"></label>
+
                 </div>
 
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">销售截止日期</label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="销售截止日期">
                     </div>
                     <label  class="glyphicon glyphicon-calendar iconfont_box"></label>
@@ -79,7 +141,7 @@
 
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">旅行开始日期</label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="旅行开始日期">
                     </div>
                     <label  class="glyphicon glyphicon-calendar iconfont_box"></label>
@@ -87,7 +149,7 @@
 
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">旅行结束日期</label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="旅行结束日期">
                     </div>
                     <label  class="glyphicon glyphicon-calendar iconfont_box"></label>
@@ -101,5 +163,6 @@
 
     <script type="text/javascript" src="./public/jquery/jquery.js"></script>
    <script type="text/javascript" src="./public/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="iconfont.js"></script>
 </body>
 </html>

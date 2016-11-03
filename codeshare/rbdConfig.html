@@ -7,6 +7,29 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">CodeShare</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+            <ul class="nav navbar-nav">
+                <li ><a href="index.html">申请授权</a></li>
+                <li  class="active"><a href="rbdConfig.html">参数设置</a></li>
+                <li ><a href="synchronize.html">数据同步</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
 
     <div class="container">
         <!--******************查询条件start********************-->
@@ -15,34 +38,36 @@
                 <div class="query_row">
                     <div class="form-group">
                         <label class="control-label" for="exampleInputEmail2">市场方</label>
-                        <input type="text" class="form-control input-sm"  placeholder="市场方"/>
+                        <input type="text" class="form-control input-sm"  />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="exampleInputPassword2">承运方</label>
-                        <input type="text" class="form-control input-sm"  placeholder="承运方"/>
+                        <input type="text" class="form-control input-sm" />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="exampleInputPassword2">市场方舱位</label>
-                        <input type="text" class="form-control input-sm"  placeholder="始发地"/>
+                        <input type="text" class="form-control input-sm"  />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="exampleInputPassword2">承运方舱位</label>
-                        <input type="text" class="form-control input-sm"  placeholder="目的地"/>
+                        <input type="text" class="form-control input-sm"  />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="exampleInputPassword2">市场方规则</label>
-                        <input type="text" class="form-control input-sm"  placeholder="目的地"/>
+                        <input type="text" class="form-control input-sm"  />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="exampleInputPassword2">状态</label>
                         <select name="" id="" class="form-control input-sm">
                             <option value="">选择</option>
-                            <option value="1">1</option>
+                            <option value="1">未决</option>
+                            <option value="1">有效</option>
+                            <option value="1">过期</option>
                         </select>
                     </div>
                   
@@ -53,20 +78,20 @@
 
                 <div class="query_row">
                     <div class="form-group">
-                        <label class="control-label" for="exampleInputEmail2">销售日期</label>
-                        <input type="text" class="form-control input-sm" style="width:130px;"  placeholder="范围"/>
+                        <label class="control-label" for="exampleInputEmail2">销售生效日期</label>
+                        <input type="text" class="form-control input-sm" style="width:130px;" />
                         <label for="effectMinDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
                         &nbsp;—&nbsp;
-                        <input type="text" class="form-control input-sm" style="width:130px;"  placeholder="范围"/>
+                        <input type="text" class="form-control input-sm" style="width:130px;"  />
                         <label for="effectMinDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="exampleInputPassword2">旅行日期</label>
-                       <input type="text" class="form-control input-sm" style="width:130px;"  placeholder="范围"/>
+                        <label class="control-label" for="exampleInputPassword2">旅行开始日期</label>
+                       <input type="text" class="form-control input-sm" style="width:130px;"  />
                        <label for="effectMinDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
                       &nbsp;—&nbsp;
-                        <input type="text" class="form-control input-sm" style="width:130px;"  placeholder="范围"/>
+                        <input type="text" class="form-control input-sm" style="width:130px;"  />
                          <label for="effectMinDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
                     </div>
 
@@ -78,9 +103,9 @@
 
         <!--******************操作区域start********************-->
         <div class="oper_section">
+            <button type="button" class="btn btn-sm btn-success" onclick="window.location.href='newRbdConfig.html'">新建</button>
             <button type="button" class="btn btn-sm btn-default">编辑</button>
             <button type="button" class="btn btn-sm btn-default">删除</button>
-            <button type="button" class="btn btn-sm btn-success">新建</button>
         </div>
         <!--******************操作区域end********************-->
 
@@ -90,13 +115,14 @@
                 <thead>
                     <tr>
                         <th class="td_checkbox" width="5%"><input type="checkbox" />全选</th>
-                        <th width="7%">市场方</th>
-                        <th width="7%">承运方</th>
-                        <th width="8%">市场方舱位</th>
-                        <th width="8%">承运方舱位</th>
-                        <th width="10%">市场方运价基础</th>
-                        <th width="10%">承运方运价基础</th>
+                        <th width="6%">市场方</th>
+                        <th width="6%">承运方</th>
+                        <th width="7%">市场方舱位</th>
+                        <th width="7%">承运方舱位</th>
+                        <th width="9%">市场方运价基础</th>
+                        <th width="9%">承运方运价基础</th>
                         <th width="8%">市场方规则</th>
+                        <th width="8%">承运方方规则</th>
                         <th width="9%">销售生效日期</th>
                         <th width="9%">销售截止日期</th>
                         <th width="9%">旅行开始日期</th>
@@ -113,6 +139,7 @@
                         <td>F</td>
                         <td>F</td>
                         <td>CA01</td>
+                        <td>CA02</td>
                         <td>2016-01-01</td>
                         <td>9999-12-31</td>
                         <td>2016-01-01</td>

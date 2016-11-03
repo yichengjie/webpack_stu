@@ -11,7 +11,7 @@ class Records7Query{
 		var serverURL = this.contextPath+"/mileage/query4Page.action" ;
 		var simpleJsonData = {toPageNum,pageSize,orderName,isAsc} ;
 		//清空历史数据
-		vmList.splice(0,vmList.length);  
+		vmList.splice(0,vmList.length);
 		vmPageBar.curPage =0 ;
 		vmPageBar.pageCount = 0 ;
 		vmPageBar.pgArr.splice(0,vmPageBar.pgArr.length) ;
@@ -53,7 +53,7 @@ function random (min,max){
 
 //查询数据库的api
 function queryDbApi ({toPageNum,pageSize,orderName,isAsc}){
-    
+
     let records7List = [] ;
     //生成0-5的随机数
     let r = random(1,9) ;
@@ -115,7 +115,7 @@ function initVue(s7){
                 statusArr:[],/**发布状态 */
                 effStatusArr:[],/**生效状态 */
                 subcode:"",
-                startSequenceNumber:"", 
+                startSequenceNumber:"",
                 endSequenceNumber:"",
                 serviceTypeArr:[],/**服务等级(服务类型) */
                 effectMinDate:"",
@@ -178,7 +178,7 @@ function initVue(s7){
                     isAsc:this.tableTitleOrder[this.orderTitleName]
                 } ;
                 if(toPageNum&&toPageNum>0){
-                  config.toPageNum = toPageNum ; 
+                  config.toPageNum = toPageNum ;
                 }
                 //如果为空的话表示是默认排序
                 // if(this.orderTitleName==''){
@@ -242,7 +242,7 @@ function initVue(s7){
             },
             checkRecords7Item:function(e){
                 let flag = e.target.checked ;
-                let checkAll = $("#checkAllRecords7") ; 
+                let checkAll = $("#checkAllRecords7") ;
                 let len1 = $(":checkbox[name='records7_checkbox']:checked").length ;
                 let len2 =  $(":checkbox[name='records7_checkbox']").length ;
                 if(len1<len2){
@@ -289,4 +289,3 @@ function hiding(){
 $(function(){
     new Records7Query() ;
 }) ;
-

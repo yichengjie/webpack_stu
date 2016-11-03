@@ -8,6 +8,30 @@
 </head>
 <body>
 
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">CodeShare</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+            <ul class="nav navbar-nav">
+                <li ><a href="index.html">申请授权</a></li>
+                <li ><a href="rbdConfig.html">参数设置</a></li>
+                <li  class="active"><a href="synchronize.html">数据同步</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
      <div class="container">
         <!--******************查询条件start********************-->
         <div class="query_section">
@@ -15,38 +39,40 @@
                 <div class="query_row">
                     <div class="form-group">
                         <label class="control-label" for="exampleInputEmail2">市场方</label>
-                        <input type="text" class="form-control input-sm"  placeholder="市场方"/>
+                        <input type="text" class="form-control input-sm"  />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="exampleInputPassword2">承运方</label>
-                        <input type="text" class="form-control input-sm"  placeholder="承运方"/>
+                        <input type="text" class="form-control input-sm"  />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="exampleInputPassword2">始发地</label>
-                        <input type="text" class="form-control input-sm"  placeholder="始发地"/>
+                        <input type="text" class="form-control input-sm"  />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="exampleInputPassword2">目的地</label>
-                        <input type="text" class="form-control input-sm"  placeholder="目的地"/>
+                        <input type="text" class="form-control input-sm"  />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="exampleInputPassword2">执行情况</label>
                        <select name="" id="" class="form-control input-sm">
                             <option value="">选择</option>
-                            <option value="1">1</option>
+                            <option value="1">未同步</option>
+                            <option value="2">已同步</option>
+                            <option value="3">待决策</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="exampleInputPassword2">执行日期</label>
-                        <input type="text" class="form-control input-sm" style="width:130px;"  placeholder="范围"/>
+                        <input type="text" class="form-control input-sm" style="width:130px;"  />
                         <label for="effectMinDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
                         &nbsp;—&nbsp;
-                        <input type="text" class="form-control input-sm" style="width:130px;"  placeholder="范围"/>
+                        <input type="text" class="form-control input-sm" style="width:130px;" />
                         <label for="effectMinDate" class="glyphicon glyphicon-calendar iconfont_box"></label>
                     </div>
                   
@@ -61,7 +87,7 @@
 
         <!--******************操作区域start********************-->
         <div class="oper_section">
-            <button type="button" class="btn btn-sm btn-default">执行同步</button>
+            <button type="button" class="btn btn-sm btn-success">执行同步</button>
             <button type="button" class="btn btn-sm btn-default">取消同步</button>
         </div>
         <!--******************操作区域end********************-->

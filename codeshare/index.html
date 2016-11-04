@@ -117,12 +117,19 @@
         <!--******************查询条件end********************-->
 
         <!--******************操作区域start********************-->
-        <div class="oper_section">
+        <div class="oper_section" id ="oper_section_CA">
             <button type="button" class="btn btn-sm btn-default">申请</button>
             <button type="button" class="btn btn-sm btn-default">终止</button>
             <button type="button" class="btn btn-sm btn-default">编辑</button>
             <button type="button" class="btn btn-sm btn-default">删除</button>
             <button type="button" class="btn btn-sm btn-success" onclick="window.location.href='newAuthorize.html'">新建</button>
+        </div>
+        <div class="oper_section hidden" id ="oper_section_MU">
+            <button type="button" class="btn btn-sm btn-default">授权</button>
+            <button type="button" class="btn btn-sm btn-default">拒绝</button>
+            <button type="button" class="btn btn-sm btn-default">终止</button>
+            <button type="button" class="btn btn-sm btn-default">编辑</button>
+            <button type="button" class="btn btn-sm btn-default">删除</button>
         </div>
         <!--******************操作区域end********************-->
 
@@ -261,6 +268,9 @@
             //显示状态查询条件
             $('#a0005_ca_div').removeClass('hidden') ;
             $('#a0005_mu_div').addClass('hidden') ;
+            //显示操作按钮集
+            $('#oper_section_CA').removeClass('hidden') ;
+            $('#oper_section_MU').addClass('hidden') ;
         }
         function init_MU_UI(){
             $("#CA_ListTable").addClass('hidden') ;
@@ -270,6 +280,9 @@
             //显示状态查询条件
             $('#a0005_mu_div').removeClass('hidden') ;
             $('#a0005_ca_div').addClass('hidden') ;
+            //显示操作按钮集
+            $('#oper_section_MU').removeClass('hidden') ;
+            $('#oper_section_CA').addClass('hidden') ;
         }
         function show_CA_Table($myListTable,list){
             //清空表格内容

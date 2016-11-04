@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>authorizelist（授权列表页）</title>
     <link rel="stylesheet" href="./public/bootstrap/css/bootstrap.css"/>
-    <link rel="stylesheet" href="./public/bs-switch/css/bootstrap-switch.css"/>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -188,7 +187,7 @@
                     <li><a href="#">下一页</a></li>
                 </ul>
                 共10页&nbsp;&nbsp;
-                到第&nbsp;&nbsp;<input type="text" />&nbsp;&nbsp;页
+                到第&nbsp;&nbsp;<input type="text" class="common_input" style="width: 40px" />&nbsp;&nbsp;页
                 <button type="button" class="btn btn-default btn-sm pagebar_btn">确定</button>
             </nav>
 
@@ -199,7 +198,7 @@
 
     <script type="text/template" id="ca_table_tr_template">
         <tr>
-            <td class="td_checkbox"><input type="checkbox" /></td>
+            <td class="td_checkbox"><input type="checkbox" id ="{{}}" /></td>
             <td>{{a001}}</td>
             <td>{{a002}}</td>
             <td>{{a003}}</td>
@@ -223,7 +222,6 @@
 
     <script type="text/javascript" src="./public/jquery/jquery.js"></script>
     <script type="text/javascript" src="./public/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript" src="./public/bs-switch/js/bootstrap-switch.js"></script>
     <script type="text/javascript" src="./public/underscore/underscore.js"></script>
     <script type="text/javascript">
         //这一句一定要注意，需要这一句

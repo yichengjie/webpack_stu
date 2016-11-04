@@ -39,17 +39,12 @@
             <form class="form-inline" role="form">
 
                 <div class="query_row">
-                    <!--<div class="switch" data-on="primary" data-off="info">
+                    <div class="switch" data-on="primary" data-off="info">
                         <input type="checkbox" id = "mySwitch" checked
                                data-on-text="市场方" data-off-text="承运方"
                                data-on-color="primary" data-off-color="info"
                                data-label-text="角色"
                                data-handle-width="300"/>
-                    </div>-->
-                    <div class="btn-group">
-                        <button type="button" id ="roleChangeBtn_CA" class="btn btn-primary" style="width: 300px" onclick="changeRole('1')">市场方</button>
-                        <button type="button" id ="roleChangeBtn_MU" class="btn" style="width: 300px" onclick="changeRole('2')">承运方</button>
-                        <input type="checkbox" id ="mySwitchRoleCheckbox" class="hidden" checked="checked"/>
                     </div>
                 </div>
 
@@ -231,7 +226,7 @@
             interpolate: /\{\{(.+?)\}\}/g
         };
 
-       /* $("#mySwitch").bootstrapSwitch({
+        $("#mySwitch").bootstrapSwitch({
             onSwitchChange:function(event, state){
                 //true:市场方//false:承运方
                 if(state){
@@ -240,26 +235,12 @@
                     init_MU_UI() ;
                 }
             }
-        });*/
-        function changeRole(type){
-            if(type=='1'){
-                var activeFlag = $('#roleChangeBtn_CA').hasClass('btn-primary') ;
-                if(!activeFlag){
-                    init_CA_UI() ;
-                }
-            }else{
-                var activeFlag = $('#roleChangeBtn_MU').hasClass('btn-primary') ;
-                if(!activeFlag){
-                    init_MU_UI() ;
-                }
-            }
-        }
+        });
 
         //点击查询按钮
         function queryDB(){
             console.info('点击了查询按钮 。。。。') ;
-
-            var isCaFlag =  $('#mySwitchRoleCheckbox').prop('checked') ;
+            var isCaFlag =  $('#mySwitch').prop('checked') ;
             if(isCaFlag){
                 var listCA = [
                     {"a001":"CA","a002":"SC","a003":"PEK","a004":"SHA","a005":"Y/B/H/K/L/M","a006":"未申报","a007":"自动"},
@@ -280,10 +261,6 @@
         }
 
         function init_CA_UI(){
-            $('#mySwitchRoleCheckbox').prop('checked',true) ;
-            $('#roleChangeBtn_CA').addClass('btn-primary') ;
-            $('#roleChangeBtn_MU').removeClass('btn-primary') ;
-            //切换需要显示的table列表list
             $('#CA_ListTable').removeClass('hidden') ;
             $('#MU_ListTable').addClass('hidden') ;
             //显示同步策略
@@ -296,10 +273,6 @@
             $('#oper_section_MU').addClass('hidden') ;
         }
         function init_MU_UI(){
-            $('#mySwitchRoleCheckbox').prop('checked',false) ;
-            $('#roleChangeBtn_MU').addClass('btn-primary') ;
-            $('#roleChangeBtn_CA').removeClass('btn-primary') ;
-            //切换需要显示的table列表list
             $("#CA_ListTable").addClass('hidden') ;
             $("#MU_ListTable").removeClass('hidden') ;
             //隐藏同步策略

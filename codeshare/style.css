@@ -126,3 +126,7 @@ body{
 .oper_section .btn{
     margin-right: 5px;
 }
+.form-group .control-label{
+    margin-right: 15px;
+    padding-right: 10px;
+}

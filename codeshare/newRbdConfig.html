@@ -5,6 +5,7 @@
     <title>newRbdConfig(rbd编辑页)</title>
     <link rel="stylesheet" href="./public/bootstrap/css/bootstrap.css"/>
     <link rel="stylesheet" href="./public/iconfont/iconfont.css"/>
+    <link rel="stylesheet" href="./grids.css"/>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -37,8 +38,8 @@
      <div class="container">
 
         <!--******************操作区域start********************-->
-        <div class="oper_section">
-            <div class="col-sm-offset-2">
+        <div class="oper_section" style="margin-top: 10px">
+            <div class="col-sm-offset-1">
                 <button type="button" class="btn  btn-default" onclick="window.location.href='rbdConfig.html'">返回</button>
                 <button type="button" class="btn  btn-primary">保存</button>
                 <button type="button" class="btn  btn-default">清空</button>
@@ -49,17 +50,17 @@
             <hr>
             <form class="form-horizontal" role="form">
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">市场方</label>
-                    <div class="col-sm-3">
+                    <label for="inputEmail3" class="pure-u-1-8 control-label">市场方</label>
+                    <div class="pure-u-1-4">
                         <input type="text" class="form-control" id="inputEmail3" value="CA" readonly="readonly" placeholder="市场方">
                     </div>
                 </div>
                 <div class="form-group has-error">
-                    <label for="inputPassword3" class="col-sm-2 control-label">
+                    <label for="inputPassword3" class="pure-u-1-8 control-label">
                         <i class="icon iconfont icon-bitian red"></i>
                         承运方
                     </label>
-                    <div class="col-sm-3">
+                    <div class="pure-u-1-4">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="承运方">
                     </div>
                     <div class="err_tip">
@@ -67,56 +68,56 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">
+                    <label for="inputPassword3" class="pure-u-1-8 control-label">
                         <i class="icon iconfont icon-bitian red"></i>
                         市场方舱位
                     </label>
-                    <div class="col-sm-3">
+                    <div class="pure-u-1-4">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="市场方舱位">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">
+                    <label for="inputPassword3" class="pure-u-1-8 control-label">
                         <i class="icon iconfont icon-bitian red"></i>
                         承运方舱位
                     </label>
-                    <div class="col-sm-3">
+                    <div class="pure-u-1-4">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="承运方舱位">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">市场方运价基础</label>
-                    <div class="col-sm-3">
+                    <label for="inputPassword3" class="pure-u-1-8 control-label">市场方运价基础</label>
+                    <div class="pure-u-1-4">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="市场方运价基础">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">
+                    <label for="inputPassword3" class="pure-u-1-8 control-label">
                         <i class="icon iconfont icon-bitian red"></i>
                         市场方规则
                     </label>
-                    <div class="col-sm-3">
+                    <div class="pure-u-1-4">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="市场方规则">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">
+                    <label for="inputPassword3" class="pure-u-1-8 control-label">
                         <i class="icon iconfont icon-bitian red"></i>
                         承运方规则
                     </label>
-                    <div class="col-sm-3">
+                    <div class="pure-u-1-4">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="市场方规则">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">
+                    <label for="inputPassword3" class="pure-u-1-8 control-label">
                         <i class="icon iconfont icon-bitian red"></i>
                         销售生效日期
                     </label>
-                    <div class="col-sm-3">
+                    <div class="pure-u-1-4">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="销售生效日期">
                     </div>
                     <label  class="glyphicon glyphicon-calendar iconfont_box"></label>
@@ -124,24 +125,24 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">销售截止日期</label>
-                    <div class="col-sm-3">
+                    <label for="inputPassword3" class="pure-u-1-8 control-label">销售截止日期</label>
+                    <div class="pure-u-1-4">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="销售截止日期">
                     </div>
                     <label  class="glyphicon glyphicon-calendar iconfont_box"></label>
                 </div>
 
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">旅行开始日期</label>
-                    <div class="col-sm-3">
+                    <label for="inputPassword3" class="pure-u-1-8 control-label">旅行开始日期</label>
+                    <div class="pure-u-1-4">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="旅行开始日期">
                     </div>
                     <label  class="glyphicon glyphicon-calendar iconfont_box"></label>
                 </div>
 
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">旅行结束日期</label>
-                    <div class="col-sm-3">
+                    <label for="inputPassword3" class="pure-u-1-8 control-label">旅行结束日期</label>
+                    <div class="pure-u-1-4">
                         <input type="text" class="form-control" id="inputPassword3" placeholder="旅行结束日期">
                     </div>
                     <label  class="glyphicon glyphicon-calendar iconfont_box"></label>

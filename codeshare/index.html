@@ -5,6 +5,14 @@
     <title>authorizelist（授权列表页）</title>
     <link rel="stylesheet" href="./public/bootstrap/css/bootstrap.css"/>
     <link rel="stylesheet" href="./style.css">
+    <style>
+        .no_result_tip{
+            display: block;
+            font-size: 20px;
+            color: red;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
@@ -175,6 +183,7 @@
                 </tbody>
             </table>
 
+            <div id="no_result_tip" class="no_result_tip hidden">没有查询结果集</div>
 
             <nav class="pull-right page_custome">
                 <ul class="pagination">

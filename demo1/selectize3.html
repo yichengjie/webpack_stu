@@ -26,9 +26,17 @@
 <body>
     <div class="container" style="padding-top: 50px;">
 
+        <div id="mytestdiv">
+            <span>hello world <span class="test">test123</span></span>
+        </div>
+
+        <div contenteditable="true" style="width: 200px;height: 100px;">
+
+        </div>
+
         <div class="row">
             <div style="width: 100%;height: 50px;line-height: 50px;">
-                <span class="left">1.选择附加服务</span>
+                <span class="left">1.选择附加服务&gt; </span>
                 <span style="margin-right:25px;"></span>
                 <div style="width: 600px;height: 36px; display: inline-block;vertical-align: middle;">
                     <select id="select-links">
@@ -49,6 +57,11 @@
 <script type="text/javascript" src="../bower_components/selectize/dist/js/standalone/selectize.js"></script>
 <script type="text/javascript">
     $(function(){
+
+        var t = $("#mytestdiv").text() ;
+
+        console.info("["+ t.trim() +"]") ;
+
         var handleChangeSelect = function(val) {
             console.info(arguments) ;
             console.log("val : " + val);

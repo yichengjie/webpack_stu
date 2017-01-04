@@ -94,6 +94,11 @@ body{
     padding-top: 7px;
     margin-left: -35px ;
 }
+.form-horizontal .iconfont_box:after{
+    content: '';
+    display: inline-block;
+    margin-left: 20px;
+}
 .query_row .input-sm{
     height: 25px;
     padding:2px 2px;
